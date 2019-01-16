@@ -2,12 +2,14 @@ package com.questionbank.webservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
+@EnableJpaAuditing // JPA Auditing È°¼ºÈ­
 @SpringBootApplication
-public class QuestionbankApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(QuestionbankApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }
