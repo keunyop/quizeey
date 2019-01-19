@@ -8,9 +8,9 @@ import lombok.AllArgsConstructor;
 @Controller
 @AllArgsConstructor
 public class WebController {
-
-    @GetMapping("/")
-    public String main() {
-        return "main";
-    }
+	
+   @GetMapping("/")
+   public String main() {
+       return "main";
+  }
 }

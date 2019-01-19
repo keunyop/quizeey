@@ -21,19 +21,15 @@ public class PostsRepositoryTest {
 
     @After
     public void cleanup() {
-        /** 
-		        이후 테스트 코드에 영향을 끼치지 않기 위해 
-		        테스트 메소드가 끝날때 마다 respository 전체 비우는 코드
-        **/
         postsRepository.deleteAll();
     }
 
     @Test
-    public void 게시글저장_불러오기() {
+    public void postSave_inquiry() {
         //given
         postsRepository.save(Posts.builder()
-                .title("테스트 게시글")
-                .content("테스트 본문")
+                .title("Test Title")
+                .content("Test Contents")
                 .author("jojoldu@gmail.com")
                 .build());
 
@@ -42,17 +38,17 @@ public class PostsRepositoryTest {
 
         //then
         Posts posts = postsList.get(0);
-        assertEquals(posts.getTitle(), "테스트 게시글");
-        assertEquals(posts.getContent(), "테스트 본문");
+        assertEquals(posts.getTitle(), "Test Title");
+        assertEquals(posts.getContent(), "Test Contents");
     }
     
     @Test
-    public void BaseTimeEntity_등록 () {
+    public void BaseTimeEntity_regist () {
         //given
         LocalDateTime now = LocalDateTime.now();
         postsRepository.save(Posts.builder()
-                .title("테스트 게시글")
-                .content("테스트 본문")
+                .title("Test Title")
+                .content("Test Contents")
                 .author("jojoldu@gmail.com")
                 .build());
         //when
