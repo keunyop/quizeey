@@ -1,5 +1,7 @@
 package com.questionbank.webservice.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.questionbank.webservice.domain.question.Question;
@@ -12,7 +14,7 @@ import lombok.AllArgsConstructor;
 public class QuestionService {
     private QuestionRepository questionRepository;
 
-    public Question getRandomQuestion() {
-        return questionRepository.getRandomQuestionFromFile();
+    public List<Question> getQuestions(String questionId) {
+        return questionRepository.getQuestionsFromFile(questionId);
     }
 }

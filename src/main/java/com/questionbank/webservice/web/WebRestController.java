@@ -1,6 +1,7 @@
 package com.questionbank.webservice.web;
 
-import org.springframework.ui.Model;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.questionbank.webservice.domain.question.Question;
 import com.questionbank.webservice.dto.posts.PostsSaveRequestDto;
+import com.questionbank.webservice.dto.question.QuestionRequestDto;
 import com.questionbank.webservice.service.PostsService;
 import com.questionbank.webservice.service.QuestionService;
 
@@ -31,8 +33,8 @@ public class WebRestController {
         return postsService.save(dto);
     }
 
-    @GetMapping("/question")
-    public Question getQuestion(Model model) {
-        return questionService.getRandomQuestion();
+    @GetMapping("/questions")
+    public List<Question> getQuestions(QuestionRequestDto dto) {
+        return questionService.getQuestions(dto.getQuestionId());
     }
 }
