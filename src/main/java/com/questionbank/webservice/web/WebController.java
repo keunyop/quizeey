@@ -11,12 +11,13 @@ import lombok.AllArgsConstructor;
 @Controller
 @AllArgsConstructor
 public class WebController {
-	
-	private PostsService postsService;
-	
-   @GetMapping("/")
-   public String main(Model model) {
-	   model.addAttribute("posts", postsService.findAllDesc());
-       return "main";
-  }
+
+    private PostsService postsService;
+
+    @GetMapping("/")
+    public String main(Model model) {
+        model.addAttribute("posts", postsService.findAllDesc());
+        return "main";
+    }
+
 }
