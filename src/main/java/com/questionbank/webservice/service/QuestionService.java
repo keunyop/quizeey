@@ -14,6 +14,9 @@ import lombok.AllArgsConstructor;
 public class QuestionService {
     private QuestionRepository questionRepository;
 
+    /**
+     *  문제목록 조회
+     */
     public List<Question> getQuestions(String questionId) {
         return questionRepository.getQuestionsFromFile(questionId);
     }
