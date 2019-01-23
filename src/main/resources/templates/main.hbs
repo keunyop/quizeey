@@ -7,19 +7,50 @@
 
 	<!--부트스트랩 css 추가-->
     <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/lib/sticky-footer-navbar.css" rel="stylesheet">
 </head>
 <body>
-	<!-- Fixed navbar -->
-    <div id="nav-placeholder">
-    </div>
+    <header>
+        <!-- Fixed navbar -->
+        <div id="nav-placeholder"></di1v>
+    </header>
 
-       
+
+    <!-- Begin page content -->
+    <main role="main" class="container">
+      <h1 class="mt-5">Sticky footer with fixed navbar</h1>
+      <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code>padding-top: 60px;</code> on the <code>body &gt; .container</code>.</p>
+      <p>Back to <a href="../sticky-footer">the default sticky footer</a> minus the navbar.</p>
+
+      <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+            <label class="custom-control-label" for="customRadio1">AWS-certified-Solutions Architect - Associate</label>
+        </div>
+        <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+            <label class="custom-control-label" for="customRadio2">AWS-certified-Developer - Associate</label>
+        </div>
+
+        <br><br>
+        <button type="button" class="btn btn-lg btn-primary btn-block">
+            TAKE THE QUIZ
+        </button>    
+    </main>
+   
+    <br>
+    <footer class="footer">
+        <!-- Sticky footer -->
+        <div id="footer-placeholder"></di1v>
+    </footer>
+
 
     <!--부트스트랩 js, jquery 추가-->
     <script src="/js/lib/jquery.min.js"></script>
     <script src="/js/lib/bootstrap.min.js"></script>
     
     <!--custom js 추가-->
-    <script src="/js/app/nav.js"></script>
+    <script src="/js/app/nav-and-footer.js"></script>
 </body>
 </html>
