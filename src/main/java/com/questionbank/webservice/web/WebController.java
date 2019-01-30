@@ -5,11 +5,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.questionbank.webservice.domain.question.Question;
+import com.questionbank.webservice.service.QuestionService;
+
 import lombok.AllArgsConstructor;
 
 @Controller
 @AllArgsConstructor
 public class WebController {
+
+    private QuestionService questionService;
 
     //    private PostsService postsService;
     //
@@ -28,7 +33,10 @@ public class WebController {
     public String getQuiz(Model model, @RequestParam("id")
     String id) {
 
+        Question question = questionService.getRandomQuestion(id);
+
         model.addAttribute("quizName", id);
+        model.addAttribute("question", question.getQuestionText());
 
         return "quiz";
     }

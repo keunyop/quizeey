@@ -17,7 +17,9 @@ public class QuestionService {
     /**
      *  문제목록 조회
      */
-    public List<Question> getQuestions(String questionId) {
-        return questionRepository.getQuestionsFromFile(questionId);
+    public Question getRandomQuestion(String questionId) {
+        List<Question> questions = questionRepository.getQuestionsFromFile(questionId);
+
+        return questions.get(0);
     }
 }
