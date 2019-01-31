@@ -37,6 +37,7 @@ public class WebController {
 
         model.addAttribute("quizName", id);
         model.addAttribute("question", question.getQuestionText());
+        model.addAttribute("examples", question.getExamples());
 
         return "quiz";
     }
