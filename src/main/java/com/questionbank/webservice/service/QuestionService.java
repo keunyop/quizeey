@@ -1,6 +1,7 @@
 package com.questionbank.webservice.service;
 
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,15 @@ public class QuestionService {
     public Question getRandomQuestion(String questionId) {
         List<Question> questions = questionRepository.getQuestionsFromFile(questionId);
 
-        return questions.get(0);
+        return questions.get(_getRandomNumber(questions.size()));
+    }
+
+    /**
+     * Generate Random Number
+     * @return
+     */
+    private int _getRandomNumber(int n) {
+        Random random = new Random();
+        return random.nextInt(n);
     }
 }

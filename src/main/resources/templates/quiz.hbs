@@ -21,19 +21,14 @@
     <!-- Begin page content -->
     <main role="main" class="container">
         <h1 class="mt-5" id="quizId">{{quizName}}</h1>
-
+        <br>
+        
         <!-- 문제 -->
         <p class="lead" id="questionText"></p>
 	    
         <br>
+        <div id="examples-radio"></div>
 
-        {{#each examples}}
-            <div class="custom-control custom-radio">
-                <input type="radio" id="quizRadio1" name="quizRadio" class="custom-control-input">
-                <label class="custom-control-label" for="quizRadio1">A. AWS-certified-Solutions Architect - Associate</label>
-            </div>
-        {{/each}}    
-        
         <br><br>
         <button type="button" class="btn btn-lg btn-primary btn-block" id="btn-question-submit">
             SUBMIT
