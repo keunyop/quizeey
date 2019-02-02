@@ -5,7 +5,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.questionbank.webservice.domain.question.Question;
 import com.questionbank.webservice.service.QuestionService;
 
 import lombok.AllArgsConstructor;
@@ -29,15 +28,15 @@ public class WebController {
         return "main";
     }
 
-    @GetMapping("/quiz")
+    @GetMapping("/quiz.html")
     public String getQuiz(Model model, @RequestParam("id")
     String id) {
 
-        Question question = questionService.getRandomQuestion(id);
-
+        //        Question question = questionService.getRandomQuestion(id);
+        //
         model.addAttribute("quizName", id);
-        model.addAttribute("question", question.getQuestionText());
-        model.addAttribute("examples", question.getExamples());
+        //        model.addAttribute("question", question.getQuestionText());
+        //        model.addAttribute("examples", question.getExamples());
 
         return "quiz";
     }
