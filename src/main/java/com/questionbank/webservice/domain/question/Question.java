@@ -1,27 +1,50 @@
 package com.questionbank.webservice.domain.question;
 
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+import com.questionbank.webservice.domain.BaseTimeEntity;
+
+import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-public class Question {
-    private int           number;
-    private String        questionText;
-    private List<Example> examples;
-    private String        explanation;
-    private String        reference;
+@Entity
+public class Question extends BaseTimeEntity {
+    @Id
+    @GeneratedValue
+    private Long   questId;
+
+    @Column(nullable = false)
+    private String testDscd;
+
+    @Column(nullable = false)
+    private Long   quizId;
+
+    @Column(nullable = false)
+    private int    questNbr;
+
+    @Column(length = 500, nullable = false)
+    private String questText;
+
+    @Column(length = 1000)
+    private String explanation;
+
+    private String reference;
 
     @Builder
-    public Question(int number, String questionText, List<Example> examples, String explanation, String reference) {
-        this.number = number;
-        this.questionText = questionText;
-        this.examples = examples;
+    public Question(String testDscd, Long quizId, int questNbr, String questText, String explanation,
+                    String reference) {
+        this.testDscd = testDscd;
+        this.quizId = quizId;
+        this.questNbr = questNbr;
+        this.questText = questText;
         this.explanation = explanation;
         this.reference = reference;
     }
-
 }

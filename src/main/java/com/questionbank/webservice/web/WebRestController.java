@@ -34,6 +34,6 @@ public class WebRestController {
     @GetMapping("/quiz")
     public Question getQuiz(@RequestParam("id")
     String id) {
-        return questionService.getRandomQuestion(id);
+        return questionService.getQuestion();
     }
 }

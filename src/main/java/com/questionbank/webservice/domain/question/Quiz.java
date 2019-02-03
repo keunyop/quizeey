@@ -15,28 +15,20 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity
-public class Example extends BaseTimeEntity {
+public class Quiz extends BaseTimeEntity {
     @Id
     @GeneratedValue
-    private Long    exmpId;
+    private Long   quizId;
 
     @Column(nullable = false)
-    private Long    questId;
+    private String testDscd;
 
     @Column(nullable = false)
-    private int     exmpNbr;
-
-    @Column(nullable = false)
-    private String  exampleText;
-
-    @Column(nullable = false)
-    private boolean answer;
+    private String quizName;
 
     @Builder
-    public Example(Long questId, int exmpNbr, String exampleText, boolean answer) {
-        this.questId = questId;
-        this.exmpNbr = exmpNbr;
-        this.exampleText = exampleText;
-        this.answer = answer;
+    public Quiz(String testDscd, String quizName) {
+        this.testDscd = testDscd;
+        this.quizName = quizName;
     }
 }
