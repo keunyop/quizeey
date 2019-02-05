@@ -3,11 +3,11 @@ package com.questionbank.webservice.web;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.questionbank.webservice.domain.question.Question;
 import com.questionbank.webservice.dto.posts.PostsSaveRequestDto;
+import com.questionbank.webservice.dto.question.QuestionRequestDto;
 import com.questionbank.webservice.service.PostsService;
 import com.questionbank.webservice.service.QuestionService;
 
@@ -31,9 +31,9 @@ public class WebRestController {
         return postsService.save(dto);
     }
 
-    @GetMapping("/quiz")
-    public Question getQuiz(@RequestParam("id")
-    String id) {
-        return questionService.getQuestion();
+    @PostMapping("/quiz")
+    public Question getQuiz(@RequestBody
+    QuestionRequestDto dto) {
+        return questionService.getQuestion(dto);
     }
 }

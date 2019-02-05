@@ -5,6 +5,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.questionbank.webservice.domain.question.Question;
 import com.questionbank.webservice.domain.question.QuestionRepository;
+import com.questionbank.webservice.dto.question.QuestionRequestDto;
 
 import lombok.AllArgsConstructor;
 
@@ -32,7 +33,7 @@ public class QuestionService {
     //    }
 
     @Transactional(readOnly = true)
-    public Question getQuestion() {
+    public Question getQuestion(QuestionRequestDto dto) {
         return null;
     }
 }
