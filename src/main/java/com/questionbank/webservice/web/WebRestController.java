@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.questionbank.webservice.domain.question.Question;
 import com.questionbank.webservice.dto.posts.PostsSaveRequestDto;
 import com.questionbank.webservice.dto.question.QuestionRequestDto;
+import com.questionbank.webservice.dto.question.QuestionSaveRequestDto;
 import com.questionbank.webservice.service.PostsService;
 import com.questionbank.webservice.service.QuestionService;
 
@@ -31,9 +32,16 @@ public class WebRestController {
         return postsService.save(dto);
     }
 
-    @PostMapping("/quiz")
-    public Question getQuiz(@RequestBody
+    @PostMapping("/question")
+    public Question getQuestion(@RequestBody
     QuestionRequestDto dto) {
         return questionService.getQuestion(dto);
     }
+
+    @PostMapping("/addQuestion")
+    public Long addQustion(@RequestBody
+    QuestionSaveRequestDto dto) {
+        return questionService.addQuestion(dto);
+    }
+
 }
