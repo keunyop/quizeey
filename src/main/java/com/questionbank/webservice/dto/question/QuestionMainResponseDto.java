@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import com.questionbank.webservice.domain.question.Example;
 import com.questionbank.webservice.domain.question.Question;
@@ -22,7 +24,7 @@ public class QuestionMainResponseDto {
     private List<ExampleMainResponseDto> examples;
     private String                       modifiedDate;
 
-    public QuestionMainResponseDto(Question quest, List<Example> exmps) {
+    public QuestionMainResponseDto(Question quest, Stream<Example> exmps) {
         this.questId = quest.getQuestId();
         this.testDscd = quest.getTestDscd();
         this.quizId = quest.getQuizId();
@@ -30,7 +32,7 @@ public class QuestionMainResponseDto {
         this.questText = quest.getQuestText();
         this.explanation = quest.getExplanation();
         this.reference = quest.getReference();
-        //        this.examples = exmps;
+        this.examples = exmps.map(ExampleMainResponseDto::new).collect(Collectors.toList());
         this.modifiedDate = _toStringDateTime(quest.getModifiedDate());
     }
 
@@ -40,5 +42,12 @@ public class QuestionMainResponseDto {
     private String _toStringDateTime(LocalDateTime localDateTime) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         return Optional.ofNullable(localDateTime).map(formatter::format).orElse("");
+    }
+
+    @Override
+    public String toString() {
+        return "QuestionMainResponseDto [questId=" + questId + ", testDscd=" + testDscd + ", quizId=" + quizId
+                + ", questNbr=" + questNbr + ", questText=" + questText + ", explanation=" + explanation
+                + ", reference=" + reference + ", examples=" + examples + ", modifiedDate=" + modifiedDate + "]";
     }
 }

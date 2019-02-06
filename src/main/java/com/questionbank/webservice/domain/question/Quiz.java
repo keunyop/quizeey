@@ -16,10 +16,13 @@ import lombok.NoArgsConstructor;
 @Getter
 @Entity
 public class Quiz extends BaseTimeEntity {
+    // 1.AWS-Certified-Developer-Associate V13.95
     @Id
     @GeneratedValue
     private Long   quizId;
 
+    // 01.AWS Certified Developer – Associate
+    // 02.AWS Certified Solutions Architect – Associate
     @Column(nullable = false)
     private String testDscd;
 
