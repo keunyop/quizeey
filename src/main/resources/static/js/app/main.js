@@ -18,7 +18,7 @@ var main = {
     openQuiz : function () {
         var quizId = $("input[name='quizRadio']:checked").val();
         
-        location.href = "/quiz.html?id=" + quizId;
+        location.href = "/test.html?testId=" + quizId;
     }
 };
 
