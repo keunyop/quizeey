@@ -29,7 +29,9 @@ public class WebController {
     @GetMapping("/test.html")
     public String getTest(Model model, @RequestParam("testId")
     String testId) {
+        model.addAttribute("testId", testId);
         model.addAttribute("testName", TestEnum.getByCode(testId).getName());
+
         return "test";
     }
 }

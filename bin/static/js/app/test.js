@@ -1,23 +1,26 @@
-var quiz = {
+var test = {
     init : function () {
         var _this = this;
 
         _this.nextQuestion();
     },
     nextQuestion : function () {
-        var quizId = $('#quizId').text();
+        var data = {
+            testDscd: $('#testId').text()
+        };
 
         $.ajax({
-            type: 'GET',
-            url: '/quiz?id=' + quizId,
+            type: 'POST',
+            url: '/question',
             dataType: 'json',
             contentType:'application/json; charset=utf-8',
-        }).done(function(data) {
+            data: JSON.stringify(data)
+        }).done(function(responseData) {
             // 문제
-            $('#questionText').text(data.questionText);
+            $('#questionText').text(responseData.questText);
 
             // 보기
-            data.examples.forEach(function (item, index) {
+            responseData.examples.forEach(function (item, index) {
                 var exampleNumber = index + 1;
 
                 var div = document.createElement("div");
@@ -26,14 +29,14 @@ var quiz = {
       
                 var input = document.createElement("input");
                 input.type = "radio";
-                input.id = "quizRadio" + exampleNumber;
-                input.name = "quizRadio";
+                input.id = "testRadio" + exampleNumber;
+                input.name = "testRadio";
                 input.className = "custom-control-input";
                 
                 var label = document.createElement("label");
                 label.className = "custom-control-label";
                 label.innerHTML = exampleNumber + ". " + item.exampleText;
-                label.setAttribute("for", "quizRadio" + exampleNumber);
+                label.setAttribute("for", "testRadio" + exampleNumber);
     
                 div.appendChild(input);
                 div.appendChild(label);
@@ -48,4 +51,4 @@ var quiz = {
     }
 };
 
-quiz.init();
+test.init();

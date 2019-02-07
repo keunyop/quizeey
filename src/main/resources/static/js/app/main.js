@@ -8,7 +8,7 @@ var main = {
         });
 
         // Radio button change event
-        $('input:radio[name="quizRadio"]').on('change', function() {
+        $('input:radio[name="testRadio"]').on('change', function() {
             if (_btn_take_the_quiz.prop("disabled")) {
                 _btn_take_the_quiz.removeClass('btn-secondary').addClass('btn-primary');
                 _btn_take_the_quiz.prop("disabled", false);          
@@ -16,9 +16,8 @@ var main = {
         });
     },
     openQuiz : function () {
-        var quizId = $("input[name='quizRadio']:checked").val();
-        
-        location.href = "/test.html?testId=" + quizId;
+        var testId = $("input[name='testRadio']:checked").val();
+        location.href = "/test.html?testId=" + testId;
     }
 };
 
