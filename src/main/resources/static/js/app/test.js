@@ -1,3 +1,5 @@
+var quest_cnt = 0;
+
 var test = {
     init : function () {
         var _this = this;
@@ -16,8 +18,10 @@ var test = {
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data)
         }).done(function(responseData) {
+            quest_cnt++;
+
             // 문제
-            $('#questionText').text(responseData.questText);
+            $('#questionText').text(quest_cnt + ". " + responseData.questText);
 
             // 보기
             responseData.examples.forEach(function (item, index) {
