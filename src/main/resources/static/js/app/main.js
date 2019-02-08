@@ -1,3 +1,5 @@
+var main_div =  $("#main-div");
+
 var main = {
     init : function () {
         var _this = this;
@@ -17,7 +19,17 @@ var main = {
     },
     openQuiz : function () {
         var testId = $("input[name='testRadio']:checked").val();
-        location.href = "/test.html?testId=" + testId;
+        // location.href = "/test.html?testId=" + testId;
+
+        $.ajax({
+            type: 'GET',
+            url: '/test.html?testId=' + testId,
+            dataType: 'html',
+            contentType:'text/html; charset=utf-8'
+        }).done(function(responseData) {
+            main_div.html(responseData);
+            test.nextQuestion();
+        });
     }
 };
 
