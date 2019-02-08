@@ -26,7 +26,7 @@ public class WebController {
         return "main";
     }
 
-    @GetMapping("/test.html")
+    @GetMapping("/test")
     public String getTest(Model model, @RequestParam("testId")
     String testId) {
         model.addAttribute("testId", testId);

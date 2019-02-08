@@ -6,7 +6,8 @@ var main = {
         var _btn_take_the_quiz = $('#btn-take-the-quiz');
 
         _btn_take_the_quiz.on('click', function () {
-            _this.openQuiz();
+            var testId = $("input[name='testRadio']:checked").val();
+            _this.openQuiz(testId);
         });
 
         // Radio button change event
@@ -17,13 +18,10 @@ var main = {
             }           
         });
     },
-    openQuiz : function () {
-        var testId = $("input[name='testRadio']:checked").val();
-        // location.href = "/test.html?testId=" + testId;
-
+    openQuiz : function (testId) {
         $.ajax({
             type: 'GET',
-            url: '/test.html?testId=' + testId,
+            url: '/test?testId=' + testId,
             dataType: 'html',
             contentType:'text/html; charset=utf-8'
         }).done(function(responseData) {

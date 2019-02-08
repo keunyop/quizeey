@@ -4,7 +4,18 @@ var test;
     var quest_cnt = 0;
 
     test = {
+        init : function() {
+            var _this = this;
+            var _btn_question_skip = $('#btn-question-skip');
+
+            $('#btn-question-submit').on('click', function () {
+                _this.nextQuestion();
+            });          
+        },
+
         nextQuestion : function () {
+            var _btn_question_submit = $('#btn-question-submit');
+
             var data = {
                 testDscd: $('#testId').text()
             };
@@ -21,7 +32,16 @@ var test;
                 // 문제
                 $('#questionText').text(quest_cnt + ". " + responseData.questText);
     
-                // 보기
+                // 보기 Clear
+                if ($('#examples-radio').has("div").length) {
+                    $('#examples-radio').empty()
+
+                    // SUBMIT button reset
+                    _btn_question_submit.removeClass('btn-primary').addClass('btn-secondary');
+                    _btn_question_submit.prop("disabled", true);
+                }
+
+                // 보기 
                 responseData.examples.forEach(function (item, index) {
                     var exampleNumber = index + 1;
     
@@ -31,21 +51,28 @@ var test;
           
                     var input = document.createElement("input");
                     input.type = "radio";
-                    input.id = "testRadio" + exampleNumber;
-                    input.name = "testRadio";
+                    input.id = "exampleRadio" + exampleNumber;
+                    input.name = "exampleRadio";
                     input.className = "custom-control-input";
                     
                     var label = document.createElement("label");
                     label.className = "custom-control-label";
                     label.innerHTML = exampleNumber + ". " + item.exampleText;
-                    label.setAttribute("for", "testRadio" + exampleNumber);
+                    label.setAttribute("for", "exampleRadio" + exampleNumber);
         
                     div.appendChild(input);
                     div.appendChild(label);
         
                     $('#examples-radio').append(div)
                 });
-                           
+
+                // Radio button change event
+                $('input:radio[name="exampleRadio"]').on('change', function() {
+                    if (_btn_question_submit.prop("disabled")) {
+                        _btn_question_submit.removeClass('btn-secondary').addClass('btn-primary');
+                        _btn_question_submit.prop("disabled", false);          
+                    }           
+                });
     
             }).fail(function (error) {
                 alert(error);
@@ -53,3 +80,5 @@ var test;
         }
     };
 })();
+
+test.init();
