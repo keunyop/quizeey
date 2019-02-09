@@ -6,19 +6,42 @@ var test;
     test = {
         init : function() {
             var _this = this;
-            var _btn_question_skip = $('#btn-question-skip');
 
             // Submit button click
             $('#btn-question-submit').on('click', function () {
-                _this.nextQuestion();
+                if (_this.isCorrect()) {
+                    _this.nextQuestion();
+                } else {
+                    $('#wrongModal').modal('show'); 
+                }   
             });
 
             // Skip button click
             $('#btn-question-skip').on('click', function () {
                 _this.nextQuestion();
             });
+
+            // Modal next button click
+            $('#btn-next-question').on('click', function () {
+                _this.nextQuestion();
+            });
         },
 
+        // 정답 여부
+        isCorrect : function() {
+            var ele = document.getElementsByName("exampleRadio");  
+            for(var i=0; i<ele.length; i++) {
+                if (ele[i].checked == true) {
+                    if ($('#quest-answer').text() === ele[i].id) {
+                        return true;
+                    }   
+                    break;
+                }
+            }
+            return false;
+        },
+
+        // 문제 조회
         nextQuestion : function () {
             var _btn_question_submit = $('#btn-question-submit');
 
@@ -37,6 +60,10 @@ var test;
     
                 // 문제
                 $('#questionText').text(quest_cnt + ". " + responseData.questText);
+                // 설명
+                $('#explanation').text(responseData.explanation);
+                // 참조
+                $('#reference').text(responseData.reference);
     
                 // 보기 Clear
                 if ($('#examples-radio').has("div").length) {
@@ -49,28 +76,31 @@ var test;
 
                 // 보기 
                 responseData.examples.forEach(function (item, index) {
-                    // var exampleNumber = index + 1;
                     var exampleAlphabet = String.fromCharCode(65 + index);
-    
+
                     var div = document.createElement("div");
                     div.className = "custom-control custom-radio";
                     div.style.paddingTop = "10px";
           
                     var input = document.createElement("input");
                     input.type = "radio";
-                    input.id = "exampleRadio" + exampleAlphabet;
+                    input.id = exampleAlphabet;
                     input.name = "exampleRadio";
                     input.className = "custom-control-input";
                     
                     var label = document.createElement("label");
                     label.className = "custom-control-label";
                     label.innerHTML = exampleAlphabet + ". " + item.exampleText;
-                    label.setAttribute("for", "exampleRadio" + exampleAlphabet);
+                    label.setAttribute("for", exampleAlphabet);
         
                     div.appendChild(input);
                     div.appendChild(label);
         
                     $('#examples-radio').append(div)
+
+                    if (item.answer) {
+                        $('#quest-answer').text(exampleAlphabet);
+                    }
                 });
 
                 // Radio button change event

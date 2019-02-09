@@ -16,7 +16,6 @@
         <!-- Fixed navbar -->
         <div id="nav-placeholder"></di1v>
     </header>
-
     
     <!-- Begin page content -->
     <main role="main" class="container">
@@ -42,7 +41,29 @@
             </button>    
         </div>
     </main>
-    
+
+    <!-- 오답 팝업 -->
+    <div class="modal fade" id="wrongModal" tabindex="-1" role="dialog" aria-labelledby="answerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="answerModalLabel">Incorrect</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h6>Answer:</h6><p id="quest-answer"></p> 
+                    <h6>Explanation:</h6><p id="explanation"></p>
+                    <h6>Reference:</h6><p id="reference"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="btn-next-question">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
    
     <br>
     <footer class="footer">
