@@ -8,9 +8,15 @@ var test;
             var _this = this;
             var _btn_question_skip = $('#btn-question-skip');
 
+            // Submit button click
             $('#btn-question-submit').on('click', function () {
                 _this.nextQuestion();
-            });          
+            });
+
+            // Skip button click
+            $('#btn-question-skip').on('click', function () {
+                _this.nextQuestion();
+            });
         },
 
         nextQuestion : function () {
@@ -43,7 +49,8 @@ var test;
 
                 // 보기 
                 responseData.examples.forEach(function (item, index) {
-                    var exampleNumber = index + 1;
+                    // var exampleNumber = index + 1;
+                    var exampleAlphabet = String.fromCharCode(65 + index);
     
                     var div = document.createElement("div");
                     div.className = "custom-control custom-radio";
@@ -51,14 +58,14 @@ var test;
           
                     var input = document.createElement("input");
                     input.type = "radio";
-                    input.id = "exampleRadio" + exampleNumber;
+                    input.id = "exampleRadio" + exampleAlphabet;
                     input.name = "exampleRadio";
                     input.className = "custom-control-input";
                     
                     var label = document.createElement("label");
                     label.className = "custom-control-label";
-                    label.innerHTML = exampleNumber + ". " + item.exampleText;
-                    label.setAttribute("for", "exampleRadio" + exampleNumber);
+                    label.innerHTML = exampleAlphabet + ". " + item.exampleText;
+                    label.setAttribute("for", "exampleRadio" + exampleAlphabet);
         
                     div.appendChild(input);
                     div.appendChild(label);
