@@ -32,7 +32,7 @@ var test;
             var ele = document.getElementsByName("exampleRadio");  
             for(var i=0; i<ele.length; i++) {
                 if (ele[i].checked == true) {
-                    if ($('#quest-answer').text() === ele[i].id) {
+                    if ($('#hidden-answer').text() === ele[i].id) {
                         return true;
                     }   
                     break;
@@ -99,7 +99,8 @@ var test;
                     $('#examples-radio').append(div)
 
                     if (item.answer) {
-                        $('#quest-answer').text(exampleAlphabet);
+                        $('#hidden-answer').text(exampleAlphabet);
+                        $('#quest-answer').text(exampleAlphabet + ". " + item.exampleText);
                     }
                 });
 
