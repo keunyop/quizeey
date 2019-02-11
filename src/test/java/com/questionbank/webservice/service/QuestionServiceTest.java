@@ -2,12 +2,15 @@ package com.questionbank.webservice.service;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.questionbank.webservice.domain.question.Question;
+import com.questionbank.webservice.domain.question.QuestionRepository;
 import com.questionbank.webservice.dto.question.QuestionMainResponseDto;
 import com.questionbank.webservice.dto.question.QuestionRequestDto;
 
@@ -17,8 +20,21 @@ public class QuestionServiceTest {
     @Autowired
     private QuestionService questionService;
 
+    @Autowired
+    QuestionRepository      questionRepository;
+
+    @After
+    public void cleanup() {
+        questionRepository.deleteAll();
+    }
+
     @Test
     public void getQuestionTest() {
+
+        // given
+        questionRepository.save(Question.builder().testDscd("01").quizId(1L).questNbr(1).questText("문제1번 내용")
+                .explanation("").reference("").build());
+
         // given
         QuestionRequestDto dto = QuestionRequestDto.builder().testDscd("01").build();
 
