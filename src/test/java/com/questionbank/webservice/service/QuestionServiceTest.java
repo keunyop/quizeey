@@ -18,7 +18,7 @@ public class QuestionServiceTest {
     private QuestionService questionService;
 
     @Test
-    public void getQuSestionTest() {
+    public void getQuestionTest() {
         // given
         QuestionRequestDto dto = QuestionRequestDto.builder().testDscd("01").build();
 
