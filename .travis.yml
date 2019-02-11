@@ -14,11 +14,10 @@ cache:
 
 script: "./gradlew clean build"
 
-# CI 실행 완료시 메일로 알람
-notifications:
-  email:
-    recipients:
-      - kylee1112@hotmail.com
+before_deploy:
+  - zip -r questionbank *
+  - mkdir -p deploy
+  - mv questionbank.zip deploy/questionbank.zip
 
 deploy:
   - provider: s3
@@ -28,7 +27,13 @@ deploy:
     region: ap-northeast-2
     skip_cleanup: true
     acl: public_read
+    local_dir: deploy # before_deploy에서 생성한 디렉토리
     wait-until-deployed: true
     on:
-      repo: keunyop/question-bank #Github 주소
+      repo: keunyop/question-bank
       branch: master
+
+notifications:
+  email:
+    recipients:
+      - kylee1112@hotmail.com
