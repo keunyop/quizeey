@@ -23,6 +23,6 @@ public class WebControllerTest {
         String body = this.restTemplate.getForObject("/", String.class);
 
         //then
-        assertThat(body).contains("Springboot Web Service");
+        assertThat(body).contains("QuestionBank");
     }
 }
