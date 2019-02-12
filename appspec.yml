@@ -4,7 +4,17 @@ files:
   - source:  /
     destination: /home/ec2-user/app/travis/build/
 
+permissions:
+  - object: /
+    pattern: "execute-deploy.sh"
+    owner: ec2-user
+    mode: 755
+    type:
+      - file
+
 hooks:
   AfterInstall: # 배포가 끝나면 아래 명령어를 실행
+    - location: chmod 755 execute-deploy.sh
+      timeout: 180
     - location: execute-deploy.sh
       timeout: 180
