@@ -19,20 +19,6 @@ before_deploy:
   - mkdir -p deploy
   - mv questionbank.zip deploy/questionbank.zip
 
-deploy:
-  - provider: s3
-    access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
-    secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
-    bucket: questionbank-deploy # S3 버킷
-    region: ap-northeast-2
-    skip_cleanup: true
-    acl: public_read
-    local_dir: deploy # before_deploy에서 생성한 디렉토리
-    wait-until-deployed: true
-    on:
-      repo: keunyop/question-bank
-      branch: master
-
 notifications:
   email:
     recipients:
