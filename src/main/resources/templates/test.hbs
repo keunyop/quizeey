@@ -14,30 +14,36 @@
 </div>
 <br>
 
-<!-- 문제 -->
-<p class="lead" id="questionText"></p>
+<div class="card">
+  <div class="card-header">
+      <div class="text-muted" id="quiz-result" style="float: right;">0/0 (0%)</div>
+  </div>
+  <div class="card-body">
+    <!-- 문제 -->
+    <h5 class="card-title" id="questionText"></h5>
+    <br>
+    <!-- 보기 -->
+    <div id="examples-radio"></div>
+    <div id="hidden-answer" style="display: none;"></div>
 
-<br>
-<!-- 보기 -->
-<div id="examples-radio"></div>
-<div id="hidden-answer" style="display: none;"></div>
+    <br><br>    
 
-<br><br>    
-
-<table width="100%">
-    <tr>
-        <td width="80%">
-            <button type="button" class="btn btn-lg btn-secondary btn-block" id="btn-question-submit" disabled>
-                SUBMIT
-            </button>    
-        </td>
-        <td width="20%">
-            <button type="button" class="btn btn-lg btn-warning btn-block" id="btn-question-skip">
-                SKIP
-            </button>
-        </td>
-    </tr>
-</table>
+    <table width="100%">
+        <tr>
+            <td width="80%">
+                <button type="button" class="btn btn-lg btn-secondary btn-block" id="btn-question-submit" disabled>
+                    SUBMIT
+                </button>    
+            </td>
+            <td width="20%">
+                <button type="button" class="btn btn-lg btn-warning btn-block" id="btn-question-skip">
+                    SKIP
+                </button>
+            </td>
+        </tr>
+    </table>
+  </div>
+</div>
 
 <!--custom js 추가-->
 <script src="/js/app/test.js"></script>

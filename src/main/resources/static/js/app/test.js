@@ -2,6 +2,8 @@ var test;
 
 (function() {
     var quest_cnt = 0;
+    var correct_cnt = 0;
+    
 
     test = {
         init : function() {
@@ -9,13 +11,18 @@ var test;
 
             // Quiz version selector change
             $('#quiz-version-selector').on('change', function() {
+                // 초기화
                 quest_cnt = 0;
+                correct_cnt = 0;
+                $('#quiz-result').text("0/0 (0%)");
+
                 _this.nextQuestion();
             });
 
             // Submit button click
             $('#btn-question-submit').on('click', function () {
                 if (_this.isCorrect()) {
+                    correct_cnt++;
                     _this.nextQuestion();
                 } else {
                     $('#wrongModal').modal('show'); 
@@ -110,6 +117,12 @@ var test;
                         $('#quest-answer').text(exampleAlphabet + ". " + item.exampleText);
                     }
                 });
+
+                // Quiz result
+                if (quest_cnt > 1) {
+                    var current_num = quest_cnt-1;
+                    $('#quiz-result').text(correct_cnt + "/" + current_num + " (" + (correct_cnt/current_num) * 100 + "%)");
+                }
 
                 // Radio button change event
                 $('input:radio[name="exampleRadio"]').on('change', function() {
