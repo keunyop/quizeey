@@ -7,6 +7,12 @@ var test;
         init : function() {
             var _this = this;
 
+            // Quiz version selector change
+            $('#quiz-version-selector').on('change', function() {
+                quest_cnt = 0;
+                _this.nextQuestion();
+            });
+
             // Submit button click
             $('#btn-question-submit').on('click', function () {
                 if (_this.isCorrect()) {
@@ -46,7 +52,8 @@ var test;
             var _btn_question_submit = $('#btn-question-submit');
 
             var data = {
-                testDscd: $('#testId').text()
+                testDscd: $('#testId').text(),
+                quizId: $("#quiz-version-selector").val()
             };
     
             $.ajax({
