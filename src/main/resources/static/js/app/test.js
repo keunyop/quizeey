@@ -23,7 +23,18 @@ var test;
             $('#btn-question-submit').on('click', function () {
                 if (_this.isCorrect()) {
                     correct_cnt++;
+                    
+                    // Card border-success
+                    _this.cardColorChange('success');
+                    // $('#question-card').addClass('border-success');
+                    // $('#quiz-result').removeClass('text-muted').addClass('text-success');
+                    // setTimeout(function() { 
+                    //     $('#question-card').removeClass('border-success'); 
+                    //     $('#quiz-result').removeClass('text-success').addClass('text-muted');
+                    // }, 1000);
+
                     _this.nextQuestion();
+
                 } else {
                     $('#wrongModal').modal('show'); 
                 }   
@@ -36,6 +47,16 @@ var test;
 
             // Modal next button click
             $('#btn-next-question').on('click', function () {
+
+                // Card border-danger
+                _this.cardColorChange('danger');
+                // $('#question-card').addClass('border-danger');
+                // $('#quiz-result').removeClass('text-muted').addClass('text-danger');
+                // setTimeout(function() { 
+                //     $('#question-card').removeClass('border-danger'); 
+                //     $('#quiz-result').removeClass('text-danger').addClass('text-muted');
+                // }, 1000);
+
                 _this.nextQuestion();
             });
         },
@@ -52,6 +73,16 @@ var test;
                 }
             }
             return false;
+        },
+
+        // Card board color change
+        cardColorChange : function(color) {
+            $('#question-card').addClass('border-' + color);
+            $('#quiz-result').removeClass('text-muted').addClass('text-' + color);
+            setTimeout(function() { 
+                $('#question-card').removeClass('border-' + color); 
+                $('#quiz-result').removeClass('text-' + color).addClass('text-muted');
+            }, 1000);
         },
 
         // 문제 조회
