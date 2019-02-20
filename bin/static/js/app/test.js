@@ -26,13 +26,6 @@ var test;
                     
                     // Card border-success
                     _this.cardColorChange('success');
-                    // $('#question-card').addClass('border-success');
-                    // $('#quiz-result').removeClass('text-muted').addClass('text-success');
-                    // setTimeout(function() { 
-                    //     $('#question-card').removeClass('border-success'); 
-                    //     $('#quiz-result').removeClass('text-success').addClass('text-muted');
-                    // }, 1000);
-
                     _this.nextQuestion();
 
                 } else {
@@ -50,13 +43,6 @@ var test;
 
                 // Card border-danger
                 _this.cardColorChange('danger');
-                // $('#question-card').addClass('border-danger');
-                // $('#quiz-result').removeClass('text-muted').addClass('text-danger');
-                // setTimeout(function() { 
-                //     $('#question-card').removeClass('border-danger'); 
-                //     $('#quiz-result').removeClass('text-danger').addClass('text-muted');
-                // }, 1000);
-
                 _this.nextQuestion();
             });
         },
@@ -108,7 +94,8 @@ var test;
                 // 설명
                 $('#explanation').text(responseData.explanation);
                 // 참조
-                $('#reference').text(responseData.reference);
+                $('#reference').attr("href", responseData.reference);
+                $('#reference').text("Open Reference link...");
     
                 // 보기 Clear
                 if ($('#examples-radio').has("div").length) {
