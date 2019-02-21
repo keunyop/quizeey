@@ -23,6 +23,6 @@ public class WebControllerTest {
         String body = this.restTemplate.getForObject("/", String.class);
 
         //then
-        assertThat(body).contains("QuestionBank");
+        assertThat(body).contains("Quizeey");
     }
 }
