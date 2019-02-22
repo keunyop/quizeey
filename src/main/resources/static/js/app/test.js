@@ -8,6 +8,7 @@ var test;
     test = {
         init : function() {
             var _this = this;
+            _this.nextQuestion();
 
             // Quiz version selector change
             $('#quiz-version-selector').on('change', function() {

@@ -12,6 +12,8 @@ public enum TestEnum {
 
     AWS_ARCH_ASSOCT("02", "AWS Certified Solutions Architect – Associate"),
 
+    CBP_BASIC("03", "CBP Certification - 기본 개발자"),
+
     ;
 
     private String code;

@@ -40,12 +40,17 @@
                     <br>
                     <div class="custom-control custom-radio">
                         <input type="radio" id="testRadio1" name="testRadio" class="custom-control-input" value="01">
-                        <label class="custom-control-label" for="testRadio1">A. AWS Certified Solutions Architect – Associate</label>
+                        <label class="custom-control-label" for="testRadio1">A. AWS Certified Developer – Associate</label>
                     </div>
                     <br>
                     <div class="custom-control custom-radio">
                         <input type="radio" id="testRadio2" name="testRadio" class="custom-control-input" value="01">
-                        <label class="custom-control-label" for="testRadio2">B. AWS Certified Developer – Associate</label>
+                        <label class="custom-control-label" for="testRadio2">B. AWS Certified Solutions Architect – Associate</label>
+                    </div>
+                    <br>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="testRadio3" name="testRadio" class="custom-control-input" value="03">
+                        <label class="custom-control-label" for="testRadio3">C. CBP Certification - 기본 개발자</label>
                     </div>
                     <br><br>
                     <button type="button" class="btn btn-lg btn-secondary btn-block" id="btn-take-the-quiz" disabled>
@@ -59,29 +64,6 @@
             <div id="disqus_thread"></div>
         </div>
     </main>
-
-    <!-- 오답 팝업 -->
-    <div class="modal fade" id="wrongModal" tabindex="-1" role="dialog" aria-labelledby="answerModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="answerModalLabel">Incorrect</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <h6>Answer:</h6><p id="quest-answer"></p> 
-                    <h6>Explanation:</h6><p id="explanation"></p>
-                    <h6>Reference:</h6><a id="reference" target="_blank"></a>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="btn-next-question">Next</button>
-                </div>
-            </div>
-        </div>
-    </div>
    
     <br>
     <footer class="footer">

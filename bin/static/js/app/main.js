@@ -19,15 +19,19 @@ var main = {
         });
     },
     openQuiz : function (testId) {
-        $.ajax({
-            type: 'GET',
-            url: '/test?testId=' + testId,
-            dataType: 'html',
-            contentType:'text/html; charset=utf-8'
-        }).done(function(responseData) {
-            main_div.html(responseData);
-            test.nextQuestion();
-        });
+
+        window.location = '/test?testId=' + testId;
+
+
+        // $.ajax({
+        //     type: 'GET',
+        //     url: '/test?testId=' + testId,
+        //     dataType: 'html',
+        //     contentType:'text/html; charset=utf-8'
+        // }).done(function(responseData) {
+        //     main_div.html(responseData);
+        //     test.nextQuestion();
+        // });
     }
 };
 

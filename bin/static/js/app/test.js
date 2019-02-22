@@ -8,6 +8,7 @@ var test;
     test = {
         init : function() {
             var _this = this;
+            _this.nextQuestion();
 
             // Quiz version selector change
             $('#quiz-version-selector').on('change', function() {
@@ -95,7 +96,7 @@ var test;
                 $('#explanation').text(responseData.explanation);
                 // 참조
                 $('#reference').attr("href", responseData.reference);
-                $('#reference').text("Open Reference link...");
+                $('#reference').text("Open reference link...");
     
                 // 보기 Clear
                 if ($('#examples-radio').has("div").length) {

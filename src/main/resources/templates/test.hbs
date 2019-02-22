@@ -1,49 +1,120 @@
-<div id="testId" style="display: none;">{{testId}}</div>
-<h2 class="mt-5">{{testName}}</h2>
-<br>
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <label class="input-group-text" for="quiz-version-selector">Version</label>
-  </div>
-  <select class="custom-select" id="quiz-version-selector">
-    <option value="">All</option>
-    <option value="1">One</option>
-    <option value="2">AWS-Certified-Developer-Associate V13.25</option>
-    <option value="3">Three</option>
-  </select>
-</div>
-<br>
+<!DOCTYPE HTML>
+<html>
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66061566-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-66061566-2');
+    </script>
 
-<div class="card shadow" id="question-card">
-  <div class="card-header">
-      <div class="text-muted" id="quiz-result" style="float: right;">0/0 (0%)</div>
-  </div>
-  <div class="card-body">
-    <!-- 문제 -->
-    <h5 class="card-title" id="questionText"></h5>
+    <title>Quizeey</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<!--부트스트랩 css 추가-->
+    <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/lib/sticky-footer-navbar.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <!-- Fixed navbar -->
+        <div id="nav-placeholder"></di1v>
+    </header>
+    
+    <!-- Begin page content -->
+    <main role="main" class="container">
+        <div id="main-div">
+          <div id="testId" style="display: none;">{{testId}}</div>
+          <h2 class="mt-5">{{testName}}</h2>
+          <br>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="quiz-version-selector">Version</label>
+            </div>
+            <select class="custom-select" id="quiz-version-selector">
+              <option value="">All</option>
+              <option value="1">One</option>
+              <option value="2">AWS-Certified-Developer-Associate V13.25</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+          <br>
+
+          <div class="card shadow" id="question-card">
+            <div class="card-header">
+                <div class="text-muted" id="quiz-result" style="float: right;">0/0 (0%)</div>
+            </div>
+            <div class="card-body">
+              <!-- 문제 -->
+              <h5 class="card-title" id="questionText"></h5>
+              <br>
+              <!-- 보기 -->
+              <div id="examples-radio"></div>
+              <div id="hidden-answer" style="display: none;"></div>
+
+              <br><br>    
+
+              <table width="100%">
+                  <tr>
+                      <td width="90%">
+                          <button type="button" class="btn btn-lg btn-secondary btn-block" id="btn-question-submit" disabled>
+                              SUBMIT
+                          </button>    
+                      </td>
+                      <td width="10%">
+                          <button type="button" class="btn btn-lg btn-warning btn-block" id="btn-question-skip">
+                              SKIP
+                          </button>
+                      </td>
+                  </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+    </main>
+
+    <!-- 오답 팝업 -->
+    <div class="modal fade" id="wrongModal" tabindex="-1" role="dialog" aria-labelledby="answerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="answerModalLabel">Incorrect</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h6>Answer:</h6><p id="quest-answer"></p> 
+                    <h6>Explanation:</h6><p id="explanation"></p>
+                    <h6>Reference:</h6><a id="reference" target="_blank"></a>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="btn-next-question">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <br>
-    <!-- 보기 -->
-    <div id="examples-radio"></div>
-    <div id="hidden-answer" style="display: none;"></div>
+    <footer class="footer">
+        <!-- Sticky footer -->
+        <div id="footer-placeholder"></di1v>
+    </footer>
 
-    <br><br>    
+    <!--부트스트랩 js, jquery 추가-->
+    <script src="/js/lib/jquery.min.js"></script>
+    <script src="/js/lib/bootstrap.min.js"></script>
+    
+    <!--custom js 추가-->
+    <script src="/js/app/nav-and-footer.js"></script>
+    <script src="/js/app/test.js"></script>
 
-    <table width="100%">
-        <tr>
-            <td width="90%">
-                <button type="button" class="btn btn-lg btn-secondary btn-block" id="btn-question-submit" disabled>
-                    SUBMIT
-                </button>    
-            </td>
-            <td width="10%">
-                <button type="button" class="btn btn-lg btn-warning btn-block" id="btn-question-skip">
-                    SKIP
-                </button>
-            </td>
-        </tr>
-    </table>
-  </div>
-</div>
-
-<!--custom js 추가-->
-<script src="/js/app/test.js"></script>
+</body>
+</html>
