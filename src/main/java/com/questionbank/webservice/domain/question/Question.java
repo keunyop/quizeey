@@ -21,16 +21,16 @@ public class Question extends BaseTimeEntity {
     private Long   questId;
 
     @Column(nullable = false)
-    private String testDscd;
+    private Long   testId;
 
     @Column(nullable = false)
-    private Long   quizId;
+    private Long   verId;
 
     @Column(nullable = false)
     private int    questNbr;
 
     @Column(length = 500, nullable = false)
-    private String questText;
+    private String questTxt;
 
     @Column(length = 1000)
     private String explanation;
@@ -38,12 +38,11 @@ public class Question extends BaseTimeEntity {
     private String reference;
 
     @Builder
-    public Question(String testDscd, Long quizId, int questNbr, String questText, String explanation,
-                    String reference) {
-        this.testDscd = testDscd;
-        this.quizId = quizId;
+    public Question(Long testId, Long verId, int questNbr, String questTxt, String explanation, String reference) {
+        this.testId = testId;
+        this.verId = verId;
         this.questNbr = questNbr;
-        this.questText = questText;
+        this.questTxt = questTxt;
         this.explanation = explanation;
         this.reference = reference;
     }

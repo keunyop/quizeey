@@ -76,8 +76,8 @@ var test;
             var _btn_question_submit = $('#btn-question-submit');
 
             var data = {
-                testDscd: $('#testId').text(),
-                quizId: $("#quiz-version-selector").val()
+                testId: $('#testId').text(),
+                verId: $("#quiz-version-selector").val()
             };
     
             $.ajax({
@@ -92,7 +92,7 @@ var test;
                 quest_cnt++;
     
                 // 문제
-                $('#questionText').text(quest_cnt + ". " + responseData.questText);
+                $('#questionText').text(quest_cnt + ". " + responseData.questTxt);
                 // 설명
                 $('#explanation').text(responseData.explanation);
                 // 참조
@@ -124,7 +124,7 @@ var test;
                     
                     var label = document.createElement("label");
                     label.className = "custom-control-label";
-                    label.innerHTML = exampleAlphabet + ". " + item.exampleText;
+                    label.innerHTML = exampleAlphabet + ". " + item.exmpTxt;
                     label.setAttribute("for", exampleAlphabet);
         
                     div.appendChild(input);
@@ -134,7 +134,7 @@ var test;
 
                     if (item.answer) {
                         $('#hidden-answer').text(exampleAlphabet);
-                        $('#quest-answer').text(exampleAlphabet + ". " + item.exampleText);
+                        $('#quest-answer').text(exampleAlphabet + ". " + item.exmpTxt);
                     }
                 });
 

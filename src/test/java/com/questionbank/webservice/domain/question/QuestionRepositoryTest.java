@@ -25,16 +25,16 @@ public class QuestionRepositoryTest {
     @Test
     public void 문제저장_불러오기() {
         // given
-        questionRepository.save(Question.builder().testDscd("AWS").quizId(1L).questNbr(1).questText("문제1번 내용")
-                .explanation("").reference("").build());
+        questionRepository.save(Question.builder().testId(0L).verId(0L).questNbr(0).questTxt("문제1번 내용").explanation("")
+                .reference("").build());
 
         // when
-        List<Question> questions = questionRepository.findAll();
+        List<Question> questions = questionRepository.getQuestionsByTestIdAndVerId(0L, 0L);
 
         // then
         Question question = questions.get(0);
-        assertEquals(question.getTestDscd(), "AWS");
-        assertEquals(question.getQuestNbr(), 1);
-        assertEquals(question.getQuestText(), "문제1번 내용");
+        assertEquals(question.getTestId().toString(), "0");
+        assertEquals(question.getQuestNbr(), 0);
+        assertEquals(question.getQuestTxt(), "문제1번 내용");
     }
 }

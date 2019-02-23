@@ -32,16 +32,16 @@ public class QuestionServiceTest {
     public void getQuestionTest() {
 
         // given
-        questionRepository.save(Question.builder().testDscd("01").quizId(1L).questNbr(1).questText("문제1번 내용")
-                .explanation("").reference("").build());
+        questionRepository.save(Question.builder().testId(1L).verId(1L).questNbr(1).questTxt("문제1번 내용").explanation("")
+                .reference("").build());
 
         // given
-        QuestionRequestDto dto = QuestionRequestDto.builder().testDscd("01").build();
+        QuestionRequestDto dto = QuestionRequestDto.builder().testId(1L).build();
 
         // when
         QuestionMainResponseDto qs = questionService.getQuestion(dto);
 
         // then
-        assertEquals(qs.getTestDscd(), dto.getTestDscd());
+        assertEquals(qs.getTestId(), dto.getTestId());
     }
 }

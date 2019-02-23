@@ -15,23 +15,20 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity
-public class Quiz extends BaseTimeEntity {
-    // 1.AWS-Certified-Developer-Associate V13.95
+public class Version extends BaseTimeEntity {
     @Id
     @GeneratedValue
-    private Long   quizId;
-
-    // 01.AWS Certified Developer – Associate
-    // 02.AWS Certified Solutions Architect – Associate
-    @Column(nullable = false)
-    private String testDscd;
+    private Long   verId;
 
     @Column(nullable = false)
-    private String quizName;
+    private Long   testId;
+
+    @Column(nullable = false)
+    private String verNm;
 
     @Builder
-    public Quiz(String testDscd, String quizName) {
-        this.testDscd = testDscd;
-        this.quizName = quizName;
+    public Version(Long testId, String verNm) {
+        this.testId = testId;
+        this.verNm = verNm;
     }
 }

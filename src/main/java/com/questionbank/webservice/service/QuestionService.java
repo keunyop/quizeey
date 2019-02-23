@@ -24,24 +24,6 @@ public class QuestionService {
     private QuestionRepository questionRepository;
     private ExampleRepository  exampleRepository;
 
-    //    /**
-    //     *  문제목록 조회
-    //     */
-    //    public Question getRandomQuestion(String questionId) {
-    //        List<Question> questions = questionRepository.getQuestionsFromFile(questionId);
-    //
-    //        return questions.get(_getRandomNumber(questions.size()));
-    //    }
-    //
-    //    /**
-    //     * Generate Random Number
-    //     * @return
-    //     */
-    //    private int _getRandomNumber(int n) {
-    //        Random random = new Random();
-    //        return random.nextInt(n);
-    //    }
-
     @Transactional
     public Long addQuestion(QuestionSaveRequestDto dto) {
         return questionRepository.save(dto.toEntity()).getQuestId();
@@ -50,20 +32,21 @@ public class QuestionService {
     @Transactional(readOnly = true)
     public QuestionMainResponseDto getQuestion(QuestionRequestDto dto) {
         // 문제 조회
-        Question qeustion = _getQuestion(dto.getTestDscd(), dto.getQuizId());
+        Question qeustion = _getQuestion(dto.getTestId(), dto.getVerId());
 
         // 보기 조회
-        Stream<Example> examples = exampleRepository.findByQuestId(qeustion.getQuestId());
+        Stream<Example> examples = exampleRepository.findByTestIdAndVerIdAndQuestNbr(qeustion.getTestId(),
+                qeustion.getVerId(), qeustion.getQuestNbr());
 
         return new QuestionMainResponseDto(qeustion, examples);
     }
 
     // 문제 조회
-    private Question _getQuestion(String testDscd, Long quizId) {
-        // quizId가 있으면 해당 quiz 문제 조회
-        // quizId가 없으면 test 전체에서 문제 조회
-        List<Question> questions = (StringUtils.isEmpty(quizId)) ? questionRepository.getQuestionsByTestDscd(testDscd)
-                : questionRepository.getQuestionsByTestDscdAndQuizId(testDscd, quizId);
+    private Question _getQuestion(Long testId, Long verId) {
+        // verId가 있으면 해당 version 문제 조회
+        // verId가 없으면 test 전체에서 문제 조회
+        List<Question> questions = (StringUtils.isEmpty(verId)) ? questionRepository.getQuestionsByTestId(testId)
+                : questionRepository.getQuestionsByTestIdAndVerId(testId, verId);
 
         return questions.get(_generateRandomNumber(questions.size()));
     }
