@@ -12,16 +12,21 @@ import lombok.Setter;
 @NoArgsConstructor
 public class QuestionRequestDto {
     private Long testId;
-    private Long verId;
+    private int  verNbr;
 
     @Builder
-    public QuestionRequestDto(Long testId, Long verId) {
+    public QuestionRequestDto(Long testId, int verNbr) {
         this.testId = testId;
-        this.verId = verId;
+        this.verNbr = verNbr;
     }
 
     public Question toEntity() {
-        return Question.builder().testId(testId).verId(verId).questNbr(0).questTxt(null).explanation(null)
+        return Question.builder().testId(testId).verNbr(verNbr).questNbr(0).questTxt(null).explanation(null)
                 .reference(null).build();
+    }
+
+    @Override
+    public String toString() {
+        return "QuestionRequestDto [testId=" + testId + ", verNbr=" + verNbr + "]";
     }
 }

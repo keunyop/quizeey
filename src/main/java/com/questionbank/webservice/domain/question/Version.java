@@ -24,11 +24,15 @@ public class Version extends BaseTimeEntity {
     private Long   testId;
 
     @Column(nullable = false)
+    private int    verNbr;
+
+    @Column(nullable = false)
     private String verNm;
 
     @Builder
-    public Version(Long testId, String verNm) {
+    public Version(Long testId, int verNbr, String verNm) {
         this.testId = testId;
+        this.verNbr = verNbr;
         this.verNm = verNm;
     }
 }

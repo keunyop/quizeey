@@ -12,19 +12,19 @@ import lombok.Setter;
 @NoArgsConstructor
 public class QuestionSaveRequestDto {
     private Long   testId;
-    private Long   verId;
+    private int    verNbr;
     private int    questNbr;
     private String questTxt;
     private String explanation;
     private String reference;
 
     @Builder
-    public QuestionSaveRequestDto(Long verId) {
-        this.verId = verId;
+    public QuestionSaveRequestDto(int verNbr) {
+        this.verNbr = verNbr;
     }
 
     public Question toEntity() {
-        return Question.builder().testId(testId).verId(verId).questNbr(questNbr).questTxt(questTxt)
+        return Question.builder().testId(testId).verNbr(verNbr).questNbr(questNbr).questTxt(questTxt)
                 .explanation(explanation).reference(reference).build();
     }
 }

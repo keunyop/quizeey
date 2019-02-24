@@ -13,7 +13,7 @@ import lombok.Getter;
 public class QuestionMainResponseDto {
     private Long                         questId;
     private Long                         testId;
-    private Long                         verId;
+    private int                          verNbr;
     private int                          questNbr;
     private String                       questTxt;
     private String                       explanation;
@@ -23,7 +23,7 @@ public class QuestionMainResponseDto {
     public QuestionMainResponseDto(Question quest, Stream<Example> exmps) {
         this.questId = quest.getQuestId();
         this.testId = quest.getTestId();
-        this.verId = quest.getVerId();
+        this.verNbr = quest.getVerNbr();
         this.questNbr = quest.getQuestNbr();
         this.questTxt = quest.getQuestTxt();
         this.explanation = quest.getExplanation();
@@ -33,8 +33,8 @@ public class QuestionMainResponseDto {
 
     @Override
     public String toString() {
-        return "QuestionMainResponseDto [questId=" + questId + ", testId=" + testId + ", verId=" + verId + ", questNbr="
-                + questNbr + ", questTxt=" + questTxt + ", explanation=" + explanation + ", reference=" + reference
-                + ", examples=" + examples + "]";
+        return "QuestionMainResponseDto [questId=" + questId + ", testId=" + testId + ", verNbr=" + verNbr
+                + ", questNbr=" + questNbr + ", questTxt=" + questTxt + ", explanation=" + explanation + ", reference="
+                + reference + ", examples=" + examples + "]";
     }
 }

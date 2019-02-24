@@ -24,7 +24,7 @@ public class Question extends BaseTimeEntity {
     private Long   testId;
 
     @Column(nullable = false)
-    private Long   verId;
+    private int    verNbr;
 
     @Column(nullable = false)
     private int    questNbr;
@@ -38,9 +38,9 @@ public class Question extends BaseTimeEntity {
     private String reference;
 
     @Builder
-    public Question(Long testId, Long verId, int questNbr, String questTxt, String explanation, String reference) {
+    public Question(Long testId, int verNbr, int questNbr, String questTxt, String explanation, String reference) {
         this.testId = testId;
-        this.verId = verId;
+        this.verNbr = verNbr;
         this.questNbr = questNbr;
         this.questTxt = questTxt;
         this.explanation = explanation;

@@ -32,7 +32,7 @@ public class QuestionServiceTest {
     public void getQuestionTest() {
 
         // given
-        questionRepository.save(Question.builder().testId(1L).verId(1L).questNbr(1).questTxt("문제1번 내용").explanation("")
+        questionRepository.save(Question.builder().testId(1L).verNbr(1).questNbr(1).questTxt("문제1번 내용").explanation("")
                 .reference("").build());
 
         // given
@@ -43,5 +43,11 @@ public class QuestionServiceTest {
 
         // then
         assertEquals(qs.getTestId(), dto.getTestId());
+    }
+
+    public static void main(String[] args) {
+        QuestionRequestDto dto = QuestionRequestDto.builder().testId(1L).build();
+
+        System.out.println("### dto: " + dto.toString());
     }
 }

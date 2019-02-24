@@ -8,7 +8,7 @@ import lombok.Getter;
 public class ExampleMainResponseDto {
     private Long    exmpId;
     private Long    testId;
-    private Long    verId;
+    private int     verNbr;
     private int     questNbr;
     private int     exmpNbr;
     private String  exmpTxt;
@@ -17,7 +17,7 @@ public class ExampleMainResponseDto {
     public ExampleMainResponseDto(Example example) {
         this.exmpId = example.getExmpId();
         this.testId = example.getTestId();
-        this.verId = example.getVerId();
+        this.verNbr = example.getVerNbr();
         this.questNbr = example.getQuestNbr();
         this.exmpNbr = example.getExmpNbr();
         this.exmpTxt = example.getExmpTxt();
@@ -26,7 +26,7 @@ public class ExampleMainResponseDto {
 
     @Override
     public String toString() {
-        return "ExampleMainResponseDto [exmpId=" + exmpId + ", testId=" + testId + ", verId=" + verId + ", questNbr="
+        return "ExampleMainResponseDto [exmpId=" + exmpId + ", testId=" + testId + ", verNbr=" + verNbr + ", questNbr="
                 + questNbr + ", exmpNbr=" + exmpNbr + ", exmpTxt=" + exmpTxt + ", answer=" + answer + "]";
     }
 }

@@ -77,7 +77,7 @@ var test;
 
             var data = {
                 testId: $('#testId').text(),
-                verId: $("#quiz-version-selector").val()
+                verNbr: $("#quiz-version-selector").val()
             };
     
             $.ajax({

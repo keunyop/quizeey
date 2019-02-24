@@ -24,7 +24,7 @@ public class Example extends BaseTimeEntity {
     private Long    testId;
 
     @Column(nullable = false)
-    private Long    verId;
+    private int     verNbr;
 
     @Column(nullable = false)
     private int     questNbr;
@@ -39,9 +39,9 @@ public class Example extends BaseTimeEntity {
     private boolean answer;
 
     @Builder
-    public Example(Long testId, Long verId, int questNbr, int exmpNbr, String exmpTxt, boolean answer) {
+    public Example(Long testId, int verNbr, int questNbr, int exmpNbr, String exmpTxt, boolean answer) {
         this.testId = testId;
-        this.verId = verId;
+        this.verNbr = verNbr;
         this.questNbr = questNbr;
         this.exmpNbr = exmpNbr;
         this.exmpTxt = exmpTxt;
