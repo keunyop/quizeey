@@ -7,6 +7,7 @@ var test;
     test = {
         init : function() {
             var _this = this;
+            _this.getVersions();
             _this.nextQuestion();
 
             // Quiz version selector change
@@ -69,6 +70,33 @@ var test;
                 $('#question-card').removeClass('border-' + color); 
                 $('#quiz-result').removeClass('text-' + color).addClass('text-muted');
             }, 1000);
+        },
+
+        // Versions 조회
+        getVersions : function() {
+            var data = {
+                testId: $('#testId').text()
+            }
+
+            $.ajax({
+                type: 'POST',
+                url: '/versions',
+                dataType: 'json',
+                contentType:'application/json; charset=utf-8',
+                data: JSON.stringify(data)
+            }).done(function(responseData) {
+
+                $.each(responseData, function(key, value) {   
+                    $('#quiz-version-selector')
+                        .append($("<option></option>")
+                                   .attr("value",value.verId)
+                                   .text(value.verNm)); 
+               });
+
+                
+            }).fail(function(error) {
+                alert(error);
+            });
         },
 
         // 문제 조회
