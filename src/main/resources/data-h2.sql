@@ -14,6 +14,8 @@ insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, refer
 insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, created_date, modified_date) values ('3', '1', '2', 'BwG 코어뱅킹 솔로션의 주요 기능이 아닌것은?', '주요 기능은 다음과 같다. 1. BXM 프레임워크는 채널에 대한 다양한 요구를 수용하면서, 죠준화된 개발 환경을 제공한다. 또한 센터컷, 배치, 후행, 스케줄러 등을 제공한다. 2. 다양한 상품 요구를 수용하는 BX PF는 상품을 설계, 개발한 후 BX CBP의 상품으로 배포한다. 3. BX CBP는 업무 기능 컴포넌트인 BX CBB를 제공하여, 고객이 요구하는 서비스를 유연하고 빠르게 개발 할 수 있다.', 'https://drive.google.com/file/d/1P3Ga8sYvExyHnj4LvhtlhJdnKLGHY62u/view', now(), now());
 insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, created_date, modified_date) values ('3', '1', '3', 'PF의 특/장점이 아닌것은?', 'PF의 특/장점은 다음과 같다. 1. 독립적인 상품정보 관리, 2. 제약 없는 상품(조건) 확장, 3. 신속한 상품 출시, 4. 검증된 국내/외 사례', 'https://drive.google.com/file/d/1P3Ga8sYvExyHnj4LvhtlhJdnKLGHY62u/view', now(), now());
 insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, created_date, modified_date) values ('3', '1', '4', 'CBP의 특/장점이 아닌것은?', 'CBP의 특/장점은 다음과 같다. 1. 조립식 서비스 신규(Assemblable), 2. 데이터 정의에 의한 용건 대응(Configurable), 3. Plug-In 방식의 신규요건 대응 (Pluggable), 4. 표준화된 개발/운영 방식(Standardized)', 'https://drive.google.com/file/d/1P3Ga8sYvExyHnj4LvhtlhJdnKLGHY62u/view', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, created_date, modified_date) values ('3', '1', '5', 'CBP(Core Banking Package)는 서비스 및 기본 구성 요소 및 구성 센터가 표함 된 핵심 뱅킹 패키지 응용 프로그램이다.', 'CBP(Core Banking Package)는 서비스 및 기본 구성 요소 및 구성 센터가 표함 된 핵심 뱅킹 패키지 응용 프로그램이다.', 'https://drive.google.com/file/d/1P3Ga8sYvExyHnj4LvhtlhJdnKLGHY62u/view', now(), now());
+
 
 -- EXAMPLE
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('1', '2', '1', '1', 'Yes, provided that you have root access.', 'FALSE', now(), now());
@@ -55,3 +57,5 @@ insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, cr
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('3', '1', '4', '3', 'Assemblable', 'false', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('3', '1', '4', '4', 'Configurable', 'false', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('3', '1', '4', '5', 'Pluggable', 'false', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('3', '1', '5', '1', 'True', 'true', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('3', '1', '5', '2', 'False', 'false', now(), now());
