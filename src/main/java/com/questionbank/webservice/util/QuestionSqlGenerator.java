@@ -5,7 +5,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class QuestionSqlGenerator {
@@ -16,30 +15,30 @@ public class QuestionSqlGenerator {
     final String VER_NBR   = "2";
     final String VER_NAME  = "AWS-Certified-Developer-Associate V13.25";
 
-    public static void main(String[] args) {
-        QuestionSqlGenerator qsGen = new QuestionSqlGenerator();
-
-        StringBuilder sb = new StringBuilder();
-        sb.append("-- TEST\n");
-        sb.append(qsGen._genInsertTestSql());
-        sb.append("\n-- VERSION\n");
-        sb.append(qsGen._genInsertVersionSql());
-
-        int qNum = 0;
-        for (String line : qsGen._readFile().collect(Collectors.toList())) {
-            qNum++;
-            sb.append("\n-- Q" + qNum + "\n");
-            sb.append(qsGen._genInsertQuestionSql(line));
-            sb.append("\n");
-            sb.append(qsGen._genInsertExampleSql(line));
-            sb.append("\n");
-
-            break;
-        }
-
-        System.out.println(sb.toString());
-
-    }
+    //    public static void main(String[] args) {
+    //        QuestionSqlGenerator qsGen = new QuestionSqlGenerator();
+    //
+    //        StringBuilder sb = new StringBuilder();
+    //        sb.append("-- TEST\n");
+    //        sb.append(qsGen._genInsertTestSql());
+    //        sb.append("\n-- VERSION\n");
+    //        sb.append(qsGen._genInsertVersionSql());
+    //
+    //        int qNum = 0;
+    //        for (String line : qsGen._readFile().collect(Collectors.toList())) {
+    //            qNum++;
+    //            sb.append("\n-- Q" + qNum + "\n");
+    //            sb.append(qsGen._genInsertQuestionSql(line));
+    //            sb.append("\n");
+    //            sb.append(qsGen._genInsertExampleSql(line));
+    //            sb.append("\n");
+    //
+    //            break;
+    //        }
+    //
+    //        System.out.println(sb.toString());
+    //
+    //    }
 
     private String _genInsertTestSql() {
         return String.format("insert into test (test_nm, created_date, modified_date) values ('%s', now(), now());",
@@ -83,18 +82,34 @@ public class QuestionSqlGenerator {
                 TEST_ID, VER_NBR, questNbr, "1", exmpTxt, answer);
     }
 
-    private List<String> _getExamples(String exmpTxt) {
+    private static List<String> _getExamples(String exmpTxt) {
+        int i = 1;
+        int begin, end;
+
         List<String> examples = new ArrayList<>();
 
-        if (exmpTxt.contains("B.")) {
-            examples.add(exmpTxt.substring(0, exmpTxt.indexOf("B.")));
+        while (exmpTxt.contains(String.valueOf((char) (65 + i)) + ".")) {
+            begin = exmpTxt.indexOf(String.valueOf((char) (64 + i)) + ".");
+            end = (exmpTxt.contains(String.valueOf((char) (65 + i)) + "."))
+                    ? exmpTxt.indexOf(String.valueOf((char) (65 + i)) + ".")
+                    : exmpTxt.length();
+            i++;
+
+            examples.add(exmpTxt.substring(begin, end));
         }
 
-        examples.add(exmpTxt.substring(exmpTxt.indexOf("B."), exmpTxt.indexOf("C.")));
-        examples.add(exmpTxt.substring(exmpTxt.indexOf("C."), exmpTxt.indexOf("D.")));
-        examples.add(exmpTxt.substring(exmpTxt.indexOf("D.")));
+        examples.add(exmpTxt.substring(exmpTxt.indexOf(String.valueOf((char) (64 + i)) + ".")));
+
+        for (String string : examples) {
+            System.out.println(string);
+        }
 
         return null;
+    }
+
+    public static void main(String[] args) {
+        _getExamples(
+                "A. Yes, provided that you have root access. B. Yes, when you create a new CloudFormation template C. Yes, but not for all Regions. D. No, you can add the ReadReplica only when the resource is made available by CloudFormation. E.asdfasd F.asdfadsfasdfasdlkjlkj123123");
     }
 
     private Stream<String> _readFile() {

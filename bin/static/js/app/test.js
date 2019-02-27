@@ -85,15 +85,12 @@ var test;
                 contentType:'application/json; charset=utf-8',
                 data: JSON.stringify(data)
             }).done(function(responseData) {
-
+                var selector =  $('#quiz-version-selector');
                 $.each(responseData, function(key, value) {   
-                    $('#quiz-version-selector')
-                        .append($("<option></option>")
+                    selector.append($("<option></option>")
                                    .attr("value",value.verId)
                                    .text(value.verNm)); 
                });
-
-                
             }).fail(function(error) {
                 alert(error);
             });
