@@ -62,6 +62,21 @@
             <br><br><br>
             <!-- Disqus -->
             <div id="disqus_thread"></div>
+            <script>
+                /**
+                var disqus_config = function () {
+                    this.page.url = 'quizeey.com';  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = '/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                };
+                */
+
+                (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://questionbank-2.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
             
         </div>
     </main>
@@ -72,11 +87,10 @@
         <div id="footer-placeholder"></di1v>
     </footer>
 
-
     <!--부트스트랩 js, jquery 추가-->
     <script src="/js/lib/jquery.min.js"></script>
     <script src="/js/lib/bootstrap.min.js"></script>
-    <script src="/js/lib/disqus.js"></script>
+    {{!-- <script src="/js/lib/disqus.js"></script> --}}
 
     <!--custom js 추가-->
     <script src="/js/app/nav-and-footer.js"></script>
