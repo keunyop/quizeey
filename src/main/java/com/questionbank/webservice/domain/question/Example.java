@@ -32,7 +32,7 @@ public class Example extends BaseTimeEntity {
     @Column(nullable = false)
     private int     exmpNbr;
 
-    @Column(nullable = false)
+    @Column(length = 500, nullable = false)
     private String  exmpTxt;
 
     @Column(nullable = false)

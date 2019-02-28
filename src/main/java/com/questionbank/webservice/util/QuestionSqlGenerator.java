@@ -32,8 +32,8 @@ public class QuestionSqlGenerator {
 
         int qNum = 0;
         for (String line : qsGen._readFile().collect(Collectors.toList())) {
-            //
-            //            if (!line.contains("NO.82")) {
+
+            //            if (!line.contains("NO.53")) {
             //                continue;
             //            }
 
@@ -65,8 +65,8 @@ public class QuestionSqlGenerator {
 
         String questNbr = (strs.length > 0) ? strs[0].substring(3) : "";
         String questTxt = (strs.length > 1) ? strs[1].replace("'", "''") : "";
-        String explanation = (strs.length > 4) ? strs[4].replace("Explanation:", "").replace("'", "''") : "";
-        String reference = (strs.length > 5) ? strs[5].replace("Reference:", "") : "";
+        String explanation = (strs.length > 4) ? strs[4].replace("Explanation:", "").replace("'", "''").trim() : "";
+        String reference = (strs.length > 5) ? strs[5].replace("Reference:", "").trim() : "";
 
         return String.format(
                 "insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, created_date, modified_date) values ('%s', '%s', '%s', '%s', '%s', '%s', now(), now());",
@@ -95,7 +95,7 @@ public class QuestionSqlGenerator {
     }
 
     private List<String> _getExamples(String exmpTxt) {
-        return Pattern.compile("[A-Z][.]").splitAsStream(exmpTxt).filter(example -> !StringUtils.isEmpty(example))
+        return Pattern.compile("[A-F][.]").splitAsStream(exmpTxt).filter(example -> !StringUtils.isEmpty(example))
                 .map(example -> example.trim()).map(example -> example.replace("'", "''")).collect(Collectors.toList());
     }
 

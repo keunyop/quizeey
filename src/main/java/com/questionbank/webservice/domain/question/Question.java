@@ -29,7 +29,7 @@ public class Question extends BaseTimeEntity {
     @Column(nullable = false)
     private int    questNbr;
 
-    @Column(length = 500, nullable = false)
+    @Column(length = 1000, nullable = false)
     private String questTxt;
 
     @Column(length = 1000)
