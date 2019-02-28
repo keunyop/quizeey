@@ -1,7 +1,9 @@
 package com.questionbank.webservice.util;
 
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -12,11 +14,12 @@ import org.apache.commons.lang3.StringUtils;
 
 public class QuestionSqlGenerator {
 
-    final String FILE_NAME = "src/main/resources/static/test/aws/AWS-Certified-Developer-Associate V13.25.dat";
-    final String TEST_ID   = "1";
-    final String TEST_NAME = "AWS Certified Developer – Associate";
-    final String VER_NBR   = "2";
-    final String VER_NAME  = "AWS-Certified-Developer-Associate V13.25";
+    final String FILE_NAME  = "src/main/resources/static/test/aws/AWS-Certified-Developer-Associate V13.25.dat";
+    final String WRITE_PATH = "src/main/java/com/questionbank/webservice/util/sql.sql";
+    final String TEST_ID    = "1";
+    final String TEST_NAME  = "AWS Certified Developer – Associate";
+    final String VER_NBR    = "2";
+    final String VER_NAME   = "AWS-Certified-Developer-Associate V13.25";
 
     public static void main(String[] args) {
         QuestionSqlGenerator qsGen = new QuestionSqlGenerator();
@@ -29,18 +32,21 @@ public class QuestionSqlGenerator {
 
         int qNum = 0;
         for (String line : qsGen._readFile().collect(Collectors.toList())) {
+            //
+            //            if (!line.contains("NO.82")) {
+            //                continue;
+            //            }
+
             qNum++;
             sb.append("\n-- Q" + qNum + "\n");
             sb.append(qsGen._genInsertQuestionSql(line));
             sb.append("\n");
             sb.append(qsGen._genInsertExampleSql(line));
-            sb.append("\n");
-
-            break;
         }
 
-        System.out.println(sb.toString());
-
+        //        System.out.println(sb.toString());
+        qsGen._writeFile(sb);
+        System.out.println("끝");
     }
 
     private String _genInsertTestSql() {
@@ -58,9 +64,9 @@ public class QuestionSqlGenerator {
         String[] strs = line.split("\\|\\|");
 
         String questNbr = (strs.length > 0) ? strs[0].substring(3) : "";
-        String questTxt = (strs.length > 1) ? strs[1] : "";
-        String explanation = (strs.length > 4) ? strs[4] : "";
-        String reference = (strs.length > 5) ? strs[5] : "";
+        String questTxt = (strs.length > 1) ? strs[1].replace("'", "''") : "";
+        String explanation = (strs.length > 4) ? strs[4].replace("Explanation:", "").replace("'", "''") : "";
+        String reference = (strs.length > 5) ? strs[5].replace("Reference:", "") : "";
 
         return String.format(
                 "insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, created_date, modified_date) values ('%s', '%s', '%s', '%s', '%s', '%s', now(), now());",
@@ -80,7 +86,7 @@ public class QuestionSqlGenerator {
         for (String example : _getExamples(exmpTxt)) {
             sb.append(String.format(
                     "insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('%s', '%s', '%s', '%s', '%s', '%s', now(), now());",
-                    TEST_ID, VER_NBR, questNbr, exmpNbr, example, ""));
+                    TEST_ID, VER_NBR, questNbr, exmpNbr, example, _isAnswer(answer, exmpNbr)));
             sb.append("\n");
             exmpNbr++;
         }
@@ -90,25 +96,21 @@ public class QuestionSqlGenerator {
 
     private List<String> _getExamples(String exmpTxt) {
         return Pattern.compile("[A-Z][.]").splitAsStream(exmpTxt).filter(example -> !StringUtils.isEmpty(example))
-                .map(example -> example.trim()).collect(Collectors.toList());
+                .map(example -> example.trim()).map(example -> example.replace("'", "''")).collect(Collectors.toList());
     }
 
-    private boolean _isAnswer(String answerTxt, int exmpNbr) {
-        char answerChar = answerTxt.replace("Answer:", "").trim().charAt(0);
-        return Character.getNumericValue(answerChar) - 9 == exmpNbr;
-    }
+    private String _isAnswer(String answerTxt, int exmpNbr) {
+        String alphabet = String.valueOf((char) (exmpNbr + 64));
 
-    //    public static void main(String[] args) {
-    //        //            List<String> strList = _getExamples(
-    //        //                    "A. Yes, provided that you have root access. B. Yes, when you create a new CloudFormation template C. Yes, but not for all Regions. D. No, you can add the ReadReplica only when the resource is made available by CloudFormation. E.asdfasd F.asdfadsfasdfasdlkjlkj123123");
-    //        //    
-    //        //            for (String string : strList) {
-    //        //                System.out.println(string);
-    //        //            }
-    //
-    //        System.out.println(_isAnswer("Answer: B  ", 2));
-    //
-    //    }
+        List<String> answers = Pattern.compile("[,]").splitAsStream(answerTxt.replace("Answer:", ""))
+                .map(answer -> answer.trim()).collect(Collectors.toList());
+
+        if (answers.contains(alphabet)) {
+            return "TRUE";
+        }
+
+        return "FALSE";
+    }
 
     private Stream<String> _readFile() {
         Stream<String> stream = null;
@@ -120,5 +122,15 @@ public class QuestionSqlGenerator {
         }
 
         return stream;
+    }
+
+    private void _writeFile(StringBuilder sb) {
+        Path path = Paths.get(WRITE_PATH);
+
+        try (BufferedWriter writer = Files.newBufferedWriter(path)) {
+            writer.write(sb.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
