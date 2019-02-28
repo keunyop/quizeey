@@ -14,12 +14,12 @@ import org.apache.commons.lang3.StringUtils;
 
 public class QuestionSqlGenerator {
 
-    final String FILE_NAME  = "src/main/resources/static/test/aws/AWS-Certified-Developer-Associate V13.25.dat";
+    final String FILE_NAME  = "src/main/resources/static/test/aws/AWS-Certified-Developer-Associate V13.95.dat";
     final String WRITE_PATH = "src/main/java/com/questionbank/webservice/util/sql.sql";
     final String TEST_ID    = "1";
     final String TEST_NAME  = "AWS Certified Developer – Associate";
-    final String VER_NBR    = "2";
-    final String VER_NAME   = "AWS-Certified-Developer-Associate V13.25";
+    final String VER_NBR    = "3";
+    final String VER_NAME   = "AWS-Certified-Developer-Associate V13.95";
 
     public static void main(String[] args) {
         QuestionSqlGenerator qsGen = new QuestionSqlGenerator();
