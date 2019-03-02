@@ -112,8 +112,6 @@ var test;
                 contentType:'application/json; charset=utf-8',
                 data: JSON.stringify(data)
             }).done(function(responseData) {
-                // disqus(responseData.questId);
-
                 quest_cnt++;
     
                 // 문제
