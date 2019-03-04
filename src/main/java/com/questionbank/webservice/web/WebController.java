@@ -19,10 +19,25 @@ public class WebController {
     }
 
     @GetMapping("/test")
-    public String getTest(Model model, @RequestParam("testId")
+    public String test(Model model, @RequestParam("testId")
     String testId) {
         model.addAttribute("testId", testId);
         model.addAttribute("testName", TestEnum.getByCode(testId).getName());
         return "test";
+    }
+
+    @GetMapping("/about")
+    public String about() {
+        return "about";
+    }
+
+    @GetMapping("/request")
+    public String request() {
+        return "request";
+    }
+
+    @GetMapping("/privacy")
+    public String privacy() {
+        return "privacy";
     }
 }

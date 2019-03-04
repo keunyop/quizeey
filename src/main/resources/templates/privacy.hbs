@@ -1,7 +1,25 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>QuestionBank</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66061566-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-66061566-2');
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-8362228066874729",
+            enable_page_level_ads: true
+        });
+    </script>
+
+    <title>Privacy - Quizeey</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -16,42 +34,28 @@
         <!-- Fixed navbar -->
         <div id="nav-placeholder"></di1v>
     </header>
-
-
+    
     <!-- Begin page content -->
     <main role="main" class="container">
-        <h1 class="mt-5">{{testName}}</h1>
-        <div id="testId" style="display: none;">{{testId}}</div>
-        <br>
-        
-        <!-- 문제 -->
-        <p class="lead" id="questionText"></p>
-	    
-        <br>
-        <div id="examples-radio"></div>
+        <div id="main-div">
+            <h1 class="mt-5">Privacy</h1>
+            <br>
+            
 
+            <br><br><br>
+            
+        </div>
         <br><br>
-        <button type="button" class="btn btn-lg btn-primary btn-block" id="btn-question-submit">
-            SUBMIT
-        </button>    
-        <button type="button" class="btn btn-lg btn-warning btn-block" id="btn-question-skip">
-            SKIP
-        </button>
-    </main>
-   
-    <br>
-    <footer class="footer">
         <!-- Sticky footer -->
         <div id="footer-placeholder"></di1v>
-    </footer>
-
+    </main>
 
     <!--부트스트랩 js, jquery 추가-->
     <script src="/js/lib/jquery.min.js"></script>
     <script src="/js/lib/bootstrap.min.js"></script>
-    
+
     <!--custom js 추가-->
     <script src="/js/app/nav-and-footer.js"></script>
-    <script src="/js/app/test.js"></script>
+    
 </body>
 </html>
