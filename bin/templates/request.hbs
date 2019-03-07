@@ -40,14 +40,57 @@
         <div id="main-div">
             <h1 class="mt-5">Request us new quiz</h1>
             <br>
-            
+
             <div class="card shadow" style="width: 100%;">
                 <div class="card-body">
                     <h5 class="card-title">
-                        1. If Quizeey doesn't have a test you want, request us. We will add the test right away.
+                        If Quizeey doesn't have a test you want, please request us. We will add right away.
                     </h5>
-                    <br>
-                    
+                    <br><br>
+
+                    <form>
+                        <h4 class="mb-3">Test information</h4>
+                        <div class="form-row">
+                            <div class="col mb-3">
+                                <label for="validationDefault01">Test name</label>
+                                <input type="text" class="form-control" id="validationDefault01" placeholder="Test name" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col mb-3">
+                                <label for="validationDefault02">Question url <span class="text-muted">(Optional)</span></label>
+                                <input type="text" class="form-control" id="validationDefault02" placeholder="Question url">
+                                <small id="validationDefault02Help" class="form-text text-muted">Url for the test questions.</small>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col mb-3">
+                                <label for="validationDefault03">Detailed information <span class="text-muted">(Optional)</span></label>
+                                <textarea class="form-control" id="validationDefault03" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <hr class="mb-4">
+                        <h4 class="mb-3">User information</h4>
+                        <div class="form-row">
+                            <div class="col mb-3">
+                                <label for="validationDefault04">User name <span class="text-muted">(Optional)</span></label>
+                                <input type="text" class="form-control" id="validationDefault04" placeholder="User name">
+                                <small id="validationDefault05Help" class="form-text text-muted">We'll never share your information with anyone else.</small>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col mb-3">
+                                <label for="validationDefault05">User email <span class="text-muted">(Optional)</span></label>
+                                <input type="text" class="form-control" id="validationDefault05" placeholder="User email">
+                                <small id="validationDefault05Help" class="form-text text-muted">Email information will only be used to let you know when the test is ready.</small>
+                            </div>
+                        </div>
+                        <br>
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">SEND</button>
+                        {{!-- <button type="button" class="btn btn-lg btn-primary btn-block" id="btn-take-the-quiz" disabled>
+                            TAKE THE QUIZ
+                        </button> --}}
+                    </form>
                 </div>
             </div>
 
