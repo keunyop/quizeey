@@ -113,23 +113,24 @@ var test;
                 data: JSON.stringify(data)
             }).done(function(responseData) {
                 quest_cnt++;
-    
-                // 문제
-                $('#questionText').text(quest_cnt + ". " + responseData.questTxt);
-                // 설명
-                $('#explanation').text(responseData.explanation);
-                // 참조
-                $('#reference').attr("href", responseData.reference);
-                $('#reference').text("Open reference link...");
-    
-                // 보기 Clear
+
+                // 문제 Reset
                 if ($('#examples-radio').has("div").length) {
+                    $('#questionText').empty();
                     $('#examples-radio').empty()
 
                     // SUBMIT button reset
                     _btn_question_submit.removeClass('btn-primary').addClass('btn-secondary');
                     _btn_question_submit.prop("disabled", true);
                 }
+    
+                // 문제
+                $('#questionText').append(quest_cnt + ". " + responseData.questTxt);
+                // 설명
+                $('#explanation').text(responseData.explanation);
+                // 참조
+                $('#reference').attr("href", responseData.reference);
+                $('#reference').text("Open reference link...");
 
                 // 보기 
                 responseData.examples.forEach(function (item, index) {

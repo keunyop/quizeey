@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public enum TestEnum {
     AWS_DEV_ASSOCT("1", "AWS Certified Developer – Associate"),
 
-    AWS_ARCH_ASSOCT("2", "AWS Certified Solutions Architect – Associate"),
+    SQLP("2", "SQLP"),
 
     CBP_BASIC("3", "CBP Certification - Basic Developer"),
 
