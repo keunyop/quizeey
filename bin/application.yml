@@ -9,7 +9,7 @@ spring:
   datasource:
     data: 
       - classpath:1.AWSCertifiedDeveloper–Associate.sql # 시작할때 실행시킬 script
-      - classpath:2.SQLP.sql 
+      # - classpath:2.SQLP.sql 
   jpa:
     show-sql: true
     hibernate:

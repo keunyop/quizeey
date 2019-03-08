@@ -72,23 +72,6 @@ insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, refer
     </tr>
 </table>', 'FULL OUTER JOIN은 DEFT와 EMP 사이에서 조인이 성공한 건과 DEPT, EMP 건 중 조인이 실패한 건을 함께 표시한다.', '', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '2', '1', '', 'FALSE', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '2', '2', 'SELECT S.학번,<br>
-       MIN(이름)<br>
-FROM   STUDENT S,<br>
-       ENROLL  E<br>
-WHERE  S.학번 = E.학번<br>
-HAVING AVG(E.학점) >= 3.0', 'FALSE', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '2', '3', 'SELECT S.학번,<br>
-       MIN(이름)<br>
-FROM   STUDENT S,<br>
-       ENROLL  E<br>
-WHERE  S.학번 = E.학번<br>
-GROUP  BY S.학번<br>
-HAVING AVG(E.학점) >= 3.0', 'FALSE', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '2', '4', 'SELECT 학번,<br>
-       MIN(이름)<br>
-FROM   STUDENT S,<br>
-       ENROLL  E<br>
-WHERE  S.학번 = E.학번<br>
-GROUP  BY S.학번<br>
-HAVING AVG(E.학점) > 3.0', 'TRUE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '2', '2', '', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '2', '3', '', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '2', '4', '', 'TRUE', now(), now());

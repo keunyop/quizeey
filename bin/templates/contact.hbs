@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66061566-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-66061566-2');
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-8362228066874729",
+            enable_page_level_ads: true
+        });
+    </script>
+
+    <title>Contact - Quizeey</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<!--부트스트랩 css 추가-->
+    <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/lib/sticky-footer-navbar.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <!-- Fixed navbar -->
+        <div id="nav-placeholder"></di1v>
+    </header>
+    
+    <!-- Begin page content -->
+    <main role="main" class="container">
+        <div id="main-div">
+            <h1 class="mt-5">Contact us</h1>
+            <br>
+
+            <div class="card shadow" style="width: 100%;">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        How can we help? We're here to help and answer any question you might have. We'd love to hear from you.
+                    </h5>
+                    <br><br>
+
+                    <form id="contact-form">
+                        {{!-- <h4 class="mb-3">Test information</h4> --}}
+                        <div class="form-row">
+                            <div class="col mb-3">
+                                <label for="email">Email address</label>
+                                <input type="text" class="form-control" id="email" placeholder="Email address" required>
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your information with anyone else.</small>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col mb-3">
+                                <label for="message">Message</label>
+                                <textarea class="form-control" id="message" rows="5" required></textarea>
+                            </div>
+                        </div>
+                        <br><br>
+                        <button class="btn btn-lg btn-primary btn-block" id ="btn-contact-send" type="submit">SEND</button>
+                    </form>
+                </div>
+            </div>
+
+            <br><br><br>
+            
+        </div>
+        <br><br>
+        <!-- Sticky footer -->
+        <div id="footer-placeholder"></di1v>
+    </main>
+
+    <!--부트스트랩 js, jquery 추가-->
+    <script src="/js/lib/jquery.min.js"></script>
+    <script src="/js/lib/bootstrap.min.js"></script>
+
+    <!--custom js 추가-->
+    <script src="/js/app/nav-and-footer.js"></script>
+    <script src="/js/app/contact.js"></script>
+    
+</body>
+</html>

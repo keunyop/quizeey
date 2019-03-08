@@ -14,8 +14,7 @@ var request;
                     testName: $("#testName").val(),
                     questUrl: $("#questUrl").val(),
                     detailInfo: $("#detailInfo").val(),
-                    userName: $("#userName").val(),
-                    userEmail: $("#userEmail").val()
+                    userEmail: $("#email").val()
                 };
 
                 $.ajax({

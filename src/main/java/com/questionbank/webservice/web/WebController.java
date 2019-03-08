@@ -36,6 +36,11 @@ public class WebController {
         return "request";
     }
 
+    @GetMapping("/contact")
+    public String contact() {
+        return "contact";
+    }
+
     @GetMapping("/privacy")
     public String privacy() {
         return "privacy";
