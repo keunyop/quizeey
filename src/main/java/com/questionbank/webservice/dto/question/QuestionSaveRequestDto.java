@@ -11,12 +11,13 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class QuestionSaveRequestDto {
-    private Long   testId;
-    private int    verNbr;
-    private int    questNbr;
-    private String questTxt;
-    private String explanation;
-    private String reference;
+    private Long    testId;
+    private int     verNbr;
+    private int     questNbr;
+    private String  questTxt;
+    private String  explanation;
+    private String  reference;
+    private boolean isMultiAnswer;
 
     @Builder
     public QuestionSaveRequestDto(int verNbr) {
@@ -25,6 +26,6 @@ public class QuestionSaveRequestDto {
 
     public Question toEntity() {
         return Question.builder().testId(testId).verNbr(verNbr).questNbr(questNbr).questTxt(questTxt)
-                .explanation(explanation).reference(reference).build();
+                .explanation(explanation).reference(reference).isMultiAnswer(isMultiAnswer).build();
     }
 }

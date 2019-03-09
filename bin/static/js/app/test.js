@@ -98,6 +98,8 @@ var test;
 
         // 문제 조회
         nextQuestion : function () {
+            var _this = this;
+
             var _btn_question_submit = $('#btn-question-submit');
 
             var data = {
@@ -132,35 +134,13 @@ var test;
                 $('#reference').attr("href", responseData.reference);
                 $('#reference').text("Open reference link...");
 
-                // 보기 
-                responseData.examples.forEach(function (item, index) {
-                    var exampleAlphabet = String.fromCharCode(65 + index);
-
-                    var div = document.createElement("div");
-                    div.className = "custom-control custom-radio";
-                    div.style.paddingTop = "10px";
-          
-                    var input = document.createElement("input");
-                    input.type = "radio";
-                    input.id = exampleAlphabet;
-                    input.name = "exampleRadio";
-                    input.className = "custom-control-input";
-                    
-                    var label = document.createElement("label");
-                    label.className = "custom-control-label";
-                    label.innerHTML = exampleAlphabet + ". " + item.exmpTxt;
-                    label.setAttribute("for", exampleAlphabet);
-        
-                    div.appendChild(input);
-                    div.appendChild(label);
-        
-                    $('#examples-radio').append(div)
-
-                    if (item.answer) {
-                        $('#hidden-answer').text(exampleAlphabet);
-                        $('#quest-answer').text(exampleAlphabet + ". " + item.exmpTxt);
-                    }
-                });
+                // 보기
+                if (responseData.multiAnwser) {
+                    // _this.getCheckboxTypeExample(responseData.examples);
+                    _this.getRadioTypeExample(responseData.examples);
+                } else {
+                    _this.getRadioTypeExample(responseData.examples);
+                }
 
                 // Quiz result
                 if (quest_cnt > 1) {
@@ -179,6 +159,44 @@ var test;
             }).fail(function (error) {
                 alert(error);
             });
+        },
+
+        // 답이 하나인 Radio 타입 문제
+        getRadioTypeExample : function(examples) {
+            // 보기 
+            examples.forEach(function (item, index) {
+                var exampleAlphabet = String.fromCharCode(65 + index);
+
+                var div = document.createElement("div");
+                div.className = "custom-control custom-radio";
+                div.style.paddingTop = "10px";
+
+                var input = document.createElement("input");
+                input.type = "radio";
+                input.id = exampleAlphabet;
+                input.name = "exampleRadio";
+                input.className = "custom-control-input";
+                
+                var label = document.createElement("label");
+                label.className = "custom-control-label";
+                label.innerHTML = exampleAlphabet + ". " + item.exmpTxt;
+                label.setAttribute("for", exampleAlphabet);
+
+                div.appendChild(input);
+                div.appendChild(label);
+
+                $('#examples-radio').append(div)
+
+                if (item.answer) {
+                    $('#hidden-answer').text(exampleAlphabet);
+                    $('#quest-answer').text(exampleAlphabet + ". " + item.exmpTxt);
+                }
+            });
+        },
+
+        // 답이 복수인 Checkbox 타입 문제
+        getCheckboxTypeExample: function() {
+            
         }
     };
 })();

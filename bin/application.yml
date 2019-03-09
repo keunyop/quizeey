@@ -8,7 +8,7 @@ spring:
   profiles: local
   datasource:
     data: 
-      - classpath:1.AWSCertifiedDeveloper–Associate.sql # 시작할때 실행시킬 script
+      - classpath:2.AWSCertifiedDeveloper–Associate.sql # 시작할때 실행시킬 script
       # - classpath:2.SQLP.sql 
   jpa:
     show-sql: true

@@ -67,10 +67,11 @@ public class QuestionSqlGenerator {
         String questTxt = (strs.length > 1) ? strs[1].replace("'", "''") : "";
         String explanation = (strs.length > 4) ? strs[4].replace("Explanation:", "").replace("'", "''").trim() : "";
         String reference = (strs.length > 5) ? strs[5].replace("Reference:", "").trim() : "";
+        boolean isMultiAnswer = (strs.length > 3) ? strs[3].contains(",") ? true : false : false;
 
         return String.format(
-                "insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, created_date, modified_date) values ('%s', '%s', '%s', '%s', '%s', '%s', now(), now());",
-                TEST_ID, VER_NBR, questNbr, questTxt, explanation, reference);
+                "insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('%s', '%s', '%s', '%s', '%s', '%s', '%s', now(), now());",
+                TEST_ID, VER_NBR, questNbr, questTxt, explanation, reference, isMultiAnswer);
     }
 
     private StringBuilder _genInsertExampleSql(String line) {

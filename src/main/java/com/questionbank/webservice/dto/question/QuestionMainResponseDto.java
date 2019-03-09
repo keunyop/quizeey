@@ -18,6 +18,7 @@ public class QuestionMainResponseDto {
     private String                       questTxt;
     private String                       explanation;
     private String                       reference;
+    private boolean                      isMultiAnswer;
     private List<ExampleMainResponseDto> examples;
 
     public QuestionMainResponseDto(Question quest, Stream<Example> exmps) {
@@ -28,6 +29,7 @@ public class QuestionMainResponseDto {
         this.questTxt = quest.getQuestTxt();
         this.explanation = quest.getExplanation();
         this.reference = quest.getReference();
+        this.isMultiAnswer = quest.isMultiAnswer();
         this.examples = exmps.map(ExampleMainResponseDto::new).collect(Collectors.toList());
     }
 
@@ -35,6 +37,6 @@ public class QuestionMainResponseDto {
     public String toString() {
         return "QuestionMainResponseDto [questId=" + questId + ", testId=" + testId + ", verNbr=" + verNbr
                 + ", questNbr=" + questNbr + ", questTxt=" + questTxt + ", explanation=" + explanation + ", reference="
-                + reference + ", examples=" + examples + "]";
+                + reference + ", isMultiAnswer=" + isMultiAnswer + ", examples=" + examples + "]";
     }
 }
