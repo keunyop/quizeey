@@ -224,7 +224,7 @@ var test;
 
                 if (item.answer) {
                     $('#hidden-answer').text(exampleAlphabet);
-                    $('#quest-answer').text(exampleAlphabet + ". " + item.exmpTxt);
+                    $('#quest-answer').append(exampleAlphabet + ". " + item.exmpTxt);
                 }
             });
         },
