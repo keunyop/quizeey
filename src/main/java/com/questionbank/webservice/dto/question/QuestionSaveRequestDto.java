@@ -2,7 +2,6 @@ package com.questionbank.webservice.dto.question;
 
 import com.questionbank.webservice.domain.question.Question;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,11 +17,6 @@ public class QuestionSaveRequestDto {
     private String  explanation;
     private String  reference;
     private boolean isMultiAnswer;
-
-    @Builder
-    public QuestionSaveRequestDto(int verNbr) {
-        this.verNbr = verNbr;
-    }
 
     public Question toEntity() {
         return Question.builder().testId(testId).verNbr(verNbr).questNbr(questNbr).questTxt(questTxt)
