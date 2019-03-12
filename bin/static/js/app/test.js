@@ -36,7 +36,7 @@ var test;
 
             // Skip button click
             $('#btn-question-skip').on('click', function () {
-                _this.nextQuestion();
+                _this.nextQuestion(true);
             });
 
             // Modal next button click
@@ -106,7 +106,7 @@ var test;
                 var selector =  $('#quiz-version-selector');
                 $.each(responseData, function(key, value) {   
                     selector.append($("<option></option>")
-                                   .attr("value",value.verId)
+                                   .attr("value",value.verNbr)
                                    .text(value.verNm)); 
                });
             }).fail(function(error) {
@@ -115,7 +115,7 @@ var test;
         },
 
         // 문제 조회
-        nextQuestion : function () {
+        nextQuestion : function (isSkip) {
             var _this = this;
 
             var _btn_question_submit = $('#btn-question-submit');
@@ -132,7 +132,7 @@ var test;
                 contentType:'application/json; charset=utf-8',
                 data: JSON.stringify(data)
             }).done(function(responseData) {
-                quest_cnt++;
+                if (!isSkip) quest_cnt++;
 
                 // 문제 Reset
                 if ($('#examples').has("div").length) {
@@ -162,7 +162,7 @@ var test;
                 }
 
                 // Quiz result
-                if (quest_cnt > 1) {
+                if (!isSkip && quest_cnt > 1) {
                     var current_num = quest_cnt-1;
                     $('#quiz-result').text(correct_cnt + "/" + current_num + " (" + (correct_cnt/current_num) * 100 + "%)");
                 }
@@ -192,7 +192,7 @@ var test;
                 });
     
             }).fail(function (error) {
-                alert(error);
+                console.log(error);
             });
         },
 
