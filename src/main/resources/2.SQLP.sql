@@ -43,7 +43,7 @@ insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, cr
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '3', '4', '㉠ : NOT EXISTS ㉡ : 사번 <> 부양사번', 'FALSE', now(), now());
 
 -- Q4
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('2', '1', '3', '다음 중 아래 테이블 정의와 인덱스 현황을 참고하여, 인덱스를 효율적(또는 정상적)으로 액세스할 수 없는 검색조건을 2개 고르시오. (단, Oracle의 Index Unique Scan, Index Range Scan 또는 SQL Server의 Index Seek 이외의 액세스 방식은 모두 비효율적이라고 가정한다.)<br>
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('2', '1', '3', '다음 중 아래 테이블 정의와 인덱스 현황을 참고하여, 인덱스를 효율적(또는 정상적)으로 액세스할 수 없는 검색조건을 2개 고르시오. (단, Oracle의 Index Unique Scan, Index Range Scan 또는 SQL Server의 Index Seek 이외의 액세스 방식은 모두 비효율적이라고 가정한다.)<br><br>
 <table border="1"><tr><td>create table 주문 (<br>
     주문번호    int            not null<br>
   , 주문자명    varchar(20)     null<br>
@@ -59,3 +59,32 @@ insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, cr
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '4', '2', 'where 주문자명 like ''홍길동''', 'TRUE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '4', '3', 'where 주문일자 >= ''20100901''', 'FALSE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '4', '4', 'where 주문일자 = 20100901', 'TRUE', now(), now());
+
+-- Q5
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('2', '1', '5', '총 건수가 1,000만 건인 연도별지역별상품매출 테이블에 <출시연도 + 크기>, <색상 + 출시연도> 순으로 구성된 두 개의 B*Tree인덱스가 있었다. 다음 중 이 두 인덱스를 제거하고 아래와 같이 세 개의 비트맵(Bitmap) 인덱스를 생성했을 때, 개별 쿼리의 블록 I/O 측면에서 개선 효과가 가장 미미한 것은?<br><br>
+<table border="1"><tr><td>
+create bitmap index 연도별지역별상품매출_bx1 on 연도별지역별상품매출(크기);<br>
+create bitmap index 연도별지역별상품매출_bx2 on 연도별지역별상품매출(색상);<br>
+create bitmap index 연도별지역별상품매출_bx3 on 연도별지역별상품매출(출시연도);<br><br>
+
+■ Distinct Value<br>
+   크기 = { NULL, SMALL, MEDIUM, BIG }<br>
+   색상 = { NULL, RED, GREEN, BLUE, BLACK, WHITE }<br>
+   출시연도 = { NULL, 2001, 2002, 2003, 2004, 2005 2006, 2007, 2008, 2009, 2010 }<br><br>
+
+■ 데이터 분포는 모두 균일
+</td></tr></table>', '1번과 3번은 기존에 Full Table Scan으로 처리됐을 것이므로 비트맵 인덱스를 생성하고 나면 블록 I/O가 크게 감소한다.<br>
+3번의 경우 만약 ''색상is not null'' 조건을 추가하면 인덱스만 읽고 처리할 수 있지만 그렇더라도 B*Tree 인덱스는 비트맵 인덱스에 비해 블록 I/O는 더 많이 발생한다.<br> 
+2번은 Bitmap Conversion이 발생하지 않는 한, 기존에 두 B*Tree 인덱스 중 어느 하나만 사용되고, 나머지 필터 조건을 처리하기 위해 테이블 랜덤 액세스가 불가피하므로 성능이 매우 안 좋았을 것이다.<br> 
+반면, 비트맵 인덱스를 생성하고 나면 두 개의 비트맵 인덱스를 동시에 사용할 수 있고, 테이블을 랜덤 액세스도 생략되므로 성능 개선 효과가 클 것이다.<br> 
+4번은 색상 = ''BLUE''에 해당하는 건수만큼 대량의 테이블 액세스가 불가피하다.<br> 
+비트맵 인덱스를 생성하고 나면 인덱스 스캔 단계에서 다소 블록 I/O가 감소하겠지만 테이블 랜덤 I/O는 줄지 않으므로 성능 개선 효과가 미미하게 나타난다.', '', 'false', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '5', '1', 'select count(*) from 연도별지역별상품매출 where 색상 is null;', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '5', '2', 'select count(*) from 연도별지역별상품매출<br>
+      where (크기 = ''SMALL'' or 크기 is null)<br>
+      and   색상 = ''GREEN''<br>
+      and    출시연도 = ''2010'';', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '5', '3', 'select 색상, count(*) from 연도별지역별상품매출 group by 색상;', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '5', '4', 'select sum(판매량), sum(판매금액)<br>
+      from 연도별지역별상품매출<br>
+      where  색상 = ''BLUE'';', 'TRUE', now(), now());
