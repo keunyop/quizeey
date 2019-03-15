@@ -41,3 +41,21 @@ insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, cr
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '3', '2', '㉠ : EXISTS ㉡ : 사번 <> 부양사번', 'FALSE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '3', '3', '㉠ : NOT EXISTS ㉡ : 사번 = 부양사번', 'TRUE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '3', '4', '㉠ : NOT EXISTS ㉡ : 사번 <> 부양사번', 'FALSE', now(), now());
+
+-- Q4
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('2', '1', '3', '다음 중 아래 테이블 정의와 인덱스 현황을 참고하여, 인덱스를 효율적(또는 정상적)으로 액세스할 수 없는 검색조건을 2개 고르시오. (단, Oracle의 Index Unique Scan, Index Range Scan 또는 SQL Server의 Index Seek 이외의 액세스 방식은 모두 비효율적이라고 가정한다.)<br>
+<table border="1"><tr><td>create table 주문 (<br>
+    주문번호    int            not null<br>
+  , 주문자명    varchar(20)     null<br>
+  , 주문금액    money         null<br>
+  , 주문일자    varchar(8)      null<br>
+)<br>
+<br>
+create unique index 주문_pk on 주문 (주문번호)<br>
+create index 주문_x01 on 주문 (주문자명)<br>
+create index 주문_x02 on 주문 (주문일자 , 주문금액)</td></tr></table>', '2번은 LIKE 검색 문자열 앞뒤에 모두 ''%'' 기호를 붙였으므로 정상적인 Index Range Scan이 불가능하다.<br> 
+4번은 내부적 형변환이 발생하므로 Index Range Scan이 불가능하다.', '', 'true', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '4', '1', 'where 주문번호 between 1 and 10', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '4', '2', 'where 주문자명 like ''홍길동''', 'TRUE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '4', '3', 'where 주문일자 >= ''20100901''', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '4', '4', 'where 주문일자 = 20100901', 'TRUE', now(), now());
