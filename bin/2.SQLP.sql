@@ -78,7 +78,7 @@ create bitmap index 연도별지역별상품매출_bx3 on 연도별지역별상�
 2번은 Bitmap Conversion이 발생하지 않는 한, 기존에 두 B*Tree 인덱스 중 어느 하나만 사용되고, 나머지 필터 조건을 처리하기 위해 테이블 랜덤 액세스가 불가피하므로 성능이 매우 안 좋았을 것이다.<br> 
 반면, 비트맵 인덱스를 생성하고 나면 두 개의 비트맵 인덱스를 동시에 사용할 수 있고, 테이블을 랜덤 액세스도 생략되므로 성능 개선 효과가 클 것이다.<br> 
 4번은 색상 = ''BLUE''에 해당하는 건수만큼 대량의 테이블 액세스가 불가피하다.<br> 
-비트맵 인덱스를 생성하고 나면 인덱스 스캔 단계에서 다소 블록 I/O가 감소하겠지만 테이블 랜덤 I/O는 줄지 않으므로 성능 개선 효과가 미미하게 나타난다.', '', 'true', now(), now());
+비트맵 인덱스를 생성하고 나면 인덱스 스캔 단계에서 다소 블록 I/O가 감소하겠지만 테이블 랜덤 I/O는 줄지 않으므로 성능 개선 효과가 미미하게 나타난다.', '', 'false', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '5', '1', 'select count(*) from 연도별지역별상품매출 where 색상 is null;', 'FALSE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '5', '2', 'select count(*) from 연도별지역별상품매출<br>
       where (크기 = ''SMALL'' or 크기 is null)<br>
@@ -88,3 +88,12 @@ insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, cr
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '5', '4', 'select sum(판매량), sum(판매금액)<br>
       from 연도별지역별상품매출<br>
       where  색상 = ''BLUE'';', 'TRUE', now(), now());
+
+-- Q6
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('2', '1', '6', '다음 중 Syntax 오류가 있는 SQL문 2개를 고르시오.', '① GROUP BY 절 없이 HAVING을 사용할 수 없다.<br>
+④ USING 조건절을 이용한 EQUI JOIN에서도 NATURAL JOIN과 마찬가지로 JOIN 칼럼에 대해서는 ALIAS나 테이블 이름과 같은 접두사를 붙일 수 없다. <br>
+(부서.부서번호 → 부서번호)', '', 'true', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '6', '1', 'SELECT 부서번호<br>   FROM 직원 HAVING COUNT(*) > 3;', 'TRUE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '6', '2', 'SELECT 직원이름<br>   FROM 직원 JOIN 부서<br>   ON (직원.부서번호 = 부서.부서번호)<br>   WHERE 부서명 = ''인사과''', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '6', '3', 'SELECT 전화번호<br>   FROM 직원<br>   WHERE 전화번호 = ''777''<br>   GROUP BY 전화번호', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '6', '4', 'SELECT 직원이름<br>   FROM 직원 JOIN 부서<br>   USING (부서.부서번호)<br>   WHERE 부서명 = ''인사과''', 'TRUE', now(), now());

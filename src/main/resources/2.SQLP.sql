@@ -88,3 +88,12 @@ insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, cr
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '5', '4', 'select sum(판매량), sum(판매금액)<br>
       from 연도별지역별상품매출<br>
       where  색상 = ''BLUE'';', 'TRUE', now(), now());
+
+-- Q6
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('2', '1', '6', '다음 중 Syntax 오류가 있는 SQL문 2개를 고르시오.', '① GROUP BY 절 없이 HAVING을 사용할 수 없다.<br>
+④ USING 조건절을 이용한 EQUI JOIN에서도 NATURAL JOIN과 마찬가지로 JOIN 칼럼에 대해서는 ALIAS나 테이블 이름과 같은 접두사를 붙일 수 없다. <br>
+(부서.부서번호 → 부서번호)', '', 'true', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '6', '1', 'SELECT 부서번호<br>   FROM 직원 HAVING COUNT(*) > 3;', 'TRUE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '6', '2', 'SELECT 직원이름<br>   FROM 직원 JOIN 부서<br>   ON (직원.부서번호 = 부서.부서번호)<br>   WHERE 부서명 = ''인사과''', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '6', '3', 'SELECT 전화번호<br>   FROM 직원<br>   WHERE 전화번호 = ''777''<br>   GROUP BY 전화번호', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '6', '4', 'SELECT 직원이름<br>   FROM 직원 JOIN 부서<br>   USING (부서.부서번호)<br>   WHERE 부서명 = ''인사과''', 'TRUE', now(), now());
