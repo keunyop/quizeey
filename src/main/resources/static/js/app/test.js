@@ -133,9 +133,9 @@ var test;
                 data: JSON.stringify(data)
             }).done(function(responseData) {
                 // Disqus
-                var disqus_config = function () {
-                    this.page.url = 'http://quizeey.com/test';  // Replace PAGE_URL with your page's canonical URL variable
-                    this.page.identifier = responseData.questId; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                disqus_config = function () {
+                    this.page.url = 'http://quizeey.com/test/' + responseData.questId;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = ''; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
                 };
 
                 (function() { // DON'T EDIT BELOW THIS LINE
