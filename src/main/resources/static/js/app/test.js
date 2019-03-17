@@ -132,6 +132,19 @@ var test;
                 contentType:'application/json; charset=utf-8',
                 data: JSON.stringify(data)
             }).done(function(responseData) {
+                // Disqus
+                var disqus_config = function () {
+                    this.page.url = 'http://quizeey.com/test';  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = responseData.questId; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                };
+
+                (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://questionbank-2.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+
                 if (!isSkip) quest_cnt++;
 
                 // 문제 Reset
