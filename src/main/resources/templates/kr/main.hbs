@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66061566-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-66061566-2');
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-8362228066874729",
+            enable_page_level_ads: true
+        });
+    </script>
+
+    <title>Quizeey - AWS, SQLP등 각종 자격증 시험 기출 문제은행</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Quizeey는 AWS, SQLP등 각종 자격증 시험의 기출 문제들을 모아 사용자가 문제에만 집중 할 수 있는 문제은행을 무료로 제공합니다." />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/letter-q.svg">
+    <link rel="icon" href="/img/letter-q.svg">
+
+	<!--부트스트랩 css 추가-->
+    <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/lib/sticky-footer-navbar.css" rel="stylesheet">
+    <link href="/css/custom.css" rel="stylesheet">
+    
+</head>
+<body>
+    <header>
+        <!-- Fixed navbar -->
+        <div id="nav-placeholder"></di1v>
+    </header>
+    
+    <!-- Begin page content -->
+    <main role="main" class="container">
+        <div id="main-div">
+            <h1 class="mt-5">Quizeey 퀴즈를 좋아합니다.</h1>
+            <br>
+            
+            <div class="card shadow" style="width: 100%;">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        1. Quizeey likes quiz so much that it even has a pool of questions that can help you pass your exam. Which one of the following quizzes do you like to take?
+                    </h5>
+                    <br>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="testRadio1" name="testRadio" class="custom-control-input" value="1">
+                        <label class="custom-control-label" for="testRadio1">A. AWS Certified Developer – Associate</label>
+                    </div>
+                    <br>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="testRadio2" name="testRadio" class="custom-control-input" value="2">
+                        <label class="custom-control-label" for="testRadio2">B. SQLP - 국가공인 SQL전문가</label>
+                    </div>
+                    {{!-- <br>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="testRadio3" name="testRadio" class="custom-control-input" value="3">
+                        <label class="custom-control-label" for="testRadio3">C. CBP Certification - Basic Developer</label>
+                    </div> --}}
+                    <br><br>
+                    <button type="button" class="btn btn-lg btn-secondary btn-block" id="btn-take-the-quiz" disabled>
+                        TAKE THE QUIZ
+                    </button>
+                </div>
+            </div>
+
+            <br><br><br>
+            <!-- Disqus -->
+            <div id="disqus_thread"></div>
+            <script>
+                var disqus_config = function () {
+                    this.page.url = 'http://quizeey.com/';  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = ''; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                };
+
+                (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://questionbank-2.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            
+        </div>
+        <br><br>
+        <!-- Sticky footer -->
+        <div id="footer-placeholder"></di1v>
+    </main>
+
+    <!--부트스트랩 js, jquery 추가-->
+    <script src="/js/lib/jquery.min.js"></script>
+    <script src="/js/lib/bootstrap.min.js"></script>
+
+    <!--custom js 추가-->
+    <script src="/js/app/nav-and-footer.js"></script>
+    <script src="/js/app/main.js"></script>
+    
+</body>
+</html>

@@ -18,6 +18,11 @@ public class WebController {
         return "main";
     }
 
+    @GetMapping("/kr")
+    public String mainKr() {
+        return "kr/main";
+    }
+
     @GetMapping("/test")
     public String test(Model model, @RequestParam("testId")
     String testId) {
