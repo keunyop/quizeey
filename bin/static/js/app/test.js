@@ -274,7 +274,7 @@ var test;
 
                 if (item.answer) {
                     hidden_answer.append(exampleAlphabet);
-                    quest_answer.text("<pre>"+exampleAlphabet + ". " + item.exmpTxt + "<br></pre>");
+                    quest_answer.append(exampleAlphabet + ". " + item.exmpTxt + "<br>");
                 }
             });
         }

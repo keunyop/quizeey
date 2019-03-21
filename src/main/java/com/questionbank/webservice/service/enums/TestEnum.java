@@ -12,7 +12,7 @@ public enum TestEnum {
 
     SQLP("2", "SQLP - 국가공인 SQL전문가"),
 
-    CBP_BASIC("3", "CBP Certification - Basic Developer"),
+    CBP_BASIC("3", "CBP Certification - 개발자"),
 
     ;
 
