@@ -102,6 +102,7 @@ insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, cr
 insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('2', '1', '7', '다음 중 각 SQL 실행 결과를 가장 올바르게 설명한 것을 2개 고르시오.', '조건절에 해당하는 결과집합이 없다고 에러가 발생하지는 않는다.<br> 
 그리고 공집합에 NVL 함수를 사용한다고 값이 얻을 수 있는 것은 아니다.', '', 'true', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '7', '1', 'SELECT COL1, COL2 FROM TAB1 WHERE 1 = 2 ;<br>    → 실행 시 에러가 발생한다.', 'FALSE', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '7', '2', 'SELECT NVL(COL1,''X'') FROM TAB1 WHERE 1 = 2 ;<br>    → 실행 결과로 ''X''를 반환한다.', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '7', '2', 'SELECT NVL(COL1,''X'') FROM TAB1 WHERE 1 = 2 ;
+    → 실행 결과로 ''X''를 반환한다.', 'FALSE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '7', '3', 'SELECT NVL(MIN(COL1), ''X'') FROM TAB1 WHERE 1 = 2;<br>    → 실행 결과로 ''X''를 반환한다.', 'TRUE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '7', '4', 'SELECT COL1, COL2 FROM TAB1 WHERE 1 = 2 ;<br>    → 실행 결과가 없다.(공집합)', 'TRUE', now(), now());
