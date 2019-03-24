@@ -1,5 +1,5 @@
 $(function(){
-	var language = $("meta[http-equiv='content-language']").attr("content")
+	var language = $("meta[http-equiv='content-language']").attr("content");
 
 	if (language == 'ko') {
 		$("#nav-placeholder").load("/html/kr/nav.html");

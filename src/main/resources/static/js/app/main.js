@@ -5,8 +5,6 @@ var main = {
         var _this = this;
         var _btn_take_the_quiz = $('#btn-take-the-quiz');
 
-        // _this.disqus();
-
         _btn_take_the_quiz.on('click', function () {
             var testId = $("input[name='testRadio']:checked").val();
             _this.openQuiz(testId);
@@ -21,7 +19,13 @@ var main = {
         });
     },
     openQuiz : function (testId) {
-        window.location = '/test?testId=' + testId;
+        var language = $("meta[http-equiv='content-language']").attr("content");
+
+        if (language == 'ko') {
+            window.location = '/kr/test?testId=' + testId;
+        } else {
+            window.location = '/test?testId=' + testId;
+        }
     }
 };
 

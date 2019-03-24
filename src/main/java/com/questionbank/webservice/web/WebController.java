@@ -27,8 +27,16 @@ public class WebController {
     public String test(Model model, @RequestParam("testId")
     String testId) {
         model.addAttribute("testId", testId);
-        model.addAttribute("testName", TestEnum.getByCode(testId).getName());
+        model.addAttribute("testName", TestEnum.getByCode(testId).getEngName());
         return "test";
+    }
+
+    @GetMapping("/kr/test")
+    public String testKr(Model model, @RequestParam("testId")
+    String testId) {
+        model.addAttribute("testId", testId);
+        model.addAttribute("testName", TestEnum.getByCode(testId).getKorName());
+        return "kr/test";
     }
 
     @GetMapping("/about")
