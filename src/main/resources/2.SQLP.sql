@@ -116,3 +116,166 @@ insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, cr
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '8', '2', 'ROWNUM', 'TRUE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '8', '3', 'EMPNO', 'FALSE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '8', '4', 'ROWID', 'FALSE', now(), now());
+
+-- Q9
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('2', '1', '9', '다음 중 아래 SQL의 실행 결과로 가장 적절한 것은?<br><br>
+<table border="1"><tbody>
+<tr>
+<th> 고객번호 </th>
+<th> 판매일자 </th>
+<th> 판매금액 </th>
+</tr>
+<tr>
+<td> 100 </td>
+<td> 20090701 </td>
+<td> 1000 </td>
+</tr>
+<tr>
+<td> 100 </td>
+<td> 20090702 </td>
+<td> 300 </td>
+</tr>
+<tr>
+<td> 100 </td>
+<td> 20090702 </td>
+<td> 1000 </td>
+</tr>
+<tr>
+<td> 200 </td>
+<td> 20090701 </td>
+<td> 2000 </td>
+</tr>
+<tr>
+<td> 200 </td>
+<td> 20090701 </td>
+<td> 200 </td>
+</tr>
+</tbody></table>
+<br>
+<table border="1"><tr><td>
+<pre>
+SELECT CUSTCODE 고객번호,
+       SALEDATE 판매일자,
+       SALE_AMT 판매금액,
+       SUM(SALE_AMT) OVER(PARTITION BY CUSTCODE ORDER BY SALEDATE
+                          ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AMT1
+FROM   SAL_TBL
+</pre>
+</td></tr></table>
+', '윈도우 함수를 이용한 누적 합계(RUNNING SUMMARY)를 구하는 SQL이다.', '', 'false', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '9', '1', '<table border="1"><tbody>
+<tr>
+<th> 고객번호 </th>
+<th> 판매일자 </th>
+<th> 판매금액 </th>
+<th> AMT1 </th>
+</tr>
+<tr>
+<td> 100 </td>
+<td> 20090701 </td>
+<td> 300 </td>
+<td> 2300 </td>
+</tr>
+<tr>
+<td> 200 </td>
+<td> 20090701 </td>
+<td> 200 </td>
+<td> 2200 </td>
+</tr>
+</tbody></table>', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '9', '2', '<table border="1"><tbody>
+<tr>
+<th> 고객번호 </th>
+<th> 판매일자 </th>
+<th> 판매금액 </th>
+<th> AMT1 </th>
+</tr>
+<tr>
+<td> 100 </td>
+<td> 20090702 </td>
+<td> 1000 </td>
+<td> 2300 </td>
+</tr>
+<tr>
+<td> 200 </td>
+<td> 20090701 </td>
+<td> 2000 </td>
+<td> 2200 </td>
+</tr>
+</tbody></table>', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '9', '3', '<table border="1"><tbody>
+<tr>
+<th> 고객번호 </th>
+<th> 판매일자 </th>
+<th> 판매금액 </th>
+<th> AMT1 </th>
+</tr>
+<tr>
+<td> 100 </td>
+<td> 20090701 </td>
+<td> 1000 </td>
+<td> 1000 </td>
+</tr>
+<tr>
+<td> 100 </td>
+<td> 20090702 </td>
+<td> 300 </td>
+<td> 1300 </td>
+</tr>
+<tr>
+<td> 100 </td>
+<td> 20090702 </td>
+<td> 1000 </td>
+<td> 2300 </td>
+</tr>
+<tr>
+<td> 200 </td>
+<td> 20090701 </td>
+<td> 2000 </td>
+<td> 2000 </td>
+</tr>
+<tr>
+<td> 200 </td>
+<td> 20090701 </td>
+<td> 200 </td>
+<td> 2200 </td>
+</tr>
+</tbody></table>', 'TRUE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '9', '4', '<table border="1"><tbody>
+<tr>
+<th> 고객번호 </th>
+<th> 판매일자 </th>
+<th> 판매금액 </th>
+<th> AMT1 </th>
+</tr>
+<tr>
+<td> 100 </td>
+<td> 20090701 </td>
+<td> 1000 </td>
+<td> 1000 </td>
+</tr>
+<tr>
+<td> 100 </td>
+<td> 20090702 </td>
+<td> 300 </td>
+<td> 2300 </td>
+</tr>
+<tr>
+<td> 100 </td>
+<td> 20090702 </td>
+<td> 1000 </td>
+<td> 2300 </td>
+</tr>
+<tr>
+<td> 200 </td>
+<td> 20090701 </td>
+<td> 2000 </td>
+<td> 2200 </td>
+</tr>
+<tr>
+<td> 200 </td>
+<td> 20090701 </td>
+<td> 200 </td>
+<td> 2200 </td>
+</tr>
+</tbody></table>', 'FALSE', now(), now());

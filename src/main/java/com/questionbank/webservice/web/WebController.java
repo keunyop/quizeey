@@ -36,6 +36,7 @@ public class WebController {
     String testId) {
         model.addAttribute("testId", testId);
         model.addAttribute("testName", TestEnum.getByCode(testId).getKorName());
+
         return "kr/test";
     }
 
