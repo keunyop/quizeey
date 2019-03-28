@@ -3,22 +3,41 @@ var main_div =  $("#main-div");
 var main = {
     init : function () {
         var _this = this;
-        var _btn_take_the_quiz = $('#btn-take-the-quiz');
+        var $btn_take_the_quiz = $('#btn-take-the-quiz');
 
-        _btn_take_the_quiz.on('click', function () {
-            var testId = $("input[name='testRadio']:checked").val();
-            _this.openQuiz(testId);
+        $btn_take_the_quiz.on('click', function () {
+            _this.openQuiz();
         });
 
-        // Radio button change event
+        // Radio button change event123
         $('input:radio[name="testRadio"]').on('change', function() {
-            if (_btn_take_the_quiz.prop("disabled")) {
-                _btn_take_the_quiz.removeClass('btn-secondary').addClass('btn-primary');
-                _btn_take_the_quiz.prop("disabled", false);          
-            }           
+            _this.takeTheQuizBtnChange($btn_take_the_quiz);
+        });
+
+        // Keyboard press event
+        $(document).keypress(function(e) {
+	        // 키보드 숫자 1~9
+            // keyCode 49~57
+            if (e.keyCode >= 49 && e.keyCode <= 57) {
+                var radioNbr = e.keyCode-48;
+                $("#testRadio" + radioNbr).prop("checked", true);
+
+                _this.takeTheQuizBtnChange($btn_take_the_quiz);
+            }
+            // 엔터키
+            else if (e.keyCode == 13) {
+                _this.openQuiz();
+            }
+
         });
     },
-    openQuiz : function (testId) {
+    openQuiz : function () {
+        var testId = $("input[name='testRadio']:checked").val();
+
+        if (!testId) {
+            return;
+        }
+
         var language = $("meta[http-equiv='content-language']").attr("content");
 
         if (language == 'ko') {
@@ -26,6 +45,14 @@ var main = {
         } else {
             window.location = '/test?testId=' + testId;
         }
+    },
+
+    // Radio button change event
+    takeTheQuizBtnChange : function ($btn_take_the_quiz) {
+        if ($btn_take_the_quiz.prop("disabled")) {
+            $btn_take_the_quiz.removeClass('btn-secondary').addClass('btn-primary');
+            $btn_take_the_quiz.prop("disabled", false);          
+        }      
     }
 };
 
