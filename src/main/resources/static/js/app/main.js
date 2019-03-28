@@ -28,7 +28,6 @@ var main = {
             else if (e.keyCode == 13) {
                 _this.openQuiz();
             }
-
         });
     },
     openQuiz : function () {
