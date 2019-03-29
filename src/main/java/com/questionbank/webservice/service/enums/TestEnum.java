@@ -14,6 +14,8 @@ public enum TestEnum {
 
     CBP_BASIC("3", "CBP Certification - Developer", "CBP 인증 - 개발자"),
 
+    CS("4", "Computer Science", "컴퓨터공학"),
+
     ;
 
     private String code;

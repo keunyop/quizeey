@@ -279,3 +279,19 @@ insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, cr
 <td> 2200 </td>
 </tr>
 </tbody></table>', 'FALSE', now(), now());
+
+-- Q10
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('2', '1', '10', '다음 중 아래 SQL에 대한 설명으로 가장 부적절한 것은?<br><br>
+<table border="1"><tr><td>
+<pre>
+SELECT SUM(NVL(A.C2, 0))
+FROM   TAB1 A, TAB2 B
+WHERE  A.C1 = :V1
+</pre>
+</td></tr></table>', 'GROUP BY절이 없기 때문에 결과건수는 항상 1건이다. <br>
+해당 SQL문에서는 조인 조건의 부재로 결과 건수가 아니라 답 자체가 틀려질 수 있다. <br>
+즉, Cartesian Product으로 인해 합계가 틀려질 수 있다.', '', 'false', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '10', '1', '조인 조건이 없어서 결과 건수가 여러 건이 된다.', 'TRUE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '10', '2', '조인 조건이 없다고 문법 오류가 발생하지는 않는다.', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '10', '3', 'SUM(NVL(A.C2, 0))의 처리에 비효율이 존재한다.', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '10', '4', '조인 조건이 없어서 CARTESIAN PRODUCT이 발생한다.', 'FALSE', now(), now());
