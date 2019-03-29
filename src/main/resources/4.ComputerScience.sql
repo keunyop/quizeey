@@ -9,8 +9,8 @@ insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, refer
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('4', '1', '1', '1', '“unsigned long long int” is a valid data type.', 'true', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('4', '1', '1', '2', '“long long double” is a valid data type.', 'false', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('4', '1', '1', '3', '“unsigned long double” is a valid data type.', 'false', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('4', '1', '1', '4', '1, 2 and 3 all are valid data types.', 'false', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('4', '1', '1', '5', '1, 2 and 3 all are invalid data types.', 'false', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('4', '1', '1', '4', 'A, B and C all are valid data types.', 'false', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('4', '1', '1', '5', 'A, B and C all are invalid data types.', 'false', now(), now());
 
 
 
