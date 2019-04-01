@@ -295,3 +295,19 @@ insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, cr
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '10', '2', '조인 조건이 없다고 문법 오류가 발생하지는 않는다.', 'FALSE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '10', '3', 'SUM(NVL(A.C2, 0))의 처리에 비효율이 존재한다.', 'FALSE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '10', '4', '조인 조건이 없어서 CARTESIAN PRODUCT이 발생한다.', 'FALSE', now(), now());
+
+-- Q12
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('2', '1', '12', '전체 사원이 1,000명인 회사에서 아래 쿼리를 수행하려고 한다. 다음 중 옵티마이저가 예상하는 건수로 가장 적절한 것은?<br><br>
+<table border="1"><tr><td>
+<pre>
+select * from 사원 where 직급 = ''부장'' and 부서 = ''영업'';
+
+* 직급은 { 부장, 과장, 대리, 사원 }의 집합이다.
+* 부서는 { 인사, 총무, 회계, 마케팅, 영업 }의 집합이다.
+* 두 칼럼 모두 히스토그램 정보가 수집되어 있지 않다.
+</pre>
+</td></tr></table>', '(직급의 Selectivity) × (부서의 Selectivity) × (전체 로우 수) = 1/4 × 1/5 × 1,000 = 50', '', 'false', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '12', '1', '48', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '12', '2', '50', 'TRUE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '12', '3', '55', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '12', '4', '60', 'FALSE', now(), now());
