@@ -69,39 +69,57 @@
 
           <div class="card shadow" id="question-card">
             <div class="card-header">
+                <!-- 점수 -->
                 <div class="text-muted" id="quiz-result" style="float: right;">0/0 (0%)</div>
+
+                <!-- Tabs -->
+                <ul class="nav nav-tabs nav-tabs-question" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="question-tab" data-toggle="tab" href="#question" role="tab" aria-controls="question" aria-selected="true">Question</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="statistics-tab" data-toggle="tab" href="#statistics" role="tab" aria-controls="statistics" aria-selected="false">Stats</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="disqus-tab" data-toggle="tab" href="#disqus" role="tab" aria-controls="disqus" aria-selected="false">Disqus</a>
+                    </li>
+                </ul>
             </div>
             <div class="card-body">
-              <!-- 문제 -->
-              <h5 class="card-title" id="questionText"></h5>
-              <br>
-              <!-- 보기 -->
-              <div id="examples"></div>
-              <div id="hidden-answer" style="display: none;"></div>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="question" role="tabpanel" aria-labelledby="question-tab">
+                        <!-- 문제 -->
+                        <h5 class="card-title" id="questionText"></h5>
+                        <br>
+                        <!-- 보기 -->
+                        <div id="examples"></div>
+                        <div id="hidden-answer" style="display: none;"></div>
 
-              <br><br>
+                        <br><br>
 
-              <table width="100%">
-                  <tr>
-                      <td width="90%">
-                          <button type="button" class="btn btn-lg btn-secondary btn-block" id="btn-question-submit" disabled>
-                              SUBMIT
-                          </button>    
-                      </td>
-                      <td width="10%">
-                          <button type="button" class="btn btn-lg btn-warning btn-block" id="btn-question-skip">
-                              SKIP
-                          </button>
-                      </td>
-                  </tr>
-              </table>
+                        <table width="100%">
+                            <tr>
+                                <td width="90%">
+                                    <button type="button" class="btn btn-lg btn-secondary btn-block" id="btn-question-submit" disabled>
+                                        SUBMIT
+                                    </button>    
+                                </td>
+                                <td width="10%">
+                                    <button type="button" class="btn btn-lg btn-warning btn-block" id="btn-question-skip">
+                                        SKIP
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="tab-pane fade" id="statistics" role="tabpanel" aria-labelledby="statistics-tab">Statistics comming soon...</div>
+                    <div class="tab-pane fade" id="disqus" role="tabpanel" aria-labelledby="disqus-tab">
+                        <!-- Disqus -->
+                        <div id="disqus_thread"></div>
+                    </div>
+                </div>
             </div>
           </div>
-
-          <br><br><br>
-            <!-- Disqus -->
-            <div id="disqus_thread"></div>
-
         </div>
         <br><br>
         <!-- Sticky footer -->

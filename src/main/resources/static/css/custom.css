@@ -3,3 +3,9 @@
     margin-right: 7px;
     vertical-align: middle;
 }
+
+.nav-tabs-question {
+    margin-bottom: -12px;
+    margin-left: -5px;
+    border-bottom: none;
+}
