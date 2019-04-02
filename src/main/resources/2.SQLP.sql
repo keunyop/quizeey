@@ -326,7 +326,7 @@ partition p1 values less than(100)
 create index t_idx on t( b ) local ;
 </pre>
 </td></tr></table>', 'Local 인덱스이므로 t_idx의 파티션 키는 테이블과 똑같이 a 칼럼이다.<br>
-그리고 파티션 키가 인덱스 선두 칼럼이 아니므로 NonPrefixed에 해당한다.', 'false', now(), now());
+그리고 파티션 키가 인덱스 선두 칼럼이 아니므로 NonPrefixed에 해당한다.', '', 'false', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '13', '1', 'Global Prefixed Partition Index', 'FALSE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '13', '2', 'Global NonPrefixed Partition Index', 'FALSE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '13', '3', 'Local Prefixed Partition Index', 'FALSE', now(), now());

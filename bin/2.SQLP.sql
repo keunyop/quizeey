@@ -311,3 +311,23 @@ insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, cr
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '12', '2', '50', 'TRUE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '12', '3', '55', 'FALSE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '12', '4', '60', 'FALSE', now(), now());
+
+-- Q13
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('2', '1', '13', '다음 중 아래 t_idx 인덱스가 해당하는 것으로 가장 적절한 것은?<br><br>
+<table border="1"><tr><td>
+<pre>
+create table t ( a number, b char(3), c varchar2(10) )
+partition by range(a) (
+partition p1 values less than(100)
+, partition p2 values less than(200)
+, partition p3 values less than(maxvalue)
+);
+
+create index t_idx on t( b ) local ;
+</pre>
+</td></tr></table>', 'Local 인덱스이므로 t_idx의 파티션 키는 테이블과 똑같이 a 칼럼이다.<br>
+그리고 파티션 키가 인덱스 선두 칼럼이 아니므로 NonPrefixed에 해당한다.', '', 'false', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '13', '1', 'Global Prefixed Partition Index', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '13', '2', 'Global NonPrefixed Partition Index', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '13', '3', 'Local Prefixed Partition Index', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '13', '4', 'Local NonPrefixed Partition Index', 'TRUE', now(), now());
