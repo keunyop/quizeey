@@ -178,6 +178,18 @@ var test;
                 if (!isSkip && quest_cnt > 1) {
                     var current_num = quest_cnt-1;
                     $('#quiz-result').text(correct_cnt + "/" + current_num + " (" + (correct_cnt/current_num) * 100 + "%)");
+
+                    // 진행상태바
+                    var li = document.createElement("li");
+                    li.className = "breadcrumb-item";
+
+                    var anchor = document.createElement("a");
+                    anchor.setAttribute('href', "#");
+                    anchor.innerText = current_num;
+
+                    li.appendChild(anchor);
+                    
+                    $('#progress-bar').append(li)
                 }
 
                 // Normal question radio button change event
