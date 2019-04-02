@@ -331,3 +331,55 @@ insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, cr
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '13', '2', 'Global NonPrefixed Partition Index', 'FALSE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '13', '3', 'Local Prefixed Partition Index', 'FALSE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '13', '4', 'Local NonPrefixed Partition Index', 'TRUE', now(), now());
+
+-- Q14
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('2', '1', '14', '다음 중 아래 데이터 현황을 참고하여 결과가 다르게 나오는 쿼리인 것은?<br><br>
+<table border="1"><tr><td>
+<pre>
+select  EmployeeID, LastName, HireDate, Country
+from    Employees
+order by HireDate
+
+EmployeeID   LastName       HireDate                  Country
+-----------  ------------   -----------------------   --------
+          3  Leverling      1992-04-01 00:00:00.000   USA
+          1  Davolio        1992-05-01 00:00:00.000   USA
+          2  Fuller         1992-08-14 00:00:00.000   USA
+          4  Peacock        1993-05-03 00:00:00.000   USA
+          5  Buchanan       1993-10-17 00:00:00.000   UK
+          6  Suyama         1993-10-17 00:00:00.000   UK
+          7  King           1994-01-02 00:00:00.000   UK
+          8  Callahan       1994-03-05 00:00:00.000   USA
+          9  Dodsworth      1994-11-15 00:00:00.000   UK
+</pre>
+</td></tr></table>', '<pre>1, 4번은 5번째와 6번째 레코드가 rnum으로 똑같이 5를 부여받기 때문에 HireDate 순으로 6개 레코드가 선택된다. 
+참고로, 7번째 레코드는 각각 7과 6을 부여받는다 
+3번은 서브쿼리에서 5개 레코드가 선택되지만, 메인쿼리와 조인하고 나면 최종적으로 6개 레코드가 선택된다.
+2번은 HireDate 순으로 5개 레코드가 선택된다</pre>', '', 'false', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '14', '1', '<pre>select  EmployeeID, LastName, HireDate, Country
+    from   (select  EmployeeID, LastName, HireDate, Country
+                  , rank () over (order by HireDate) as rnum
+            from    Employees
+           ) a
+    where   a.rnum &lt;= 5
+    order by EmployeeID</pre>', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '14', '2', '<pre>select  EmployeeID, LastName, HireDate, Country
+    from   (select  EmployeeID, LastName, HireDate, Country
+                  , row_number() over (order by HireDate) as rnum
+            from    Employees
+           ) a
+    where   a.rnum &lt;= 5
+    order by EmployeeID</pre>', 'TRUE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '14', '3', '<pre>select  EmployeeID, LastName, HireDate, Country
+    from    Employees a
+    where   HireDate in (select top 5 HireDate
+                         from   Employees
+                         order by HireDate )
+    order by EmployeeID</pre>', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '14', '4', '<pre>select  EmployeeID, LastName, HireDate, Country
+   from   (select  EmployeeID, LastName, HireDate, Country
+                 , dense_rank() over (order by HireDate) as rnum
+           from    Employees
+          ) a
+   where   a.rnum &lt;= 5
+   order by EmployeeID</pre>', 'FALSE', now(), now());
