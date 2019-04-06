@@ -1,8 +1,8 @@
 package com.questionbank.webservice.service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
-import java.util.stream.Stream;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,8 +34,11 @@ public class QuestionService {
         Question qeustion = _getQuestion(dto.getTestId(), dto.getVerNbr());
 
         // 보기 조회
-        Stream<Example> examples = exampleRepository.findByTestIdAndVerNbrAndQuestNbr(qeustion.getTestId(),
+        List<Example> examples = exampleRepository.findByTestIdAndVerNbrAndQuestNbr(qeustion.getTestId(),
                 qeustion.getVerNbr(), qeustion.getQuestNbr());
+
+        // 보기 셔플
+        Collections.shuffle(examples);
 
         return new QuestionMainResponseDto(qeustion, examples);
     }

@@ -18,18 +18,6 @@ public class WebController {
         return "main";
     }
 
-    public static void main(String[] args) {
-
-        String cd = "";
-        String a = "A00012";
-
-        if (cd != null && !cd.equals(a.substring(0, 1))) {
-            System.out.println("continue");
-        } else {
-            System.out.println("add");
-        }
-    }
-
     @GetMapping("/kr")
     public String mainKr() {
         return "kr/main";
