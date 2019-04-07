@@ -78,10 +78,10 @@ Transmission Time >= 2*Propagation Time
 => 10000/(500*1000000) <= 2*length/200000
 => lenght = 2km (max)
 so, answer will be: 2km </pre>', '', 'false', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('4', '11', '2', '1', '', 'false', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('4', '11', '2', '2', '', 'true', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('4', '11', '2', '3', '', 'false', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('4', '11', '2', '4', '', 'false', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('4', '11', '2', '1', '1', 'false', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('4', '11', '2', '2', '2', 'true', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('4', '11', '2', '3', '2.5', 'false', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('4', '11', '2', '4', '5', 'false', now(), now());
 
 
 -- V13.Computer Organization and Architecture.Q1

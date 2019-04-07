@@ -1,5 +1,7 @@
 package com.questionbank.webservice.web;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,31 +15,145 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class WebController {
 
-    @GetMapping("/")
-    public String main() {
-        return "main";
+    @GetMapping(value = { "/", "/kr" })
+    public String main(HttpServletRequest request) {
+        String html = "main";
+
+        if ("/kr".equals(request.getRequestURI())) {
+            html = "kr/main";
+        }
+
+        return html;
     }
 
-    @GetMapping("/kr")
-    public String mainKr() {
-        return "kr/main";
-    }
-
-    @GetMapping("/test")
-    public String test(Model model, @RequestParam("testId")
+    @GetMapping(value = { "/test", "/kr/test" })
+    public String test(HttpServletRequest request, Model model, @RequestParam("testId")
     String testId) {
+
+        String html = "";
+
         model.addAttribute("testId", testId);
-        model.addAttribute("testName", TestEnum.getByCode(testId).getEngName());
-        return "test";
+
+        switch (request.getRequestURI()) {
+            case "/test":
+                model.addAttribute("testName", TestEnum.getByCode(testId).getEngName());
+                html = "test";
+                break;
+
+            case "/kr/test":
+                model.addAttribute("testName", TestEnum.getByCode(testId).getKorName());
+                html = "kr/test";
+                break;
+
+            default:
+                break;
+        }
+
+        return html;
     }
 
-    @GetMapping("/kr/test")
-    public String testKr(Model model, @RequestParam("testId")
-    String testId) {
-        model.addAttribute("testId", testId);
-        model.addAttribute("testName", TestEnum.getByCode(testId).getKorName());
+    @GetMapping(value = { "/aws-certified-developer-associate", "/kr/aws-certified-developer-associate" })
+    public String awsCertiDevAsct(HttpServletRequest request, Model model) {
 
-        return "kr/test";
+        String html = "";
+        String testId = TestEnum.AWS_DEV_ASSOCT.getCode();
+
+        model.addAttribute("testId", testId);
+
+        switch (request.getRequestURI()) {
+            case "/aws-certified-developer-associate":
+                model.addAttribute("testName", TestEnum.getByCode(testId).getEngName());
+                html = "test";
+                break;
+
+            case "/kr/aws-certified-developer-associate":
+                model.addAttribute("testName", TestEnum.getByCode(testId).getKorName());
+                html = "kr/test";
+                break;
+
+            default:
+                break;
+        }
+
+        return html;
+    }
+
+    @GetMapping(value = { "/sqlp-professional", "/kr/sqlp-professional" })
+    public String sqlpProfessional(HttpServletRequest request, Model model) {
+
+        String html = "";
+        String testId = TestEnum.SQLP.getCode();
+
+        model.addAttribute("testId", testId);
+
+        switch (request.getRequestURI()) {
+            case "/sqlp-professional":
+                model.addAttribute("testName", TestEnum.getByCode(testId).getEngName());
+                html = "test";
+                break;
+
+            case "/kr/sqlp-professional":
+                model.addAttribute("testName", TestEnum.getByCode(testId).getKorName());
+                html = "kr/test";
+                break;
+
+            default:
+                break;
+        }
+
+        return html;
+    }
+
+    @GetMapping(value = { "/cbp-basic-developer", "/kr/cbp-basic-developer" })
+    public String cbpBasicDeveloper(HttpServletRequest request, Model model) {
+
+        String html = "";
+        String testId = TestEnum.CBP_BASIC.getCode();
+
+        model.addAttribute("testId", testId);
+
+        switch (request.getRequestURI()) {
+            case "/cbp-basic-developer":
+                model.addAttribute("testName", TestEnum.getByCode(testId).getEngName());
+                html = "test";
+                break;
+
+            case "/kr/cbp-basic-developer":
+                model.addAttribute("testName", TestEnum.getByCode(testId).getKorName());
+                html = "kr/test";
+                break;
+
+            default:
+                break;
+        }
+
+        return html;
+    }
+
+    @GetMapping(value = { "/computer-science", "/kr/computer-science" })
+    public String computerScience(HttpServletRequest request, Model model) {
+
+        String html = "";
+        String testId = TestEnum.CS.getCode();
+
+        model.addAttribute("testId", testId);
+
+        switch (request.getRequestURI()) {
+            case "/computer-science":
+                model.addAttribute("testName", TestEnum.getByCode(testId).getEngName());
+                html = "test";
+                break;
+
+            case "/kr/computer-science":
+                model.addAttribute("testName", TestEnum.getByCode(testId).getKorName());
+                html = "kr/test";
+                break;
+
+            default:
+                break;
+        }
+
+        return html;
     }
 
     @GetMapping("/about")
