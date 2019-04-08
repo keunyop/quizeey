@@ -22,16 +22,7 @@ var test;
 
             // Submit button click
             $('#btn-question-submit').on('click', function () {
-                if (_this.isCorrect()) {
-                    correct_cnt++;
-                    
-                    // Card border-success
-                    _this.cardColorChange('success');
-                    _this.nextQuestion();
-
-                } else {
-                    $('#wrongModal').modal('show'); 
-                }   
+                _this.submitQuiz();
             });
 
             // Skip button click
@@ -45,6 +36,28 @@ var test;
                 // Card border-danger
                 _this.cardColorChange('danger');
                 _this.nextQuestion();
+            });
+
+            // Keyboard press event
+            $(document).keypress(function(e) {
+                // 키보드 숫자 1~9
+                // keyCode 49~57
+                if (e.keyCode >= 49 && e.keyCode <= 57) {
+                    var $exampleCheck = $("#" + String.fromCharCode(16 + e.keyCode));
+
+                    if ($exampleCheck.prop("checked")) {
+                        $exampleCheck.prop("checked", false);
+                    } else {
+                        $exampleCheck.prop("checked", true);
+                    }
+
+                    // Button change
+                    _this.submitBtnChange($('#btn-question-submit'));
+                }
+                // 엔터키
+                else if (e.keyCode == 13) {
+                    _this.submitQuiz();
+                }
             });
         },
 
@@ -194,10 +207,7 @@ var test;
 
                 // Normal question radio button change event
                 $('input:radio[name="exampleRadio"]').on('change', function() {
-                    if (_btn_question_submit.prop("disabled")) {
-                        _btn_question_submit.removeClass('btn-secondary').addClass('btn-primary');
-                        _btn_question_submit.prop("disabled", false);          
-                    }           
+                    _this.submitBtnChange(_btn_question_submit);      
                 });
 
                 // Multi-answer question checkbox check event
@@ -289,6 +299,30 @@ var test;
                     quest_answer.append(exampleAlphabet + ". " + item.exmpTxt + "<br>");
                 }
             });
+        },
+
+        // Normal question radio button change event
+        submitBtnChange : function ($btn_question_submit) {
+            if ($btn_question_submit.prop("disabled")) {
+                $btn_question_submit.removeClass('btn-secondary').addClass('btn-primary');
+                $btn_question_submit.prop("disabled", false);          
+            }           
+        },
+
+        // Submit quiz
+        submitQuiz : function () {
+            var _this = this;
+            
+            if (_this.isCorrect()) {
+                correct_cnt++;
+                
+                // Card border-success
+                _this.cardColorChange('success');
+                _this.nextQuestion();
+
+            } else {
+                $('#wrongModal').modal('show'); 
+            }   
         }
     };
 })();
