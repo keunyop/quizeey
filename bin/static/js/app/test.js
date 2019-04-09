@@ -162,6 +162,7 @@ var test;
 
                 // 문제 Reset
                 if ($('#examples').has("div").length) {
+                    $('#versionText').empty();
                     $('#questionText').empty();
                     $('#examples').empty()
                     $('#hidden-answer').empty();
@@ -172,6 +173,8 @@ var test;
                     _btn_question_submit.prop("disabled", true);
                 }
     
+                // Version
+                $('#versionText').append(responseData.verName);
                 // 문제
                 $('#questionText').append(quest_cnt + ". " + responseData.questTxt);
                 // 설명

@@ -13,6 +13,7 @@ public class QuestionMainResponseDto {
     private Long                         questId;
     private Long                         testId;
     private int                          verNbr;
+    private String                       verName;
     private int                          questNbr;
     private String                       questTxt;
     private String                       explanation;
@@ -20,22 +21,16 @@ public class QuestionMainResponseDto {
     private boolean                      isMultiAnswer;
     private List<ExampleMainResponseDto> examples;
 
-    public QuestionMainResponseDto(Question quest, List<Example> exmps) {
+    public QuestionMainResponseDto(Question quest, List<Example> exmps, String verName) {
         this.questId = quest.getQuestId();
         this.testId = quest.getTestId();
         this.verNbr = quest.getVerNbr();
+        this.verName = verName;
         this.questNbr = quest.getQuestNbr();
         this.questTxt = quest.getQuestTxt();
         this.explanation = quest.getExplanation();
         this.reference = quest.getReference();
         this.isMultiAnswer = quest.isMultiAnswer();
         this.examples = exmps.stream().map(ExampleMainResponseDto::new).collect(Collectors.toList());
-    }
-
-    @Override
-    public String toString() {
-        return "QuestionMainResponseDto [questId=" + questId + ", testId=" + testId + ", verNbr=" + verNbr
-                + ", questNbr=" + questNbr + ", questTxt=" + questTxt + ", explanation=" + explanation + ", reference="
-                + reference + ", isMultiAnswer=" + isMultiAnswer + ", examples=" + examples + "]";
     }
 }
