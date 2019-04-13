@@ -177,11 +177,25 @@ var test;
                 $('#versionText').append(responseData.verName);
                 // 문제
                 $('#questionText').append(quest_cnt + ". " + responseData.questTxt);
+
                 // 설명
-                $('#explanation').text(responseData.explanation);
+                if (responseData.explanation != '') {
+                    $('#explanation-title').show();
+                    $('#explanation').text(responseData.explanation);
+                } else {
+                    $('#explanation-title').hide();
+                    $('#explanation').text("");
+                }
+                
                 // 참조
-                $('#reference').attr("href", responseData.reference);
-                $('#reference').text("Open reference link...");
+                if (responseData.reference != '') {
+                    $('#reference-title').show();
+                    $('#reference').attr("href", responseData.reference);
+                    $('#reference').text("Open reference link...");
+                } else {
+                    $('#reference-title').hide();
+                    $('#reference').text("");
+                }
 
                 // 보기
                 if (responseData.multiAnswer) {
