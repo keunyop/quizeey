@@ -383,3 +383,26 @@ insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, cr
           ) a
    where   a.rnum &lt;= 5
    order by EmployeeID</pre>', 'FALSE', now(), now());
+
+
+-- Q16
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('2', '1', '16', '다음 중 아래 두 SQL에 대한 설명으로 가장 적절한 것은? (단, 국가는 100건, 수출실적은 100만 건. 국가 테이블 PK는 국가코드이다.)<br><br>
+<table border="1"><tr><td>
+<pre>
+가. SELECT DISTINCT 국가명
+    FROM 국가 x, 수출실적 y
+    WHERE x.국가코드= y.국가코드
+    AND y.수출년월 BETWEEN ''200001'' AND ''201012'';
+
+나. SELECT 국가명
+    FROM 국가 x
+    WHERE EXISTS (SELECT 1
+                  FROM  수출실적 y
+                  WHERE y.국가코드= x.국가코드
+                  AND y.수출년월 BETWEEN  ''200001'' AND ''201012'');
+</pre>
+</td></tr></table>', '두 SQL의 결과는 동일하며, OLTP 환경이냐 DW 환경이냐를 불문하고 두 번째 SQL이 더 효율적이다.', '', 'false', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '16', '1', '''가'' SQL은 부분범위 처리가 가능하다.', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '16', '2', '''나'' SQL이 더 효율적이다.', 'TRUE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '16', '3', 'OLTP 환경이냐, DW 환경이냐에 따라 두 SQL의 효율성이 다르다.', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '16', '4', '두 SQL의 결과가 다르므로 효율성을 판단하는 것은 의미가 없다.', 'FALSE', now(), now());

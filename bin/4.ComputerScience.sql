@@ -16,6 +16,24 @@ insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, cr
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('4', '1', '1', '4', 'A, B and C all are valid data types.', 'false', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('4', '1', '1', '5', 'A, B and C all are invalid data types.', 'false', now(), now());
 
+-- V1.C Quiz – Operators.Q1
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('4', '1', '2', '<pre>
+#include "stdio.h"
+int main() 
+{ 
+  int x, y = 5, z = 5; 
+  x = y == z; 
+  printf("%d", x); 
+  
+  getchar(); 
+  return 0; 
+}
+</pre>', 'The crux of the question lies in the statement x = y==z. The operator == is executed before = because precedence of comparison operators (<=, >= and ==) is higher than assignment operator =. The result of a comparison operator is either 0 or 1 based on the comparison result. Since y is equal to z, value of the expression y == z becomes 1 and the value is assigned to x via the assignment operator.', '', 'false', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('4', '1', '2', '1', '0', 'false', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('4', '1', '2', '2', '1', 'true', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('4', '1', '2', '3', '5', 'false', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('4', '1', '2', '4', 'Complier Error', 'false', now(), now());
+
 -- V2.Class and Object.Q1
 insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('4', '2', '1', 'What is the difference between struct and class in C++?', '', 'https://www.geeksforgeeks.org/g-fact-76/', 'false', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('4', '2', '1', '1', 'All members of a structure are public and structures don''t have constructors and destructors', 'false', now(), now());
