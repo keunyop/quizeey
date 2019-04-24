@@ -43,7 +43,7 @@ insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, cr
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '3', '4', '㉠ : NOT EXISTS ㉡ : 사번 <> 부양사번', 'FALSE', now(), now());
 
 -- Q4
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('2', '1', '3', '다음 중 아래 테이블 정의와 인덱스 현황을 참고하여, 인덱스를 효율적(또는 정상적)으로 액세스할 수 없는 검색조건을 2개 고르시오. (단, Oracle의 Index Unique Scan, Index Range Scan 또는 SQL Server의 Index Seek 이외의 액세스 방식은 모두 비효율적이라고 가정한다.)<br><br>
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('2', '1', '4', '다음 중 아래 테이블 정의와 인덱스 현황을 참고하여, 인덱스를 효율적(또는 정상적)으로 액세스할 수 없는 검색조건을 2개 고르시오. (단, Oracle의 Index Unique Scan, Index Range Scan 또는 SQL Server의 Index Seek 이외의 액세스 방식은 모두 비효율적이라고 가정한다.)<br><br>
 <table border="1"><tr><td>create table 주문 (<br>
     주문번호    int            not null<br>
   , 주문자명    varchar(20)     null<br>
@@ -406,3 +406,21 @@ insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, cr
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '16', '2', '''나'' SQL이 더 효율적이다.', 'TRUE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '16', '3', 'OLTP 환경이냐, DW 환경이냐에 따라 두 SQL의 효율성이 다르다.', 'FALSE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '16', '4', '두 SQL의 결과가 다르므로 효율성을 판단하는 것은 의미가 없다.', 'FALSE', now(), now());
+
+
+-- Q18
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('2', '1', '18', '다음 중 테이블 tab1에 아래와 같은 데이터가 존재할 경우에 대한 설명으로 가장 적절한 것은? (각 칼럼의 타입은 number이다.)<br><br>
+<table border="1"><tr><td>
+<pre>
+col1     col2     col3
+=======================
+  10       20     NULL
+  15     NULL     NULL
+  50       70       20
+</pre>
+</td></tr></table>', '칼럼끼리 연산할 때 null을 포함하면 결과는 null이다. 
+레코드끼리 연산할 때 null을 포함하면 결과가 null이 아니며, 이유는 null을 연산에서 제외하기 때문이다.', '', 'false', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '18', '1', 'select sum(col2) from tab1 의 결과는 NULL이다.', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '18', '2', 'select sum(col1 + col2 + col3) from tab1 의 결과는 185 이다.', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '18', '3', 'select sum(col2 + col3) from tab1 의 결과는 90 이다.', 'TRUE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '18', '4', 'select sum(col2) + sum(col3) from tab1 의 결과는 90 이다.', 'FALSE', now(), now());
