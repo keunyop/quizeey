@@ -424,3 +424,20 @@ insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, cr
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '18', '2', 'select sum(col1 + col2 + col3) from tab1 의 결과는 185 이다.', 'FALSE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '18', '3', 'select sum(col2 + col3) from tab1 의 결과는 90 이다.', 'TRUE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '18', '4', 'select sum(col2) + sum(col3) from tab1 의 결과는 90 이다.', 'FALSE', now(), now());
+
+
+-- Q19
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('2', '1', '19', '다음 중 NL(Nested Loops) Join의 특징을 설명한 것으로 가장 부적절한 것은?', '선행(Driving) 집합은 주어진 조건절에 따라 Full Table Scan이 유리할 수도 있다.', '', 'false', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '19', '1', '조인을 한 로우씩 차례대로 진행하므로 부분범위 처리에 자주 사용된다.', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '19', '2', '먼저 액세스한 테이블의 처리 범위에 따라 전체 일량이 결정된다.', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '19', '3', 'Inner쪽 조인 칼럼에 대한 인덱스 전략이 중요하지만, 조인 칼럼이 모두 포함되지 않은 인덱스라도 사용 가능하다.', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '19', '4', '선행(Driving) 집합도 반드시 인덱스를 통해 액세스해야 효율적이다.', 'TRUE', now(), now());
+
+
+-- Template
+-- Q20
+-- insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('2', '1', '19', '', '', '', 'false', now(), now());
+-- insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '19', '1', '', 'FALSE', now(), now());
+-- insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '19', '2', '', 'FALSE', now(), now());
+-- insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '19', '3', '', 'TRUE', now(), now());
+-- insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '19', '4', '', 'FALSE', now(), now());
