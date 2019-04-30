@@ -181,7 +181,7 @@ var test;
                 // 설명
                 if (responseData.explanation != '') {
                     $('#explanation-title').show();
-                    $('#explanation').text(responseData.explanation);
+                    $('#explanation').append(responseData.explanation);
                 } else {
                     $('#explanation-title').hide();
                     $('#explanation').text("");

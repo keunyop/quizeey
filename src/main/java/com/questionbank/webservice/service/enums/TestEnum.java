@@ -16,6 +16,8 @@ public enum TestEnum {
 
     CS("4", "Computer Science", "컴퓨터 공학"),
 
+    SQLD("5", "SQLD - SQL Developer", "SQLD - 국가공인 SQL개발자"),
+
     ;
 
     private String code;

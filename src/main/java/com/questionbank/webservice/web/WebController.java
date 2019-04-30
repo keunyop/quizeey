@@ -156,6 +156,32 @@ public class WebController {
         return html;
     }
 
+    @GetMapping(value = { "/sqlp-developer", "/kr/sqlp-developer" })
+    public String sqlpDeveloper(HttpServletRequest request, Model model) {
+
+        String html = "";
+        String testId = TestEnum.SQLD.getCode();
+
+        model.addAttribute("testId", testId);
+
+        switch (request.getRequestURI()) {
+            case "/sqlp-developer":
+                model.addAttribute("testName", TestEnum.getByCode(testId).getEngName());
+                html = "test";
+                break;
+
+            case "/kr/sqlp-developer":
+                model.addAttribute("testName", TestEnum.getByCode(testId).getKorName());
+                html = "kr/test";
+                break;
+
+            default:
+                break;
+        }
+
+        return html;
+    }
+
     @GetMapping("/about")
     public String about() {
         return "about";

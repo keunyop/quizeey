@@ -12,6 +12,7 @@ spring:
       - classpath:2.SQLP.sql 
       - classpath:3.CBPCertification.sql
       - classpath:4.ComputerScience.sql
+      - classpath:5.SQLD.sql
   jpa:
     show-sql: true
     hibernate:
