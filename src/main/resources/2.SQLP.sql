@@ -440,6 +440,19 @@ insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, cr
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '20', '3', '파티션 돼 있지 않다면 병렬 스캔이 불가능하다.', 'FALSE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '20', '4', '필요한 칼럼이 모두 인덱스에 포함돼 있을 때만 사용 가능하다.', 'TRUE', now(), now());
 
+-- Q21
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('2', '1', '21', 'Oracle에서 TAB1, TAB2 순으로 NL 조인하도록 유도하고 싶다. 다음 중 ㉠ 안에 넣을 바른 힌트 사용법을 2개고르시오.<br><br>
+<pre>
+SELECT --+ (         ㉠         ) -- ...
+FROM TAB1 A, TAB2 B
+WHERE A.KEY = B.KEY
+</pre>', '테이블 Alias가 있은 상황에선 반드시 Alias를 사용해야 한다.', '', 'true', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '21', '1', 'ORDERED USE_NL(B)', 'TRUE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '21', '2', 'ORDERED USE_NL(TAB2)', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '21', '3', 'LEADING(A) USE_NL(B)', 'TRUE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '21', '4', 'DRIVING_SITE(A) USE_NL(B)', 'FALSE', now(), now());
+
+
 -- Template
 -- Q20
 -- insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('2', '1', '19', '', '', '', 'false', now(), now());
