@@ -452,6 +452,36 @@ insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, cr
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '21', '3', 'LEADING(A) USE_NL(B)', 'TRUE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '21', '4', 'DRIVING_SITE(A) USE_NL(B)', 'FALSE', now(), now());
 
+-- Q22
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('2', '1', '22', '다음 중 아래 SQL문과 실행계획을 보고, 두 테이블의 조인 순서와 inner 테이블에 대한 조인 회수로 가장 적절한 것은?<br><br>
+<pre>
+select  *
+from    t_small a, t_big b
+where   a.id = b.id
+and     a.colid = b.colid
+and     a.number = b.number
+and     b.name = ''password''
+and     a.length &lt;= 10
+order by a.length DESC
+
+Rows   Executes   StmtText
+----- ----------- ---------------------------------------------------------------
+     0              1      select  *
+     0              1        |--Sort(ORDER BY:([a].[length] DESC))
+     0              1             |--Filter(WHERE:([t_small].[length] as [a].[length]&lt;=(10
+    30              1                 |--Nested Loops(Inner Join, OUTER REFERENCES:([Bmk1
+    30              1                  |--Nested Loops(Inner Join, OUTER REFERENCES:(
+    30              1                    |   |--Table Scan(OBJECT:([t_big] AS [b]),
+    30             30                    |   |--Index Seek(OBJECT:([t_small].[t_small_
+    30             30                    |--RID Lookup(OBJECT:([t_small] AS [a]), SEEK:
+
+(8개 행 적용됨)
+</pre>', '실행계획 상 위 쪽에서 아래 쪽으로 조인이 진행된다.<br>
+NL 조인의 경우 위쪽에 있는 Outer 집합에서 출력된 결과 건수(Rows)만큼 Inner 집합으로 조인 시도가 일어난다.', '', 'false', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '22', '1', '조인 순서 : t_small → t_big, inner 테이블 조인 횟수 : 30', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '22', '2', '조인 순서 : t_big → t_small, inner 테이블 조인 횟수 : 60', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '22', '3', '조인 순서 : t_small → t_big, inner 테이블 조인 횟수 : 1', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '22', '4', '조인 순서 : t_big → t_small, inner 테이블 조인 횟수 : 30', 'TRUE', now(), now());
 
 -- Template
 -- Q20
