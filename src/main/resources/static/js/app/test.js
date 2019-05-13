@@ -1,6 +1,8 @@
 var test;
 
 (function() {
+    var questId;
+
     var quest_cnt = 0;
     var correct_cnt = 0;
     
@@ -123,7 +125,7 @@ var test;
                                    .text(value.verNm)); 
                });
             }).fail(function(error) {
-                alert(error);
+                console.log(error);
             });
         },
 
@@ -144,10 +146,13 @@ var test;
                 dataType: 'json',
                 contentType:'application/json; charset=utf-8',
                 data: JSON.stringify(data)
+
             }).done(function(responseData) {
+                questId = responseData.questId;
+
                 // Disqus
                 disqus_config = function () {
-                    this.page.url = 'http://quizeey.com/test/' + responseData.questId;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.url = 'http://quizeey.com/test/' + questId;  // Replace PAGE_URL with your page's canonical URL variable
                     this.page.identifier = ''; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
                 };
 
@@ -172,7 +177,7 @@ var test;
                     _btn_question_submit.removeClass('btn-primary').addClass('btn-secondary');
                     _btn_question_submit.prop("disabled", true);
                 }
-    
+
                 // Version
                 $('#versionText').append(responseData.verName);
                 // 문제
@@ -327,10 +332,13 @@ var test;
         },
 
         // Submit quiz
-        submitQuiz : function () {
+        submitQuiz : function() {
             var _this = this;
+
+            // 정답여부
+            const result = _this.isCorrect();
             
-            if (_this.isCorrect()) {
+            if (result) {
                 correct_cnt++;
                 
                 // Card border-success
@@ -339,8 +347,34 @@ var test;
 
             } else {
                 $('#wrongModal').modal('show'); 
-            }   
+            } 
+
+            // 통계용 결과 전송
+            _this.sendResult(result);
+        },
+
+        // 통계용 결과 전송
+        sendResult : function(result) {
+            var data = {
+                questId: questId,
+                correct: result
+            }
+
+            $.ajax({
+                type: 'POST',
+                url: '/updateQuestionStats',
+                dataType: 'json',
+                contentType:'application/json; charset=utf-8',
+                data: JSON.stringify(data)
+
+            }).done(function(responseData) {
+                // Nothing to do yet
+
+            }).fail(function(error) {
+                console.log(error);
+            });
         }
+
     };
 })();
 

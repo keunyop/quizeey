@@ -23,12 +23,32 @@ insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, cr
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '1', '2', '4', '추상적 데이터 모델링', 'FALSE', now(), now());
 
 -- V30.Q1
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('5', '2', '1', '데이터 모델링이 최종적으로 완료된 상태라고 정의할 수 있는, 즉 물리적인 스카마 설계를 하기 전 단계를 가리키는 말은?<br><br>
-<img src=''//img.comcbt.com/cbt/data/j4/j420190303/j420190303m2.gif?1551920083''  style="cursor:pointer;width:219px;height:auto;" onclick="if (this.style.width==''600px'') { this.style.width=''219px''; } else { this.style.width=''600px''; } " title="이미지를 클릭하면 확대 가능합니다.(한번더 클릭하면 원본크기로 변경 됩니다)."  >', '논리 데이터 모델링의 결과로 얻어지는 논리 데이터 모델은 데이터 모델링이 최종적으로 완료된 상태라고 정의할 수 있다. 즉 물리적인 스키마 설계를 하기 전 단계의 ‘데이터 모델’ 상태를 일컫는 말이다.', '', 'false', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('5', '2', '1', '데이터 모델링이 최종적으로 완료된 상태라고 정의할 수 있는, 즉 물리적인 스카마 설계를 하기 전 단계를 가리키는 말은?', '논리 데이터 모델링의 결과로 얻어지는 논리 데이터 모델은 데이터 모델링이 최종적으로 완료된 상태라고 정의할 수 있다. 즉 물리적인 스키마 설계를 하기 전 단계의 ‘데이터 모델’ 상태를 일컫는 말이다.', '', 'false', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '1', '1', '개괄 데이터 모델링', 'FALSE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '1', '2', '개념적 데이터 모델링', 'FALSE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '1', '3', '논리적 데이터 모델링', 'TRUE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '1', '4', '물리적 데이터 모델링', 'FALSE', now(), now());
+
+-- V30.Q2
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('5', '2', '2', '엔터티 - 인스턴스 - 속성 - 속성값에 대한 관계 설명중 틀린 것을 고르시오.', '하나의 속성은 하나의 속성값을 가지며 하나 이상의 속성값을 가지는 경우 정규화가 필요함', '', 'false', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '2', '1', '한 개의 엔터티는 두 개 이상의 인스턴스의 집합이어야 한다.', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '2', '2', '한 개의 엔터티는 두 개 이상의 속성을 갖는다.', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '2', '3', '하나의 속성은 하나 이상의 속성값을 가진다.', 'TRUE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '2', '4', '하나의 엔터티의 인스터스는 다른 엔터티의 인스턴스간의 관계인 Paring 을 가진다.', 'FALSE', now(), now());
+
+-- V30.Q3
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('5', '2', '3', '다음 중 엔터티의 종류가 아닌 것은?', '엔터티 기준<br> - 엔터티는 사람, 장소, 물건, 사건, 개념 등의 명사에 해당한다.<br> - 엔터티는 업무상 관리가 필요한 관심사에 해당한다.<br> - 엔터티는 저장이 되기 위한 어떤 것(Thing)이다.', '', 'false', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '3', '1', '교수', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '3', '2', '학생', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '3', '3', '청약자', 'TRUE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '3', '4', '수강', 'FALSE', now(), now());
+
+-- V30.Q4
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('5', '2', '4', '발생시점에 따른 엔터티 분류에 의한 중심 엔터티가 아닌 것은?', '사원， 부서， 고객， 상품， 자재 등이 기본엔터티가 될 수 있다', '', 'false', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '4', '1', '매출', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '4', '2', '계약', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '4', '3', '사원', 'TRUE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '4', '4', '주문', 'FALSE', now(), now());
 
 -- Template
 -- Q20

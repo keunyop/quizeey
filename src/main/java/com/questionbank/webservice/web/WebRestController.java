@@ -10,10 +10,12 @@ import com.questionbank.webservice.dto.question.ExampleSaveRequestDto;
 import com.questionbank.webservice.dto.question.QuestionMainResponseDto;
 import com.questionbank.webservice.dto.question.QuestionRequestDto;
 import com.questionbank.webservice.dto.question.QuestionSaveRequestDto;
+import com.questionbank.webservice.dto.question.QuestionStatsSaveRequestDto;
 import com.questionbank.webservice.dto.question.VersionRequestDto;
 import com.questionbank.webservice.dto.question.VersionResponseDto;
 import com.questionbank.webservice.service.ExampleService;
 import com.questionbank.webservice.service.QuestionService;
+import com.questionbank.webservice.service.QuestionStatsService;
 import com.questionbank.webservice.service.VersionService;
 
 import lombok.AllArgsConstructor;
@@ -21,9 +23,10 @@ import lombok.AllArgsConstructor;
 @RestController
 @AllArgsConstructor
 public class WebRestController {
-    private QuestionService questionService;
-    private VersionService  versionService;
-    private ExampleService  exampleService;
+    private QuestionService      questionService;
+    private VersionService       versionService;
+    private ExampleService       exampleService;
+    private QuestionStatsService questionStatsService;
 
     @PostMapping("/question")
     public QuestionMainResponseDto getQuestion(@RequestBody
@@ -47,5 +50,13 @@ public class WebRestController {
     public Long addExample(@RequestBody
     ExampleSaveRequestDto dto) {
         return exampleService.addExample(dto);
+    }
+
+    @PostMapping("/updateQuestionStats")
+    public void updateQuestionStats(@RequestBody
+    QuestionStatsSaveRequestDto dto) {
+        System.out.println("### updateQuestionStats dto: " + dto.toString());
+
+        questionStatsService.updateQuestionStats(dto);
     }
 }

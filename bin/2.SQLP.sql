@@ -483,6 +483,85 @@ insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, cr
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '22', '3', '조인 순서 : t_small → t_big, inner 테이블 조인 횟수 : 1', 'FALSE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '22', '4', '조인 순서 : t_big → t_small, inner 테이블 조인 횟수 : 30', 'TRUE', now(), now());
 
+-- -- Q23
+-- insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('2', '1', '23', '다음 중 아래 SQL과 트레이스 결과를 분석하고, 보기에서 제시한 튜닝 방안 중 가장 적절한 것은?<br><br>
+-- <pre>
+-- SQL&gt; SELECT ...
+--   2  FROM  (SELECT DEII_DT, NEII_VAL, NACT_VAL, NSTD_VAL
+--   3              , NVL(ROUND(AVG(NACT_VAL/NSTD_VAL*100) OVER(), 2), 0.00) AVG_VAL
+--   4              , NVL(ROUND(STDDEV(NACT_VAL/NSTD_VAL*100) OVER(), 2), 0.00) STDDEV_VAL
+--   5              , ROWNUM RN
+--   6         FROM   EII_SUMMARY
+--   7         WHERE  TO_CHAR(DEII_DT, ''YYYYMMDDHH24MISS'') BETWEEN :B3 AND :B4
+--   8         ORDER BY DEII_DT) MR
+--   9         LEFT OUTER JOIN EII_TARGET ET
+--  10         ON   ET.DEII_DT BETWEEN TRUNC(MR.DEII_DT, ''MM'')
+--  11                             AND TRUNC(LAST_DAY(MR.DEII_DT)+1)-1/60/24/24
+--  12         AND  ET.NCODE_NO IN ( :B1, :B2 )
+--  13  GROUP BY FLOOR((MR.RN-1)/:B5 ), MR.AVG_VAL, MR.STDDEV_VAL
+--  14  ORDER BY FLOOR((MR.RN-1)/:B5 ) ;
+
+-- call      count      cpu   elapsed    disk    query   current     rows
+-- -------  ------  -------  --------  ------  -------  --------  -------
+-- Parse       446     0.00      0.00       0        0         0        0
+-- Execute    7578     0.03      0.12      22      564         2        8
+-- Fetch     13522   128.03    129.16      22  6676902         0    10442
+-- -------  ------  -------  --------  ------  -------  --------  -------
+-- total     21546   128.06    129.30      44  6677466         2    10450
+
+-- Rows   Row Source Operation
+-- ----  ---------------------------------------------------
+--    2   SORT GROUP BY (cr=7340 pr=7 pw=0 time=221191 us)
+--  240    NESTED LOOPS OUTER (cr=7340 pr=7 pw=0 time=221460 us)
+--  120     VIEW  (cr=20 pr=7 pw=0 time=90776 us)
+--  120      FILTER  (cr=20 pr=7 pw=0 time=90410 us)
+--  120       WINDOW SORT (cr=20 pr=7 pw=0 time=89447 us)
+--  120        COUNT  (cr=20 pr=7 pw=0 time=79490 us)
+--  120         TABLE ACCESS (FULL) OF ''EII_SUMMARY'' (TABLE) (cr=20 pr=7 pw=0 time=79250 us)
+--  240     VIEW  (cr=7320 pr=0 pw=0 time=74760 us)
+--  240      TABLE ACCESS FULL EII_TARGET (cr=7320 pr=0 pw=0 time=74414 us)
+
+
+-- [인덱스 구성]
+-- EII_SUMMARY_X01 : DEII_DT
+-- EII_TARGET_X01 : DEII_DT
+-- </pre>', '7번 라인에 대한 Row Source를 보면, 20개 블록을 읽어서 120개 로우를 반환하므로 굳이 인덱스를 사용하도록 튜닝하지 않아도 된다.<br/>
+-- 9번 라인에 대한 Row Source만 보고 Left Outer Join이 불필요하다고 판단할 수 없다. <br/>
+-- 10~11번 라인 조인 칼럼에 인덱스가 있는데도 옵티마이저가 이를 사용하지 않고 Full Table Scan으로 처리한 이유는, <br/>
+-- NCODE_NO 필터링을 위해 다량의 테이블 랜덤 액세스가 발생하기 때문이다. <br/>
+-- 인덱스 뒤에 NCODE_NO만 추가해도 성능이 많이 개선되겠지만, <br/>
+-- 순서까지 바꿔 <span class="error">&#91;NCODE_NO + DEII_DT&#93; 순으로 구성하는 것이 최적이다. <br/>
+-- 14번 라인의 ORDER BY를 제거하면 결과집합의 출력순서가 달라질 수 있다.', '', 'false', now(), now());
+-- insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '23', '1', '7번 라인을 아래와 같이 수정한다.<br><pre>WHERE DEII_DT BETWEEN TO_DATE(:B3, ''YYYYMMDDHH24MISS'')
+--                   AND     TO_DATE(:B4, ''YYYYMMDDHH24MISS'')</pre>', 'FALSE', now(), now());
+-- insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '23', '2', '9번 라인의 ''LEFT OUTER JOIN''을 ''INNER JOIN''으로 변경함으로써<br>
+--    EII_TARGET 테이블이 먼저 드라이빙 될 수 있게 한다.<br>
+--    Row Source를 분석해 보면, Outer 집합에서 Inner 집합으로 조인 시도한<br>
+--    건수만큼 모두 성공하므로 Outer Join은 불필요하다.', 'FALSE', now(), now());
+-- insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '23', '3', '10~12번 라인을 위해 EII_TARGET_X01 인덱스를 [NCODE_NO + DEII_DT] 순으로 구성한다.', 'TRUE', now(), now());
+-- insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '23', '4', '14번 라인의 ORDER BY는 불필요하므로 제거한다.', 'FALSE', now(), now());
+
+-- Q24
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('2', '1', '24', '일별고객별판매집계 테이블의 PK는 &lt;판매일시 + 고객번호&gt; 순으로 구성되었다. 이 테이블에 DML을 수행하는 다른 트랜잭션이 없는 상황에서 Oracle은 아래 ''가'', ''나'', ''다'' 문장을 어떤 순서로 수행하느냐에 따라 마지막 ''라'' 문장의 블록 I/O 횟수가 달라진다. 제시된 4가지 수행 순서 보기 중 마지막 ''라'' 문장을 수행했을 때 블록 I/O가 가장 적게 발생하는 것을 고르시오. (''라'' 문장은 PK 인덱스를 이용한다는 사실을 상기하기 바란다.)<br><br><pre>
+가) 3일 이전에 발생한 판매 데이터를 삭제한다.
+    delete from 일별고객별판매집계 where 판매일시 &lt; trunc(sysdate) - 2;
+
+나) 고객별로 집계한 금일 판매 데이터를 추가한다.
+    insert into 일별고객별판매집계
+    select to_char(sysdate, ''yyyymmdd''), 고객번호, sum(판매량), sum(판매금액)
+    from   판매
+    where  판매일시 between trunc(sysdate) and trunc(sysdate+1)-1/24/60/60
+    group by 고객번호;
+
+다) commit;
+
+라) select count(*) from 일별고객별판매집계;
+</pre>', '''가''를 수행하고''다''를 수행하기 전에 commit을 수행하면, ''가''에서 삭제된 빈 공간을 ''다''에서 재사용하므로 Index Skew 현상을 방지할 수 있다.', '', 'false', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '24', '1', '가 &#45;&gt; 나 &#45;&gt; 다 &#45;&gt; 라', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '24', '2', '가 &#45;&gt; 다 &#45;&gt; 나 &#45;&gt; 다 &#45;&gt; 라', 'TRUE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '24', '3', '나 &#45;&gt; 가 &#45;&gt; 다 &#45;&gt; 라', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '24', '4', '나 &#45;&gt; 다 &#45;&gt; 가 &#45;&gt; 다 &#45;&gt; 라', 'FALSE', now(), now());
+
 -- Template
 -- Q20
 -- insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('2', '1', '19', '', '', '', 'false', now(), now());
