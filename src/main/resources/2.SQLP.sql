@@ -530,7 +530,7 @@ EII_TARGET_X01 : DEII_DT
 10~11번 라인 조인 칼럼에 인덱스가 있는데도 옵티마이저가 이를 사용하지 않고 Full Table Scan으로 처리한 이유는, <br/>
 NCODE_NO 필터링을 위해 다량의 테이블 랜덤 액세스가 발생하기 때문이다. <br/>
 인덱스 뒤에 NCODE_NO만 추가해도 성능이 많이 개선되겠지만, <br/>
-순서까지 바꿔 <span class="error">&#91;NCODE_NO + DEII_DT&#93;</span> 순으로 구성하는 것이 최적이다. <br/>
+순서까지 바꿔 <span class="error">&#91;NCODE_NO + DEII_DT&#93; 순으로 구성하는 것이 최적이다. <br/>
 14번 라인의 ORDER BY를 제거하면 결과집합의 출력순서가 달라질 수 있다.', '', 'false', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '23', '1', '7번 라인을 아래와 같이 수정한다.<br><pre>WHERE DEII_DT BETWEEN TO_DATE(:B3, ''YYYYMMDDHH24MISS'')
                   AND     TO_DATE(:B4, ''YYYYMMDDHH24MISS'')</pre>', 'FALSE', now(), now());
@@ -540,6 +540,27 @@ insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, cr
    건수만큼 모두 성공하므로 Outer Join은 불필요하다.', 'FALSE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '23', '3', '10~12번 라인을 위해 EII_TARGET_X01 인덱스를 [NCODE_NO + DEII_DT] 순으로 구성한다.', 'TRUE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '23', '4', '14번 라인의 ORDER BY는 불필요하므로 제거한다.', 'FALSE', now(), now());
+
+-- Q24
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('2', '1', '24', '일별고객별판매집계 테이블의 PK는 &lt;판매일시 + 고객번호&gt; 순으로 구성되었다. 이 테이블에 DML을 수행하는 다른 트랜잭션이 없는 상황에서 Oracle은 아래 ''가'', ''나'', ''다'' 문장을 어떤 순서로 수행하느냐에 따라 마지막 ''라'' 문장의 블록 I/O 횟수가 달라진다. 제시된 4가지 수행 순서 보기 중 마지막 ''라'' 문장을 수행했을 때 블록 I/O가 가장 적게 발생하는 것을 고르시오. (''라'' 문장은 PK 인덱스를 이용한다는 사실을 상기하기 바란다.)<br><br><pre>
+가) 3일 이전에 발생한 판매 데이터를 삭제한다.
+    delete from 일별고객별판매집계 where 판매일시 &lt; trunc(sysdate) - 2;
+
+나) 고객별로 집계한 금일 판매 데이터를 추가한다.
+    insert into 일별고객별판매집계
+    select to_char(sysdate, ''yyyymmdd''), 고객번호, sum(판매량), sum(판매금액)
+    from   판매
+    where  판매일시 between trunc(sysdate) and trunc(sysdate+1)-1/24/60/60
+    group by 고객번호;
+
+다) commit;
+
+라) select count(*) from 일별고객별판매집계;
+</pre>', '''가''를 수행하고''다''를 수행하기 전에 commit을 수행하면, ''가''에서 삭제된 빈 공간을 ''다''에서 재사용하므로 Index Skew 현상을 방지할 수 있다.', '', 'false', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '24', '1', '가 &#45;&gt; 나 &#45;&gt; 다 &#45;&gt; 라', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '24', '2', '가 &#45;&gt; 다 &#45;&gt; 나 &#45;&gt; 다 &#45;&gt; 라', 'TRUE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '24', '3', '나 &#45;&gt; 가 &#45;&gt; 다 &#45;&gt; 라', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('2', '1', '24', '4', '나 &#45;&gt; 다 &#45;&gt; 가 &#45;&gt; 다 &#45;&gt; 라', 'FALSE', now(), now());
 
 -- Template
 -- Q20
