@@ -37,11 +37,18 @@ insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, cr
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '2', '4', '하나의 엔터티의 인스터스는 다른 엔터티의 인스턴스간의 관계인 Paring 을 가진다.', 'FALSE', now(), now());
 
 -- V30.Q3
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('5', '2', '3', '다음주 엔터티의 종류가 아닌 것은?', '엔터티 기준<br> - 엔터티는 사람, 장소, 물건, 사건, 개념 등의 명사에 해당한다.<br> - 엔터티는 업무상 관리가 필요한 관심사에 해당한다.<br> - 엔터티는 저장이 되기 위한 어떤 것(Thing)이다.', '', 'false', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('5', '2', '3', '다음 중 엔터티의 종류가 아닌 것은?', '엔터티 기준<br> - 엔터티는 사람, 장소, 물건, 사건, 개념 등의 명사에 해당한다.<br> - 엔터티는 업무상 관리가 필요한 관심사에 해당한다.<br> - 엔터티는 저장이 되기 위한 어떤 것(Thing)이다.', '', 'false', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '3', '1', '교수', 'FALSE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '3', '2', '학생', 'FALSE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '3', '3', '청약자', 'TRUE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '3', '4', '수강', 'FALSE', now(), now());
+
+-- V30.Q4
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('5', '2', '4', '발생시점에 따른 엔터티 분류에 의한 중심 엔터티가 아닌 것은?', '사원， 부서， 고객， 상품， 자재 등이 기본엔터티가 될 수 있다', '', 'false', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '4', '1', '매출', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '4', '2', '계약', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '4', '3', '사원', 'TRUE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '4', '4', '주문', 'FALSE', now(), now());
 
 -- Template
 -- Q20
