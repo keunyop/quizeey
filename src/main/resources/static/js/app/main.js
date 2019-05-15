@@ -31,19 +31,33 @@ var main = {
         });
     },
     openQuiz : function () {
-        var testId = $("input[name='testRadio']:checked").val();
+        // var testId = $("input[name='testRadio']:checked").val();
 
-        if (!testId) {
+        // if (!testId) {
+        //     return;
+        // }
+
+        // var language = $("meta[http-equiv='content-language']").attr("content");
+
+        // if (language == 'ko') {
+        //     window.location = '/kr/test?testId=' + testId;
+        // } else {
+        //     window.location = '/test?testId=' + testId;
+        // }
+
+        var path = '/';
+        var testNm = $("input[name='testRadio']:checked").val();
+
+        if (!testNm) {
             return;
         }
 
-        var language = $("meta[http-equiv='content-language']").attr("content");
-
-        if (language == 'ko') {
-            window.location = '/kr/test?testId=' + testId;
-        } else {
-            window.location = '/test?testId=' + testId;
+        // Language
+        if ($("meta[http-equiv='content-language']").attr("content") == 'ko') {
+            path = '/kr/';
         }
+
+        window.location = path + testNm;
     },
 
     // Radio button change event

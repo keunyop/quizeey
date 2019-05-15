@@ -50,6 +50,13 @@ insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, cr
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '4', '3', '사원', 'TRUE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '4', '4', '주문', 'FALSE', now(), now());
 
+-- V30.Q5
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('5', '2', '5', '분산 데이터베이스의 특징 중 저장 장소 명시가 불필요 하다는 특성은 무엇인가?', '사용하려는 데이터의 저장 장소 명시 불필요. 위치정보가 System Catalog 에 유지되어야 함 지역 사상 투명성: 지역 DBMS와 물리적 DB사이의 Mapping 보장 각 지역시스템 이름과 무관한 이름 사용가능', '', 'false', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '5', '1', '분할 투명성', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '5', '2', '위치 투명성', 'TRUE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '5', '3', '지역사상 투명성', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '5', '4', '병행 투명성', 'FALSE', now(), now());
+
 -- Template
 -- Q20
 -- insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('5', '1', '1', '', '', '', 'false', now(), now());
