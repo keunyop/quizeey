@@ -16,12 +16,6 @@ public class QuestionStatsSaveRequestDto {
     private boolean isCorrect;
 
     public QuestionStats toEntity(int correct, int incorrect) {
-
-        QuestionStats questionStats = QuestionStats.builder().questId(questId).correct(correct).inCorrect(incorrect)
-                .build();
-
-        System.out.println("### QuestionStats: " + questionStats.toString());
-
-        return questionStats;
+        return QuestionStats.builder().questId(questId).correct(correct).inCorrect(incorrect).build();
     }
 }

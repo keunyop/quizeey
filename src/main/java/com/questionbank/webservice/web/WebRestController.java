@@ -55,8 +55,6 @@ public class WebRestController {
     @PostMapping("/updateQuestionStats")
     public void updateQuestionStats(@RequestBody
     QuestionStatsSaveRequestDto dto) {
-        System.out.println("### updateQuestionStats dto: " + dto.toString());
-
         questionStatsService.updateQuestionStats(dto);
     }
 }
