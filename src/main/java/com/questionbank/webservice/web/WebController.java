@@ -2,6 +2,7 @@ package com.questionbank.webservice.web;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -53,12 +54,18 @@ public class WebController {
     }
 
     @GetMapping(value = { "/aws-certified-developer-associate", "/kr/aws-certified-developer-associate" })
-    public String awsCertiDevAsct(HttpServletRequest request, Model model) {
+    public String awsCertiDevAsct(HttpServletRequest request, Model model,
+                                  @RequestParam(value = "questId", required = false)
+                                  String questId) {
 
         String html = "";
         String testId = TestEnum.AWS_DEV_ASSOCT.getCode();
 
         model.addAttribute("testId", testId);
+
+        if (StringUtils.isNotBlank(questId)) {
+            model.addAttribute("inputQuestId", questId);
+        }
 
         switch (request.getRequestURI()) {
             case "/aws-certified-developer-associate":
@@ -79,12 +86,18 @@ public class WebController {
     }
 
     @GetMapping(value = { "/sqlp-professional", "/kr/sqlp-professional" })
-    public String sqlpProfessional(HttpServletRequest request, Model model) {
+    public String sqlpProfessional(HttpServletRequest request, Model model,
+                                   @RequestParam(value = "questId", required = false)
+                                   String questId) {
 
         String html = "";
         String testId = TestEnum.SQLP.getCode();
 
         model.addAttribute("testId", testId);
+
+        if (StringUtils.isNotBlank(questId)) {
+            model.addAttribute("inputQuestId", questId);
+        }
 
         switch (request.getRequestURI()) {
             case "/sqlp-professional":
@@ -105,12 +118,18 @@ public class WebController {
     }
 
     @GetMapping(value = { "/cbp-basic-developer", "/kr/cbp-basic-developer" })
-    public String cbpBasicDeveloper(HttpServletRequest request, Model model) {
+    public String cbpBasicDeveloper(HttpServletRequest request, Model model,
+                                    @RequestParam(value = "questId", required = false)
+                                    String questId) {
 
         String html = "";
         String testId = TestEnum.CBP_BASIC.getCode();
 
         model.addAttribute("testId", testId);
+
+        if (StringUtils.isNotBlank(questId)) {
+            model.addAttribute("inputQuestId", questId);
+        }
 
         switch (request.getRequestURI()) {
             case "/cbp-basic-developer":
@@ -131,12 +150,18 @@ public class WebController {
     }
 
     @GetMapping(value = { "/computer-science", "/kr/computer-science" })
-    public String computerScience(HttpServletRequest request, Model model) {
+    public String computerScience(HttpServletRequest request, Model model,
+                                  @RequestParam(value = "questId", required = false)
+                                  String questId) {
 
         String html = "";
         String testId = TestEnum.CS.getCode();
 
         model.addAttribute("testId", testId);
+
+        if (StringUtils.isNotBlank(questId)) {
+            model.addAttribute("inputQuestId", questId);
+        }
 
         switch (request.getRequestURI()) {
             case "/computer-science":
@@ -157,12 +182,18 @@ public class WebController {
     }
 
     @GetMapping(value = { "/sqlp-developer", "/kr/sqlp-developer" })
-    public String sqlpDeveloper(HttpServletRequest request, Model model) {
+    public String sqlpDeveloper(HttpServletRequest request, Model model,
+                                @RequestParam(value = "questId", required = false)
+                                String questId) {
 
         String html = "";
         String testId = TestEnum.SQLD.getCode();
 
         model.addAttribute("testId", testId);
+
+        if (StringUtils.isNotBlank(questId)) {
+            model.addAttribute("inputQuestId", questId);
+        }
 
         switch (request.getRequestURI()) {
             case "/sqlp-developer":

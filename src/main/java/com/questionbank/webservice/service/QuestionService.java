@@ -34,7 +34,7 @@ public class QuestionService {
     @Transactional(readOnly = true)
     public QuestionMainResponseDto getQuestion(QuestionRequestDto dto) {
         // 문제 조회
-        Question qeustion = _getQuestion(dto.getTestId(), dto.getVerNbr());
+        Question qeustion = _getQuestion(dto);
 
         // 보기 조회
         List<Example> examples = exampleRepository.findByTestIdAndVerNbrAndQuestNbr(qeustion.getTestId(),
@@ -46,14 +46,27 @@ public class QuestionService {
         return new QuestionMainResponseDto(qeustion, examples, _getVersionName(qeustion));
     }
 
-    // 문제 조회
-    private Question _getQuestion(Long testId, int verNbr) {
-        // verNbr가 있으면 해당 version 문제 조회
-        // verNbr가 없으면 test 전체에서 문제 조회
-        List<Question> questions = (verNbr == 0) ? questionRepository.getQuestionsByTestId(testId)
-                : questionRepository.getQuestionsByTestIdAndVerNbr(testId, verNbr);
+    /**
+     * 문제 조회
+     */
+    private Question _getQuestion(QuestionRequestDto dto) {
 
-        return questions.get(_generateRandomNumber(questions.size()));
+        Question question = null;
+
+        // 특정 문제 번호가 없으면 random 문제 조회
+        if (dto.getQuestId() == null) {
+            // verNbr가 있으면 해당 version 문제 조회
+            // verNbr가 없으면 test 전체에서 문제 조회
+            List<Question> questions = (dto.getVerNbr() == 0) ? questionRepository.getQuestionsByTestId(dto.getTestId())
+                    : questionRepository.getQuestionsByTestIdAndVerNbr(dto.getTestId(), dto.getVerNbr());
+
+            question = questions.get(_generateRandomNumber(questions.size()));
+
+        } else {
+            question = questionRepository.findOne(dto.getQuestId());
+        }
+
+        return question;
     }
 
     /**

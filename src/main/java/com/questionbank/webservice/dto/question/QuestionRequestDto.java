@@ -11,15 +11,12 @@ import lombok.Setter;
 public class QuestionRequestDto {
     private Long testId;
     private int  verNbr;
+    private Long questId;
 
     @Builder
-    public QuestionRequestDto(Long testId, int verNbr) {
+    public QuestionRequestDto(Long testId, int verNbr, Long questId) {
         this.testId = testId;
         this.verNbr = verNbr;
-    }
-
-    @Override
-    public String toString() {
-        return "QuestionRequestDto [testId=" + testId + ", verNbr=" + verNbr + "]";
+        this.questId = questId;
     }
 }

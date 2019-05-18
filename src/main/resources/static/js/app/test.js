@@ -11,6 +11,7 @@ var test;
             var _this = this;
             _this.getVersions();
             _this.nextQuestion();
+            $('#inputQuestId').text("");    // 최초 nextQuestion 후 #inputQuestId 초기화
 
             // Quiz version selector change
             $('#quiz-version-selector').on('change', function() {
@@ -137,7 +138,8 @@ var test;
 
             var data = {
                 testId: $('#testId').text(),
-                verNbr: $("#quiz-version-selector").val()
+                verNbr: $("#quiz-version-selector").val(),
+                questId: $('#inputQuestId').text()
             };
     
             $.ajax({
