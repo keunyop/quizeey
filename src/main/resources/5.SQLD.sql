@@ -57,6 +57,25 @@ insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, cr
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '5', '3', '지역사상 투명성', 'FALSE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '5', '4', '병행 투명성', 'FALSE', now(), now());
 
+-- V30.Q6
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('5', '2', '6', '아래와 같은 테이블이 있을 때 모든 SQL 이 수행된 이후의 결과는?<br><br><pre>[테이블]
+TABLE : SQLD_D5
+        COL1 VARCHAR2(30)
+        COL2 NUMBER 
+ 
+[SQL]
+INSERT INTO SQLD_D5(COL1, COL2) VALUES(''ABCD'',NULL);
+INSERT INTO SQLD_D5(COL1, COL2) VALUES(''BC'',NULL);
+ALTER TABLE SQLD_D5 MODIFY COL2 DEFAULT 10;
+INSERT INTO SQLD_D5(COL1, COL2) VALUES(''XY'',NULL);
+INSERT INTO SQLD_D5(COL1) VALUES(''EXD'');
+SELECT SUM(COL2) FROM SQLD_D5;</pre>', '', '', 'false', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '6', '1', '0', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '6', '2', '10', 'TRUE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '6', '3', '20', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '2', '6', '4', '40', 'FALSE', now(), now());
+
+
 -- Template
 -- Q20
 -- insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('5', '1', '1', '', '', '', 'false', now(), now());
