@@ -31,10 +31,17 @@ insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, cr
 
 -- V21.Q4
 insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('5', '1', '4', '아래의 SQL 에서 FUNCTION 자리에 쓰인 함수에 의한 결과값이 다른 하나는?<br><br>SELECT function(3.46) FROM DUAL;', 'FLOOR: 숫자보다 작거나 같은 최대 정수를 리턴<br>CEIL/CEILING: 숫자보다 크거나 같은 최소 정수를 리턴<br>TRUNC: 숫자를 소수 m 자리에서 잘라서 리턴 (m default: 0)<br>ROUND: 숫자를 소수 m 자리에서 반올림하여 리턴 (m default: 0)', '', 'false', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '1', '4', '1', 'TRUNC ', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '1', '4', '1', 'TRUNC', 'FALSE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '1', '4', '2', 'CEIL', 'true', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '1', '4', '3', 'FLOOR', 'false', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '1', '4', '4', 'ROUND', 'FALSE', now(), now());
+
+-- V21.Q5
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('5', '1', '5', '아래의 SQL 에 대해서 결과값이 다른 것은?', 'Oracle 의 결합 함수 : CONCAT / ||<br>SQL Server : +', '', 'false', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '1', '5', '1', 'SELECT CONCAT (''RDBMS'', '' SQL'') FROM DUAL;', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '1', '5', '2', 'SELECT ''RDMBS'' || '' SQL'' FROM DUAL;', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '1', '5', '3', 'SELECT ''RDBMS'' + '' SQL'' FROM DUAL;', 'true', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '1', '5', '4', 'SELECT ''RDBMS'' & '' SQL'' FROM DUAL;', 'FALSE', now(), now());
 
 -- V30.Q1
 insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('5', '2', '1', '데이터 모델링이 최종적으로 완료된 상태라고 정의할 수 있는, 즉 물리적인 스카마 설계를 하기 전 단계를 가리키는 말은?', '논리 데이터 모델링의 결과로 얻어지는 논리 데이터 모델은 데이터 모델링이 최종적으로 완료된 상태라고 정의할 수 있다. 즉 물리적인 스키마 설계를 하기 전 단계의 ‘데이터 모델’ 상태를 일컫는 말이다.', '', 'false', now(), now());
