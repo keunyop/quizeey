@@ -18,7 +18,7 @@ var test;
                 // 초기화
                 quest_cnt = 0;
                 correct_cnt = 0;
-                $('#quiz-result').text("0/0 (0%)");
+                $('#quiz-result').text("0/0 (0.0%)");
 
                 _this.nextQuestion();
             });
@@ -214,7 +214,8 @@ var test;
                 // Quiz result
                 if (!isSkip && quest_cnt > 1) {
                     var current_num = quest_cnt-1;
-                    $('#quiz-result').text(correct_cnt + "/" + current_num + " (" + (correct_cnt/current_num) * 100 + "%)");
+                    var percentage = correct_cnt/current_num * 100;
+                    $('#quiz-result').text(correct_cnt + "/" + current_num + " (" + percentage.toFixed(1) + "%)");
 
                     // 진행상태바
                     var li = document.createElement("li");
