@@ -4,6 +4,7 @@ insert into test (test_nm, created_date, modified_date) values ('SQLD', now(), n
 -- VERSION
 insert into version (test_id, ver_nbr, ver_nm, created_date, modified_date) values ('5', '1', '기출 21회차', now(), now());
 insert into version (test_id, ver_nbr, ver_nm, created_date, modified_date) values ('5', '2', '기출 30회차', now(), now());
+insert into version (test_id, ver_nbr, ver_nm, created_date, modified_date) values ('5', '3', '기출 26회차', now(), now());
 
 -- V21.Q1
 insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('5', '1', '1', '데이터 모델링에 대한 아래 보기 설명 중 알맞은 것은?', '논리 모델링의 외래키는 물리 모델에서 반드시 구현되지 않음. (선택 사항임)<br>
@@ -42,6 +43,15 @@ insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, cr
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '1', '5', '2', 'SELECT ''RDMBS'' || '' SQL'' FROM DUAL;', 'FALSE', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '1', '5', '3', 'SELECT ''RDBMS'' + '' SQL'' FROM DUAL;', 'true', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '1', '5', '4', 'SELECT ''RDBMS'' & '' SQL'' FROM DUAL;', 'FALSE', now(), now());
+
+-- V26.Q1
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('5', '3', '1', '아래와 같이 문자와 문자를 연결하는 함수에 대해서 작성하시오.<br><pre>SELECT (   ) (COL1, COL2)
+FROM EMP
+WHERE EMPID = 10;</pre>', '', '', 'false', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '3', '1', '1', 'TRIM', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '3', '1', '2', 'SUBSTR', 'FALSE', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '3', '1', '3', 'CONCAT', 'true', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('5', '3', '1', '4', 'LENGTH', 'FALSE', now(), now());
 
 -- V30.Q1
 insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('5', '2', '1', '데이터 모델링이 최종적으로 완료된 상태라고 정의할 수 있는, 즉 물리적인 스카마 설계를 하기 전 단계를 가리키는 말은?', '논리 데이터 모델링의 결과로 얻어지는 논리 데이터 모델은 데이터 모델링이 최종적으로 완료된 상태라고 정의할 수 있다. 즉 물리적인 스키마 설계를 하기 전 단계의 ‘데이터 모델’ 상태를 일컫는 말이다.', '', 'false', now(), now());
