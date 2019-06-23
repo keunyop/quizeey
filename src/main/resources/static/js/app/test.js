@@ -2,6 +2,7 @@ var test;
 
 (function() {
     var questId;
+    var isDisqusInitialLoading;
 
     var quest_cnt = 0;
     var correct_cnt = 0;
@@ -39,6 +40,38 @@ var test;
                 // Card border-danger
                 _this.cardColorChange('danger');
                 _this.nextQuestion();
+            });
+
+
+            // Disqus tab click
+            $('#disqus-tab').on('click', function () {
+                
+                if (isDisqusInitialLoading) {
+                    isDisqusInitialLoading = false;
+
+                    // Disqus
+                    disqus_config = function () {
+                        this.page.url = 'http://quizeey.com/test/' + questId;  // Replace PAGE_URL with your page's canonical URL variable
+                        this.page.identifier = ''; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://questionbank-2.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+
+                } else {
+                    // Disqus Reset
+                    // DISQUS.reset({
+                    //     reload: true,
+                    //     config: function () {  
+                    //         this.page.identifier = '';
+                    //         this.page.url = 'http://quizeey.com/test/' + questId;
+                    //     }
+                    // });
+                }
             });
 
             // Keyboard press event
@@ -151,19 +184,7 @@ var test;
 
             }).done(function(responseData) {
                 questId = responseData.questId;
-
-                // Disqus
-                disqus_config = function () {
-                    this.page.url = 'http://quizeey.com/test/' + questId;  // Replace PAGE_URL with your page's canonical URL variable
-                    this.page.identifier = ''; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                };
-
-                (function() { // DON'T EDIT BELOW THIS LINE
-                    var d = document, s = d.createElement('script');
-                    s.src = 'https://questionbank-2.disqus.com/embed.js';
-                    s.setAttribute('data-timestamp', +new Date());
-                    (d.head || d.body).appendChild(s);
-                })();
+                isDisqusInitialLoading = true;
 
                 if (!isSkip) quest_cnt++;
 
