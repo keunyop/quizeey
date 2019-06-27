@@ -62,16 +62,7 @@ var test;
                         (d.head || d.body).appendChild(s);
                     })();
 
-                } else {
-                    // Disqus Reset
-                    // DISQUS.reset({
-                    //     reload: true,
-                    //     config: function () {  
-                    //         this.page.identifier = '';
-                    //         this.page.url = 'http://quizeey.com/test/' + questId;
-                    //     }
-                    // });
-                }
+                } 
             });
 
             // Keyboard press event

@@ -389,7 +389,6 @@ var test;
                 console.log(error);
             });
         }
-
     };
 })();
 
