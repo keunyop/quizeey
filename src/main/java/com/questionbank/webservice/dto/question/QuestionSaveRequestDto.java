@@ -20,6 +20,6 @@ public class QuestionSaveRequestDto {
 
     public Question toEntity() {
         return Question.builder().testId(testId).verNbr(verNbr).questNbr(questNbr).questTxt(questTxt)
-                .explanation(explanation).reference(reference).isMultiAnswer(isMultiAnswer).build();
+                .explanation(explanation).reference(reference).multiAnswerYn(isMultiAnswer ? "Y" : "N").build();
     }
 }

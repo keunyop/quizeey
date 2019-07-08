@@ -12,7 +12,7 @@ public class ExampleMainResponseDto {
     private int     questNbr;
     private int     exmpNbr;
     private String  exmpTxt;
-    private boolean answer;
+    private boolean isAnswer;
 
     public ExampleMainResponseDto(Example example) {
         this.exmpId = example.getExmpId();
@@ -21,12 +21,6 @@ public class ExampleMainResponseDto {
         this.questNbr = example.getQuestNbr();
         this.exmpNbr = example.getExmpNbr();
         this.exmpTxt = example.getExmpTxt();
-        this.answer = example.isAnswer();
-    }
-
-    @Override
-    public String toString() {
-        return "ExampleMainResponseDto [exmpId=" + exmpId + ", testId=" + testId + ", verNbr=" + verNbr + ", questNbr="
-                + questNbr + ", exmpNbr=" + exmpNbr + ", exmpTxt=" + exmpTxt + ", answer=" + answer + "]";
+        this.isAnswer = "Y".equalsIgnoreCase(example.getAnswerYn());
     }
 }

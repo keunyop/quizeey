@@ -30,7 +30,7 @@ public class QuestionMainResponseDto {
         this.questTxt = quest.getQuestTxt();
         this.explanation = quest.getExplanation();
         this.reference = quest.getReference();
-        this.isMultiAnswer = quest.isMultiAnswer();
+        this.isMultiAnswer = "Y".equalsIgnoreCase(quest.getMultiAnswerYn());
         this.examples = exmps.stream().map(ExampleMainResponseDto::new).collect(Collectors.toList());
     }
 }

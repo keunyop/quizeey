@@ -70,7 +70,7 @@ public class QuestionSqlGenerator {
         boolean isMultiAnswer = (strs.length > 3) ? strs[3].contains(",") ? true : false : false;
 
         return String.format(
-                "insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, is_multi_answer, created_date, modified_date) values ('%s', '%s', '%s', '%s', '%s', '%s', '%s', now(), now());",
+                "insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, multi_answer_yn, created_date, modified_date) values ('%s', '%s', '%s', '%s', '%s', '%s', '%s', now(), now());",
                 TEST_ID, VER_NBR, questNbr, questTxt, explanation, reference, isMultiAnswer);
     }
 
@@ -86,7 +86,7 @@ public class QuestionSqlGenerator {
         int exmpNbr = 1;
         for (String example : _getExamples(exmpTxt)) {
             sb.append(String.format(
-                    "insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer, created_date, modified_date) values ('%s', '%s', '%s', '%s', '%s', '%s', now(), now());",
+                    "insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('%s', '%s', '%s', '%s', '%s', '%s', now(), now());",
                     TEST_ID, VER_NBR, questNbr, exmpNbr, example, _isAnswer(answer, exmpNbr)));
             sb.append("\n");
             exmpNbr++;

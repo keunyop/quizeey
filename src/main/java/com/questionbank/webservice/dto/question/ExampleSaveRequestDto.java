@@ -15,10 +15,10 @@ public class ExampleSaveRequestDto {
     private int     questNbr;
     private int     exmpNbr;
     private String  exmpTxt;
-    private boolean answer;
+    private boolean isAnswer;
 
     public Example toEntity() {
         return Example.builder().testId(testId).verNbr(verNbr).questNbr(questNbr).exmpNbr(exmpNbr).exmpTxt(exmpTxt)
-                .answer(answer).build();
+                .answerYn(isAnswer ? "Y" : "N").build();
     }
 }

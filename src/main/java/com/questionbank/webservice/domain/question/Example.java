@@ -18,33 +18,33 @@ import lombok.NoArgsConstructor;
 public class Example extends BaseTimeEntity {
     @Id
     @GeneratedValue
-    private Long    exmpId;
+    private Long   exmpId;
 
     @Column(nullable = false)
-    private Long    testId;
+    private Long   testId;
 
     @Column(nullable = false)
-    private int     verNbr;
+    private int    verNbr;
 
     @Column(nullable = false)
-    private int     questNbr;
+    private int    questNbr;
 
     @Column(nullable = false)
-    private int     exmpNbr;
+    private int    exmpNbr;
 
     @Column(length = 1000, nullable = false)
-    private String  exmpTxt;
+    private String exmpTxt;
 
     @Column(nullable = false)
-    private boolean answer;
+    private String answerYn;
 
     @Builder
-    public Example(Long testId, int verNbr, int questNbr, int exmpNbr, String exmpTxt, boolean answer) {
+    public Example(Long testId, int verNbr, int questNbr, int exmpNbr, String exmpTxt, String answerYn) {
         this.testId = testId;
         this.verNbr = verNbr;
         this.questNbr = questNbr;
         this.exmpNbr = exmpNbr;
         this.exmpTxt = exmpTxt;
-        this.answer = answer;
+        this.answerYn = answerYn;
     }
 }
