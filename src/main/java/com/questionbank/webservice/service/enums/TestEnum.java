@@ -18,6 +18,8 @@ public enum TestEnum {
 
     SQLD("5", "SQLD - SQL Developer", "SQLD - 국가공인 SQL개발자"),
 
+    ENGR_INFO_PROC("6", "Engineer Information Processing", "정보처리기사"),
+
     ;
 
     private String code;

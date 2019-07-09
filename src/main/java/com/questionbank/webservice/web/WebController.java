@@ -213,6 +213,38 @@ public class WebController {
         return html;
     }
 
+    @GetMapping(value = { "/engineer-information-processing", "/kr/engineer-information-processing" })
+    public String engineerInfoProcessing(HttpServletRequest request, Model model,
+                                         @RequestParam(value = "questId", required = false)
+                                         String questId) {
+
+        String html = "";
+        String testId = TestEnum.ENGR_INFO_PROC.getCode();
+
+        model.addAttribute("testId", testId);
+
+        if (StringUtils.isNotBlank(questId)) {
+            model.addAttribute("inputQuestId", questId);
+        }
+
+        switch (request.getRequestURI()) {
+            case "/engineer-information-processing":
+                model.addAttribute("testName", TestEnum.getByCode(testId).getEngName());
+                html = "test";
+                break;
+
+            case "/kr/engineer-information-processing":
+                model.addAttribute("testName", TestEnum.getByCode(testId).getKorName());
+                html = "kr/test";
+                break;
+
+            default:
+                break;
+        }
+
+        return html;
+    }
+
     @GetMapping("/about")
     public String about() {
         return "about";
