@@ -83,7 +83,12 @@ var test;
                 }
                 // 엔터키
                 else if (e.keyCode == 13) {
-                    _this.submitQuiz();
+                    // 선택한 번호가 없으면 문제 skip
+                    if ($('#btn-question-submit').prop("disabled")) {
+                        _this.nextQuestion(true);
+                    } else {
+                        _this.submitQuiz();
+                    }
                 }
             });
         },
