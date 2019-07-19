@@ -16,18 +16,18 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class WebController {
 
-    @GetMapping(value = { "/", "/kr" })
+    @GetMapping(value = { "/", "/kr", "/en" })
     public String main(HttpServletRequest request) {
         String html = "main";
 
-        if ("/kr".equals(request.getRequestURI())) {
-            html = "kr/main";
+        if ("/en".equals(request.getRequestURI())) {
+            html = "en/main";
         }
 
         return html;
     }
 
-    @GetMapping(value = { "/test", "/kr/test" })
+    @GetMapping(value = { "/test", "/kr/test", "/en/test" })
     public String test(HttpServletRequest request, Model model, @RequestParam("testId")
     String testId) {
 
@@ -37,13 +37,14 @@ public class WebController {
 
         switch (request.getRequestURI()) {
             case "/test":
-                model.addAttribute("testName", TestEnum.getByCode(testId).getEngName());
+            case "/kr/test":
+                model.addAttribute("testName", TestEnum.getByCode(testId).getKorName());
                 html = "test";
                 break;
 
-            case "/kr/test":
-                model.addAttribute("testName", TestEnum.getByCode(testId).getKorName());
-                html = "kr/test";
+            case "/en/test":
+                model.addAttribute("testName", TestEnum.getByCode(testId).getEngName());
+                html = "en/test";
                 break;
 
             default:
@@ -53,7 +54,8 @@ public class WebController {
         return html;
     }
 
-    @GetMapping(value = { "/aws-certified-developer-associate", "/kr/aws-certified-developer-associate" })
+    @GetMapping(value = { "/aws-certified-developer-associate", "/kr/aws-certified-developer-associate",
+            "/en/aws-certified-developer-associate" })
     public String awsCertiDevAsct(HttpServletRequest request, Model model,
                                   @RequestParam(value = "questId", required = false)
                                   String questId) {
@@ -69,13 +71,14 @@ public class WebController {
 
         switch (request.getRequestURI()) {
             case "/aws-certified-developer-associate":
-                model.addAttribute("testName", TestEnum.getByCode(testId).getEngName());
+            case "/kr/aws-certified-developer-associate":
+                model.addAttribute("testName", TestEnum.getByCode(testId).getKorName());
                 html = "test";
                 break;
 
-            case "/kr/aws-certified-developer-associate":
-                model.addAttribute("testName", TestEnum.getByCode(testId).getKorName());
-                html = "kr/test";
+            case "/en/aws-certified-developer-associate":
+                model.addAttribute("testName", TestEnum.getByCode(testId).getEngName());
+                html = "en/test";
                 break;
 
             default:
@@ -85,7 +88,7 @@ public class WebController {
         return html;
     }
 
-    @GetMapping(value = { "/sqlp-professional", "/kr/sqlp-professional" })
+    @GetMapping(value = { "/sqlp-professional", "/kr/sqlp-professional", "/en/sqlp-professional" })
     public String sqlpProfessional(HttpServletRequest request, Model model,
                                    @RequestParam(value = "questId", required = false)
                                    String questId) {
@@ -101,13 +104,14 @@ public class WebController {
 
         switch (request.getRequestURI()) {
             case "/sqlp-professional":
-                model.addAttribute("testName", TestEnum.getByCode(testId).getEngName());
+            case "/kr/sqlp-professional":
+                model.addAttribute("testName", TestEnum.getByCode(testId).getKorName());
                 html = "test";
                 break;
 
-            case "/kr/sqlp-professional":
-                model.addAttribute("testName", TestEnum.getByCode(testId).getKorName());
-                html = "kr/test";
+            case "/en/sqlp-professional":
+                model.addAttribute("testName", TestEnum.getByCode(testId).getEngName());
+                html = "en/test";
                 break;
 
             default:
@@ -117,7 +121,7 @@ public class WebController {
         return html;
     }
 
-    @GetMapping(value = { "/cbp-basic-developer", "/kr/cbp-basic-developer" })
+    @GetMapping(value = { "/cbp-basic-developer", "/kr/cbp-basic-developer", "/en/cbp-basic-developer" })
     public String cbpBasicDeveloper(HttpServletRequest request, Model model,
                                     @RequestParam(value = "questId", required = false)
                                     String questId) {
@@ -133,13 +137,14 @@ public class WebController {
 
         switch (request.getRequestURI()) {
             case "/cbp-basic-developer":
-                model.addAttribute("testName", TestEnum.getByCode(testId).getEngName());
+            case "/kr/cbp-basic-developer":
+                model.addAttribute("testName", TestEnum.getByCode(testId).getKorName());
                 html = "test";
                 break;
 
-            case "/kr/cbp-basic-developer":
-                model.addAttribute("testName", TestEnum.getByCode(testId).getKorName());
-                html = "kr/test";
+            case "/en/cbp-basic-developer":
+                model.addAttribute("testName", TestEnum.getByCode(testId).getEngName());
+                html = "en/test";
                 break;
 
             default:
@@ -149,7 +154,7 @@ public class WebController {
         return html;
     }
 
-    @GetMapping(value = { "/computer-science", "/kr/computer-science" })
+    @GetMapping(value = { "/computer-science", "/kr/computer-science", "/en/computer-science" })
     public String computerScience(HttpServletRequest request, Model model,
                                   @RequestParam(value = "questId", required = false)
                                   String questId) {
@@ -165,13 +170,14 @@ public class WebController {
 
         switch (request.getRequestURI()) {
             case "/computer-science":
-                model.addAttribute("testName", TestEnum.getByCode(testId).getEngName());
+            case "/kr/computer-science":
+                model.addAttribute("testName", TestEnum.getByCode(testId).getKorName());
                 html = "test";
                 break;
 
-            case "/kr/computer-science":
-                model.addAttribute("testName", TestEnum.getByCode(testId).getKorName());
-                html = "kr/test";
+            case "/en/computer-science":
+                model.addAttribute("testName", TestEnum.getByCode(testId).getEngName());
+                html = "en/test";
                 break;
 
             default:
@@ -181,7 +187,7 @@ public class WebController {
         return html;
     }
 
-    @GetMapping(value = { "/sqlp-developer", "/kr/sqlp-developer" })
+    @GetMapping(value = { "/sqlp-developer", "/kr/sqlp-developer", "/en/sqlp-developer" })
     public String sqlpDeveloper(HttpServletRequest request, Model model,
                                 @RequestParam(value = "questId", required = false)
                                 String questId) {
@@ -197,13 +203,14 @@ public class WebController {
 
         switch (request.getRequestURI()) {
             case "/sqlp-developer":
-                model.addAttribute("testName", TestEnum.getByCode(testId).getEngName());
+            case "/kr/sqlp-developer":
+                model.addAttribute("testName", TestEnum.getByCode(testId).getKorName());
                 html = "test";
                 break;
 
-            case "/kr/sqlp-developer":
-                model.addAttribute("testName", TestEnum.getByCode(testId).getKorName());
-                html = "kr/test";
+            case "/en/sqlp-developer":
+                model.addAttribute("testName", TestEnum.getByCode(testId).getEngName());
+                html = "en/test";
                 break;
 
             default:
@@ -213,7 +220,8 @@ public class WebController {
         return html;
     }
 
-    @GetMapping(value = { "/engineer-information-processing", "/kr/engineer-information-processing" })
+    @GetMapping(value = { "/engineer-information-processing", "/kr/engineer-information-processing",
+            "/en/engineer-information-processing" })
     public String engineerInfoProcessing(HttpServletRequest request, Model model,
                                          @RequestParam(value = "questId", required = false)
                                          String questId) {
@@ -229,13 +237,14 @@ public class WebController {
 
         switch (request.getRequestURI()) {
             case "/engineer-information-processing":
-                model.addAttribute("testName", TestEnum.getByCode(testId).getEngName());
+            case "/kr/engineer-information-processing":
+                model.addAttribute("testName", TestEnum.getByCode(testId).getKorName());
                 html = "test";
                 break;
 
-            case "/kr/engineer-information-processing":
-                model.addAttribute("testName", TestEnum.getByCode(testId).getKorName());
-                html = "kr/test";
+            case "/en/engineer-information-processing":
+                model.addAttribute("testName", TestEnum.getByCode(testId).getEngName());
+                html = "en/test";
                 break;
 
             default:
