@@ -191,6 +191,7 @@ var test;
                     $('#examples').empty()
                     $('#hidden-answer').empty();
                     $('#quest-answer').empty();
+                    $('#explanation').empty();
 
                     // SUBMIT button reset
                     _btn_question_submit.removeClass('btn-primary').addClass('btn-secondary');
