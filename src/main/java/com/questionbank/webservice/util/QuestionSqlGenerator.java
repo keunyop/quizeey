@@ -14,24 +14,25 @@ import org.apache.commons.lang3.StringUtils;
 
 public class QuestionSqlGenerator {
 
-    final String FILE_NAME  = "src/main/resources/static/test/aws/AWS-Certified-Developer-Associate V13.95.dat";
-    final String WRITE_PATH = "src/main/java/com/questionbank/webservice/util/sql.sql";
-    final String TEST_ID    = "1";
-    final String TEST_NAME  = "AWS Certified Developer – Associate";
-    final String VER_NBR    = "3";
-    final String VER_NAME   = "AWS-Certified-Developer-Associate V13.95";
+    final static String FILE_NAME     = "D:\\99.KYLEE\\01.개인프로젝트\\36.QuestionBank\\dumps\\정보처리기사\\20190303.txt";
+    final static String ANS_FILE_NAME = "D:\\99.KYLEE\\01.개인프로젝트\\36.QuestionBank\\dumps\\정보처리기사\\20190303_ANS.txt";
+    final String        WRITE_PATH    = "src/main/java/com/questionbank/webservice/util/sql.sql";
+    final String        TEST_ID       = "6";
+    final String        TEST_NAME     = "";
+    final String        VER_NBR       = "1";
+    final String        VER_NAME      = "-";
 
     public static void main(String[] args) {
         QuestionSqlGenerator qsGen = new QuestionSqlGenerator();
 
         StringBuilder sb = new StringBuilder();
-        sb.append("-- TEST\n");
-        sb.append(qsGen._genInsertTestSql());
-        sb.append("\n-- VERSION\n");
-        sb.append(qsGen._genInsertVersionSql());
+        //        sb.append("-- TEST\n");
+        //        sb.append(qsGen._genInsertTestSql());
+        //        sb.append("\n-- VERSION\n");
+        //        sb.append(qsGen._genInsertVersionSql());
 
-        int qNum = 0;
-        for (String line : qsGen._readFile().collect(Collectors.toList())) {
+        int qNum = 17;
+        for (String line : qsGen._readFile(FILE_NAME).collect(Collectors.toList())) {
 
             //            if (!line.contains("NO.53")) {
             //                continue;
@@ -42,6 +43,12 @@ public class QuestionSqlGenerator {
             sb.append(qsGen._genInsertQuestionSql(line));
             sb.append("\n");
             sb.append(qsGen._genInsertExampleSql(line));
+            sb.append("\n");
+        }
+
+        for (String line : qsGen._readFile(ANS_FILE_NAME).collect(Collectors.toList())) {
+            sb.append("\n-- UPDATE ANSWER\n");
+            sb.append(qsGen._genUpdateExampleSql(line));
         }
 
         //        System.out.println(sb.toString());
@@ -63,33 +70,58 @@ public class QuestionSqlGenerator {
     private String _genInsertQuestionSql(String line) {
         String[] strs = line.split("\\|\\|");
 
-        String questNbr = (strs.length > 0) ? strs[0].substring(3) : "";
+        //        String questNbr = (strs.length > 0) ? strs[0].substring(3) : "";
+        //        String questTxt = (strs.length > 1) ? strs[1].replace("'", "''") : "";
+        //        String explanation = (strs.length > 4) ? strs[4].replace("Explanation:", "").replace("'", "''").trim() : "";
+        //        String reference = (strs.length > 5) ? strs[5].replace("Reference:", "").trim() : "";
+        //        boolean isMultiAnswer = (strs.length > 3) ? strs[3].contains(",") ? true : false : false;
+
+        String questNbr = (strs.length > 0) ? strs[0] : "";
         String questTxt = (strs.length > 1) ? strs[1].replace("'", "''") : "";
-        String explanation = (strs.length > 4) ? strs[4].replace("Explanation:", "").replace("'", "''").trim() : "";
-        String reference = (strs.length > 5) ? strs[5].replace("Reference:", "").trim() : "";
-        boolean isMultiAnswer = (strs.length > 3) ? strs[3].contains(",") ? true : false : false;
+        String explanation = "";
+        String reference = "";
 
         return String.format(
                 "insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, multi_answer_yn, created_date, modified_date) values ('%s', '%s', '%s', '%s', '%s', '%s', '%s', now(), now());",
-                TEST_ID, VER_NBR, questNbr, questTxt, explanation, reference, isMultiAnswer);
+                TEST_ID, VER_NBR, questNbr, questTxt, explanation, reference, "N");
     }
 
     private StringBuilder _genInsertExampleSql(String line) {
         String[] strs = line.split("\\|\\|");
 
-        String questNbr = (strs.length > 0) ? strs[0].substring(3) : "";
-        String exmpTxt = (strs.length > 2) ? strs[2] : "";
-        String answer = (strs.length > 3) ? strs[3] : "";
+        //        String questNbr = (strs.length > 0) ? strs[0].substring(3) : "";
+        //        String exmpTxt = (strs.length > 2) ? strs[2] : "";
+        //        String answer = (strs.length > 3) ? strs[3] : "";
+
+        String questNbr = (strs.length > 0) ? strs[0] : "";
+        String[] exmpTxts = { strs[2], strs[3], strs[4], strs[5] };
 
         StringBuilder sb = new StringBuilder();
 
         int exmpNbr = 1;
-        for (String example : _getExamples(exmpTxt)) {
+        for (String example : exmpTxts) {
             sb.append(String.format(
                     "insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('%s', '%s', '%s', '%s', '%s', '%s', now(), now());",
-                    TEST_ID, VER_NBR, questNbr, exmpNbr, example, _isAnswer(answer, exmpNbr)));
+                    TEST_ID, VER_NBR, questNbr, exmpNbr, example.trim(), "N"));
             sb.append("\n");
             exmpNbr++;
+        }
+
+        return sb;
+    }
+
+    private StringBuilder _genUpdateExampleSql(String line) {
+        String[] strs = line.split("\\|\\|");
+
+        StringBuilder sb = new StringBuilder();
+
+        int questNbr = 18;
+        for (String exmpNbr : strs) {
+            sb.append(String.format(
+                    "update example set answer_yn='Y' where test_id='%s' and ver_nbr='%s' and quest_nbr='%s' and exmp_nbr='%s';",
+                    TEST_ID, VER_NBR, questNbr, exmpNbr));
+            sb.append("\n");
+            questNbr++;
         }
 
         return sb;
@@ -113,11 +145,11 @@ public class QuestionSqlGenerator {
         return "FALSE";
     }
 
-    private Stream<String> _readFile() {
+    private Stream<String> _readFile(String fileName) {
         Stream<String> stream = null;
 
         try {
-            stream = Files.lines(Paths.get(FILE_NAME));
+            stream = Files.lines(Paths.get(fileName));
         } catch (IOException e) {
             e.printStackTrace();
         }
