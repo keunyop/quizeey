@@ -20,6 +20,8 @@ public enum TestEnum {
 
     ENGR_INFO_PROC("6", "Engineer Information Processing", "정보처리기사"),
 
+    ENGR_TRANSPORTATION("7", "Engineer Transpertation", "교통기사"),
+
     ;
 
     private String code;

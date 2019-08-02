@@ -254,6 +254,38 @@ public class WebController {
         return html;
     }
 
+    @GetMapping(value = { "/engineer-transportation", "/en/engineer-transportation" })
+    public String engineerTransportation(HttpServletRequest request, Model model,
+                                         @RequestParam(value = "questId", required = false)
+                                         String questId) {
+
+        String html = "";
+        String testId = TestEnum.ENGR_TRANSPORTATION.getCode();
+
+        model.addAttribute("testId", testId);
+
+        if (StringUtils.isNotBlank(questId)) {
+            model.addAttribute("inputQuestId", questId);
+        }
+
+        switch (request.getRequestURI()) {
+            case "/engineer-transportation":
+                model.addAttribute("testName", TestEnum.getByCode(testId).getKorName());
+                html = "test";
+                break;
+
+            case "/en/engineer-transportation":
+                model.addAttribute("testName", TestEnum.getByCode(testId).getEngName());
+                html = "en/test";
+                break;
+
+            default:
+                break;
+        }
+
+        return html;
+    }
+
     @GetMapping("/about")
     public String about() {
         return "about";

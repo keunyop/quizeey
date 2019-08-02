@@ -14,21 +14,21 @@ import org.apache.commons.lang3.StringUtils;
 
 public class QuestionSqlGenerator {
 
-    final static String FILE_NAME  = "D:\\99.KYLEE\\01.개인프로젝트\\36.QuestionBank\\dumps\\정보처리기사\\20190427\\20190427.txt";
+    final static String FILE_NAME  = "D:\\99.KYLEE\\01.개인프로젝트\\36.QuestionBank\\dumps\\교통기사\\20190427.txt";
     final String        WRITE_PATH = "src/main/java/com/questionbank/webservice/util/sql.sql";
-    final String        TEST_ID    = "6";
-    final String        TEST_NAME  = "";
-    final String        VER_NBR    = "2";
+    final String        TEST_ID    = "7";
+    final String        TEST_NAME  = "교통기사";
+    final String        VER_NBR    = "1";
     final String        VER_NAME   = "2019-04-27 기출문제";
 
     public static void main(String[] args) {
         QuestionSqlGenerator qsGen = new QuestionSqlGenerator();
 
         StringBuilder sb = new StringBuilder();
-        //        sb.append("-- TEST\n");
-        //        sb.append(qsGen._genInsertTestSql());
+        sb.append("-- TEST\n");
+        sb.append(qsGen._genInsertTestSql());
         sb.append("\n-- VERSION\n");
-        //        sb.append(qsGen._genInsertVersionSql());
+        sb.append(qsGen._genInsertVersionSql());
 
         int qNum = 0;
         for (String line : qsGen._readFile(FILE_NAME).collect(Collectors.toList())) {
@@ -39,9 +39,9 @@ public class QuestionSqlGenerator {
 
             qNum++;
             sb.append("\n-- Q" + qNum + "\n");
-            //            sb.append(qsGen._genInsertQuestionSql(line));
+            sb.append(qsGen._genInsertQuestionSql(line));
             sb.append("\n");
-            sb.append(qsGen._genInsertExampleSql(line));
+            //            sb.append(qsGen._genInsertExampleSql(line));
         }
 
         //        System.out.println(sb.toString());
