@@ -24,7 +24,8 @@ public class Test extends BaseTimeEntity {
     private String testNm;
 
     @Builder
-    public Test(String testNm) {
+    public Test(Long testId, String testNm) {
+        this.testId = testId;
         this.testNm = testNm;
     }
 }

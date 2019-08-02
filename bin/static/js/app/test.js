@@ -42,7 +42,6 @@ var test;
                 _this.nextQuestion();
             });
 
-
             // Disqus tab click
             $('#disqus-tab').on('click', function () {
                 
@@ -160,7 +159,7 @@ var test;
         },
 
         // 문제 조회
-        nextQuestion : function (isSkip) {
+        nextQuestion : function (isSkip, questionId) {
             var _this = this;
 
             var _btn_question_submit = $('#btn-question-submit');
@@ -168,7 +167,7 @@ var test;
             var data = {
                 testId: $('#testId').text(),
                 verNbr: $("#quiz-version-selector").val(),
-                questId: $('#inputQuestId').text()
+                questId: $('#inputQuestId').text() || questionId
             };
     
             $.ajax({
@@ -179,7 +178,6 @@ var test;
                 data: JSON.stringify(data)
 
             }).done(function(responseData) {
-                questId = responseData.questId;
                 isDisqusInitialLoading = true;
 
                 if (!isSkip) quest_cnt++;
@@ -240,12 +238,20 @@ var test;
                     li.className = "breadcrumb-item";
 
                     var anchor = document.createElement("a");
-                    anchor.setAttribute('href', "#");
+                    anchor.setAttribute('href', "#`");
+                    anchor.setAttribute('class', 'progress-bar-item' + current_num);
+                    anchor.setAttribute('value', questId);
                     anchor.innerText = current_num;
 
                     li.appendChild(anchor);
                     
                     $('#progress-bar').append(li)
+
+                    // Progress bar item click
+                    $('.progress-bar-item' + current_num).on('click', function(event) {
+                        console.log(event.currentTarget.attributes.value.value);
+                        _this.nextQuestion(true, event.currentTarget.attributes.value.value);
+                    });
                 }
 
                 // Normal question radio button change event
@@ -268,6 +274,8 @@ var test;
                         }
                     }
                 });
+
+                questId = responseData.questId;
     
             }).fail(function (error) {
                 console.log(error);
