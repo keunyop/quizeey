@@ -249,7 +249,6 @@ var test;
 
                     // Progress bar item click
                     $('.progress-bar-item' + current_num).on('click', function(event) {
-                        console.log(event.currentTarget.attributes.value.value);
                         _this.nextQuestion(true, event.currentTarget.attributes.value.value);
                     });
                 }

@@ -286,6 +286,22 @@ public class WebController {
         return html;
     }
 
+    @GetMapping(value = { "/engineer-architecture" })
+    public String engineerArchitecture(HttpServletRequest request, Model model,
+                                       @RequestParam(value = "questId", required = false)
+                                       String questId) {
+
+        model.addAttribute("testId", "8");
+
+        if (StringUtils.isNotBlank(questId)) {
+            model.addAttribute("inputQuestId", questId);
+        }
+
+        model.addAttribute("testName", "건축기사");
+
+        return "test";
+    }
+
     @GetMapping("/about")
     public String about() {
         return "about";
