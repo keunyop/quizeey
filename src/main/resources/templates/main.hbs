@@ -1,11 +1,12 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66061566-2"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'UA-66061566-2');
     </script>
@@ -28,70 +29,85 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-	<!--부트스트랩 css 추가-->
+    <!--부트스트랩 css 추가-->
     <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
 
     <!-- Custom styles for this template -->
     <link href="/css/lib/sticky-footer-navbar.css" rel="stylesheet">
     <link href="/css/custom.css" rel="stylesheet">
-    
+
 </head>
+
 <body>
     <header>
         <!-- Fixed navbar -->
-        <div id="nav-placeholder"></di1v>
+        <div id="nav-placeholder">
+            </di1v>
     </header>
-    
+
     <!-- Begin page content -->
     <main role="main" class="container">
         <div id="main-div">
             <h1 class="mt-5">Quizeey는 퀴즈를 좋아합니다.</h1>
             <br>
-            
+
             <div class="card shadow" style="width: 100%;">
                 <div class="card-body">
                     <h5 class="card-title">
-                        1. Quizeey는 퀴즈를 너무 좋아해서 다양한 자격증의 기출문제를 가지고 있습니다. Quizeey가 무료로 제공하는 문제은행을 풀다 보면 어느새 자격증 시험 준비가 되실 거에요. 다음 중 어떤 퀴즈를 보시겠습니까?
+                        1. Quizeey는 퀴즈를 너무 좋아해서 다양한 자격증의 기출문제를 가지고 있습니다. Quizeey가 무료로 제공하는 문제은행을 풀다 보면 어느새 자격증 시험 준비가 되실
+                        거에요. 다음 중 어떤 퀴즈를 보시겠습니까?
                     </h5>
                     <br>
-                    <div class="custom-control custom-radio">
-                        <input type="radio" id="testRadio1" name="testRadio" class="custom-control-input" value="aws-certified-developer-associate">
-                        <label class="custom-control-label" for="testRadio1">AWS 공인 개발자 – 어소시에이트</label>
-                    </div>
+                    <input class="form-control" id="testSearch" type="text" placeholder="자격증 검색...">
                     <br>
-                    <div class="custom-control custom-radio">
-                        <input type="radio" id="testRadio6" name="testRadio" class="custom-control-input" value="engineer-information-processing">
-                        <label class="custom-control-label" for="testRadio6">정보처리기사</label>
-                    </div>
-                    <br>
-                    <div class="custom-control custom-radio">
-                        <input type="radio" id="testRadio7" name="testRadio" class="custom-control-input" value="engineer-transportation">
-                        <label class="custom-control-label" for="testRadio7">교통기사</label>
-                    </div>
-                    <br>
-                    <div class="custom-control custom-radio">
-                        <input type="radio" id="testRadio8" name="testRadio" class="custom-control-input" value="engineer-architecture">
-                        <label class="custom-control-label" for="testRadio8">건축기사</label>
-                    </div>
-                    <br>
-                    <div class="custom-control custom-radio">
-                        <input type="radio" id="testRadio5" name="testRadio" class="custom-control-input" value="sqlp-developer">
-                        <label class="custom-control-label" for="testRadio5">SQLD - 국가공인 SQL개발자</label>
-                    </div>
-                    <br>
-                    <div class="custom-control custom-radio">
-                        <input type="radio" id="testRadio2" name="testRadio" class="custom-control-input" value="sqlp-professional">
-                        <label class="custom-control-label" for="testRadio2">SQLP - 국가공인 SQL전문가</label>
-                    </div>
-                    <br>
-                    <div class="custom-control custom-radio">
-                        <input type="radio" id="testRadio3" name="testRadio" class="custom-control-input" value="cbp-basic-developer">
-                        <label class="custom-control-label" for="testRadio3">CBP 인증 - 개발자</label>
-                    </div>
-                    <br>
-                    <div class="custom-control custom-radio">
-                        <input type="radio" id="testRadio4" name="testRadio" class="custom-control-input" value="computer-science">
-                        <label class="custom-control-label" for="testRadio4">컴퓨터 공학</label>
+                    <div id="testRadios">
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="testRadio1" name="testRadio" class="custom-control-input"
+                                value="aws-certified-developer-associate">
+                            <label class="custom-control-label" for="testRadio1">AWS 공인 개발자 – 어소시에이트</label>
+                        </div>
+                        <br>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="testRadio6" name="testRadio" class="custom-control-input"
+                                value="engineer-information-processing">
+                            <label class="custom-control-label" for="testRadio6">정보처리기사</label>
+                        </div>
+                        <br>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="testRadio7" name="testRadio" class="custom-control-input"
+                                value="engineer-transportation">
+                            <label class="custom-control-label" for="testRadio7">교통기사</label>
+                        </div>
+                        <br>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="testRadio8" name="testRadio" class="custom-control-input"
+                                value="engineer-architecture">
+                            <label class="custom-control-label" for="testRadio8">건축기사</label>
+                        </div>
+                        <br>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="testRadio5" name="testRadio" class="custom-control-input"
+                                value="sqlp-developer">
+                            <label class="custom-control-label" for="testRadio5">SQLD - 국가공인 SQL개발자</label>
+                        </div>
+                        <br>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="testRadio2" name="testRadio" class="custom-control-input"
+                                value="sqlp-professional">
+                            <label class="custom-control-label" for="testRadio2">SQLP - 국가공인 SQL전문가</label>
+                        </div>
+                        <br>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="testRadio3" name="testRadio" class="custom-control-input"
+                                value="cbp-basic-developer">
+                            <label class="custom-control-label" for="testRadio3">CBP 인증 - 개발자</label>
+                        </div>
+                        <br>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="testRadio4" name="testRadio" class="custom-control-input"
+                                value="computer-science">
+                            <label class="custom-control-label" for="testRadio4">컴퓨터 공학</label>
+                        </div>
                     </div>
                     <br><br>
                     <button type="button" class="btn btn-lg btn-secondary btn-block" id="btn-take-the-quiz" disabled>
@@ -109,18 +125,19 @@
                     this.page.identifier = ''; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
                 };
 
-                (function() { // DON'T EDIT BELOW THIS LINE
+                (function () { // DON'T EDIT BELOW THIS LINE
                     var d = document, s = d.createElement('script');
                     s.src = 'https://questionbank-2.disqus.com/embed.js';
                     s.setAttribute('data-timestamp', +new Date());
                     (d.head || d.body).appendChild(s);
                 })();
             </script>
-            
+
         </div>
         <br><br>
         <!-- Sticky footer -->
-        <div id="footer-placeholder"></di1v>
+        <div id="footer-placeholder">
+            </di1v>
     </main>
 
     <!--부트스트랩 js, jquery 추가-->
@@ -130,6 +147,7 @@
     <!--custom js 추가-->
     <script src="/js/app/nav-and-footer.js"></script>
     <script src="/js/app/main.js"></script>
-    
+
 </body>
+
 </html>
