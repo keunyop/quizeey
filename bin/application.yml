@@ -9,14 +9,18 @@ spring:
   datasource:
     # data:  # 시작할때 실행시킬 script
     #   - classpath:1.AWSCertifiedDeveloper–Associate.sql
-    #   - classpath:2.SQLP.sql 
+    #   - classpath:2.SQLP.sql
     #   - classpath:3.CBPCertification.sql
     #   - classpath:4.ComputerScience.sql
     #   - classpath:5.SQLD.sql
-    url: jdbc:mariadb://quizeey.c2hf5l720yhc.us-west-2.rds.amazonaws.com:3306/quizeey
+    # url: jdbc:mariadb://quizeey.c2hf5l720yhc.us-west-2.rds.amazonaws.com:3306/quizeey
+    # username: samurae83
+    # password: 1l0v2ujin
+    # driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mysql://ec2-52-35-43-187.us-west-2.compute.amazonaws.com/quizeey
     username: samurae83
     password: 1l0v2ujin
-    driver-class-name: org.mariadb.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
   # jpa:
   #   show-sql: true
   #   hibernate:
