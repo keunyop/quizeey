@@ -182,11 +182,13 @@ var test;
 
                 if (!isSkip) quest_cnt++;
 
+                var isCorrect = _this.isCorrect() ? true : false;
+
                 // 문제 Reset
                 if ($('#examples').has("div").length) {
                     $('#versionText').empty();
                     $('#questionText').empty();
-                    $('#examples').empty()
+                    $('#examples').empty();
                     $('#hidden-answer').empty();
                     $('#quest-answer').empty();
                     $('#explanation').empty();
@@ -240,6 +242,11 @@ var test;
                     var anchor = document.createElement("a");
                     anchor.setAttribute('href', "#`");
                     anchor.setAttribute('class', 'progress-bar-item' + current_num);
+
+                    if (!isCorrect) {
+                        anchor.setAttribute('class', 'wrong-answer');
+                    }
+
                     anchor.setAttribute('value', questId);
                     anchor.innerText = current_num;
 
@@ -275,6 +282,7 @@ var test;
                 });
 
                 questId = responseData.questId;
+
     
             }).fail(function (error) {
                 console.log(error);
