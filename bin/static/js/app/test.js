@@ -244,7 +244,7 @@ var test;
                     anchor.setAttribute('class', 'progress-bar-item' + current_num);
 
                     if (!isCorrect) {
-                        anchor.setAttribute('class', 'wrong-answer');
+                        anchor.setAttribute('class', anchor.getAttribute('class') + ' wrong-answer');
                     }
 
                     anchor.setAttribute('value', questId);
