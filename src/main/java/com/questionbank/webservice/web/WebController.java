@@ -302,6 +302,22 @@ public class WebController {
         return "test";
     }
 
+    @GetMapping(value = { "/engineer-broadcasting-communication" })
+    public String engineerBroadcastingCommunication(HttpServletRequest request, Model model,
+                                                    @RequestParam(value = "questId", required = false)
+                                                    String questId) {
+
+        model.addAttribute("testId", "9");
+
+        if (StringUtils.isNotBlank(questId)) {
+            model.addAttribute("inputQuestId", questId);
+        }
+
+        model.addAttribute("testName", "방송통신기사");
+
+        return "test";
+    }
+
     @GetMapping("/about")
     public String about() {
         return "about";

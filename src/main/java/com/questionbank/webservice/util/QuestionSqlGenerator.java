@@ -5,59 +5,232 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.util.CollectionUtils;
 
 public class QuestionSqlGenerator {
 
-    final static String FILE_NAME  = "D:\\99.KYLEE\\01.개인프로젝트\\36.QuestionBank\\dumps\\문제\\건축기사_20190427.txt";
-    final String        WRITE_PATH = "src/main/java/com/questionbank/webservice/util/sql.sql";
-    final String        TEST_ID    = "8";
-    final String        TEST_NAME  = "건축기사";
-    final String        VER_NBR    = "1";
-    final String        VER_NAME   = "2019-04-27 기출문제";
+    final static String FILE_NAME  = "D:\\99.KYLEE\\01.개인프로젝트\\36.QuestionBank\\dumps\\문제\\방송통신기사_20181006.txt";
+    final static String WRITE_PATH = "src/main/java/com/questionbank/webservice/util/sql.sql";
+    final static Long   TEST_ID    = (long) 9;
+    final static String TEST_NAME  = "방송통신기사";
+    final static int    VER_NBR    = 1;
+    final static String VER_NAME   = "2018-10-06 기출문제";
 
     public static void main(String[] args) {
-        QuestionSqlGenerator qsGen = new QuestionSqlGenerator();
-
         StringBuilder sb = new StringBuilder();
         sb.append("-- TEST\n");
-        sb.append(qsGen._genInsertTestSql());
+        sb.append(_genInsertTestSql());
         sb.append("\n-- VERSION\n");
-        sb.append(qsGen._genInsertVersionSql());
+        sb.append(_genInsertVersionSql());
+        sb.append("\n-- QUESTION\n");
 
-        int qNum = 0;
-        for (String line : qsGen._readFile(FILE_NAME).collect(Collectors.toList())) {
+        //        int qNum = 0;
+        //        for (String line : qsGen._readFile(FILE_NAME).collect(Collectors.toList())) {
+        //            qNum++;
+        //            sb.append("\n-- Q" + qNum + "\n");
+        //            sb.append(qsGen._genInsertQuestionSql(line));
+        //            sb.append("\n");
+        //            sb.append(qsGen._genInsertExampleSql(line));
+        //        }
 
-            //            if (!line.contains("NO.53")) {
-            //                continue;
-            //            }
+        List<Question4Gen> qs = _toObject();
 
-            qNum++;
-            sb.append("\n-- Q" + qNum + "\n");
-            sb.append(qsGen._genInsertQuestionSql(line));
-            sb.append("\n");
-            sb.append(qsGen._genInsertExampleSql(line));
+        for (Question4Gen q : qs) {
+            sb.append(_genInsertQuestionExampleSql(q));
+            sb.append("\n\n");
         }
 
-        //        System.out.println(sb.toString());
-        qsGen._writeFile(sb);
+        _writeFile(sb);
+
         System.out.println("끝");
+
     }
 
-    private String _genInsertTestSql() {
-        return String.format("insert into test (test_nm, created_date, modified_date) values ('%s', now(), now());",
-                TEST_NAME);
+    private static List<Question4Gen> _toObject() {
+
+        List<Question4Gen> qs = new ArrayList<>();
+
+        for (String line : _readFile(FILE_NAME).collect(Collectors.toList())) {
+            if (line.equals("    ")) {
+                continue;
+            }
+
+            Question4Gen lastQ = null;
+            List<Example4Gen> lastEs = null;
+
+            if (!CollectionUtils.isEmpty(qs)) {
+                lastQ = qs.get(qs.size() - 1);
+                lastEs = lastQ.getExample4Gens() == null ? new ArrayList<>() : lastQ.getExample4Gens();
+            }
+
+            if (line.matches("^[0-9.].*")) {
+                String questNbr = line.substring(0, line.indexOf("."));
+                String questTxt = line.substring(line.indexOf(".") + 1);
+
+                Question4Gen q = Question4Gen.builder().questNbr(questNbr).questTxt(questTxt).build();
+
+                qs.add(q);
+
+            } else if (line.contains("①")) {
+                if (line.contains("②")) {
+                    Example4Gen e1 = Example4Gen.builder().exmpNbr("1")
+                            .exampleStr(line.substring(line.indexOf("①") + 1, line.indexOf("②"))).answerYn("N").build();
+
+                    Example4Gen e2 = Example4Gen.builder().exmpNbr("2")
+                            .exampleStr(line.substring(line.indexOf("②") + 1)).answerYn("N").build();
+
+                    lastEs.add(e1);
+                    lastEs.add(e2);
+                } else if (line.contains("❷")) {
+                    Example4Gen e1 = Example4Gen.builder().exmpNbr("1")
+                            .exampleStr(line.substring(line.indexOf("①") + 1, line.indexOf("❷"))).answerYn("N").build();
+
+                    Example4Gen e2 = Example4Gen.builder().exmpNbr("2")
+                            .exampleStr(line.substring(line.indexOf("❷") + 1)).answerYn("Y").build();
+
+                    lastEs.add(e1);
+                    lastEs.add(e2);
+                } else {
+                    Example4Gen e1 = Example4Gen.builder().exmpNbr("1")
+                            .exampleStr(line.substring(line.indexOf("①") + 1)).answerYn("N").build();
+
+                    lastEs.add(e1);
+                }
+
+            } else if (line.contains("❶")) {
+                if (line.contains("②")) {
+                    Example4Gen e1 = Example4Gen.builder().exmpNbr("1")
+                            .exampleStr(line.substring(line.indexOf("❶") + 1, line.indexOf("②"))).answerYn("Y").build();
+
+                    Example4Gen e2 = Example4Gen.builder().exmpNbr("2")
+                            .exampleStr(line.substring(line.indexOf("②") + 1)).answerYn("N").build();
+
+                    lastEs.add(e1);
+                    lastEs.add(e2);
+                } else {
+                    Example4Gen e1 = Example4Gen.builder().exmpNbr("1")
+                            .exampleStr(line.substring(line.indexOf("❶") + 1)).answerYn("Y").build();
+
+                    lastEs.add(e1);
+                }
+
+            } else if (line.contains("②")) {
+                Example4Gen e2 = Example4Gen.builder().exmpNbr("2").exampleStr(line.substring(line.indexOf("②") + 1))
+                        .answerYn("N").build();
+
+                lastEs.add(e2);
+
+            } else if (line.contains("❷")) {
+                Example4Gen e2 = Example4Gen.builder().exmpNbr("2").exampleStr(line.substring(line.indexOf("❷") + 1))
+                        .answerYn("Y").build();
+
+                lastEs.add(e2);
+
+            } else if (line.contains("③")) {
+
+                if (line.contains("④")) {
+                    Example4Gen e3 = Example4Gen.builder().exmpNbr("3")
+                            .exampleStr(line.substring(line.indexOf("③") + 1, line.indexOf("④"))).answerYn("N").build();
+
+                    Example4Gen e4 = Example4Gen.builder().exmpNbr("4")
+                            .exampleStr(line.substring(line.indexOf("④") + 1)).answerYn("N").build();
+
+                    lastEs.add(e3);
+                    lastEs.add(e4);
+
+                } else if (line.contains("❹")) {
+                    Example4Gen e3 = Example4Gen.builder().exmpNbr("3")
+                            .exampleStr(line.substring(line.indexOf("③") + 1, line.indexOf("❹"))).answerYn("N").build();
+
+                    Example4Gen e4 = Example4Gen.builder().exmpNbr("4")
+                            .exampleStr(line.substring(line.indexOf("❹") + 1)).answerYn("Y").build();
+
+                    lastEs.add(e3);
+                    lastEs.add(e4);
+
+                } else {
+                    Example4Gen e3 = Example4Gen.builder().exmpNbr("3")
+                            .exampleStr(line.substring(line.indexOf("③") + 1)).answerYn("N").build();
+
+                    lastEs.add(e3);
+                }
+
+            } else if (line.contains("❸")) {
+                if (line.contains("④")) {
+                    Example4Gen e3 = Example4Gen.builder().exmpNbr("3")
+                            .exampleStr(line.substring(line.indexOf("❸") + 1, line.indexOf("④"))).answerYn("Y").build();
+
+                    Example4Gen e4 = Example4Gen.builder().exmpNbr("4")
+                            .exampleStr(line.substring(line.indexOf("④") + 1)).answerYn("N").build();
+
+                    lastEs.add(e3);
+                    lastEs.add(e4);
+                } else {
+                    Example4Gen e3 = Example4Gen.builder().exmpNbr("3")
+                            .exampleStr(line.substring(line.indexOf("❸") + 1)).answerYn("Y").build();
+
+                    lastEs.add(e3);
+                }
+
+            } else if (line.contains("④")) {
+                Example4Gen e4 = Example4Gen.builder().exmpNbr("4").exampleStr(line.substring(line.indexOf("④") + 1))
+                        .answerYn("N").build();
+
+                lastEs.add(e4);
+
+            } else if (line.contains("❹")) {
+                Example4Gen e4 = Example4Gen.builder().exmpNbr("4").exampleStr(line.substring(line.indexOf("❹") + 1))
+                        .answerYn("Y").build();
+
+                lastEs.add(e4);
+
+            } else {
+                Question4Gen qe = qs.get(qs.size() - 1);
+                qe.setQuestTxt(qe.getQuestTxt() + "<br><br>" + line);
+            }
+
+            if (lastQ != null) {
+                lastQ.setExample4Gens(lastEs);
+            }
+
+        }
+
+        return qs;
     }
 
-    private String _genInsertVersionSql() {
+    private static String _genInsertTestSql() {
+        return String.format(
+                "insert into test (test_id, test_nm, created_date, modified_date) values ('%s', '%s', now(), now());",
+                TEST_ID, TEST_NAME);
+    }
+
+    private static String _genInsertVersionSql() {
         return String.format(
                 "insert into version (test_id, ver_nbr, ver_nm, created_date, modified_date) values ('%s', '%s', '%s', now(), now());",
                 TEST_ID, VER_NBR, VER_NAME);
+    }
+
+    private static String _genInsertQuestionExampleSql(Question4Gen q) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format(
+                "insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('%s', '%s', '%s', '%s', '%s', now(), now());",
+                TEST_ID, VER_NBR, q.getQuestNbr(), q.getQuestTxt(), "N"));
+
+        for (Example4Gen e : q.getExample4Gens()) {
+            sb.append("\n");
+            sb.append(String.format(
+                    "insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('%s', '%s', '%s', '%s', '%s', '%s', now(), now());",
+                    TEST_ID, VER_NBR, q.getQuestNbr(), e.getExmpNbr(), e.getExampleStr(), e.getAnswerYn()));
+        }
+
+        return sb.toString();
     }
 
     private String _genInsertQuestionSql(String line) {
@@ -147,7 +320,7 @@ public class QuestionSqlGenerator {
         return "FALSE";
     }
 
-    private Stream<String> _readFile(String fileName) {
+    private static Stream<String> _readFile(String fileName) {
         Stream<String> stream = null;
 
         try {
@@ -159,7 +332,7 @@ public class QuestionSqlGenerator {
         return stream;
     }
 
-    private void _writeFile(StringBuilder sb) {
+    private static void _writeFile(StringBuilder sb) {
         Path path = Paths.get(WRITE_PATH);
 
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {
