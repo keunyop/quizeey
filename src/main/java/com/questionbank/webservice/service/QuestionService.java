@@ -1,11 +1,14 @@
 package com.questionbank.webservice.service;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 
 import com.questionbank.webservice.domain.question.Example;
 import com.questionbank.webservice.domain.question.ExampleRepository;
@@ -22,9 +25,11 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 @Service
 public class QuestionService {
-    private QuestionRepository questionRepository;
-    private ExampleRepository  exampleRepository;
-    private VersionRepository  versionRepository;
+    static Map<String, List<Question>> QUESTIONS_CACHE = new HashMap<>();
+
+    private QuestionRepository         questionRepository;
+    private ExampleRepository          exampleRepository;
+    private VersionRepository          versionRepository;
 
     @Transactional
     public Long addQuestion(QuestionSaveRequestDto dto) {
@@ -50,15 +55,26 @@ public class QuestionService {
      * 문제 조회
      */
     private Question _getQuestion(QuestionRequestDto dto) {
-
         Question question = null;
 
         // 특정 문제 번호가 없으면 random 문제 조회
         if (dto.getQuestId() == null) {
-            // verNbr가 있으면 해당 version 문제 조회
-            // verNbr가 없으면 test 전체에서 문제 조회
-            List<Question> questions = (dto.getVerNbr() == 0) ? questionRepository.getQuestionsByTestId(dto.getTestId())
-                    : questionRepository.getQuestionsByTestIdAndVerNbr(dto.getTestId(), dto.getVerNbr());
+            // Cache 키
+            String cacheKey = "T" + dto.getTestId() + "V" + dto.getVerNbr();
+
+            // Cache 조회
+            List<Question> questions = QUESTIONS_CACHE.get(cacheKey);
+
+            // Cache miss
+            if (CollectionUtils.isEmpty(questions)) {
+                // verNbr가 있으면 해당 version 문제 조회
+                // verNbr가 없으면 test 전체에서 문제 조회
+                questions = (dto.getVerNbr() == 0) ? questionRepository.getQuestionsByTestId(dto.getTestId())
+                        : questionRepository.getQuestionsByTestIdAndVerNbr(dto.getTestId(), dto.getVerNbr());
+
+                // Cache 저장
+                QUESTIONS_CACHE.put(cacheKey, questions);
+            }
 
             question = questions.get(_generateRandomNumber(questions.size()));
 
