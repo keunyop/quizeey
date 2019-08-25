@@ -105,7 +105,7 @@ insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn,
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('10', '1', '17', '3', ' 「기반시설 부담금에 관한 법률」에 따른 기반시설부담금', 'Y', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('10', '1', '17', '4', ' 「대도시권 광역교통 관리에 관한 특별법」에 따른 광역교통시설부담금', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('10', '1', '18', ' 도시계획에서의 아래의 설명에 해당하는 GIS 활용분야는?<br><br>전 국토의 환경 친화적이고 지속가능한 개발을 보장하고 개발과 보전이 조화되는 '선 계획 후 개발'의 국토관리체계를 구축하기 위하여 각종의 토지이용계획이나 주요시설의 설치에 관한 계획을 입안하고자 하는 경우에 토지의 환경생태적, 물리적, 공간적 특성을 종합적으로 고려 및 평가하여 보전할 토지와 개발 가능한 토지를 체계적으로 판단하는 것이다.    ', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('10', '1', '18', '도시계획에서의 아래의 설명에 해당하는 GIS 활용분야는?<br><br>전 국토의 환경 친화적이고 지속가능한 개발을 보장하고 개발과 보전이 조화되는 "선 계획 후 개발"의 국토관리체계를 구축하기 위하여 각종의 토지이용계획이나 주요시설의 설치에 관한 계획을 입안하고자 하는 경우에 토지의 환경생태적, 물리적, 공간적 특성을 종합적으로 고려 및 평가하여 보전할 토지와 개발 가능한 토지를 체계적으로 판단하는 것이다.', 'N', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('10', '1', '18', '1', ' 토지적성평가	', 'Y', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('10', '1', '18', '2', ' 토지이용계획', 'N', now(), now());
 insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('10', '1', '18', '3', ' 토지보전가치평가	', 'N', now(), now());

@@ -318,6 +318,22 @@ public class WebController {
         return "test";
     }
 
+    @GetMapping(value = { "/engineer-urban-planning" })
+    public String engineerUrbanPlanning(HttpServletRequest request, Model model,
+                                        @RequestParam(value = "questId", required = false)
+                                        String questId) {
+
+        model.addAttribute("testId", "10");
+
+        if (StringUtils.isNotBlank(questId)) {
+            model.addAttribute("inputQuestId", questId);
+        }
+
+        model.addAttribute("testName", "도시계획기사");
+
+        return "test";
+    }
+
     @GetMapping("/about")
     public String about() {
         return "about";
