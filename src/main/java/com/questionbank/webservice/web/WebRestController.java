@@ -10,6 +10,8 @@ import com.questionbank.webservice.dto.question.ExampleSaveRequestDto;
 import com.questionbank.webservice.dto.question.QuestionMainResponseDto;
 import com.questionbank.webservice.dto.question.QuestionRequestDto;
 import com.questionbank.webservice.dto.question.QuestionSaveRequestDto;
+import com.questionbank.webservice.dto.question.QuestionStatsRequestDto;
+import com.questionbank.webservice.dto.question.QuestionStatsResponseDto;
 import com.questionbank.webservice.dto.question.QuestionStatsSaveRequestDto;
 import com.questionbank.webservice.dto.question.VersionRequestDto;
 import com.questionbank.webservice.dto.question.VersionResponseDto;
@@ -56,5 +58,11 @@ public class WebRestController {
     public void updateQuestionStats(@RequestBody
     QuestionStatsSaveRequestDto dto) {
         questionStatsService.updateQuestionStats(dto);
+    }
+
+    @PostMapping("/questionStats")
+    public QuestionStatsResponseDto getQuestionStats(@RequestBody
+    QuestionStatsRequestDto dto) {
+        return questionStatsService.getQuestionStats(dto.getQuestId());
     }
 }

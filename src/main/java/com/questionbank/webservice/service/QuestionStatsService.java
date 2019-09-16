@@ -5,6 +5,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.questionbank.webservice.domain.question.QuestionStats;
 import com.questionbank.webservice.domain.question.QuestionStatsRepository;
+import com.questionbank.webservice.dto.question.QuestionStatsResponseDto;
 import com.questionbank.webservice.dto.question.QuestionStatsSaveRequestDto;
 
 import lombok.AllArgsConstructor;
@@ -13,6 +14,18 @@ import lombok.AllArgsConstructor;
 @Service
 public class QuestionStatsService {
     private QuestionStatsRepository questionStatsRepository;
+
+    @Transactional(readOnly = true)
+    public QuestionStatsResponseDto getQuestionStats(Long questId) {
+        // 문제 통계 조회
+        QuestionStats questionStats = questionStatsRepository.findOne(questId);
+
+        if (questionStats == null) {
+            return new QuestionStatsResponseDto();
+        }
+
+        return new QuestionStatsResponseDto(questionStats);
+    }
 
     @Transactional
     public void updateQuestionStats(QuestionStatsSaveRequestDto dto) {
