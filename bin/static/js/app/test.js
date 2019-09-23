@@ -108,6 +108,7 @@ var test;
         }
       });
 
+      // 설명추가
       $(".add-explanation-txt").on("click", function() {
         $(".add-explanation-form").toggle();
       });

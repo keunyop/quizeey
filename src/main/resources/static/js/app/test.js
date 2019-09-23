@@ -108,6 +108,11 @@ var test;
         }
       });
 
+      // 설명추가
+      $(".add-explanation-txt").on("click", function() {
+        $(".add-explanation-form").toggle();
+      });
+
       // Keyboard press event
       $(document).keypress(function(e) {
         // 키보드 숫자 1~9
