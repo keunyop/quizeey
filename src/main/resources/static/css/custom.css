@@ -17,3 +17,8 @@
 .wrong-answer {
   color: red;
 }
+
+.add-explanation-txt {
+  position: absolute;
+  right: 0;
+}
