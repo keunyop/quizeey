@@ -160,16 +160,21 @@
                     <p id="explanation"></p>
 
                     <!-- 설명추가 -->
-                    <p class="add-explanation" hidden>설명추가</p>
-                    <div hidden>
-                        <div>
-                            설명<textarea>
+                    <button type="button" class="btn btn-link add-explanation-txt">설명추가</button>
+                    <br>
+                    <form class="add-explanation-form" style="display:none;">
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">이름</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="익명">
                         </div>
-                        <div>
-                            이름<input type="text" placeholder="익명">
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">설명</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
-                    </div>
-
+                        <button type="submit" class="btn btn-primary btn-sm">추가</button>
+                    </form>
+                    <br>
+                    
                     <h6 id="reference-title">참조:</h6><a id="reference" target="_blank"></a>
                 </div>
                 <div class="modal-footer">

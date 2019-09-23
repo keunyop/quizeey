@@ -108,9 +108,9 @@ var test;
         }
       });
 
-      // $(".add-explanation").on("click", function() {
-
-      // });
+      $(".add-explanation-txt").on("click", function() {
+        $(".add-explanation-form").toggle();
+      });
 
       // Keyboard press event
       $(document).keypress(function(e) {

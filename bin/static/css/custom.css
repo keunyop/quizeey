@@ -18,8 +18,7 @@
   color: red;
 }
 
-.add-explanation {
-  text-align: right;
-  color: skyblue;
-  text-decoration: underline;
+.add-explanation-txt {
+  position: absolute;
+  right: 0;
 }
