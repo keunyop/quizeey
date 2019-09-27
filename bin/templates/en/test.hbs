@@ -159,6 +159,38 @@
                     <p id="quest-answer"></p>
                     <h6 id="explanation-title">Explanation:</h6>
                     <p id="explanation"></p>
+
+                    <!-- 추가설명 -->
+                    <div id="additional-explanation"></div>
+
+                    <!--
+                    <hr>
+                    <p>이근엽</p>
+                    <p>"A user is planning to host a scalable dynamic web application on AWS. Which of the services may
+                        not be required by the user to achieve automated scalability?"
+                    </p>
+
+                    <hr>
+                    <p>송유진</p>
+                    <p>"The AWS console for DynamoDB enables you to do all the following operations, except:"</p>
+                    -->
+
+                    <!-- 설명추가 -->
+                    <button type="button" class="btn btn-link add-explanation-txt">설명추가</button>
+                    <br>
+                    <form class="add-explanation-form" style="display:none;">
+                        <div class="form-group">
+                            <label for="addExplanationUserName">이름</label>
+                            <input type="text" class="form-control" id="addExplanationUserName" placeholder="익명">
+                        </div>
+                        <div class="form-group">
+                            <label for="addExplanationContents">설명</label>
+                            <textarea class="form-control" id="addExplanationContents" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-sm">추가</button>
+                    </form>
+                    <br>
+
                     <h6 id="reference-title">Reference:</h6><a id="reference" target="_blank"></a>
                 </div>
                 <div class="modal-footer">

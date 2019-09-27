@@ -113,6 +113,29 @@ var test;
         $(".add-explanation-form").toggle();
       });
 
+      $(".add-explanation-form").submit(function(e) {
+        e.preventDefault();
+
+        var data = {
+          name: $("#addExplanationUserName").val(),
+          contents: $("#addExplanationContents").val()
+        };
+
+        $.ajax({
+          type: "POST",
+          url: "/addExplanation",
+          dataType: "json",
+          contentType: "application/json; charset=utf-8",
+          data: JSON.stringify(data)
+        })
+          .done(function(responseData) {
+            $(".add-explanation-form").hide();
+          })
+          .fail(function(error) {
+            console.log(error);
+          });
+      });
+
       // Keyboard press event
       $(document).keypress(function(e) {
         // 키보드 숫자 1~9
