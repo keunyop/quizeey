@@ -117,8 +117,9 @@ var test;
         e.preventDefault();
 
         var data = {
-          name: $("#addExplanationUserName").val(),
-          contents: $("#addExplanationContents").val()
+          questId: questId,
+          userNm: $("#addExplanationUserName").val(),
+          explanation: $("#addExplanationContents").val()
         };
 
         $.ajax({

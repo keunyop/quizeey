@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.questionbank.webservice.dto.question.ExampleSaveRequestDto;
+import com.questionbank.webservice.dto.question.ExplanationRequestDto;
+import com.questionbank.webservice.dto.question.ExplanationResponseDto;
 import com.questionbank.webservice.dto.question.QuestionMainResponseDto;
 import com.questionbank.webservice.dto.question.QuestionRequestDto;
 import com.questionbank.webservice.dto.question.QuestionSaveRequestDto;
@@ -16,6 +18,7 @@ import com.questionbank.webservice.dto.question.QuestionStatsSaveRequestDto;
 import com.questionbank.webservice.dto.question.VersionRequestDto;
 import com.questionbank.webservice.dto.question.VersionResponseDto;
 import com.questionbank.webservice.service.ExampleService;
+import com.questionbank.webservice.service.ExplanationService;
 import com.questionbank.webservice.service.QuestionService;
 import com.questionbank.webservice.service.QuestionStatsService;
 import com.questionbank.webservice.service.VersionService;
@@ -29,6 +32,7 @@ public class WebRestController {
     private VersionService       versionService;
     private ExampleService       exampleService;
     private QuestionStatsService questionStatsService;
+    private ExplanationService   explanationService;
 
     @PostMapping("/question")
     public QuestionMainResponseDto getQuestion(@RequestBody
@@ -64,5 +68,17 @@ public class WebRestController {
     public QuestionStatsResponseDto getQuestionStats(@RequestBody
     QuestionStatsRequestDto dto) {
         return questionStatsService.getQuestionStats(dto.getQuestId());
+    }
+
+    @PostMapping("/addExplanation")
+    public void addExplanation(@RequestBody
+    ExplanationRequestDto dto) {
+        explanationService.addExplanation(dto);
+    }
+
+    @PostMapping("/explanations")
+    public List<ExplanationResponseDto> getExplanations(@RequestBody
+    ExplanationRequestDto dto) {
+        return explanationService.getExplanations(dto.getQuestId());
     }
 }
