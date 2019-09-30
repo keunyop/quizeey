@@ -125,12 +125,26 @@ var test;
         $.ajax({
           type: "POST",
           url: "/addExplanation",
-          dataType: "json",
+          dataType: "text",
           contentType: "application/json; charset=utf-8",
           data: JSON.stringify(data)
         })
-          .done(function(responseData) {
+          .done(function() {
             $(".add-explanation-form").hide();
+
+            // 설명 추가
+            var hr = document.createElement("hr");
+
+            var pUserNm = document.createElement("p");
+            pUserNm.innerText = data.userNm ? data.userNm : "Anonymous";
+
+            var pContents = document.createElement("p");
+            pContents.innerText = '"' + data.explanation + '"';
+
+            var addExpl_div = $("#additional-explanation");
+            addExpl_div.append(hr);
+            addExpl_div.append(pUserNm);
+            addExpl_div.append(pContents);
           })
           .fail(function(error) {
             console.log(error);
@@ -272,6 +286,7 @@ var test;
             $("#hidden-answer").empty();
             $("#quest-answer").empty();
             $("#explanation").empty();
+            $("#additional-explanation").empty();
 
             // SUBMIT button reset
             _btn_question_submit
@@ -284,15 +299,6 @@ var test;
           $("#versionText").append(responseData.verName);
           // 문제
           $("#questionText").append(quest_cnt + ". " + responseData.questTxt);
-
-          // 설명
-          if (responseData.explanation != "") {
-            $("#explanation-title").show();
-            $("#explanation").append(responseData.explanation);
-          } else {
-            $("#explanation-title").hide();
-            $("#explanation").text("");
-          }
 
           // 참조
           if (responseData.reference != "") {
@@ -481,10 +487,49 @@ var test;
         _this.nextQuestion();
       } else {
         $("#wrongModal").modal("show");
+        _this.queryAdditionalExplanations(); // 추가설명 조회
       }
 
       // 통계용 결과 전송
       _this.sendResult(result);
+    },
+
+    // 추가 설명 조회
+    queryAdditionalExplanations: function() {
+      var addExpl_div = $("#additional-explanation");
+
+      if(addExpl_div.find('hr').length == 0) {
+        var data = {
+          questId: questId
+        };
+  
+        $.ajax({
+          type: "POST",
+          url: "/explanations",
+          dataType: "json",
+          contentType: "application/json; charset=utf-8",
+          data: JSON.stringify(data)
+        })
+          .done(function(responseData) {
+            // 설명 추가
+            $.each(responseData, function(key, value) {
+              var hr = document.createElement("hr");
+  
+              var pUserNm = document.createElement("p");
+              pUserNm.innerText = value.userNm ? value.userNm : "Anonymous";
+  
+              var pContents = document.createElement("p");
+              pContents.innerText = '"' + value.explanation + '"';
+  
+              addExpl_div.append(hr);
+              addExpl_div.append(pUserNm);
+              addExpl_div.append(pContents);
+            });
+          })
+          .fail(function(error) {
+            console.log(error);
+          });
+      }
     },
 
     // 통계용 결과 전송
@@ -497,7 +542,7 @@ var test;
       $.ajax({
         type: "POST",
         url: "/updateQuestionStats",
-        dataType: "json",
+        dataType: "text",
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(data)
       })
