@@ -15,12 +15,15 @@ import com.questionbank.webservice.dto.question.QuestionSaveRequestDto;
 import com.questionbank.webservice.dto.question.QuestionStatsRequestDto;
 import com.questionbank.webservice.dto.question.QuestionStatsResponseDto;
 import com.questionbank.webservice.dto.question.QuestionStatsSaveRequestDto;
+import com.questionbank.webservice.dto.question.TestRequestDto;
+import com.questionbank.webservice.dto.question.TestResponseDto;
 import com.questionbank.webservice.dto.question.VersionRequestDto;
 import com.questionbank.webservice.dto.question.VersionResponseDto;
 import com.questionbank.webservice.service.ExampleService;
 import com.questionbank.webservice.service.ExplanationService;
 import com.questionbank.webservice.service.QuestionService;
 import com.questionbank.webservice.service.QuestionStatsService;
+import com.questionbank.webservice.service.TestService;
 import com.questionbank.webservice.service.VersionService;
 
 import lombok.AllArgsConstructor;
@@ -33,6 +36,7 @@ public class WebRestController {
     private ExampleService       exampleService;
     private QuestionStatsService questionStatsService;
     private ExplanationService   explanationService;
+    private TestService          testService;
 
     @PostMapping("/question")
     public QuestionMainResponseDto getQuestion(@RequestBody
@@ -80,5 +84,11 @@ public class WebRestController {
     public List<ExplanationResponseDto> getExplanations(@RequestBody
     ExplanationRequestDto dto) {
         return explanationService.getExplanations(dto.getQuestId());
+    }
+
+    @PostMapping("/tests")
+    public List<TestResponseDto> getTests(@RequestBody
+    TestRequestDto dto) {
+        return testService.getTests(dto.getLanguageCd());
     }
 }

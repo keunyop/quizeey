@@ -1,10 +1,11 @@
 package com.questionbank.webservice.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.questionbank.webservice.domain.question.TestRepository;
-import com.questionbank.webservice.dto.question.TestSaveRequestDto;
+import com.questionbank.webservice.dto.question.TestResponseDto;
 
 import lombok.AllArgsConstructor;
 
@@ -13,8 +14,7 @@ import lombok.AllArgsConstructor;
 public class TestService {
     private TestRepository testRepository;
 
-    @Transactional
-    public Long addTest(TestSaveRequestDto dto) {
-        return testRepository.save(dto.toEntity()).getTestId();
+    public List<TestResponseDto> getTests(String languageCd) {
+        return null;
     }
 }

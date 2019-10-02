@@ -20,12 +20,20 @@ public class Test extends BaseTimeEntity {
     @GeneratedValue
     private Long   testId;
 
-    @Column(nullable = false)
+    @Column
     private String testNm;
 
+    @Column
+    private String testNmEng;
+
+    @Column(nullable = false)
+    private int    inqrSeq;
+
     @Builder
-    public Test(Long testId, String testNm) {
+    public Test(Long testId, String testNm, String testNmEng, int inqrSeq) {
         this.testId = testId;
         this.testNm = testNm;
+        this.testNmEng = testNmEng;
+        this.inqrSeq = inqrSeq;
     }
 }
