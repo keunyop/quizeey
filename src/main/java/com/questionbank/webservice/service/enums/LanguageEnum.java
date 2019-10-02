@@ -8,9 +8,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 public enum LanguageEnum {
-    KOR("kor"),
+    KOR("kr"),
 
-    ENG("eng"),
+    ENG("en"),
 
     ;
 

@@ -24,7 +24,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="content-language" content="kr">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="컴퓨터와 모바일에 최적화된 자격증 기출문제. AWS 공인 개발자, 정보처리기사, 교통기사, 건축기사, 방송통신기사, SQLD, SQLP, 도시계획시가 등 각종 자격증 기출문제 무료 제공" />
+    <meta name="description"
+        content="컴퓨터와 모바일에 최적화된 자격증 기출문제. AWS 공인 개발자, 정보처리기사, 교통기사, 건축기사, 방송통신기사, SQLD, SQLP, 도시계획시가 등 각종 자격증 기출문제 무료 제공" />
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/img/favicon.ico">
@@ -54,14 +55,15 @@
             <div class="card shadow" style="width: 100%;">
                 <div class="card-body">
                     <h5 class="card-title">
-                        Quizeey는 최대한 쉽게 문제를 풀 수 있도록 컴퓨터뿐만 아니라 핸드폰 화면에도 최적화되어 있습니다. Quizeey가 무료로 제공하는 기출문제들을 풀다 보면 어느새 자격증 시험 준비가 되실
+                        Quizeey는 최대한 쉽게 문제를 풀 수 있도록 컴퓨터뿐만 아니라 핸드폰 화면에도 최적화되어 있습니다. Quizeey가 무료로 제공하는 기출문제들을 풀다 보면 어느새
+                        자격증 시험 준비가 되실
                         거예요. 어떤 문제를 풀어 보시겠어요?
                     </h5>
                     <br>
                     <input class="form-control" id="testSearch" type="text" placeholder="자격증 검색...">
                     <br>
                     <div id="testRadios">
-                        <div class="custom-control custom-radio">
+                        {{!-- <div class="custom-control custom-radio">
                             <input type="radio" id="testRadio1" name="testRadio" class="custom-control-input"
                                 value="aws-certified-developer-associate">
                             <label class="custom-control-label" for="testRadio1">AWS 공인 개발자 – 어소시에이트</label>
@@ -119,9 +121,9 @@
                             <input type="radio" id="testRadio4" name="testRadio" class="custom-control-input"
                                 value="computer-science">
                             <label class="custom-control-label" for="testRadio4">컴퓨터 공학</label>
-                        </div>
+                        </div> --}}
                     </div>
-                    <br><br>
+                    <br>
                     <button type="button" class="btn btn-lg btn-secondary btn-block" id="btn-take-the-quiz" disabled>
                         퀴즈 풀기
                     </button>
