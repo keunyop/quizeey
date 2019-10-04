@@ -300,6 +300,9 @@ var test;
           // 문제
           $("#questionText").append(quest_cnt + ". " + responseData.questTxt);
 
+          // 설명
+          $("#explanation").append(responseData.explanation);
+
           // 참조
           if (responseData.reference != "") {
             $("#reference-title").show();
@@ -498,11 +501,11 @@ var test;
     queryAdditionalExplanations: function() {
       var addExpl_div = $("#additional-explanation");
 
-      if(addExpl_div.find('hr').length == 0) {
+      if (addExpl_div.find("hr").length == 0) {
         var data = {
           questId: questId
         };
-  
+
         $.ajax({
           type: "POST",
           url: "/explanations",
@@ -514,13 +517,13 @@ var test;
             // 설명 추가
             $.each(responseData, function(key, value) {
               var hr = document.createElement("hr");
-  
+
               var pUserNm = document.createElement("p");
               pUserNm.innerText = value.userNm ? value.userNm : "Anonymous";
-  
+
               var pContents = document.createElement("p");
               pContents.innerText = '"' + value.explanation + '"';
-  
+
               addExpl_div.append(hr);
               addExpl_div.append(pUserNm);
               addExpl_div.append(pContents);
