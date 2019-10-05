@@ -138,6 +138,21 @@ var test;
             var pUserNm = document.createElement("p");
             pUserNm.innerText = data.userNm ? data.userNm : "Anonymous";
 
+            var dt = new Date();
+            var nowDate =
+              dt.getFullYear() +
+              "-" +
+              dt.getMonth() +
+              "-" +
+              dt.getDate() +
+              " " +
+              dt.getHours() +
+              ":" +
+              dt.getMinutes() +
+              ":" +
+              dt.getSeconds();
+            pUserNm.innerText = pUserNm.innerText + " (" + nowDate + ")";
+
             var pContents = document.createElement("p");
             pContents.innerText = '"' + data.explanation + '"';
 
@@ -520,6 +535,8 @@ var test;
 
               var pUserNm = document.createElement("p");
               pUserNm.innerText = value.userNm ? value.userNm : "Anonymous";
+              pUserNm.innerText =
+                pUserNm.innerText + " (" + value.createdDate + ")";
 
               var pContents = document.createElement("p");
               pContents.innerText = '"' + value.explanation + '"';
