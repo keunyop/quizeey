@@ -12,20 +12,20 @@ So I decided to make a mobile friendly pool of quizzes to study more effectively
 
 ■ Select Exams
 
-<img src="bin/static/img/githup/main_m.png" width="300"/>
+<img src="bin/static/img/github/main_m.png" width="300"/>
 
 ■ Solve Questions
 
-<img src="bin/static/img/githup/question_m.png" width="300"/>
+<img src="bin/static/img/github/question_m.png" width="300"/>
 
 ■ Check Explanation and Reference Site
 
-<img src="bin/static/img/githup/incorrect_m.png" width="300"/>
+<img src="bin/static/img/github/incorrect_m.png" width="300"/>
 
 ■ Check Stats of the Question
 
-<img src="bin/static/img/githup/stats_m.png" width="300"/>
+<img src="bin/static/img/github/stats_m.png" width="300"/>
 
 ■ Comment Question
 
-<img src="bin/static/img/githup/comment_m.png" width="300"/>
+<img src="bin/static/img/github/comment_m.png" width="300"/>
