@@ -184,11 +184,23 @@ var test;
         }
         // 엔터키
         else if (e.keyCode == 13) {
-          // 선택한 번호가 없으면 문제 skip
-          if ($("#btn-question-submit").prop("disabled")) {
-            _this.nextQuestion(true);
+          // 오답 Modal 활성화 여부
+          if (($("#wrongModal").data("bs.modal") || {})._isShown) {
+            $("#btn-next-question").click();
           } else {
-            _this.submitQuiz();
+            // 선택한 번호가 없으면 문제 skip
+            if ($("#btn-question-submit").prop("disabled")) {
+              _this.nextQuestion(true);
+            } else {
+              _this.submitQuiz();
+            }
+          }
+        }
+        // ESC키
+        else if (e.keyCode == 27) {
+          // 오답 Modal 활성화 여부
+          if (($("#wrongModal").data("bs.modal") || {})._isShown) {
+            $("#btn-close-modal").click();
           }
         }
       });
