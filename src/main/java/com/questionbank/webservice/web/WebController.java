@@ -350,6 +350,22 @@ public class WebController {
         return "test";
     }
 
+    @GetMapping(value = { "/computer-specialist-in-spreadsheet-and-database-level-1" })
+    public String computerSpecialistInSpreadsheetAndDatabaseLevel1(HttpServletRequest request, Model model,
+                                                                   @RequestParam(value = "questId", required = false)
+                                                                   String questId) {
+
+        model.addAttribute("testId", "12");
+
+        if (StringUtils.isNotBlank(questId)) {
+            model.addAttribute("inputQuestId", questId);
+        }
+
+        model.addAttribute("testName", "컴퓨터활용능력 1급");
+
+        return "test";
+    }
+
     @GetMapping("/about")
     public String about() {
         return "about";

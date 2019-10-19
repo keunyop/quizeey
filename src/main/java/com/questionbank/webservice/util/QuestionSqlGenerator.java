@@ -16,9 +16,9 @@ import org.springframework.util.CollectionUtils;
 
 public class QuestionSqlGenerator {
 
-    final static String FILE_NAME  = "D:\\99.KYLEE\\01.개인프로젝트\\36.QuestionBank\\dumps\\문제\\컴활2급_20190831.txt";
+    final static String FILE_NAME  = "D:\\99.KYLEE\\01.개인프로젝트\\36.QuestionBank\\dumps\\문제\\컴활1급_20190831.txt";
     final static String WRITE_PATH = "src/main/java/com/questionbank/webservice/util/sql.sql";
-    final static Long   TEST_ID    = (long) 11;
+    final static Long   TEST_ID    = (long) 12;
     //    final static String TEST_NAME  = "도시계획기사";
     final static int    VER_NBR    = 1;
     final static String VER_NAME   = "2019-08-31 기출문제";
