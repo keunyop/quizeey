@@ -1,292 +1,340 @@
 
 -- VERSION
-insert into version (test_id, ver_nbr, ver_nm, created_date, modified_date) values ('12', '1', '2019-08-31 기출문제', now(), now());
+insert into version (test_id, ver_nbr, ver_nm, created_date, modified_date) values ('13', '1', '2011-10-09 기출문제', now(), now());
 -- QUESTION
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '1', ' 다음 중 2차원 또는 3차원 물체의 모형에 명암과 색상을 입혀 사실감을 더해주는 그래픽 기법은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '1', '1', ' 모델링(Modeling)		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '1', '2', ' 애니메이션(Animation)', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '1', '3', ' 리터칭(Retouching)		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '1', '4', ' 렌더링(Rendering)', 'Y', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '1', ' 기관의 냉각팬에 대한 설명 중 틀린 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '1', '1', ' 유체 커플링식은 냉각수의 온도에 따라서 작동된다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '1', '2', ' 전동팬은 냉각수의 온도에 따라 작동된다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '1', '3', ' 전동팬이 작동되지 않을 때는 물 펌프도 회전하지 않는다.', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '1', '4', ' 전동팬의 작동과 관계없이 물 펌프는 항상 회전한다.', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '2', ' 다음 중 mp3 파일의 크기를 결정하는 요소에 해당하지않는 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '2', '1', ' 표본 추출률(Hz)		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '2', '2', ' 샘플 크기(bit)', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '2', '3', ' 재생 방식(mono, stereo)	', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '2', '4', ' 프레임 너비(pixel)', 'Y', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '2', ' 기관 과열의 주요 원인이 아닌 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '2', '1', ' 라디에이터 코어의 막힘', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '2', '2', ' 냉각장치 내부의 물때 과다', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '2', '3', ' 냉각수의 부족', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '2', '4', ' 엔진 오일량 과다', 'Y', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '3', ' 다음 중 컴퓨터 통신에서 사용하는 프록시(Proxy) 서버의 기능으로 옳은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '3', '1', ' 방화벽 기능과 캐시 기능', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '3', '2', ' 내부 불법 해킹 차단 기능', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '3', '3', ' FTP 프로토콜 연결 해제 기능', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '3', '4', ' 네트워크 병목현상 해결 기능', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '3', ' 다음 중 연소 시 발생하는 질소산화물(NOx)의 발생 원인과 가장 밀접한 관계가 있는 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '3', '1', ' 높은 연소 온도	', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '3', '2', ' 가속 불량', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '3', '3', ' 흡입 공기 부족	', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '3', '4', ' 소염 경계층', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '4', ' 다음 중 바이러스에 대한 설명으로 옳지 않은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '4', '1', ' 감염 부위에 따라 부트 바이러스와 파일 바이러스로 구분한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '4', '2', ' 사용자 몰래 스스로 복제하여 다른 프로그램을 감염시키고, 정상적인 프로그램이나 다른 데이터 파일 등을 파괴한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '4', '3', ' 주로 복제품을 사용하거나 통신 매체를 통하여 다운받은 프로그램에 의해 감염된다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '4', '4', ' 컴퓨터 하드웨어와 무관하게 소프트웨어에만 영향을 미친다.', 'Y', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '4', ' 디젤기관에서 시동이 되지 않는 원인으로 맞는 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '4', '1', ' 연료공급 펌프의 연료공급 압력이 높다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '4', '2', ' 가속 페달을 밟고 시동하였다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '4', '3', ' 배터리 방전으로 교체가 필요한 상태이다.', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '4', '4', ' 크랭크축 회전속도가 빠르다.', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '5', ' 다음 중 사물인터넷(IoT)에 대한 설명으로 옳지 않은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '5', '1', ' 모든 사물을 네트워크로 연결하여 소통하는 정보통신환경을 의미한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '5', '2', ' 스마트 센싱 기술과 무선통신 기술을 융합하여 실시간으로 데이터를 주고받는다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '5', '3', ' 전기의 생산부터 소비까지의 전 과정에 정보통신 기술을 접목하여 에너지 효율성을 높인다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '5', '4', ' 개방형 정보 공유에 대한 부작용을 최소화하기 위해 정보보안 기술의 적용이 필요하다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '5', ' 디젤기관에서 사용하는 분사노즐의 종류에 속하지 않는 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '5', '1', ' 핀틀(pintle)형', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '5', '2', ' 스로틀(throttle)형', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '5', '3', ' 홀(hole)형', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '5', '4', ' 싱글 포인트(single point)형', 'Y', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '6', ' 다음 중 IPv6 주소 체계에 관한 설명으로 옳지 않은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '6', '1', ' IPv4 주소 체계의 주소 부족 문제를 해결하기 위하여 개발되었다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '6', '2', ' IPv6 주소는 16비트씩 8부분으로 총 128비트로 구성되어 있다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '6', '3', ' 주소는 네트워크의 크기나 호스트의 수에 따라 A, B, C, D, E 클래스로 나누어진다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '6', '4', ' 실시간 흐름 제어로 향상된 멀티미디어 기능을 지원한다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '6', ' 디젤기관에서 부조 발생의 원인이 아닌 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '6', '1', ' 발전기 고장			', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '6', '2', ' 거버너 작용 불량', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '6', '3', ' 분사시기 조정 불량		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '6', '4', ' 연료의 압송 불량', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '7', ' 다음 중 인터넷에서 사용하는 URL에 관한 설명으로 옳지 않은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '7', '1', ' 인터넷 상에 존재하는 각종 자원의 위치를 나타내는 표준 주소 체계이다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '7', '2', ' URL의 일반적인 형식은 '프로토콜://호스트주소[:포트번호][/파일경로]'이다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '7', '3', ' 계정이 있는 FTP의 경우 'http://사용자이름[:비밀번호]@서버이름:포트번호' 형식으로 사용한다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '7', '4', ' mailto 프로토콜은 IP 정보 없이 받는 사람의 이메일 주소만 나타내면 된다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '7', ' 디젤기관에서 연료장치 공기빼기 순서가 바른 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '7', '1', ' 공급펌프 → 연료여과기 → 분사펌프', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '7', '2', ' 공급펌프 → 분사펌프 → 연료여과기', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '7', '3', ' 연료여과기 → 공급펌프 → 분사펌프', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '7', '4', ' 연료여과기 → 분사펌프 → 공급펌프', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '8', ' 다음 중 컴퓨터 통신에서 사용하는 프로토콜 기능에 관한설명으로 옳지 않은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '8', '1', ' 통신망에 전송되는 패킷의 흐름을 제어해서 시스템 전체의 안전성을 유지한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '8', '2', ' 정보를 전송하기 위해 송·수신기 사이에 같은 상태를 유지하도록 동기화 기능을 수행한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '8', '3', ' 데이터 전송 도중에 발생하는 오류를 검출한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '8', '4', ' 네트워크에 접속된 다양한 단말장치를 자동으로 인식 하여 호환성을 제공한다.', 'Y', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '8', ' 운전 중인 기관의 에어클리너가 막혔을 때 나타나는 현상으로 맞는 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '8', '1', ' 배출가스 색은 검고, 출력은 저하한다.', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '8', '2', ' 배출가스 색은 희고, 출력은 정상이다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '8', '3', ' 배출가스 색은 청백색이고, 출력은 증가된다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '8', '4', ' 배출가스 색은 무색이고, 출력은 무관하다.', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '9', ' 다음 중 객체 지향 프로그래밍 언어에 대한 설명으로 옳지 않은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '9', '1', ' 소프트웨어의 재사용으로 프로그램의 개발 시간을 단축할 수 있다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '9', '2', ' 대표적인 객체지향언어로 C++, Java 등이 있다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '9', '3', ' 상속성, 캡슐화, 추상화, 다형성 등의 특징이 있다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '9', '4', ' 순차적인 처리가 중요시되며 프로그램 전체가 유기적으로 연결되도록 작성한다.', 'Y', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '9', ' 엔진의 윤활유 소비량이 과다해지는 가장 큰 원인은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '9', '1', ' 기관의 과냉', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '9', '2', ' 피스톤 링 마멸', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '9', '3', ' 오일 여과기 필터 불량', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '9', '4', ' 냉각펌프 손상', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '10', ' 다음 중 아래의 설명에 해당하는 Windows 제공 기능은?<br><br>	- 데이터와 데이터를 연결하여 원본 데이터를 수정할 떄 연결된 데이터도 함께 수정되도록 지원하는 기능이다.<br><br>	- 이 기능을 지원하는 그래픽 프로그램에서 그린 그림을 문서 편집기에 연결한 경우 그래픽 프로그램에서 그림을 수정하면 문서 편집기의 그림도 같이 변경된다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '10', '1', ' 선점형 멀티태스크(Preemptive Multitasking)', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '10', '2', ' GUI(Graphic User Interface)', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '10', '3', ' PnP(Plug &Play)', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '10', '4', ' OLE(Object Linking and Embedding)', 'Y', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '10', ' 흡·배기 밸브의 구비조건이 아닌 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '10', '1', ' 열전도율이 좋을 것', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '10', '2', ' 열에 대한 팽창율이 적을 것', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '10', '3', ' 열에 대한 저항력이 작을 것', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '10', '4', ' 가스에 견디고, 고온에 잘 견딜 것', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '11', ' 다음 중 컴퓨터에서 사용하는 ASCII 코드에 관한 설명으로 옳지 않은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '11', '1', ' 각 문자를 7비트로 표현하며, 총 128개의 문자 표현이 가능하다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '11', '2', ' 확장 ASCII 코드는 8비트를 사용한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '11', '3', ' 데이터 처리 및 통신 시스템 상호 간의 정보 교환을 위해 사용된다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '11', '4', ' 각 나라별 언어를 표현할 수 있다.', 'Y', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '11', ' 일반적으로 기관에 많이 사용되는 윤활 방법은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '11', '1', ' 수 급유식		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '11', '2', ' 적하 급유식', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '11', '3', ' 압송 급유식	', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '11', '4', ' 분무 급유식', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '12', ' 다음 중 컴퓨터의 펌웨어(Firmware)에 관한 설명으로 옳은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '12', '1', ' 주로 하드 디스크에 저장되며 부팅 시 동작한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '12', '2', ' 펌웨어 업데이트만으로도 시스템의 성능을 향상시킬 수 있다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '12', '3', ' 컴퓨터 바이러스 백신과 관련이 있는 프로그램이다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '12', '4', ' 컴퓨터 연산 속도를 빠르게 도와주는 하드웨어이다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '12', ' 기관 실린더(cylinder) 벽에서 마멸이 가장 크게 발생하는 부위는?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '12', '1', ' 상사점 부근	', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '12', '2', ' 하사점 부근', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '12', '3', ' 중간 부분		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '12', '4', ' 하사점 이하', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '13', ' 다음 중 컴퓨터 메인보드에 사용되는 칩셋(Chip Set)에 관한 설명으로 옳은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '13', '1', ' 컴퓨터를 구성하는 모든 장치들이 장착되고 연결되는 기판이다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '13', '2', ' 메인보드에 장착되어 있는 각 장치들을 제어하고 역할을 조율한다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '13', '3', ' CPU와 주변장치 간의 데이터 전송에 사용되는 통로 역할을 한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '13', '4', ' 메인보드에 주변장치를 연결하기 위한 접속 부분을 말한다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '13', ' 기동 전동기의 시험 항목으로 맞지 않는 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '13', '1', ' 무부하 시험	', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '13', '2', ' 회전력 시험', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '13', '3', ' 저항 시험		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '13', '4', ' 중부하 시험', 'Y', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '14', ' 다음 중 컴퓨터 보조 기억장치로 사용되는 SSD(Solid State Drive)에 관한 설명으로 옳은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '14', '1', ' 고속으로 데이터를 입출력할 수 있으며, 배드섹터가 발생하지 않는다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '14', '2', ' HDD와 같이 바로 덮어쓰기를 할 수 있으며, 읽기/쓰기 성능이 비슷하다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '14', '3', ' 650nm 파장의 적색 레이저를 사용하여 데이터를 기록한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '14', '4', ' 소음이 없고 발열이 낮으나 HDD에 비해 외부 충격에 약하다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '14', ' 전압 조정기의 종류에 해당하지 않는 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '14', '1', ' 접점식		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '14', '2', ' 카본파일식', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '14', '3', ' 트랜지스터식	', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '14', '4', ' 저항식', 'Y', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '15', ' 다음 중 외부 인터럽트가 발생하는 경우에 해당하지 않는 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '15', '1', ' 컴퓨터의 전원 공급이 중단되었을 경우', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '15', '2', ' 실행할 수 없는 명령어가 사용된 경우', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '15', '3', ' 타이머에 의해 의도적으로 프로그램이 중단된 경우', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '15', '4', ' 입출력 장치의 입출력 준비 완료를 알리는 경우', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '15', ' 예열플러그를 빼서 보았더니 심하게 오염되어있다. 그 원인으로 가장 적합한 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '15', '1', ' 불완전 연소 또는 노킹', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '15', '2', ' 엔진 과열', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '15', '3', ' 플러그의 용량 과다', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '15', '4', ' 냉각수 부족', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '16', ' 다음 중 레지스터에 관한 설명으로 옳은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '16', '1', ' CPU 내부에서 특정한 목적에 사용되는 일시적인 기억 장소이다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '16', '2', ' 메모리 중에서 가장 속도가 느리며, 플립플롭이나 래치 등으로 구성된다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '16', '3', ' 컴퓨터의 유지 보수를 위한 시스템 정보를 저장한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '16', '4', ' 시스템 부팅 시 운영체제가 로딩되는 메모리이다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '16', ' 운전 중 갑자기 계기판에 충전 경고등이 점등되었다. 그 현상으로 맞는 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '16', '1', ' 정상적으로 충전이 되고 있음을 나타낸다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '16', '2', ' 충전이 되지 않고 있음을 나타낸다.', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '16', '3', ' 충전계통에 이상이 없음을 나타낸다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '16', '4', ' 주기적으로 점등되었다가 소동되는 것이다.', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '17', ' 다음 중 Windows 운영체제에서 사용하는 NTFS 파일시스템에 관한 설명으로 옳지 않은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '17', '1', ' FAT32 파일 시스템과 비교하여 성능 및 안전성이 우수하다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '17', '2', ' 하드 디스크 논리 파티션의 크기에는 제한이 없다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '17', '3', ' 비교적 큰 오버헤드가 있기 때문에 약 400MB 이하의 볼륨에서 사용하는 것은 좋지 않다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '17', '4', ' 파일 및 폴더에 대한 액세스 제어를 유지하고 제한된 계정을 지원한다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '17', ' 납산 축전지가 방전되어 급속 충전을 할 때의 설명으로 틀린 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '17', '1', ' 충전 중 전해액의 온도가 45℃가 넘지 않도록 한다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '17', '2', ' 충전 중 가스가 많이 발생되면 충전을 중단한다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '17', '3', ' 충전전류는 축전지 용량과 같게 한다.', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '17', '4', ' 충전시간은 가능한 짧게 한다.', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '18', ' 다음 중 Windows의 관리 도구 중 [컴퓨터 관리]에서 수행 가능한 [디스크 관리] 작업에 해당하지 않는 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '18', '1', ' 볼륨을 확장하거나 축소할 수 있다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '18', '2', ' 드라이브 문자를 변경할 수 있다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '18', '3', ' 포맷을 실행할 수 있다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '18', '4', ' 분석 및 디버그 로그를 표시할 수 있다.', 'Y', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '18', ' 건설기계에 사용하는 축전지 2개를 직렬로 연결하였을 때 변화 되는 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '18', '1', ' 전압이 증가된다.', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '18', '2', ' 사용 전류가 증가된다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '18', '3', ' 비중이 증가된다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '18', '4', ' 전압 및 이용 전류가 증가된다.', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '19', ' 다음 중 폴더의 [속성] 창에서 설정할 수 없는 작업 내용은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '19', '1', ' 문서나 사진, 음악 등 폴더의 최적화 유형을 설정할 수 있다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '19', '2', ' 폴더에 대한 사용 권한과 공유 설정을 할 수 있다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '19', '3', ' 폴더 안의 파일을 삭제할 수 있다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '19', '4', ' 폴더 아이콘을 변경할 수 있다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '19', ' 지게차 작업장치의 동력전달 기구가 아닌 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '19', '1', ' 리프터 체인	', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '19', '2', ' 틸트 실린더', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '19', '3', ' 리프트 실린더	', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '19', '4', ' 트랜치호', 'Y', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '20', ' 다음 중 Windows에서 시스템을 복원해야 하는 시기로 적절하지 않은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '20', '1', ' 새 장치를 설치한 후 시스템이 불안정할 때', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '20', '2', ' 로그온 화면이 나타나지 않으며, Windows가 실행되지 않을 때', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '20', '3', ' 누락되거나 손상된 데이터 파일을 이전 버전으로 되돌리고자 할 때', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '20', '4', ' 파일의 단편화를 개선하여 디스크의 접근 속도를 향상시키고자 할 때', 'Y', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '20', ' 운전 중 클러치가 미끄러질 때의 영향이 아닌 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '20', '1', ' 속도 감소		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '20', '2', ' 견인력 감소', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '20', '3', ' 연료소비량 증가	', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '20', '4', ' 엔진의 과냉', 'Y', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '22', ' 다음 중 부분합에 대한 설명으로 옳지 않은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '22', '1', ' 다중 함수를 이용하는 중첩 부분합을 작성하려면 '부분합' 대화상자에서 매번'새로운 값으로 대치' 항목을 선택해야 한다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '22', '2', ' 부분합을 제거하면 부분합과 함께 목록에 삽입된 윤곽 및 페이지 나누기도 제거된다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '22', '3', ' 세부 정보가 있는 행 아래에 요약 행을 지정하려면 '데이터 아래에 요약 표시'항목을 선택한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '22', '4', ' 중첩 부분합은 이미 작성된 부분합 그룹 내에 새로운 부분합 그룹을 추가하는 것이다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '21', ' 무한궤도식 굴삭기와 타이어식 굴삭기의 운전 특성에 대한 설명으로 틀린 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '21', '1', ' 무한궤도식은 기복이 심한 곳에서 작업이 불리하다.', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '21', '2', ' 타이어식은 변속 및 주행 속도가 빠르다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '21', '3', ' 무한궤도식은 습지, 사지에서 작업이 유리하다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '21', '4', ' 타이어식은 장거리 이동이 쉽고 기동성이 양호하다.', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '23', ' 다음 중 자동 필터에 관한 설명으로 옳지 않은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '23', '1', ' 날짜가 입력된 열에서 요일로 필터링하려면 '날짜필터' 목록에서 필터링 기준으로 사용할 요일을 하나 이상 선택하거나 취소한다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '23', '2', ' 두 개 이상의 필드에 조건을 설정하는 경우 필드 간에는 AND 조건으로 결합되어 필터링된다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '23', '3', ' 열 머리글에 표시되는 드롭다운 화살표에는 해당 열에서 가장 많이 나타나는 데이터 형식에 해당하는 필터 목록이 표시된다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '23', '4', ' 검색 상자를 사용하여 텍스트와 숫자를 검색할 수 있으며, 배경 또는 텍스트에 색상 서식이 적용되어 있는 경우 셀의 색상을 기준으로 필터링할 수도 있다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '22', ' 휠 로더의 붐과 버킷 레버를 동시에 당기면 작동은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '22', '1', ' 붐만 상승한다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '22', '2', ' 버킷만 오무려 진다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '22', '3', ' 붐은 상승하고 버킷은 오무려 진다.', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '22', '4', ' 작동이 안 된다.', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '26', ' 다음 중 데이터 입력에 대한 설명으로 옳지 않은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '26', '1', ' 동일한 문자를 여러 개의 셀에 입력하려면 셀에 문자를 입력한 후 채우기 핸들을 드래그한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '26', '2', ' 숫자 데이터의 경우 두 개의 셀을 선택하고 채우기 핸들을 선택 방향으로 드래그하면 두 값의 차이만큼 증가/감소하며 자동 입력된다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '26', '3', ' 일정 범위 내에 동일한 데이터를 한 번에 입력하려면 범위를 지정하여 데이터를 입력한 후 바로 이어서 ＜Shift＞+＜Enter＞키를 누른다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '26', '4', ' 사용자 지정 연속 데이터 채우기를 사용하여 데이터를 입력하는 경우 사용자 지정 목록에는 텍스트나 텍스트/숫자 조합만 포함될 수 있다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '23', ' 파워스티어링에서 핸들이 매우 무거워 조작하기 힘든 상태일 때의 원인으로 맞는 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '23', '1', ' 바퀴가 습지에 있다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '23', '2', ' 조향 펌프에 오일이 부족하다.', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '23', '3', ' 볼 조인트의 교환시기가 되었다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '23', '4', ' 핸들 유격이 크다.', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '27', ' 다음 중 날짜 데이터의 입력에 대한 설명으로 옳은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '27', '1', ' 날짜는 1900년 1월 1일을 1로 시작하는 일련번호로 저장된다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '27', '2', ' 날짜 데이터는 슬래시(/)나 점(.) 또는 하이픈(-)으로 연, 월, 일을 구분하여 입력한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '27', '3', ' 수식에서 날짜 데이터를 직접 입력할 때에는 작은따옴표('')로 묶어서 입력한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '27', '4', ' 단축키 ＜Ctrl＞+＜Alt＞+＜;＞ 을 누르면 오늘 날짜가 입력 된다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '24', ' 진공식 제동 배력 장치의 설명 중에서 옳은 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '24', '1', ' 진공 밸브가 새면 브레이크가 전혀 듣지 않는다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '24', '2', ' 릴레이 밸브의 다이어프램이 파손되면 브레이크가 듣지 않는다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '24', '3', ' 릴레이 밸브 피스톤 컵이 파손되어도 브레이크는 듣는다.', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '24', '4', ' 하이드로릭 피스톤의 체크 볼이 밀착 불량이면 브레이크가 듣지 않는다.', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '29', ' 다음 중 매크로에 대한 설명으로 옳지 않은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '29', '1', ' 매크로 기록 시 리본 메뉴에서의 탐색도 매크로 기록에 포함된다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '29', '2', ' 매크로 이름은 숫자나 공백으로 시작할 수 없다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '29', '3', ' 매크로를 사용하면 반복적인 작업들을 빠르고 쉽게 실행할 수 있다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '29', '4', ' 그래픽 개체에 매크로를 지정한 후 개체를 클릭하여 매크로를 실행할 수 있다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '25', ' 일반적으로 기중기 작업시 붐의 최대와 최소 제한각도로 가장 적합한 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '25', '1', ' 최대 20°, 최소 30°', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '25', '2', ' 최대 78°, 최소 20°', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '25', '3', ' 최대 78°, 최소 55°', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '25', '4', ' 최대 180°, 최소 20°', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '30', ' 다음 중 VBA에서 엑셀 프로그램은 종료하지 않고 현재 활성화된 통합 문서만 종료하기 위한 메서드는?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '30', '1', ' ActiveWorkbook.Quit		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '30', '2', ' Application.Quit', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '30', '3', ' Workbooks.Close		', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '30', '4', ' ActiveWindows.Close', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '26', ' 자동변속기가 장착된 건설기계의 모든 변속단에서 출력이 떨어질 경우 점검해야 할 항목과 거리가 먼 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '26', '1', ' 오일의 부족', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '26', '2', ' 토크컨버터 고장', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '26', '3', ' 엔진고장으로 출력 부족', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '26', '4', ' 추진축 휨', 'Y', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '34', ' 다음 중 수식의 결과가 나머지 셋과 다른 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '34', '1', ' =ABS(INT(-3/2))	', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '34', '2', ' =MOD(-3,2)', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '34', '3', ' =ROUNDUP(RAND(), 0)	', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '34', '4', ' =FACT(1.9)', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '27', ' 건설기계를 산(매수 한) 사람이 등록사항변경(소유권 이전) 신고를 하지 않아 등록사항 변경신고를 독촉하였으나 이를 이행하지 않을 경우 판(매도 한) 사람이 할 수 있는 조치로서 가장 적합한 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '27', '1', ' 소유권 이전 신고를 조속히 하도록 매수 한 사람에게 재차 독촉한다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '27', '2', ' 매도 한 사람이 직접 소유권 이전 신고를 한다.', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '27', '3', ' 소유권 이전 신고를 조속히 하도록 소송을 제기한다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '27', '4', ' 아무런 조치도 할 수 없다.', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '35', ' 다음 중 Excel에서 리본 메뉴를 최소화하는 방법으로 옳지 않은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '35', '1', ' 엑셀 창 오른쪽 위에 있는 '리본 메뉴 최소화 단추(  )'를 클릭한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '35', '2', ' 단축키 ＜Alt＞+＜F1＞을 누른다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '35', '3', ' 리본 메뉴의 활성 탭 이름을 더블 클릭한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '35', '4', ' 리본 메뉴를 최소화하거나 원래 상태로 되돌리려면 단축키 ＜Ctrl＞+＜F1＞을 누른다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '28', ' 덤프트럭이 건설기계 검사소 검사가 아닌 출장검사를 받을 수 있는 경우는?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '28', '1', ' 너비가 3m인 경우', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '28', '2', ' 최고 속도가 40km/h인 경우', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '28', '3', ' 자체중량이 25톤인 경우', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '28', '4', ' 축중이 5톤인 경우', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '37', ' 다음 중 엑셀 작업 중에 발생할 수 있는 만일의 사태에 대비하고 파일을 복구하기 위한 방법으로 옳지 않은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '37', '1', ' 현재 작업 중인 파일의 백업 파일이 생성되도록 [다른이름으로 저장] 대화상자의 [도구]-[일반 옵션]에서 '백업 파일 항상 만들기'를 체크한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '37', '2', ' 자동 복구를 활성화하여 파일이 원하는 주기마다 자동 저장되도록 설정한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '37', '3', ' 자동 복구를 활성화한 경우 [검토] 탭 [정보]-[버전관리]에서 작업 중인 파일의 이전 버전을 검토할 수있다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '37', '4', ' 저장하지 않고 닫은 파일을 복구하려면 [Excel 옵션]창의 [저장]에서 '저장하지 않고 닫는 경우 마지막으로 자동 저장된 버전을 유지합니다.' 확인란이 선택 되어 있어야 한다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '29', ' 노면이 얼어붙은 경우 또는 폭설로 가시거리가 100미터 이내인 경우 최고속도의 얼마나 감속 운행하여야 하는가?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '29', '1', ' 50/100		', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '29', '2', ' 30/100', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '29', '3', ' 40/100		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '29', '4', ' 20/100', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '39', ' 다음 중 [인쇄 미리 보기 및 인쇄]에 대한 설명으로 옳지 않은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '39', '1', ' 인쇄 미리 보기를 끝내고 통합 문서로 돌아가려면 다른 탭을 클릭한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '39', '2', ' 인쇄 및 미리 보기 할 대상을 선택 영역, 활성 시트, 전체 통합 문서 중 선택할 수 있다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '39', '3', ' 페이지 여백 표시는 가능하나 페이지 여백의 변경은 [페이지 설정] 대화상자에서만 설정할 수 있다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '39', '4', ' 용지 방향을 가로 방향과 세로 방향으로 바꿔가며 미리 보기 할 수 있다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '31', ' 등록건설기계의 기종별 표시방법으로 옳은 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '31', '1', ' 01 : 불도저	', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '31', '2', ' 02 : 모터그레이더', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '31', '3', ' 03 : 지게차	', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '31', '4', ' 04 : 덤프트럭', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '40', ' 다음 중 워크시트의 인쇄 영역 설정에 대한 설명으로 옳지 않은 것은?<br><br><br><br>', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '40', '1', ' 인쇄 영역은 리본 메뉴 [페이지 레이아웃] 탭이나 [페이지 설정] 대화상자의 [시트] 탭에서 설정할 수 있다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '40', '2', ' 인쇄 영역을 설정했더라도 인쇄 시 활성 시트 전체가 인쇄되도록 설정할 수 있다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '40', '3', ' 여러 시트에서 원하는 영역을 추가하여 인쇄 영역을 확대할 수 있다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '40', '4', ' 여러 영역이 인쇄 영역으로 설정된 경우 설정한 순서대로 각기 다른 페이지에 인쇄된다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '32', ' 편도 4차로 일반도로의 경우 교차로 30m 전방에서 우회전을 하려면 몇 차로로 진입 통행해야 하는가?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '32', '1', ' 1차로로 통행한다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '32', '2', ' 2차로와 1차로로 통행한다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '32', '3', ' 4차로로 통행한다.', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '32', '4', ' 3차로만 통행 가능하다.', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '41', ' 다음 중 매크로에 대한 설명으로 옳지 않은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '41', '1', ' 매크로를 한 단계 씩 이동하면서 매크로의 흐름과 각 동작에 대한 정보를 확인할 수 있다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '41', '2', ' Access의 매크로는 작업을 자동화하고 양식, 보고서 및 컨트롤에 기능을 추가할 수 있게 해주는 도구이다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '41', '3', ' 이미 매크로에 추가한 작업을 반복해야 하는 경우 매크로 동작을 복사하여 붙여 넣으면 된다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '41', '4', ' 각 매크로는 하위 매크로를 포함할 수 없다.', 'Y', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '33', ' 정차 및 주차금지 장소에 해당 되는 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '33', '1', ' 건널목 가장자리로부터 15m 지점', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '33', '2', ' 정류장 표지판으로부터 12m 지점', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '33', '3', ' 도로의 모퉁이로부터 4m 지점', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '33', '4', ' 교차로 가장자리로부터 10m 지점', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '43', ' 다음 중 데이터 중복성에 대한 설명으로 옳지 않은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '43', '1', ' 중복으로 인한 데이터 불일치 시 일관성을 잃게 된다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '43', '2', ' 중복된 값에 대해 같은 수준의 데이터 보안이 유지되어야 한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '43', '3', ' 중복이 많아질수록 갱신 비용이 높아질 수 있다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '43', '4', ' 제어가 분산되어 데이터 무결성을 유지하기 쉬워진다.', 'Y', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '34', ' 특별 표지판을 부착하여야 할 건설기계의 범위에 해당하는 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '34', '1', ' 높이가 5미터인 건설기계', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '34', '2', ' 총중량이 50톤인 건설기계', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '34', '3', ' 길이가 16미터인 건설기계', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '34', '4', ' 최소회전반경이 13미터인 건설기계', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '44', ' 다음 중 관계 데이터 모델에 대한 설명으로 옳지 않은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '44', '1', ' 애트리뷰트가 취할 수 있는 같은 타입의 모든 원자 값들의 집합을 도메인이라 한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '44', '2', ' 관계형 데이터베이스에서 릴레이션은 데이터들을 표(table) 형태로 표현한 것이다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '44', '3', ' 속성들로 구성된 튜플들 사이에는 순서가 없다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '44', '4', ' 애트리뷰트는 널(null) 값을 가질 수 없다.', 'Y', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '35', ' 현장에 경찰 공무원이 없는 장소에서 인명사고와 물건의 손괴를 입힌 교통사고가 발생하였을 때 가장 먼저 취할 조치는?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '35', '1', ' 손괴한 물건 및 손괴 정도를 파악한다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '35', '2', ' 즉시 피해자 가족에게 아리고 합의한다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '35', '3', ' 즉시 사상자를 구호하고 경찰 공무원에게 신고한다.', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '35', '4', ' 승무원에게 사상자를 알리게 하고 회사에 알린다.', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '45', ' 다음 중 보고서에서 원본 데이터로 테이블이나 쿼리를 선택하기 위한 속성은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '45', '1', ' ODBC 데이터 원본		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '45', '2', ' 레코드 원본', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '45', '3', ' OLE DB 원본		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '45', '4', ' 컨트롤 원본', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '36', ' 3톤 미만 지게차의 소형건설기계 조종 교육시간은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '36', '1', ' 이론 6시간, 실습 6시간', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '36', '2', ' 이론 4시간, 실습 8시간', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '36', '3', ' 이론 12시간, 실습 12시간', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '36', '4', ' 이론 10시간, 실습 14시간', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '46', ' 다음 중 보고서의 그룹화에 대한 설명으로 옳지 않은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '46', '1', ' 그룹 머리글과 그룹 바닥글에는 그룹별 요약 정보를 삽입할 수 있다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '46', '2', ' 그룹화 기준이 되는 필드는 데이터가 정렬되어 표시된다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '46', '3', ' 보고서 마법사를 이용하여 기본적인 그룹화 보고서를 작성할 수 있다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '46', '4', ' 그룹화 기준은 한 개의 필드로만 지정할 수 있다.', 'Y', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '37', ' 건설기계에 사용되는 유압 실린더 작용은 어떠한 것을 응용한 것인가?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '37', '1', ' 베르누이의 정리	', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '37', '2', ' 파스칼의 정리', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '37', '3', ' 지렛대의 원리	', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '37', '4', ' 후크의 법칙', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '47', ' 다음 중 보고서의 그룹 바닥글 구역에 '=COUNT(*)'를 입력했을 때 출력되는 결과로 옳은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '47', '1', ' Null 필드를 포함한 그룹별 레코드 개수', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '47', '2', ' Null 필드를 포함한 전체 레코드 개수', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '47', '3', ' Null 필드를 제외한 그룹별 레코드 개수', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '47', '4', ' Null 필드를 제외한 전체 레코드 개수', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '39', ' 작동형, 평형피스톤형 등의 종류가 있으며 회로의 압력을 일정하게 유지시키는 밸브는?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '39', '1', ' 릴리프 밸브	', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '39', '2', ' 메이크업 밸브', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '39', '3', ' 시퀀스 밸브	', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '39', '4', ' 무부하 밸브', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '48', ' 다음 중 보고서의 각 구역에 대한 설명으로 옳지 않은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '48', '1', ' '페이지 머리글'은 인쇄 시 모든 페이지의 맨 위에 출력되며, 모든 페이지에 특정 내용을 반복하려는 경우 사용한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '48', '2', ' '보고서 머리글'은 보고서의 맨 앞에 한 번 출력되며, 함수를 이용한 집계정보를 표시할 수 없다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '48', '3', ' '그룹 머리글'은 각 새 레코드 그룹의 맨 앞에 출력되며, 그룹 이름이나 그룹별 계산결과를 표시할 때 사용한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '48', '4', ' '본문'은 레코드 원본의 모든 행에 대해 한 번씩 출력되며, 보고서의 본문을 구성하는 컨트롤이 추가된다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '40', ' 유압 실린더는 유체의 힘을 어떤 운동으로 바꾸는가?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '40', '1', ' 회전 운동		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '40', '2', ' 직선 운동', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '40', '3', ' 곡선 운동		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '40', '4', ' 비틀림 운동', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '50', ' 다음 중 요약 데이터를 보다 쉽게 이해할 수 있도록 합계, 평균 등의 집계 함수를 계산한 다음 데이터시트의 측면과 위쪽에 두 세트의 값으로 그룹화하는 쿼리 유형은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '50', '1', ' 선택 쿼리		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '50', '2', ' 크로스탭 쿼리', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '50', '3', ' 통합 쿼리		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '50', '4', ' 업데이트 쿼리', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '41', ' 유압 작동유의 점도가 너무 높을 때 발생되는 현상으로 맞는 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '41', '1', ' 동력 손실의 증가		', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '41', '2', ' 내부 누설의 증가', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '41', '3', ' 펌프 효율의 증가		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '41', '4', ' 마찰 마모 감소', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '52', ' 다음 중 각 데이터 형식에 맞는 쿼리의 조건식으로 옳지 않은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '52', '1', ' 숫자 데이터 형식인 경우: ＞=2000 AND ＜=4000', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '52', '2', ' 날짜 데이터 형식인 경우: ＜"2019-07-17"', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '52', '3', ' 문자 데이터 형식인 경우: ＜＞"성북구"', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '52', '4', ' 문자 데이터 형식인 경우: In ("서울","부산")', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '42', ' 일반적으로 오일탱크의 구성품이 아닌 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '42', '1', ' 스트레이너		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '42', '2', ' 배플', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '42', '3', ' 드레인플러그	', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '42', '4', ' 압력조절기', 'Y', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '53', ' 다음 중 두 테이블의 조인된 필드가 일치하는 행만 포함하여 보여주는 조인 방법은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '53', '1', ' 간접 조인		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '53', '2', ' 내부 조인', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '53', '3', ' 외부 조인		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '53', '4', ' 중복 조인', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '43', ' 다음 중 액추에이터의 입구 쪽 관로에 설치한 유량제어밸브로 흐름을 제어하여 속도를 제어하는 회로는?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '43', '1', ' 시스템 회로(system circuit)', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '43', '2', ' 블리도오프 회로(bled-off circuit)', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '43', '3', ' 미터인 회로(meter-in circuit)', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '43', '4', ' 미터아웃 회로(meter-out circuit)', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '54', ' 다음 중 Access의 기본 키에 대한 설명으로 옳지 않은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '54', '1', ' 기본 키는 테이블의 [디자인 보기] 상태에서 설정할 수 있다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '54', '2', ' 기본 키로 설정된 필드에는 널(NULL) 값이 허용되지 않는다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '54', '3', ' 기본 키로 설정된 필드에는 항상 고유한 값이 입력되도록 자동으로 확인된다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '54', '4', ' 관계가 설정되어 있는 테이블에서 기본 키 설정을 해제하면 해당 테이블에 설정된 관계도 삭제된다.', 'Y', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '44', ' 유압장치의 구성요소가 아닌 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '44', '1', ' 유니버셜 조인트	', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '44', '2', ' 오일탱크', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '44', '3', ' 펌프		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '44', '4', ' 제어밸브', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '55', ' 다음 중 '일련 번호' 데이터 형식에 관한 설명으로 옳지 않은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '55', '1', ' 새로운 레코드 추가 시 자동으로 번호가 부여된다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '55', '2', ' 해당 데이터 필드에 값이 입력되면 일련 번호는 수정할 수 없다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '55', '3', ' 삭제된 일련 번호는 다시 부여되지 않는다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '55', '4', ' 일련 번호 형식의 필드 크기는 변경할 수 없다.', 'Y', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '46', ' 유압에너지를 공급받아 회전운동을 하는 기기를 무엇이라 하는가?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '46', '1', ' 펌프		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '46', '2', ' 모터', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '46', '3', ' 밸브		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '46', '4', ' 롤러 리미트', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '56', ' 다음 중 폼 작성 시 사용하는 컨트롤에 대한 설명으로 옳지 않은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '56', '1', ' 레이블 컨트롤은 제목이나 캡션 등의 설명 텍스트를 표현하기 위해 많이 사용된다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '56', '2', ' 텍스트 상자는 바운드 컨트롤로 사용할 수 있으나 언바운드 컨트롤로는 사용할 수 없다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '56', '3', ' 목록 상자 컨트롤은 여러 개의 데이터 행으로 구성되며 대개 몇 개의 행을 항상 표시할 수 있는 크기로 지정되어 있다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '56', '4', ' 콤보 상자 컨트롤은 선택 항목 목록을 보다 간단한방식으로 나타내기 위해 드롭다운 화살표를 클릭하기 전까지는 목록이 숨겨져 있다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '47', ' 볼트 등을 조일 때 조이는 힘을 측정하기 위하여 쓰는 렌치는?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '47', '1', ' 복스 렌치		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '47', '2', ' 오픈엔드 렌치', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '47', '3', ' 소켓 렌치		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '47', '4', ' 토크 렌치', 'Y', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '57', ' 다음 중 [학생] 테이블의'S_Number' 필드 레이블이[데이터시트 보기] 상태에서는'학번'으로 표시하고자 할 때 설정해야 할 항목은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '57', '1', ' 형식		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '57', '2', ' 캡션', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '57', '3', ' 스마트 태그	', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '57', '4', ' 입력 마스크', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '48', ' 크레인으로 무거운 물건을 위로 달아 올릴 때 주의할 점이 아닌 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '48', '1', ' 달아 올릴 화물의 무게를 파악하여 제한하중 이하에서 작업한다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '48', '2', ' 매달린 화물이 불안전하다고 생각될 때는 작업을 중지한다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '48', '3', ' 신호의 규정이 없으므로 작업자가 적절히 한다.', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '48', '4', ' 신호자의 신호에 따라 작업한다.', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '58', ' 다음 중 폼에서 ＜Tab＞ 키를 누를 때 특정 컨트롤에는 포커스가 이동하지 않도록 하기 위한 방법은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '58', '1', ' '탭 인덱스' 속성을 '0'으로 설정한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '58', '2', ' '탭 정지' 속성을 '예'로 설정한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '58', '3', ' '탭 인덱스' 속성을 '-1'로 설정한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '58', '4', ' '탭 정지' 속성을 '아니오'로 설정한다.', 'Y', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '49', ' 전기장치의 퓨즈가 끊어져서 다시 새것으로 교체하였으나 또 끊어졌다면 어떤 조치가 가장 옳은가?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '49', '1', ' 계속 교체한다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '49', '2', ' 용량이 큰 것으로 갈아 끼운다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '49', '3', ' 구리선이나 납선으로 바꾼다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '49', '4', ' 전기장치의 고장개소를 찾아 수리한다.', 'Y', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '59', ' 다음 중 폼 작성에 대한 설명으로 옳지 않은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '59', '1', ' 컨트롤 마법사를 사용하여 폼을 닫는 매크로 함수를 실행하는 '명령 단추'를 삽입할 수 있다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '59', '2', ' 폼에서 연결된 테이블의 레코드를 삭제한 경우 영구적인 작업이므로 되돌릴 수 없다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '59', '3', ' 폼에 컨트롤을 삽입하면 탭 순서가 위에서 아래로, 왼쪽에서 오른쪽 순으로 자동 지정된다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '59', '4', ' 폼 디자인 도구를 이용하여 여러 컨트롤의 크기와 간격을 일정하게 설정할 수 있다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '51', ' 가동하고 있는 엔진에서 화재가 발생하였다. 불을 끄기 위한 조치 방법으로 가장 올바른 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '51', '1', ' 원인분석을 하고 모래를 뿌린다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '51', '2', ' 포말 소화기를 사용 후 엔진 시동스위치를 끈다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '51', '3', ' 엔진 시동스위치를 끄고 ABC 소화기를 사용한다.', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '51', '4', ' 엔진을 급가속하여 팬의 강한 바람을 일으켜 불을 끈다.', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('12', '1', '60', ' 다음 중 폼에 대한 설명으로 옳지 않은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '60', '1', ' 모든 폼은 기본적으로 테이블이나 쿼리와 연결되어 표시되는 바운드 폼이다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '60', '2', ' 폼 내에서 단추를 눌렀을 때 매크로와 모듈이 특정 기능을 수행하도록 할 수 있다', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '60', '3', ' 일 대 다 관계에 있는 테이블이나 쿼리는 폼 안에 하위 폼을 작성할 수 있다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('12', '1', '60', '4', ' 폼과 컨트롤의 속성은 [디자인 보기] 형식에서 [속성시트]를 이용하여 설정한다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '52', ' 동력 전달장치에서 가장 재해가 많이 발생하는 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '52', '1', ' 차축		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '52', '2', ' 기어', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '52', '3', ' 피스톤		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '52', '4', ' 벨트', 'Y', now(), now());
+
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '53', ' 크레인으로 인양 시 물체의 중심을 측정하여 인양하여야 한다. 다음 중 잘못된 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '53', '1', ' 형상이 복잡한 물체의 무게 중심을 확인한다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '53', '2', ' 인양 물체를 서서히 올려 지상 약 30cm지점에서 정지하여 확인한다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '53', '3', ' 인양 물체의 중심이 높으면 물체가 기울 수 있다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '53', '4', ' 와이어로프나 매달기용 체인이 벗겨질 우려가 있으면 되도록 높이 인양한다.', 'Y', now(), now());
+
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '54', ' 구급처치 중에서 환자의 상태를 확인하는 사항과 가장 거리가 먼 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '54', '1', ' 의식		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '54', '2', ' 상처', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '54', '3', ' 출혈		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '54', '4', ' 격리', 'Y', now(), now());
+
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '55', ' 작업장에서 전기가 예고 없이 정전 되었을 경우 전기로 작동하던 기계기구의 조치방법으로 틀린 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '55', '1', ' 즉시 스위치를 끈다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '55', '2', ' 안전을 위해 작업장을 정리해 놓는다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '55', '3', ' 퓨즈의 단선 유, 무를 검사한다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '55', '4', ' 전기가 들어오는 것을 알기 위해 스위치를 켜둔다.', 'Y', now(), now());
+
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '56', ' 복스 렌치가 오픈 렌치보다 많이 사용되는 이유는?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '56', '1', ' 값이 싸며 적은 힘으로 작업할 수 있다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '56', '2', ' 가볍고 사용하는데 양손으로도 사용할 수 있다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '56', '3', ' 파이프 피팅 조임 등 작업용도가 다양하여 많이 사용된다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '56', '4', ' 볼트, 너트 주위를 완전히 감싸게 되어 사용 중에 미끄러지지 않는다.', 'Y', now(), now());
+
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '57', ' 다음 중 한국전력의 송전선로 전압으로 맞는 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '57', '1', ' 6.6kV		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '57', '2', ' 22.9kV', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '57', '3', ' 345kV		', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '57', '4', ' 0.6kV', 'N', now(), now());
+
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '58', ' 일반 도시가스 사업자의 지하배관 설치시 도로폭 8m 이상인 도로에서는 관련법상 어느 정도의 깊이에 배관이 설치되어 있는가?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '58', '1', ' 1.5m 이상		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '58', '2', ' 1.2m 이상', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '58', '3', ' 1.0m 이상		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '58', '4', ' 0.6m 이상', 'N', now(), now());
+
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '59', ' 도시가스사업법에서 압축가스일 경우 중압이라 함은 얼마의 압력을 말하는가?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '59', '1', ' 0.1MPa ~ 1MPa 미만    ', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '59', '2', ' 0.02MPa ~ 1MPa 미만', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '59', '3', ' 1MPa ~ 10MPa 미만     ', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '59', '4', ' 10MPa ~ 100MPa 미만', 'N', now(), now());
+
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '60', ' 굴착도중 전력케이블 표지시트가 나왔을 경우의 조치사항으로 적합한 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '60', '1', ' 표지시트를 제거하고 계속 굴착한다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '60', '2', ' 표지시트를 제거하고 보호판이나 케이블이 확인될 때 까지 굴착한다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '60', '3', ' 즉시 굴착을 중지하고 해당 시설 관련기관에 연락한다.', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '60', '4', ' 표지시트를 원상태로 다시 덮고 인근 부위를 재 굴착한다.', 'N', now(), now());
 

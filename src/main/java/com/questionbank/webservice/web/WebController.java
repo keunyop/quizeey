@@ -366,6 +366,22 @@ public class WebController {
         return "test";
     }
 
+    @GetMapping(value = { "/craftsman-fork-lift-truck-operator" })
+    public String craftsmanForkLiftTruckOperator(HttpServletRequest request, Model model,
+                                                 @RequestParam(value = "questId", required = false)
+                                                 String questId) {
+
+        model.addAttribute("testId", "13");
+
+        if (StringUtils.isNotBlank(questId)) {
+            model.addAttribute("inputQuestId", questId);
+        }
+
+        model.addAttribute("testName", "지게차운전기능사");
+
+        return "test";
+    }
+
     @GetMapping("/about")
     public String about() {
         return "about";
