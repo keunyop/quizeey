@@ -1,5 +1,8 @@
 package com.questionbank.webservice.web;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
@@ -10,11 +13,58 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.questionbank.webservice.service.enums.TestEnum;
 
-import lombok.AllArgsConstructor;
-
 @Controller
-@AllArgsConstructor
 public class WebController {
+
+    private static Map<String, String[]> TESTMAP;
+
+    // Constructor
+    public WebController() {
+        if (TESTMAP == null) {
+            TESTMAP = new HashMap<>();
+            TESTMAP.put("/sqlp-professional", new String[] { "2", "SQLP - 국가공인 SQL전문가" });
+            TESTMAP.put("/cbp-basic-developer", new String[] { "3", "CBP 인증 - 개발자" });
+            TESTMAP.put("/sqlp-developer", new String[] { "5", "SQLD - 국가공인 SQL개발자" });
+            TESTMAP.put("/engineer-information-processing", new String[] { "6", "정보처리기사" });
+            TESTMAP.put("/engineer-transportation", new String[] { "7", "교통기사" });
+            TESTMAP.put("/engineer-architecture", new String[] { "8", "건축기사" });
+            TESTMAP.put("/engineer-broadcasting-communication", new String[] { "9", "방송통신기사" });
+            TESTMAP.put("/engineer-urban-planning", new String[] { "10", "도시계획기사" });
+            TESTMAP.put("/computer-specialist-in-spreadsheet-and-database-level-2",
+                    new String[] { "11", "컴퓨터활용능력 2급" });
+            TESTMAP.put("/computer-specialist-in-spreadsheet-and-database-level-1",
+                    new String[] { "12", "컴퓨터활용능력 1급" });
+            TESTMAP.put("/craftsman-fork-lift-truck-operator", new String[] { "13", "지게차운전기능사" });
+        }
+    }
+
+    @GetMapping(value = { "/sqlp-professional", "/kr/sqlp-professional", "/cbp-basic-developer",
+            "/kr/cbp-basic-developer", "/sqlp-developer", "/kr/sqlp-developer", "/engineer-information-processing",
+            "/kr/engineer-information-processing", "/engineer-transportation", "/engineer-architecture",
+            "/engineer-broadcasting-communication", "/engineer-urban-planning",
+            "/computer-specialist-in-spreadsheet-and-database-level-2",
+            "/computer-specialist-in-spreadsheet-and-database-level-1", "/craftsman-fork-lift-truck-operator" })
+    public String craftsmanForkLiftTruckOperator(HttpServletRequest request, Model model,
+                                                 @RequestParam(value = "questId", required = false)
+                                                 String questId) {
+
+        String uri = request.getServletPath();
+
+        if (uri.startsWith("/kr/")) {
+            uri = uri.substring(3);
+        }
+
+        String[] testInfos = TESTMAP.get(uri);
+
+        model.addAttribute("testId", testInfos[0]);
+        model.addAttribute("testName", testInfos[1]);
+
+        if (StringUtils.isNotBlank(questId)) {
+            model.addAttribute("inputQuestId", questId);
+        }
+
+        return "test";
+    }
 
     @GetMapping(value = { "/", "/kr", "/en" })
     public String main(HttpServletRequest request) {
@@ -88,72 +138,6 @@ public class WebController {
         return html;
     }
 
-    @GetMapping(value = { "/sqlp-professional", "/kr/sqlp-professional", "/en/sqlp-professional" })
-    public String sqlpProfessional(HttpServletRequest request, Model model,
-                                   @RequestParam(value = "questId", required = false)
-                                   String questId) {
-
-        String html = "";
-        String testId = TestEnum.SQLP.getCode();
-
-        model.addAttribute("testId", testId);
-
-        if (StringUtils.isNotBlank(questId)) {
-            model.addAttribute("inputQuestId", questId);
-        }
-
-        switch (request.getRequestURI()) {
-            case "/sqlp-professional":
-            case "/kr/sqlp-professional":
-                model.addAttribute("testName", TestEnum.getByCode(testId).getKorName());
-                html = "test";
-                break;
-
-            case "/en/sqlp-professional":
-                model.addAttribute("testName", TestEnum.getByCode(testId).getEngName());
-                html = "en/test";
-                break;
-
-            default:
-                break;
-        }
-
-        return html;
-    }
-
-    @GetMapping(value = { "/cbp-basic-developer", "/kr/cbp-basic-developer", "/en/cbp-basic-developer" })
-    public String cbpBasicDeveloper(HttpServletRequest request, Model model,
-                                    @RequestParam(value = "questId", required = false)
-                                    String questId) {
-
-        String html = "";
-        String testId = TestEnum.CBP_BASIC.getCode();
-
-        model.addAttribute("testId", testId);
-
-        if (StringUtils.isNotBlank(questId)) {
-            model.addAttribute("inputQuestId", questId);
-        }
-
-        switch (request.getRequestURI()) {
-            case "/cbp-basic-developer":
-            case "/kr/cbp-basic-developer":
-                model.addAttribute("testName", TestEnum.getByCode(testId).getKorName());
-                html = "test";
-                break;
-
-            case "/en/cbp-basic-developer":
-                model.addAttribute("testName", TestEnum.getByCode(testId).getEngName());
-                html = "en/test";
-                break;
-
-            default:
-                break;
-        }
-
-        return html;
-    }
-
     @GetMapping(value = { "/computer-science", "/kr/computer-science", "/en/computer-science" })
     public String computerScience(HttpServletRequest request, Model model,
                                   @RequestParam(value = "questId", required = false)
@@ -185,201 +169,6 @@ public class WebController {
         }
 
         return html;
-    }
-
-    @GetMapping(value = { "/sqlp-developer", "/kr/sqlp-developer", "/en/sqlp-developer" })
-    public String sqlpDeveloper(HttpServletRequest request, Model model,
-                                @RequestParam(value = "questId", required = false)
-                                String questId) {
-
-        String html = "";
-        String testId = TestEnum.SQLD.getCode();
-
-        model.addAttribute("testId", testId);
-
-        if (StringUtils.isNotBlank(questId)) {
-            model.addAttribute("inputQuestId", questId);
-        }
-
-        switch (request.getRequestURI()) {
-            case "/sqlp-developer":
-            case "/kr/sqlp-developer":
-                model.addAttribute("testName", TestEnum.getByCode(testId).getKorName());
-                html = "test";
-                break;
-
-            case "/en/sqlp-developer":
-                model.addAttribute("testName", TestEnum.getByCode(testId).getEngName());
-                html = "en/test";
-                break;
-
-            default:
-                break;
-        }
-
-        return html;
-    }
-
-    @GetMapping(value = { "/engineer-information-processing", "/kr/engineer-information-processing",
-            "/en/engineer-information-processing" })
-    public String engineerInfoProcessing(HttpServletRequest request, Model model,
-                                         @RequestParam(value = "questId", required = false)
-                                         String questId) {
-
-        String html = "";
-        String testId = TestEnum.ENGR_INFO_PROC.getCode();
-
-        model.addAttribute("testId", testId);
-
-        if (StringUtils.isNotBlank(questId)) {
-            model.addAttribute("inputQuestId", questId);
-        }
-
-        switch (request.getRequestURI()) {
-            case "/engineer-information-processing":
-            case "/kr/engineer-information-processing":
-                model.addAttribute("testName", TestEnum.getByCode(testId).getKorName());
-                html = "test";
-                break;
-
-            case "/en/engineer-information-processing":
-                model.addAttribute("testName", TestEnum.getByCode(testId).getEngName());
-                html = "en/test";
-                break;
-
-            default:
-                break;
-        }
-
-        return html;
-    }
-
-    @GetMapping(value = { "/engineer-transportation", "/en/engineer-transportation" })
-    public String engineerTransportation(HttpServletRequest request, Model model,
-                                         @RequestParam(value = "questId", required = false)
-                                         String questId) {
-
-        String html = "";
-        String testId = TestEnum.ENGR_TRANSPORTATION.getCode();
-
-        model.addAttribute("testId", testId);
-
-        if (StringUtils.isNotBlank(questId)) {
-            model.addAttribute("inputQuestId", questId);
-        }
-
-        switch (request.getRequestURI()) {
-            case "/engineer-transportation":
-                model.addAttribute("testName", TestEnum.getByCode(testId).getKorName());
-                html = "test";
-                break;
-
-            case "/en/engineer-transportation":
-                model.addAttribute("testName", TestEnum.getByCode(testId).getEngName());
-                html = "en/test";
-                break;
-
-            default:
-                break;
-        }
-
-        return html;
-    }
-
-    @GetMapping(value = { "/engineer-architecture" })
-    public String engineerArchitecture(HttpServletRequest request, Model model,
-                                       @RequestParam(value = "questId", required = false)
-                                       String questId) {
-
-        model.addAttribute("testId", "8");
-
-        if (StringUtils.isNotBlank(questId)) {
-            model.addAttribute("inputQuestId", questId);
-        }
-
-        model.addAttribute("testName", "건축기사");
-
-        return "test";
-    }
-
-    @GetMapping(value = { "/engineer-broadcasting-communication" })
-    public String engineerBroadcastingCommunication(HttpServletRequest request, Model model,
-                                                    @RequestParam(value = "questId", required = false)
-                                                    String questId) {
-
-        model.addAttribute("testId", "9");
-
-        if (StringUtils.isNotBlank(questId)) {
-            model.addAttribute("inputQuestId", questId);
-        }
-
-        model.addAttribute("testName", "방송통신기사");
-
-        return "test";
-    }
-
-    @GetMapping(value = { "/engineer-urban-planning" })
-    public String engineerUrbanPlanning(HttpServletRequest request, Model model,
-                                        @RequestParam(value = "questId", required = false)
-                                        String questId) {
-
-        model.addAttribute("testId", "10");
-
-        if (StringUtils.isNotBlank(questId)) {
-            model.addAttribute("inputQuestId", questId);
-        }
-
-        model.addAttribute("testName", "도시계획기사");
-
-        return "test";
-    }
-
-    @GetMapping(value = { "/computer-specialist-in-spreadsheet-and-database-level-2" })
-    public String computerSpecialistInSpreadsheetAndDatabaseLevel2(HttpServletRequest request, Model model,
-                                                                   @RequestParam(value = "questId", required = false)
-                                                                   String questId) {
-
-        model.addAttribute("testId", "11");
-
-        if (StringUtils.isNotBlank(questId)) {
-            model.addAttribute("inputQuestId", questId);
-        }
-
-        model.addAttribute("testName", "컴퓨터활용능력 2급");
-
-        return "test";
-    }
-
-    @GetMapping(value = { "/computer-specialist-in-spreadsheet-and-database-level-1" })
-    public String computerSpecialistInSpreadsheetAndDatabaseLevel1(HttpServletRequest request, Model model,
-                                                                   @RequestParam(value = "questId", required = false)
-                                                                   String questId) {
-
-        model.addAttribute("testId", "12");
-
-        if (StringUtils.isNotBlank(questId)) {
-            model.addAttribute("inputQuestId", questId);
-        }
-
-        model.addAttribute("testName", "컴퓨터활용능력 1급");
-
-        return "test";
-    }
-
-    @GetMapping(value = { "/craftsman-fork-lift-truck-operator" })
-    public String craftsmanForkLiftTruckOperator(HttpServletRequest request, Model model,
-                                                 @RequestParam(value = "questId", required = false)
-                                                 String questId) {
-
-        model.addAttribute("testId", "13");
-
-        if (StringUtils.isNotBlank(questId)) {
-            model.addAttribute("inputQuestId", questId);
-        }
-
-        model.addAttribute("testName", "지게차운전기능사");
-
-        return "test";
     }
 
     @GetMapping("/about")
