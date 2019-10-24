@@ -17,10 +17,15 @@ spring:
     # username: samurae83
     # password: 1l0v2ujin
     # driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mysql://ec2-52-35-43-187.us-west-2.compute.amazonaws.com/quizeey
+    #url: jdbc:mariadb://ec2-52-35-43-187.us-west-2.compute.amazonaws.com/quizeey
+    url: jdbc:mariadb://localhost/quizeey
     username: samurae83
     password: 1l0v2ujin
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: org.mariadb.jdbc.Driver
+    # url: jdbc:mysql://ec2-52-35-43-187.us-west-2.compute.amazonaws.com/quizeey
+    # username: samurae83
+    # password: 1l0v2ujin
+    # driver-class-name: com.mysql.cj.jdbc.Driver
   # jpa:
   #   show-sql: true
   #   hibernate:
