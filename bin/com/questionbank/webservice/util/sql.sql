@@ -1,340 +1,364 @@
 
 -- VERSION
-insert into version (test_id, ver_nbr, ver_nm, created_date, modified_date) values ('13', '1', '2011-10-09 기출문제', now(), now());
+insert into version (test_id, ver_nbr, ver_nm, created_date, modified_date) values ('14', '1', '2016-01-24 기출문제', now(), now());
 -- QUESTION
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '1', ' 기관의 냉각팬에 대한 설명 중 틀린 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '1', '1', ' 유체 커플링식은 냉각수의 온도에 따라서 작동된다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '1', '2', ' 전동팬은 냉각수의 온도에 따라 작동된다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '1', '3', ' 전동팬이 작동되지 않을 때는 물 펌프도 회전하지 않는다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '1', '4', ' 전동팬의 작동과 관계없이 물 펌프는 항상 회전한다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '1', ' 황색 포도상구균의 특징이 아닌 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '1', '1', ' 균체가 열에 강함	  ', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '1', '2', ' 독소형 식중독 유발', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '1', '3', ' 화농성 질환의 원인균	  ', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '1', '4', ' 엔테로톡신(enterotoxin) 생성', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '2', ' 기관 과열의 주요 원인이 아닌 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '2', '1', ' 라디에이터 코어의 막힘', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '2', '2', ' 냉각장치 내부의 물때 과다', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '2', '3', ' 냉각수의 부족', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '2', '4', ' 엔진 오일량 과다', 'Y', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '2', ' 섭조개에서 문제를 일으킬 수 있는 독소 성분은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '2', '1', ' 테트로도톡신(tetrodotoxin)	', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '2', '2', ' 셉신(sepsine)', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '2', '3', ' 베네루핀(venerupin)		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '2', '4', ' 삭시톡신(saxitoxin)', 'Y', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '3', ' 다음 중 연소 시 발생하는 질소산화물(NOx)의 발생 원인과 가장 밀접한 관계가 있는 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '3', '1', ' 높은 연소 온도	', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '3', '2', ' 가속 불량', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '3', '3', ' 흡입 공기 부족	', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '3', '4', ' 소염 경계층', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '3', ' 어패류의 선도 평가에 이용되는 지표성분은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '3', '1', ' 헤모글로빈		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '3', '2', ' 트리메틸아민', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '3', '3', ' 메탄올		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '3', '4', ' 이산화탄소', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '4', ' 디젤기관에서 시동이 되지 않는 원인으로 맞는 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '4', '1', ' 연료공급 펌프의 연료공급 압력이 높다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '4', '2', ' 가속 페달을 밟고 시동하였다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '4', '3', ' 배터리 방전으로 교체가 필요한 상태이다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '4', '4', ' 크랭크축 회전속도가 빠르다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '4', ' 식품에서 자연적으로 발생하는 유독물질을 통해 식중독을 일으킬 수 있는 식품과 가장 거리가 먼 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '4', '1', ' 피마자		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '4', '2', ' 표고버섯', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '4', '3', ' 미숙한 매실		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '4', '4', ' 모시조개', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '5', ' 디젤기관에서 사용하는 분사노즐의 종류에 속하지 않는 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '5', '1', ' 핀틀(pintle)형', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '5', '2', ' 스로틀(throttle)형', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '5', '3', ' 홀(hole)형', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '5', '4', ' 싱글 포인트(single point)형', 'Y', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '5', ' 과거 일본 미나마타병의 집단발병 원인이 되는 중금속은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '5', '1', ' 카드뮴		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '5', '2', ' 납', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '5', '3', ' 수은		', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '5', '4', ' 비소', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '6', ' 디젤기관에서 부조 발생의 원인이 아닌 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '6', '1', ' 발전기 고장			', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '6', '2', ' 거버너 작용 불량', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '6', '3', ' 분사시기 조정 불량		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '6', '4', ' 연료의 압송 불량', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '6', ' 소시지 등 가공육 제품의 육색을 고정하기 위해 사용하는 식품첨가물은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '6', '1', ' 발색제		', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '6', '2', ' 착색제', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '6', '3', ' 강화제		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '6', '4', ' 보존제', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '7', ' 디젤기관에서 연료장치 공기빼기 순서가 바른 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '7', '1', ' 공급펌프 → 연료여과기 → 분사펌프', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '7', '2', ' 공급펌프 → 분사펌프 → 연료여과기', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '7', '3', ' 연료여과기 → 공급펌프 → 분사펌프', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '7', '4', ' 연료여과기 → 분사펌프 → 공급펌프', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '7', ' 소독의 지표가 되는 소독제는?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '7', '1', ' 석탄산		', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '7', '2', ' 크레졸', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '7', '3', ' 과산화수소		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '7', '4', ' 포르말린', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '8', ' 운전 중인 기관의 에어클리너가 막혔을 때 나타나는 현상으로 맞는 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '8', '1', ' 배출가스 색은 검고, 출력은 저하한다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '8', '2', ' 배출가스 색은 희고, 출력은 정상이다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '8', '3', ' 배출가스 색은 청백색이고, 출력은 증가된다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '8', '4', ' 배출가스 색은 무색이고, 출력은 무관하다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '8', ' 식품의 변화현상에 대한 설명 중 틀린 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '8', '1', ' 산패 : 유지식품의 지방질 산화', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '8', '2', ' 발효 : 화학물질에 의한 유기화합물의 분해', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '8', '3', ' 변질 : 식품의 품질 저하', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '8', '4', ' 부패 : 단백질과 유기물이 부패 미생물에 의해 분해', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '9', ' 엔진의 윤활유 소비량이 과다해지는 가장 큰 원인은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '9', '1', ' 기관의 과냉', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '9', '2', ' 피스톤 링 마멸', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '9', '3', ' 오일 여과기 필터 불량', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '9', '4', ' 냉각펌프 손상', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '9', ' 파라티온(parathion), 말라티온(malathion)과 같이 독성이 강하지만 빨리 분해되어 만성중독을 일으키지 않는 농약은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '9', '1', ' 유기인제 농약	', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '9', '2', ' 유기염소제 농약', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '9', '3', ' 유기불소제 농약	', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '9', '4', ' 유기수은제 농약', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '10', ' 흡·배기 밸브의 구비조건이 아닌 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '10', '1', ' 열전도율이 좋을 것', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '10', '2', ' 열에 대한 팽창율이 적을 것', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '10', '3', ' 열에 대한 저항력이 작을 것', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '10', '4', ' 가스에 견디고, 고온에 잘 견딜 것', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '10', ' 식품첨가물의 주요용도 연결이 옳은 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '10', '1', ' 삼이산화철－표백제		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '10', '2', ' 이산화티타늄－발색제', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '10', '3', ' 명반－보존료		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '10', '4', ' 호박산－산도 조절제', 'Y', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '11', ' 일반적으로 기관에 많이 사용되는 윤활 방법은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '11', '1', ' 수 급유식		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '11', '2', ' 적하 급유식', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '11', '3', ' 압송 급유식	', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '11', '4', ' 분무 급유식', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '11', ' 식품위생법상 식중독 환자를 진단한 의사는 누구에게 이 사실을 제일 먼저 보고하여야 하는가?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '11', '1', ' 보건복지부장관	', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '11', '2', ' 경찰서장', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '11', '3', ' 보건소장		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '11', '4', ' 관할 시장·군수·구청장', 'Y', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '12', ' 기관 실린더(cylinder) 벽에서 마멸이 가장 크게 발생하는 부위는?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '12', '1', ' 상사점 부근	', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '12', '2', ' 하사점 부근', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '12', '3', ' 중간 부분		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '12', '4', ' 하사점 이하', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '12', ' 조리사 면허 취소에 해당하지 않는 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '12', '1', ' 식중독이나 그 밖에 위생과 관련한 중대한 사고 발생에 직무상의 책임이 있는 경우', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '12', '2', ' 면허를 타인에게 대여하여 사용하게 한 경우', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '12', '3', ' 조리사가 마약이나 그 밖의 약물에 중독이 된 경우', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '12', '4', ' 조리사 면허의 취소처분을 받고 그 취소된 날부터 2년이 지나지 아니한 경우', 'Y', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '13', ' 기동 전동기의 시험 항목으로 맞지 않는 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '13', '1', ' 무부하 시험	', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '13', '2', ' 회전력 시험', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '13', '3', ' 저항 시험		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '13', '4', ' 중부하 시험', 'Y', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '13', ' 식품위생법상 식품 등의 위생적인 취급에 관한 기준이 아닌 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '13', '1', ' 식품 등을 취급하는 원료보관실·제조가공실·조리실·포장실 등의 내부는 항상 청결하게 관리하여야 한다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '13', '2', ' 식품 등의 원료 및 제품 중 부패·변질되기 쉬운 것은 냉동·냉장시설에 보관·관리하여야 한다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '13', '3', ' 유통기한이 경과된 식품 등을 판매하거나 판매의 목적으로 전시하여 진열·보관하여서는 아니 된다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '13', '4', ' 모든 식품 및 원료는 냉장·냉동시설에 보관·관리하여야 한다.', 'Y', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '14', ' 전압 조정기의 종류에 해당하지 않는 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '14', '1', ' 접점식		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '14', '2', ' 카본파일식', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '14', '3', ' 트랜지스터식	', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '14', '4', ' 저항식', 'Y', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '14', ' 식품위생법상 허위표시, 과대광고, 비방광고 및 과대포장의 범위에 해당하지 않는 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '14', '1', ' 허가·신고 또는 보고한 사항이나 수입신고한 사항과 다른 내용의 표시·광고', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '14', '2', ' 제조방법에 관하여 연구하거나 발견한 사실로서 식품학·영양학 등의 분야에서 공인된 사항의 표시', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '14', '3', ' 제품의 원재료 또는 성분과 다른 내용의 표시·광고', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '14', '4', ' 제조연월일 또는 유통기한을 표시함에 있어서 사실과 다른 내용의 표시·광고', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '15', ' 예열플러그를 빼서 보았더니 심하게 오염되어있다. 그 원인으로 가장 적합한 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '15', '1', ' 불완전 연소 또는 노킹', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '15', '2', ' 엔진 과열', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '15', '3', ' 플러그의 용량 과다', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '15', '4', ' 냉각수 부족', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '15', ' 식품위생법상 “식품을 제조·가공 또는 보존하는 과정에서 식품에 넣거나 섞는 물질 또는 식품을 적시는 등에 사용하는 물질”로 정의된 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '15', '1', ' 식품첨가물		', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '15', '2', ' 화학적 합성품', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '15', '3', ' 항생제		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '15', '4', ' 의약품', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '16', ' 운전 중 갑자기 계기판에 충전 경고등이 점등되었다. 그 현상으로 맞는 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '16', '1', ' 정상적으로 충전이 되고 있음을 나타낸다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '16', '2', ' 충전이 되지 않고 있음을 나타낸다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '16', '3', ' 충전계통에 이상이 없음을 나타낸다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '16', '4', ' 주기적으로 점등되었다가 소동되는 것이다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '16', ' β-전분이 가열에 의해 α-전분으로 되는 현상은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '16', '1', ' 호화		', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '16', '2', ' 호정화', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '16', '3', ' 산화		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '16', '4', ' 노화', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '17', ' 납산 축전지가 방전되어 급속 충전을 할 때의 설명으로 틀린 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '17', '1', ' 충전 중 전해액의 온도가 45℃가 넘지 않도록 한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '17', '2', ' 충전 중 가스가 많이 발생되면 충전을 중단한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '17', '3', ' 충전전류는 축전지 용량과 같게 한다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '17', '4', ' 충전시간은 가능한 짧게 한다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '17', ' 중성지방의 구성 성분은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '17', '1', ' 탄소와 질소		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '17', '2', ' 아미노산', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '17', '3', ' 지방산과 글리세롤		', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '17', '4', ' 포도당과 지방산', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '18', ' 건설기계에 사용하는 축전지 2개를 직렬로 연결하였을 때 변화 되는 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '18', '1', ' 전압이 증가된다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '18', '2', ' 사용 전류가 증가된다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '18', '3', ' 비중이 증가된다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '18', '4', ' 전압 및 이용 전류가 증가된다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '18', ' 젓갈의 숙성에 대한 설명으로 틀린 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '18', '1', ' 농도가 묽으면 부패하기 쉽다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '18', '2', ' 새우젓의 소금 사용량은 60% 정도가 적당하다.', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '18', '3', ' 자기소화 효소작용에 의한 것이다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '18', '4', ' 호염균의 작용이 일어날 수 있다.', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '19', ' 지게차 작업장치의 동력전달 기구가 아닌 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '19', '1', ' 리프터 체인	', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '19', '2', ' 틸트 실린더', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '19', '3', ' 리프트 실린더	', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '19', '4', ' 트랜치호', 'Y', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '19', ' 결합수의 특징이 아닌 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '19', '1', ' 전해질을 잘 녹여 용매로 작용한다.', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '19', '2', ' 자유수보다 밀도가 크다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '19', '3', ' 식품에서 미생물의 번식과 발아에 이용되지 못한다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '19', '4', ' 동·식물의 조직에 존재할 때 그 조직에 큰 압력을 가하여 압착해도 제거되지 않는다.', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '20', ' 운전 중 클러치가 미끄러질 때의 영향이 아닌 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '20', '1', ' 속도 감소		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '20', '2', ' 견인력 감소', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '20', '3', ' 연료소비량 증가	', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '20', '4', ' 엔진의 과냉', 'Y', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '20', ' 요구르트 제조는 우유 단백질의 어떤 성질을 이용하는가?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '20', '1', ' 응고성		', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '20', '2', ' 용해성', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '20', '3', ' 팽윤		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '20', '4', ' 수화', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '21', ' 무한궤도식 굴삭기와 타이어식 굴삭기의 운전 특성에 대한 설명으로 틀린 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '21', '1', ' 무한궤도식은 기복이 심한 곳에서 작업이 불리하다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '21', '2', ' 타이어식은 변속 및 주행 속도가 빠르다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '21', '3', ' 무한궤도식은 습지, 사지에서 작업이 유리하다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '21', '4', ' 타이어식은 장거리 이동이 쉽고 기동성이 양호하다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '21', ' 알칼리성 식품에 대한 설명으로 옳은 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '21', '1', ' Na, K, Ca, Mg이 많이 함유되어 있는 식품', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '21', '2', ' S, P, Cl이 많이 함유되어 있는 식품', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '21', '3', ' 당질, 지질, 단백질 등이 많이 함유되어 있는 식품', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '21', '4', ' 곡류, 육류, 치즈 등의 식품', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '22', ' 휠 로더의 붐과 버킷 레버를 동시에 당기면 작동은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '22', '1', ' 붐만 상승한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '22', '2', ' 버킷만 오무려 진다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '22', '3', ' 붐은 상승하고 버킷은 오무려 진다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '22', '4', ' 작동이 안 된다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '22', ' 우유의 균질화(homogenization)에 대한 설명이 아닌 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '22', '1', ' 지방구 크기를 0.1~2.2㎛ 정도로 균일하게 만들 수 있다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '22', '2', ' 탈지유를 첨가하여 지방의 함량을 맞춘다.', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '22', '3', ' 큰 지방구의 크림층 형성을 방지한다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '22', '4', ' 지방의 소화를 용이하게 한다.', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '23', ' 파워스티어링에서 핸들이 매우 무거워 조작하기 힘든 상태일 때의 원인으로 맞는 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '23', '1', ' 바퀴가 습지에 있다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '23', '2', ' 조향 펌프에 오일이 부족하다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '23', '3', ' 볼 조인트의 교환시기가 되었다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '23', '4', ' 핸들 유격이 크다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '23', ' 레드 캐비지로 샐러드를 만들 때 식초를 조금 넣은 물에 담그면 고운 적색을 띠는 것은 어떤 색소 때문인가?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '23', '1', ' 안토시아닌(anthocyanin)    ', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '23', '2', ' 클로로필(chlorophyll)', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '23', '3', ' 안토잔틴(anthoxanthin)     ', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '23', '4', ' 미오글로빈(myoglobin)', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '24', ' 진공식 제동 배력 장치의 설명 중에서 옳은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '24', '1', ' 진공 밸브가 새면 브레이크가 전혀 듣지 않는다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '24', '2', ' 릴레이 밸브의 다이어프램이 파손되면 브레이크가 듣지 않는다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '24', '3', ' 릴레이 밸브 피스톤 컵이 파손되어도 브레이크는 듣는다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '24', '4', ' 하이드로릭 피스톤의 체크 볼이 밀착 불량이면 브레이크가 듣지 않는다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '24', ' 섬유소와 한천에 대한 설명 중 틀린 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '24', '1', ' 산을 첨가하여 가열하면 분해되지 않는다.', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '24', '2', ' 체내에서 소화되지 않는다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '24', '3', ' 변비를 예방한다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '24', '4', ' 모두 다당류이다.', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '25', ' 일반적으로 기중기 작업시 붐의 최대와 최소 제한각도로 가장 적합한 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '25', '1', ' 최대 20°, 최소 30°', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '25', '2', ' 최대 78°, 최소 20°', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '25', '3', ' 최대 78°, 최소 55°', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '25', '4', ' 최대 180°, 최소 20°', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '25', ' 과실의 젤리화 3요소와 관계없는 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '25', '1', ' 젤라틴		', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '25', '2', ' 당', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '25', '3', ' 펙틴		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '25', '4', ' 산', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '26', ' 자동변속기가 장착된 건설기계의 모든 변속단에서 출력이 떨어질 경우 점검해야 할 항목과 거리가 먼 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '26', '1', ' 오일의 부족', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '26', '2', ' 토크컨버터 고장', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '26', '3', ' 엔진고장으로 출력 부족', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '26', '4', ' 추진축 휨', 'Y', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '26', ' 탄수화물의 분류 중 5탄당이 아닌 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '26', '1', ' 갈락토오스(galactose)	', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '26', '2', ' 자일로오스(xylose)', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '26', '3', ' 아라비노오스(arabinose)	', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '26', '4', ' 리보오스(ribose)', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '27', ' 건설기계를 산(매수 한) 사람이 등록사항변경(소유권 이전) 신고를 하지 않아 등록사항 변경신고를 독촉하였으나 이를 이행하지 않을 경우 판(매도 한) 사람이 할 수 있는 조치로서 가장 적합한 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '27', '1', ' 소유권 이전 신고를 조속히 하도록 매수 한 사람에게 재차 독촉한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '27', '2', ' 매도 한 사람이 직접 소유권 이전 신고를 한다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '27', '3', ' 소유권 이전 신고를 조속히 하도록 소송을 제기한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '27', '4', ' 아무런 조치도 할 수 없다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '27', ' CA저장에 가장 적합한 식품은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '27', '1', ' 육류		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '27', '2', ' 과일류', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '27', '3', ' 우유		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '27', '4', ' 생선류', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '28', ' 덤프트럭이 건설기계 검사소 검사가 아닌 출장검사를 받을 수 있는 경우는?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '28', '1', ' 너비가 3m인 경우', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '28', '2', ' 최고 속도가 40km/h인 경우', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '28', '3', ' 자체중량이 25톤인 경우', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '28', '4', ' 축중이 5톤인 경우', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '28', ' 황함유 아미노산이 아닌 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '28', '1', ' 트레오닌(threonine)		', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '28', '2', ' 시스틴(cystine)', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '28', '3', ' 메티오닌(methionine)	', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '28', '4', ' 시스테인(cysteine)', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '29', ' 노면이 얼어붙은 경우 또는 폭설로 가시거리가 100미터 이내인 경우 최고속도의 얼마나 감속 운행하여야 하는가?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '29', '1', ' 50/100		', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '29', '2', ' 30/100', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '29', '3', ' 40/100		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '29', '4', ' 20/100', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '29', ' 하루 필요 열량이 2500kcal일 경우 이 중의 18%에 해당하는 열량을 단백질에서 얻으려 한다면, 필요한 단백질의 양은 얼마인가?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '29', '1', ' 50.0g		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '29', '2', ' 112.5g', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '29', '3', ' 121.5g		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '29', '4', ' 171.3g', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '31', ' 등록건설기계의 기종별 표시방법으로 옳은 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '31', '1', ' 01 : 불도저	', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '31', '2', ' 02 : 모터그레이더', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '31', '3', ' 03 : 지게차	', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '31', '4', ' 04 : 덤프트럭', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '30', ' 조리와 가공 중 천연색소의 변색 요인과 거리가 먼 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '30', '1', ' 산소		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '30', '2', ' 효소', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '30', '3', ' 질소		', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '30', '4', ' 금속', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '32', ' 편도 4차로 일반도로의 경우 교차로 30m 전방에서 우회전을 하려면 몇 차로로 진입 통행해야 하는가?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '32', '1', ' 1차로로 통행한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '32', '2', ' 2차로와 1차로로 통행한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '32', '3', ' 4차로로 통행한다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '32', '4', ' 3차로만 통행 가능하다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '31', ' 조리에 사용하는 냉동식품의 특성이 아닌 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '31', '1', ' 완만 동결하여 조직이 좋다.', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '31', '2', ' 미생물 발육을 저지하여 장기간 보존이 가능하다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '31', '3', ' 저장 중 영양가 손실이 적다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '31', '4', ' 산화를 억제하여 품질 저하를 막는다.', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '33', ' 정차 및 주차금지 장소에 해당 되는 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '33', '1', ' 건널목 가장자리로부터 15m 지점', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '33', '2', ' 정류장 표지판으로부터 12m 지점', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '33', '3', ' 도로의 모퉁이로부터 4m 지점', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '33', '4', ' 교차로 가장자리로부터 10m 지점', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '32', ' 조리기구의 재질 중 열전도율이 커서 열을 전달하기 쉬운 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '32', '1', ' 유리		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '32', '2', ' 도자기', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '32', '3', ' 알루미늄		', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '32', '4', ' 석면', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '34', ' 특별 표지판을 부착하여야 할 건설기계의 범위에 해당하는 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '34', '1', ' 높이가 5미터인 건설기계', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '34', '2', ' 총중량이 50톤인 건설기계', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '34', '3', ' 길이가 16미터인 건설기계', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '34', '4', ' 최소회전반경이 13미터인 건설기계', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '33', ' 달걀을 이용한 조리식품과 관계가 없는 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '33', '1', ' 오믈렛		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '33', '2', ' 수란', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '33', '3', ' 치즈		', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '33', '4', ' 커스터드', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '35', ' 현장에 경찰 공무원이 없는 장소에서 인명사고와 물건의 손괴를 입힌 교통사고가 발생하였을 때 가장 먼저 취할 조치는?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '35', '1', ' 손괴한 물건 및 손괴 정도를 파악한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '35', '2', ' 즉시 피해자 가족에게 아리고 합의한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '35', '3', ' 즉시 사상자를 구호하고 경찰 공무원에게 신고한다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '35', '4', ' 승무원에게 사상자를 알리게 하고 회사에 알린다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '34', ' 소금 절임 시 저장성이 좋아지는 이유는?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '34', '1', ' pH가 낮아져 미생물이 살아갈 수 없는 환경이 조성된다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '34', '2', ' pH가 높아져 미생물이 살아갈 수 없는 환경이 조성된다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '34', '3', ' 고삼투성에 의한 탈수효과로 미생물의 생육이 억제된다.', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '34', '4', ' 저삼투성에 의한 탈수효과로 미생물의 생육이 억제된다.', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '36', ' 3톤 미만 지게차의 소형건설기계 조종 교육시간은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '36', '1', ' 이론 6시간, 실습 6시간', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '36', '2', ' 이론 4시간, 실습 8시간', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '36', '3', ' 이론 12시간, 실습 12시간', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '36', '4', ' 이론 10시간, 실습 14시간', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '35', ' 밀가루의 용도별 분류는 어느 성분을 기준으로 하는가?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '35', '1', ' 글리아딘		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '35', '2', ' 글로불린', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '35', '3', ' 글루타민		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '35', '4', ' 글루텐', 'Y', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '37', ' 건설기계에 사용되는 유압 실린더 작용은 어떠한 것을 응용한 것인가?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '37', '1', ' 베르누이의 정리	', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '37', '2', ' 파스칼의 정리', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '37', '3', ' 지렛대의 원리	', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '37', '4', ' 후크의 법칙', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '36', ' 소고기의 부위별 용도와 조리법 연결이 틀린 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '36', '1', ' 앞다리－불고기, 육회, 장조림', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '36', '2', ' 설도－탕, 샤브샤브, 육회', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '36', '3', ' 목심－불고기, 국거리', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '36', '4', ' 우둔－산적, 장조림, 육포', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '39', ' 작동형, 평형피스톤형 등의 종류가 있으며 회로의 압력을 일정하게 유지시키는 밸브는?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '39', '1', ' 릴리프 밸브	', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '39', '2', ' 메이크업 밸브', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '39', '3', ' 시퀀스 밸브	', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '39', '4', ' 무부하 밸브', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '37', ' 젤라틴의 응고에 관한 설명으로 틀린 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '37', '1', ' 젤라틴의 농도가 높을수록 빨리 응고된다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '37', '2', ' 설탕의 농도가 높을수록 응고가 방해된다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '37', '3', ' 염류는 젤라틴의 응고를 방해한다.', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '37', '4', ' 단백질의 분해효소를 사용하면 응고력이 약해진다.', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '40', ' 유압 실린더는 유체의 힘을 어떤 운동으로 바꾸는가?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '40', '1', ' 회전 운동		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '40', '2', ' 직선 운동', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '40', '3', ' 곡선 운동		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '40', '4', ' 비틀림 운동', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '38', ' 과일의 일반적인 특성과는 다르게 지방 함량이 가장 높은 과일은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '38', '1', ' 아보카도		', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '38', '2', ' 수박', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '38', '3', ' 바나나		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '38', '4', ' 감', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '41', ' 유압 작동유의 점도가 너무 높을 때 발생되는 현상으로 맞는 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '41', '1', ' 동력 손실의 증가		', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '41', '2', ' 내부 누설의 증가', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '41', '3', ' 펌프 효율의 증가		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '41', '4', ' 마찰 마모 감소', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '39', ' 전자레인지의 주된 조리 원리는?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '39', '1', ' 복사		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '39', '2', ' 전도', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '39', '3', ' 대류		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '39', '4', ' 초단파', 'Y', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '42', ' 일반적으로 오일탱크의 구성품이 아닌 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '42', '1', ' 스트레이너		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '42', '2', ' 배플', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '42', '3', ' 드레인플러그	', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '42', '4', ' 압력조절기', 'Y', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '40', ' 닭고기 20kg으로 닭강정 100인분을 판매한 매출액이 1,000,000원이다. 닭고기의 kg당 단가를 12,000원에 구입하였고 총양념 비용으로 80,000원이 들었다면 식재료의 원가 비율은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '40', '1', ' 24%		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '40', '2', ' 28%', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '40', '3', ' 32%		', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '40', '4', ' 40%', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '43', ' 다음 중 액추에이터의 입구 쪽 관로에 설치한 유량제어밸브로 흐름을 제어하여 속도를 제어하는 회로는?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '43', '1', ' 시스템 회로(system circuit)', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '43', '2', ' 블리도오프 회로(bled-off circuit)', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '43', '3', ' 미터인 회로(meter-in circuit)', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '43', '4', ' 미터아웃 회로(meter-out circuit)', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '41', ' 생선에 레몬즙을 뿌렸을 때 나타나는 현상이 아닌 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '41', '1', ' 신맛이 가해져서 생선이 부드러워진다.', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '41', '2', ' 생선의 비린내가 감소한다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '41', '3', ' pH가 산성이 되어 미생물의 증식이 억제된다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '41', '4', ' 단백질이 응고된다.', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '44', ' 유압장치의 구성요소가 아닌 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '44', '1', ' 유니버셜 조인트	', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '44', '2', ' 오일탱크', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '44', '3', ' 펌프		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '44', '4', ' 제어밸브', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '42', ' 튀김의 특징이 아닌 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '42', '1', ' 고온 단시간 가열로 영양소의 손실이 적다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '42', '2', ' 기름의 맛이 더해져 맛이 좋아진다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '42', '3', ' 표면이 바삭바삭해 입안에서의 촉감이 좋아진다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '42', '4', ' 불미성분이 제거된다.', 'Y', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '46', ' 유압에너지를 공급받아 회전운동을 하는 기기를 무엇이라 하는가?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '46', '1', ' 펌프		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '46', '2', ' 모터', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '46', '3', ' 밸브		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '46', '4', ' 롤러 리미트', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '43', ' 생선의 조리방법에 관한 설명으로 옳은 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '43', '1', ' 생선은 결제조직의 함량이 많으므로 습열조리법을 많이 이용한다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '43', '2', ' 지방 함량이 낮은 생선보다는 높은 생선으로 구이를 하는 것이 풍미가 더 좋다.', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '43', '3', ' 생선찌개를 할 때 생선 자체의 맛을 살리기 위해서 찬물에 넣고 은근히 끓인다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '43', '4', ' 선도가 낮은 생선은 조림국물의 양념을 담백하게 하여 뚜껑을 닫고 끓인다.', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '47', ' 볼트 등을 조일 때 조이는 힘을 측정하기 위하여 쓰는 렌치는?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '47', '1', ' 복스 렌치		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '47', '2', ' 오픈엔드 렌치', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '47', '3', ' 소켓 렌치		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '47', '4', ' 토크 렌치', 'Y', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '44', ' 계량방법이 잘못된 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '44', '1', ' 된장, 흑설탕은 꼭꼭 눌러 담아 수평으로 깎아서 계량한다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '44', '2', ' 우유는 투명기구를 사용하여 액체 표면의 윗부분을 눈과 수평으로 하여 계량한다.', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '44', '3', ' 저울은 반드시 수평한 곳에서 0으로 맞추고 사용한다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '44', '4', ' 마가린은 실온일 때 꼭꼭 눌러 담아 평평한 것으로 깎아 계량한다.', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '48', ' 크레인으로 무거운 물건을 위로 달아 올릴 때 주의할 점이 아닌 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '48', '1', ' 달아 올릴 화물의 무게를 파악하여 제한하중 이하에서 작업한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '48', '2', ' 매달린 화물이 불안전하다고 생각될 때는 작업을 중지한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '48', '3', ' 신호의 규정이 없으므로 작업자가 적절히 한다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '48', '4', ' 신호자의 신호에 따라 작업한다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '45', ' 총원가에 대한 설명으로 맞는 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '45', '1', ' 제조간접비와 직접원가의 합이다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '45', '2', ' 판매관리비와 제조원가의 합이다.', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '45', '3', ' 판매관리비, 제조간접비, 이익의 합이다.', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '45', '4', ' 직접재료비, 직접노무비, 직접경비, 직접원가, 판매관리비의 합이다.', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '49', ' 전기장치의 퓨즈가 끊어져서 다시 새것으로 교체하였으나 또 끊어졌다면 어떤 조치가 가장 옳은가?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '49', '1', ' 계속 교체한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '49', '2', ' 용량이 큰 것으로 갈아 끼운다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '49', '3', ' 구리선이나 납선으로 바꾼다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '49', '4', ' 전기장치의 고장개소를 찾아 수리한다.', 'Y', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '46', ' 대상집단의 조직체가 급식운영을 직접 하는 형태는?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '46', '1', ' 준위탁급식		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '46', '2', ' 위탁급식', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '46', '3', ' 직영급식		', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '46', '4', ' 협동조합급식', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '51', ' 가동하고 있는 엔진에서 화재가 발생하였다. 불을 끄기 위한 조치 방법으로 가장 올바른 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '51', '1', ' 원인분석을 하고 모래를 뿌린다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '51', '2', ' 포말 소화기를 사용 후 엔진 시동스위치를 끈다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '51', '3', ' 엔진 시동스위치를 끄고 ABC 소화기를 사용한다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '51', '4', ' 엔진을 급가속하여 팬의 강한 바람을 일으켜 불을 끈다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '47', ' 수라상의 찬품 가짓수는?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '47', '1', ' 5첩		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '47', '2', ' 7첩', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '47', '3', ' 9첩		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '47', '4', ' 12첩', 'Y', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '52', ' 동력 전달장치에서 가장 재해가 많이 발생하는 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '52', '1', ' 차축		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '52', '2', ' 기어', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '52', '3', ' 피스톤		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '52', '4', ' 벨트', 'Y', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '48', ' 덩어리 육류를 건열로 표면에 갈색이 나도록 구워 내부의 육즙이 나오지 않게 한 후 소량의 물, 우유와 함께 습열조리하는 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '48', '1', ' 브레이징(braising)		', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '48', '2', ' 스튜잉(stewing)', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '48', '3', ' 브로일링(broiling)		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '48', '4', ' 로스팅(roasting)', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '53', ' 크레인으로 인양 시 물체의 중심을 측정하여 인양하여야 한다. 다음 중 잘못된 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '53', '1', ' 형상이 복잡한 물체의 무게 중심을 확인한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '53', '2', ' 인양 물체를 서서히 올려 지상 약 30cm지점에서 정지하여 확인한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '53', '3', ' 인양 물체의 중심이 높으면 물체가 기울 수 있다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '53', '4', ' 와이어로프나 매달기용 체인이 벗겨질 우려가 있으면 되도록 높이 인양한다.', 'Y', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '49', ' 식품검수 방법의 연결이 틀린 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '49', '1', ' 화학적 방법 : 영양소의 분석, 첨가물, 유해성분 등을 검출하는 방법', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '49', '2', ' 검경적 방법 : 식품의 중량, 부피, 크기 등을 측정하는 방법', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '49', '3', ' 물리학적 방법 : 식품의 비중, 경도, 점도, 빙점 등을 측정하는 방법', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '49', '4', ' 생화학적 방법 : 효소반응, 효소 활성도, 수소이온농도 등을 측정하는 방법', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '54', ' 구급처치 중에서 환자의 상태를 확인하는 사항과 가장 거리가 먼 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '54', '1', ' 의식		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '54', '2', ' 상처', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '54', '3', ' 출혈		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '54', '4', ' 격리', 'Y', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '50', ' 한천 젤리를 만든 후 시간이 지나면 내부에서 표면으로 수분이 빠져나오는 현상은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '50', '1', ' 삼투현상(osmosis)	  ', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '50', '2', ' 이장현상(sysnersis)', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '50', '3', ' 님비현상(NIMBY)	  ', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '50', '4', ' 노화현상(retrogradation)', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '55', ' 작업장에서 전기가 예고 없이 정전 되었을 경우 전기로 작동하던 기계기구의 조치방법으로 틀린 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '55', '1', ' 즉시 스위치를 끈다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '55', '2', ' 안전을 위해 작업장을 정리해 놓는다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '55', '3', ' 퓨즈의 단선 유, 무를 검사한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '55', '4', ' 전기가 들어오는 것을 알기 위해 스위치를 켜둔다.', 'Y', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '51', ' 인분을 사용한 밭에서 특히 경피적 감염을 주의해야 하는 기생충은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '51', '1', ' 십이지장충		', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '51', '2', ' 요충', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '51', '3', ' 회충		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '51', '4', ' 말레이사상충', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '56', ' 복스 렌치가 오픈 렌치보다 많이 사용되는 이유는?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '56', '1', ' 값이 싸며 적은 힘으로 작업할 수 있다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '56', '2', ' 가볍고 사용하는데 양손으로도 사용할 수 있다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '56', '3', ' 파이프 피팅 조임 등 작업용도가 다양하여 많이 사용된다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '56', '4', ' 볼트, 너트 주위를 완전히 감싸게 되어 사용 중에 미끄러지지 않는다.', 'Y', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '52', ' 무구조충(민촌충) 감염의 올바른 예방대책은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '52', '1', ' 게나 가재의 가열 섭취	', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '52', '2', ' 음료수의 소독', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '52', '3', ' 채소류의 가열 섭취		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '52', '4', ' 소고기의 가열 섭취', 'Y', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '57', ' 다음 중 한국전력의 송전선로 전압으로 맞는 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '57', '1', ' 6.6kV		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '57', '2', ' 22.9kV', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '57', '3', ' 345kV		', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '57', '4', ' 0.6kV', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '53', ' 사람이 예방접종을 통하여 얻는 면역은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '53', '1', ' 선천면역		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '53', '2', ' 자연수동면역', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '53', '3', ' 자연능동면역	', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '53', '4', ' 인공능동면역', 'Y', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '58', ' 일반 도시가스 사업자의 지하배관 설치시 도로폭 8m 이상인 도로에서는 관련법상 어느 정도의 깊이에 배관이 설치되어 있는가?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '58', '1', ' 1.5m 이상		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '58', '2', ' 1.2m 이상', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '58', '3', ' 1.0m 이상		', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '58', '4', ' 0.6m 이상', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '54', ' 쥐에 의하여 옮겨지는 감염병은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '54', '1', ' 유행성이하선염	', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '54', '2', ' 페스트', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '54', '3', ' 파상풍		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '54', '4', ' 일본뇌염', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '59', ' 도시가스사업법에서 압축가스일 경우 중압이라 함은 얼마의 압력을 말하는가?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '59', '1', ' 0.1MPa ~ 1MPa 미만    ', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '59', '2', ' 0.02MPa ~ 1MPa 미만', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '59', '3', ' 1MPa ~ 10MPa 미만     ', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '59', '4', ' 10MPa ~ 100MPa 미만', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '55', ' 눈 보호를 위해 가장 좋은 인공조명 방식은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '55', '1', ' 직접조명		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '55', '2', ' 간접조명', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '55', '3', ' 반직접조명		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '55', '4', ' 전반확산조명', 'N', now(), now());
 
-insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('13', '1', '60', ' 굴착도중 전력케이블 표지시트가 나왔을 경우의 조치사항으로 적합한 것은?', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '60', '1', ' 표지시트를 제거하고 계속 굴착한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '60', '2', ' 표지시트를 제거하고 보호판이나 케이블이 확인될 때 까지 굴착한다.', 'N', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '60', '3', ' 즉시 굴착을 중지하고 해당 시설 관련기관에 연락한다.', 'Y', now(), now());
-insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('13', '1', '60', '4', ' 표지시트를 원상태로 다시 덮고 인근 부위를 재 굴착한다.', 'N', now(), now());
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '56', ' 중금속과 중독 증상의 연결이 잘못된 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '56', '1', ' 카드뮴－신장기능 장애	', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '56', '2', ' 크롬－비중격천공', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '56', '3', ' 수은－홍독성 흥분		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '56', '4', ' 납－섬유화 현상', 'Y', now(), now());
+
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '57', ' 국소진동으로 인한 질병 및 직업병의 예방대책이 아닌 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '57', '1', ' 보건교육		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '57', '2', ' 완충장치', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '57', '3', ' 방열복 착용	', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '57', '4', ' 작업시간 단축', 'N', now(), now());
+
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '58', ' 쓰레기 처리방법 중 미생물까지 사멸할 수는 있으나 대기오염을 유발할 수 있는 것은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '58', '1', ' 소각법		', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '58', '2', ' 투기법', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '58', '3', ' 매립법		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '58', '4', ' 재활용법', 'N', now(), now());
+
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '59', ' 디피티(D.P.T) 기본접종과 관계없는 질병은?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '59', '1', ' 디프테리아		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '59', '2', ' 풍진', 'Y', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '59', '3', ' 백일해		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '59', '4', ' 파상풍', 'N', now(), now());
+
+insert into question (test_id, ver_nbr, quest_nbr, quest_txt, multi_answer_yn, created_date, modified_date) values ('14', '1', '60', ' 국가의 보건수준 평가를 위하여 가장 많이 사용되고 있는 지표는?', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '60', '1', ' 조사망률		', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '60', '2', ' 성인병 발생률', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '60', '3', ' 결핵 이완율	', 'N', now(), now());
+insert into example (test_id, ver_nbr, quest_nbr, exmp_nbr, exmp_txt, answer_yn, created_date, modified_date) values ('14', '1', '60', '4', ' 영아 사망률', 'Y', now(), now());
 

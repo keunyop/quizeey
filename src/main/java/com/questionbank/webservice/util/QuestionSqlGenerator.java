@@ -16,12 +16,12 @@ import org.springframework.util.CollectionUtils;
 
 public class QuestionSqlGenerator {
 
-    final static String FILE_NAME  = "D:\\99.KYLEE\\01.개인프로젝트\\36.QuestionBank\\dumps\\문제\\지게차_20111009.txt";
+    final static String FILE_NAME  = "D:\\99.KYLEE\\01.개인프로젝트\\36.QuestionBank\\dumps\\문제\\한식조리기능사_20160124.txt";
     final static String WRITE_PATH = "src/main/java/com/questionbank/webservice/util/sql.sql";
-    final static Long   TEST_ID    = (long) 13;
+    final static Long   TEST_ID    = (long) 14;
     //    final static String TEST_NAME  = "도시계획기사";
     final static int    VER_NBR    = 1;
-    final static String VER_NAME   = "2011-10-09 기출문제";
+    final static String VER_NAME   = "2016-01-24 기출문제";
 
     public static void main(String[] args) {
         StringBuilder sb = new StringBuilder();
@@ -205,11 +205,11 @@ public class QuestionSqlGenerator {
         return qs;
     }
 
-    //    private static String _genInsertTestSql() {
-    //        return String.format(
-    //                "insert into test (test_id, test_nm, created_date, modified_date) values ('%s', '%s', now(), now());",
-    //                TEST_ID, TEST_NAME);
-    //    }
+    //        private static String _genInsertTestSql() {
+    //            return String.format(
+    //                    "insert into test (test_id, test_nm, test_nm_eng, url, inqr_seq, created_date, modified_date) values ('%s', '%s', '%s', '%s', '%s', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);",
+    //                    TEST_ID, TEST_NAME);
+    //        }
 
     private static String _genInsertVersionSql() {
         return String.format(
