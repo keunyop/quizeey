@@ -40,4 +40,8 @@ public class TestService {
 
         return testDtos;
     }
+
+    public List<Test> getAllTests() {
+        return testRepository.findAll();
+    }
 }
