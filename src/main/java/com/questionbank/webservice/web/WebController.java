@@ -1,7 +1,6 @@
 package com.questionbank.webservice.web;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,51 +8,34 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.questionbank.webservice.domain.question.Test;
-import com.questionbank.webservice.service.TestService;
 import com.questionbank.webservice.service.enums.TestEnum;
 
 @Controller
 public class WebController {
-    private TestService                  testService;
-
     private static Map<String, String[]> TESTMAP;
 
     // Constructor
     public WebController() {
         if (TESTMAP == null) {
-            List<Test> tests = testService.getAllTests();
-
-            if (!CollectionUtils.isEmpty(tests)) {
-                TESTMAP = new HashMap<>();
-
-                for (Test test : tests) {
-                    TESTMAP.put("/" + test.getUrl(), new String[] { test.getTestId() + "", test.getTestNm() });
-                }
-            }
+            TESTMAP = new HashMap<>();
+            TESTMAP.put("/sqlp-professional", new String[] { "2", "SQLP - 국가공인 SQL전문가" });
+            TESTMAP.put("/cbp-basic-developer", new String[] { "3", "CBP 인증 - 개발자" });
+            TESTMAP.put("/sqlp-developer", new String[] { "5", "SQLD - 국가공인 SQL개발자" });
+            TESTMAP.put("/engineer-information-processing", new String[] { "6", "정보처리기사" });
+            TESTMAP.put("/engineer-transportation", new String[] { "7", "교통기사" });
+            TESTMAP.put("/engineer-architecture", new String[] { "8", "건축기사" });
+            TESTMAP.put("/engineer-broadcasting-communication", new String[] { "9", "방송통신기사" });
+            TESTMAP.put("/engineer-urban-planning", new String[] { "10", "도시계획기사" });
+            TESTMAP.put("/computer-specialist-in-spreadsheet-and-database-level-2",
+                    new String[] { "11", "컴퓨터활용능력 2급" });
+            TESTMAP.put("/computer-specialist-in-spreadsheet-and-database-level-1",
+                    new String[] { "12", "컴퓨터활용능력 1급" });
+            TESTMAP.put("/craftsman-fork-lift-truck-operator", new String[] { "13", "지게차운전기능사" });
+            TESTMAP.put("/craftsman-cook-korean-food", new String[] { "14", "한식조리기능사" });
         }
-
-        //        if (TESTMAP == null) {
-        //            TESTMAP = new HashMap<>();
-        //            TESTMAP.put("/sqlp-professional", new String[] { "2", "SQLP - 국가공인 SQL전문가" });
-        //            TESTMAP.put("/cbp-basic-developer", new String[] { "3", "CBP 인증 - 개발자" });
-        //            TESTMAP.put("/sqlp-developer", new String[] { "5", "SQLD - 국가공인 SQL개발자" });
-        //            TESTMAP.put("/engineer-information-processing", new String[] { "6", "정보처리기사" });
-        //            TESTMAP.put("/engineer-transportation", new String[] { "7", "교통기사" });
-        //            TESTMAP.put("/engineer-architecture", new String[] { "8", "건축기사" });
-        //            TESTMAP.put("/engineer-broadcasting-communication", new String[] { "9", "방송통신기사" });
-        //            TESTMAP.put("/engineer-urban-planning", new String[] { "10", "도시계획기사" });
-        //            TESTMAP.put("/computer-specialist-in-spreadsheet-and-database-level-2",
-        //                    new String[] { "11", "컴퓨터활용능력 2급" });
-        //            TESTMAP.put("/computer-specialist-in-spreadsheet-and-database-level-1",
-        //                    new String[] { "12", "컴퓨터활용능력 1급" });
-        //            TESTMAP.put("/craftsman-fork-lift-truck-operator", new String[] { "13", "지게차운전기능사" });
-        //            TESTMAP.put("/craftsman-cook-korean-food", new String[] { "14", "한식조리기능사" });
-        //        }
     }
 
     @GetMapping(value = { "/sqlp-professional", "/kr/sqlp-professional", "/cbp-basic-developer",
