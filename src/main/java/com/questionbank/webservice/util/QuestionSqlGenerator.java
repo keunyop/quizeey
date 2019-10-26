@@ -16,12 +16,12 @@ import org.springframework.util.CollectionUtils;
 
 public class QuestionSqlGenerator {
 
-    final static String FILE_NAME  = "D:\\99.KYLEE\\01.개인프로젝트\\36.QuestionBank\\dumps\\문제\\한식조리기능사_20160124.txt";
+    final static String FILE_NAME  = "D:\\99.KYLEE\\01.개인프로젝트\\36.QuestionBank\\dumps\\문제\\워드프로세서_20190831.txt";
     final static String WRITE_PATH = "src/main/java/com/questionbank/webservice/util/sql.sql";
-    final static Long   TEST_ID    = (long) 14;
+    final static Long   TEST_ID    = (long) 15;
     //    final static String TEST_NAME  = "도시계획기사";
     final static int    VER_NBR    = 1;
-    final static String VER_NAME   = "2016-01-24 기출문제";
+    final static String VER_NAME   = "2019-08-31 기출문제";
 
     public static void main(String[] args) {
         StringBuilder sb = new StringBuilder();
