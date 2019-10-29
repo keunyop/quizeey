@@ -9,4 +9,6 @@ public interface TestRepository extends JpaRepository<Test, Long> {
 
     List<Test> findByTestNmEngNotNullOrderByInqrSeq();
 
+    Test findFirstByOrderByTestIdDesc();
+
 }

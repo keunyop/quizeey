@@ -2,6 +2,7 @@ package com.questionbank.webservice.web;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,6 +26,7 @@ import com.questionbank.webservice.service.QuestionService;
 import com.questionbank.webservice.service.QuestionStatsService;
 import com.questionbank.webservice.service.TestService;
 import com.questionbank.webservice.service.VersionService;
+import com.questionbank.webservice.util.TestGenerator;
 
 import lombok.AllArgsConstructor;
 
@@ -37,6 +39,7 @@ public class WebRestController {
     private QuestionStatsService questionStatsService;
     private ExplanationService   explanationService;
     private TestService          testService;
+    private TestGenerator        testGenerator;
 
     @PostMapping("/question")
     public QuestionMainResponseDto getQuestion(@RequestBody
@@ -90,5 +93,10 @@ public class WebRestController {
     public List<TestResponseDto> getTests(@RequestBody
     TestRequestDto dto) {
         return testService.getTests(dto.getLanguageCd());
+    }
+
+    @GetMapping("/addTestBatch")
+    public void addTest() {
+        testGenerator.addTestBatch();
     }
 }
