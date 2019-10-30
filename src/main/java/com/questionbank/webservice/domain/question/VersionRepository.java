@@ -8,4 +8,6 @@ public interface VersionRepository extends JpaRepository<Version, Long> {
     Stream<Version> getVersionsByTestId(Long testId);
 
     Version getVersionByTestIdAndVerNbr(Long testId, int verNbr);
+
+    Version findFirstByTestIdOrderByVerNbr(Long testId);
 }

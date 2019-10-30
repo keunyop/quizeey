@@ -36,6 +36,8 @@ public class WebController {
             TESTMAP.put("/craftsman-fork-lift-truck-operator", new String[] { "13", "지게차운전기능사" });
             TESTMAP.put("/craftsman-cook-korean-food", new String[] { "14", "한식조리기능사" });
             TESTMAP.put("/word-processor", new String[] { "15", "워드프로세서" });
+            TESTMAP.put("/hairdresser", new String[] { "25", "미용사(일반)" });
+            TESTMAP.put("/craftsman-electricity", new String[] { "26", "전기기능사" });
         }
     }
 
@@ -45,7 +47,7 @@ public class WebController {
             "/engineer-broadcasting-communication", "/engineer-urban-planning",
             "/computer-specialist-in-spreadsheet-and-database-level-2",
             "/computer-specialist-in-spreadsheet-and-database-level-1", "/craftsman-fork-lift-truck-operator",
-            "/craftsman-cook-korean-food", "/word-processor" })
+            "/craftsman-cook-korean-food", "/word-processor", "/hairdresser", "/craftsman-electricity" })
     public String craftsmanForkLiftTruckOperator(HttpServletRequest request, Model model,
                                                  @RequestParam(value = "questId", required = false)
                                                  String questId) {
