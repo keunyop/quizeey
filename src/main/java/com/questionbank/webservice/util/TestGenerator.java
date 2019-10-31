@@ -73,6 +73,13 @@ public class TestGenerator {
 
     private void _addQuestion(Long testId, int verNbr, List<Question4Gen> qs) {
         for (Question4Gen q : qs) {
+
+            // 문제나 보기가 비어있으면 skip
+            //            if (StringUtils.isEmpty(q.getQuestTxt()) || !q.getExample4Gens().stream()
+            //                    .filter(e -> StringUtils.isEmpty(e.getExampleStr())).findAny().isPresent()) {
+            //                                continue;
+            //            }
+
             int questNbr = Integer.parseInt(q.getQuestNbr());
 
             questionRepository.save(Question.builder().testId(testId).verNbr(verNbr).questNbr(questNbr)
@@ -86,7 +93,6 @@ public class TestGenerator {
                         .build());
             }
         }
-
     }
 
     private static List<Question4Gen> _toObject(String fileName) {
