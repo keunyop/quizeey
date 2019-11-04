@@ -60,20 +60,34 @@
     <!-- Begin page content -->
     <main role="main" class="container">
         <div id="main-div">
-            <h1 class="mt-5">Quizeey에서 다양한 자격증의 기출문제를 풀어보세요.</h1>
+            <h1 class="mt-5 title">Quizeey.<br>다양한 자격증의 기출문제를 풀어보세요.</h1>
             <br>
 
             <div class="card shadow" style="width: 100%;">
                 <div class="card-body">
-                    <h5 class="card-title">
-                        Quizeey는 최대한 쉽게 문제를 풀 수 있도록 컴퓨터뿐만 아니라 핸드폰 화면에도 최적화되어 있습니다. Quizeey가 무료로 제공하는 기출문제들을 풀다 보면 어느새
-                        자격증 시험 준비가 되실
-                        거예요. 어떤 문제를 풀어 보시겠어요?
-                    </h5>
-                    <br>
-                    <input class="form-control" id="testSearch" type="text" placeholder="자격증 검색...">
-                    <br>
-                    <div id="testRadios">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h5 class="card-title">Top 10 자격증</h5>
+                            <ul>
+                                <li><a class="text-muted" href="/engineer-information-processing">정보처리기사</a></li>
+                                <li><a class="text-muted" href="/engineer-electricity">전기기사</a></li>
+                                <li><a class="text-muted" href="/computer-specialist-in-spreadsheet-and-database-level-1">컴퓨터활용능력 1급</a></li>
+                                <li><a class="text-muted" href="/computer-specialist-in-spreadsheet-and-database-level-2">컴퓨터활용능력 2급</a></li>
+                                <li><a class="text-muted" href="/word-processor">워드프로세스</a></li>
+                                <li><a class="text-muted" href="/craftsman-electricity">전기기능사</a></li>
+                                <li><a class="text-muted" href="/sqlp-developer">SQLD - SQL개발자</a></li>
+                                <li><a class="text-muted" href="/engineer-architecture">건축기사</a></li>
+                                <li><a class="text-muted" href="/craftsman-fork-lift-truck-operator">지게차운전기능사</a></li>
+                                <li><a class="text-muted" href="/craftsman-cook-korean-food">한식조리기능사</a></li>
+                            </ul>
+                        </div>
+                        <br>
+                        <div class="col-md-9">
+                            <input class="form-control" id="testSearch" type="text" placeholder="자격증 검색...">
+                            <br>
+                            <div id="testRadios">
+                            </div>
+                        </div>
                     </div>
                     <br>
                     <button type="button" class="btn btn-lg btn-secondary btn-block" id="btn-take-the-quiz" disabled>
