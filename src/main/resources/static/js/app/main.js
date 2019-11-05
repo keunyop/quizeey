@@ -12,7 +12,17 @@ var main = {
       var value = $(this)
         .val()
         .toLowerCase();
-      $("#testRadios *").filter(function() {
+
+      // $("#testRadios *").filter(function() {
+      //   $(this).toggle(
+      //     $(this)
+      //       .text()
+      //       .toLowerCase()
+      //       .indexOf(value) > -1
+      //   );
+      // });
+
+      $("#testLinks *").filter(function() {
         $(this).toggle(
           $(this)
             .text()
@@ -39,33 +49,49 @@ var main = {
       data: JSON.stringify(data)
     })
       .done(function(responseData) {
-        var cnt = 1;
+        // var cnt = 1;
 
+        // // 라디오버튼
+        // $.each(responseData, function(key, value) {
+        //   var div = document.createElement("div");
+        //   div.className = "custom-control custom-radio";
+
+        //   var input = document.createElement("input");
+        //   input.type = "radio";
+        //   input.id = "testRadio" + cnt;
+        //   input.name = "testRadio";
+        //   input.className = "custom-control-input";
+        //   input.value = value.url;
+
+        //   var label = document.createElement("label");
+        //   label.className = "custom-control-label";
+        //   label.innerHTML = value.testNm;
+        //   label.setAttribute("for", "testRadio" + cnt);
+
+        //   div.appendChild(input);
+        //   div.appendChild(label);
+
+        //   var br = document.createElement("br");
+
+        //   $("#testRadios").append(div);
+        //   $("#testRadios").append(br);
+
+        //   cnt++;
+        // });
+
+        // 링크 버튼
         $.each(responseData, function(key, value) {
-          var div = document.createElement("div");
-          div.className = "custom-control custom-radio";
+          var li = document.createElement("li");
+          li.className = "test-link";
 
-          var input = document.createElement("input");
-          input.type = "radio";
-          input.id = "testRadio" + cnt;
-          input.name = "testRadio";
-          input.className = "custom-control-input";
-          input.value = value.url;
+          var atag = document.createElement("a");
+          atag.className = "text-muted";
+          atag.href = value.url;
+          atag.innerHTML = value.testNm;
+          
+          li.appendChild(atag);
 
-          var label = document.createElement("label");
-          label.className = "custom-control-label";
-          label.innerHTML = value.testNm;
-          label.setAttribute("for", "testRadio" + cnt);
-
-          div.appendChild(input);
-          div.appendChild(label);
-
-          var br = document.createElement("br");
-
-          $("#testRadios").append(div);
-          $("#testRadios").append(br);
-
-          cnt++;
+          $("#testLinks").append(li);
         });
 
         _this.afterGetTests(languageCd);

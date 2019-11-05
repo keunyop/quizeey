@@ -22,3 +22,11 @@
   position: absolute;
   right: 0;
 }
+
+.test-link {
+  margin-top: 5px;
+}
+
+.main-card-title {
+  font-weight: 900;
+}
