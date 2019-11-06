@@ -49,25 +49,45 @@
     <!-- Begin page content -->
     <main role="main" class="container">
         <div id="main-div">
-            <h1 class="mt-5">Prepare exams with Quizeey.</h1>
+            <h1 class="mt-5 title">Quizeey.<br>Prepare exams with Quizeey.</h1>
             <br>
 
             <div class="card shadow" style="width: 100%;">
                 <div class="card-body">
-                    <h5 class="card-title">
-                        Quizeey is optimized not only for desktop but also for mobile phone screen to make solving
-                        problems as easy as possible. With the free questions Quizeey provides, you will be ready for
-                        your exam. Which test would you like to take?
-                    </h5>
-                    <br>
-                    <input class="form-control" id="testSearch" type="text" placeholder="Quiz Search...">
-                    <br>
-                    <div id="testRadios">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h4 class="card-title main-card-title">Top 10 Quizeeies</h4>
+                            <ul class="list-unstyled">
+                                <li class="test-link"><a class="text-muted"
+                                        href="/en/aws-certified-developer-associate">①
+                                        AWS Certified Developer</a></li>
+                                <li class="test-link"><a class="text-muted" href="/en/computer-science">② Computer
+                                        Science</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-9">
+                            <h4 class="card-title main-card-title">All Quizeeies</h4>
+                            <br>
+                            <input class="form-control" id="testSearch" type="text" placeholder="Quiz Search...">
+                            <br>
+
+                            <div id="testLinks">
+                                <h5 class="card-title">A</h5>
+                                <ul>
+                                    <li class="test-link"><a class="text-muted"
+                                            href="/en/aws-certified-developer-associate">
+                                            AWS Certified Developer</a></li>
+                                </ul>
+
+                                <h5 class="card-title">C</h5>
+                                <ul>
+                                    <li class="test-link"><a class="text-muted" href="/en/computer-science">Computer
+                                            Science</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <br>
-                    <button type="button" class="btn btn-lg btn-secondary btn-block" id="btn-take-the-quiz" disabled>
-                        TAKE THE QUIZ
-                    </button>
+
                 </div>
             </div>
 
