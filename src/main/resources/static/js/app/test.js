@@ -431,6 +431,8 @@ var test;
 
     // 답이 하나인 Radio 타입 문제
     getRadioTypeExample: function(examples, selectedNbr) {
+      var _this = this;
+      
       // 보기
       examples.forEach(function(item, index) {
         var exampleAlphabet = String.fromCharCode(65 + index);
