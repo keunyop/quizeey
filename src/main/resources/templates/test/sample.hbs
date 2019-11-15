@@ -15,12 +15,23 @@
     <script data-ad-client="ca-pub-8362228066874729" async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
-    <title>Take a quiz - Quizeey</title>
+    <title>Sample</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="content-language" content="en">
+    <meta http-equiv="content-language" content="kr">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description"
-        content="Try our free pool of questions to practice exams such as AWS, SQLP, Computer Science, etc.." />
+    <meta name="description" content="정보처리기사, 전기기사, 컴퓨터활용능력, 워드프로세서, 전기기능사, SQLP, SQLD, 건축기사, 지게차운전기능사, AWS 등 각종 자격증 기출문제를 100% 무료로 CBT 하세요." />
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Quizeey - 각종 자격증 시험 기출 문제은행">
+    <meta property="og:description"
+        content="정보처리기사, 전기기사, 컴퓨터활용능력, 워드프로세서, 전기기능사, SQLP, SQLD, 건축기사, 지게차운전기능사, AWS 등 각종 자격증 기출문제를 100% 무료로 CBT 하세요.">
+    <meta property="og:image" content="http://quizeey.com/img/favicon.ico">
+    <meta property="og:url" content="http://quizeey.com/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Quizeey - 각종 자격증 시험 기출 문제은행">
+    <meta name="twitter:description"
+        content="정보처리기사, 전기기사, 컴퓨터활용능력, 워드프로세서, 전기기능사, SQLP, SQLD, 건축기사, 지게차운전기능사, AWS 등 각종 자격증 기출문제를 100% 무료로 CBT 하세요.">
+    <meta name="twitter:image" content="http://quizeey.com/img/favicon.ico">
+    <meta name="twitter:domain" content="http://quizeey.com/">
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/img/favicon.ico">
@@ -53,17 +64,17 @@
             <br>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="quiz-version-selector">Version</label>
+                    <label class="input-group-text" for="quiz-version-selector">버전</label>
                 </div>
                 <select class="custom-select" id="quiz-version-selector">
-                    <option value="">All</option>
+                    <option value="">전체</option>
                 </select>
             </div>
 
             <!-- 진행상태바 -->
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb" id="progress-bar">
-                    <li class="breadcrumb-item active" aria-current="page">Questions</li>
+                    <li class="breadcrumb-item active" aria-current="page">문제</li>
                 </ol>
             </nav>
 
@@ -76,15 +87,15 @@
                     <ul class="nav nav-tabs nav-tabs-question" id="myTab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="question-tab" data-toggle="tab" href="#question" role="tab"
-                                aria-controls="question" aria-selected="true">Question</a>
+                                aria-controls="question" aria-selected="true">문제</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="statistics-tab" data-toggle="tab" href="#statistics" role="tab"
-                                aria-controls="statistics" aria-selected="false">Stats</a>
+                                aria-controls="statistics" aria-selected="false">통계</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="disqus-tab" data-toggle="tab" href="#disqus" role="tab"
-                                aria-controls="disqus" aria-selected="false">Comments</a>
+                                aria-controls="disqus" aria-selected="false">댓글</a>
                         </li>
                     </ul>
                 </div>
@@ -108,13 +119,13 @@
                                     <td width="90%">
                                         <button type="button" class="btn btn-lg btn-secondary btn-block"
                                             id="btn-question-submit" disabled>
-                                            SUBMIT
+                                            정답확인
                                         </button>
                                     </td>
                                     <td width="10%">
                                         <button type="button" class="btn btn-lg btn-warning btn-block"
                                             id="btn-question-skip">
-                                            SKIP
+                                            통과
                                         </button>
                                     </td>
                                 </tr>
@@ -138,52 +149,6 @@
             </di1v>
     </main>
 
-    <!-- 오답 팝업 -->
-    <div class="modal fade" id="wrongModal" tabindex="-1" role="dialog" aria-labelledby="answerModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="answerModalLabel">Incorrect</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <h6>Answer:</h6>
-                    <p id="quest-answer"></p>
-                    <h6 id="explanation-title">Explanation:</h6>
-                    <p id="explanation"></p>
-
-                    <!-- 추가설명 -->
-                    <div id="additional-explanation"></div>
-
-                    <!-- 설명추가 -->
-                    <button type="button" class="btn btn-link add-explanation-txt">Add Explanation</button>
-                    <br>
-                    <form class="add-explanation-form" style="display:none;">
-                        <div class="form-group">
-                            <label for="addExplanationUserName">Name</label>
-                            <input type="text" class="form-control" id="addExplanationUserName" placeholder="익명">
-                        </div>
-                        <div class="form-group">
-                            <label for="addExplanationContents">Explanation</label>
-                            <textarea class="form-control" id="addExplanationContents" rows="3"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-sm">Add</button>
-                    </form>
-                    <br>
-
-                    <h6 id="reference-title">Reference:</h6><a id="reference" target="_blank"></a>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal"
-                        id="btn-next-question">Next</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!--부트스트랩 js, jquery 추가-->
     <script src="/js/lib/jquery.min.js"></script>
