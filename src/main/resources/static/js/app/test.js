@@ -3,6 +3,7 @@ var test;
 (function() {
   var questId;
   var isDisqusInitialLoading;
+  var userSelectNbr;
 
   var quest_cnt = 0;
   var correct_cnt = 0;
@@ -222,10 +223,13 @@ var test;
         }
 
         if (answer == userAnswer) return true;
+
       } else {
         var ele = document.getElementsByName("exampleRadio");
         for (var i = 0; i < ele.length; i++) {
           if (ele[i].checked == true) {
+            userSelectNbr = ele[i].getAttribute("exmpnbr");
+
             if (answer === ele[i].id) {
               return true;
             }
@@ -280,7 +284,7 @@ var test;
     },
 
     // 문제 조회
-    nextQuestion: function(isSkip, questionId) {
+    nextQuestion: function(isSkip, questionId, selectedNbr) {
       var _this = this;
 
       var _btn_question_submit = $("#btn-question-submit");
@@ -344,7 +348,7 @@ var test;
           if (responseData.multiAnswer) {
             _this.getCheckboxTypeExample(responseData.examples);
           } else {
-            _this.getRadioTypeExample(responseData.examples);
+            _this.getRadioTypeExample(responseData.examples, selectedNbr);
           }
 
           // Quiz result
@@ -365,7 +369,7 @@ var test;
             li.className = "breadcrumb-item";
 
             var anchor = document.createElement("a");
-            anchor.setAttribute("href", "#`");
+            anchor.setAttribute("href", "#");
             anchor.setAttribute("class", "progress-bar-item" + current_num);
 
             if (!isCorrect) {
@@ -376,6 +380,7 @@ var test;
             }
 
             anchor.setAttribute("value", questId);
+            anchor.setAttribute("userselectnbr", userSelectNbr);
             anchor.innerText = current_num;
 
             li.appendChild(anchor);
@@ -386,7 +391,8 @@ var test;
             $(".progress-bar-item" + current_num).on("click", function(event) {
               _this.nextQuestion(
                 true,
-                event.currentTarget.attributes.value.value
+                event.currentTarget.attributes.value.value,
+                event.currentTarget.attributes.userselectnbr.value
               );
             });
           }
@@ -424,7 +430,7 @@ var test;
     },
 
     // 답이 하나인 Radio 타입 문제
-    getRadioTypeExample: function(examples) {
+    getRadioTypeExample: function(examples, selectedNbr) {
       // 보기
       examples.forEach(function(item, index) {
         var exampleAlphabet = String.fromCharCode(65 + index);
@@ -438,6 +444,11 @@ var test;
         input.id = exampleAlphabet;
         input.name = "exampleRadio";
         input.className = "custom-control-input";
+        input.setAttribute("exmpnbr", item.exmpNbr)
+
+        if (selectedNbr == item.exmpNbr) {
+          input.checked = true; 
+        }
 
         var label = document.createElement("label");
         label.className = "custom-control-label";
@@ -453,6 +464,8 @@ var test;
           $("#hidden-answer").text(exampleAlphabet);
           $("#quest-answer").append(exampleAlphabet + ". " + item.exmpTxt);
         }
+
+        
       });
     },
 
