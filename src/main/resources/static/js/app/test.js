@@ -448,6 +448,7 @@ var test;
 
         if (selectedNbr == item.exmpNbr) {
           input.checked = true; 
+          _this.submitBtnChange($("#btn-question-submit"));
         }
 
         var label = document.createElement("label");
