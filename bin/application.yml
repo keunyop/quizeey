@@ -8,16 +8,6 @@ spring:
   profiles: local
   datasource:
     url: jdbc:mariadb://52.35.43.187/quizeey
-    username: samurae83
-    password: 1l0v2ujin
-    driver-class-name: org.mariadb.jdbc.Driver
-
-# 운영 환경
----
-spring:
-  profiles: prod
-  datasource:
-    url: jdbc:mariadb://localhost/quizeey
-    username: samurae83
-    password: 1l0v2ujin
+    username: dev
+    password: dev
     driver-class-name: org.mariadb.jdbc.Driver
