@@ -48,6 +48,7 @@ public class WebController {
             TESTMAP.put("/engineer-general-machinery", new String[] { "40", "일반기계기사" });
             TESTMAP.put("/industrial-engineer-information-processing", new String[] { "41", "정보처리산업기사" });
             TESTMAP.put("/industrial-engineer-office-automation", new String[] { "42", "사무자동화산업기사" });
+            TESTMAP.put("/craftsman-hazardous-material", new String[] { "44", "위험물기능사" });
         }
     }
 
@@ -62,7 +63,7 @@ public class WebController {
             "/engineer-fire-protection-system-electrical", "/engineer-fire-protection-system-mechanical",
             "/craftsman-information-processing", "/industrial-engineer-hazardous-material",
             "/engineer-general-machinery", "/industrial-engineer-information-processing",
-            "/industrial-engineer-office-automation" })
+            "/industrial-engineer-office-automation", "/craftsman-hazardous-material" })
     public String craftsmanForkLiftTruckOperator(HttpServletRequest request, Model model,
                                                  @RequestParam(value = "questId", required = false)
                                                  String questId) {
