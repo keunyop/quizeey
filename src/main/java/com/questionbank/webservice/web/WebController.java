@@ -53,9 +53,8 @@ public class WebController {
     }
 
     @GetMapping(value = { "/sqlp-professional", "/kr/sqlp-professional", "/cbp-basic-developer",
-            "/kr/cbp-basic-developer", "/sqlp-developer", "/kr/sqlp-developer", "/engineer-information-processing",
-            "/kr/engineer-information-processing", "/engineer-transportation", "/engineer-architecture",
-            "/engineer-broadcasting-communication", "/engineer-urban-planning",
+            "/kr/cbp-basic-developer", "/sqlp-developer", "/kr/sqlp-developer", "/engineer-transportation",
+            "/engineer-architecture", "/engineer-broadcasting-communication", "/engineer-urban-planning",
             "/computer-specialist-in-spreadsheet-and-database-level-2",
             "/computer-specialist-in-spreadsheet-and-database-level-1", "/craftsman-fork-lift-truck-operator",
             "/craftsman-cook-korean-food", "/word-processor", "/hairdresser", "/craftsman-electricity",
@@ -209,5 +208,24 @@ public class WebController {
     @GetMapping("/privacy")
     public String privacy() {
         return "privacy";
+    }
+
+    @GetMapping(value = { "/engineer-information-processing", "/kr/engineer-information-processing" })
+    public String sample(HttpServletRequest request, Model model, @RequestParam(value = "questId", required = false)
+    String questId) {
+
+        String uri = request.getServletPath();
+
+        if (uri.startsWith("/kr/")) {
+            uri = uri.substring(3);
+        }
+
+        model.addAttribute("testId", TESTMAP.get(uri)[0]);
+
+        if (StringUtils.isNotBlank(questId)) {
+            model.addAttribute("inputQuestId", questId);
+        }
+
+        return "test/engineer-information-processing";
     }
 }
