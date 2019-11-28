@@ -49,6 +49,7 @@ public class WebController {
             TESTMAP.put("/industrial-engineer-information-processing", new String[] { "41", "정보처리산업기사" });
             TESTMAP.put("/industrial-engineer-office-automation", new String[] { "42", "사무자동화산업기사" });
             TESTMAP.put("/craftsman-hazardous-material", new String[] { "44", "위험물기능사" });
+            TESTMAP.put("/craftsman-computer-graphics-operation", new String[] { "45" });
         }
     }
 
@@ -210,7 +211,8 @@ public class WebController {
         return "privacy";
     }
 
-    @GetMapping(value = { "/engineer-information-processing", "/kr/engineer-information-processing" })
+    @GetMapping(value = { "/engineer-information-processing", "/kr/engineer-information-processing",
+            "/craftsman-computer-graphics-operation" })
     public String sample(HttpServletRequest request, Model model, @RequestParam(value = "questId", required = false)
     String questId) {
 
@@ -226,6 +228,6 @@ public class WebController {
             model.addAttribute("inputQuestId", questId);
         }
 
-        return "test/engineer-information-processing";
+        return "test" + uri;
     }
 }
