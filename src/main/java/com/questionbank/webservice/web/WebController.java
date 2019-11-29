@@ -24,7 +24,7 @@ public class WebController {
             TESTMAP.put("/sqlp-professional", new String[] { "2", "SQLP - 국가공인 SQL전문가" });
             TESTMAP.put("/cbp-basic-developer", new String[] { "3", "CBP 인증 - 개발자" });
             TESTMAP.put("/sqlp-developer", new String[] { "5", "SQLD - 국가공인 SQL개발자" });
-            TESTMAP.put("/engineer-information-processing", new String[] { "6", "정보처리기사" });
+            TESTMAP.put("/engineer-information-processing", new String[] { "6" });
             TESTMAP.put("/engineer-transportation", new String[] { "7", "교통기사" });
             TESTMAP.put("/engineer-architecture", new String[] { "8", "건축기사" });
             TESTMAP.put("/engineer-broadcasting-communication", new String[] { "9", "방송통신기사" });
@@ -38,7 +38,7 @@ public class WebController {
             TESTMAP.put("/word-processor", new String[] { "15", "워드프로세서" });
             TESTMAP.put("/hairdresser", new String[] { "25", "미용사(일반)" });
             TESTMAP.put("/craftsman-electricity", new String[] { "26", "전기기능사" });
-            TESTMAP.put("/engineer-electricity", new String[] { "27", "전기기사" });
+            TESTMAP.put("/engineer-electricity", new String[] { "27" });
             TESTMAP.put("/engineer-industrial-safety", new String[] { "28", "산업안전기사" });
             TESTMAP.put("/industrial-engineer-electricity", new String[] { "29", "전기산업기사" });
             TESTMAP.put("/engineer-fire-protection-system-electrical", new String[] { "31", "소방설비기사(전기분야)" });
@@ -59,7 +59,7 @@ public class WebController {
             "/computer-specialist-in-spreadsheet-and-database-level-2",
             "/computer-specialist-in-spreadsheet-and-database-level-1", "/craftsman-fork-lift-truck-operator",
             "/craftsman-cook-korean-food", "/word-processor", "/hairdresser", "/craftsman-electricity",
-            "/engineer-electricity", "/engineer-industrial-safety", "/industrial-engineer-electricity",
+            "/engineer-industrial-safety", "/industrial-engineer-electricity",
             "/engineer-fire-protection-system-electrical", "/engineer-fire-protection-system-mechanical",
             "/craftsman-information-processing", "/industrial-engineer-hazardous-material",
             "/engineer-general-machinery", "/industrial-engineer-information-processing",
@@ -212,7 +212,7 @@ public class WebController {
     }
 
     @GetMapping(value = { "/engineer-information-processing", "/kr/engineer-information-processing",
-            "/craftsman-computer-graphics-operation" })
+            "/craftsman-computer-graphics-operation", "/engineer-electricity" })
     public String sample(HttpServletRequest request, Model model, @RequestParam(value = "questId", required = false)
     String questId) {
 
