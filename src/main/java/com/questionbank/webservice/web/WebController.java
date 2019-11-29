@@ -212,7 +212,7 @@ public class WebController {
     }
 
     @GetMapping(value = { "/engineer-information-processing", "/kr/engineer-information-processing",
-            "/craftsman-computer-graphics-operation", "/engineer-electricity" })
+            "/craftsman-computer-graphics-operation", "/engineer-electricity", "/nail-technician" })
     public String sample(HttpServletRequest request, Model model, @RequestParam(value = "questId", required = false)
     String questId) {
 
