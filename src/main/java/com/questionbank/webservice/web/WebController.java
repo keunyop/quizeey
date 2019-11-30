@@ -21,7 +21,7 @@ public class WebController {
     public WebController() {
         if (TESTMAP == null) {
             TESTMAP = new HashMap<>();
-            TESTMAP.put("/sqlp-professional", new String[] { "2", "SQLP - 국가공인 SQL전문가" });
+            TESTMAP.put("/sqlp-professional", new String[] { "2" });
             TESTMAP.put("/cbp-basic-developer", new String[] { "3", "CBP 인증 - 개발자" });
             TESTMAP.put("/sqlp-developer", new String[] { "5", "SQLD - 국가공인 SQL개발자" });
             TESTMAP.put("/engineer-information-processing", new String[] { "6" });
@@ -50,13 +50,14 @@ public class WebController {
             TESTMAP.put("/industrial-engineer-office-automation", new String[] { "42", "사무자동화산업기사" });
             TESTMAP.put("/craftsman-hazardous-material", new String[] { "44", "위험물기능사" });
             TESTMAP.put("/craftsman-computer-graphics-operation", new String[] { "45" });
+            TESTMAP.put("/nail-technician", new String[] { "46" });
+            TESTMAP.put("/industrial-engineer-industrial-safety", new String[] { "47" });
         }
     }
 
-    @GetMapping(value = { "/sqlp-professional", "/kr/sqlp-professional", "/cbp-basic-developer",
-            "/kr/cbp-basic-developer", "/sqlp-developer", "/kr/sqlp-developer", "/engineer-transportation",
-            "/engineer-architecture", "/engineer-broadcasting-communication", "/engineer-urban-planning",
-            "/computer-specialist-in-spreadsheet-and-database-level-2",
+    @GetMapping(value = { "/cbp-basic-developer", "/kr/cbp-basic-developer", "/sqlp-developer", "/kr/sqlp-developer",
+            "/engineer-transportation", "/engineer-architecture", "/engineer-broadcasting-communication",
+            "/engineer-urban-planning", "/computer-specialist-in-spreadsheet-and-database-level-2",
             "/computer-specialist-in-spreadsheet-and-database-level-1", "/craftsman-fork-lift-truck-operator",
             "/craftsman-cook-korean-food", "/word-processor", "/hairdresser", "/craftsman-electricity",
             "/engineer-industrial-safety", "/industrial-engineer-electricity",
@@ -212,7 +213,8 @@ public class WebController {
     }
 
     @GetMapping(value = { "/engineer-information-processing", "/kr/engineer-information-processing",
-            "/craftsman-computer-graphics-operation", "/engineer-electricity", "/nail-technician" })
+            "/craftsman-computer-graphics-operation", "/engineer-electricity", "/nail-technician",
+            "/industrial-engineer-industrial-safety", "/sqlp-professional", "/kr/sqlp-professional" })
     public String sample(HttpServletRequest request, Model model, @RequestParam(value = "questId", required = false)
     String questId) {
 
