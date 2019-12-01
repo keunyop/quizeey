@@ -50,8 +50,8 @@ public class WebController {
             TESTMAP.put("/industrial-engineer-office-automation", new String[] { "42", "사무자동화산업기사" });
             TESTMAP.put("/craftsman-hazardous-material", new String[] { "44", "위험물기능사" });
             TESTMAP.put("/craftsman-computer-graphics-operation", new String[] { "45" });
-            TESTMAP.put("/nail-technician", new String[] { "46" });
-            TESTMAP.put("/industrial-engineer-industrial-safety", new String[] { "47" });
+            TESTMAP.put("/nail-technician", new String[] { "51" });
+            TESTMAP.put("/industrial-engineer-industrial-safety", new String[] { "52" });
         }
     }
 
