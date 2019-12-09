@@ -52,6 +52,7 @@ public class WebController {
             TESTMAP.put("/craftsman-computer-graphics-operation", new String[] { "45" });
             TESTMAP.put("/nail-technician", new String[] { "51" });
             TESTMAP.put("/industrial-engineer-industrial-safety", new String[] { "52" });
+            TESTMAP.put("/craftsman-web-design", new String[] { "53" });
         }
     }
 
@@ -214,7 +215,8 @@ public class WebController {
 
     @GetMapping(value = { "/engineer-information-processing", "/kr/engineer-information-processing",
             "/craftsman-computer-graphics-operation", "/engineer-electricity", "/nail-technician",
-            "/industrial-engineer-industrial-safety", "/sqlp-professional", "/kr/sqlp-professional" })
+            "/industrial-engineer-industrial-safety", "/sqlp-professional", "/kr/sqlp-professional",
+            "craftsman-web-design" })
     public String sample(HttpServletRequest request, Model model, @RequestParam(value = "questId", required = false)
     String questId) {
 
