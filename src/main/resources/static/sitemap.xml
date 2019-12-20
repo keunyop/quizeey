@@ -3,6 +3,7 @@
 <url><loc>http://www.quizeey.com/</loc><changefreq>daily</changefreq><priority>1.00</priority></url>
 <url><loc>http://www.quizeey.com/computer-science</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
 <url><loc>http://www.quizeey.com/aws-certified-developer-associate</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://www.quizeey.com/en/aws-certified-developer-associate</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
 <url><loc>http://www.quizeey.com/sqlp-professional</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
 <url><loc>http://www.quizeey.com/cbp-basic-developer</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
 <url><loc>http://www.quizeey.com/sqlp-developer</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
