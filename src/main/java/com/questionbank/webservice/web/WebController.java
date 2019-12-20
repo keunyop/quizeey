@@ -21,6 +21,7 @@ public class WebController {
     public WebController() {
         if (TESTMAP == null) {
             TESTMAP = new HashMap<>();
+            TESTMAP.put("/aws-certified-developer-associate", new String[] { "1" });
             TESTMAP.put("/sqlp-professional", new String[] { "2" });
             TESTMAP.put("/cbp-basic-developer", new String[] { "3", "CBP 인증 - 개발자" });
             TESTMAP.put("/sqlp-developer", new String[] { "5", "SQLD - 국가공인 SQL개발자" });
@@ -124,8 +125,7 @@ public class WebController {
         return html;
     }
 
-    @GetMapping(value = { "/aws-certified-developer-associate", "/kr/aws-certified-developer-associate",
-            "/en/aws-certified-developer-associate" })
+    @GetMapping(value = { "/aws-certified-developer-associate", "/kr/aws-certified-developer-associate" })
     public String awsCertiDevAsct(HttpServletRequest request, Model model,
                                   @RequestParam(value = "questId", required = false)
                                   String questId) {
@@ -214,14 +214,19 @@ public class WebController {
     @GetMapping(value = { "/engineer-information-processing", "/kr/engineer-information-processing",
             "/craftsman-computer-graphics-operation", "/engineer-electricity", "/nail-technician",
             "/industrial-engineer-industrial-safety", "/sqlp-professional", "/kr/sqlp-professional",
-            "craftsman-web-design", "/computer-specialist-in-spreadsheet-and-database-level-2" })
+            "craftsman-web-design", "/computer-specialist-in-spreadsheet-and-database-level-2",
+            "/en/aws-certified-developer-associate" })
     public String sample(HttpServletRequest request, Model model, @RequestParam(value = "questId", required = false)
     String questId) {
 
         String uri = request.getServletPath();
+        String prefix = "test";
 
         if (uri.startsWith("/kr/")) {
             uri = uri.substring(3);
+        } else if (uri.startsWith("/en/")) {
+            uri = uri.substring(3);
+            prefix = "en/test";
         }
 
         model.addAttribute("testId", TESTMAP.get(uri)[0]);
@@ -230,6 +235,7 @@ public class WebController {
             model.addAttribute("inputQuestId", questId);
         }
 
-        return "test" + uri;
+        return prefix + uri;
+
     }
 }
