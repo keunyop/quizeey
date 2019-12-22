@@ -23,12 +23,12 @@ public class WebController {
             TESTMAP = new HashMap<>();
             TESTMAP.put("/aws-certified-developer-associate", new String[] { "1" });
             TESTMAP.put("/sqlp-professional", new String[] { "2" });
-            TESTMAP.put("/cbp-basic-developer", new String[] { "3", "CBP 인증 - 개발자" });
-            TESTMAP.put("/sqlp-developer", new String[] { "5", "SQLD - 국가공인 SQL개발자" });
+            TESTMAP.put("/cbp-basic-developer", new String[] { "3" });
+            TESTMAP.put("/sqlp-developer", new String[] { "5" });
             TESTMAP.put("/engineer-information-processing", new String[] { "6" });
-            TESTMAP.put("/engineer-transportation", new String[] { "7", "교통기사" });
-            TESTMAP.put("/engineer-architecture", new String[] { "8", "건축기사" });
-            TESTMAP.put("/engineer-broadcasting-communication", new String[] { "9", "방송통신기사" });
+            TESTMAP.put("/engineer-transportation", new String[] { "7" });
+            TESTMAP.put("/engineer-architecture", new String[] { "8" });
+            TESTMAP.put("/engineer-broadcasting-communication", new String[] { "9" });
             TESTMAP.put("/engineer-urban-planning", new String[] { "10", "도시계획기사" });
             TESTMAP.put("/computer-specialist-in-spreadsheet-and-database-level-2", new String[] { "11" });
             TESTMAP.put("/computer-specialist-in-spreadsheet-and-database-level-1",
@@ -56,9 +56,7 @@ public class WebController {
         }
     }
 
-    @GetMapping(value = { "/cbp-basic-developer", "/kr/cbp-basic-developer", "/sqlp-developer", "/kr/sqlp-developer",
-            "/engineer-transportation", "/engineer-architecture", "/engineer-broadcasting-communication",
-            "/engineer-urban-planning", "/computer-specialist-in-spreadsheet-and-database-level-1",
+    @GetMapping(value = { "/engineer-urban-planning", "/computer-specialist-in-spreadsheet-and-database-level-1",
             "/craftsman-fork-lift-truck-operator", "/craftsman-cook-korean-food", "/word-processor", "/hairdresser",
             "/craftsman-electricity", "/engineer-industrial-safety", "/industrial-engineer-electricity",
             "/engineer-fire-protection-system-electrical", "/engineer-fire-protection-system-mechanical",
@@ -215,7 +213,9 @@ public class WebController {
             "/craftsman-computer-graphics-operation", "/engineer-electricity", "/nail-technician",
             "/industrial-engineer-industrial-safety", "/sqlp-professional", "/kr/sqlp-professional",
             "craftsman-web-design", "/computer-specialist-in-spreadsheet-and-database-level-2",
-            "/en/aws-certified-developer-associate" })
+            "/en/aws-certified-developer-associate", "/cbp-basic-developer", "/kr/cbp-basic-developer",
+            "/sqlp-developer", "/kr/sqlp-developer", "/engineer-transportation", "/engineer-architecture",
+            "/engineer-broadcasting-communication" })
     public String sample(HttpServletRequest request, Model model, @RequestParam(value = "questId", required = false)
     String questId) {
 
