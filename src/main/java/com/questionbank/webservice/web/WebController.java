@@ -31,8 +31,7 @@ public class WebController {
             TESTMAP.put("/engineer-broadcasting-communication", new String[] { "9" });
             TESTMAP.put("/engineer-urban-planning", new String[] { "10" });
             TESTMAP.put("/computer-specialist-in-spreadsheet-and-database-level-2", new String[] { "11" });
-            TESTMAP.put("/computer-specialist-in-spreadsheet-and-database-level-1",
-                    new String[] { "12", "컴퓨터활용능력 1급" });
+            TESTMAP.put("/computer-specialist-in-spreadsheet-and-database-level-1", new String[] { "12" });
             TESTMAP.put("/craftsman-fork-lift-truck-operator", new String[] { "13", "지게차운전기능사" });
             TESTMAP.put("/craftsman-cook-korean-food", new String[] { "14", "한식조리기능사" });
             TESTMAP.put("/word-processor", new String[] { "15", "워드프로세서" });
@@ -58,9 +57,8 @@ public class WebController {
         }
     }
 
-    @GetMapping(value = { "/computer-specialist-in-spreadsheet-and-database-level-1",
-            "/craftsman-fork-lift-truck-operator", "/craftsman-cook-korean-food", "/word-processor", "/hairdresser",
-            "/craftsman-electricity", "/engineer-industrial-safety", "/industrial-engineer-electricity",
+    @GetMapping(value = { "/craftsman-fork-lift-truck-operator", "/craftsman-cook-korean-food", "/word-processor",
+            "/hairdresser", "/craftsman-electricity", "/engineer-industrial-safety", "/industrial-engineer-electricity",
             "/engineer-fire-protection-system-electrical", "/engineer-fire-protection-system-mechanical",
             "/craftsman-information-processing", "/industrial-engineer-hazardous-material",
             "/engineer-general-machinery", "/industrial-engineer-information-processing",
@@ -218,7 +216,7 @@ public class WebController {
             "/en/aws-certified-developer-associate", "/cbp-basic-developer", "/kr/cbp-basic-developer",
             "/sqlp-developer", "/kr/sqlp-developer", "/engineer-transportation", "/engineer-architecture",
             "/engineer-broadcasting-communication", "/engineer-urban-planning", "/engineer-information-security",
-            "/esthetician" })
+            "/esthetician", "/computer-specialist-in-spreadsheet-and-database-level-1" })
     public String sample(HttpServletRequest request, Model model, @RequestParam(value = "questId", required = false)
     String questId) {
 
