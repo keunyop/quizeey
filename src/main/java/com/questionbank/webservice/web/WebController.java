@@ -54,6 +54,7 @@ public class WebController {
             TESTMAP.put("/craftsman-web-design", new String[] { "53" });
             TESTMAP.put("/engineer-information-security", new String[] { "54" });
             TESTMAP.put("/esthetician", new String[] { "55" });
+            TESTMAP.put("/engineer-air-conditioning-refrigerating-machinery", new String[] { "56" });
         }
     }
 
@@ -217,7 +218,7 @@ public class WebController {
             "/sqlp-developer", "/kr/sqlp-developer", "/engineer-transportation", "/engineer-architecture",
             "/engineer-broadcasting-communication", "/engineer-urban-planning", "/engineer-information-security",
             "/esthetician", "/computer-specialist-in-spreadsheet-and-database-level-1",
-            "/craftsman-fork-lift-truck-operator" })
+            "/craftsman-fork-lift-truck-operator", "/engineer-air-conditioning-refrigerating-machinery" })
     public String sample(HttpServletRequest request, Model model, @RequestParam(value = "questId", required = false)
     String questId) {
 
