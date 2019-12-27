@@ -62,13 +62,13 @@ public class WebController {
             "/craftsman-computer-graphics-operation", "/engineer-electricity", "/nail-technician",
             "/industrial-engineer-industrial-safety", "/sqlp-professional", "/kr/sqlp-professional",
             "craftsman-web-design", "/computer-specialist-in-spreadsheet-and-database-level-2",
-            "/en/aws-certified-developer-associate", "/cbp-basic-developer", "/kr/cbp-basic-developer",
-            "/sqlp-developer", "/kr/sqlp-developer", "/engineer-transportation", "/engineer-architecture",
-            "/engineer-broadcasting-communication", "/engineer-urban-planning", "/engineer-information-security",
-            "/esthetician", "/computer-specialist-in-spreadsheet-and-database-level-1",
-            "/craftsman-fork-lift-truck-operator", "/engineer-air-conditioning-refrigerating-machinery",
-            "/craftsman-cook-korean-food", "/word-processor", "/hairdresser", "/craftsman-electricity",
-            "/engineer-industrial-safety", "/industrial-engineer-electricity",
+            "/en/aws-certified-developer-associate", "/zh/aws-certified-developer-associate", "/cbp-basic-developer",
+            "/kr/cbp-basic-developer", "/sqlp-developer", "/kr/sqlp-developer", "/engineer-transportation",
+            "/engineer-architecture", "/engineer-broadcasting-communication", "/engineer-urban-planning",
+            "/engineer-information-security", "/esthetician",
+            "/computer-specialist-in-spreadsheet-and-database-level-1", "/craftsman-fork-lift-truck-operator",
+            "/engineer-air-conditioning-refrigerating-machinery", "/craftsman-cook-korean-food", "/word-processor",
+            "/hairdresser", "/craftsman-electricity", "/engineer-industrial-safety", "/industrial-engineer-electricity",
             "/engineer-fire-protection-system-electrical", "/engineer-fire-protection-system-mechanical",
             "/craftsman-information-processing", "/industrial-engineer-hazardous-material",
             "/engineer-general-machinery", "/industrial-engineer-information-processing",
@@ -84,6 +84,9 @@ public class WebController {
         } else if (uri.startsWith("/en/")) {
             uri = uri.substring(3);
             prefix = "en/test";
+        } else if (uri.startsWith("/zh/")) {
+            uri = uri.substring(3);
+            prefix = "zh/test";
         }
 
         model.addAttribute("testId", TESTMAP.get(uri)[0]);
@@ -96,40 +99,14 @@ public class WebController {
 
     }
 
-    //    @GetMapping(value = { "/craftsman-cook-korean-food", "/word-processor", "/hairdresser", "/craftsman-electricity",
-    //            "/engineer-industrial-safety", "/industrial-engineer-electricity",
-    //            "/engineer-fire-protection-system-electrical", "/engineer-fire-protection-system-mechanical",
-    //            "/craftsman-information-processing", "/industrial-engineer-hazardous-material",
-    //            "/engineer-general-machinery", "/industrial-engineer-information-processing",
-    //            "/industrial-engineer-office-automation", "/craftsman-hazardous-material" })
-    //    public String craftsmanForkLiftTruckOperator(HttpServletRequest request, Model model,
-    //                                                 @RequestParam(value = "questId", required = false)
-    //                                                 String questId) {
-    //
-    //        String uri = request.getServletPath();
-    //
-    //        if (uri.startsWith("/kr/")) {
-    //            uri = uri.substring(3);
-    //        }
-    //
-    //        String[] testInfos = TESTMAP.get(uri);
-    //
-    //        model.addAttribute("testId", testInfos[0]);
-    //        model.addAttribute("testName", testInfos[1]);
-    //
-    //        if (StringUtils.isNotBlank(questId)) {
-    //            model.addAttribute("inputQuestId", questId);
-    //        }
-    //
-    //        return "test";
-    //    }
-
-    @GetMapping(value = { "/", "/kr", "/en" })
+    @GetMapping(value = { "/", "/kr", "/en", "/zh" })
     public String main(HttpServletRequest request) {
         String html = "main";
 
         if ("/en".equals(request.getRequestURI())) {
             html = "en/main";
+        } else if ("/zh".equals(request.getRequestURI())) {
+            html = "zh/main";
         }
 
         return html;
@@ -167,7 +144,6 @@ public class WebController {
                                   @RequestParam(value = "questId", required = false)
                                   String questId) {
 
-        String html = "";
         String testId = TestEnum.AWS_DEV_ASSOCT.getCode();
 
         model.addAttribute("testId", testId);
@@ -176,23 +152,8 @@ public class WebController {
             model.addAttribute("inputQuestId", questId);
         }
 
-        switch (request.getRequestURI()) {
-            case "/aws-certified-developer-associate":
-            case "/kr/aws-certified-developer-associate":
-                model.addAttribute("testName", TestEnum.getByCode(testId).getKorName());
-                html = "test";
-                break;
-
-            case "/en/aws-certified-developer-associate":
-                model.addAttribute("testName", TestEnum.getByCode(testId).getEngName());
-                html = "en/test";
-                break;
-
-            default:
-                break;
-        }
-
-        return html;
+        model.addAttribute("testName", TestEnum.getByCode(testId).getKorName());
+        return "test";
     }
 
     @GetMapping(value = { "/computer-science", "/kr/computer-science", "/en/computer-science" })
