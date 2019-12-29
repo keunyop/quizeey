@@ -4,6 +4,7 @@
 <url><loc>http://www.quizeey.com/computer-science</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
 <url><loc>http://www.quizeey.com/aws-certified-developer-associate</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
 <url><loc>http://www.quizeey.com/en/aws-certified-developer-associate</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://www.quizeey.com/zh/aws-certified-developer-associate</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
 <url><loc>http://www.quizeey.com/sqlp-professional</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
 <url><loc>http://www.quizeey.com/cbp-basic-developer</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
 <url><loc>http://www.quizeey.com/sqlp-developer</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
@@ -62,6 +63,7 @@
 <url><loc>http://www.quizeey.com/industrial-engineer-information-processing</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
 <url><loc>http://www.quizeey.com/industrial-engineer-office-automation</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
 <url><loc>http://www.quizeey.com/craftsman-hazardous-material</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://www.quizeey.com/engineer-chemical-industry</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
 <url><loc>http://www.quizeey.com/cbp-basic-developer</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
 <url><loc>http://www.quizeey.com/about</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
 <url><loc>http://www.quizeey.com/request</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
