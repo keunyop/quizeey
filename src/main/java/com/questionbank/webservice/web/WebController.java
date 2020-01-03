@@ -65,7 +65,7 @@ public class WebController {
             TESTMAP.put("/make-up-artist", new String[] { "73" });
             TESTMAP.put("/engineer-construction-safety", new String[] { "74" });
             TESTMAP.put("/engineer-information-communication", new String[] { "76" });
-            TESTMAP.put("/engineer-civil-engineering", new String[] { "76" });
+            TESTMAP.put("/engineer-civil-engineering", new String[] { "78" });
         }
     }
 
