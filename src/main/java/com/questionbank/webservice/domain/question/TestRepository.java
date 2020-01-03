@@ -11,4 +11,6 @@ public interface TestRepository extends JpaRepository<Test, Long> {
 
     Test findFirstByOrderByTestIdDesc();
 
+    boolean existsByTestNm(String testNm);
+
 }

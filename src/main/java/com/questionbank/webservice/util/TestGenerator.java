@@ -39,9 +39,11 @@ public class TestGenerator {
             for (String fileName : paths.filter(Files::isRegularFile).map(file -> file.toString())
                     .collect(Collectors.toList())) {
 
-                Long testId = _addTest(fileName);
-                int verNbr = _addVersion(testId, fileName);
-                _addQuestion(testId, verNbr, _toObject(fileName));
+                if (!_isDuplicate(fileName)) {
+                    Long testId = _addTest(fileName);
+                    int verNbr = _addVersion(testId, fileName);
+                    _addQuestion(testId, verNbr, _toObject(fileName));
+                }
             }
 
             System.err.println("### 끝 ###");
@@ -49,6 +51,10 @@ public class TestGenerator {
             e.printStackTrace();
         }
 
+    }
+
+    private boolean _isDuplicate(String fileName) {
+        return testRepository.existsByTestNm(fileName.substring(fileName.lastIndexOf('\\') + 1, fileName.indexOf('@')));
     }
 
     private Long _addTest(String fileName) {
@@ -73,13 +79,6 @@ public class TestGenerator {
 
     private void _addQuestion(Long testId, int verNbr, List<Question4Gen> qs) {
         for (Question4Gen q : qs) {
-
-            // 문제나 보기가 비어있으면 skip
-            //            if (StringUtils.isEmpty(q.getQuestTxt()) || !q.getExample4Gens().stream()
-            //                    .filter(e -> StringUtils.isEmpty(e.getExampleStr())).findAny().isPresent()) {
-            //                                continue;
-            //            }
-
             int questNbr = Integer.parseInt(q.getQuestNbr());
 
             questionRepository.save(Question.builder().testId(testId).verNbr(verNbr).questNbr(questNbr)
