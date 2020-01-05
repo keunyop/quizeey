@@ -71,6 +71,16 @@ public class WebController {
             TESTMAP.put("/craftsman-information-equipment-operation", new String[] { "81" });
             TESTMAP.put("/craftsman-landscape-architecture", new String[] { "82" });
             TESTMAP.put("/craftsman-bartender", new String[] { "83" });
+            TESTMAP.put("/craftsman-gas", new String[] { "84" });
+            TESTMAP.put("/industrial-engineer-machinery-design", new String[] { "85" });
+            TESTMAP.put("/survey-analyst-junior", new String[] { "87" });
+            TESTMAP.put("/engineer-air-pollution-environmental", new String[] { "89" });
+            TESTMAP.put("/engineer-industrial-hygiene-management", new String[] { "93" });
+            TESTMAP.put("/engineer-water-pollution-environmental", new String[] { "94" });
+            TESTMAP.put("/master-craftsman-electricity", new String[] { "95" });
+            TESTMAP.put("/craftsman-electronic-apparatus", new String[] { "96" });
+            TESTMAP.put("/craftsman-breads-making", new String[] { "97" });
+            TESTMAP.put("/engineer-chemical-analysis", new String[] { "98" });
         }
     }
 
@@ -94,7 +104,11 @@ public class WebController {
             "/craftsman-computer-aided-architectural-drawing", "/make-up-artist", "/engineer-construction-safety",
             "/engineer-information-communication", "/engineer-civil-engineering", "/craftsman-energy-management",
             "/engineer-electric-work", "/craftsman-information-equipment-operation",
-            "/craftsman-landscape-architecture", "/craftsman-bartender" })
+            "/craftsman-landscape-architecture", "/craftsman-bartender", "/craftsman-gas",
+            "/industrial-engineer-machinery-design", "/survey-analyst-junior", "/engineer-air-pollution-environmental",
+            "/engineer-industrial-hygiene-management", "/engineer-water-pollution-environmental",
+            "/master-craftsman-electricity", "/craftsman-electronic-apparatus", "/craftsman-breads-making",
+            "/engineer-chemical-analysis" })
     public String question(HttpServletRequest request, Model model, @RequestParam(value = "questId", required = false)
     String questId) {
 

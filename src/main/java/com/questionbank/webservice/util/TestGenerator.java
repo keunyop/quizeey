@@ -112,6 +112,7 @@ public class TestGenerator {
             }
 
             if (line.matches("^[0-9.].*")) {
+                //                System.out.println(line);
                 String questNbr = line.substring(0, line.indexOf("."));
                 String questTxt = line.substring(line.indexOf(".") + 1);
 
