@@ -99,4 +99,9 @@ public class WebRestController {
     public void addTest() {
         testGenerator.addTestBatch();
     }
+
+    @GetMapping("/addVersionBatch")
+    public void addVersion() {
+        testGenerator.addVersionBatch();
+    }
 }

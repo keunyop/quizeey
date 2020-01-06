@@ -13,4 +13,6 @@ public interface TestRepository extends JpaRepository<Test, Long> {
 
     boolean existsByTestNm(String testNm);
 
+    Test findByTestNm(String testNm);
+
 }

@@ -39,8 +39,10 @@ public class TestGenerator {
             for (String fileName : paths.filter(Files::isRegularFile).map(file -> file.toString())
                     .collect(Collectors.toList())) {
 
-                if (!_isDuplicate(fileName)) {
-                    Long testId = _addTest(fileName);
+                Long testId = _getTestId(fileName);
+
+                if (testId == null) {
+                    testId = _addTest(fileName);
                     int verNbr = _addVersion(testId, fileName);
                     _addQuestion(testId, verNbr, _toObject(fileName));
                 }
@@ -53,8 +55,30 @@ public class TestGenerator {
 
     }
 
-    private boolean _isDuplicate(String fileName) {
-        return testRepository.existsByTestNm(fileName.substring(fileName.lastIndexOf('\\') + 1, fileName.indexOf('@')));
+    public void addVersionBatch() {
+        try (Stream<Path> paths = Files.walk(Paths.get(FILE_PATH))) {
+            for (String fileName : paths.filter(Files::isRegularFile).map(file -> file.toString())
+                    .collect(Collectors.toList())) {
+
+                Long testId = _getTestId(fileName);
+
+                if (testId != null) {
+                    int verNbr = _addVersion(testId, fileName);
+                    _addQuestion(testId, verNbr, _toObject(fileName));
+                }
+            }
+
+            System.err.println("### 끝 ###");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private Long _getTestId(String fileName) {
+        Test test = testRepository
+                .findByTestNm(fileName.substring(fileName.lastIndexOf('\\') + 1, fileName.indexOf('@')));
+
+        return test != null ? test.getTestId() : null;
     }
 
     private Long _addTest(String fileName) {
