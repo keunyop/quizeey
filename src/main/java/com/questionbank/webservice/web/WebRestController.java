@@ -104,4 +104,9 @@ public class WebRestController {
     public void addVersion() {
         testGenerator.addVersionBatch();
     }
+
+    @GetMapping("/clearCache")
+    public void clearCache() {
+        questionService.clearCache();
+    }
 }

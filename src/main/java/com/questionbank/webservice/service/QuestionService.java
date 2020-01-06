@@ -105,4 +105,12 @@ public class QuestionService {
 
         return null;
     }
+
+    public void clearCache() {
+        System.out.println("Cache: " + QUESTIONS_CACHE.size());
+
+        QUESTIONS_CACHE.clear();
+
+        System.out.println("Clear Cache Size: " + QUESTIONS_CACHE.size());
+    }
 }
