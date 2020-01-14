@@ -34,7 +34,6 @@ public class TestGenerator {
     final static String        FILE_PATH = "D:\\99.KYLEE\\01.개인프로젝트\\36.QuestionBank\\dumps\\문제\\todo";
 
     public void addTestBatch() {
-
         try (Stream<Path> paths = Files.walk(Paths.get(FILE_PATH))) {
             for (String fileName : paths.filter(Files::isRegularFile).map(file -> file.toString())
                     .collect(Collectors.toList())) {
@@ -62,7 +61,11 @@ public class TestGenerator {
 
                 Long testId = _getTestId(fileName);
 
-                if (testId != null) {
+                boolean isVersionNameExist = _isVersionNameExist(testId, fileName);
+
+                System.out.println("### isVersionNameExist: " + isVersionNameExist);
+
+                if (testId != null && !isVersionNameExist) {
                     int verNbr = _addVersion(testId, fileName);
                     _addQuestion(testId, verNbr, _toObject(fileName));
                 }
@@ -79,6 +82,15 @@ public class TestGenerator {
                 .findByTestNm(fileName.substring(fileName.lastIndexOf('\\') + 1, fileName.indexOf('@')));
 
         return test != null ? test.getTestId() : null;
+    }
+
+    private boolean _isVersionNameExist(Long testId, String fileName) {
+
+        String verNm = fileName.substring(fileName.lastIndexOf('@') + 1, fileName.lastIndexOf('.')) + " 기출문제";
+
+        System.out.println("### verNm: " + verNm);
+
+        return versionRepository.existsByTestIdAndVerNm(testId, verNm);
     }
 
     private Long _addTest(String fileName) {
