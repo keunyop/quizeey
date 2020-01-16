@@ -9,7 +9,7 @@ public interface VersionRepository extends JpaRepository<Version, Long> {
 
     Version getVersionByTestIdAndVerNbr(Long testId, int verNbr);
 
-    Version findFirstByTestIdOrderByVerNbr(Long testId);
+    Version findFirstByTestIdOrderByVerNbrDesc(Long testId);
 
     boolean existsByTestIdAndVerNm(Long testId, String verNm);
 }

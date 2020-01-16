@@ -103,7 +103,7 @@ public class TestGenerator {
     }
 
     private int _addVersion(Long testId, String fileName) {
-        Version version = versionRepository.findFirstByTestIdOrderByVerNbr(testId);
+        Version version = versionRepository.findFirstByTestIdOrderByVerNbrDesc(testId);
         int verNbr = version == null ? 1 : version.getVerNbr() + 1;
 
         String verNm = fileName.substring(fileName.lastIndexOf('@') + 1, fileName.lastIndexOf('.')) + " 기출문제";
