@@ -115,6 +115,7 @@ public class WebController {
             TESTMAP.put("/vocational-counselor-senior", new String[] { "133" });
             TESTMAP.put("/clinical-psychologist", new String[] { "134" });
             TESTMAP.put("/engineer-landscape-architecture", new String[] { "135" });
+            TESTMAP.put("/engineer-interior-architecture", new String[] { "135" });
         }
     }
 
@@ -152,7 +153,7 @@ public class WebController {
             "/master-craftsman-hazardous-material", "/barista-2", "/network-manager-1", "/pc-mechanic-1",
             "/pc-mechanic-2", "/computerized-accounting-specialist-1", "/computerized-accounting-specialist-2",
             "/computerized-accounting-specialist-3", "/vocational-counselor-senior", "/clinical-psychologist",
-            "/engineer-landscape-architecture" })
+            "/engineer-landscape-architecture", "/engineer-interior-architecture" })
     public String question(HttpServletRequest request, Model model, @RequestParam(value = "questId", required = false)
     String questId) {
 
