@@ -34,6 +34,10 @@ public class WebController {
             TESTMAP.put("/computer-specialist-in-spreadsheet-and-database-level-1", new String[] { "12" });
             TESTMAP.put("/craftsman-fork-lift-truck-operator", new String[] { "13" });
             TESTMAP.put("/craftsman-cook-korean-food", new String[] { "14" });
+            TESTMAP.put("/craftsman-cook-western-food", new String[] { "14" });
+            TESTMAP.put("/craftsman-cook-japanese-food", new String[] { "14" });
+            TESTMAP.put("/craftsman-cook-chinese-food", new String[] { "14" });
+            TESTMAP.put("/craftsman-cook-blowfish", new String[] { "14" });
             TESTMAP.put("/word-processor", new String[] { "15" });
             TESTMAP.put("/hairdresser", new String[] { "25" });
             TESTMAP.put("/craftsman-electricity", new String[] { "26" });
@@ -117,6 +121,7 @@ public class WebController {
             TESTMAP.put("/engineer-landscape-architecture", new String[] { "135" });
             TESTMAP.put("/engineer-interior-architecture", new String[] { "136" });
             TESTMAP.put("/specialist-multimedia-contents-producing", new String[] { "137" });
+            TESTMAP.put("/craftsman-excavating-machine-operator", new String[] { "138" });
         }
     }
 
@@ -155,7 +160,9 @@ public class WebController {
             "/pc-mechanic-2", "/computerized-accounting-specialist-1", "/computerized-accounting-specialist-2",
             "/computerized-accounting-specialist-3", "/vocational-counselor-senior", "/clinical-psychologist",
             "/engineer-landscape-architecture", "/engineer-interior-architecture",
-            "/specialist-multimedia-contents-producing" })
+            "/specialist-multimedia-contents-producing", "/craftsman-excavating-machine-operator",
+            "/craftsman-cook-western-food", "/craftsman-cook-japanese-food", "/craftsman-cook-chinese-food",
+            "/craftsman-cook-blowfish" })
     public String question(HttpServletRequest request, Model model, @RequestParam(value = "questId", required = false)
     String questId) {
 
