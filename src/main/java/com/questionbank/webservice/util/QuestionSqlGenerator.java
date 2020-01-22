@@ -19,33 +19,33 @@ public class QuestionSqlGenerator {
     final static String FILE_NAME  = "D:\\99.KYLEE\\01.개인프로젝트\\36.QuestionBank\\dumps\\문제\\워드프로세서_20190831.txt";
     final static String WRITE_PATH = "src/main/java/com/questionbank/webservice/util/sql.sql";
     final static Long   TEST_ID    = (long) 15;
-    //    final static String TEST_NAME  = "도시계획기사";
+    final static String TEST_NAME  = "도시계획기사";
     final static int    VER_NBR    = 1;
     final static String VER_NAME   = "2019-08-31 기출문제";
 
     public static void main(String[] args) {
         StringBuilder sb = new StringBuilder();
-        //        sb.append("-- TEST\n");
-        //        sb.append(_genInsertTestSql());
+        sb.append("-- TEST\n");
+        sb.append(_genInsertTestSql());
         sb.append("\n-- VERSION\n");
         sb.append(_genInsertVersionSql());
         sb.append("\n-- QUESTION\n");
 
-        //        int qNum = 0;
-        //        for (String line : qsGen._readFile(FILE_NAME).collect(Collectors.toList())) {
-        //            qNum++;
-        //            sb.append("\n-- Q" + qNum + "\n");
-        //            sb.append(qsGen._genInsertQuestionSql(line));
-        //            sb.append("\n");
-        //            sb.append(qsGen._genInsertExampleSql(line));
-        //        }
-
-        List<Question4Gen> qs = _toObject();
-
-        for (Question4Gen q : qs) {
-            sb.append(_genInsertQuestionExampleSql(q));
-            sb.append("\n\n");
+        int qNum = 0;
+        for (String line : _readFile(FILE_NAME).collect(Collectors.toList())) {
+            qNum++;
+            sb.append("\n-- Q" + qNum + "\n");
+            sb.append(_genInsertQuestionSql(line));
+            sb.append("\n");
+            sb.append(_genInsertExampleSql(line));
         }
+
+        //        List<Question4Gen> qs = _toObject();
+        //
+        //        for (Question4Gen q : qs) {
+        //            sb.append(_genInsertQuestionExampleSql(q));
+        //            sb.append("\n\n");
+        //        }
 
         _writeFile(sb);
 
@@ -205,11 +205,11 @@ public class QuestionSqlGenerator {
         return qs;
     }
 
-    //        private static String _genInsertTestSql() {
-    //            return String.format(
-    //                    "insert into test (test_id, test_nm, test_nm_eng, url, inqr_seq, created_date, modified_date) values ('%s', '%s', '%s', '%s', '%s', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);",
-    //                    TEST_ID, TEST_NAME);
-    //        }
+    private static String _genInsertTestSql() {
+        return String.format(
+                "insert into test (test_id, test_nm, test_nm_eng, url, inqr_seq, created_date, modified_date) values ('%s', '%s', '%s', '%s', '%s', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);",
+                TEST_ID, TEST_NAME);
+    }
 
     private static String _genInsertVersionSql() {
         return String.format(
@@ -233,7 +233,7 @@ public class QuestionSqlGenerator {
         return sb.toString();
     }
 
-    private String _genInsertQuestionSql(String line) {
+    private static String _genInsertQuestionSql(String line) {
         String[] strs = line.split("\\|\\|");
 
         //        String questNbr = (strs.length > 0) ? strs[0].substring(3) : "";
@@ -252,7 +252,7 @@ public class QuestionSqlGenerator {
                 TEST_ID, VER_NBR, questNbr, questTxt, explanation, reference, "N");
     }
 
-    private StringBuilder _genInsertExampleSql(String line) {
+    private static StringBuilder _genInsertExampleSql(String line) {
         String[] strs = line.split("\\|\\|");
 
         //        String questNbr = (strs.length > 0) ? strs[0].substring(3) : "";
