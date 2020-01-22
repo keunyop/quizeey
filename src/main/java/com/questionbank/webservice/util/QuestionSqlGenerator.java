@@ -16,17 +16,17 @@ import org.springframework.util.CollectionUtils;
 
 public class QuestionSqlGenerator {
 
-    final static String FILE_NAME  = "D:\\99.KYLEE\\01.개인프로젝트\\36.QuestionBank\\dumps\\문제\\워드프로세서_20190831.txt";
+    final static String FILE_NAME  = "C:\\Users\\kylee\\Desktop\\test.txt";
     final static String WRITE_PATH = "src/main/java/com/questionbank/webservice/util/sql.sql";
-    final static Long   TEST_ID    = (long) 15;
-    final static String TEST_NAME  = "도시계획기사";
+    final static Long   TEST_ID    = (long) 141;
+    final static String TEST_NAME  = "AWS 공인 솔루션 아키텍트 - 어소시에이트";
     final static int    VER_NBR    = 1;
-    final static String VER_NAME   = "2019-08-31 기출문제";
+    final static String VER_NAME   = "SAA-C01 V13.75";
 
     public static void main(String[] args) {
         StringBuilder sb = new StringBuilder();
-        sb.append("-- TEST\n");
-        sb.append(_genInsertTestSql());
+        //        sb.append("-- TEST\n");
+        //        sb.append(_genInsertTestSql());
         sb.append("\n-- VERSION\n");
         sb.append(_genInsertVersionSql());
         sb.append("\n-- QUESTION\n");
@@ -205,11 +205,11 @@ public class QuestionSqlGenerator {
         return qs;
     }
 
-    private static String _genInsertTestSql() {
-        return String.format(
-                "insert into test (test_id, test_nm, test_nm_eng, url, inqr_seq, created_date, modified_date) values ('%s', '%s', '%s', '%s', '%s', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);",
-                TEST_ID, TEST_NAME);
-    }
+    //    private static String _genInsertTestSql() {
+    //        return String.format(
+    //                "insert into test (test_id, test_nm, test_nm_eng, url, inqr_seq, created_date, modified_date) values ('%s', '%s', '%s', '%s', '%s', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);",
+    //                TEST_ID, TEST_NAME);
+    //    }
 
     private static String _genInsertVersionSql() {
         return String.format(
@@ -236,16 +236,11 @@ public class QuestionSqlGenerator {
     private static String _genInsertQuestionSql(String line) {
         String[] strs = line.split("\\|\\|");
 
-        //        String questNbr = (strs.length > 0) ? strs[0].substring(3) : "";
-        //        String questTxt = (strs.length > 1) ? strs[1].replace("'", "''") : "";
-        //        String explanation = (strs.length > 4) ? strs[4].replace("Explanation:", "").replace("'", "''").trim() : "";
-        //        String reference = (strs.length > 5) ? strs[5].replace("Reference:", "").trim() : "";
-        //        boolean isMultiAnswer = (strs.length > 3) ? strs[3].contains(",") ? true : false : false;
-
-        String questNbr = (strs.length > 0) ? strs[0] : "";
+        String questNbr = (strs.length > 0) ? strs[0].substring(3) : "";
         String questTxt = (strs.length > 1) ? strs[1].replace("'", "''") : "";
-        String explanation = "";
-        String reference = "";
+        String explanation = (strs.length > 4) ? strs[4].replace("Explanation:", "").replace("'", "''").trim() : "";
+        String reference = (strs.length > 5) ? strs[5].replace("Reference:", "").trim() : "";
+        boolean isMultiAnswer = (strs.length > 3) ? strs[3].contains(",") ? true : false : false;
 
         return String.format(
                 "insert into question (test_id, ver_nbr, quest_nbr, quest_txt, explanation, reference, multi_answer_yn, created_date, modified_date) values ('%s', '%s', '%s', '%s', '%s', '%s', '%s', now(), now());",
@@ -255,11 +250,11 @@ public class QuestionSqlGenerator {
     private static StringBuilder _genInsertExampleSql(String line) {
         String[] strs = line.split("\\|\\|");
 
-        //        String questNbr = (strs.length > 0) ? strs[0].substring(3) : "";
+        String questNbr = (strs.length > 0) ? strs[0].substring(3) : "";
         //        String exmpTxt = (strs.length > 2) ? strs[2] : "";
-        //        String answer = (strs.length > 3) ? strs[3] : "";
+        String answer = (strs.length > 3) ? strs[3] : "";
 
-        String questNbr = (strs.length > 0) ? strs[0] : "";
+        //                String questNbr = (strs.length > 0) ? strs[0] : "";
         String[] exmpTxts = { strs[2], strs[3], strs[4], strs[5] };
 
         StringBuilder sb = new StringBuilder();
