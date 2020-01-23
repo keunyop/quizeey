@@ -53,26 +53,6 @@ public class TestGenerator {
         }
     }
 
-    public void addAwsTestBatch() {
-        try (Stream<Path> paths = Files.walk(Paths.get(FILE_PATH))) {
-            for (String fileName : paths.filter(Files::isRegularFile).map(file -> file.toString())
-                    .collect(Collectors.toList())) {
-
-                Long testId = _getTestId(fileName);
-
-                if (testId == null) {
-                    testId = _addTest(fileName);
-                    int verNbr = _addVersion(testId, fileName);
-                    _addQuestion(testId, verNbr, _toAwsObject(fileName));
-                }
-            }
-
-            System.err.println("### 끝 ###");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     public void addVersionBatch() {
         try (Stream<Path> paths = Files.walk(Paths.get(FILE_PATH))) {
             for (String fileName : paths.filter(Files::isRegularFile).map(file -> file.toString())
@@ -298,12 +278,6 @@ public class TestGenerator {
             }
 
         }
-
-        return qs;
-    }
-
-    private static List<Question4Gen> _toAwsObject(String fileName) {
-        List<Question4Gen> qs = new ArrayList<>();
 
         return qs;
     }
