@@ -14,11 +14,11 @@ import org.apache.commons.lang3.StringUtils;
 
 public class QuestionSqlGenerator {
 
-    final String FILE_NAME  = "C:\\Users\\kylee\\Desktop\\aws\\AWS 공인 솔루션 아키텍트 - 어소시에이트@aws-certified-solutions-architect-associate@SAA-C01 V13.75.txt";
+    final String FILE_NAME  = "C:\\Users\\kylee\\Desktop\\aws\\AWS 공인 솔루션 아키텍트 - 어소시에이트@SAA-C01 V15.75.txt";
     final String WRITE_PATH = "src/main/java/com/questionbank/webservice/util/sql.sql";
     final String TEST_ID    = "143";
     //    final String TEST_NAME  = "AWS Certified Developer – Associate";
-    final String VER_NBR    = "214";
+    final String VER_NBR    = "4";
     //    final String VER_NAME   = "AWS-Certified-Developer-Associate V13.95";
 
     public static void main(String[] args) {
