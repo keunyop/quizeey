@@ -169,7 +169,8 @@ public class WebController {
             "/craftsman-cook-western-food", "/craftsman-cook-japanese-food", "/craftsman-cook-chinese-food",
             "/craftsman-cook-blowfish", "/craftsman-floral-design", "/industrial-engineer-electric-work",
             "/industrial-engineer-air-conditioning-and-refrigerating-machinery", "/engineer-plant-protection",
-            "/aws-certified-solution-architect-associate" })
+            "/aws-certified-solution-architect-associate", "/en/aws-certified-solution-architect-associate",
+            "/zh/aws-certified-solution-architect-associate" })
     public String question(HttpServletRequest request, Model model, @RequestParam(value = "questId", required = false)
     String questId) {
 
