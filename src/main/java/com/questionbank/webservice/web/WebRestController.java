@@ -26,6 +26,7 @@ import com.questionbank.webservice.service.QuestionService;
 import com.questionbank.webservice.service.QuestionStatsService;
 import com.questionbank.webservice.service.TestService;
 import com.questionbank.webservice.service.VersionService;
+import com.questionbank.webservice.service.enums.TestTypeEnum;
 import com.questionbank.webservice.util.TestGenerator;
 
 import lombok.AllArgsConstructor;
@@ -97,7 +98,12 @@ public class WebRestController {
 
     @GetMapping("/addTestBatch")
     public void addTest() {
-        testGenerator.addTestBatch();
+        testGenerator.addTestBatch(TestTypeEnum.COMCBT);
+    }
+
+    @GetMapping("/addTestBatchGType")
+    public void addTestGType() {
+        testGenerator.addTestBatch(TestTypeEnum.GRATISEXAM);
     }
 
     @GetMapping("/addVersionBatch")

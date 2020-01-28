@@ -6,6 +6,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -20,6 +22,7 @@ import com.questionbank.webservice.domain.question.Test;
 import com.questionbank.webservice.domain.question.TestRepository;
 import com.questionbank.webservice.domain.question.Version;
 import com.questionbank.webservice.domain.question.VersionRepository;
+import com.questionbank.webservice.service.enums.TestTypeEnum;
 
 import lombok.AllArgsConstructor;
 
@@ -33,7 +36,7 @@ public class TestGenerator {
 
     final static String        FILE_PATH = "D:\\99.KYLEE\\01.개인프로젝트\\36.QuestionBank\\dumps\\문제\\todo";
 
-    public void addTestBatch() {
+    public void addTestBatch(TestTypeEnum testType) {
         try (Stream<Path> paths = Files.walk(Paths.get(FILE_PATH))) {
             for (String fileName : paths.filter(Files::isRegularFile).map(file -> file.toString())
                     .collect(Collectors.toList())) {
@@ -43,7 +46,11 @@ public class TestGenerator {
                 if (testId == null) {
                     testId = _addTest(fileName);
                     int verNbr = _addVersion(testId, fileName);
-                    _addQuestion(testId, verNbr, _toObject(fileName));
+
+                    List<Question4Gen> qObj = testType.equals(TestTypeEnum.COMCBT) ? _toObject(fileName)
+                            : _toGTypeObject(fileName);
+
+                    _addQuestion(testId, verNbr, qObj);
                 }
             }
 
@@ -278,6 +285,70 @@ public class TestGenerator {
             }
 
         }
+
+        return qs;
+    }
+
+    private static List<Question4Gen> _toGTypeObject(String fileName) {
+
+        List<Question4Gen> qs = new ArrayList<>();
+
+        Pattern qNbrPattern = Pattern.compile("[0-9]+");
+
+        for (String line : _readFile(fileName).collect(Collectors.toList())) {
+
+            if (line.equals("break;")) {
+                break;
+            }
+
+            Question4Gen lastQ = null;
+            List<Example4Gen> lastEs = null;
+
+            if (!CollectionUtils.isEmpty(qs)) {
+                lastQ = qs.get(qs.size() - 1);
+                lastEs = lastQ.getExample4Gens() == null ? new ArrayList<>() : lastQ.getExample4Gens();
+            }
+
+            if (line.matches("^QUESTION [0-9].*")) {
+                Matcher qNbrMatcher = qNbrPattern.matcher(line);
+
+                String questNbr = qNbrMatcher.find() ? qNbrMatcher.group() : null;
+                String questTxt = line.substring(line.indexOf("QUESTION " + questNbr) + 10 + questNbr.length());
+
+                Question4Gen q = Question4Gen.builder().questNbr(questNbr).questTxt(questTxt).build();
+
+                qs.add(q);
+
+            } else if (line.startsWith("A.")) {
+                Example4Gen e1 = Example4Gen.builder().exmpNbr("1")
+                        .exampleStr(line.substring(line.indexOf("A.") + 2, line.indexOf("B."))).build();
+
+                Example4Gen e2 = Example4Gen.builder().exmpNbr("2")
+                        .exampleStr(line.substring(line.indexOf("B.") + 2, line.indexOf("C."))).build();
+
+                Example4Gen e3 = Example4Gen.builder().exmpNbr("3")
+                        .exampleStr(line.substring(line.indexOf("C.") + 2, line.indexOf("D."))).build();
+
+                Example4Gen e4 = Example4Gen.builder().exmpNbr("4").exampleStr(line.substring(line.indexOf("D.") + 2))
+                        .build();
+
+                lastEs.add(e1);
+                lastEs.add(e2);
+                lastEs.add(e3);
+                lastEs.add(e4);
+
+            } else {
+                Question4Gen qe = qs.get(qs.size() - 1);
+                qe.setQuestTxt(qe.getQuestTxt() + "<br>" + line);
+            }
+
+            if (lastQ != null) {
+                lastQ.setExample4Gens(lastEs);
+            }
+
+        }
+
+        System.out.println(qs);
 
         return qs;
     }
