@@ -27,6 +27,7 @@ import com.questionbank.webservice.service.enums.TestTypeEnum;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
+//@NoArgsConstructor
 @Service
 public class TestGenerator {
     private TestRepository     testRepository;
@@ -35,6 +36,18 @@ public class TestGenerator {
     private ExampleRepository  exampleRepository;
 
     final static String        FILE_PATH = "D:\\99.KYLEE\\01.개인프로젝트\\36.QuestionBank\\dumps\\문제\\todo";
+
+    //    public static void main(String[] args) {
+    //        try (Stream<Path> paths = Files.walk(Paths.get(FILE_PATH))) {
+    //            for (String fileName : paths.filter(Files::isRegularFile).map(file -> file.toString())
+    //                    .collect(Collectors.toList())) {
+    //
+    //                System.out.println(_toGTypeObject(fileName));
+    //            }
+    //        } catch (IOException e) {
+    //            e.printStackTrace();
+    //        }
+    //    }
 
     public void addTestBatch(TestTypeEnum testType) {
         try (Stream<Path> paths = Files.walk(Paths.get(FILE_PATH))) {
@@ -49,6 +62,8 @@ public class TestGenerator {
 
                     List<Question4Gen> qObj = testType.equals(TestTypeEnum.COMCBT) ? _toObject(fileName)
                             : _toGTypeObject(fileName);
+
+                    System.out.println(qObj);
 
                     _addQuestion(testId, verNbr, qObj);
                 }
@@ -84,8 +99,14 @@ public class TestGenerator {
     }
 
     private Long _getTestId(String fileName) {
-        Test test = testRepository
-                .findByTestNm(fileName.substring(fileName.lastIndexOf('\\') + 1, fileName.indexOf('@')));
+
+        System.out.println("### In fileName: " + fileName);
+
+        String actualFileName = fileName.substring(fileName.lastIndexOf('\\') + 1, fileName.indexOf('@'));
+
+        System.out.println("### actualFileName: " + actualFileName);
+
+        Test test = testRepository.findByTestNm(actualFileName);
 
         return test != null ? test.getTestId() : null;
     }
@@ -321,21 +342,48 @@ public class TestGenerator {
 
             } else if (line.startsWith("A.")) {
                 Example4Gen e1 = Example4Gen.builder().exmpNbr("1")
-                        .exampleStr(line.substring(line.indexOf("A.") + 2, line.indexOf("B."))).build();
+                        .exampleStr(line.substring(line.indexOf("A.") + 2, line.indexOf("B."))).answerYn("N").build();
 
                 Example4Gen e2 = Example4Gen.builder().exmpNbr("2")
-                        .exampleStr(line.substring(line.indexOf("B.") + 2, line.indexOf("C."))).build();
+                        .exampleStr(line.substring(line.indexOf("B.") + 2, line.indexOf("C."))).answerYn("N").build();
 
                 Example4Gen e3 = Example4Gen.builder().exmpNbr("3")
-                        .exampleStr(line.substring(line.indexOf("C.") + 2, line.indexOf("D."))).build();
+                        .exampleStr(line.substring(line.indexOf("C.") + 2, line.indexOf("D."))).answerYn("N").build();
 
                 Example4Gen e4 = Example4Gen.builder().exmpNbr("4").exampleStr(line.substring(line.indexOf("D.") + 2))
-                        .build();
+                        .answerYn("N").build();
 
                 lastEs.add(e1);
                 lastEs.add(e2);
                 lastEs.add(e3);
                 lastEs.add(e4);
+
+            } else if (line.startsWith("Correct Answer:")) {
+                String answer = line.substring(line.indexOf("Correct Answer:") + 15).trim();
+
+                System.out.println(answer);
+
+                Question4Gen qe = qs.get(qs.size() - 1);
+
+                int answerInt = 0;
+                switch (answer) {
+                    case "A":
+                        answerInt = 0;
+                        break;
+                    case "B":
+                        answerInt = 1;
+                        break;
+                    case "C":
+                        answerInt = 2;
+                        break;
+                    case "D":
+                        answerInt = 3;
+                        break;
+                    default:
+                        break;
+                }
+
+                qe.getExample4Gens().get(answerInt).setAnswerYn("Y");
 
             } else {
                 Question4Gen qe = qs.get(qs.size() - 1);
@@ -347,8 +395,6 @@ public class TestGenerator {
             }
 
         }
-
-        System.out.println(qs);
 
         return qs;
     }
