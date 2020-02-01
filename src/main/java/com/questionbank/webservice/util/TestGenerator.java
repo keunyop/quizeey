@@ -37,17 +37,26 @@ public class TestGenerator {
 
     final static String        FILE_PATH = "D:\\99.KYLEE\\01.개인프로젝트\\36.QuestionBank\\dumps\\문제\\todo";
 
-    //    public static void main(String[] args) {
-    //        try (Stream<Path> paths = Files.walk(Paths.get(FILE_PATH))) {
-    //            for (String fileName : paths.filter(Files::isRegularFile).map(file -> file.toString())
-    //                    .collect(Collectors.toList())) {
-    //
-    //                System.out.println(_toGTypeObject(fileName));
-    //            }
-    //        } catch (IOException e) {
-    //            e.printStackTrace();
-    //        }
-    //    }
+    public static void main(String[] args) {
+        try (Stream<Path> paths = Files.walk(Paths.get(FILE_PATH))) {
+            for (String fileName : paths.filter(Files::isRegularFile).map(file -> file.toString())
+                    .collect(Collectors.toList())) {
+
+                List<Question4Gen> qs = _toGTypeObject(fileName);
+
+                for (Question4Gen q : qs) {
+                    System.out.println(q);
+
+                    for (Example4Gen e : q.getExample4Gens()) {
+                        System.out.println(e);
+                    }
+
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void addTestBatch(TestTypeEnum testType) {
         try (Stream<Path> paths = Files.walk(Paths.get(FILE_PATH))) {
@@ -316,6 +325,8 @@ public class TestGenerator {
 
         Pattern qNbrPattern = Pattern.compile("[0-9]+");
 
+        boolean isExplanation = false;
+
         for (String line : _readFile(fileName).collect(Collectors.toList())) {
 
             if (line.equals("break;")) {
@@ -331,6 +342,8 @@ public class TestGenerator {
             }
 
             if (line.matches("^QUESTION [0-9].*")) {
+                isExplanation = false;
+
                 Matcher qNbrMatcher = qNbrPattern.matcher(line);
 
                 String questNbr = qNbrMatcher.find() ? qNbrMatcher.group() : null;
@@ -385,9 +398,23 @@ public class TestGenerator {
 
                 qe.getExample4Gens().get(answerInt).setAnswerYn("Y");
 
+            } else if (line.startsWith("Explanation:")) {
+                isExplanation = true;
+
+                String explanation = line.substring(line.indexOf("Explanation:") + 13).trim();
+
+                Question4Gen qe = qs.get(qs.size() - 1);
+                qe.setExplanation(explanation);
+
             } else {
                 Question4Gen qe = qs.get(qs.size() - 1);
-                qe.setQuestTxt(qe.getQuestTxt() + "<br>" + line);
+
+                if (isExplanation) {
+                    qe.setExplanation(qe.getExplanation() + "<br>" + line);
+                } else {
+                    qe.setQuestTxt(qe.getQuestTxt() + "<br>" + line);
+                }
+
             }
 
             if (lastQ != null) {

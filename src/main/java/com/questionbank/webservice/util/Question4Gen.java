@@ -13,13 +13,14 @@ import lombok.ToString;
 public class Question4Gen {
     private String            questNbr;
     private String            questTxt;
+    private String            explanation;
     private List<Example4Gen> example4Gens;
 
     @Builder
-    public Question4Gen(String questNbr, String questTxt, List<Example4Gen> example4Gens) {
+    public Question4Gen(String questNbr, String questTxt, String explanation, List<Example4Gen> example4Gens) {
         this.questNbr = questNbr;
         this.questTxt = questTxt;
+        this.explanation = explanation;
         this.example4Gens = example4Gens;
     }
-
 }
