@@ -355,16 +355,19 @@ public class TestGenerator {
 
             } else if (line.startsWith("A.")) {
                 Example4Gen e1 = Example4Gen.builder().exmpNbr("1")
-                        .exampleStr(line.substring(line.indexOf("A.") + 2, line.indexOf("B."))).answerYn("N").build();
+                        .exampleStr(line.substring(line.indexOf("A.") + 2, line.indexOf("B.")).trim()).answerYn("N")
+                        .build();
 
                 Example4Gen e2 = Example4Gen.builder().exmpNbr("2")
-                        .exampleStr(line.substring(line.indexOf("B.") + 2, line.indexOf("C."))).answerYn("N").build();
+                        .exampleStr(line.substring(line.indexOf("B.") + 2, line.indexOf("C.")).trim()).answerYn("N")
+                        .build();
 
                 Example4Gen e3 = Example4Gen.builder().exmpNbr("3")
-                        .exampleStr(line.substring(line.indexOf("C.") + 2, line.indexOf("D."))).answerYn("N").build();
+                        .exampleStr(line.substring(line.indexOf("C.") + 2, line.indexOf("D.")).trim()).answerYn("N")
+                        .build();
 
-                Example4Gen e4 = Example4Gen.builder().exmpNbr("4").exampleStr(line.substring(line.indexOf("D.") + 2))
-                        .answerYn("N").build();
+                Example4Gen e4 = Example4Gen.builder().exmpNbr("4")
+                        .exampleStr(line.substring(line.indexOf("D.") + 2).trim()).answerYn("N").build();
 
                 lastEs.add(e1);
                 lastEs.add(e2);
@@ -374,7 +377,9 @@ public class TestGenerator {
             } else if (line.startsWith("Correct Answer:")) {
                 String answer = line.substring(line.indexOf("Correct Answer:") + 15).trim();
 
-                System.out.println(answer);
+                char[] as = answer.toCharArray();
+
+                System.out.println(as);
 
                 Question4Gen qe = qs.get(qs.size() - 1);
 
@@ -405,6 +410,14 @@ public class TestGenerator {
 
                 Question4Gen qe = qs.get(qs.size() - 1);
                 qe.setExplanation(explanation);
+
+            } else if (line.startsWith("Objective:") || line.startsWith("Sub-Objective:")) {
+                continue;
+            } else if (line.startsWith("References:")) {
+                String reference = line.substring(line.indexOf("References:") + 12).trim();
+
+                Question4Gen qe = qs.get(qs.size() - 1);
+                qe.setReference(reference);
 
             } else {
                 Question4Gen qe = qs.get(qs.size() - 1);
