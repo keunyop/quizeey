@@ -338,7 +338,7 @@ var test;
           if (responseData.reference != "") {
             $("#reference-title").show();
             $("#reference").attr("href", responseData.reference);
-            $("#reference").text("Open reference link...");
+            $("#reference").text("See More...");
           } else {
             $("#reference-title").hide();
             $("#reference").text("");
