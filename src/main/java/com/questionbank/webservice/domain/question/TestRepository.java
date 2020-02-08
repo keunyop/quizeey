@@ -15,4 +15,5 @@ public interface TestRepository extends JpaRepository<Test, Long> {
 
     Test findByTestNm(String testNm);
 
+    Test findByUrl(String uri);
 }
