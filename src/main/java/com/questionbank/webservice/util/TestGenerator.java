@@ -72,9 +72,8 @@ public class TestGenerator {
                     List<Question4Gen> qObj = testType.equals(TestTypeEnum.COMCBT) ? _toObject(fileName)
                             : _toGTypeObject(fileName);
 
-                    System.out.println(qObj);
-
                     _addQuestion(testId, verNbr, qObj);
+
                 }
             }
 
@@ -153,8 +152,9 @@ public class TestGenerator {
         for (Question4Gen q : qs) {
             int questNbr = Integer.parseInt(q.getQuestNbr());
 
-            questionRepository.save(Question.builder().testId(testId).verNbr(verNbr).questNbr(questNbr)
-                    .questTxt(q.getQuestTxt()).multiAnswerYn("N").build());
+            questionRepository
+                    .save(Question.builder().testId(testId).verNbr(verNbr).questNbr(questNbr).questTxt(q.getQuestTxt())
+                            .explanation(q.getExplanation()).multiAnswerYn(q.getMultiAnswerYn()).build());
 
             System.out.println("TEST: " + testId + ", Q-Nbr: " + questNbr);
 
@@ -349,59 +349,126 @@ public class TestGenerator {
                 String questNbr = qNbrMatcher.find() ? qNbrMatcher.group() : null;
                 String questTxt = line.substring(line.indexOf("QUESTION " + questNbr) + 10 + questNbr.length());
 
-                Question4Gen q = Question4Gen.builder().questNbr(questNbr).questTxt(questTxt).build();
+                Question4Gen q = Question4Gen.builder().questNbr(questNbr).questTxt(questTxt).multiAnswerYn("N")
+                        .build();
 
                 qs.add(q);
 
             } else if (line.startsWith("A.")) {
+
                 Example4Gen e1 = Example4Gen.builder().exmpNbr("1")
                         .exampleStr(line.substring(line.indexOf("A.") + 2, line.indexOf("B.")).trim()).answerYn("N")
                         .build();
+                lastEs.add(e1);
 
                 Example4Gen e2 = Example4Gen.builder().exmpNbr("2")
                         .exampleStr(line.substring(line.indexOf("B.") + 2, line.indexOf("C.")).trim()).answerYn("N")
                         .build();
+                lastEs.add(e2);
 
                 Example4Gen e3 = Example4Gen.builder().exmpNbr("3")
                         .exampleStr(line.substring(line.indexOf("C.") + 2, line.indexOf("D.")).trim()).answerYn("N")
                         .build();
-
-                Example4Gen e4 = Example4Gen.builder().exmpNbr("4")
-                        .exampleStr(line.substring(line.indexOf("D.") + 2).trim()).answerYn("N").build();
-
-                lastEs.add(e1);
-                lastEs.add(e2);
                 lastEs.add(e3);
-                lastEs.add(e4);
+
+                if (line.contains("E.")) {
+                    Example4Gen e4 = Example4Gen.builder().exmpNbr("4")
+                            .exampleStr(line.substring(line.indexOf("D.") + 2, line.indexOf("E.")).trim()).answerYn("N")
+                            .build();
+                    lastEs.add(e4);
+
+                    if (line.contains("F.")) {
+                        Example4Gen e5 = Example4Gen.builder().exmpNbr("5")
+                                .exampleStr(line.substring(line.indexOf("E.") + 2, line.indexOf("F.")).trim())
+                                .answerYn("N").build();
+                        lastEs.add(e5);
+
+                        if (line.contains("G.")) {
+                            Example4Gen e6 = Example4Gen.builder().exmpNbr("6")
+                                    .exampleStr(line.substring(line.indexOf("F.") + 2, line.indexOf("G.")).trim())
+                                    .answerYn("N").build();
+                            lastEs.add(e6);
+
+                            if (line.contains("H.")) {
+                                Example4Gen e7 = Example4Gen.builder().exmpNbr("7")
+                                        .exampleStr(line.substring(line.indexOf("G.") + 2, line.indexOf("H.")).trim())
+                                        .answerYn("N").build();
+                                lastEs.add(e7);
+
+                                Example4Gen e8 = Example4Gen.builder().exmpNbr("8")
+                                        .exampleStr(line.substring(line.indexOf("H.") + 2).trim()).answerYn("N")
+                                        .build();
+                                lastEs.add(e8);
+                            } else {
+                                Example4Gen e7 = Example4Gen.builder().exmpNbr("7")
+                                        .exampleStr(line.substring(line.indexOf("G.") + 2).trim()).answerYn("N")
+                                        .build();
+                                lastEs.add(e7);
+                            }
+
+                        } else {
+                            Example4Gen e6 = Example4Gen.builder().exmpNbr("6")
+                                    .exampleStr(line.substring(line.indexOf("F.") + 2).trim()).answerYn("N").build();
+                            lastEs.add(e6);
+                        }
+
+                    } else {
+                        Example4Gen e5 = Example4Gen.builder().exmpNbr("5")
+                                .exampleStr(line.substring(line.indexOf("E.") + 2).trim()).answerYn("N").build();
+                        lastEs.add(e5);
+                    }
+
+                } else {
+                    Example4Gen e4 = Example4Gen.builder().exmpNbr("4")
+                            .exampleStr(line.substring(line.indexOf("D.") + 2).trim()).answerYn("N").build();
+                    lastEs.add(e4);
+                }
 
             } else if (line.startsWith("Correct Answer:")) {
-                String answer = line.substring(line.indexOf("Correct Answer:") + 15).trim();
-
-                char[] as = answer.toCharArray();
-
-                System.out.println(as);
 
                 Question4Gen qe = qs.get(qs.size() - 1);
 
-                int answerInt = 0;
-                switch (answer) {
-                    case "A":
-                        answerInt = 0;
-                        break;
-                    case "B":
-                        answerInt = 1;
-                        break;
-                    case "C":
-                        answerInt = 2;
-                        break;
-                    case "D":
-                        answerInt = 3;
-                        break;
-                    default:
-                        break;
+                char[] answers = line.substring(line.indexOf("Correct Answer:") + 15).trim().toCharArray();
+
+                for (char answer : answers) {
+                    int answerInt = 0;
+                    switch (answer) {
+                        case 'A':
+                            answerInt = 0;
+                            break;
+                        case 'B':
+                            answerInt = 1;
+                            break;
+                        case 'C':
+                            answerInt = 2;
+                            break;
+                        case 'D':
+                            answerInt = 3;
+                            break;
+                        case 'E':
+                            answerInt = 4;
+                            break;
+                        case 'F':
+                            answerInt = 5;
+                            break;
+                        case 'G':
+                            answerInt = 6;
+                            break;
+                        case 'H':
+                            answerInt = 7;
+                            break;
+                        default:
+                            break;
+                    }
+
+                    //                    System.out.println(qe.getExample4Gens());
+
+                    qe.getExample4Gens().get(answerInt).setAnswerYn("Y");
                 }
 
-                qe.getExample4Gens().get(answerInt).setAnswerYn("Y");
+                if (answers.length > 1) {
+                    qe.setMultiAnswerYn("Y");
+                }
 
             } else if (line.startsWith("Explanation:")) {
                 isExplanation = true;
@@ -414,11 +481,12 @@ public class TestGenerator {
             } else if (line.startsWith("Objective:") || line.startsWith("Sub-Objective:")) {
                 continue;
             } else if (line.startsWith("References:")) {
-                String reference = line.substring(line.indexOf("References:") + 12).trim();
+                if (line.length() > 11) {
+                    String reference = line.substring(line.indexOf("References:") + 12).trim();
 
-                Question4Gen qe = qs.get(qs.size() - 1);
-                qe.setReference(reference);
-
+                    Question4Gen qe = qs.get(qs.size() - 1);
+                    qe.setReference(reference);
+                }
             } else {
                 Question4Gen qe = qs.get(qs.size() - 1);
 

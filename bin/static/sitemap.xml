@@ -4,10 +4,8 @@
 <url><loc>http://www.quizeey.com/computer-science</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
 <url><loc>http://www.quizeey.com/aws-certified-developer-associate</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
 <url><loc>http://www.quizeey.com/en/aws-certified-developer-associate</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
-<url><loc>http://www.quizeey.com/zh/aws-certified-developer-associate</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
 <url><loc>http://www.quizeey.com/aws-certified-solution-architect-associate</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
 <url><loc>http://www.quizeey.com/en/aws-certified-solution-architect-associate</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
-<url><loc>http://www.quizeey.com/zh/aws-certified-solution-architect-associate</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
 <url><loc>http://www.quizeey.com/sqlp-professional</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
 <url><loc>http://www.quizeey.com/cbp-basic-developer</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
 <url><loc>http://www.quizeey.com/sqlp-developer</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
@@ -29,6 +27,8 @@
 <url><loc>http://www.quizeey.com/craftsman-plumbing</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
 <url><loc>http://www.quizeey.com/engineer-biomedical</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
 <url><loc>http://www.quizeey.com/engineer-computer-system-application</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://www.quizeey.com/ccna-200-125</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
+<url><loc>http://www.quizeey.com/en/ccna-200-125</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
 <url><loc>http://www.quizeey.com/engineer-transportation</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
 <url><loc>http://www.quizeey.com/engineer-architecture</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>
 <url><loc>http://www.quizeey.com/engineer-broadcasting-communication</loc><changefreq>weekly</changefreq><priority>0.85</priority></url>

@@ -144,6 +144,7 @@ public class WebController {
             TESTMAP.put("/craftsman-plumbing", new String[] { "159" });
             TESTMAP.put("/engineer-biomedical", new String[] { "160" });
             TESTMAP.put("/engineer-computer-system-application", new String[] { "161" });
+            TESTMAP.put("/ccna-200-125", new String[] { "166" });
         }
     }
 
@@ -151,13 +152,13 @@ public class WebController {
             "/craftsman-computer-graphics-operation", "/engineer-electricity", "/nail-technician",
             "/industrial-engineer-industrial-safety", "/sqlp-professional", "/kr/sqlp-professional",
             "craftsman-web-design", "/computer-specialist-in-spreadsheet-and-database-level-2",
-            "/en/aws-certified-developer-associate", "/zh/aws-certified-developer-associate", "/cbp-basic-developer",
-            "/kr/cbp-basic-developer", "/sqlp-developer", "/kr/sqlp-developer", "/engineer-transportation",
-            "/engineer-architecture", "/engineer-broadcasting-communication", "/engineer-urban-planning",
-            "/engineer-information-security", "/esthetician",
-            "/computer-specialist-in-spreadsheet-and-database-level-1", "/craftsman-fork-lift-truck-operator",
-            "/engineer-air-conditioning-refrigerating-machinery", "/craftsman-cook-korean-food", "/word-processor",
-            "/hairdresser", "/craftsman-electricity", "/engineer-industrial-safety", "/industrial-engineer-electricity",
+            "/en/aws-certified-developer-associate", "/cbp-basic-developer", "/kr/cbp-basic-developer",
+            "/sqlp-developer", "/kr/sqlp-developer", "/engineer-transportation", "/engineer-architecture",
+            "/engineer-broadcasting-communication", "/engineer-urban-planning", "/engineer-information-security",
+            "/esthetician", "/computer-specialist-in-spreadsheet-and-database-level-1",
+            "/craftsman-fork-lift-truck-operator", "/engineer-air-conditioning-refrigerating-machinery",
+            "/craftsman-cook-korean-food", "/word-processor", "/hairdresser", "/craftsman-electricity",
+            "/engineer-industrial-safety", "/industrial-engineer-electricity",
             "/engineer-fire-protection-system-electrical", "/engineer-fire-protection-system-mechanical",
             "/craftsman-information-processing", "/industrial-engineer-hazardous-material",
             "/engineer-general-machinery", "/industrial-engineer-information-processing",
@@ -187,14 +188,14 @@ public class WebController {
             "/craftsman-cook-blowfish", "/craftsman-floral-design", "/industrial-engineer-electric-work",
             "/industrial-engineer-air-conditioning-and-refrigerating-machinery", "/engineer-plant-protection",
             "/aws-certified-solution-architect-associate", "/en/aws-certified-solution-architect-associate",
-            "/zh/aws-certified-solution-architect-associate", "/craftsman-interior-architecture",
-            "/industrial-engineer-computer-aided-manufacturing", "/engineer-building-facilities",
-            "/industrial-engineer-information-communication", "/industrial-engineer-motor-vehicles-maintenance",
-            "/industrial-engineer-machinery-maintenance", "/industrial-engineer-architecture",
-            "/craftsman-electronic-cad", "/craftsman-organic-agriculture", "/telemarketing-administrator",
-            "/engineer-wastes-treatment", "/craftsman-photography", "/industrial-engineer-electronics",
-            "/industrial-engineer-manufacturing-automatization", "/craftsman-plumbing", "/engineer-biomedical",
-            "/engineer-computer-system-application" })
+            "/craftsman-interior-architecture", "/industrial-engineer-computer-aided-manufacturing",
+            "/engineer-building-facilities", "/industrial-engineer-information-communication",
+            "/industrial-engineer-motor-vehicles-maintenance", "/industrial-engineer-machinery-maintenance",
+            "/industrial-engineer-architecture", "/craftsman-electronic-cad", "/craftsman-organic-agriculture",
+            "/telemarketing-administrator", "/engineer-wastes-treatment", "/craftsman-photography",
+            "/industrial-engineer-electronics", "/industrial-engineer-manufacturing-automatization",
+            "/craftsman-plumbing", "/engineer-biomedical", "/engineer-computer-system-application", "/ccna-200-125",
+            "/en/ccna-200-125" })
     public String question(HttpServletRequest request, Model model, @RequestParam(value = "questId", required = false)
     String questId) {
 
@@ -206,9 +207,6 @@ public class WebController {
         } else if (uri.startsWith("/en/")) {
             uri = uri.substring(3);
             prefix = "en/test";
-        } else if (uri.startsWith("/zh/")) {
-            uri = uri.substring(3);
-            prefix = "zh/test";
         }
 
         model.addAttribute("testId", TESTMAP.get(uri)[0]);
@@ -221,14 +219,12 @@ public class WebController {
 
     }
 
-    @GetMapping(value = { "/", "/kr", "/en", "/zh" })
+    @GetMapping(value = { "/", "/kr", "/en" })
     public String main(HttpServletRequest request) {
         String html = "main";
 
         if ("/en".equals(request.getRequestURI())) {
             html = "en/main";
-        } else if ("/zh".equals(request.getRequestURI())) {
-            html = "zh/main";
         }
 
         return html;
