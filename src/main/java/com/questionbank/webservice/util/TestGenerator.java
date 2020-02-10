@@ -13,6 +13,7 @@ import java.util.stream.Stream;
 
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
 
 import com.questionbank.webservice.domain.question.Example;
 import com.questionbank.webservice.domain.question.ExampleRepository;
@@ -151,10 +152,10 @@ public class TestGenerator {
     private void _addQuestion(Long testId, int verNbr, List<Question4Gen> qs) {
         for (Question4Gen q : qs) {
             int questNbr = Integer.parseInt(q.getQuestNbr());
+            String multiAnswerYn = StringUtils.isEmpty(q.getMultiAnswerYn()) ? "N" : q.getMultiAnswerYn();
 
-            questionRepository
-                    .save(Question.builder().testId(testId).verNbr(verNbr).questNbr(questNbr).questTxt(q.getQuestTxt())
-                            .explanation(q.getExplanation()).multiAnswerYn(q.getMultiAnswerYn()).build());
+            questionRepository.save(Question.builder().testId(testId).verNbr(verNbr).questNbr(questNbr)
+                    .questTxt(q.getQuestTxt()).explanation(q.getExplanation()).multiAnswerYn(multiAnswerYn).build());
 
             System.out.println("TEST: " + testId + ", Q-Nbr: " + questNbr);
 
