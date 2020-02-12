@@ -349,7 +349,10 @@ public class TestGenerator {
                 Matcher qNbrMatcher = qNbrPattern.matcher(line);
 
                 String questNbr = qNbrMatcher.find() ? qNbrMatcher.group() : null;
-                String questTxt = line.substring(line.indexOf("QUESTION " + questNbr) + 10 + questNbr.length());
+
+                //                System.out.println(line);
+
+                String questTxt = line.substring(line.indexOf("QUESTION " + questNbr) + 9 + questNbr.length()).trim();
 
                 Question4Gen q = Question4Gen.builder().questNbr(questNbr).questTxt(questTxt).multiAnswerYn("N")
                         .build();
