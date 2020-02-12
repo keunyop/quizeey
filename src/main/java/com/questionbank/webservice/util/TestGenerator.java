@@ -36,7 +36,8 @@ public class TestGenerator {
     private QuestionRepository questionRepository;
     private ExampleRepository  exampleRepository;
 
-    final static String        FILE_PATH = "D:\\99.KYLEE\\01.개인프로젝트\\36.QuestionBank\\dumps\\문제\\todo";
+    //    final static String        FILE_PATH = "D:\\99.KYLEE\\01.개인프로젝트\\36.QuestionBank\\dumps\\문제\\todo";
+    final static String        FILE_PATH = "D:\\99.KYLEE\\01.개인프로젝트\\36.QuestionBank\\dumps\\compTIA";
 
     public static void main(String[] args) {
         try (Stream<Path> paths = Files.walk(Paths.get(FILE_PATH))) {
