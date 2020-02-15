@@ -36,8 +36,8 @@ public class TestGenerator {
     private QuestionRepository questionRepository;
     private ExampleRepository  exampleRepository;
 
-    //    final static String        FILE_PATH = "D:\\99.KYLEE\\01.개인프로젝트\\36.QuestionBank\\dumps\\문제\\todo";
-    final static String        FILE_PATH = "D:\\99.KYLEE\\01.개인프로젝트\\36.QuestionBank\\dumps\\compTIA";
+    final static String        FILE_PATH = "D:\\99.KYLEE\\01.개인프로젝트\\36.QuestionBank\\dumps\\문제\\todo";
+    //    final static String        FILE_PATH = "D:\\99.KYLEE\\01.개인프로젝트\\36.QuestionBank\\dumps\\compTIA";
 
     public static void main(String[] args) {
         try (Stream<Path> paths = Files.walk(Paths.get(FILE_PATH))) {
@@ -186,7 +186,7 @@ public class TestGenerator {
             }
 
             if (line.matches("^[0-9.].*")) {
-                //                System.out.println(line);
+                System.out.println(line);
                 String questNbr = line.substring(0, line.indexOf("."));
                 String questTxt = line.substring(line.indexOf(".") + 1);
 
@@ -350,7 +350,7 @@ public class TestGenerator {
 
                 String questNbr = qNbrMatcher.find() ? qNbrMatcher.group() : null;
 
-                //                System.out.println(line);
+                System.out.println(line);
 
                 String questTxt = line.substring(line.indexOf("QUESTION " + questNbr) + 9 + questNbr.length()).trim();
 
@@ -360,16 +360,30 @@ public class TestGenerator {
                 qs.add(q);
 
             } else if (line.startsWith("A.")) {
-
+                System.out.println(line);
                 Example4Gen e1 = Example4Gen.builder().exmpNbr("1")
                         .exampleStr(line.substring(line.indexOf("A.") + 2, line.indexOf("B.")).trim()).answerYn("N")
                         .build();
                 lastEs.add(e1);
 
+                if (!line.contains("C.")) {
+                    Example4Gen e2 = Example4Gen.builder().exmpNbr("2")
+                            .exampleStr(line.substring(line.indexOf("B.") + 2).trim()).answerYn("N").build();
+                    lastEs.add(e2);
+                    continue;
+                }
+
                 Example4Gen e2 = Example4Gen.builder().exmpNbr("2")
                         .exampleStr(line.substring(line.indexOf("B.") + 2, line.indexOf("C.")).trim()).answerYn("N")
                         .build();
                 lastEs.add(e2);
+
+                if (!line.contains("D.")) {
+                    Example4Gen e3 = Example4Gen.builder().exmpNbr("3")
+                            .exampleStr(line.substring(line.indexOf("C.") + 2).trim()).answerYn("N").build();
+                    lastEs.add(e3);
+                    continue;
+                }
 
                 Example4Gen e3 = Example4Gen.builder().exmpNbr("3")
                         .exampleStr(line.substring(line.indexOf("C.") + 2, line.indexOf("D.")).trim()).answerYn("N")
@@ -466,7 +480,8 @@ public class TestGenerator {
                             break;
                     }
 
-                    //                    System.out.println(qe.getExample4Gens());
+                    System.out.println(qe.getExample4Gens());
+                    System.out.println(answerInt);
 
                     qe.getExample4Gens().get(answerInt).setAnswerYn("Y");
                 }
@@ -478,7 +493,10 @@ public class TestGenerator {
             } else if (line.startsWith("Explanation:")) {
                 isExplanation = true;
 
-                String explanation = line.substring(line.indexOf("Explanation:") + 13).trim();
+                String explanation = "";
+                if (line.length() > 12) {
+                    explanation = line.substring(line.indexOf("Explanation:") + 13).trim();
+                }
 
                 Question4Gen qe = qs.get(qs.size() - 1);
                 qe.setExplanation(explanation);
