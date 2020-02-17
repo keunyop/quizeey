@@ -156,7 +156,8 @@ public class TestGenerator {
             String multiAnswerYn = StringUtils.isEmpty(q.getMultiAnswerYn()) ? "N" : q.getMultiAnswerYn();
 
             questionRepository.save(Question.builder().testId(testId).verNbr(verNbr).questNbr(questNbr)
-                    .questTxt(q.getQuestTxt()).explanation(q.getExplanation()).multiAnswerYn(multiAnswerYn).build());
+                    .questTxt(q.getQuestTxt()).explanation(q.getExplanation()).multiAnswerYn(multiAnswerYn)
+                    .reference(q.getReference()).build());
 
             System.out.println("TEST: " + testId + ", Q-Nbr: " + questNbr);
 
