@@ -108,7 +108,12 @@ public class WebRestController {
 
     @GetMapping("/addVersionBatch")
     public void addVersion() {
-        testGenerator.addVersionBatch();
+        testGenerator.addVersionBatch(TestTypeEnum.COMCBT);
+    }
+
+    @GetMapping("/addVersionBatchGType")
+    public void addVersionGType() {
+        testGenerator.addVersionBatch(TestTypeEnum.GRATISEXAM);
     }
 
     @GetMapping("/clearCache")

@@ -85,7 +85,7 @@ public class TestGenerator {
         }
     }
 
-    public void addVersionBatch() {
+    public void addVersionBatch(TestTypeEnum testType) {
         try (Stream<Path> paths = Files.walk(Paths.get(FILE_PATH))) {
             for (String fileName : paths.filter(Files::isRegularFile).map(file -> file.toString())
                     .collect(Collectors.toList())) {
@@ -98,7 +98,11 @@ public class TestGenerator {
 
                 if (testId != null && !isVersionNameExist) {
                     int verNbr = _addVersion(testId, fileName);
-                    _addQuestion(testId, verNbr, _toObject(fileName));
+
+                    List<Question4Gen> qObj = testType.equals(TestTypeEnum.COMCBT) ? _toObject(fileName)
+                            : _toGTypeObject(fileName);
+
+                    _addQuestion(testId, verNbr, qObj);
                 }
             }
 
