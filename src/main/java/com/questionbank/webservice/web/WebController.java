@@ -150,6 +150,7 @@ public class WebController {
             TESTMAP.put("/az-103", new String[] { "169" });
             TESTMAP.put("/az-900", new String[] { "170" });
             TESTMAP.put("/az-300", new String[] { "172" });
+            TESTMAP.put("/industrial-engineer-construction-safety", new String[] { "173" });
         }
     }
 
@@ -201,7 +202,8 @@ public class WebController {
             "/industrial-engineer-electronics", "/industrial-engineer-manufacturing-automatization",
             "/craftsman-plumbing", "/engineer-biomedical", "/engineer-computer-system-application", "/ccna-200-125",
             "/en/ccna-200-125", "/craftsman-laundry", "/comptia-sy0-501", "/en/comptia-sy0-501", "/az-103",
-            "/en/az-103", "/az-900", "/en/az-900", "/az-300", "/en/az-300" })
+            "/en/az-103", "/az-900", "/en/az-900", "/az-300", "/en/az-300",
+            "/industrial-engineer-construction-safety" })
     public String question(HttpServletRequest request, Model model, @RequestParam(value = "questId", required = false)
     String questId) {
 
