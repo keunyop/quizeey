@@ -156,6 +156,7 @@ public class WebController {
             TESTMAP.put("/craftsman-forest", new String[] { "176" });
             TESTMAP.put("/cissp", new String[] { "177" });
             TESTMAP.put("/industrial-engineer-colorist", new String[] { "178" });
+            TESTMAP.put("/engineer-surveying-geo-spatial-information", new String[] { "179" });
         }
     }
 
@@ -209,7 +210,7 @@ public class WebController {
             "/en/ccna-200-125", "/craftsman-laundry", "/comptia-sy0-501", "/en/comptia-sy0-501", "/az-103",
             "/en/az-103", "/az-900", "/en/az-900", "/az-300", "/en/az-300", "/industrial-engineer-construction-safety",
             "/en/ccnp-300-115", "/ccnp-300-115", "/industrial-engineer-aircraft-maintenance", "/craftsman-forest",
-            "/cissp", "/en/cissp", "/industrial-engineer-colorist" })
+            "/cissp", "/en/cissp", "/industrial-engineer-colorist", "/engineer-surveying-geo-spatial-information" })
     public String question(HttpServletRequest request, Model model, @RequestParam(value = "questId", required = false)
     String questId) {
 
