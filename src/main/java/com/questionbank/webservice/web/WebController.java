@@ -168,7 +168,8 @@ public class WebController {
             TESTMAP.put("/engineer-elevator", new String[] { "188" });
             TESTMAP.put("/industrial-engineer-visual-communication-design", new String[] { "189" });
             TESTMAP.put("/ms-100", new String[] { "190" });
-            TESTMAP.put("/2V0-21.19", new String[] { "191" });
+            TESTMAP.put("/2V0-21.19", new String[] { "194" });
+            TESTMAP.put("/microsoft-70-741", new String[] { "195" });
         }
     }
 
@@ -226,8 +227,8 @@ public class WebController {
             "/ccnp-300-101", "/en/ccnp-300-101", "/comptia-220-1001", "/en/comptia-220-1001", "/comptia-n10-007",
             "/en/comptia-n10-007", "/microsoft-70-740", "/en/microsoft-70-740", "/engineer-plant-maintenance",
             "/pmi-pmp", "/en/pmi-pmp", "/craftsman-chemical-analysis", "/az-301", "/en/az-301", "/engineer-elevator",
-            "/industrial-engineer-visual-communication-design", "/ms-100", "/en/ms-100", "/2V0-21.19",
-            "/en/2V0-21.19" })
+            "/industrial-engineer-visual-communication-design", "/ms-100", "/en/ms-100", "/2V0-21.19", "/en/2V0-21.19",
+            "/microsoft-70-741", "/en/microsoft-70-741" })
     public String question(HttpServletRequest request, Model model, @RequestParam(value = "questId", required = false)
     String questId) {
 
