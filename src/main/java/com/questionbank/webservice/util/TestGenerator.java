@@ -52,7 +52,6 @@ public class TestGenerator {
                     for (Example4Gen e : q.getExample4Gens()) {
                         System.out.println(e);
                     }
-
                 }
             }
         } catch (IOException e) {
@@ -516,9 +515,19 @@ public class TestGenerator {
                     qe.setReference(reference);
                 }
             } else {
-                Question4Gen qe = qs.get(qs.size() - 1);
+                Question4Gen qe = null;
+                try {
+                    qe = qs.get(qs.size() - 1);
+                } catch (Exception e) {
+                    continue;
+                }
 
                 if (isExplanation) {
+                    if (qe.getExplanation() != null
+                            && qe.getExplanation().length() + line.length() + "<br>".length() > 4000) {
+                        continue;
+                    }
+
                     qe.setExplanation(qe.getExplanation() + "<br>" + line);
                 } else {
                     qe.setQuestTxt(qe.getQuestTxt() + "<br>" + line);
