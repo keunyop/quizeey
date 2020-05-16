@@ -374,4 +374,8 @@ public class WebController {
         return "privacy";
     }
 
+    @GetMapping(value = { "/community", "/en/community" })
+    public String community(HttpServletRequest request) {
+        return request.getRequestURI();
+    }
 }
