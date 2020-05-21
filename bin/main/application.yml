@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    active: local # 기본 환경 선택
+
+# local 환경
+---
+spring:
+  profiles: local
+  datasource:
+    url: jdbc:mariadb://52.35.43.187/quizeey
+    username: dev
+    password: dev
+    driver-class-name: org.mariadb.jdbc.Driver

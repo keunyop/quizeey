@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66061566-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-66061566-2');
+    </script>
+
+    <title>Contact us - Quizeey</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="content-language" content="kr">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="We'd love to hear from you. Contact us." />
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Contact us - Quizeey">
+    <meta property="og:description" content="We'd love to hear from you. Contact us.">
+    <meta property="og:image" content="http://quizeey.com/img/favicon.ico">
+    <meta property="og:url" content="http://quizeey.com/contact">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Contact us - Quizeey">
+    <meta name="twitter:description" content="We'd love to hear from you. Contact us.">
+    <meta name="twitter:image" content="http://quizeey.com/img/favicon.ico">
+    <meta name="twitter:domain" content="http://quizeey.com/contact">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+	<!--부트스트랩 css 추가-->
+    <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/lib/sticky-footer-navbar.css" rel="stylesheet">
+    <link href="/css/custom.css" rel="stylesheet">
+    
+</head>
+<body>
+    <header>
+        <!-- Fixed navbar -->
+        <div id="nav-placeholder"></di1v>
+    </header>
+    
+    <!-- Begin page content -->
+    <main role="main" class="container">
+        <div id="main-div">
+            <h1 class="mt-5">Contact us</h1>
+            <br>
+
+            <div class="card shadow" style="width: 100%;">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        How can we help? We're here to help and answer any questions you might have. We'd love to hear from you.
+                    </h5>
+                    <br><br>
+
+                    <form id="contact-form">
+                        {{!-- <h4 class="mb-3">Test information</h4> --}}
+                        <div class="form-row">
+                            <div class="col mb-3">
+                                <label for="email">Email address</label>
+                                <input type="text" class="form-control" id="email" placeholder="Email address" required>
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your information with anyone else.</small>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col mb-3">
+                                <label for="message">Message</label>
+                                <textarea class="form-control" id="message" rows="5" required></textarea>
+                            </div>
+                        </div>
+                        <br><br>
+                        <button class="btn btn-lg btn-primary btn-block" id ="btn-contact-send" type="submit">SEND</button>
+                    </form>
+                </div>
+            </div>
+
+            <br><br><br>
+            
+        </div>
+        <br>
+
+                <!-- Google Display 광고 -->
+				<div id="adsense-place">
+					<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8362228066874729"
+							data-ad-slot="1033140566" data-ad-format="auto" data-full-width-responsive="true"></ins>
+					<script>
+							(adsbygoogle = window.adsbygoogle || []).push({});
+					</script>
+				</div>
+
+                <br>
+
+                <!-- Sticky footer -->
+        <div id="footer-placeholder"></di1v>
+    </main>
+
+    <!--부트스트랩 js, jquery 추가-->
+    <script src="/js/lib/jquery.min.js"></script>
+    <script src="/js/lib/bootstrap.min.js"></script>
+
+    <!--custom js 추가-->
+    <script src="/js/app/nav-and-footer.js"></script>
+    <script src="/js/app/contact.js"></script>
+    
+</body>
+</html>
