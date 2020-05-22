@@ -23,6 +23,11 @@
   right: 0;
 }
 
+.report-wronganswer-txt {
+  position: absolute;
+  right: 0;
+}
+
 .test-link {
   margin-top: 5px;
 }

@@ -178,10 +178,11 @@
                             <br>
                             <form class="report-wronganswer-form" style="display:none;">
                                 <div class="form-group">
-                                    <label for="report-wronganswer">정답을 알려주세요.</label>
-                                    <textarea class="form-control" id="report-correctanswer" rows="3"></textarea>
+                                    <label for="correctAnswer">정답을 알려주세요</label>
+                                    <input type="text" class="form-control" id="correctAnswer" placeholder="익명">
                                 </div>
                                 <button type="submit" class="btn btn-danger btn-sm">오답신고</button>
+                                <button type="button" class="btn btn-secondary btn-sm" id="cancelReportWronganswer">취소</button>
                             </form>
                             <br>
 
@@ -204,7 +205,8 @@
                                     <label for="addExplanationContents">설명</label>
                                     <textarea class="form-control" id="addExplanationContents" rows="3"></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-sm">추가</button>
+                                <button type="submit" class="btn btn-success btn-sm">등록</button>
+                                <button type="button" class="btn btn-secondary btn-sm" id="cancelAddExplanation">취소</button>
                             </form>
                             <br>
 

@@ -167,6 +167,10 @@ var test;
           });
       });
 
+      // 설명추가 취소
+      $("#cancelAddExplanation").on("click", function () {
+        $(".add-explanation-form").toggle();
+      });
 
       // 오답신고
       $(".report-wronganswer-txt").on("click", function () {
@@ -194,6 +198,11 @@ var test;
           .fail(function (error) {
             console.log(error);
           });
+      });
+
+      // 오답신고 취소
+      $("#cancelReportWronganswer").on("click", function () {
+        $(".report-wronganswer-form").toggle();
       });
 
 
