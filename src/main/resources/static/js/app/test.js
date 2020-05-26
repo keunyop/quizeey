@@ -175,6 +175,11 @@ var test;
       // 오답신고
       $(".report-wronganswer-txt").on("click", function () {
         $(".report-wronganswer-form").toggle();
+
+        _this.cloneExamples($('#examples'));
+
+        // var $examples = $('#examples').clone();
+        // $('#wronganswer-examples').append($examples);
       });
 
       $(".report-wronganswer-form").submit(function (e) {
@@ -511,6 +516,13 @@ var test;
       });
     },
 
+    // 오답신고용 보기 만들기
+    cloneExamples: function (examples) {
+      console.log(examples);
+      // var $examples = $('#examples').clone();
+      // $('#wronganswer-examples').append($examples);
+    },
+
     // 답이 복수인 Checkbox 타입 문제
     getCheckboxTypeExample: function (examples) {
       var hidden_answer = $("#hidden-answer");
@@ -546,6 +558,8 @@ var test;
         }
       });
     },
+
+
 
     // Normal question radio button change event
     submitBtnChange: function ($btn_question_submit) {
