@@ -266,12 +266,16 @@ public class WebController {
 
     }
 
-    @GetMapping(value = { "/", "/kr", "/en" })
+    @GetMapping(value = { "/", "/kr", "/en", "/app" })
     public String main(HttpServletRequest request) {
         String html = "main";
 
-        if ("/en".equals(request.getRequestURI())) {
+        String uri = request.getRequestURI();
+
+        if ("/en".equals(uri)) {
             html = "en/main";
+        } else if ("/app".equals(uri)) {
+            html = "app/main";
         }
 
         return html;
