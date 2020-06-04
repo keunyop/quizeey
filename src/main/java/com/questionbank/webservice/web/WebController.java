@@ -181,6 +181,7 @@ public class WebController {
             TESTMAP.put("/craftsman-computer-aided-milling", new String[] { "206" });
             TESTMAP.put("/craftsman-hydro-pneumatic", new String[] { "207" });
             TESTMAP.put("/cisco-350-401", new String[] { "208" });
+            TESTMAP.put("/craftsman-mushroom-seeds", new String[] { "209" });
         }
     }
 
@@ -242,7 +243,8 @@ public class WebController {
             "/microsoft-70-741", "/en/microsoft-70-741", "/itilfnd-v4", "/en/itilfnd-v4", "/az-500", "/en/az-500",
             "/engineer-ergonomics", "/engineer-computer", "/craftsman-confectionary-making",
             "/craftsman-inert-gas-arc-welding", "/ccna-200-301", "/en/ccna-200-301", "/cas-003", "/en/cas-003",
-            "/craftsman-computer-aided-milling", "/craftsman-hydro-pneumatic", "/cisco-350-401", "/en/cisco-350-401" })
+            "/craftsman-computer-aided-milling", "/craftsman-hydro-pneumatic", "/cisco-350-401", "/en/cisco-350-401",
+            "/craftsman-mushroom-seeds" })
     public String question(HttpServletRequest request, Model model, @RequestParam(value = "questId", required = false)
     String questId) {
 
