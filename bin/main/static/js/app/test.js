@@ -512,8 +512,8 @@ var test;
 
     // 오답신고용 보기 만들기
     cloneExamples: function (examples) {
-      // let examples_clone = $.extend(true, {}, examples);
-      $('#wronganswer-examples').append(examples);
+      let examples_clone = $.extend(true, {}, examples);
+      $('#wronganswer-examples').append(examples_clone);
     },
 
     // 답이 복수인 Checkbox 타입 문제

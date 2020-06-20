@@ -20,6 +20,7 @@ public class VersionService {
 
     @Transactional(readOnly = true)
     public List<VersionResponseDto> getVersions(Long testId) {
+        // TODO: 버전 정렬
         // Version 목록 조회
         Stream<Version> versions = versionRepository.getVersionsByTestId(testId);
         return versions.map(VersionResponseDto::new).collect(Collectors.toList());
