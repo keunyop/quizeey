@@ -25,6 +25,20 @@ var test;
         _this.nextQuestion();
       });
 
+      // Share button click
+      $("#shareBtn").on("click", function () {
+        let dummy = document.createElement('input');
+        const url = window.location.href + "?questId=" + questId;
+
+        document.body.appendChild(dummy);
+        dummy.value = url;
+        dummy.select();
+        document.execCommand('copy');
+        document.body.removeChild(dummy);
+
+        alert("기출문제의 URL이 복사되었습니다.\n" + url);
+      });
+
       // Submit button click
       $("#btn-question-submit").on("click", function () {
         _this.submitQuiz();
