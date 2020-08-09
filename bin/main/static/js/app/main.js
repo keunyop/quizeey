@@ -20,9 +20,11 @@ var main = {
       });
 
       if (value) {
-        $("#adsense-place-hide").hide();
+        $("#adsense-place-search-top").hide();
+        $("#adsense-place-search-bottom").show();
       } else {
-        $("#adsense-place-hide").show();
+        $("#adsense-place-search-top").show();
+        $("#adsense-place-search-bottom").hide();
       }
 
     });
