@@ -5,6 +5,9 @@ var main = {
     var _this = this;
     var languageCd = $("meta[http-equiv='content-language']").attr("content");
 
+    console.log("hide");
+    $("#adsense-place-search-bottom").hide();
+
     $("#testSearch").on("keyup", function () {
       var value = $(this)
         .val()
@@ -22,9 +25,11 @@ var main = {
       if (value) {
         $("#adsense-place-search-top").hide();
         $("#adsense-place-search-bottom").show();
+        console.log("show");
       } else {
         $("#adsense-place-search-top").show();
         $("#adsense-place-search-bottom").hide();
+        console.log("hide");
       }
 
     });
