@@ -1,7 +1,7 @@
 # Quizeey
 
-(한글) http://quizeey.com/
-(English) http://quizeey.com/en
+(한글) https://quizeey.com/
+(English) https://quizeey.com/en
 
 The idea of Quizeey, pool of quizzes, first came out when I was studying for the AWS Certified Developer - Associate exam. 
 Most of the time I used my smart phone to study the AWS practice questions which was a PDF file. 
