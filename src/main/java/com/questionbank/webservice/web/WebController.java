@@ -23,7 +23,6 @@ public class WebController {
 	    TESTMAP = new HashMap<>();
 	    TESTMAP.put("/aws-certified-developer-associate", new String[] { "1" });
 	    TESTMAP.put("/sqlp-professional", new String[] { "2" });
-	    TESTMAP.put("/cbp-basic-developer", new String[] { "3" });
 	    TESTMAP.put("/sqlp-developer", new String[] { "5" });
 	    TESTMAP.put("/engineer-information-processing", new String[] { "6" });
 	    TESTMAP.put("/engineer-transportation", new String[] { "7" });
@@ -204,7 +203,7 @@ public class WebController {
 	    "/craftsman-computer-graphics-operation", "/engineer-electricity", "/nail-technician",
 	    "/industrial-engineer-industrial-safety", "/sqlp-professional", "/kr/sqlp-professional",
 	    "craftsman-web-design", "/computer-specialist-in-spreadsheet-and-database-level-2",
-	    "/en/aws-certified-developer-associate", "/cbp-basic-developer", "/kr/cbp-basic-developer",
+	    "/en/aws-certified-developer-associate", 
 	    "/sqlp-developer", "/kr/sqlp-developer", "/engineer-transportation", "/engineer-architecture",
 	    "/engineer-broadcasting-communication", "/engineer-urban-planning", "/engineer-information-security",
 	    "/esthetician", "/computer-specialist-in-spreadsheet-and-database-level-1",

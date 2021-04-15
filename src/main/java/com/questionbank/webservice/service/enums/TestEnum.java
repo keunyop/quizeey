@@ -12,8 +12,6 @@ public enum TestEnum {
 
     SQLP("2", "SQLP - SQL Professional", "SQLP - 국가공인 SQL전문가"),
 
-    CBP_BASIC("3", "CBP Certification - Developer", "CBP 인증 - 개발자"),
-
     CS("4", "Computer Science", "컴퓨터 공학"),
 
     SQLD("5", "SQLD - SQL Developer", "SQLD - 국가공인 SQL개발자"),
