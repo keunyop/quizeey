@@ -196,6 +196,7 @@ public class WebController {
 	    TESTMAP.put("/convention-meeting-planner2", new String[] { "222" });
 	    TESTMAP.put("/craftsman-desktop-publishing", new String[] { "223" });
 	    TESTMAP.put("/engineer-explosives-handling", new String[] { "224" });
+	    TESTMAP.put("/internet-information-administrator", new String[] { "225" });
 	}
     }
 
@@ -203,13 +204,12 @@ public class WebController {
 	    "/craftsman-computer-graphics-operation", "/engineer-electricity", "/nail-technician",
 	    "/industrial-engineer-industrial-safety", "/sqlp-professional", "/kr/sqlp-professional",
 	    "craftsman-web-design", "/computer-specialist-in-spreadsheet-and-database-level-2",
-	    "/en/aws-certified-developer-associate", 
-	    "/sqlp-developer", "/kr/sqlp-developer", "/engineer-transportation", "/engineer-architecture",
-	    "/engineer-broadcasting-communication", "/engineer-urban-planning", "/engineer-information-security",
-	    "/esthetician", "/computer-specialist-in-spreadsheet-and-database-level-1",
-	    "/craftsman-fork-lift-truck-operator", "/engineer-air-conditioning-refrigerating-machinery",
-	    "/craftsman-cook-korean-food", "/word-processor", "/hairdresser", "/craftsman-electricity",
-	    "/engineer-industrial-safety", "/industrial-engineer-electricity",
+	    "/en/aws-certified-developer-associate", "/sqlp-developer", "/kr/sqlp-developer",
+	    "/engineer-transportation", "/engineer-architecture", "/engineer-broadcasting-communication",
+	    "/engineer-urban-planning", "/engineer-information-security", "/esthetician",
+	    "/computer-specialist-in-spreadsheet-and-database-level-1", "/craftsman-fork-lift-truck-operator",
+	    "/engineer-air-conditioning-refrigerating-machinery", "/craftsman-cook-korean-food", "/word-processor",
+	    "/hairdresser", "/craftsman-electricity", "/engineer-industrial-safety", "/industrial-engineer-electricity",
 	    "/engineer-fire-protection-system-electrical", "/engineer-fire-protection-system-mechanical",
 	    "/craftsman-information-processing", "/industrial-engineer-hazardous-material",
 	    "/engineer-general-machinery", "/industrial-engineer-information-processing",
@@ -263,7 +263,7 @@ public class WebController {
 	    "/engineer-cadastral-surveying", "/sport-business-manager", "/industrial-engineer-energy-management",
 	    "/engineer-construction-equipment", "/industrial-engineer-quality-management",
 	    "/engineer-motor-vehicles-maintenance", "/convention-meeting-planner2", "/craftsman-desktop-publishing",
-	    "/engineer-explosives-handling" })
+	    "/engineer-explosives-handling", "/internet-information-administrator" })
     public String question(HttpServletRequest request, Model model,
 	    @RequestParam(value = "questId", required = false) String questId) {
 

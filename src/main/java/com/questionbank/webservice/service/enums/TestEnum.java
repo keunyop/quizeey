@@ -27,18 +27,18 @@ public enum TestEnum {
     private String korName;
 
     private TestEnum(String code, String engName, String korName) {
-        this.code = code;
-        this.engName = engName;
-        this.korName = korName;
+	this.code = code;
+	this.engName = engName;
+	this.korName = korName;
     }
 
     public static TestEnum getByCode(String code) {
-        for (TestEnum val : TestEnum.values()) {
-            if (StringUtils.equals(code, val.getCode())) {
-                return val;
-            }
-        }
+	for (TestEnum val : TestEnum.values()) {
+	    if (StringUtils.equals(code, val.getCode())) {
+		return val;
+	    }
+	}
 
-        return null;
+	return null;
     }
 }
