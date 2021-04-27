@@ -29,5 +29,5 @@ dependencies {
 	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	compileOnly 'pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.0'
+	implementation 'pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.0'
 }
