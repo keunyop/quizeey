@@ -5,9 +5,9 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -198,6 +198,7 @@ public class WebController {
 	    TESTMAP.put("/engineer-explosives-handling", new String[] { "224" });
 	    TESTMAP.put("/internet-information-administrator", new String[] { "225" });
 	    TESTMAP.put("/craftsman-computer-aided-lath", new String[] { "226" });
+	    TESTMAP.put("/craftsman-plant-maintenance", new String[] { "227" });
 	}
     }
 
@@ -264,7 +265,8 @@ public class WebController {
 	    "/engineer-cadastral-surveying", "/sport-business-manager", "/industrial-engineer-energy-management",
 	    "/engineer-construction-equipment", "/industrial-engineer-quality-management",
 	    "/engineer-motor-vehicles-maintenance", "/convention-meeting-planner2", "/craftsman-desktop-publishing",
-	    "/engineer-explosives-handling", "/internet-information-administrator", "/craftsman-computer-aided-lath" })
+	    "/engineer-explosives-handling", "/internet-information-administrator", "/craftsman-computer-aided-lath",
+	    "/craftsman-plant-maintenance" })
     public String question(HttpServletRequest request, Model model,
 	    @RequestParam(value = "questId", required = false) String questId) {
 
@@ -280,7 +282,7 @@ public class WebController {
 
 	model.addAttribute("testId", TESTMAP.get(uri)[0]);
 
-	if (StringUtils.isNotBlank(questId)) {
+	if (StringUtils.hasText(questId)) {
 	    model.addAttribute("inputQuestId", questId);
 	}
 
@@ -290,6 +292,7 @@ public class WebController {
 
     @GetMapping(value = { "/", "/kr", "/en", "/app" })
     public String main(HttpServletRequest request) {
+
 	String html = "main";
 
 	String uri = request.getRequestURI();
@@ -337,7 +340,7 @@ public class WebController {
 
 	model.addAttribute("testId", testId);
 
-	if (StringUtils.isNotBlank(questId)) {
+	if (StringUtils.hasText(questId)) {
 	    model.addAttribute("inputQuestId", questId);
 	}
 
@@ -354,7 +357,7 @@ public class WebController {
 
 	model.addAttribute("testId", testId);
 
-	if (StringUtils.isNotBlank(questId)) {
+	if (StringUtils.hasText(questId)) {
 	    model.addAttribute("inputQuestId", questId);
 	}
 

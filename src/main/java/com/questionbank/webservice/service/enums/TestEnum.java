@@ -1,7 +1,5 @@
 package com.questionbank.webservice.service.enums;
 
-import org.apache.commons.lang3.StringUtils;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -33,9 +31,11 @@ public enum TestEnum {
     }
 
     public static TestEnum getByCode(String code) {
-	for (TestEnum val : TestEnum.values()) {
-	    if (StringUtils.equals(code, val.getCode())) {
-		return val;
+	if (code != null) {
+	    for (TestEnum val : TestEnum.values()) {
+		if (code.equalsIgnoreCase(val.getCode())) {
+		    return val;
+		}
 	    }
 	}
 

@@ -8,4 +8,6 @@ public interface QuestionRepository extends JpaRepository<Question, Long> {
     List<Question> getQuestionsByTestId(Long testId);
 
     List<Question> getQuestionsByTestIdAndVerNbr(Long testId, int verNbr);
+
+    Question findByQuestId(Long questId);
 }

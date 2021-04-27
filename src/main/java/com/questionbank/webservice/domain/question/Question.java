@@ -3,6 +3,7 @@ package com.questionbank.webservice.domain.question;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import com.questionbank.webservice.domain.BaseTimeEntity;
@@ -19,17 +20,17 @@ import lombok.ToString;
 @ToString
 public class Question extends BaseTimeEntity {
     @Id
-    @GeneratedValue
-    private Long   questId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long questId;
 
     @Column(nullable = false)
-    private Long   testId;
+    private Long testId;
 
     @Column(nullable = false)
-    private int    verNbr;
+    private int verNbr;
 
     @Column(nullable = false)
-    private int    questNbr;
+    private int questNbr;
 
     @Column(length = 2000, nullable = false)
     private String questTxt;
@@ -43,13 +44,13 @@ public class Question extends BaseTimeEntity {
 
     @Builder
     public Question(Long testId, int verNbr, int questNbr, String questTxt, String explanation, String reference,
-                    String multiAnswerYn) {
-        this.testId = testId;
-        this.verNbr = verNbr;
-        this.questNbr = questNbr;
-        this.questTxt = questTxt;
-        this.explanation = explanation;
-        this.reference = reference;
-        this.multiAnswerYn = multiAnswerYn;
+	    String multiAnswerYn) {
+	this.testId = testId;
+	this.verNbr = verNbr;
+	this.questNbr = questNbr;
+	this.questTxt = questTxt;
+	this.explanation = explanation;
+	this.reference = reference;
+	this.multiAnswerYn = multiAnswerYn;
     }
 }

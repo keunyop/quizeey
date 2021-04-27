@@ -27,90 +27,90 @@ import lombok.AllArgsConstructor;
 public class QuestionService {
     static Map<String, List<Question>> QUESTIONS_CACHE = new HashMap<>();
 
-    private QuestionRepository         questionRepository;
-    private ExampleRepository          exampleRepository;
-    private VersionRepository          versionRepository;
+    private QuestionRepository questionRepository;
+    private ExampleRepository exampleRepository;
+    private VersionRepository versionRepository;
 
     @Transactional
     public Long addQuestion(QuestionSaveRequestDto dto) {
-        return questionRepository.save(dto.toEntity()).getQuestId();
+	return questionRepository.save(dto.toEntity()).getQuestId();
     }
 
     @Transactional(readOnly = true)
     public QuestionMainResponseDto getQuestion(QuestionRequestDto dto) {
-        // 문제 조회
-        Question qeustion = _getQuestion(dto);
+	// 문제 조회
+	Question qeustion = _getQuestion(dto);
 
-        // 보기 조회
-        List<Example> examples = exampleRepository.findByTestIdAndVerNbrAndQuestNbr(qeustion.getTestId(),
-                qeustion.getVerNbr(), qeustion.getQuestNbr());
+	// 보기 조회
+	List<Example> examples = exampleRepository.findByTestIdAndVerNbrAndQuestNbr(qeustion.getTestId(),
+		qeustion.getVerNbr(), qeustion.getQuestNbr());
 
-        // 보기 셔플
-        Collections.shuffle(examples);
+	// 보기 셔플
+	Collections.shuffle(examples);
 
-        return new QuestionMainResponseDto(qeustion, examples, _getVersionName(qeustion));
+	return new QuestionMainResponseDto(qeustion, examples, _getVersionName(qeustion));
     }
 
     /**
      * 문제 조회
      */
     private Question _getQuestion(QuestionRequestDto dto) {
-        Question question = null;
+	Question question = null;
 
-        // 특정 문제 번호가 없으면 random 문제 조회
-        if (dto.getQuestId() == null) {
-            // Cache 키
-            String cacheKey = "T" + dto.getTestId() + "V" + dto.getVerNbr();
+	// 특정 문제 번호가 없으면 random 문제 조회
+	if (dto.getQuestId() == null) {
+	    // Cache 키
+	    String cacheKey = "T" + dto.getTestId() + "V" + dto.getVerNbr();
 
-            // Cache 조회
-            List<Question> questions = QUESTIONS_CACHE.get(cacheKey);
+	    // Cache 조회
+	    List<Question> questions = QUESTIONS_CACHE.get(cacheKey);
 
-            // Cache miss
-            if (CollectionUtils.isEmpty(questions)) {
-                // verNbr가 있으면 해당 version 문제 조회
-                // verNbr가 없으면 test 전체에서 문제 조회
-                questions = (dto.getVerNbr() == 0) ? questionRepository.getQuestionsByTestId(dto.getTestId())
-                        : questionRepository.getQuestionsByTestIdAndVerNbr(dto.getTestId(), dto.getVerNbr());
+	    // Cache miss
+	    if (CollectionUtils.isEmpty(questions)) {
+		// verNbr가 있으면 해당 version 문제 조회
+		// verNbr가 없으면 test 전체에서 문제 조회
+		questions = (dto.getVerNbr() == 0) ? questionRepository.getQuestionsByTestId(dto.getTestId())
+			: questionRepository.getQuestionsByTestIdAndVerNbr(dto.getTestId(), dto.getVerNbr());
 
-                // Cache 저장
-                QUESTIONS_CACHE.put(cacheKey, questions);
-            }
+		// Cache 저장
+		QUESTIONS_CACHE.put(cacheKey, questions);
+	    }
 
-            question = questions.get(_generateRandomNumber(questions.size()));
+	    question = questions.get(_generateRandomNumber(questions.size()));
 
-        } else {
-            question = questionRepository.findOne(dto.getQuestId());
-        }
+	} else {
+	    question = questionRepository.findByQuestId(dto.getQuestId());
+	}
 
-        return question;
+	return question;
     }
 
     /**
      * Generate Random Number
      */
     private int _generateRandomNumber(int n) {
-        Random random = new Random();
-        return random.nextInt(n);
+	Random random = new Random();
+	return random.nextInt(n);
     }
 
     /**
      * Get Version Name
      */
     private String _getVersionName(Question qeustion) {
-        Version version = versionRepository.getVersionByTestIdAndVerNbr(qeustion.getTestId(), qeustion.getVerNbr());
+	Version version = versionRepository.getVersionByTestIdAndVerNbr(qeustion.getTestId(), qeustion.getVerNbr());
 
-        if (version != null) {
-            return version.getVerNm();
-        }
+	if (version != null) {
+	    return version.getVerNm();
+	}
 
-        return null;
+	return null;
     }
 
     public void clearCache() {
-        System.out.println("Cache: " + QUESTIONS_CACHE.size());
+	System.out.println("Cache: " + QUESTIONS_CACHE.size());
 
-        QUESTIONS_CACHE.clear();
+	QUESTIONS_CACHE.clear();
 
-        System.out.println("Clear Cache Size: " + QUESTIONS_CACHE.size());
+	System.out.println("Clear Cache Size: " + QUESTIONS_CACHE.size());
     }
 }

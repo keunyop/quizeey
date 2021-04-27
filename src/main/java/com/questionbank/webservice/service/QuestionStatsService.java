@@ -17,35 +17,35 @@ public class QuestionStatsService {
 
     @Transactional(readOnly = true)
     public QuestionStatsResponseDto getQuestionStats(Long questId) {
-        // 문제 통계 조회
-        QuestionStats questionStats = questionStatsRepository.findOne(questId);
+	// 문제 통계 조회
+	QuestionStats questionStats = questionStatsRepository.findByQuestId(questId);
 
-        if (questionStats == null) {
-            return new QuestionStatsResponseDto();
-        }
+	if (questionStats == null) {
+	    return new QuestionStatsResponseDto();
+	}
 
-        return new QuestionStatsResponseDto(questionStats);
+	return new QuestionStatsResponseDto(questionStats);
     }
 
     @Transactional
     public void updateQuestionStats(QuestionStatsSaveRequestDto dto) {
-        int correct = 0;
-        int inCorrect = 0;
+	int correct = 0;
+	int inCorrect = 0;
 
-        // 문제 통계 조회
-        QuestionStats questionStats = questionStatsRepository.findOne(dto.getQuestId());
+	// 문제 통계 조회
+	QuestionStats questionStats = questionStatsRepository.findByQuestId(dto.getQuestId());
 
-        if (questionStats != null) {
-            correct = questionStats.getCorrect();
-            inCorrect = questionStats.getInCorrect();
-        }
+	if (questionStats != null) {
+	    correct = questionStats.getCorrect();
+	    inCorrect = questionStats.getInCorrect();
+	}
 
-        if (dto.isCorrect()) {
-            correct++;
-        } else {
-            inCorrect++;
-        }
+	if (dto.isCorrect()) {
+	    correct++;
+	} else {
+	    inCorrect++;
+	}
 
-        questionStatsRepository.save(dto.toEntity(correct, inCorrect));
+	questionStatsRepository.save(dto.toEntity(correct, inCorrect));
     }
 }

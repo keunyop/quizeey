@@ -3,6 +3,7 @@ package com.questionbank.webservice.domain.question;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import com.questionbank.webservice.domain.BaseTimeEntity;
@@ -21,8 +22,8 @@ import lombok.ToString;
 @ToString
 public class Test extends BaseTimeEntity {
     @Id
-    @GeneratedValue
-    private Long   testId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long testId;
 
     @Column
     private String testNm;
@@ -34,14 +35,14 @@ public class Test extends BaseTimeEntity {
     private String url;
 
     @Column(nullable = false)
-    private int    inqrSeq;
+    private int inqrSeq;
 
     @Builder
     public Test(Long testId, String testNm, String testNmEng, String url, int inqrSeq) {
-        this.testId = testId;
-        this.testNm = testNm;
-        this.testNmEng = testNmEng;
-        this.url = url;
-        this.inqrSeq = inqrSeq;
+	this.testId = testId;
+	this.testNm = testNm;
+	this.testNmEng = testNmEng;
+	this.url = url;
+	this.inqrSeq = inqrSeq;
     }
 }

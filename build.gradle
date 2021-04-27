@@ -1,23 +1,18 @@
-buildscript {
-	ext {
-		springBootVersion = '1.5.19.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-		classpath "io.spring.gradle:dependency-management-plugin:1.0.4.RELEASE"
-	}
+plugins {
+	id 'org.springframework.boot' version '2.4.5'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
 }
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'org.springframework.boot'
-
 group = 'com.questionbank'
-version = '0.0.3'
+version = '0.1.0'
 sourceCompatibility = 1.8
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
 
 repositories {
 	mavenCentral()
@@ -27,15 +22,12 @@ repositories {
 ext['hibernate.version'] = '5.2.11.Final'
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-actuator')
-	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-	compile('org.springframework.boot:spring-boot-starter-web')
-	compile 'pl.allegro.tech.boot:handlebars-spring-boot-starter:0.2.15'
-	// runtime('com.h2database:h2')
-	compile("org.mariadb.jdbc:mariadb-java-client")
-	// compile("org.springframework.boot:spring-boot-starter-jdbc:2.0.1.RELEASE")
-    // compile("mysql:mysql-connector-java:8.0.17")
-	compileOnly('org.projectlombok:lombok')
-    compileOnly("org.springframework.boot:spring-boot-devtools")
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	compileOnly 'pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.0'
 }
