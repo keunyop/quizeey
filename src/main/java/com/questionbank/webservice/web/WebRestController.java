@@ -34,90 +34,81 @@ import lombok.AllArgsConstructor;
 @RestController
 @AllArgsConstructor
 public class WebRestController {
-    private QuestionService      questionService;
-    private VersionService       versionService;
-    private ExampleService       exampleService;
+    private QuestionService questionService;
+    private VersionService versionService;
+    private ExampleService exampleService;
     private QuestionStatsService questionStatsService;
-    private ExplanationService   explanationService;
-    private TestService          testService;
-    private TestGenerator        testGenerator;
+    private ExplanationService explanationService;
+    private TestService testService;
+    private TestGenerator testGenerator;
 
     @PostMapping("/question")
-    public QuestionMainResponseDto getQuestion(@RequestBody
-    QuestionRequestDto dto) {
-        return questionService.getQuestion(dto);
+    public QuestionMainResponseDto getQuestion(@RequestBody QuestionRequestDto dto) {
+	return questionService.getQuestion(dto);
     }
 
     @PostMapping("/versions")
-    public List<VersionResponseDto> getVersion(@RequestBody
-    VersionRequestDto dto) {
-        return versionService.getVersions(dto.getTestId());
+    public List<VersionResponseDto> getVersion(@RequestBody VersionRequestDto dto) {
+	return versionService.getVersions(dto.getTestId());
     }
 
     @PostMapping("/addQuestion")
-    public Long addQustion(@RequestBody
-    QuestionSaveRequestDto dto) {
-        return questionService.addQuestion(dto);
+    public Long addQustion(@RequestBody QuestionSaveRequestDto dto) {
+	return questionService.addQuestion(dto);
     }
 
     @PostMapping("/addExample")
-    public Long addExample(@RequestBody
-    ExampleSaveRequestDto dto) {
-        return exampleService.addExample(dto);
+    public Long addExample(@RequestBody ExampleSaveRequestDto dto) {
+	return exampleService.addExample(dto);
     }
 
     @PostMapping("/updateQuestionStats")
-    public void updateQuestionStats(@RequestBody
-    QuestionStatsSaveRequestDto dto) {
-        questionStatsService.updateQuestionStats(dto);
+    public void updateQuestionStats(@RequestBody QuestionStatsSaveRequestDto dto) {
+	questionStatsService.updateQuestionStats(dto);
     }
 
     @PostMapping("/questionStats")
-    public QuestionStatsResponseDto getQuestionStats(@RequestBody
-    QuestionStatsRequestDto dto) {
-        return questionStatsService.getQuestionStats(dto.getQuestId());
+    public QuestionStatsResponseDto getQuestionStats(@RequestBody QuestionStatsRequestDto dto) {
+	return questionStatsService.getQuestionStats(dto.getQuestId());
     }
 
     @PostMapping("/addExplanation")
-    public void addExplanation(@RequestBody
-    ExplanationRequestDto dto) {
-        explanationService.addExplanation(dto);
+    public void addExplanation(@RequestBody ExplanationRequestDto dto) {
+	explanationService.addExplanation(dto);
     }
 
     @PostMapping("/explanations")
-    public List<ExplanationResponseDto> getExplanations(@RequestBody
-    ExplanationRequestDto dto) {
-        return explanationService.getExplanations(dto.getQuestId());
+    public List<ExplanationResponseDto> getExplanations(@RequestBody ExplanationRequestDto dto) {
+	return explanationService.getExplanations(dto.getQuestId());
     }
 
     @PostMapping("/tests")
-    public List<TestResponseDto> getTests(@RequestBody
-    TestRequestDto dto) {
-        return testService.getTests(dto.getLanguageCd());
+    public List<TestResponseDto> getTests(@RequestBody TestRequestDto dto) {
+	return testService.getTests(dto.getLanguageCd());
     }
 
     @GetMapping("/addTestBatch")
-    public void addTest() {
-        testGenerator.addTestBatch(TestTypeEnum.COMCBT);
+    public boolean addTest() {
+	return testGenerator.addTestBatch(TestTypeEnum.COMCBT);
     }
 
     @GetMapping("/addTestBatchGType")
     public void addTestGType() {
-        testGenerator.addTestBatch(TestTypeEnum.GRATISEXAM);
+	testGenerator.addTestBatch(TestTypeEnum.GRATISEXAM);
     }
 
     @GetMapping("/addVersionBatch")
     public void addVersion() {
-        testGenerator.addVersionBatch(TestTypeEnum.COMCBT);
+	testGenerator.addVersionBatch(TestTypeEnum.COMCBT);
     }
 
     @GetMapping("/addVersionBatchGType")
     public void addVersionGType() {
-        testGenerator.addVersionBatch(TestTypeEnum.GRATISEXAM);
+	testGenerator.addVersionBatch(TestTypeEnum.GRATISEXAM);
     }
 
     @GetMapping("/clearCache")
     public void clearCache() {
-        questionService.clearCache();
+	questionService.clearCache();
     }
 }

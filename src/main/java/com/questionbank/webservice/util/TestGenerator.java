@@ -31,528 +31,530 @@ import lombok.AllArgsConstructor;
 //@NoArgsConstructor
 @Service
 public class TestGenerator {
-    private TestRepository     testRepository;
-    private VersionRepository  versionRepository;
+    private TestRepository testRepository;
+    private VersionRepository versionRepository;
     private QuestionRepository questionRepository;
-    private ExampleRepository  exampleRepository;
+    private ExampleRepository exampleRepository;
 
-    final static String        FILE_PATH = "D:\\99.KYLEE\\01.개인프로젝트\\36.QuestionBank\\dumps\\문제\\todo";
-    //    final static String        FILE_PATH = "D:\\99.KYLEE\\01.개인프로젝트\\36.QuestionBank\\dumps\\compTIA";
+//    final static String        FILE_PATH = "D:\\99.KYLEE\\01.개인프로젝트\\36.QuestionBank\\dumps\\문제\\todo";
+    final static String FILE_PATH = "/home/ec2-user/app/dumps";
 
     public static void main(String[] args) {
-        try (Stream<Path> paths = Files.walk(Paths.get(FILE_PATH))) {
-            for (String fileName : paths.filter(Files::isRegularFile).map(file -> file.toString())
-                    .collect(Collectors.toList())) {
+	try (Stream<Path> paths = Files.walk(Paths.get(FILE_PATH))) {
+	    for (String fileName : paths.filter(Files::isRegularFile).map(file -> file.toString())
+		    .collect(Collectors.toList())) {
 
-                List<Question4Gen> qs = _toGTypeObject(fileName);
+		List<Question4Gen> qs = _toGTypeObject(fileName);
 
-                for (Question4Gen q : qs) {
-                    System.out.println(q);
+		for (Question4Gen q : qs) {
+		    System.out.println(q);
 
-                    for (Example4Gen e : q.getExample4Gens()) {
-                        System.out.println(e);
-                    }
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+		    for (Example4Gen e : q.getExample4Gens()) {
+			System.out.println(e);
+		    }
+		}
+	    }
+	} catch (IOException e) {
+	    e.printStackTrace();
+	}
     }
 
-    public void addTestBatch(TestTypeEnum testType) {
-        try (Stream<Path> paths = Files.walk(Paths.get(FILE_PATH))) {
-            for (String fileName : paths.filter(Files::isRegularFile).map(file -> file.toString())
-                    .collect(Collectors.toList())) {
+    public boolean addTestBatch(TestTypeEnum testType) {
+	try (Stream<Path> paths = Files.walk(Paths.get(FILE_PATH))) {
+	    for (String fileName : paths.filter(Files::isRegularFile).map(file -> file.toString())
+		    .collect(Collectors.toList())) {
 
-                Long testId = _getTestId(fileName);
+		Long testId = _getTestId(fileName);
 
-                if (testId == null) {
-                    testId = _addTest(fileName);
-                    int verNbr = _addVersion(testId, fileName);
+		if (testId == null) {
+		    testId = _addTest(fileName);
+		    int verNbr = _addVersion(testId, fileName);
 
-                    List<Question4Gen> qObj = testType.equals(TestTypeEnum.COMCBT) ? _toObject(fileName)
-                            : _toGTypeObject(fileName);
+		    List<Question4Gen> qObj = testType.equals(TestTypeEnum.COMCBT) ? _toObject(fileName)
+			    : _toGTypeObject(fileName);
 
-                    _addQuestion(testId, verNbr, qObj);
+		    _addQuestion(testId, verNbr, qObj);
 
-                }
-            }
+		}
+	    }
 
-            System.err.println("### 끝 ###");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+	    System.err.println("### 끝 ###");
+	    return true;
+	} catch (IOException e) {
+	    e.printStackTrace();
+	    return false;
+	}
     }
 
     public void addVersionBatch(TestTypeEnum testType) {
-        try (Stream<Path> paths = Files.walk(Paths.get(FILE_PATH))) {
-            for (String fileName : paths.filter(Files::isRegularFile).map(file -> file.toString())
-                    .collect(Collectors.toList())) {
+	try (Stream<Path> paths = Files.walk(Paths.get(FILE_PATH))) {
+	    for (String fileName : paths.filter(Files::isRegularFile).map(file -> file.toString())
+		    .collect(Collectors.toList())) {
 
-                Long testId = _getTestId(fileName);
+		Long testId = _getTestId(fileName);
 
-                boolean isVersionNameExist = _isVersionNameExist(testId, fileName);
+		boolean isVersionNameExist = _isVersionNameExist(testId, fileName);
 
-                System.out.println("### isVersionNameExist: " + isVersionNameExist);
+		System.out.println("### isVersionNameExist: " + isVersionNameExist);
 
-                if (testId != null && !isVersionNameExist) {
-                    int verNbr = _addVersion(testId, fileName);
+		if (testId != null && !isVersionNameExist) {
+		    int verNbr = _addVersion(testId, fileName);
 
-                    List<Question4Gen> qObj = testType.equals(TestTypeEnum.COMCBT) ? _toObject(fileName)
-                            : _toGTypeObject(fileName);
+		    List<Question4Gen> qObj = testType.equals(TestTypeEnum.COMCBT) ? _toObject(fileName)
+			    : _toGTypeObject(fileName);
 
-                    _addQuestion(testId, verNbr, qObj);
-                }
-            }
+		    _addQuestion(testId, verNbr, qObj);
+		}
+	    }
 
-            System.err.println("### 끝 ###");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+	    System.err.println("### 끝 ###");
+	} catch (IOException e) {
+	    e.printStackTrace();
+	}
     }
 
     private Long _getTestId(String fileName) {
 
-        System.out.println("### In fileName: " + fileName);
+	System.out.println("### In fileName: " + fileName);
 
-        String actualFileName = fileName.substring(fileName.lastIndexOf('\\') + 1, fileName.indexOf('@'));
+	String actualFileName = fileName.substring(fileName.lastIndexOf('\\') + 1, fileName.indexOf('@'));
 
-        System.out.println("### actualFileName: " + actualFileName);
+	System.out.println("### actualFileName: " + actualFileName);
 
-        Test test = testRepository.findByTestNm(actualFileName);
+	Test test = testRepository.findByTestNm(actualFileName);
 
-        return test != null ? test.getTestId() : null;
+	return test != null ? test.getTestId() : null;
     }
 
     private boolean _isVersionNameExist(Long testId, String fileName) {
 
-        String verNm = fileName.substring(fileName.lastIndexOf('@') + 1, fileName.lastIndexOf('.')) + " 기출문제";
+	String verNm = fileName.substring(fileName.lastIndexOf('@') + 1, fileName.lastIndexOf('.')) + " 기출문제";
 
-        System.out.println("### verNm: " + verNm);
+	System.out.println("### verNm: " + verNm);
 
-        return versionRepository.existsByTestIdAndVerNm(testId, verNm);
+	return versionRepository.existsByTestIdAndVerNm(testId, verNm);
     }
 
     private Long _addTest(String fileName) {
-        String testNm = fileName.substring(fileName.lastIndexOf('\\') + 1, fileName.indexOf('@'));
-        String url = fileName.substring(fileName.indexOf('@') + 1, fileName.lastIndexOf('@'));
+	String testNm = fileName.substring(fileName.lastIndexOf('\\') + 1, fileName.indexOf('@'));
+	String url = fileName.substring(fileName.indexOf('@') + 1, fileName.lastIndexOf('@'));
 
-        testRepository.save(Test.builder().testNm(testNm).url(url).build());
+	testRepository.save(Test.builder().testNm(testNm).url(url).build());
 
-        return testRepository.findFirstByOrderByTestIdDesc().getTestId();
+	return testRepository.findFirstByOrderByTestIdDesc().getTestId();
     }
 
     private int _addVersion(Long testId, String fileName) {
-        Version version = versionRepository.findFirstByTestIdOrderByVerNbrDesc(testId);
-        int verNbr = version == null ? 1 : version.getVerNbr() + 1;
+	Version version = versionRepository.findFirstByTestIdOrderByVerNbrDesc(testId);
+	int verNbr = version == null ? 1 : version.getVerNbr() + 1;
 
-        String verNm = fileName.substring(fileName.lastIndexOf('@') + 1, fileName.lastIndexOf('.')) + " 기출문제";
+	String verNm = fileName.substring(fileName.lastIndexOf('@') + 1, fileName.lastIndexOf('.')) + " 기출문제";
 
-        versionRepository.save(Version.builder().testId(testId).verNbr(verNbr).verNm(verNm).build());
+	versionRepository.save(Version.builder().testId(testId).verNbr(verNbr).verNm(verNm).build());
 
-        return verNbr;
+	return verNbr;
     }
 
     private void _addQuestion(Long testId, int verNbr, List<Question4Gen> qs) {
-        for (Question4Gen q : qs) {
-            int questNbr = Integer.parseInt(q.getQuestNbr());
-            String multiAnswerYn = StringUtils.isEmpty(q.getMultiAnswerYn()) ? "N" : q.getMultiAnswerYn();
+	for (Question4Gen q : qs) {
+	    int questNbr = Integer.parseInt(q.getQuestNbr());
+	    String multiAnswerYn = StringUtils.isEmpty(q.getMultiAnswerYn()) ? "N" : q.getMultiAnswerYn();
 
-            questionRepository.save(Question.builder().testId(testId).verNbr(verNbr).questNbr(questNbr)
-                    .questTxt(q.getQuestTxt()).explanation(q.getExplanation()).multiAnswerYn(multiAnswerYn)
-                    .reference(q.getReference()).build());
+	    questionRepository.save(Question.builder().testId(testId).verNbr(verNbr).questNbr(questNbr)
+		    .questTxt(q.getQuestTxt()).explanation(q.getExplanation()).multiAnswerYn(multiAnswerYn)
+		    .reference(q.getReference()).build());
 
-            System.out.println("TEST: " + testId + ", Q-Nbr: " + questNbr);
+	    System.out.println("TEST: " + testId + ", Q-Nbr: " + questNbr);
 
-            for (Example4Gen e : q.getExample4Gens()) {
-                exampleRepository.save(Example.builder().testId(testId).verNbr(verNbr).questNbr(questNbr)
-                        .exmpNbr(Integer.parseInt(e.getExmpNbr())).exmpTxt(e.getExampleStr()).answerYn(e.getAnswerYn())
-                        .build());
-            }
-        }
+	    for (Example4Gen e : q.getExample4Gens()) {
+		exampleRepository.save(Example.builder().testId(testId).verNbr(verNbr).questNbr(questNbr)
+			.exmpNbr(Integer.parseInt(e.getExmpNbr())).exmpTxt(e.getExampleStr()).answerYn(e.getAnswerYn())
+			.build());
+	    }
+	}
     }
 
     private static List<Question4Gen> _toObject(String fileName) {
 
-        List<Question4Gen> qs = new ArrayList<>();
+	List<Question4Gen> qs = new ArrayList<>();
 
-        for (String line : _readFile(fileName).collect(Collectors.toList())) {
-            if (line.equals("    ")) {
-                continue;
-            }
+	for (String line : _readFile(fileName).collect(Collectors.toList())) {
+	    if (line.equals("    ")) {
+		continue;
+	    }
 
-            Question4Gen lastQ = null;
-            List<Example4Gen> lastEs = null;
+	    Question4Gen lastQ = null;
+	    List<Example4Gen> lastEs = null;
 
-            if (!CollectionUtils.isEmpty(qs)) {
-                lastQ = qs.get(qs.size() - 1);
-                lastEs = lastQ.getExample4Gens() == null ? new ArrayList<>() : lastQ.getExample4Gens();
-            }
+	    if (!CollectionUtils.isEmpty(qs)) {
+		lastQ = qs.get(qs.size() - 1);
+		lastEs = lastQ.getExample4Gens() == null ? new ArrayList<>() : lastQ.getExample4Gens();
+	    }
 
-            if (line.matches("^[0-9.].*")) {
-                System.out.println(line);
-                String questNbr = line.substring(0, line.indexOf("."));
-                String questTxt = line.substring(line.indexOf(".") + 1);
+	    if (line.matches("^[0-9.].*")) {
+		System.out.println(line);
+		String questNbr = line.substring(0, line.indexOf("."));
+		String questTxt = line.substring(line.indexOf(".") + 1);
 
-                Question4Gen q = Question4Gen.builder().questNbr(questNbr).questTxt(questTxt).build();
+		Question4Gen q = Question4Gen.builder().questNbr(questNbr).questTxt(questTxt).build();
 
-                qs.add(q);
+		qs.add(q);
 
-            } else if (line.contains("①")) {
-                if (line.contains("②")) {
-                    Example4Gen e1 = Example4Gen.builder().exmpNbr("1")
-                            .exampleStr(line.substring(line.indexOf("①") + 1, line.indexOf("②"))).answerYn("N").build();
+	    } else if (line.contains("①")) {
+		if (line.contains("②")) {
+		    Example4Gen e1 = Example4Gen.builder().exmpNbr("1")
+			    .exampleStr(line.substring(line.indexOf("①") + 1, line.indexOf("②"))).answerYn("N").build();
 
-                    Example4Gen e2 = Example4Gen.builder().exmpNbr("2")
-                            .exampleStr(line.substring(line.indexOf("②") + 1)).answerYn("N").build();
+		    Example4Gen e2 = Example4Gen.builder().exmpNbr("2")
+			    .exampleStr(line.substring(line.indexOf("②") + 1)).answerYn("N").build();
 
-                    lastEs.add(e1);
-                    lastEs.add(e2);
-                } else if (line.contains("❷")) {
-                    Example4Gen e1 = Example4Gen.builder().exmpNbr("1")
-                            .exampleStr(line.substring(line.indexOf("①") + 1, line.indexOf("❷"))).answerYn("N").build();
+		    lastEs.add(e1);
+		    lastEs.add(e2);
+		} else if (line.contains("❷")) {
+		    Example4Gen e1 = Example4Gen.builder().exmpNbr("1")
+			    .exampleStr(line.substring(line.indexOf("①") + 1, line.indexOf("❷"))).answerYn("N").build();
 
-                    Example4Gen e2 = Example4Gen.builder().exmpNbr("2")
-                            .exampleStr(line.substring(line.indexOf("❷") + 1)).answerYn("Y").build();
+		    Example4Gen e2 = Example4Gen.builder().exmpNbr("2")
+			    .exampleStr(line.substring(line.indexOf("❷") + 1)).answerYn("Y").build();
 
-                    lastEs.add(e1);
-                    lastEs.add(e2);
-                } else {
-                    Example4Gen e1 = Example4Gen.builder().exmpNbr("1")
-                            .exampleStr(line.substring(line.indexOf("①") + 1)).answerYn("N").build();
+		    lastEs.add(e1);
+		    lastEs.add(e2);
+		} else {
+		    Example4Gen e1 = Example4Gen.builder().exmpNbr("1")
+			    .exampleStr(line.substring(line.indexOf("①") + 1)).answerYn("N").build();
 
-                    lastEs.add(e1);
-                }
+		    lastEs.add(e1);
+		}
 
-            } else if (line.contains("❶")) {
-                if (line.contains("②")) {
-                    Example4Gen e1 = Example4Gen.builder().exmpNbr("1")
-                            .exampleStr(line.substring(line.indexOf("❶") + 1, line.indexOf("②"))).answerYn("Y").build();
+	    } else if (line.contains("❶")) {
+		if (line.contains("②")) {
+		    Example4Gen e1 = Example4Gen.builder().exmpNbr("1")
+			    .exampleStr(line.substring(line.indexOf("❶") + 1, line.indexOf("②"))).answerYn("Y").build();
 
-                    Example4Gen e2 = Example4Gen.builder().exmpNbr("2")
-                            .exampleStr(line.substring(line.indexOf("②") + 1)).answerYn("N").build();
+		    Example4Gen e2 = Example4Gen.builder().exmpNbr("2")
+			    .exampleStr(line.substring(line.indexOf("②") + 1)).answerYn("N").build();
 
-                    lastEs.add(e1);
-                    lastEs.add(e2);
-                } else {
-                    Example4Gen e1 = Example4Gen.builder().exmpNbr("1")
-                            .exampleStr(line.substring(line.indexOf("❶") + 1)).answerYn("Y").build();
+		    lastEs.add(e1);
+		    lastEs.add(e2);
+		} else {
+		    Example4Gen e1 = Example4Gen.builder().exmpNbr("1")
+			    .exampleStr(line.substring(line.indexOf("❶") + 1)).answerYn("Y").build();
 
-                    lastEs.add(e1);
-                }
+		    lastEs.add(e1);
+		}
 
-            } else if (line.contains("②")) {
-                Example4Gen e2 = Example4Gen.builder().exmpNbr("2").exampleStr(line.substring(line.indexOf("②") + 1))
-                        .answerYn("N").build();
+	    } else if (line.contains("②")) {
+		Example4Gen e2 = Example4Gen.builder().exmpNbr("2").exampleStr(line.substring(line.indexOf("②") + 1))
+			.answerYn("N").build();
 
-                lastEs.add(e2);
+		lastEs.add(e2);
 
-            } else if (line.contains("❷")) {
-                Example4Gen e2 = Example4Gen.builder().exmpNbr("2").exampleStr(line.substring(line.indexOf("❷") + 1))
-                        .answerYn("Y").build();
+	    } else if (line.contains("❷")) {
+		Example4Gen e2 = Example4Gen.builder().exmpNbr("2").exampleStr(line.substring(line.indexOf("❷") + 1))
+			.answerYn("Y").build();
 
-                lastEs.add(e2);
+		lastEs.add(e2);
 
-            } else if (line.contains("③")) {
+	    } else if (line.contains("③")) {
 
-                if (line.contains("④")) {
-                    Example4Gen e3 = Example4Gen.builder().exmpNbr("3")
-                            .exampleStr(line.substring(line.indexOf("③") + 1, line.indexOf("④"))).answerYn("N").build();
+		if (line.contains("④")) {
+		    Example4Gen e3 = Example4Gen.builder().exmpNbr("3")
+			    .exampleStr(line.substring(line.indexOf("③") + 1, line.indexOf("④"))).answerYn("N").build();
 
-                    Example4Gen e4 = Example4Gen.builder().exmpNbr("4")
-                            .exampleStr(line.substring(line.indexOf("④") + 1)).answerYn("N").build();
+		    Example4Gen e4 = Example4Gen.builder().exmpNbr("4")
+			    .exampleStr(line.substring(line.indexOf("④") + 1)).answerYn("N").build();
 
-                    lastEs.add(e3);
-                    lastEs.add(e4);
+		    lastEs.add(e3);
+		    lastEs.add(e4);
 
-                } else if (line.contains("❹")) {
-                    Example4Gen e3 = Example4Gen.builder().exmpNbr("3")
-                            .exampleStr(line.substring(line.indexOf("③") + 1, line.indexOf("❹"))).answerYn("N").build();
+		} else if (line.contains("❹")) {
+		    Example4Gen e3 = Example4Gen.builder().exmpNbr("3")
+			    .exampleStr(line.substring(line.indexOf("③") + 1, line.indexOf("❹"))).answerYn("N").build();
 
-                    Example4Gen e4 = Example4Gen.builder().exmpNbr("4")
-                            .exampleStr(line.substring(line.indexOf("❹") + 1)).answerYn("Y").build();
+		    Example4Gen e4 = Example4Gen.builder().exmpNbr("4")
+			    .exampleStr(line.substring(line.indexOf("❹") + 1)).answerYn("Y").build();
 
-                    lastEs.add(e3);
-                    lastEs.add(e4);
+		    lastEs.add(e3);
+		    lastEs.add(e4);
 
-                } else {
-                    Example4Gen e3 = Example4Gen.builder().exmpNbr("3")
-                            .exampleStr(line.substring(line.indexOf("③") + 1)).answerYn("N").build();
+		} else {
+		    Example4Gen e3 = Example4Gen.builder().exmpNbr("3")
+			    .exampleStr(line.substring(line.indexOf("③") + 1)).answerYn("N").build();
 
-                    lastEs.add(e3);
-                }
+		    lastEs.add(e3);
+		}
 
-            } else if (line.contains("❸")) {
-                if (line.contains("④")) {
-                    Example4Gen e3 = Example4Gen.builder().exmpNbr("3")
-                            .exampleStr(line.substring(line.indexOf("❸") + 1, line.indexOf("④"))).answerYn("Y").build();
+	    } else if (line.contains("❸")) {
+		if (line.contains("④")) {
+		    Example4Gen e3 = Example4Gen.builder().exmpNbr("3")
+			    .exampleStr(line.substring(line.indexOf("❸") + 1, line.indexOf("④"))).answerYn("Y").build();
 
-                    Example4Gen e4 = Example4Gen.builder().exmpNbr("4")
-                            .exampleStr(line.substring(line.indexOf("④") + 1)).answerYn("N").build();
+		    Example4Gen e4 = Example4Gen.builder().exmpNbr("4")
+			    .exampleStr(line.substring(line.indexOf("④") + 1)).answerYn("N").build();
 
-                    lastEs.add(e3);
-                    lastEs.add(e4);
-                } else {
-                    Example4Gen e3 = Example4Gen.builder().exmpNbr("3")
-                            .exampleStr(line.substring(line.indexOf("❸") + 1)).answerYn("Y").build();
+		    lastEs.add(e3);
+		    lastEs.add(e4);
+		} else {
+		    Example4Gen e3 = Example4Gen.builder().exmpNbr("3")
+			    .exampleStr(line.substring(line.indexOf("❸") + 1)).answerYn("Y").build();
 
-                    lastEs.add(e3);
-                }
+		    lastEs.add(e3);
+		}
 
-            } else if (line.contains("④")) {
-                Example4Gen e4 = Example4Gen.builder().exmpNbr("4").exampleStr(line.substring(line.indexOf("④") + 1))
-                        .answerYn("N").build();
+	    } else if (line.contains("④")) {
+		Example4Gen e4 = Example4Gen.builder().exmpNbr("4").exampleStr(line.substring(line.indexOf("④") + 1))
+			.answerYn("N").build();
 
-                lastEs.add(e4);
+		lastEs.add(e4);
 
-            } else if (line.contains("❹")) {
-                Example4Gen e4 = Example4Gen.builder().exmpNbr("4").exampleStr(line.substring(line.indexOf("❹") + 1))
-                        .answerYn("Y").build();
+	    } else if (line.contains("❹")) {
+		Example4Gen e4 = Example4Gen.builder().exmpNbr("4").exampleStr(line.substring(line.indexOf("❹") + 1))
+			.answerYn("Y").build();
 
-                lastEs.add(e4);
+		lastEs.add(e4);
 
-            } else {
-                Question4Gen qe = qs.get(qs.size() - 1);
-                qe.setQuestTxt(qe.getQuestTxt() + "<br><br>" + line);
-            }
+	    } else {
+		Question4Gen qe = qs.get(qs.size() - 1);
+		qe.setQuestTxt(qe.getQuestTxt() + "<br><br>" + line);
+	    }
 
-            if (lastQ != null) {
-                lastQ.setExample4Gens(lastEs);
-            }
+	    if (lastQ != null) {
+		lastQ.setExample4Gens(lastEs);
+	    }
 
-        }
+	}
 
-        return qs;
+	return qs;
     }
 
     private static List<Question4Gen> _toGTypeObject(String fileName) {
 
-        List<Question4Gen> qs = new ArrayList<>();
+	List<Question4Gen> qs = new ArrayList<>();
 
-        Pattern qNbrPattern = Pattern.compile("[0-9]+");
+	Pattern qNbrPattern = Pattern.compile("[0-9]+");
 
-        boolean isExplanation = false;
+	boolean isExplanation = false;
 
-        for (String line : _readFile(fileName).collect(Collectors.toList())) {
+	for (String line : _readFile(fileName).collect(Collectors.toList())) {
 
-            if (line.equals("break;")) {
-                break;
-            }
+	    if (line.equals("break;")) {
+		break;
+	    }
 
-            Question4Gen lastQ = null;
-            List<Example4Gen> lastEs = null;
+	    Question4Gen lastQ = null;
+	    List<Example4Gen> lastEs = null;
 
-            if (!CollectionUtils.isEmpty(qs)) {
-                lastQ = qs.get(qs.size() - 1);
-                lastEs = lastQ.getExample4Gens() == null ? new ArrayList<>() : lastQ.getExample4Gens();
-            }
+	    if (!CollectionUtils.isEmpty(qs)) {
+		lastQ = qs.get(qs.size() - 1);
+		lastEs = lastQ.getExample4Gens() == null ? new ArrayList<>() : lastQ.getExample4Gens();
+	    }
 
-            if (line.matches("^QUESTION [0-9].*")) {
-                isExplanation = false;
+	    if (line.matches("^QUESTION [0-9].*")) {
+		isExplanation = false;
 
-                Matcher qNbrMatcher = qNbrPattern.matcher(line);
+		Matcher qNbrMatcher = qNbrPattern.matcher(line);
 
-                String questNbr = qNbrMatcher.find() ? qNbrMatcher.group() : null;
+		String questNbr = qNbrMatcher.find() ? qNbrMatcher.group() : null;
 
-                System.out.println(line);
+		System.out.println(line);
 
-                String questTxt = line.substring(line.indexOf("QUESTION " + questNbr) + 9 + questNbr.length()).trim();
+		String questTxt = line.substring(line.indexOf("QUESTION " + questNbr) + 9 + questNbr.length()).trim();
 
-                Question4Gen q = Question4Gen.builder().questNbr(questNbr).questTxt(questTxt).multiAnswerYn("N")
-                        .build();
+		Question4Gen q = Question4Gen.builder().questNbr(questNbr).questTxt(questTxt).multiAnswerYn("N")
+			.build();
 
-                qs.add(q);
+		qs.add(q);
 
-            } else if (line.startsWith("A.")) {
-                System.out.println(line);
-                Example4Gen e1 = Example4Gen.builder().exmpNbr("1")
-                        .exampleStr(line.substring(line.indexOf("A.") + 2, line.indexOf("B.")).trim()).answerYn("N")
-                        .build();
-                lastEs.add(e1);
+	    } else if (line.startsWith("A.")) {
+		System.out.println(line);
+		Example4Gen e1 = Example4Gen.builder().exmpNbr("1")
+			.exampleStr(line.substring(line.indexOf("A.") + 2, line.indexOf("B.")).trim()).answerYn("N")
+			.build();
+		lastEs.add(e1);
 
-                if (!line.contains("C.")) {
-                    Example4Gen e2 = Example4Gen.builder().exmpNbr("2")
-                            .exampleStr(line.substring(line.indexOf("B.") + 2).trim()).answerYn("N").build();
-                    lastEs.add(e2);
-                    continue;
-                }
+		if (!line.contains("C.")) {
+		    Example4Gen e2 = Example4Gen.builder().exmpNbr("2")
+			    .exampleStr(line.substring(line.indexOf("B.") + 2).trim()).answerYn("N").build();
+		    lastEs.add(e2);
+		    continue;
+		}
 
-                Example4Gen e2 = Example4Gen.builder().exmpNbr("2")
-                        .exampleStr(line.substring(line.indexOf("B.") + 2, line.indexOf("C.")).trim()).answerYn("N")
-                        .build();
-                lastEs.add(e2);
+		Example4Gen e2 = Example4Gen.builder().exmpNbr("2")
+			.exampleStr(line.substring(line.indexOf("B.") + 2, line.indexOf("C.")).trim()).answerYn("N")
+			.build();
+		lastEs.add(e2);
 
-                if (!line.contains("D.")) {
-                    Example4Gen e3 = Example4Gen.builder().exmpNbr("3")
-                            .exampleStr(line.substring(line.indexOf("C.") + 2).trim()).answerYn("N").build();
-                    lastEs.add(e3);
-                    continue;
-                }
+		if (!line.contains("D.")) {
+		    Example4Gen e3 = Example4Gen.builder().exmpNbr("3")
+			    .exampleStr(line.substring(line.indexOf("C.") + 2).trim()).answerYn("N").build();
+		    lastEs.add(e3);
+		    continue;
+		}
 
-                Example4Gen e3 = Example4Gen.builder().exmpNbr("3")
-                        .exampleStr(line.substring(line.indexOf("C.") + 2, line.indexOf("D.")).trim()).answerYn("N")
-                        .build();
-                lastEs.add(e3);
+		Example4Gen e3 = Example4Gen.builder().exmpNbr("3")
+			.exampleStr(line.substring(line.indexOf("C.") + 2, line.indexOf("D.")).trim()).answerYn("N")
+			.build();
+		lastEs.add(e3);
 
-                if (line.contains("E.")) {
-                    Example4Gen e4 = Example4Gen.builder().exmpNbr("4")
-                            .exampleStr(line.substring(line.indexOf("D.") + 2, line.indexOf("E.")).trim()).answerYn("N")
-                            .build();
-                    lastEs.add(e4);
+		if (line.contains("E.")) {
+		    Example4Gen e4 = Example4Gen.builder().exmpNbr("4")
+			    .exampleStr(line.substring(line.indexOf("D.") + 2, line.indexOf("E.")).trim()).answerYn("N")
+			    .build();
+		    lastEs.add(e4);
 
-                    if (line.contains("F.")) {
-                        Example4Gen e5 = Example4Gen.builder().exmpNbr("5")
-                                .exampleStr(line.substring(line.indexOf("E.") + 2, line.indexOf("F.")).trim())
-                                .answerYn("N").build();
-                        lastEs.add(e5);
+		    if (line.contains("F.")) {
+			Example4Gen e5 = Example4Gen.builder().exmpNbr("5")
+				.exampleStr(line.substring(line.indexOf("E.") + 2, line.indexOf("F.")).trim())
+				.answerYn("N").build();
+			lastEs.add(e5);
 
-                        if (line.contains("G.")) {
-                            Example4Gen e6 = Example4Gen.builder().exmpNbr("6")
-                                    .exampleStr(line.substring(line.indexOf("F.") + 2, line.indexOf("G.")).trim())
-                                    .answerYn("N").build();
-                            lastEs.add(e6);
+			if (line.contains("G.")) {
+			    Example4Gen e6 = Example4Gen.builder().exmpNbr("6")
+				    .exampleStr(line.substring(line.indexOf("F.") + 2, line.indexOf("G.")).trim())
+				    .answerYn("N").build();
+			    lastEs.add(e6);
 
-                            if (line.contains("H.")) {
-                                Example4Gen e7 = Example4Gen.builder().exmpNbr("7")
-                                        .exampleStr(line.substring(line.indexOf("G.") + 2, line.indexOf("H.")).trim())
-                                        .answerYn("N").build();
-                                lastEs.add(e7);
+			    if (line.contains("H.")) {
+				Example4Gen e7 = Example4Gen.builder().exmpNbr("7")
+					.exampleStr(line.substring(line.indexOf("G.") + 2, line.indexOf("H.")).trim())
+					.answerYn("N").build();
+				lastEs.add(e7);
 
-                                Example4Gen e8 = Example4Gen.builder().exmpNbr("8")
-                                        .exampleStr(line.substring(line.indexOf("H.") + 2).trim()).answerYn("N")
-                                        .build();
-                                lastEs.add(e8);
-                            } else {
-                                Example4Gen e7 = Example4Gen.builder().exmpNbr("7")
-                                        .exampleStr(line.substring(line.indexOf("G.") + 2).trim()).answerYn("N")
-                                        .build();
-                                lastEs.add(e7);
-                            }
+				Example4Gen e8 = Example4Gen.builder().exmpNbr("8")
+					.exampleStr(line.substring(line.indexOf("H.") + 2).trim()).answerYn("N")
+					.build();
+				lastEs.add(e8);
+			    } else {
+				Example4Gen e7 = Example4Gen.builder().exmpNbr("7")
+					.exampleStr(line.substring(line.indexOf("G.") + 2).trim()).answerYn("N")
+					.build();
+				lastEs.add(e7);
+			    }
 
-                        } else {
-                            Example4Gen e6 = Example4Gen.builder().exmpNbr("6")
-                                    .exampleStr(line.substring(line.indexOf("F.") + 2).trim()).answerYn("N").build();
-                            lastEs.add(e6);
-                        }
+			} else {
+			    Example4Gen e6 = Example4Gen.builder().exmpNbr("6")
+				    .exampleStr(line.substring(line.indexOf("F.") + 2).trim()).answerYn("N").build();
+			    lastEs.add(e6);
+			}
 
-                    } else {
-                        Example4Gen e5 = Example4Gen.builder().exmpNbr("5")
-                                .exampleStr(line.substring(line.indexOf("E.") + 2).trim()).answerYn("N").build();
-                        lastEs.add(e5);
-                    }
+		    } else {
+			Example4Gen e5 = Example4Gen.builder().exmpNbr("5")
+				.exampleStr(line.substring(line.indexOf("E.") + 2).trim()).answerYn("N").build();
+			lastEs.add(e5);
+		    }
 
-                } else {
-                    Example4Gen e4 = Example4Gen.builder().exmpNbr("4")
-                            .exampleStr(line.substring(line.indexOf("D.") + 2).trim()).answerYn("N").build();
-                    lastEs.add(e4);
-                }
+		} else {
+		    Example4Gen e4 = Example4Gen.builder().exmpNbr("4")
+			    .exampleStr(line.substring(line.indexOf("D.") + 2).trim()).answerYn("N").build();
+		    lastEs.add(e4);
+		}
 
-            } else if (line.startsWith("Correct Answer:")) {
+	    } else if (line.startsWith("Correct Answer:")) {
 
-                Question4Gen qe = qs.get(qs.size() - 1);
+		Question4Gen qe = qs.get(qs.size() - 1);
 
-                char[] answers = line.substring(line.indexOf("Correct Answer:") + 15).trim().toCharArray();
+		char[] answers = line.substring(line.indexOf("Correct Answer:") + 15).trim().toCharArray();
 
-                for (char answer : answers) {
-                    int answerInt = 0;
-                    switch (answer) {
-                        case 'A':
-                            answerInt = 0;
-                            break;
-                        case 'B':
-                            answerInt = 1;
-                            break;
-                        case 'C':
-                            answerInt = 2;
-                            break;
-                        case 'D':
-                            answerInt = 3;
-                            break;
-                        case 'E':
-                            answerInt = 4;
-                            break;
-                        case 'F':
-                            answerInt = 5;
-                            break;
-                        case 'G':
-                            answerInt = 6;
-                            break;
-                        case 'H':
-                            answerInt = 7;
-                            break;
-                        default:
-                            break;
-                    }
+		for (char answer : answers) {
+		    int answerInt = 0;
+		    switch (answer) {
+		    case 'A':
+			answerInt = 0;
+			break;
+		    case 'B':
+			answerInt = 1;
+			break;
+		    case 'C':
+			answerInt = 2;
+			break;
+		    case 'D':
+			answerInt = 3;
+			break;
+		    case 'E':
+			answerInt = 4;
+			break;
+		    case 'F':
+			answerInt = 5;
+			break;
+		    case 'G':
+			answerInt = 6;
+			break;
+		    case 'H':
+			answerInt = 7;
+			break;
+		    default:
+			break;
+		    }
 
-                    System.out.println(qe.getExample4Gens());
-                    System.out.println(answerInt);
+		    System.out.println(qe.getExample4Gens());
+		    System.out.println(answerInt);
 
-                    qe.getExample4Gens().get(answerInt).setAnswerYn("Y");
-                }
+		    qe.getExample4Gens().get(answerInt).setAnswerYn("Y");
+		}
 
-                if (answers.length > 1) {
-                    qe.setMultiAnswerYn("Y");
-                }
+		if (answers.length > 1) {
+		    qe.setMultiAnswerYn("Y");
+		}
 
-            } else if (line.startsWith("Explanation:")) {
-                isExplanation = true;
+	    } else if (line.startsWith("Explanation:")) {
+		isExplanation = true;
 
-                String explanation = "";
-                if (line.length() > 12) {
-                    explanation = line.substring(line.indexOf("Explanation:") + 13).trim();
-                }
+		String explanation = "";
+		if (line.length() > 12) {
+		    explanation = line.substring(line.indexOf("Explanation:") + 13).trim();
+		}
 
-                Question4Gen qe = qs.get(qs.size() - 1);
-                qe.setExplanation(explanation);
+		Question4Gen qe = qs.get(qs.size() - 1);
+		qe.setExplanation(explanation);
 
-            } else if (line.startsWith("Objective:") || line.startsWith("Sub-Objective:")) {
-                continue;
-            } else if (line.startsWith("References:")) {
-                if (line.length() > 11) {
-                    String reference = line.substring(line.indexOf("References:") + 12).trim();
+	    } else if (line.startsWith("Objective:") || line.startsWith("Sub-Objective:")) {
+		continue;
+	    } else if (line.startsWith("References:")) {
+		if (line.length() > 11) {
+		    String reference = line.substring(line.indexOf("References:") + 12).trim();
 
-                    Question4Gen qe = qs.get(qs.size() - 1);
-                    qe.setReference(reference);
-                }
-            } else {
-                Question4Gen qe = null;
-                try {
-                    qe = qs.get(qs.size() - 1);
-                } catch (Exception e) {
-                    continue;
-                }
+		    Question4Gen qe = qs.get(qs.size() - 1);
+		    qe.setReference(reference);
+		}
+	    } else {
+		Question4Gen qe = null;
+		try {
+		    qe = qs.get(qs.size() - 1);
+		} catch (Exception e) {
+		    continue;
+		}
 
-                if (isExplanation) {
-                    if (qe.getExplanation() != null
-                            && qe.getExplanation().length() + line.length() + "<br>".length() > 4000) {
-                        continue;
-                    }
+		if (isExplanation) {
+		    if (qe.getExplanation() != null
+			    && qe.getExplanation().length() + line.length() + "<br>".length() > 4000) {
+			continue;
+		    }
 
-                    qe.setExplanation(qe.getExplanation() + "<br>" + line);
-                } else {
-                    qe.setQuestTxt(qe.getQuestTxt() + "<br>" + line);
-                }
+		    qe.setExplanation(qe.getExplanation() + "<br>" + line);
+		} else {
+		    qe.setQuestTxt(qe.getQuestTxt() + "<br>" + line);
+		}
 
-            }
+	    }
 
-            if (lastQ != null) {
-                lastQ.setExample4Gens(lastEs);
-            }
+	    if (lastQ != null) {
+		lastQ.setExample4Gens(lastEs);
+	    }
 
-        }
+	}
 
-        return qs;
+	return qs;
     }
 
     private static Stream<String> _readFile(String fileName) {
-        Stream<String> stream = null;
+	Stream<String> stream = null;
 
-        try {
-            stream = Files.lines(Paths.get(fileName));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+	try {
+	    stream = Files.lines(Paths.get(fileName));
+	} catch (IOException e) {
+	    e.printStackTrace();
+	}
 
-        return stream;
+	return stream;
     }
 }
