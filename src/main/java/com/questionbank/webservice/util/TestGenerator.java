@@ -120,7 +120,7 @@ public class TestGenerator {
 
 	System.out.println("### In fileName: " + fileName);
 
-	String actualFileName = fileName.substring(fileName.lastIndexOf('\\') + 1, fileName.indexOf('@'));
+	String actualFileName = fileName.substring(fileName.lastIndexOf('/') + 1, fileName.indexOf('@'));
 
 	System.out.println("### actualFileName: " + actualFileName);
 
@@ -139,7 +139,7 @@ public class TestGenerator {
     }
 
     private Long _addTest(String fileName) {
-	String testNm = fileName.substring(fileName.lastIndexOf('\\') + 1, fileName.indexOf('@'));
+	String testNm = fileName.substring(fileName.lastIndexOf('/') + 1, fileName.indexOf('@'));
 	String url = fileName.substring(fileName.indexOf('@') + 1, fileName.lastIndexOf('@'));
 
 	testRepository.save(Test.builder().testNm(testNm).url(url).build());
