@@ -1,5 +1,6 @@
 package com.questionbank.webservice.util;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -76,6 +77,8 @@ public class TestGenerator {
 		    _addQuestion(testId, verNbr, qObj);
 
 		}
+
+		new File(FILE_PATH + "/" + fileName).delete();
 	    }
 
 	    System.err.println("### 끝 ###");
