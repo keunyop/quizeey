@@ -200,12 +200,14 @@ public class WebController {
 	    TESTMAP.put("/craftsman-computer-aided-lath", new String[] { "226" });
 	    TESTMAP.put("/craftsman-plant-maintenance", new String[] { "227" });
 	    TESTMAP.put("/craftsman-surveying", new String[] { "228" });
+	    TESTMAP.put("/engineer-in-nature-environment-and-ecological-restoration", new String[] { "229" });
 	}
     }
 
-    @GetMapping(value = { "/craftsman-surveying", "/engineer-information-processing",
-	    "/kr/engineer-information-processing", "/craftsman-computer-graphics-operation", "/engineer-electricity",
-	    "/nail-technician", "/industrial-engineer-industrial-safety", "/sqlp-professional", "/kr/sqlp-professional",
+    @GetMapping(value = { "/engineer-in-nature-environment-and-ecological-restoration", "/craftsman-surveying",
+	    "/engineer-information-processing", "/kr/engineer-information-processing",
+	    "/craftsman-computer-graphics-operation", "/engineer-electricity", "/nail-technician",
+	    "/industrial-engineer-industrial-safety", "/sqlp-professional", "/kr/sqlp-professional",
 	    "craftsman-web-design", "/computer-specialist-in-spreadsheet-and-database-level-2",
 	    "/en/aws-certified-developer-associate", "/sqlp-developer", "/kr/sqlp-developer",
 	    "/engineer-transportation", "/engineer-architecture", "/engineer-broadcasting-communication",
