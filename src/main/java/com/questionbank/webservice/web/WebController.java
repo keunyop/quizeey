@@ -203,10 +203,12 @@ public class WebController {
 			TESTMAP.put("/engineer-in-nature-environment-and-ecological-restoration", new String[] { "229" });
 			TESTMAP.put("/industrial-engineer-industrial-hygiene-management", new String[] { "230" });
 			TESTMAP.put("/engineer-metal", new String[] { "231" });
+			TESTMAP.put("/level9-national-officials-english", new String[] { "232" });
 		}
 	}
 
-	@GetMapping(value = { "/engineer-metal", "/industrial-engineer-industrial-hygiene-management",
+	@GetMapping(value = { "/level9-national-officials-english", "/engineer-metal",
+			"/industrial-engineer-industrial-hygiene-management",
 			"/engineer-in-nature-environment-and-ecological-restoration", "/craftsman-surveying",
 			"/engineer-information-processing", "/kr/engineer-information-processing",
 			"/craftsman-computer-graphics-operation", "/engineer-electricity", "/nail-technician",
