@@ -1,0 +1,17 @@
+{
+  "recordedAt": "2026-10-16",
+  "sourceImages": 1,
+  "uniqueSources": 1,
+  "counts": {
+    "relative": 0,
+    "https": 0,
+    "http": 0,
+    "other": 1,
+    "localPresent": 0,
+    "localMissing": 0
+  },
+  "sourceReferenceSetSha256": "055539df4a0b804c58caf46c0cd2941af10d64c1395ddd8e50b5f55d945841e6",
+  "sourcePrinted": false,
+  "networkRequests": 0,
+  "uploaded": false
+}

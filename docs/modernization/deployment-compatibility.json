@@ -1,0 +1,31 @@
+{
+  "sourceReviewedCommit": "33e8fb73294d1ab66d87cb424d500b63a7320736",
+  "serverCheckoutCommit": "7e6424c4239a3c8f81ff982aea02d3d7938877e6",
+  "runningJarSha256": "27f09b12f3531519062235d23c51c854bd7c9b296b2d61b3abbef518b610e880",
+  "jarMatchesOpenProcessFile": true,
+  "sourceTrees": {
+    "src/main/java": {
+      "reviewed": "063acc57e4cdf71d998a2ca6d191917698e24972",
+      "serverCheckout": "063acc57e4cdf71d998a2ca6d191917698e24972"
+    },
+    "src/main/resources/templates": {
+      "reviewed": "c283a072fa6f00dbf59f39459be957bc07f1c5f5",
+      "serverCheckout": "c283a072fa6f00dbf59f39459be957bc07f1c5f5"
+    }
+  },
+  "templates": {
+    "matched": 218,
+    "mismatched": [],
+    "missingLocally": [],
+    "lineEndingNormalization": "CRLF to LF only"
+  },
+  "controllerClasses": {
+    "matched": [
+      "com/questionbank/webservice/web/WebController.class",
+      "com/questionbank/webservice/web/WebRestController.class"
+    ],
+    "mismatched": [],
+    "missingLocally": []
+  },
+  "scope": "Resource and class hash comparison, not a claim that the original JAR build provenance attests a Git commit"
+}

@@ -1,0 +1,64 @@
+name: Modernization checks
+on:
+  pull_request:
+    paths: ['web/**', 'tools/**', 'supabase/**', 'docs/modernization/**', '.github/workflows/modernization.yml']
+  push:
+    branches: ['modernization/**']
+permissions:
+  contents: read
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    services:
+      fixture-postgres:
+        image: postgres:18
+        env:
+          POSTGRES_USER: quizeey_fixture
+          POSTGRES_DB: quizeey_fixture
+          POSTGRES_HOST_AUTH_METHOD: trust
+        ports: ['55432:5432']
+        options: >-
+          --health-cmd "pg_isready -U quizeey_fixture -d quizeey_fixture"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    defaults:
+      run:
+        working-directory: web
+    env:
+      QUIZEEY_ENV: local
+      QUIZEEY_CONTENT_SOURCE: fixture
+      QUIZEEY_LOCAL_FORUM_DATABASE_URL: postgresql://quizeey_server@127.0.0.1:55432/quizeey_fixture
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - run: npm ci
+      - name: Initialize isolated forum fixture
+        working-directory: .
+        run: |
+          psql -X -h 127.0.0.1 -p 55432 -U quizeey_fixture -d quizeey_fixture -v ON_ERROR_STOP=1 -c 'CREATE ROLE anon; CREATE ROLE authenticated; CREATE ROLE service_role BYPASSRLS; CREATE ROLE quizeey_server LOGIN; GRANT service_role,anon TO quizeey_server;'
+          for migration in supabase/migrations/*.sql; do
+            psql -X -h 127.0.0.1 -p 55432 -U quizeey_fixture -d quizeey_fixture -v ON_ERROR_STOP=1 -f "$migration"
+          done
+          psql -X -h 127.0.0.1 -p 55432 -U quizeey_fixture -d quizeey_fixture -v ON_ERROR_STOP=1 -f supabase/tests/forum_security.sql
+          psql -X -h 127.0.0.1 -p 55432 -U quizeey_fixture -d quizeey_fixture -v ON_ERROR_STOP=1 -f supabase/tests/admin_security.sql
+      - run: npm run check
+      - run: npx playwright install --with-deps chromium
+      - name: Browser journeys with local Auth HTTP double
+        env:
+          QUIZEEY_AUTH_FIXTURE_URL: http://127.0.0.1:55433
+        run: |
+          node ../tools/modernization/auth_fixture.mjs > "$RUNNER_TEMP/quizeey-auth-fixture.log" 2>&1 &
+          auth_pid=$!
+          trap 'kill "$auth_pid" 2>/dev/null || true' EXIT
+          for attempt in $(seq 1 50); do
+            if curl --fail --silent http://127.0.0.1:55433/_fixture > /dev/null; then break; fi
+            sleep 0.1
+          done
+          npm run test:e2e
+      - run: python -m unittest discover -s ../tools/migration -p 'test_*.py'

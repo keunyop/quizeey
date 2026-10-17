@@ -1,0 +1,13 @@
+{
+  "status": "unavailable",
+  "readOnly": true,
+  "scope": "Read-only legacy schema metadata; no source row data exported",
+  "phase": "connection",
+  "sqlState": "HY000",
+  "vendorCode": 1130,
+  "checkedAt": "2026-10-16T17:55:32.120742+00:00",
+  "driverVersion": "3.5.10",
+  "driverSha256": "919b8c1c771d9ee3465811462f242c9543ab401e140c64988ddbf1d8abcb18b2",
+  "credentialOutput": false,
+  "rowDataExported": false
+}

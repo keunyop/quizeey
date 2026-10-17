@@ -1,0 +1,166 @@
+{
+  "scope": "Bounded counts/flag distributions/duplicate and correctness aggregates only; no original row content or author names",
+  "status": "verified_live_aggregates",
+  "instanceId": "i-046087bdb8dff10f7",
+  "checkedAt": "2026-10-16T19:06:15.245598+00:00",
+  "credentialsPrinted": false,
+  "mutations": 0,
+  "configurationDocuments": [
+    {
+      "datasourceFields": [],
+      "hasPlaceholder": false,
+      "profile": "base"
+    },
+    {
+      "datasourceFields": [
+        "driver-class-name",
+        "password",
+        "url",
+        "username"
+      ],
+      "hasPlaceholder": false,
+      "profile": "local"
+    },
+    {
+      "datasourceFields": [
+        "driver-class-name",
+        "password",
+        "url",
+        "username"
+      ],
+      "hasPlaceholder": false,
+      "profile": "prod"
+    }
+  ],
+  "selectedDatasourceFields": [
+    "driver-class-name",
+    "password",
+    "url",
+    "username"
+  ],
+  "snapshotContext": [
+    {
+      "observed_utc": "2026-10-16 19:06:11.541773",
+      "session_read_only": "1"
+    }
+  ],
+  "aggregates": {
+    "author_bounds": [
+      {
+        "anonymous_rows": "918",
+        "max_display_name_length": "73"
+      }
+    ],
+    "catalog": [
+      {
+        "distinct_urls": "181",
+        "english_catalog_rows": "3",
+        "korean_catalog_rows": "181"
+      }
+    ],
+    "choice_flags": [
+      {
+        "flag": "N",
+        "rows": "82176"
+      },
+      {
+        "flag": "Y",
+        "rows": "28211"
+      }
+    ],
+    "content_shapes": [
+      {
+        "longest_explanation": "3980",
+        "with_code": "13",
+        "with_images": "0",
+        "with_tables": "15"
+      }
+    ],
+    "counters": [
+      {
+        "correct_total": "5986271",
+        "incorrect_total": "2337709",
+        "invalid_negative_rows": "0"
+      }
+    ],
+    "example_composite_duplicates": [
+      {
+        "duplicate_groups": "77",
+        "extra_rows": "81"
+      }
+    ],
+    "example_counts": [
+      {
+        "max_id": "124558",
+        "min_id": "1",
+        "rows": "110387"
+      }
+    ],
+    "explanation_counts": [
+      {
+        "max_id": "2209",
+        "min_id": "1",
+        "rows": "2209"
+      }
+    ],
+    "question_choice_relations": [
+      {
+        "ambiguous_question_groups": "41",
+        "invalid_correct_sets": "656",
+        "orphan_choice_groups": "610",
+        "questions_without_choices": "615"
+      }
+    ],
+    "question_composite_duplicates": [
+      {
+        "duplicate_groups": "41",
+        "extra_rows": "44"
+      }
+    ],
+    "question_counts": [
+      {
+        "max_id": "30945",
+        "min_id": "1",
+        "rows": "27484"
+      }
+    ],
+    "question_flags": [
+      {
+        "flag": "N",
+        "rows": "26815"
+      },
+      {
+        "flag": "Y",
+        "rows": "669"
+      }
+    ],
+    "question_stats_counts": [
+      {
+        "max_id": "30945",
+        "min_id": "1",
+        "rows": "26614"
+      }
+    ],
+    "test_counts": [
+      {
+        "max_id": "233",
+        "min_id": "1",
+        "rows": "181"
+      }
+    ],
+    "version_composite_duplicates": [
+      {
+        "duplicate_groups": "0",
+        "extra_rows": "0"
+      }
+    ],
+    "version_counts": [
+      {
+        "max_id": "409",
+        "min_id": "1",
+        "rows": "330"
+      }
+    ]
+  },
+  "privateMetadataSha256": "ab26cb5df53e2e8f88d8bf1156733118a558682e1a5c8378a293a3bcec83b292"
+}

@@ -1,0 +1,49 @@
+{
+  "status": "private_native_explanation_rehearsal_pass",
+  "newServiceDatasetSha256": "88ed4da320cf3bbd40d65f1aa6de7ba6b81a09f5aa6bbcef1e3860ca58ccb42f",
+  "tables": {
+    "topics": {
+      "rows": 630,
+      "utcSemanticSha256": "1453b7aca284ed8ea6989cb306780f84df6d70647a963275bc8da8299577ea7d"
+    },
+    "posts": {
+      "rows": 2183,
+      "utcSemanticSha256": "154d84e4e25e25f4d8c9e7b78cb8c3322193441196408ed30e76d04e22c81ef6"
+    }
+  },
+  "stages": [
+    {
+      "stage": "import_1",
+      "allValuesAndSourceIdsMatch": true
+    },
+    {
+      "stage": "import_2",
+      "allValuesAndSourceIdsMatch": true
+    },
+    {
+      "stage": "backup_restore",
+      "allValuesAndSourceIdsMatch": true,
+      "pendingPostsStillPrivate": true
+    }
+  ],
+  "originalSourceExplanations": 2209,
+  "excludedWithOwnerDeletedQuestions": 26,
+  "retainedNativePosts": 2183,
+  "sourceIdsNamespacedAndDeterministic": true,
+  "sourceTextAndDisplayNamesPreservedExactly": true,
+  "nullableCreatedAtFallbackCount": 0,
+  "allPostsPending": true,
+  "publicVisiblePosts": 0,
+  "newGuestOwnerships": 0,
+  "newAuthAccounts": 0,
+  "unauthorizedGuestEdit403": true,
+  "replayPreservesLaterModeration": true,
+  "legacyQuestionDiscussionSharedAcrossLocales": true,
+  "actualAppQueryTestedUnderRls": true,
+  "sourceMySQLMutations": 0,
+  "externalUploads": 0,
+  "hostedImportExecuted": false,
+  "privatePath": ".modernization/exports/source-265c3ca16e/content-postgres-ffd6c54eff",
+  "localServerStopped": true,
+  "elapsedSeconds": 39.992
+}

@@ -1,0 +1,21 @@
+{
+  "recordedAt": "2026-10-16",
+  "typecheckLintBuildPassed": true,
+  "vitestPassed": 49,
+  "pythonTestsPassed": 26,
+  "playwrightPassed": 11,
+  "playwrightSkipped": 0,
+  "actualSourceBrowserFlowPassed": true,
+  "nativeExplanationReplayRestorePassed": true,
+  "listeningOnOwnedTestPortsAfterCleanup": {
+    "3100": false,
+    "3101": false,
+    "3102": false,
+    "55432": false,
+    "55433": false,
+    "55434": false,
+    "55435": false
+  },
+  "productionMutations": 0,
+  "externalSourceUploads": 0
+}

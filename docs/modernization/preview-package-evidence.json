@@ -1,0 +1,307 @@
+{
+  "recordedAt": "2026-10-16",
+  "status": "prepared-not-uploaded",
+  "teamId": "team_VSzA796D92aso5IuzUIiOdnb",
+  "projectId": "prj_0SVBqfgurtvZErmpMJl01BJkUKOd",
+  "target": "preview",
+  "rootDirectory": "web",
+  "contentSource": "supabase",
+  "fileCount": 57,
+  "totalBytes": 604313,
+  "payloadSha256": "5a6a3835c9fbc7a048560762e7b00a9c97929827a7b8970e1f8523de9706c788",
+  "privateExportsIncluded": false,
+  "environmentFilesIncluded": false,
+  "gitConnectionRequested": false,
+  "sampleQuestionsInSource": 4,
+  "fixtureServingEnabled": false,
+  "actualArchiveFilesIncluded": false,
+  "forumAndAdminEnabled": false,
+  "adsAndAnalyticsEnabled": false,
+  "files": [
+    {
+      "file": "web/fixtures/legacy-contract.json",
+      "bytes": 285911,
+      "sha256": "0c5f8bb5a1bdb10b09437e9e72ac5fd34effb965ebdb19e6a177f82d0afbe2bd"
+    },
+    {
+      "file": "web/fixtures/legacy-pages.json",
+      "bytes": 24261,
+      "sha256": "9de82077a4c9f3a470e85e59ab658509a2f6fb7f60726b64e60b6b8352c4772c"
+    },
+    {
+      "file": "web/next-env.d.ts",
+      "bytes": 288,
+      "sha256": "1862ac4bbbc5192d4bf562161df66ea547ed3e67173100656ab606ae9797db2b"
+    },
+    {
+      "file": "web/next.config.ts",
+      "bytes": 734,
+      "sha256": "01b4368b7eb06a5c67f632082cbfa848f59836c5d675c26c8fd046f03cafea12"
+    },
+    {
+      "file": "web/package-lock.json",
+      "bytes": 176734,
+      "sha256": "21064b5ee9761ade2f983fa911400344f4525bb7a543dbc60a0d6e3b581850dc"
+    },
+    {
+      "file": "web/package.json",
+      "bytes": 1205,
+      "sha256": "f8bedc82dd5412d48e4ba232ea476add9564e5e864b0f1fccba77e27e6d25e31"
+    },
+    {
+      "file": "web/postcss.config.mjs",
+      "bytes": 60,
+      "sha256": "a1a188221f064d964dd9958c3d48b0c23252fabbeb6099d95ee8e15c764718b0"
+    },
+    {
+      "file": "web/public/ads.txt",
+      "bytes": 58,
+      "sha256": "2a9d340e02407fc22b5cb36e211ea82cd2299067194119cc6bd6e65274404b8f"
+    },
+    {
+      "file": "web/public/fixtures/relation.svg",
+      "bytes": 480,
+      "sha256": "bd5b3da1d714a57e4113e981f8880e836a2f222df50bc8917f3e3c34d9e1a23c"
+    },
+    {
+      "file": "web/public/img/awsCertifiedDeveloper-associate_badge.png",
+      "bytes": 6470,
+      "sha256": "dadf7045f3bef1358e205641356e7470c1ac6a0e9710f6fa1b536f5197fabb41"
+    },
+    {
+      "file": "web/public/naver90f2a35cffe6ae01fc8515f4efe88a59.html",
+      "bytes": 67,
+      "sha256": "b2be0b5c18abbf99115774cef836ad70bdda2f27f0725ff97b72a4b7794134fe"
+    },
+    {
+      "file": "web/src/app/(en)/en/[[...path]]/page.tsx",
+      "bytes": 647,
+      "sha256": "342099d812234ede44adc9615deb105aa5212c1334aced823249d01bbecf8261"
+    },
+    {
+      "file": "web/src/app/(en)/en/admin/page.tsx",
+      "bytes": 247,
+      "sha256": "d7efa5aacb0dc7df342b97933104eb1ffa9466249e1bcf656b456ee2218dd36d"
+    },
+    {
+      "file": "web/src/app/(en)/en/layout.tsx",
+      "bytes": 165,
+      "sha256": "82f30b996cb6d309374247b5cfb3ebc6a055f6691cf058fd9014f9174966d54c"
+    },
+    {
+      "file": "web/src/app/(ko)/[[...path]]/page.tsx",
+      "bytes": 577,
+      "sha256": "7bff7165f8be2fced60e96bfef9822b20022c4ce4d62875e24bf303e0490fa18"
+    },
+    {
+      "file": "web/src/app/(ko)/admin/page.tsx",
+      "bytes": 251,
+      "sha256": "ac7e975af3092866d1d71c0876459dcdbc65a4c79136345f3a13b216b5b6d04b"
+    },
+    {
+      "file": "web/src/app/(ko)/layout.tsx",
+      "bytes": 162,
+      "sha256": "f83dd085b5889ce0fbb9ab99a8871148f74353ce41ca0ef7aa059c8e9a1f8da5"
+    },
+    {
+      "file": "web/src/app/api/admin/login/route.ts",
+      "bytes": 149,
+      "sha256": "5d4b9c6f1513d2aa1fd7befad76a6c8495588f78b211ed387c49ffe40b8759d1"
+    },
+    {
+      "file": "web/src/app/api/admin/logout/route.ts",
+      "bytes": 151,
+      "sha256": "a9fb6c60519102bce6bfb14f53da1b4e988c348b6870490ff838300861a2cef9"
+    },
+    {
+      "file": "web/src/app/api/admin/moderate/route.ts",
+      "bytes": 155,
+      "sha256": "bdcc4d293e732e4fb9dca2d0d817a32fe7a1fa587bbbe49cbff127787be8a4b8"
+    },
+    {
+      "file": "web/src/app/api/admin/queue/route.ts",
+      "bytes": 148,
+      "sha256": "f757827158e935859ad5cbd16dadc888b89d8ff8fd4732863517248bc88ffd8b"
+    },
+    {
+      "file": "web/src/app/api/admin/session/route.ts",
+      "bytes": 152,
+      "sha256": "351a88e0e8aa6d1be5c4606c927e374c7267e95c74dab9fb2770227c38fc26f9"
+    },
+    {
+      "file": "web/src/app/api/forum/mine/route.ts",
+      "bytes": 187,
+      "sha256": "81dfb1f85658a9becde1c99f702a4f2b1a067588d3aa10ced6a730bcd8326c5e"
+    },
+    {
+      "file": "web/src/app/api/forum/route.ts",
+      "bytes": 223,
+      "sha256": "79141eab1aa008e9972d3dd4e5e78e8e6cc62ce103bc6873e071882551025d00"
+    },
+    {
+      "file": "web/src/app/explanations/route.ts",
+      "bytes": 130,
+      "sha256": "95340a137bb37f1527fdc000c2114e9abdab8ad342f0386f10be0a7485f1b8d5"
+    },
+    {
+      "file": "web/src/app/globals.css",
+      "bytes": 5823,
+      "sha256": "10e75c16577944cb85ccce6f2639f6b76610ba601df0855478d621c4195319ad"
+    },
+    {
+      "file": "web/src/app/question/route.ts",
+      "bytes": 126,
+      "sha256": "2d35d0d6ce836c50a2c0d54ae8e45b430d4bb2031829ff98f788fde7a1460d10"
+    },
+    {
+      "file": "web/src/app/questionStats/route.ts",
+      "bytes": 131,
+      "sha256": "17f7084ce600358f7e1a7a987c01f5264ea6ff1e164b6659fdce7fee0469646b"
+    },
+    {
+      "file": "web/src/app/tests/route.ts",
+      "bytes": 123,
+      "sha256": "56c1e6d13c7479b02bae59ccd798a2217fc176d5fbf58f14542699aaf75b5c6d"
+    },
+    {
+      "file": "web/src/app/versions/route.ts",
+      "bytes": 126,
+      "sha256": "240e60bc8c88c1a3e7c16827ed821555958c870425c5ebb772d6cfd0e5dec7e4"
+    },
+    {
+      "file": "web/src/components/AdminConsole.tsx",
+      "bytes": 6600,
+      "sha256": "b116fcc9b7ee003426172828c4a490ab1caaff52436562bf16c923edad1d0854"
+    },
+    {
+      "file": "web/src/components/ExamSearch.tsx",
+      "bytes": 1432,
+      "sha256": "1d7afaa24ad434dd40568054a6bc976e9340f56b5a6993e684758782a1b3b1d6"
+    },
+    {
+      "file": "web/src/components/Forum.tsx",
+      "bytes": 7200,
+      "sha256": "a527fe0c7738f266e58e9f08d90dfb9ec34f0a0b89157b76a3ee1138f99a582c"
+    },
+    {
+      "file": "web/src/components/Practice.tsx",
+      "bytes": 7670,
+      "sha256": "5170b4eac4593e06ee7917d4f87b79f902e5e404582aee3d2a6ef11f9e3dbb3b"
+    },
+    {
+      "file": "web/src/components/RouteView.tsx",
+      "bytes": 6163,
+      "sha256": "ed5bcccce6b5a58a6a67b769960f817c3ac36b7257bbe64d84bc91fc3102f91d"
+    },
+    {
+      "file": "web/src/lib/admin-messages.ts",
+      "bytes": 1738,
+      "sha256": "841219c695f7dc57cd439fbefe6111b7abb0be696d8d7b4ebc0eea9659c9fda0"
+    },
+    {
+      "file": "web/src/lib/content.ts",
+      "bytes": 3694,
+      "sha256": "0db7f4f955ee32a069bfaa72c6ae6bc8c713178332b8c3fb43b7675838ee20e1"
+    },
+    {
+      "file": "web/src/lib/contracts.ts",
+      "bytes": 1567,
+      "sha256": "faf6687f9c9aebd382485ebb50977fed1b09f9068bf243e7c4af390ab3063375"
+    },
+    {
+      "file": "web/src/lib/environment.ts",
+      "bytes": 3013,
+      "sha256": "fba0127329ca72c6b57f2fb533527cf0e3fb9f5a248ab2e93279bf37d6b4f65f"
+    },
+    {
+      "file": "web/src/lib/fixtures.ts",
+      "bytes": 2857,
+      "sha256": "165434dffc35879829e04d934d9e6e803da495900deca34f4234cbeae1eda041"
+    },
+    {
+      "file": "web/src/lib/i18n.ts",
+      "bytes": 1972,
+      "sha256": "e990373443b500faeb37e6cc92fde71a84738d308844bbe44355ceac9cb8e12e"
+    },
+    {
+      "file": "web/src/lib/integrations.ts",
+      "bytes": 2538,
+      "sha256": "042ce05e8540c6e4e4cf8dbbf2cf7e34002ff6d5186f213381ea74c1a5baa37b"
+    },
+    {
+      "file": "web/src/lib/progress.ts",
+      "bytes": 1885,
+      "sha256": "9348b97b7b2696640443a14b77cd5c785a966a622ff3d34141424e4110baf48b"
+    },
+    {
+      "file": "web/src/lib/quiz.ts",
+      "bytes": 1252,
+      "sha256": "b54db22bd85a8fe98ede299287584ba6e6927953c861615a591176c83a7e721d"
+    },
+    {
+      "file": "web/src/proxy.ts",
+      "bytes": 1451,
+      "sha256": "0a608bb65202c84e28bcc4c909342e49528d83f1f52b0984fa30cb73b926924d"
+    },
+    {
+      "file": "web/src/server/admin-auth.ts",
+      "bytes": 3993,
+      "sha256": "94a8e33897ad7147fe9e2b428d429a29fcfdc012cbe98ad3bd248030cde4d79e"
+    },
+    {
+      "file": "web/src/server/admin-database.ts",
+      "bytes": 1656,
+      "sha256": "f4e213e6ffcd63a69557f8ff1d0f77dede02be1cf246abb7b6df0d4ac56c432b"
+    },
+    {
+      "file": "web/src/server/admin-http.ts",
+      "bytes": 5252,
+      "sha256": "e5274d38e90ef0493f58216ec311b6087c5e8e002274cde6f2e545975e9cfae2"
+    },
+    {
+      "file": "web/src/server/admin-session.ts",
+      "bytes": 934,
+      "sha256": "311def6c0d200c4d561d3b0ac3195320bfbf54064382c83eeb9115fd5a53c51f"
+    },
+    {
+      "file": "web/src/server/forum-database.ts",
+      "bytes": 3323,
+      "sha256": "f4bc74bd8e9e42fd62bf7017538936101250e83cb8ab11a9b9882b11a1c25031"
+    },
+    {
+      "file": "web/src/server/forum-http.ts",
+      "bytes": 4574,
+      "sha256": "f5c1c1de8eb2c8034fb24f40d9c9c1b61580fda385e01ebab3f0f5c525af4703"
+    },
+    {
+      "file": "web/src/server/guest-policy.ts",
+      "bytes": 2996,
+      "sha256": "2612b9faaeebcaaa48eef1ed9ed4160b5df77db96754b9b328c1dc7f32ead207"
+    },
+    {
+      "file": "web/src/server/legacy-read.ts",
+      "bytes": 5040,
+      "sha256": "ec0396957faaeddd30b721ec40af6b8591ee2adca4686feb5e576fa4aaa7b77a"
+    },
+    {
+      "file": "web/src/server/study-loader.ts",
+      "bytes": 2372,
+      "sha256": "acf67e067d9b09680ffc45b5cb8fe817bf6437941a605df466cabc84609d3cf4"
+    },
+    {
+      "file": "web/src/server/study-store.ts",
+      "bytes": 10551,
+      "sha256": "0d7b6bb6018b632e9d3e01236fbd46a07c7e931f7ec1a1406279f3f84016d97e"
+    },
+    {
+      "file": "web/src/server/supabase-transport.ts",
+      "bytes": 6094,
+      "sha256": "c78fbc71f2ef1cd84435b98335d1ae0e388b796a48282cc5c9d2caf9c0607a6b"
+    },
+    {
+      "file": "web/tsconfig.json",
+      "bytes": 555,
+      "sha256": "dd7d7f17fbfc9e21bfa829f48681877abecc7cc24a17a07f54c0c0118cd6f368"
+    }
+  ]
+}

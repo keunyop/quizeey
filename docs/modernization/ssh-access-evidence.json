@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-10-16T18:43:32.145450+00:00",
+  "ownerInstanceId": "i-046087bdb8dff10f7",
+  "host": "ec2-52-35-43-187.us-west-2.compute.amazonaws.com",
+  "instanceIdentityVerified": false,
+  "scope": "TCP and protocol greeting only; no authentication or query",
+  "ports": {
+    "22": {
+      "tcp": "timed_out"
+    },
+    "3306": {
+      "tcp": "reachable",
+      "greeting": "error",
+      "errorCode": 1130
+    }
+  },
+  "authenticationAttempts": 0,
+  "databaseQueries": 0,
+  "serverChanges": 0,
+  "keyCopiedOrPrinted": false
+}

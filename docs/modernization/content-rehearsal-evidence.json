@@ -1,0 +1,59 @@
+{
+  "status": "approved_filtered_content_rehearsal_pass",
+  "sourceSnapshotSha256": "d2048f0f0ac7f22a29820e8bbb6d6ac770bb6f04ca65072467ba62f1531f3405",
+  "newServiceDatasetSha256": "88ed4da320cf3bbd40d65f1aa6de7ba6b81a09f5aa6bbcef1e3860ca58ccb42f",
+  "deletedFromNewServiceQuestions": 751,
+  "sourceMySQLMutations": 0,
+  "originalBackupsRetained": true,
+  "tables": {
+    "exams": {
+      "rows": 181,
+      "utcSemanticSha256": "e39a990e54fa8ba596bdec15e1f04c59c09374dcbd30f8a2b718698b9e29b435"
+    },
+    "versions": {
+      "rows": 330,
+      "utcSemanticSha256": "c1b74fb1318443069f0166db89525764296580f4df2d3796aa123c0537df00bc"
+    },
+    "questions": {
+      "rows": 26733,
+      "utcSemanticSha256": "e9e2c693e050621332efd453fb0f0d48a84ea5a14cca4720e4315f30d5ba28fe"
+    },
+    "choices": {
+      "rows": 107516,
+      "utcSemanticSha256": "5e50fce1e2d2696280ded38b0682c5580296c559b3411608e78bb146c1120af5"
+    },
+    "legacy_counters": {
+      "rows": 25870,
+      "utcSemanticSha256": "4eb25f103978f1f6c002844cdf5c003b83e3f05ab5ddaaab8dba25e397ec384d"
+    }
+  },
+  "stages": [
+    {
+      "stage": "import_1",
+      "allValuesAndIdsMatch": true,
+      "correctChoiceSetsMatch": true,
+      "fkAndUniqueConstraintsEnforced": true
+    },
+    {
+      "stage": "import_2",
+      "allValuesAndIdsMatch": true,
+      "correctChoiceSetsMatch": true,
+      "fkAndUniqueConstraintsEnforced": true
+    },
+    {
+      "stage": "backup_restore",
+      "allValuesAndIdsMatch": true,
+      "fkAndUniqueConstraintsEnforced": true
+    }
+  ],
+  "foreignKeyViolationRejected": true,
+  "duplicateChoiceNumberRejected": true,
+  "identitySequencesAboveSourceIds": true,
+  "publicAndServiceRolesDenied": true,
+  "userExplanationsPreservedForPendingNativeImport": 2183,
+  "publicServingEnabled": false,
+  "externalUploads": 0,
+  "privatePath": ".modernization/exports/source-265c3ca16e/content-postgres-570d71c8fd",
+  "localServerStopped": true,
+  "elapsedSeconds": 138.626
+}

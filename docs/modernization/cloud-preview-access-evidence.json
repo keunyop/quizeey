@@ -1,0 +1,33 @@
+{
+  "recordedAt": "2026-10-17",
+  "ownerApproved": true,
+  "approvalScope": "One-hour temporary Vercel access for protected preview verification; application Basic required; revoke after verification",
+  "originalApprovedExpires": 1792227666,
+  "access": [
+    {
+      "deploymentId": "dpl_D576fzEfZJZDkXYEekr53Us4YAXg",
+      "createdAt": 1792224066877,
+      "expires": 1792227666,
+      "revoked": true,
+      "freshRequestStatus": 302
+    },
+    {
+      "deploymentId": "dpl_ANXS2HUdcsoZeV6z7gPPjPZeJGWX",
+      "createdAt": 1792224360798,
+      "expires": 1792227641,
+      "revoked": true,
+      "freshRequestStatus": 302
+    }
+  ],
+  "replacementReason": "Mobile version select width correction; original access revoked before replacement; expiry not extended",
+  "plainDeploymentAfterRevocation": {
+    "status": 302,
+    "redirectHost": "vercel.com"
+  },
+  "secretValuesIncluded": false,
+  "temporaryUrlsIncluded": false,
+  "appBasicMaintained": true,
+  "projectSsoMaintained": true,
+  "temporaryUrlRemovedFromPrivateAccessFile": true,
+  "authenticatedFlowEvidence": "cloud-preview-flow-evidence.json"
+}

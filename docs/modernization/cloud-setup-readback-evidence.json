@@ -1,0 +1,33 @@
+{
+  "recordedAt": "2026-10-17",
+  "mode": "read-only",
+  "supabase": {
+    "projectId": "tfkhnrbshvyfmrzxqfmq",
+    "source": "GET /auth/v1/settings with active publishable key",
+    "disable_signup": true,
+    "email": true,
+    "anonymous_users": false,
+    "changedBy": "owner in dashboard; completion reported in conversation"
+  },
+  "vercel": {
+    "teamId": "team_VSzA796D92aso5IuzUIiOdnb",
+    "projectId": "prj_0SVBqfgurtvZErmpMJl01BJkUKOd",
+    "source": "filter_project_envs with decrypt=false; values omitted",
+    "key": "QUIZEEY_SUPABASE_SECRET_KEY",
+    "typeReturnedByApi": "sensitive",
+    "dashboardType": "Secret",
+    "target": [
+      "preview"
+    ],
+    "secretValueReadOrPrinted": false,
+    "credentialValidityVerified": true
+  },
+  "actualContentUploadApproved": true,
+  "actualContentUploaded": true,
+  "previewDeployed": true,
+  "protectedPreviewDeploymentApproved": true,
+  "approvalSource": "Explicit owner approval in conversation on 2026-10-17; preview-content-upload-request.md scope",
+  "previewReady": true,
+  "authenticatedBrowserFlowVerified": true,
+  "temporaryPreviewAccessRevoked": true
+}

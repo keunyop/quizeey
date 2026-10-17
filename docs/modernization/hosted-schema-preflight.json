@@ -1,0 +1,251 @@
+{
+  "recordedAt": "2026-10-16",
+  "mode": "read-only",
+  "projectId": "tfkhnrbshvyfmrzxqfmq",
+  "evidence": {
+    "roles": [
+      {
+        "name": "anon",
+        "login": false,
+        "inherit": true,
+        "createdb": false,
+        "bypassrls": false,
+        "superuser": false,
+        "createrole": false
+      },
+      {
+        "name": "authenticated",
+        "login": false,
+        "inherit": true,
+        "createdb": false,
+        "bypassrls": false,
+        "superuser": false,
+        "createrole": false
+      },
+      {
+        "name": "authenticator",
+        "login": true,
+        "inherit": false,
+        "createdb": false,
+        "bypassrls": false,
+        "superuser": false,
+        "createrole": false
+      },
+      {
+        "name": "postgres",
+        "login": true,
+        "inherit": true,
+        "createdb": true,
+        "bypassrls": true,
+        "superuser": false,
+        "createrole": true
+      },
+      {
+        "name": "service_role",
+        "login": false,
+        "inherit": true,
+        "createdb": false,
+        "bypassrls": true,
+        "superuser": false,
+        "createrole": false
+      }
+    ],
+    "read_only": "on",
+    "extensions": [
+      {
+        "name": "plpgsql",
+        "owner": "supabase_admin",
+        "schema": "pg_catalog",
+        "version": "1.0"
+      },
+      {
+        "name": "pg_stat_statements",
+        "owner": "postgres",
+        "schema": "extensions",
+        "version": "1.11"
+      },
+      {
+        "name": "uuid-ossp",
+        "owner": "postgres",
+        "schema": "extensions",
+        "version": "1.1"
+      },
+      {
+        "name": "pgcrypto",
+        "owner": "postgres",
+        "schema": "extensions",
+        "version": "1.3"
+      },
+      {
+        "name": "supabase_vault",
+        "owner": "supabase_admin",
+        "schema": "vault",
+        "version": "0.3.1"
+      }
+    ],
+    "default_acl": [
+      {
+        "acl": "{postgres=arwdDxtm/postgres,anon=arwdDxtm/postgres,authenticated=arwdDxtm/postgres,service_role=arwdDxtm/postgres}",
+        "type": "r",
+        "owner": "postgres",
+        "schema": "public"
+      },
+      {
+        "acl": "{postgres=X/postgres,anon=X/postgres,authenticated=X/postgres,service_role=X/postgres}",
+        "type": "f",
+        "owner": "postgres",
+        "schema": "public"
+      },
+      {
+        "acl": "{postgres=rwU/postgres,anon=rwU/postgres,authenticated=rwU/postgres,service_role=rwU/postgres}",
+        "type": "S",
+        "owner": "postgres",
+        "schema": "public"
+      },
+      {
+        "acl": "{postgres=arwdDxtm/postgres,anon=arwdDxtm/postgres,authenticated=arwdDxtm/postgres,service_role=arwdDxtm/postgres}",
+        "type": "r",
+        "owner": "postgres",
+        "schema": "storage"
+      },
+      {
+        "acl": "{postgres=X/postgres,anon=X/postgres,authenticated=X/postgres,service_role=X/postgres}",
+        "type": "f",
+        "owner": "postgres",
+        "schema": "storage"
+      },
+      {
+        "acl": "{postgres=rwU/postgres,anon=rwU/postgres,authenticated=rwU/postgres,service_role=rwU/postgres}",
+        "type": "S",
+        "owner": "postgres",
+        "schema": "storage"
+      }
+    ],
+    "memberships": [
+      {
+        "set": true,
+        "role": "pg_read_all_data",
+        "admin": true,
+        "member": "postgres",
+        "inherit": true
+      },
+      {
+        "set": true,
+        "role": "pg_monitor",
+        "admin": true,
+        "member": "postgres",
+        "inherit": true
+      },
+      {
+        "set": true,
+        "role": "pg_signal_backend",
+        "admin": true,
+        "member": "postgres",
+        "inherit": true
+      },
+      {
+        "set": true,
+        "role": "pg_create_subscription",
+        "admin": true,
+        "member": "postgres",
+        "inherit": true
+      },
+      {
+        "set": true,
+        "role": "authenticated",
+        "admin": true,
+        "member": "postgres",
+        "inherit": true
+      },
+      {
+        "set": true,
+        "role": "anon",
+        "admin": true,
+        "member": "postgres",
+        "inherit": true
+      },
+      {
+        "set": true,
+        "role": "service_role",
+        "admin": true,
+        "member": "postgres",
+        "inherit": true
+      },
+      {
+        "set": true,
+        "role": "supabase_privileged_role",
+        "admin": false,
+        "member": "postgres",
+        "inherit": true
+      },
+      {
+        "set": true,
+        "role": "authenticator",
+        "admin": true,
+        "member": "postgres",
+        "inherit": true
+      },
+      {
+        "set": true,
+        "role": "authenticated",
+        "admin": false,
+        "member": "authenticator",
+        "inherit": false
+      },
+      {
+        "set": true,
+        "role": "anon",
+        "admin": false,
+        "member": "authenticator",
+        "inherit": false
+      },
+      {
+        "set": true,
+        "role": "service_role",
+        "admin": false,
+        "member": "authenticator",
+        "inherit": false
+      },
+      {
+        "set": true,
+        "role": "authenticated",
+        "admin": false,
+        "member": "supabase_realtime_admin",
+        "inherit": false
+      },
+      {
+        "set": true,
+        "role": "anon",
+        "admin": false,
+        "member": "supabase_realtime_admin",
+        "inherit": false
+      },
+      {
+        "set": true,
+        "role": "service_role",
+        "admin": false,
+        "member": "supabase_realtime_admin",
+        "inherit": false
+      }
+    ],
+    "public_schema": {
+      "acl": "{pg_database_owner=UC/pg_database_owner,=U/pg_database_owner,postgres=U/pg_database_owner,anon=U/pg_database_owner,authenticated=U/pg_database_owner,service_role=U/pg_database_owner}",
+      "owner": "pg_database_owner",
+      "postgres_create": true
+    },
+    "auth_user_count": 0,
+    "server_version_num": "170011",
+    "application_relations": 0
+  },
+  "cloudMutations": 0,
+  "contentReadOrUploaded": 0,
+  "postgrestMetadata": {
+    "read_only": "on",
+    "public_definer_count": 0,
+    "application_relations": 0,
+    "postgrest_role_settings": [],
+    "current_pgrst_db_schemas": null
+  },
+  "postgrestExposedSchemasVerified": false,
+  "finalCloudMigrationCount": 0
+}

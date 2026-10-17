@@ -1,0 +1,30 @@
+{
+  "checkedAt": "2026-10-16T18:50:03.399625+00:00",
+  "scope": "Owner-provided SSH rules compared with two agreeing direct HTTPS public-IP observations",
+  "securityGroupId": "sg-0c3c1c9686826401d",
+  "ownerInstanceId": "i-046087bdb8dff10f7",
+  "ownerRuleCount": 5,
+  "ownerRuleIds": [
+    "sgr-0f103904fcca6b3d6",
+    "sgr-0442f77d219b277e7",
+    "sgr-00444ffa3a5810b80",
+    "sgr-0959a737626bc9350",
+    "sgr-0941b7b461fe52789"
+  ],
+  "currentPublicIPv4AllowedByListedRules": false,
+  "publicIPServicesAgree": true,
+  "sshPacketSourceVerifiedByServer": false,
+  "candidateRule": {
+    "protocol": "tcp",
+    "fromPort": 22,
+    "toPort": 22,
+    "sourcePrefixLength": 32,
+    "sourceAddressLocation": "ignored .modernization/ssh/planned-ingress.json",
+    "description": "quizeey-modernization-ssh-temporary"
+  },
+  "existingRulesToRemove": 0,
+  "awsRulesVerifiedByAPI": false,
+  "awsChangesPerformed": 0,
+  "status": "proposed_only; awaiting owner console action or existing Session Manager access",
+  "rollback": "Remove only the new AWS-assigned rule ID after inspection; preserve the five existing rules"
+}

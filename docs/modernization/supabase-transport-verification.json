@@ -1,0 +1,34 @@
+{
+  "recordedAt": "2026-10-16",
+  "timezone": "America/Vancouver",
+  "scope": "Prepared server-only forum transport; no hosted route activation",
+  "checks": {
+    "npmRunCheck": "passed: typecheck, lint, 55 unit tests, Next production build",
+    "newSdkHttpMockTests": 6,
+    "existingSqlRpcSignaturesMatched": 8,
+    "publicReadsUsePublishableKey": true,
+    "privilegedRpcUsesSeparateSecretKey": true,
+    "invalidTargetAndInputRequestCount": 0,
+    "write503Retries": 0,
+    "providerErrorsRedacted": true,
+    "publicLocaleSharedImportFilterVerified": true,
+    "privateFieldsNotSelectedByPublicRead": true,
+    "productionClientJsFilesScanned": 11,
+    "clientJsCredentialAndTransportMarkerHits": 0,
+    "isolatedDatabase": "PostgreSQL18 RLS/ownership/moderation/rate checks, replay, backup/restore passed",
+    "isolatedConcurrentWrites": { "acceptedPending": 10, "rateLimited": 10 },
+    "isolatedRestoredTables": 11,
+    "isolatedDatabaseEvidence": ".modernization/postgres-fixture-44a9d82299",
+    "protectedPreviewSmoke": "passed UTF-8 Basic401/200, noindex, SSR, integrations disabled, hosted admin503",
+    "ownedTestServersStopped": true
+  },
+  "limitations": [
+    "New transport HTTP responses were mocked; actual Supabase RPCs and RLS remain unverified.",
+    "Transport is not imported by existing routes; client scan is of the current fixture build.",
+    "Local PostgreSQL18 superuser fixture does not establish hosted PostgreSQL17.11 role compatibility.",
+    "Admin authorization, platform peer HMAC and hosted route activation require a separate verified caller."
+  ],
+  "cloudMutations": 0,
+  "sourceContentUploaded": 0,
+  "newResourcesCreated": 0
+}

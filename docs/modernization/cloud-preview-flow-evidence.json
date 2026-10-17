@@ -1,0 +1,27 @@
+{
+  "recordedAt": "2026-10-17",
+  "status": "protected_actual_content_preview_pass",
+  "origin": "https://quizeey-13nrq49m1-kevins-projects-e2dcc34c.vercel.app",
+  "projectId": "prj_0SVBqfgurtvZErmpMJl01BJkUKOd",
+  "datasetSha256": "88ed4da320cf3bbd40d65f1aa6de7ba6b81a09f5aa6bbcef1e3860ca58ccb42f",
+  "checks": [
+    "Vercel and application authentication",
+    "direct source lookup beyond twenty, values, correct sets and nullable fields",
+    "catalog, versions, counters, random and invalid/excluded identities",
+    "Korean/English mobile source grading, incomplete multiple answers and reload restoration",
+    "legacy routes, static application bundle boundary, admin gate and zero external application requests"
+  ],
+  "sourceQuestions": 26733,
+  "excludedQuestions": 751,
+  "externalRequests": 0,
+  "browserErrors": 0,
+  "secretValuesPrinted": false,
+  "sourceContentPrinted": false,
+  "screenshotsOwnerPrivate": true,
+  "platformToolbarRequestsBlocked": 9,
+  "platformToolbarSuppressionHeaderSent": true,
+  "productionPublished": false,
+  "deploymentId": "dpl_ANXS2HUdcsoZeV6z7gPPjPZeJGWX",
+  "packageSha256": "5a6a3835c9fbc7a048560762e7b00a9c97929827a7b8970e1f8523de9706c788",
+  "temporaryAccessRevokedAfterVerification": true
+}

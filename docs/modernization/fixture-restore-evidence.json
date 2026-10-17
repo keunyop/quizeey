@@ -1,0 +1,65 @@
+{
+  "scope": "Synthetic isolated local fixture ONLY; no production backup or DB contacted",
+  "privateEvidence": ".modernization/postgres-fixture-dcf83b8f0a",
+  "stagingReplayRows": 7,
+  "concurrentRequests": 20,
+  "accepted": 10,
+  "rateLimited": 10,
+  "beforeAfterFullRowHashesMatch": true,
+  "tables": {
+    "public.quizeey_posts": {
+      "rows": 24,
+      "sha256": "56ee40c8768ac29ff8788a4432470bec76bf3b67a1b20a438b4713cefdc2318b"
+    },
+    "public.quizeey_topics": {
+      "rows": 22,
+      "sha256": "2a8438bee48778ab279d5840e3854aa0b7f752377f869348e7fcdb4d96f6437e"
+    },
+    "quizeey_import.raw_rows": {
+      "rows": 7,
+      "sha256": "578e549a8a91a315b383812f0269b811ba083e2c6470d0328d505f7db60424ab"
+    },
+    "quizeey_private.post_owners": {
+      "rows": 23,
+      "sha256": "b78e5e7bf22e03eeafebc2d4d4c95528e89ef1c717b0b9199fc32dbb4a134424"
+    },
+    "quizeey_private.rate_windows": {
+      "rows": 11,
+      "sha256": "68bc305f6430de444996247a4b1d8b4c872871124e350a2a90a97c1a048c6216"
+    },
+    "quizeey_private.forum_reports": {
+      "rows": 2,
+      "sha256": "34b7c62666f7c1fffca00f20565a1b65a78b5a10b7696be15fc9b6b8780045d5"
+    },
+    "quizeey_private.admin_sessions": {
+      "rows": 1,
+      "sha256": "ee4b0920db65c0f42ae930ff80a0314a862dccdfc76248187dcdb3b6ac9cd064"
+    },
+    "quizeey_private.post_revisions": {
+      "rows": 4,
+      "sha256": "d8de29cc8eaff9d4b6ff7ff6a53e5b6e526969e4850a172d32293a63a6bdfbcd"
+    },
+    "quizeey_private.moderation_audit": {
+      "rows": 10,
+      "sha256": "6d6fa56edfa2c3cf2fd28220e6139d7ebef6ed2c46fff7b88eec33ea4f91d07d"
+    },
+    "quizeey_private.mutation_receipts": {
+      "rows": 29,
+      "sha256": "7101ed31e1872f9b7da78df1784ff88a17086737121018ec929c696908f54de5"
+    },
+    "quizeey_private.guest_capabilities": {
+      "rows": 5,
+      "sha256": "5ad2a77849cfb0dbf4a7398aaf16bad5907f21a74722975aadc919b821dc41aa"
+    }
+  },
+  "migrationSha256": {
+    "202610160001_raw_staging.sql": "ecffc68e9044cf4866edbb9582e2f7e66af0dd4f697d67b7236180c1b8f1fcbb",
+    "202610160002_native_forum.sql": "0a880273fdc48c49acda373b975247e1afbf21b6ba5e4de4b961f9682ee438e2",
+    "202610160003_guest_private_preview.sql": "d374790a6534e3461bac0494896dff049d5db5d6a6d343b65e15c5fd9d68e915",
+    "202610160004_admin_moderation.sql": "d60ab8d39c9d501fed200a0211a0b4bbe066e085630deb615f1eaf6461ab5264"
+  },
+  "securityEvidenceSha256": {
+    "security-result.txt": "6d5242a1e7c95a64d00e7d1c2f306d8c8e9d9c211fc8d9bd80b690258f6b86d0",
+    "admin-security-result.txt": "ad59a029a15bf51a1b04ac50f6378762a00ff56197e497529e8c2d80bf8cadf6"
+  }
+}
