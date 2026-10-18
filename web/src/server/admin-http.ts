@@ -1,21 +1,17 @@
-import { createHmac } from 'node:crypto';
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
-import { boundedJson,sameOrigin } from './guest-policy';
+import { boundedJson } from './guest-policy';
 import { adminConfiguration,adminCookieName,adminCookieOptions,AdminAuthError,readAdminToken,requireAdmin,signInAdmin,signOutAdmin } from './admin-auth';
 import { adminLoginLimit,moderate,moderationQueue } from './admin-database';
 import { forumConfigured } from './forum-database';
 import { registerAdminSession,revokeAdminSession } from './admin-session';
+import { forumAbuseHash, forumOriginAllowed as originAllowed } from './forum-config';
 
 export const adminHeaders={'Cache-Control':'private, no-store','X-Robots-Tag':'noindex, nofollow'};
 function response(value:unknown,status=200) {return NextResponse.json(value,{status,headers:adminHeaders});}
 function failure(error:unknown) {return response({error:'Admin request unavailable or denied'},error instanceof AdminAuthError?error.status:503);}
-function originAllowed(request:Request) {
-  const origin=process.env.QUIZEEY_LOCAL_FORUM_ORIGIN??'http://127.0.0.1:3000';
-  return ['http://127.0.0.1:3000','http://127.0.0.1:3100','http://localhost:3000','http://localhost:3100'].includes(origin) && sameOrigin(request,origin);
-}
 function available() {
-  return forumConfigured() && !process.env.VERCEL_ENV && process.env.QUIZEEY_ENV!=='production' && adminConfiguration()!==null;
+  return forumConfigured() && adminConfiguration()!==null;
 }
 export async function adminSession(request:Request) {
   try {
@@ -28,7 +24,7 @@ export async function adminLogin(request:Request) {
   if(!originAllowed(request)) return response({error:'Origin rejected'},403);
   try {
     if(!available()) return response({error:'Admin sign-in unavailable'},503);
-    const abuse=createHmac('sha256','local-admin-fixture-peer-only').update('127.0.0.1:'+new Date().toISOString().slice(0,10)).digest('hex');
+    const abuse=forumAbuseHash(request,'admin');
     if(!await adminLoginLimit(abuse)) return response({error:'Try again later'},429);
     let input:{email:string;password:string};
     try {input=z.object({email:z.email().max(254),password:z.string().min(1).max(1024)}).strict().parse(await boundedJson(request));}

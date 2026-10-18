@@ -62,12 +62,13 @@ it('matches the existing SQL RPC parameter names and keeps server credentials ou
     ['quizeey_admin_session_create', { p_hash: digest, p_actor: uuid, p_expires: '2026-10-16T00:00:00Z' }, true],
     ['quizeey_admin_session_actor', { p_hash: digest }, uuid],
     ['quizeey_admin_session_revoke', { p_hash: digest }, null],
+    ['quizeey_forum_cleanup', {}, null],
   ] as const;
   for (const [name, args, response] of calls) {
     fetcher.mockResolvedValueOnce(json(response));
     expect(await transport.rpc(name, args)).toEqual(response);
     const signature = ddl.match(new RegExp(`create function public\\.${name}\\(([^)]*)\\)`))![1];
-    const sqlParams = signature.split(',').map(value => value.trim().split(/\s+/)[0]);
+    const sqlParams = signature.trim() ? signature.split(',').map(value => value.trim().split(/\s+/)[0]) : [];
     expect(Object.keys(args)).toEqual(sqlParams);
     const [url, init] = fetcher.mock.calls.at(-1)!;
     expect(url).toBe(config.QUIZEEY_SUPABASE_URL + '/rest/v1/rpc/' + name);
@@ -81,7 +82,7 @@ it('rejects arbitrary RPCs, raw tokens, invalid payloads and incomplete cursors 
   const fetcher = vi.fn(); vi.stubGlobal('fetch', fetcher);
   const transport = createSupabaseTransport(config);
   // Simulate a JavaScript caller bypassing the TS operation union.
-  await expect(transport.rpc('quizeey_forum_cleanup' as never, {} as never)).rejects.toThrow(SupabaseTransportError);
+  await expect(transport.rpc('arbitrary_sql' as never, {} as never)).rejects.toThrow(SupabaseTransportError);
   await expect(transport.rpc('quizeey_admin_session_actor', { p_hash: 'raw-token' })).rejects.toThrow(SupabaseTransportError);
   await expect(transport.rpc('quizeey_forum_mutate', { p_capability_hash: digest, p_abuse_hash: digest, p_request_id: uuid, p_action: 'create', p_payload: { body: '' } })).rejects.toThrow(SupabaseTransportError);
   await expect(transport.rpc('quizeey_admin_queue', { p_kind: 'posts', p_state: 'pending', p_cursor_time: null, p_cursor_id: uuid })).rejects.toThrow(SupabaseTransportError);

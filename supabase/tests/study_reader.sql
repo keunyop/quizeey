@@ -13,11 +13,17 @@ values(9007199254741017,9,3,now(),now());
 set role anon;
 do $$ begin
   begin perform public.quizeey_study_context(5); raise exception 'anon study RPC allowed'; exception when insufficient_privilege then null; end;
+  if to_regprocedure('public.quizeey_study_page(bigint,integer,integer)') is not null then
+    begin perform public.quizeey_study_page(5); raise exception 'anon practice page allowed'; exception when insufficient_privilege then null; end;
+  end if;
 end $$;
 reset role;
 set role authenticated;
 do $$ begin
   begin perform public.quizeey_study_context(5); raise exception 'ordinary user study RPC allowed'; exception when insufficient_privilege then null; end;
+  if to_regprocedure('public.quizeey_study_page(bigint,integer,integer)') is not null then
+    begin perform public.quizeey_study_page(5); raise exception 'ordinary user practice page allowed'; exception when insufficient_privilege then null; end;
+  end if;
 end $$;
 reset role;
 set role service_role;
@@ -40,6 +46,16 @@ do $$ declare result jsonb; q jsonb; begin
   perform setseed(0.314159);
   if not exists(select 1 from generate_series(1,200) i where (public.quizeey_study_context(5,null,0,true)#>>'{tables,questions,0,number}')::integer>20) then raise exception 'Random API limited to first20'; end if;
   begin perform public.quizeey_study_context(-1); raise exception 'Invalid context accepted'; exception when invalid_parameter_value then null; end;
+  if to_regprocedure('public.quizeey_study_page(bigint,integer,integer)') is not null then
+  result:=public.quizeey_study_page(5,1,2);
+  if result#>>'{pagination,page}'<>'2' or result#>>'{pagination,total}'<>'25' then raise exception 'Page totals lost'; end if;
+  if jsonb_array_length(result#>'{tables,questions}')<>5 or result#>>'{tables,questions,0,number}'<>'21' then raise exception 'Continuation beyond20 failed'; end if;
+  if result#>>'{tables,legacy_counters,0,correct}'<>'9' then raise exception 'Later-page counters lost'; end if;
+  if jsonb_array_length(public.quizeey_study_page(5,2,1)#>'{tables,questions}')<>0 then raise exception 'Page crossed version'; end if;
+  if jsonb_array_length(public.quizeey_study_page(1,0,1)#>'{tables,questions}')<>0 then raise exception 'Page crossed exam'; end if;
+  if jsonb_array_length(public.quizeey_study_page(5,1,3)#>'{tables,questions}')<>0 then raise exception 'Final page wraps'; end if;
+  begin perform public.quizeey_study_page(5,0,10001); raise exception 'Unbounded offset allowed'; exception when invalid_parameter_value then null; end;
+  end if;
 end $$;
 reset role;
 select 'PASS: private bounded study reader and identity/NULL/filter contracts';

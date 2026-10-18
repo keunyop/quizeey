@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 import { environment } from "./src/lib/environment";
 
-environment(process.env);
+const env=environment(process.env);
 const config: NextConfig = {
   poweredByHeader: false,
   // Source exports are local review inputs, never deployment artifacts.
@@ -11,7 +11,7 @@ const config: NextConfig = {
       { key: "X-Content-Type-Options", value: "nosniff" },
       { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
       { key: "Content-Security-Policy", value: "frame-ancestors 'none'; object-src 'none'; base-uri 'self'" },
-      { key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" },
+      ...(env.stage==='production'&&!env.protectedReview?[]:[{ key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" }]),
     ] }];
   },
 };

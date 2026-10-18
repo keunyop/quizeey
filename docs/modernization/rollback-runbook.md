@@ -2,6 +2,8 @@
 
 **DNS rollback은 데이터 rollback이 아니다.** 어느 단계에서든 writer는 하나만 유지한다.
 
+2026-10-17 소유자 확인 DNS 복구 값: Cloudflare `@` A `52.35.43.187`, `www` A `52.35.43.187`, 두 레코드 모두 Proxied/TTL Auto. 전환 시 추가한 두 apex A 또는 www CNAME을 이 원래 형태로 복원한다. 네임서버는 `arnold.ns.cloudflare.com`, `miki.ns.cloudflare.com`을 유지한다. 이 값은 검증된 구 앱/DB 및 writer 통제와 함께 사용한다. 공개 DNS의 Cloudflare proxy IP로 되돌리지 않는다. 전환 후보·실행 전 재확인은 [migration-runbook.md](migration-runbook.md)의 DNS 표를 따른다.
+
 | 시점 | 동작 |
 | --- | --- |
 | 새 쓰기 수락 전 | 모든 새 writer 닫힘 확인 → 검증된 구 DB/앱 복귀 → routing 회복 → 데이터/작업 확인 후 구 writer만 열기 |

@@ -1,4 +1,5 @@
 import { afterEach,expect,it,vi } from 'vitest';
+vi.mock('server-only', () => ({}));
 import { adminConfiguration,adminCookieName,AdminAuthError,readAdminToken,verifyAdminToken } from './admin-auth';
 const id='00000000-0000-4000-8000-000000000101';
 const local={QUIZEEY_ENV:'local',QUIZEEY_ADMIN_AUTH_PROVIDER:'fixture',QUIZEEY_LOCAL_FORUM_DATABASE_URL:'postgresql://quizeey_server@127.0.0.1:55432/quizeey_fixture',QUIZEEY_AUTH_FIXTURE_URL:'http://127.0.0.1:55433',QUIZEEY_ADMIN_USER_IDS:id};

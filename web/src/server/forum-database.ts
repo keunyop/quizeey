@@ -2,9 +2,14 @@ import pg from "pg";
 import type { z } from "zod";
 import type { forumRequest } from "./guest-policy";
 import { environment } from "@/lib/environment";
+import { forumConfiguration } from './forum-config';
+import { createSupabaseTransport } from './supabase-transport';
 
 let pool: pg.Pool | undefined;
-export function forumConfigured() { return !!process.env.QUIZEEY_LOCAL_FORUM_DATABASE_URL; }
+export function forumConfigured() { return forumConfiguration() !== null; }
+export function hostedForumTransport() {
+  return forumConfiguration()?.kind === 'supabase' ? createSupabaseTransport() : null;
+}
 export function forumConnection() {
   const env = environment(process.env);
   const raw = process.env.QUIZEEY_LOCAL_FORUM_DATABASE_URL;
@@ -21,6 +26,8 @@ export function forumConnection() {
 }
 export async function mutateForum(capabilityHash: string, abuseHash: string, requestId: string, value: z.infer<typeof forumRequest>) {
   const { action, ...payload } = value;
+  const hosted = hostedForumTransport();
+  if (hosted) return hosted.rpc('quizeey_forum_mutate', { p_capability_hash: capabilityHash, p_abuse_hash: abuseHash, p_request_id: requestId, p_action: action, p_payload: payload });
   const result = await forumConnection().query<{ result: { status: number; postId?: string; topicId?: string; revisionId?: string; visibility?: string } }>(
     "select public.quizeey_forum_mutate($1,$2,$3,$4,$5) as result", [capabilityHash, abuseHash, requestId, action, payload]);
   return result.rows[0].result;
@@ -29,6 +36,8 @@ export type PublicTopic = { id: string; title: string; locale: "ko" | "en"; crea
 export type PublicPost = { id: string; topic_id: string; parent_id: string | null; display_name: string | null; body: string; created_at: string };
 export type OwnedPost = PublicPost & { visibility: "pending" | "approved"; exam_id: string; question_id: string | null; locale: "ko" | "en"; title: string; pending_body: string | null };
 export async function publicForum(examId: string, locale: "ko" | "en", questionId: string | null) {
+  const hosted = hostedForumTransport();
+  if (hosted) return hosted.publicForum(examId, locale, questionId);
   const db = forumConnection();
   // quizeey_server inherits anon SELECT permissions/RLS. It has no table write grant.
   // Old MySQL explanations were keyed only by question ID, shared across locales.
@@ -39,6 +48,8 @@ export async function publicForum(examId: string, locale: "ko" | "en", questionI
   return { topics: topics.rows, posts: posts.rows };
 }
 export async function ownForum(hash: string): Promise<OwnedPost[]> {
+  const hosted = hostedForumTransport();
+  if (hosted) return hosted.rpc('quizeey_forum_mine', { p_capability_hash: hash });
   const result = await forumConnection().query<{ result: OwnedPost[] }>("select public.quizeey_forum_mine($1) as result", [hash]);
   return result.rows[0].result;
 }

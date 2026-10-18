@@ -1,5 +1,7 @@
 # Hosted 연결 리허설 실행안
 
+최신 후속: 이 문서의 초기 미적용/키·signup 상태는 과거 기록이다. 실제 schema/콘텐츠 preview 완료는 [session-handoff.md](session-handoff.md), 현재 HTTP 연결 준비 및 비활성화 조건은 [cutover-owner-followup-evidence.json](cutover-owner-followup-evidence.json)을 따른다. transport는 현재9개 allowlisted RPC(기존8개 + service-only cleanup)를 지원한다. 운영 API는 명시적 hosted gate 뒤에 연결되었으나 실제 Vercel flag/추가 키/운영자 계정/원본 해설 import는 아직 활성화·생성·반출하지 않았다.
+
 후속 검증 완료: PostgreSQL17.11 non-superuser/default ACL 검증과 새 private_rpc_boundary의 local advisor·role/RLS·schema/data 복원·rollback이 통과했다. 아래 초기4개 후보에 새 boundary가 추가되어 최종 후보는5개다. 정확한 SQL/해시/빈 schema·signup 변경/rollback은 [cloud-change-request.md](cloud-change-request.md), [hosted-change-manifest.json](hosted-change-manifest.json)을 따른다. cloud에는 아직 적용하지 않았다.
 
 2026-10-16. **준비 문서이며 실행 승인 요청이나 실행 기록이 아니다.** 현재 승인 범위는 계정 읽기 전용 조회와 로컬 개발, 사용자 추가 요청에 따른 Vercel quizeey project 생성이다. 실제 콘텐츠 반출·cloud migration·Auth 설정 변경은 실행하지 않았다.

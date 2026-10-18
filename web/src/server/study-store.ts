@@ -16,7 +16,7 @@ const payloadSchema=z.object({schema:z.literal(1),tables:z.object({
   questions:z.array(z.object({question_id:id,version_id:id,number:integer,body:z.string().max(2000),explanation:z.string().max(4000).nullable(),reference:z.string().max(1000).nullable(),multiple_answers:z.boolean()})),
   choices:z.array(z.object({choice_id:id,question_id:id,number:integer,body:z.string().max(1000),correct:z.boolean()})),
   legacy_counters:z.array(z.object({question_id:id,correct:integer.min(0),incorrect:integer.min(0)})),
-}),pendingExplanationCounts:z.record(id,z.number().int().min(0))});
+}),pendingExplanationCounts:z.record(id,z.number().int().min(0)),pagination:z.object({page:z.number().int().min(1).max(10000),total:z.number().int().min(0).max(2147483647)}).optional()});
 export type CorePayload=z.infer<typeof payloadSchema>;
 export type StudyVersion={id:string;number:number;name:string};
 export type StudyExam={id:string;nameKo:string|null;nameEn:string|null;slug:string;priority:number};
@@ -31,7 +31,7 @@ export class StudyStore {
   private examVersions=new Map<string,StudyVersion[]>();
   private counters=new Map<string,{correct:number;inCorrect:number}>();
   private pending:Record<string,number>={};
-  constructor(source:'fixture'|'local-archive'|'supabase',version:string,exams:StudyExam[],entries:Entry[],versions:Map<string,StudyVersion[]>,counters=new Map<string,{correct:number;inCorrect:number}>(),pending:Record<string,number>={}){
+  constructor(source:'fixture'|'local-archive'|'supabase',version:string,exams:StudyExam[],entries:Entry[],versions:Map<string,StudyVersion[]>,counters=new Map<string,{correct:number;inCorrect:number}>(),pending:Record<string,number>={},private hostedPage?:{page:number;total:number}){
     this.source=source;this.version=version;this.exams=exams;this.examVersions=versions;this.counters=counters;this.pending=pending;
     for(const entry of entries){
       if(this.entries.has(entry.id))throw Error('Duplicate study identity');
@@ -45,12 +45,17 @@ export class StudyStore {
   defaultLocale(testId:string):Locale{return this.byExam.get(testId)?.[0]?.locale??'ko';}
   versions(testId:string,locale:Locale){return this.source!=='fixture'||this.available(testId,locale).length?this.examVersions.get(testId)??[]:[];}
   private available(testId:string,locale:Locale,version=0){return (this.byExam.get(testId)??[]).filter(q=>(!q.locale||q.locale===locale)&&(!version||q.version===version));}
-  questions(testId:string,locale:Locale,version=0,directId?:string):Question[]{
+  pagination(testId:string,locale:Locale,version=0,page=1){
+    const total=this.hostedPage?.total??this.available(testId,locale,version).length;
+    return {page:this.hostedPage?.page??page,total,pages:Math.max(1,Math.ceil(total/20))};
+  }
+  questions(testId:string,locale:Locale,version=0,directId?:string,page=1):Question[]{
     if(directId){
       const q=this.entries.get(directId);
       return q&&q.testId===testId&&(!version||q.version===version)&&(!q.locale||q.locale===locale)?[{...q,locale}]:[];
     }
-    return this.available(testId,locale,version).slice(0,20).map(q=>({...q,locale}));
+    const start=this.hostedPage?0:(page-1)*20;
+    return this.available(testId,locale,version).slice(start,start+20).map(q=>({...q,locale}));
   }
   random(testId:string,locale:Locale,version=0):Question|undefined{
     const list=this.available(testId,locale,version);const q=list[Math.floor(Math.random()*list.length)];return q?{...q,locale}:undefined;
@@ -92,7 +97,7 @@ export function coreStudyStore(input:unknown,version:string,source:'local-archiv
   const counters=new Map<string,{correct:number;inCorrect:number}>();
   for(const r of t.legacy_counters){if(!questionIds.has(r.question_id)||counters.has(r.question_id))throw Error('Invalid counter');counters.set(r.question_id,{correct:r.correct,inCorrect:r.incorrect});}
   for(const questionId of Object.keys(data.pendingExplanationCounts))if(!questionIds.has(questionId))throw Error('Invalid explanation context');
-  return new StudyStore(source,version,exams,entries,versions,counters,data.pendingExplanationCounts);
+  return new StudyStore(source,version,exams,entries,versions,counters,data.pendingExplanationCounts,data.pagination);
 }
 
 const fixtureVersions=new Map<string,StudyVersion[]>();

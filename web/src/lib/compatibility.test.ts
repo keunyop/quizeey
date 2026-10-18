@@ -25,6 +25,10 @@ describe("legacy route and query preservation", () => {
     expect(identifier("9223372036854775807")).toBe("9223372036854775807");
     expect(() => identifier("9223372036854775808")).toThrow();
   });
+  it('binds refrigeration and electrical work to their verified separate exam identities',()=>{
+    expect(findRoute('/industrial-engineer-air-conditioning-and-refrigerating-machinery')?.testId).toBe('141');
+    expect(findRoute('/industrial-engineer-electric-work')?.testId).toBe('140');
+  });
   it.each(["", "0", "-1", "1.5", "1e2", " 5", "05", "NaN", "abc"])("rejects malformed identity %s", (id) => {
     expect(() => parseQuery(new URLSearchParams({ questId: id }))).toThrow();
   });
@@ -34,8 +38,12 @@ describe("legacy route and query preservation", () => {
   });
   it("keeps unrelated query values and supports the legacy all-version value", () => {
     const query = new URLSearchParams("testId=5&verNbr=0&utm_source=test");
-    expect(parseQuery(query, true)).toEqual({ testId: "5", questId: undefined, verNbr: 0 });
+    expect(parseQuery(query, true)).toEqual({ testId: "5", questId: undefined, verNbr: 0, page:1 });
     expect(query.get("utm_source")).toBe("test");
+  });
+  it('validates bounded practice pages without changing legacy identities',()=>{
+    expect(parseQuery(new URLSearchParams('testId=5&page=2'),true)).toMatchObject({testId:'5',page:2});
+    for(const query of ['page=0','page=-1','page=01','page=1.5','page=10001','page=2&page=3'])expect(()=>parseQuery(new URLSearchParams(query))).toThrow();
   });
 });
 

@@ -55,6 +55,10 @@ def main():
         for migration in sorted((ROOT / "supabase/migrations").glob("*.sql")):
             run("psql", *common, "-d", "quizeey_fixture", "-f", migration)
         run("psql", *common, "-d", "quizeey_fixture", input="CREATE ROLE quizeey_server LOGIN; GRANT service_role,anon TO quizeey_server;")
+        if not args.serve:
+            reader_sql=(ROOT/'supabase/tests/study_reader.sql').read_text(encoding='utf-8')
+            output=run('psql',*common,'-d','quizeey_fixture',input='BEGIN;\n'+reader_sql+'\nROLLBACK;')
+            (directory/'study-reader-result.txt').write_text(output,encoding='utf-8')
         if args.serve:
             import time
             if args.auth_fixture:

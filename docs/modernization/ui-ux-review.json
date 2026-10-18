@@ -1,0 +1,86 @@
+{
+  "reviewed_on": "2026-10-17",
+  "timezone": "America/Vancouver",
+  "scope": "Local Quizeey v2 frontend implementation; existing hosted preview and production services were not changed.",
+  "design_direction": "Restrained typography with self-hosted Pretendard, a plain search-first introduction, neutral exam cards and concise controls. Decorative hero illustration and the redundant header exam-list link were removed following owner feedback.",
+  "benchmark_sources": [
+    { "url": "https://quizlet.com/ca/features/studymodes", "applied": "Clear discovery and distinct practice/review actions." },
+    { "url": "https://blog.duolingo.com/guide-to-duolingo-practice-hub/", "applied": "Focused question flow, visible progress and targeted mistake review." },
+    { "url": "https://support.kahoot.com/hc/en-us/articles/31249304836765-Looking-for-ready-made-kahoots-to-play-or-host", "applied": "Search-first discovery supported by subject filters." }
+  ],
+  "findings_and_changes": [
+    { "finding": "Long undifferentiated exam list", "change": "Subject filters, result counts, progressive loading, quick search and useful empty states." },
+    { "finding": "Search included unrelated introductory prose", "change": "Search exam names, route aliases and Korean initials; support multiple search words." },
+    { "finding": "No way to collect frequently used exams", "change": "Browser-local favorites with refresh persistence, cross-tab updates and memory fallback when storage is blocked. Favorites use route paths so legacy shared IDs remain independent." },
+    { "finding": "Original identity assets were absent in v2", "change": "Restore the unmodified v1 Q SVG in header/footer and the v1 favicon in both language layouts." },
+    { "finding": "Exam introductions obscured the main task", "change": "Collapsible introductions, compact headings and clearer set selection." },
+    { "finding": "Bookmarks could be saved but not studied as a collection", "change": "Bookmarked-question review alongside mistake and unanswered-question review." },
+    { "finding": "No direct navigation among questions", "change": "Collapsible numbered navigator with current, correct, incorrect, unanswered and bookmark states." },
+    { "finding": "Skipped questions counted toward visual progress", "change": "Progress counts graded answers; results separately show correct, incorrect and unanswered totals. Review summaries use the active review size." },
+    { "finding": "Answer feedback relied on a text message", "change": "Correct/incorrect choice borders and icons, accessible status labels and preserved native keyboard controls." }
+  ],
+  "identity_integrity": {
+    "letter_q_svg_sha256": "cbaff1e68d3f261d7b0879dc2c4498a1f4815361c078741422d284b71ba86959",
+    "favicon_ico_sha256": "ffd7fcf1f85e07065b4e42be5b7a081b3fac5a973f99838dfdb583b9001769be",
+    "verification": "Source/output SHA-256 equality and HTTP byte equality passed."
+  },
+  "verification": {
+    "typescript": "passed",
+    "eslint": "passed",
+    "production_build": "passed",
+    "protected_preview_smoke": "passed: UTF-8 Basic 401/200, noindex, server-rendered questions, no live integrations and unavailable hosted admin.",
+    "unit_tests": { "passed": 67, "failed": 0 },
+    "browser_tests": { "passed": 16, "failed": 0, "engine": "Installed Microsoft Edge via Playwright", "last_run_status": "passed" },
+    "responsive_widths_px": [320, 390, 768, 1440],
+    "horizontal_overflow": "None on Korean/English catalog and practice pages, privacy, about and an exam without fixture questions at all tested widths.",
+    "accessibility": "axe checks passed on Korean/English catalog and practice pages, graded feedback and the existing admin flow; native keyboard answer selection passed.",
+    "regression_coverage": ["All discovered controller routes and original titles", "Legacy POST API contracts and direct question/version links", "Single/multiple-answer grading", "Refresh persistence and corrupt-storage recovery", "Forum guest ownership, moderation, reports, CSRF and rate limits", "Admin review, audit and logout", "No advertising, Disqus or analytics requests in local tests"],
+    "environment_note": "Windows sandbox process cleanup required terminating only the identified Playwright-owned Next server; the runner then exited 0 with 16 passed."
+  },
+  "review_artifacts": {
+    "desktop_catalog": ".modernization/ui-audit/refined-home.png",
+    "mobile_catalog": ".modernization/ui-audit/refined-home-mobile.png",
+    "desktop_practice": ".modernization/ui-audit/focus-practice.png",
+    "mobile_practice": ".modernization/ui-audit/focus-practice-mobile.png",
+    "before_screenshots": ".modernization/ui-audit/before-home.png and before-practice.png"
+  },
+  "typography_followup": {
+    "date": "2026-10-17",
+    "changes": ["Self-hosted Pretendard Variable v1.3.9 with the original SIL Open Font License", "Main heading reduced from 30–43px to 24–28px with moderate weight and tracking", "Consistent 15–16px body text and legible 12px card metadata", "Decorative hero artwork, promotional slogan, colored card icon tiles and header exam-list link removed", "Original Q image and favicon retained; the brand link still returns to the exam catalog"],
+    "font_source": "https://raw.githubusercontent.com/orioncactus/pretendard/v1.3.9/packages/pretendard/dist/web/variable/woff2/PretendardVariable.woff2",
+    "font_sha256": "9599f12fd42fc0bce1cd50b47a0c022e108d7aa64dd0d1bb0ed44f3282d900b4",
+    "verification": "TypeScript, ESLint and production build passed. Chrome DevTools Protocol confirmed Pretendard renders Korean and English headings; no external font requests. All 9 updated production-bundle design/practice browser tests passed, including responsive layouts, axe, grading, storage and review; this is separate from the original 16-test run above. The first dev-server QA attempt timed out during concurrent compilation, then verification used the completed production bundle."
+  },
+  "practice_focus_followup": {
+    "date": "2026-10-17",
+    "goal": "Help the visitor concentrate on reading and answering one question at a time.",
+    "changes": [
+      "Narrower reading column and a smaller exam title; the first question appears within the top 260px at a 390px viewport.",
+      "Question text is 17px on desktop and 16px on mobile, choices are 16px, and code remains 14px on mobile instead of shrinking to 12px.",
+      "One primary action changes from Check answer to Next, with previous/skip as secondary actions in the same control area. Mobile controls stay within the question card and support the device safe area.",
+      "Exam introduction and set selection moved into a closed Exam details & sets disclosure below the question. Question navigation, reviews and direct links are also below the question in a separate closed disclosure.",
+      "Feedback shows correct display letters and the explanation without repeating the complete correct-choice text. Answer choices still use their original IDs for grading.",
+      "The question component keeps native radio/checkbox behavior, selected drafts across bookmark changes and keyboard focus when the primary action changes. Existing progress storage remains compatible."
+    ],
+    "verification": {
+      "typescript": "passed",
+      "eslint": "passed",
+      "production_build": "passed",
+      "unit_tests_passed": 67,
+      "browser_tests_passed": 17,
+      "browser_tests_failed": 0,
+      "browser_checks": "Compatibility, catalog, practice and focused-flow checks run against the completed production bundle using Edge and synthetic questions. Coverage includes 320px controls, mobile reading sizes, single/multiple grading, refresh, generic URL set selection, keyboard focus, axe and existing route/API contracts.",
+      "test_organization": "The original combined responsive/axe/keyboard test exceeded its 30-second deadline. It was split into separate responsive and accessibility tests with the same assertions and without increasing the timeout."
+    }
+  },
+  "verification_limits": [
+    "Browser checks used synthetic compatibility questions and an isolated local forum/auth fixture; the hosted private content archive was not re-tested with these UI changes.",
+    "WebKit smoke launch was unavailable because the browser revision required by the installed Playwright version was absent. Safari behavior is not certified."
+  ],
+  "latest_ui_adjustments": {
+    "date": "2026-10-17",
+    "changes": ["Removed the browser-storage notice from practice results and exam details in both languages", "Removed the catalog favorites guidance text in both languages", "Moved the compact exam-set selector above practice while keeping exam background information below", "Display the actual current question's set name in a small label above its content, including when practicing across all sets"],
+    "verification": "Production build and ESLint passed; 13 browser tests passed, including visible set selection, generic query preservation, per-question set names across mixed sets, 320px layout, keyboard, axe, grading and refresh persistence. Removed copy is absent in Korean and English catalog/practice HTTP responses."
+  },
+  "constraints": { "signup_added": false, "member_only_features_added": false, "dependencies_changed": false, "database_schema_changed": false, "cloud_data_changed": false, "deployed": false }
+}

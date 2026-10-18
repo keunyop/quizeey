@@ -4,6 +4,7 @@ Models the observed Supabase postgres role and public default ACL. No source exp
 are opened. Uses exactly the selected schema files, not all historical migrations.
 """
 import argparse
+from datetime import datetime, timezone
 from concurrent.futures import ThreadPoolExecutor
 import hashlib
 import json
@@ -33,6 +34,7 @@ def main():
     parser.add_argument('--pg-bin', required=True, type=Path)
     parser.add_argument('--boundary-migration', type=Path)
     parser.add_argument('--study-migration', type=Path)
+    parser.add_argument('--page-migration', type=Path)
     parser.add_argument('--supabase-cli', type=Path)
     parser.add_argument('--candidate', type=Path)
     parser.add_argument('--rollback', type=Path)
@@ -98,7 +100,12 @@ def main():
         if study.parent != (ROOT/'supabase/migrations').resolve():
             raise ValueError('Study migration must be a repository migration')
         migration_paths.append(study)
-    report = {'recordedAt': '2026-10-16', 'timezone': 'America/Vancouver', 'status': 'running',
+    if args.page_migration:
+        page=args.page_migration.resolve()
+        if not args.study_migration or page.parent!=(ROOT/'supabase/migrations').resolve():
+            raise ValueError('Practice page migration requires the repository study reader')
+        migration_paths.append(page)
+    report = {'recordedAt': datetime.now(timezone.utc).isoformat(), 'timezone': 'America/Vancouver', 'status': 'running',
               'runtime': version, 'runtimeBinarySha256': digest(binary/('postgres'+suffix)),
               'privateLogs': str(directory),
               'migrations': [{'file': path.name, 'sha256': digest(path)} for path in migration_paths],

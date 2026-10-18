@@ -1,0 +1,36 @@
+{
+  "checkedAt": "2026-10-18T01:12:12.315Z",
+  "scope": "Actual React components in isolated synthetic harness; mock CMP, GA4 and AdSense only. Does not certify account configuration or live ad delivery.",
+  "results": [
+    {
+      "mode": "filled",
+      "status": "passed",
+      "scriptRequests": {
+        "cmp": 1,
+        "ads": 1,
+        "ga": 1
+      },
+      "realNetworkRequests": 0
+    },
+    {
+      "mode": "unfilled",
+      "status": "passed",
+      "scriptRequests": {
+        "cmp": 1,
+        "ads": 1,
+        "ga": 1
+      },
+      "realNetworkRequests": 0
+    },
+    {
+      "mode": "blocked",
+      "status": "passed",
+      "scriptRequests": {
+        "cmp": 1,
+        "ads": 1,
+        "ga": 1
+      },
+      "realNetworkRequests": 0
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-10-18T03:09:30.203Z",
+  "status": "passed",
+  "scope": "Isolated Next production-review build, synthetic RPC data/credentials and canonical-origin browser forwarding; no actual Google or cloud requests.",
+  "checks": [
+    "production preflight runs with bounded 181-exam/20-question synthetic read",
+    "Basic required for canonical/www/deployment hosts",
+    "robots disallow all and sitemap has no URLs",
+    "canonical browser metadata noindex",
+    "canonical home and practice suppress Google even with advertising/consent configuration present",
+    "grading, refresh restoration and next-question flow",
+    "deferred public posts stay empty; unknown question 404",
+    "zero browser errors/external requests"
+  ],
+  "actualProductionCredentialVerified": false,
+  "actualHostedBrowserVerified": false,
+  "buildMode": "webpack",
+  "externalBrowserRequests": 0,
+  "browserErrors": 0
+}

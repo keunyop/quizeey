@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-10-18T01:52:58.568Z",
+  "status": "passed",
+  "scope": "Actual Next production bundle with 26 synthetic local-only questions; no live archive or cloud database used.",
+  "checks": [
+    "20→21 continuation",
+    "learning continuation links exclude vignette triggers",
+    "final batch of 5",
+    "independent per-page progress after refresh",
+    "return to previous results",
+    "generic URL testId/version preservation",
+    "set changes reset page",
+    "404 beyond last page",
+    "400 invalid page",
+    "zero browser errors/external integration requests"
+  ]
+}

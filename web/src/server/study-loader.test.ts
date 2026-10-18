@@ -49,3 +49,16 @@ it('rejects malformed relations, oversized batches and private provider errors',
   await expect(loadStudyStore({examId:'5'},config)).rejects.toThrow('Study content unavailable');
   expect(fetcher).toHaveBeenCalledTimes(4);
 });
+it('loads a later page via the bounded RPC and rejects missing or inconsistent pagination',async()=>{
+  const data={...payload(),pagination:{page:2,total:21}};
+  const fetcher=vi.fn().mockResolvedValue(json(data));vi.stubGlobal('fetch',fetcher);
+  const store=await loadStudyStore({examId:'5',page:2,version:1},config);
+  expect(store.pagination('5','en',1,2)).toEqual({page:2,total:21,pages:2});
+  expect(store.questions('5','en',1,undefined,2)).toHaveLength(1);
+  expect(fetcher.mock.calls[0][0]).toContain('/rpc/quizeey_study_page');
+  expect(JSON.parse(fetcher.mock.calls[0][1].body)).toEqual({p_exam_id:'5',p_version:1,p_page:2});
+  for(const change of [{pagination:undefined},{pagination:{page:1,total:21}},{pagination:{page:2,total:40}}]){
+    fetcher.mockResolvedValueOnce(json({...data,...change}));
+    await expect(loadStudyStore({examId:'5',page:2},config)).rejects.toThrow('Study content unavailable');
+  }
+});

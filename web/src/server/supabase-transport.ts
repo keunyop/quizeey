@@ -7,10 +7,13 @@ import { forumRequest } from './guest-policy';
 const projectUrl = 'https://tfkhnrbshvyfmrzxqfmq.supabase.co';
 const hash = z.string().regex(/^[a-f0-9]{64}$/);
 const id = z.string().regex(/^[1-9]\d{0,18}$/).refine(value => BigInt(value) <= 9223372036854775807n);
-const status = z.object({ status: z.number().int().min(100).max(599) }).passthrough();
+const status = z.object({ status: z.number().int().min(100).max(599) });
 const operations = {
   quizeey_forum_mutate: z.object({ p_capability_hash: hash, p_abuse_hash: hash, p_request_id: z.uuid(), p_action: z.string(), p_payload: z.record(z.string(), z.unknown()) }).strict().superRefine((value, ctx) => {
-    if (!forumRequest.safeParse({ ...value.p_payload, action: value.p_action }).success) ctx.addIssue({ code: 'custom', message: 'Invalid forum payload' });
+    const payload = { ...value.p_payload };
+    // HTTP validation normalizes an empty optional display name to null.
+    if (payload.displayName === null) payload.displayName = '';
+    if (!forumRequest.safeParse({ ...payload, action: value.p_action }).success) ctx.addIssue({ code: 'custom', message: 'Invalid forum payload' });
   }),
   quizeey_forum_mine: z.object({ p_capability_hash: hash }).strict(),
   quizeey_admin_login_limit: z.object({ p_abuse_hash: hash }).strict(),
@@ -19,21 +22,35 @@ const operations = {
   quizeey_admin_session_create: z.object({ p_hash: hash, p_actor: z.uuid(), p_expires: z.iso.datetime({ offset: true }) }).strict(),
   quizeey_admin_session_actor: z.object({ p_hash: hash }).strict(),
   quizeey_admin_session_revoke: z.object({ p_hash: hash }).strict(),
+  quizeey_forum_cleanup: z.object({}).strict(),
 };
 type Operation = keyof typeof operations;
 const topic = z.object({ id: z.uuid(), title: z.string(), locale: z.enum(['ko', 'en']), created_at: z.string() });
 const post = z.object({ id: z.uuid(), topic_id: z.uuid(), parent_id: z.uuid().nullable(), display_name: z.string().nullable(), body: z.string(), created_at: z.string() });
+const ownedPost = post.extend({ visibility: z.enum(['pending', 'approved']), exam_id: id, question_id: id.nullable(), locale: z.enum(['ko', 'en']), title: z.string(), pending_body: z.string().nullable() });
+const queueItem = z.object({ id: z.uuid(), created_at: z.iso.datetime({ offset: true }), body: z.string().optional(), published_body: z.string().optional(), reason: z.string().optional(), display_name: z.string().nullable().optional(), visibility: z.string().optional(), topic_id: z.uuid(), post_id: z.uuid().optional(), parent_id: z.uuid().nullable().optional(), title: z.string(), exam_id: id, question_id: id.nullable(), locale: z.enum(['ko', 'en']), locked: z.boolean().optional() });
+const outputs = {
+  quizeey_forum_mutate: status.extend({ postId: z.uuid().optional(), topicId: z.uuid().optional(), revisionId: z.uuid().optional(), visibility: z.string().optional() }),
+  quizeey_forum_mine: z.array(ownedPost).max(20),
+  quizeey_admin_login_limit: z.boolean(),
+  quizeey_admin_queue: status.extend({ items: z.array(queueItem).max(21) }),
+  quizeey_admin_moderate: status,
+  quizeey_admin_session_create: z.boolean(),
+  quizeey_admin_session_actor: z.uuid().nullable(),
+  quizeey_admin_session_revoke: z.null(),
+  quizeey_forum_cleanup: z.null(),
+};
 
 export class SupabaseTransportError extends Error {
   constructor() { super('Supabase transport unavailable'); }
 }
 
-/** Prepared preview adapter. HTTP routes stay disabled until the hosted rehearsal passes.
+/** Server-only adapter. Hosted HTTP activation has a separate explicit configuration gate.
  * No client, Auth session, credential or provider error escapes this closure.
  */
 export function createSupabaseTransport(input: Record<string, string | undefined> = process.env) {
   try {
-    if (environment(input).stage !== 'preview' || input.QUIZEEY_SUPABASE_URL !== projectUrl ||
+    if (!['preview', 'production'].includes(environment(input).stage) || input.QUIZEEY_SUPABASE_URL !== projectUrl ||
         !/^sb_publishable_[A-Za-z0-9_-]+$/.test(input.QUIZEEY_SUPABASE_PUBLISHABLE_KEY ?? '') ||
         !/^sb_secret_[A-Za-z0-9_-]+$/.test(input.QUIZEEY_SUPABASE_SECRET_KEY ?? '')) throw new Error();
   } catch { throw new SupabaseTransportError(); }
@@ -48,19 +65,14 @@ export function createSupabaseTransport(input: Record<string, string | undefined
   const publicClient = createClient(projectUrl, input.QUIZEEY_SUPABASE_PUBLISHABLE_KEY!, options);
   const serverClient = createClient(projectUrl, input.QUIZEEY_SUPABASE_SECRET_KEY!, options);
   return {
-    async rpc<N extends Operation>(name: N, args: z.input<(typeof operations)[N]>): Promise<unknown> {
+    async rpc<N extends Operation>(name: N, args: z.input<(typeof operations)[N]>): Promise<z.output<(typeof outputs)[N]>> {
       try {
         // Runtime allowlist matters even if a JS caller circumvents the TypeScript union.
         if (!Object.hasOwn(operations, name)) throw new Error();
         const payload = operations[name].parse(args);
         const { data, error } = await serverClient.rpc(name, payload);
         if (error) throw new Error();
-        if (name === 'quizeey_forum_mutate' || name === 'quizeey_admin_moderate') return status.parse(data);
-        if (name === 'quizeey_admin_queue') return status.extend({ items: z.array(z.record(z.string(), z.unknown())).max(21) }).parse(data);
-        if (name === 'quizeey_forum_mine') return z.array(z.record(z.string(), z.unknown())).max(20).parse(data);
-        if (name === 'quizeey_admin_session_actor') return z.uuid().nullable().parse(data);
-        if (name === 'quizeey_admin_session_revoke') return z.null().parse(data);
-        return z.boolean().parse(data);
+        return outputs[name].parse(data) as z.output<(typeof outputs)[N]>;
       } catch { throw new SupabaseTransportError(); }
     },
     async publicForum(examId: string, locale: 'ko' | 'en', questionId: string | null) {

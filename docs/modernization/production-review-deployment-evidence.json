@@ -1,0 +1,110 @@
+{
+  "recordedAt": "2026-10-18T03:12:01.952Z",
+  "ownerDate": "2026-10-17",
+  "ownerTimezone": "America/Vancouver",
+  "status": "PROTECTED_PRODUCTION_REVIEW_READY_NO_LIVE_CUTOVER",
+  "deployment": {
+    "id": "dpl_5EG6qKrFgWHyaQGmrQnTGNXWFc3R",
+    "url": "https://quizeey-8n6lje53f-kevins-projects-e2dcc34c.vercel.app",
+    "target": "production",
+    "state": "READY",
+    "aliases": [
+      "quizeey-kevins-projects-e2dcc34c.vercel.app"
+    ],
+    "customProductionDomainsAssigned": false,
+    "sourceHead": "e938e430d9f8ce1239f5efd850326ca173860c68",
+    "sourceWorkingTreeDirty": true,
+    "sourceProvenance": "Locally verified source/package hashes and submitted API metadata; not authenticated Git provenance.",
+    "files": 76,
+    "bytes": 2739618,
+    "packageSha256": "ebc4fc61570c7fab9834a82a7e842688e3d256aad003cd2a5dfeb3e8eabfed4e",
+    "packageEvidence": "production-review-package-evidence.json",
+    "actualArchiveFilesOrSecretsUploadedInSource": false
+  },
+  "productionSecretValidation": {
+    "ownerConfirmedRegistered": true,
+    "metadataOnlyReadback": {
+      "keys": [
+        "QUIZEEY_SUPABASE_SECRET_KEY",
+        "QUIZEEY_PREVIEW_PASSWORD"
+      ],
+      "target": "production",
+      "type": "sensitive",
+      "valuesRetrieved": false
+    },
+    "actualBuildPreflight": {
+      "productionReadVerified": true,
+      "examCount": 181,
+      "sampledQuestions": 20,
+      "review": true
+    },
+    "passwordFormatCheck": "Production build passed environment guard requiring >=24 characters; actual hosted Basic login remains owner review."
+  },
+  "protection": {
+    "applicationBasicAllHosts": true,
+    "username": "release-review",
+    "platformSso": "all_except_custom_domains",
+    "publicProbe": {
+      "status": 302,
+      "redirectHost": "vercel.com",
+      "robots": "noindex"
+    },
+    "robotsDisallowAll": true,
+    "sitemapEmpty": true,
+    "adsEnabled": false,
+    "analyticsEnabled": false,
+    "forumEnabled": false,
+    "visitorSignupEnabled": false,
+    "temporaryBypassCreated": false
+  },
+  "consent": {
+    "ownerConfirmedAdvertisingAndAnalyticsCheckedAndSaved": true,
+    "settingsSource": "Owner confirmed both exact English Consent mode checkboxes saved.",
+    "publicPublishedScriptProbe": {
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8",
+      "bytes": 23084,
+      "executed": false,
+      "actualRuntimeConsentApiVerified": false
+    },
+    "productionCmpEnvironment": {
+      "key": "QUIZEEY_CMP_SCRIPT_URL",
+      "value": "https://fundingchoicesmessages.google.com/i/pub-8362228066874729?ers=1",
+      "type": "plain",
+      "readbackMatched": true,
+      "effectiveInReviewDeployment": false,
+      "effectiveOnNextDeployment": true
+    },
+    "realRegionalConsentAdsGa4Verification": "pending; owner settings and public script200 do not certify runtime delivery"
+  },
+  "verification": {
+    "unitTestsPassed": 97,
+    "typescript": "passed",
+    "eslint": "passed",
+    "defaultTurbopackBuild": "passed",
+    "isolatedProductionReviewBrowser": "passed; production-review-browser-evidence.json (synthetic RPCs/credentials, webpack build)",
+    "actualHostedAuthenticatedBrowser": "pending owner review",
+    "actualGa4PropertyDelivery": "pending",
+    "actualAdOverlayPlacement": "pending"
+  },
+  "liveTraffic": {
+    "dnsWrites": 0,
+    "awsChanges": 0,
+    "googleAccountChangesByAgent": 0,
+    "supabaseDataOrAuthWrites": 0,
+    "releaseFlagsEnabled": false,
+    "currentPublicSiteProbeStatus": 200,
+    "domainConfig": "Cloudflare NS and proxy answers unchanged; Vercel misconfigured=true expected until approved DNS cutover.",
+    "autoAssignCustomDomains": {
+      "requested": false,
+      "apiUpdateSucceeded": true,
+      "projectResponseFieldNotExposed": true,
+      "observedAliasesExcludeQuizeeyDotComAndWww": true
+    }
+  },
+  "cleanup": {
+    "ownedQaPort3112": "closed",
+    "existingUserDevPort3000": "open"
+  },
+  "releaseRequirement": "This review build is deliberately protected/noindex and must never be blindly promoted as the public release. Build and verify a separate final release with review=false, real ad/consent verification and release gates, then execute the reviewed writer-freeze/backup/delta and DNS plan."
+}

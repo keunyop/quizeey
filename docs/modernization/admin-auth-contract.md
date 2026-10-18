@@ -1,5 +1,7 @@
 # 관리자 인증·검토 계약
 
+2026-10-17 후속: 소유자가 기존 사용자 글을 비공개 보관하고 포럼 구성을 이후 결정하기로 했다. 이번 컷오버의 관리자/포럼 활성화는 보류한다. 제공된 실제 운영자 UUID의 계정 상태를 읽기 전용으로 확인해 Preview allowlist/provider를 등록했으나 실제 hosted 로그인 검증 완료를 뜻하지 않는다. 현재 범위/준비 결과는 [cutover-owner-followup-evidence.json](cutover-owner-followup-evidence.json)을 따른다. 아래 local-only 구현 기록은 이전 이력이며 새 hosted adapter는 명시적 비활성 gate 뒤에 준비돼 있다.
+
 2026-10-16 구현 및 검증. 일반 방문자는 Auth 계정 없이 학습·읽기·글·답글을 이용한다. `/admin`, `/en/admin`과 `/api/admin/*`는 관리자 전용이며 공개 가입·프로필 기능은 없다.
 
 ## 인증과 권한

@@ -46,7 +46,9 @@ export async function legacyRead(request: Request, endpoint: Endpoint) {
     if (endpoint === "questionStats" || endpoint === "explanations") {
       const questId = id(input.questId)!;
       if (!store.hasQuestion(questId)) return result({ error: "Unknown question" }, 404);
-      if(endpoint==='explanations')return store.pendingExplanations(questId)?result({error:'Native explanation import pending'},503):result([]);
+      // User-authored explanations are privately retained until the owner reopens
+      // publication. Built-in question explanations remain in /question.
+      if(endpoint==='explanations')return result([]);
       const stats=store.counter(questId);
       return result(stats?{questId:wire(questId),...stats}:{questId:null,correct:0,inCorrect:0});
     }

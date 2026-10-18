@@ -10,7 +10,6 @@ export const messages = {
     noMistakes: "복습할 오답이 없습니다.", anonymous: "익명", discussion: "토론",
     unavailable: "문제 자료를 불러올 수 없습니다. 시험 목록에서 다른 시험을 선택해 주세요.",
     storageError: "이 브라우저에 진행 상황을 저장할 수 없습니다.",
-    localNote: "진행 상황과 북마크는 이 브라우저에 저장됩니다.",
     main: "본문으로 이동", home: "시험 목록", select: "보기를 선택해 주세요.",
   },
   en: {
@@ -22,7 +21,6 @@ export const messages = {
     noMistakes: "No mistakes to review.", anonymous: "Anonymous", discussion: "Discussion",
     unavailable: "Question data is unavailable. Choose another exam from the exam list.",
     storageError: "Progress cannot be saved in this browser.",
-    localNote: "Progress and bookmarks are saved in this browser.",
     main: "Skip to content", home: "Exams", select: "Select an answer.",
   },
 } satisfies Record<Locale, Record<string, string>>;

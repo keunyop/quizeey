@@ -40,6 +40,15 @@ describe('verified private study reader',()=>{
       expect(()=>coreStudyStore(data,'hash')).toThrow();
     }
   });
+  it('continues through bounded batches without overlap or changing original question IDs',()=>{
+    const store=coreStudyStore(fixture(),'hash');
+    const first=store.questions('5','ko',1);const second=store.questions('5','ko',1,undefined,2);
+    expect(first).toHaveLength(20);expect(second).toHaveLength(3);
+    expect(new Set([...first,...second].map(q=>q.id)).size).toBe(23);
+    expect(second.map(q=>q.questionNumber)).toEqual([21,22,23]);
+    expect(store.pagination('5','ko',1,2)).toEqual({page:2,total:23,pages:2});
+    expect(store.questions('5','ko',1,undefined,3)).toEqual([]);
+  });
   it('validates private file location and content hashes without exposing parse errors',()=>{
     const root=fs.mkdtempSync(path.join(os.tmpdir(),'quizeey-synthetic-reader-'));const file=path.join(root,'local-content.json');
     const manifest=path.join(root,'local-content-manifest.json');const payload=JSON.stringify(fixture());

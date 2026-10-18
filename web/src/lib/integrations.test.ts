@@ -21,6 +21,13 @@ it("handles ad blockers without retry loops", async () => {
   expect(await ads.mount({}, "1033140566", 250)).toBe(false);
   expect(mock.loadScript).toHaveBeenCalledTimes(1); expect(mock.initialize).not.toHaveBeenCalled();
 });
+it('does not initialize an in-flight ad after consent is revoked',async()=>{
+  let finish!:()=>void;
+  const mock=port();mock.loadScript.mockImplementation(()=>new Promise<void>(resolve=>{finish=resolve;}));
+  const ads=new AdLifecycle(allowed,mock);const pending=ads.mount({},'1033140566',250);
+  ads.updatePolicy({...allowed,consent:false});finish();
+  expect(await pending).toBe(false);expect(mock.initialize).not.toHaveBeenCalled();
+});
 it("only accepts real recorded slots and reserved dimensions", async () => {
   await expect(new AdLifecycle(allowed, port()).mount({}, "invented", 250)).rejects.toThrow();
   await expect(new AdLifecycle(allowed, port()).mount({}, "1033140566", 0)).rejects.toThrow();
