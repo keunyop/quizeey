@@ -1,0 +1,35 @@
+{
+  "checkedAt": "2026-10-18T08:40:58.054Z",
+  "status": "passed",
+  "scope": "Actual public DNS and unmodified production pages in a fresh Edge browser; actual data and scripts, no application mocks, DNS overrides or ad clicks. Screenshots remain ignored locally. Google network failures are recorded separately from app flow.",
+  "checks": [
+    "Public home and canonical",
+    "Real question selection and grading",
+    "Browser progress restored after refresh",
+    "Next question",
+    "Deferred forum hidden",
+    "390px layout without horizontal overflow"
+  ],
+  "browserErrors": [],
+  "networkFailures": [
+    {
+      "host": "fundingchoicesmessages.google.com",
+      "error": "net::ERR_FAILED"
+    },
+    {
+      "host": "fundingchoicesmessages.google.com",
+      "error": "net::ERR_FAILED"
+    },
+    {
+      "host": "fundingchoicesmessages.google.com",
+      "error": "net::ERR_FAILED"
+    }
+  ],
+  "googleResponses": [],
+  "consent": {
+    "available": false,
+    "hasGa": true,
+    "gaLoader": false,
+    "adsLoader": false
+  }
+}

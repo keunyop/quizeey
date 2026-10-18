@@ -1,0 +1,29 @@
+{
+  "status": "consistent_read_only_snapshot",
+  "exportMode": "original",
+  "authorNamesAnonymized": false,
+  "sourceInstanceId": "i-046087bdb8dff10f7",
+  "sourceEngine": "5.7.30",
+  "sourceDatabase": "quizeey",
+  "snapshotUtc": "2026-10-18 08:40:06.186355",
+  "completedUtc": "2026-10-18 08:40:28.934730",
+  "sessionTimezone": "+00:00",
+  "sessionReadOnly": true,
+  "tables": {
+    "test": 181,
+    "version": 330,
+    "question": 27484,
+    "example": 110387,
+    "explanation": 2209,
+    "question_stats": 26614
+  },
+  "snapshotBytes": 51689927,
+  "snapshotSha256": "75825bc1d9e4e949d353016eb0f7cc1dc00c9d985439e7afded0e8d22c131827",
+  "normalizedSha256": "82ece4be1f148f1104d89e94f04cbd01ec7dfe373f4def045c5e9c329213e615",
+  "privatePath": ".modernization/exports/source-9b92d233d8",
+  "privateStorage": "owner-only directory ACL; Git ignored",
+  "sourceRowsPrinted": false,
+  "credentialsPrinted": false,
+  "sourceMutations": 0,
+  "scope": "Post-cutover read-only snapshot; source writers are not frozen. Not a final frozen snapshot or whole-instance backup."
+}

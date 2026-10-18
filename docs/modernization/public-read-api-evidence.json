@@ -1,0 +1,47 @@
+{
+  "checkedAt": "2026-10-18T08:32:14.679Z",
+  "status": "passed",
+  "scope": "Real production Supabase-backed legacy read endpoints over verified canonical HTTPS directed to new Vercel origin. No content, author names, answers or identifiers emitted; no write endpoints, Google requests or DNS changes.",
+  "checks": [
+    {
+      "name": "Korean catalog",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "name": "Existing exam identity",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "name": "Exam versions",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "name": "Question and choices",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "name": "Legacy statistics",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "name": "User posts remain deferred",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "name": "Invalid ID rejected",
+      "status": 400,
+      "passed": true
+    },
+    {
+      "name": "Unknown question rejected",
+      "status": 404,
+      "passed": true
+    }
+  ]
+}

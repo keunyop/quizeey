@@ -1,0 +1,119 @@
+{
+  "checkedAt": "2026-10-18T09:07:09.193Z",
+  "status": "needs-attention",
+  "error": "locator.check: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.choice input').first()\u001b[22m\n\u001b[2m    - locator resolved to <input type=\"radio\" value=\"99953\" name=\"answer-24821\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - performing click action\u001b[22m\n\u001b[2m    - click action done\u001b[22m\n\u001b[2m    - waiting for scheduled navigations to finish\u001b[22m\n\u001b[2m    - navigations have finished\u001b[22m\n\u001b[2m    - waiting for \"https://www.milanielectric.com/?[redacted]\" navigation to finish...\u001b[22m\n\u001b[2m    - navigated to \"https://www.milanielectric.com/?[redacted]\"\u001b[22m\n",
+  "observed": {
+    "cmpCrossorigin": null,
+    "overlays": "collapsed-bottom",
+    "studyAnnotationExcluded": true,
+    "questionCardAds": 0,
+    "consent": {
+      "adStoragePurposeConsentStatus": 3,
+      "adUserDataPurposeConsentStatus": 3,
+      "adPersonalizationPurposeConsentStatus": 3,
+      "analyticsStoragePurposeConsentStatus": 3
+    },
+    "gaLoader": true,
+    "adsLoader": true,
+    "slots": [
+      {
+        "status": "filled",
+        "height": 390
+      },
+      {
+        "status": "unfilled",
+        "height": 0
+      },
+      {
+        "status": "filled",
+        "height": 96
+      }
+    ],
+    "pageViewEvents": 1,
+    "horizontalOverflow": false
+  },
+  "responses": [
+    {
+      "host": "fundingchoicesmessages.google.com",
+      "path": "/i/pub-8362228066874729",
+      "status": 200
+    },
+    {
+      "host": "pagead2.googlesyndication.com",
+      "path": "/pagead/js/adsbygoogle.js",
+      "status": 200
+    },
+    {
+      "host": "www.googletagmanager.com",
+      "path": "/gtag/js",
+      "status": 200
+    },
+    {
+      "host": "www.google-analytics.com",
+      "path": "/g/collect",
+      "status": 204,
+      "expectedMeasurementId": true
+    },
+    {
+      "host": "www.google-analytics.com",
+      "path": "/g/collect",
+      "status": 204,
+      "expectedMeasurementId": true
+    },
+    {
+      "host": "www.google-analytics.com",
+      "path": "/g/collect",
+      "status": 204,
+      "expectedMeasurementId": true
+    },
+    {
+      "host": "www.googletagmanager.com",
+      "path": "/gtag/js",
+      "status": 200
+    },
+    {
+      "host": "analytics.google.com",
+      "path": "/g/collect",
+      "status": 204,
+      "expectedMeasurementId": false
+    },
+    {
+      "host": "stats.g.doubleclick.net",
+      "path": "/g/collect",
+      "status": 204,
+      "expectedMeasurementId": false
+    }
+  ],
+  "failures": [
+    {
+      "host": "googleads.g.doubleclick.net",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "host": "googleads.g.doubleclick.net",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "host": "googleads.g.doubleclick.net",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "host": "googleads.g.doubleclick.net",
+      "error": "net::ERR_ABORTED"
+    }
+  ],
+  "browserErrors": [],
+  "scope": "Actual direct public production and Google browser network; no relay, response mocking or DOM injection. Pointer verification unexpectedly navigated to an advertiser; further live-ad input testing stopped.",
+  "connectionStatus": "confirmed: CMP200, AdSense200 with filled slots, GA4200 and G-XM8XM4CHX7 collect204; page_view1 before unintended navigation",
+  "mobileInteractionStatus": "Automated pointer verification remains interrupted; subsequent owner real-phone ad placement check confirmed normal. No further automated live-ad clicks.",
+  "unexpectedAdvertiserNavigationObserved": true,
+  "additionalLiveAdClicksStopped": true,
+  "otherMeasurementIdsExplanation": "Additional measurement requests after unintended advertiser navigation belong to the advertiser page; do not interpret as duplicate Quizeey properties.",
+  "subsequentOwnerFieldConfirmation": {
+    "recordedAt": "2026-10-18T09:12:36Z",
+    "source": "Owner reply after fresh-tab production check",
+    "existingGa4RealtimeReceiving": true,
+    "mobileAdPlacementNormal": true,
+    "scope": "Owner-reported existing GA4 property receipt and tested real-phone ad placement; not universal regional/device certification."
+  }
+}

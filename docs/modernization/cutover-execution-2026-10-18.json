@@ -1,0 +1,239 @@
+{
+  "recordedAt": "2026-10-18T09:12:36Z",
+  "status": "CUTOVER_COMPLETE_OWNER_CONFIRMED",
+  "ownerAuthorization": "Owner confirmed protected production UI review and instructed continuation; current SSH My IP allow rule confirmed separately.",
+  "release": {
+    "pullRequest": "https://github.com/keunyop/quizeey/pull/84",
+    "merged": true,
+    "branch": "master",
+    "commit": "8ce414dfcb1db5cc1443d07c23cebe75582e29ee",
+    "tree": "3f6603d1c67bd4a6ac2b5eb0fba0da9d68a81d75",
+    "deploymentId": "dpl_7SHtHERNcgYfFuY2yBmYCqfjPgti",
+    "url": "https://quizeey-az1cw38nq-kevins-projects-e2dcc34c.vercel.app",
+    "state": "READY",
+    "promotionSucceeded": true,
+    "canonicalAliasesReadback": [
+      "quizeey.com",
+      "www.quizeey.com"
+    ],
+    "flags": {
+      "QUIZEEY_PRODUCTION_REVIEW": false,
+      "QUIZEEY_RELEASE_READY": true,
+      "QUIZEEY_ADS_VERIFIED": true
+    },
+    "flagEvidenceScope": "Account configuration, actual published CMP API integration and synthetic lifecycle tests. These flags do not certify real regional ad delivery, overlay behavior or GA4 property receipt.",
+    "changes": [
+      "Allow actual published Google consent-mode decisions when publisher does not expose the optional US opt-out API; explicit unknown or denied decisions remain blocked.",
+      "Use platform-routed Host for canonical routing; ignore spoofable forwarded-host.",
+      "Preserve exact v1 logo and favicon bytes across Windows and Linux Git checkouts.",
+      "CMP classic script loading avoids CORS blocking; ad tags retain anonymous CORS.",
+      "Practice Display uses supported collapsed-bottom anchor option; study area excluded from ad-intent annotations."
+    ],
+    "aliasAssignmentEvidence": "Both aliases read back to final deployment after final promotion; original08:10 timestamp belongs only to initial release."
+  },
+  "verification": {
+    "unitTestsPassed": 99,
+    "browserRegressionCasesPassed": 22,
+    "typescript": "passed",
+    "eslint": "passed",
+    "productionBuild": "passed",
+    "githubCiHead": "aa39f1aa58fd1695f00408b0c96bad2f4365b7d8",
+    "githubCiSuccessfulRuns": [
+      39113832909,
+      39113828010
+    ],
+    "publicProductionSyntheticBrowser": "production-release-browser-evidence.json",
+    "actualPublishedCmp": "release-cmp-evidence.json",
+    "actualProductionCredentialRead": {
+      "examCount": 181,
+      "sampledQuestions": 20,
+      "review": false
+    },
+    "publicOriginTls": "Passed all16 actual canonical HTTPS/SNI checks on both recommended IPv4 addresses at2026-10-18T08:30:35.264Z; public DNS still unchanged.",
+    "cleanup": "Owned QA ports3100/3108/3110/3112/3114 and isolated DB55432/Auth55433 closed; existing user dev3000 retained.",
+    "actualProductionReadApi": "8 checks passed against actual Supabase-backed canonical HTTPS origin; public-read-api-evidence.json. No write endpoints invoked.",
+    "livePublicOrigin": "8 checks passed through actual public DNS: live-public-origin-evidence.json",
+    "liveReadApi": "8 checks passed through actual public DNS: live-public-read-api-evidence.json",
+    "liveBrowser": "6 real public browser checks passed; browserErrors0. Managed browser direct Google requests failed, recorded separately: live-browser-evidence.json",
+    "liveLegacyUrls": "HTTP/www308 preserving path/query, old kr/test URLs200, English/privacy/Naver200, unknown404: live-legacy-url-evidence.json",
+    "liveGoogle": "Actual unmodified Google responses relayed through Node transport: CMP200, AdSense200 and filled slots, existing GA4 G-XM8XM4CHX7 collect204, page_view1, no browser errors or relay failures: live-google-evidence.json",
+    "priorGoogleVerificationCorrection": "Earlier ERR_FAILED was incorrectly attributed to managed browser network restrictions. Playwright route fulfillment/Node relay bypassed normal CORS enforcement and was insufficient evidence of direct visitor delivery.",
+    "liveGoogleDirect": "Actual browser direct network connection confirmed; full mobile interaction evidence needs-attention after unintended ad navigation. See live-google-direct-evidence.json and cmp-cors-incident.json.",
+    "ownerGa4AndMobileFieldConfirmation": {
+      "recordedAt": "2026-10-18T09:12:36Z",
+      "source": "Owner reply after fresh-tab production check",
+      "existingGa4RealtimeReceiving": true,
+      "mobileAdPlacementNormal": true,
+      "scope": "Owner-reported existing GA4 property receipt and tested real-phone ad placement; not universal regional/device certification."
+    }
+  },
+  "latestSourceSnapshot": {
+    "snapshotUtc": "2026-10-18 07:58:16.231038",
+    "completedUtc": "2026-10-18 07:58:39.553152",
+    "privatePath": ".modernization/exports/source-060f63bf88",
+    "bytes": 51689927,
+    "snapshotSha256": "d33751483245b02250d9f97be6ced5dfcc298885d1f1f96decd68418065809a4",
+    "normalizedSha256": "2af15d1c63b403e864ac5e0d6a7c6bf24996d672c63871d5f573d43cd75a7695",
+    "sourceUserPosts": 2209,
+    "writersFrozen": false,
+    "wholeInstanceBackup": false,
+    "comparison": "precutover-source-comparison.json",
+    "sourceQuestionAndUserPostChanges": 0,
+    "privateUserPostsUploadedOrPublished": false
+  },
+  "counterDelta": {
+    "updatedRows": 272,
+    "payloadSha256": "62a1b4954390091bdc8c65d467f1503882cbb19c03a36a6c6156a1c74c09513b",
+    "targetProject": "tfkhnrbshvyfmrzxqfmq",
+    "targetCounterRowsAfter": 25870,
+    "postflight": {
+      "oldValueMatches": 0,
+      "newValueMatches": 272,
+      "conflicts": 0,
+      "nativeTopics": 0,
+      "nativePosts": 0
+    },
+    "atomicOldValuePreconditions": true,
+    "initialAttemptRolledBack": "An auxiliary aggregate referenced a nonexistent forum table; whole transaction rolled back. Old272/new0 verified before corrected transaction committed272.",
+    "rollback": "Private payload retains previous and new values/timestamps. Reverse only these272 rows with current-value preconditions; do not replay original baseline over later writes.",
+    "initialContentDatasetHashMeaning": "Immutable initial content baseline; this separately recorded mutable counter refresh does not change question content or initial dataset identity."
+  },
+  "dns": {
+    "cloudflareWrites": "Owner manually changed @ and www; agent Cloudflare writes0",
+    "nameserverChanges": 0,
+    "liveSite": "Vercel v2 on canonical public domain",
+    "rollback": "Both @ and www A52.35.43.187, Proxied, TTL Auto",
+    "candidateApexA": [
+      "216.150.1.1",
+      "216.150.16.1"
+    ],
+    "candidateWwwCname": "a32fabf8efa8b80c.vercel-dns-016.com.",
+    "candidateProxy": "DNS only",
+    "candidateTtlSeconds": 300,
+    "refreshBeforeChange": true,
+    "sslOwnerActionRequested": "Completed by owner; verified metadata and actual TLS.",
+    "recommendationsRecheckedUtc": "2026-10-18T08:31:41Z",
+    "certificateMetadataRecheck": "Owner-issued certificate found; actual canonical and www TLS passed.",
+    "certificate": {
+      "id": "cert_AMNe1DCd3XFGrHI5ikP3x7nv",
+      "cns": [
+        "*.quizeey.com",
+        "quizeey.com"
+      ],
+      "autoRenew": true,
+      "actualHttpsValidated": true,
+      "privateKeyRetrieved": false
+    },
+    "dnsOwnerChangeRequested": true,
+    "ownerConfirmedChanged": true,
+    "ownerExecutedDnsWrites": true,
+    "publicA": [
+      "216.150.1.1",
+      "216.150.16.1"
+    ],
+    "publicWwwCname": "a32fabf8efa8b80c.vercel-dns-016.com.",
+    "vercelMisconfigured": false,
+    "agentCloudflareWrites": 0
+  },
+  "automaticApprovalReview": {
+    "rejectedAction": "Redundant explicit assign_alias for quizeey.com after approved promotion",
+    "reason": "Reviewer classified additional live custom-domain routing mutation outside staging authorization.",
+    "retriedOrBypassed": false,
+    "readOnlyResolution": "Both canonical aliases were already assigned to final master deployment by the earlier successful promotion. No additional alias write is needed."
+  },
+  "remaining": [],
+  "localWorkspace": "Local .git is read-only and remains on old modernization/discovery-foundation HEAD. PR82 is already merged remotely; preserve local evidence and do not create a duplicate PR or overwrite unrelated files.",
+  "sourceWriterStrategy": {
+    "v2ServerVisitorWritesEnabled": false,
+    "legacyDatabaseRetained": true,
+    "legacyWritersFrozen": false,
+    "plan": "Read-focused public launch retains legacy as sole server visitor-writer store during DNS propagation. Take post-propagation snapshot and reconcile against07:58 baseline. Final freeze/drain and accepted-write reconciliation required before source retirement. No RPO0 or whole-instance backup claim."
+  },
+  "currentHandoff": "cutover-live-handoff.md",
+  "postcutoverSourceSnapshot": {
+    "status": "consistent_read_only_snapshot",
+    "exportMode": "original",
+    "authorNamesAnonymized": false,
+    "sourceInstanceId": "i-046087bdb8dff10f7",
+    "sourceEngine": "5.7.30",
+    "sourceDatabase": "quizeey",
+    "snapshotUtc": "2026-10-18 08:40:06.186355",
+    "completedUtc": "2026-10-18 08:40:28.934730",
+    "sessionTimezone": "+00:00",
+    "sessionReadOnly": true,
+    "tables": {
+      "test": 181,
+      "version": 330,
+      "question": 27484,
+      "example": 110387,
+      "explanation": 2209,
+      "question_stats": 26614
+    },
+    "snapshotBytes": 51689927,
+    "snapshotSha256": "75825bc1d9e4e949d353016eb0f7cc1dc00c9d985439e7afded0e8d22c131827",
+    "normalizedSha256": "82ece4be1f148f1104d89e94f04cbd01ec7dfe373f4def045c5e9c329213e615",
+    "privatePath": ".modernization/exports/source-9b92d233d8",
+    "privateStorage": "owner-only directory ACL; Git ignored",
+    "sourceRowsPrinted": false,
+    "credentialsPrinted": false,
+    "sourceMutations": 0,
+    "scope": "Post-cutover read-only snapshot; source writers are not frozen. Not a final frozen snapshot or whole-instance backup."
+  },
+  "postcutoverCounterDelta": {
+    "sourceDelta": 8,
+    "appliedRows": 8,
+    "payloadSha256": "8028ef91a9b10a70da7c6c180b48b6fdd6024cc7cd722991b970578322df3f75",
+    "beforeSnapshotUtc": "2026-10-18 07:58:16.231038",
+    "afterSnapshotUtc": "2026-10-18 08:40:06.186355",
+    "oldValuePreconditions": true,
+    "rowLockAndAtomicCountGuard": true,
+    "postflight": {
+      "oldMatches": 0,
+      "newMatches": 8,
+      "conflicts": 0
+    },
+    "sourceQuestionOrUserPostChanges": 0,
+    "privatePayloadPath": ".modernization/exports/source-9b92d233d8/counter-delta.json",
+    "rollback": "Use previous values only if current values still match applied new values; do not overwrite later changes."
+  },
+  "initialRelease": {
+    "pullRequest": "https://github.com/keunyop/quizeey/pull/82",
+    "merged": true,
+    "branch": "master",
+    "commit": "9b3c3fc1a4d033ebd383221b27240fb95ceeeee9",
+    "tree": "c75ee58855a1c7d16f4f147c07c6481464a88079",
+    "deploymentId": "dpl_G6YBonUsP4f6BxTpNggAPfzBqzqu",
+    "url": "https://quizeey-9i5x1fkev-kevins-projects-e2dcc34c.vercel.app",
+    "state": "READY",
+    "promotionSucceeded": true,
+    "canonicalAliasesReadback": [
+      "quizeey.com",
+      "www.quizeey.com"
+    ],
+    "aliasAssignmentTimeUtc": "2026-10-18T08:10:12Z",
+    "flags": {
+      "QUIZEEY_PRODUCTION_REVIEW": false,
+      "QUIZEEY_RELEASE_READY": true,
+      "QUIZEEY_ADS_VERIFIED": true
+    },
+    "flagEvidenceScope": "Account configuration, actual published CMP API integration and synthetic lifecycle tests. These flags do not certify real regional ad delivery, overlay behavior or GA4 property receipt.",
+    "changes": [
+      "Allow actual published Google consent-mode decisions when publisher does not expose the optional US opt-out API; explicit unknown or denied decisions remain blocked.",
+      "Use platform-routed Host for canonical routing; ignore spoofable forwarded-host.",
+      "Preserve exact v1 logo and favicon bytes across Windows and Linux Git checkouts."
+    ]
+  },
+  "googleIncident": "cmp-cors-incident.json",
+  "ownerFieldConfirmation": {
+    "recordedAt": "2026-10-18T09:12:36Z",
+    "source": "Owner reply after fresh-tab production check",
+    "existingGa4RealtimeReceiving": true,
+    "mobileAdPlacementNormal": true,
+    "scope": "Owner-reported existing GA4 property receipt and tested real-phone ad placement; not universal regional/device certification."
+  },
+  "postcutoverFollowUp": [
+    "Monitor production errors, study completion and ad performance.",
+    "Keep AWS/MySQL and private snapshots; final old-writer freeze/drain and accepted-write reconciliation required before separately authorized source retirement.",
+    "Regional consent verification remains geography-specific; owner confirmation covers tested devices/region."
+  ]
+}

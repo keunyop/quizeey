@@ -1,0 +1,32 @@
+{
+  "ownerDate": "2026-10-18",
+  "timezone": "America/Vancouver",
+  "status": "REAL_CMP_CHECK_AND_CONFIGURATION_REGRESSIONS_PASSED",
+  "ownerConfirmed": {
+    "advertisingConsentModeSaved": true,
+    "analyticsConsentModeSaved": true,
+    "publishedEuropeanRegulationsMessage": true,
+    "reviewDeploymentUiConfirmed": "dpl_EvX7CUJkzkCxxommwKE7taweCGo1"
+  },
+  "actualCmpProbe": {
+    "publisher": "pub-8362228066874729",
+    "modes": ["normal region", "official forced GDPR message preview"],
+    "transport": "Unchanged public Google CMP JavaScript relayed through Node with actual CORS headers because the managed browser cannot directly reach Google. Other third-party requests blocked or mocked.",
+    "normalRegionPurposeValues": {"ad_storage": 3, "ad_user_data": 3, "ad_personalization": 3, "analytics_storage": 3},
+    "meaning": "Google returned NOT_APPLICABLE for this test location; this is not proof of EEA consent grant/denial.",
+    "usStatesApiExposed": false,
+    "forcedGdprMessageVisible": true,
+    "ga4LoaderInterceptedAfterFix": true,
+    "actualGa4OrAdLoaderTransmitted": false,
+    "realAdClicks": 0,
+    "googleAccountChangesByAgent": 0,
+    "browserErrors": 0
+  },
+  "fixed": [
+    "Use explicit EU purpose decisions when this publisher provides no US opt-out API; still block unknown/pending/opted-out states when US API exists.",
+    "Use platform-routed Host for public/candidate classification behind Next loopback; reject forwarded-host spoofing and preserve canonical redirects."
+  ],
+  "verification": {"unitTestsPassed": 99, "typecheck": "passed", "lint": "passed", "turbopackBuild": "passed", "mockedMonetizationCases": 3, "publicProductionBrowser": "production-release-browser-evidence.json"},
+  "remainingFieldChecks": ["Actual EEA regional consent and revocation", "Actual AdSense overlay placement and fill", "Existing GA4 property realtime receipt after routing cutover"],
+  "references": ["https://developers.google.com/funding-choices/fc-api-docs", "https://support.google.com/adsense/answer/16053245?hl=en"]
+}

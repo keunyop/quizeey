@@ -76,7 +76,7 @@ export async function RouteView({ path, query }: { path: string; query: Query })
         <a className="language-link" href={locale === "en" ? "/" : "/en"} lang={locale === "en" ? "ko" : "en"}><Icon name="globe" />{locale === "en" ? "한국어" : "English"}</a>
       </nav>
     </header>
-    <main id="main" className={`container ${isHome ? "home-container" : exam.testId ? "study-container" : ""}`}>
+    <main id="main" className={`container ${isHome ? "home-container" : exam.testId ? "study-container google-anno-skip" : ""}`}>
       {previewSamples && <aside className="preview-notice" aria-label={locale==='ko'?'미리보기 안내':'Preview notice'}>
         <strong>{locale==='ko'?'미리보기 · 샘플 문항':'Preview · Sample questions'}</strong>
         <p>{locale==='ko'?'샘플 문항으로 채점, 해설, 학습 기록 저장을 확인할 수 있습니다. 실제 기출문항은 아직 연결하지 않았습니다.':'Try grading, explanations and saved progress with sample questions. The full exam archive is not connected yet.'}</p>

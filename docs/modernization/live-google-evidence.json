@@ -1,0 +1,483 @@
+{
+  "checkedAt": "2026-10-18T08:42:32.786Z",
+  "status": "integration-loaders-confirmed",
+  "scope": "Actual public production page/data and Google CMP/AdSense/GA4 responses. Google transport relayed unchanged through Node because managed browser direct Google access fails; no fabricated consent or mocked scripts, ad clicks, account changes or logged query payloads. Actual GA4 property receipt and regional/ad-overlay UX still require owner field checks.",
+  "observed": {
+    "consent": {
+      "adStoragePurposeConsentStatus": 3,
+      "adUserDataPurposeConsentStatus": 3,
+      "adPersonalizationPurposeConsentStatus": 3,
+      "analyticsStoragePurposeConsentStatus": 3
+    },
+    "usApi": false,
+    "gaLoader": true,
+    "adsLoader": true,
+    "slots": [
+      {
+        "status": "filled",
+        "height": 390
+      },
+      {
+        "status": "unfilled",
+        "height": 0
+      },
+      {
+        "status": "filled",
+        "height": 0
+      },
+      {
+        "status": "filled",
+        "height": 258
+      }
+    ],
+    "pageViewEvents": 1,
+    "horizontalOverflow": false
+  },
+  "responses": [
+    {
+      "host": "fundingchoicesmessages.google.com",
+      "path": "/i/pub-8362228066874729",
+      "status": 200
+    },
+    {
+      "host": "fundingchoicesmessages.google.com",
+      "path": "/el/[opaque]",
+      "status": 204
+    },
+    {
+      "host": "fundingchoicesmessages.google.com",
+      "path": "/el/[opaque]",
+      "status": 204
+    },
+    {
+      "host": "fundingchoicesmessages.google.com",
+      "path": "/el/[opaque]",
+      "status": 204
+    },
+    {
+      "host": "fundingchoicesmessages.google.com",
+      "path": "/f/[opaque]",
+      "status": 200
+    },
+    {
+      "host": "pagead2.googlesyndication.com",
+      "path": "/pagead/js/adsbygoogle.js",
+      "status": 200
+    },
+    {
+      "host": "www.googletagmanager.com",
+      "path": "/gtag/js",
+      "status": 200
+    },
+    {
+      "host": "fundingchoicesmessages.google.com",
+      "path": "/el/[opaque]",
+      "status": 204
+    },
+    {
+      "host": "fundingchoicesmessages.google.com",
+      "path": "/f/[opaque]",
+      "status": 200
+    },
+    {
+      "host": "pagead2.googlesyndication.com",
+      "path": "/pagead/managed/js/adsense/m202610120101/show_ads_impl_fy2021.js",
+      "status": 200
+    },
+    {
+      "host": "www.google-analytics.com",
+      "path": "/g/collect",
+      "status": 204,
+      "expectedMeasurementId": true
+    },
+    {
+      "host": "pagead2.googlesyndication.com",
+      "path": "/pagead/gen_204",
+      "status": 204
+    },
+    {
+      "host": "googleads.g.doubleclick.net",
+      "path": "/pagead/html/r20261015/r20190131/zrt_lookup_fy2021.html",
+      "status": 200
+    },
+    {
+      "host": "pagead2.googlesyndication.com",
+      "path": "/pagead/js/google_top_exp.js",
+      "status": 200
+    },
+    {
+      "host": "fundingchoicesmessages.google.com",
+      "path": "/el/[opaque]",
+      "status": 204
+    },
+    {
+      "host": "fundingchoicesmessages.google.com",
+      "path": "/f/[opaque]",
+      "status": 200
+    },
+    {
+      "host": "googleads.g.doubleclick.net",
+      "path": "/pagead/ads",
+      "status": 200
+    },
+    {
+      "host": "fundingchoicesmessages.google.com",
+      "path": "/el/[opaque]",
+      "status": 204
+    },
+    {
+      "host": "fundingchoicesmessages.google.com",
+      "path": "/el/[opaque]",
+      "status": 204
+    },
+    {
+      "host": "fundingchoicesmessages.google.com",
+      "path": "/el/[opaque]",
+      "status": 204
+    },
+    {
+      "host": "fundingchoicesmessages.google.com",
+      "path": "/f/[opaque]",
+      "status": 200
+    },
+    {
+      "host": "pagead2.googlesyndication.com",
+      "path": "/pagead/managed/js/activeview/current/ufs_web_display.js",
+      "status": 200
+    },
+    {
+      "host": "fundingchoicesmessages.google.com",
+      "path": "/el/[opaque]",
+      "status": 204
+    },
+    {
+      "host": "fundingchoicesmessages.google.com",
+      "path": "/el/[opaque]",
+      "status": 204
+    },
+    {
+      "host": "tpc.googlesyndication.com",
+      "path": "/pagead/js/r20261015/r20110914/client/load_preloaded_resource_fy2021.js",
+      "status": 200
+    },
+    {
+      "host": "tpc.googlesyndication.com",
+      "path": "/pagead/js/r20261015/r20110914/client/window_focus_fy2021.js",
+      "status": 200
+    },
+    {
+      "host": "tpc.googlesyndication.com",
+      "path": "/simgad/2017570335065761765/14763004658117789537",
+      "status": 200
+    },
+    {
+      "host": "tpc.googlesyndication.com",
+      "path": "/simgad/5323816373443703863/14763004658117789537",
+      "status": 200
+    },
+    {
+      "host": "googleads.g.doubleclick.net",
+      "path": "/pagead/drt/s",
+      "status": 200
+    },
+    {
+      "host": "tpc.googlesyndication.com",
+      "path": "/pagead/js/r20261015/r20110914/client/qs_click_protection_fy2021.js",
+      "status": 200
+    },
+    {
+      "host": "tpc.googlesyndication.com",
+      "path": "/pagead/js/r20261015/r20110914/abg_lite_fy2021.js",
+      "status": 200
+    },
+    {
+      "host": "googleads.g.doubleclick.net",
+      "path": "/pagead/adview",
+      "status": 200
+    },
+    {
+      "host": "www.gstatic.com",
+      "path": "/mysidia/e238f4218e531321cea9af44e65bfd53.js",
+      "status": 200
+    },
+    {
+      "host": "www.google-analytics.com",
+      "path": "/g/collect",
+      "status": 204,
+      "expectedMeasurementId": true
+    },
+    {
+      "host": "pagead2.googlesyndication.com",
+      "path": "/pagead/gen_204",
+      "status": 204
+    },
+    {
+      "host": "www.google.com",
+      "path": "/pagead/drt/ui",
+      "status": 200
+    },
+    {
+      "host": "googleads.g.doubleclick.net",
+      "path": "/pagead/ads",
+      "status": 200
+    },
+    {
+      "host": "pagead2.googlesyndication.com",
+      "path": "/pagead/gen_204",
+      "status": 204
+    },
+    {
+      "host": "pagead2.googlesyndication.com",
+      "path": "/pagead/gen_204",
+      "status": 204
+    },
+    {
+      "host": "fonts.gstatic.com",
+      "path": "/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2",
+      "status": 200
+    },
+    {
+      "host": "pagead2.googlesyndication.com",
+      "path": "/pagead/managed/js/adsense/m202610120101/reactive_library_fy2021.js",
+      "status": 200
+    },
+    {
+      "host": "fundingchoicesmessages.google.com",
+      "path": "/i/ca-pub-8362228066874729",
+      "status": 200
+    },
+    {
+      "host": "googleads.g.doubleclick.net",
+      "path": "/pagead/html/r20261015/r20190131/zrt_lookup_fy2021.html",
+      "status": 200
+    },
+    {
+      "host": "pagead2.googlesyndication.com",
+      "path": "/bg/PN6gmAk53dbbStEAPGzbIaRXqkaiQTUgfwgBzZdzZyI.js",
+      "status": 200
+    },
+    {
+      "host": "googleads.g.doubleclick.net",
+      "path": "/btr/view",
+      "status": 200
+    },
+    {
+      "host": "googleads.g.doubleclick.net",
+      "path": "/pagead/html/r20261015/r20190131/zrt_lookup_fy2021.html",
+      "status": 200
+    },
+    {
+      "host": "pagead2.googlesyndication.com",
+      "path": "/pagead/ping",
+      "status": 204
+    },
+    {
+      "host": "www.gstatic.com",
+      "path": "/mysidia/b84f72a1b6a0e66582f34c69a345861b.js",
+      "status": 200
+    },
+    {
+      "host": "tpc.googlesyndication.com",
+      "path": "/pagead/js/r20261015/r20110914/client/qs_click_protection_fy2021.js",
+      "status": 200
+    },
+    {
+      "host": "tpc.googlesyndication.com",
+      "path": "/pagead/js/r20261015/r20110914/client/load_preloaded_resource_fy2021.js",
+      "status": 200
+    },
+    {
+      "host": "tpc.googlesyndication.com",
+      "path": "/pagead/js/r20261015/r20110914/client/window_focus_fy2021.js",
+      "status": 200
+    },
+    {
+      "host": "www.gstatic.com",
+      "path": "/mysidia/b84f72a1b6a0e66582f34c69a345861b.js",
+      "status": 200
+    },
+    {
+      "host": "www.gstatic.com",
+      "path": "/images/icons/material/system/2x/feedback_grey600_24dp.png",
+      "status": 200
+    },
+    {
+      "host": "www.gstatic.com",
+      "path": "/images/icons/material/system/2x/settings_grey600_24dp.png",
+      "status": 200
+    },
+    {
+      "host": "pagead2.googlesyndication.com",
+      "path": "/pagead/managed/js/activeview/current/ufs_web_display.js",
+      "status": 200
+    },
+    {
+      "host": "tpc.googlesyndication.com",
+      "path": "/pagead/js/r20261015/r20110914/client/load_preloaded_resource_fy2021.js",
+      "status": 200
+    },
+    {
+      "host": "tpc.googlesyndication.com",
+      "path": "/pagead/js/r20261015/r20110914/client/window_focus_fy2021.js",
+      "status": 200
+    },
+    {
+      "host": "tpc.googlesyndication.com",
+      "path": "/pagead/js/r20261015/r20110914/abg_lite_fy2021.js",
+      "status": 200
+    },
+    {
+      "host": "www.gstatic.com",
+      "path": "/mysidia/045761b251cfc6a6e68410682932efae.js",
+      "status": 200
+    },
+    {
+      "host": "tpc.googlesyndication.com",
+      "path": "/pagead/js/r20261015/r20110914/client/qs_click_protection_fy2021.js",
+      "status": 200
+    },
+    {
+      "host": "tpc.googlesyndication.com",
+      "path": "/pagead/js/r20261015/r20110914/abg_lite_fy2021.js",
+      "status": 200
+    },
+    {
+      "host": "tpc.googlesyndication.com",
+      "path": "/pagead/js/r20261015/r20110914/elements/html/fullscreen_api_adapter_fy2021.js",
+      "status": 200
+    },
+    {
+      "host": "www.gstatic.com",
+      "path": "/mysidia/a5e65f269f5b96b545374e579bf37b2c.js",
+      "status": 200
+    },
+    {
+      "host": "tpc.googlesyndication.com",
+      "path": "/pagead/js/r20261015/r20110914/elements/html/interstitial_ad_frame_fy2021.js",
+      "status": 200
+    },
+    {
+      "host": "googleads.g.doubleclick.net",
+      "path": "/pagead/drt/s",
+      "status": 200
+    },
+    {
+      "host": "pagead2.googlesyndication.com",
+      "path": "/pagead/gen_204",
+      "status": 204
+    },
+    {
+      "host": "fonts.gstatic.com",
+      "path": "/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2",
+      "status": 200
+    },
+    {
+      "host": "pagead2.googlesyndication.com",
+      "path": "/pagead/gen_204",
+      "status": 204
+    },
+    {
+      "host": "www.gstatic.com",
+      "path": "/mysidia/90dbb789a9b00b15eb189341be140b0e.js",
+      "status": 200
+    },
+    {
+      "host": "www.gstatic.com",
+      "path": "/mysidia/b1e97bc22052183525f0961dfb8c64dd.js",
+      "status": 200
+    },
+    {
+      "host": "www.gstatic.com",
+      "path": "/mysidia/b1e97bc22052183525f0961dfb8c64dd.js",
+      "status": 200
+    },
+    {
+      "host": "pagead2.googlesyndication.com",
+      "path": "/pagead/managed/js/activeview/current/ufs_web_display.js",
+      "status": 200
+    },
+    {
+      "host": "googleads.g.doubleclick.net",
+      "path": "/pagead/adview",
+      "status": 200
+    },
+    {
+      "host": "pagead2.googlesyndication.com",
+      "path": "/pagead/gen_204",
+      "status": 204
+    },
+    {
+      "host": "www.google.com",
+      "path": "/pagead/drt/ui",
+      "status": 200
+    },
+    {
+      "host": "pagead2.googlesyndication.com",
+      "path": "/pagead/gen_204",
+      "status": 204
+    },
+    {
+      "host": "pagead2.googlesyndication.com",
+      "path": "/pagead/gen_204",
+      "status": 204
+    },
+    {
+      "host": "pagead2.googlesyndication.com",
+      "path": "/pagead/gen_204",
+      "status": 204
+    },
+    {
+      "host": "googleads.g.doubleclick.net",
+      "path": "/btr/view",
+      "status": 200
+    },
+    {
+      "host": "pagead2.googlesyndication.com",
+      "path": "/bg/PN6gmAk53dbbStEAPGzbIaRXqkaiQTUgfwgBzZdzZyI.js",
+      "status": 200
+    },
+    {
+      "host": "pagead2.googlesyndication.com",
+      "path": "/bg/PN6gmAk53dbbStEAPGzbIaRXqkaiQTUgfwgBzZdzZyI.js",
+      "status": 200
+    },
+    {
+      "host": "www.google.com",
+      "path": "/recaptcha/api2/aframe",
+      "status": 200
+    },
+    {
+      "host": "pagead2.googlesyndication.com",
+      "path": "/pcs/activeview",
+      "status": 200
+    },
+    {
+      "host": "pagead2.googlesyndication.com",
+      "path": "/pagead/sodar",
+      "status": 204
+    },
+    {
+      "host": "pagead2.googlesyndication.com",
+      "path": "/bg/PN6gmAk53dbbStEAPGzbIaRXqkaiQTUgfwgBzZdzZyI.js",
+      "status": 200
+    },
+    {
+      "host": "pagead2.googlesyndication.com",
+      "path": "/pcs/activeview",
+      "status": 200
+    },
+    {
+      "host": "www.google-analytics.com",
+      "path": "/g/collect",
+      "status": 204,
+      "expectedMeasurementId": true
+    },
+    {
+      "host": "pagead2.googlesyndication.com",
+      "path": "/pagead/ping",
+      "status": 204
+    }
+  ],
+  "failures": [],
+  "browserErrors": []
+}

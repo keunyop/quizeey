@@ -12,3 +12,10 @@ it('allows only explicitly granted or inapplicable purposes and separates ads fr
   expect(googleConsent({...consent,adStoragePurposeConsentStatus:2},1)).toEqual({ads:false,analytics:true});
   expect(googleConsent({...consent,analyticsStoragePurposeConsentStatus:2},1)).toEqual({ads:true,analytics:false});
 });
+it('uses explicit EU purpose decisions when the actual publisher exposes no US API',()=>{
+  expect(googleConsent(consent,undefined,false)).toEqual({ads:true,analytics:true});
+  expect(googleConsent({...consent,analyticsStoragePurposeConsentStatus:2},undefined,false)).toEqual({ads:true,analytics:false});
+  expect(googleConsent(undefined,undefined,false)).toEqual({ads:false,analytics:false});
+  for(const us of [0,3])expect(googleConsent(consent,us,false)).toEqual({ads:false,analytics:false});
+  expect(googleConsent(consent,undefined,true)).toEqual({ads:false,analytics:false});
+});

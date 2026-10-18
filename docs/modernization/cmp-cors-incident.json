@@ -1,0 +1,61 @@
+{
+  "status": "RESOLVED_OWNER_CONFIRMED_GA4_AND_MOBILE_AD_PLACEMENT",
+  "reportedByOwner": "GA4 Realtime not visible and ads absent after cutover",
+  "rootCause": "Shared integration loader set crossorigin=anonymous on Funding Choices CMP, whose200 response has no Access-Control-Allow-Origin header. Browser blocks CMP before consent can unblock GA4 and ads.",
+  "directEvidence": "cmp-cors-diagnosis.json",
+  "priorVerificationCorrection": "Earlier ERR_FAILED was incorrectly attributed to managed browser network restrictions. Playwright route fulfillment/Node relay bypassed normal CORS enforcement and was insufficient evidence of direct visitor delivery.",
+  "change": "Use classic no-cors script only for CMP; keep anonymous CORS for other Google integrations.",
+  "regression": "Synthetic browser tests assert CMP script has no crossorigin; consent deny/grant/revoke and filled/unfilled/blocked ads all pass. Added these scenarios to CI using platform-available Chromium.",
+  "localChecks": {
+    "unit": 99,
+    "typecheck": "passed",
+    "lint": "passed",
+    "build": "passed",
+    "syntheticBrowserScenarios": 3
+  },
+  "pullRequest": "https://github.com/keunyop/quizeey/pull/83",
+  "head": "fbbd6cb58daa2aad77b4c6e52398910a0e6364e8",
+  "productionCandidate": "dpl_AG96LaPMVpTq4phFBv2aSDLMaW7b",
+  "directProductionAfterDeploy": "Direct native browser, no relay/mocks/DOM injection: CMP200, AdSense200 and filled slots, existing GA4 collect204. Automated live pointer run remains an interrupted historical result. Owner subsequently confirmed actual GA4 Realtime receipt and normal mobile ad placement.",
+  "accountOrDnsOrContentChanges": 0,
+  "recordedAt": "2026-10-18T09:12:36Z",
+  "merged": true,
+  "mergeCommit": "a7c569409cd60e896a2a8271e24e2f2073450601",
+  "tree": "9417dd5bfd206027a8055ed3e522d36a458c477a",
+  "productionDeployment": "dpl_343KDQyk8pB3E9DRUE9GU7pxP4dL",
+  "canonicalAliasesReadbackMatched": true,
+  "ci": {
+    "pullRequestRun": 39113398291,
+    "pushRun": 39113391683,
+    "both": "success",
+    "unit": 99,
+    "existingBrowserCases": 22,
+    "adsConsentScenarios": 3
+  },
+  "finalMasterCommit": "8ce414dfcb1db5cc1443d07c23cebe75582e29ee",
+  "finalTree": "3f6603d1c67bd4a6ac2b5eb0fba0da9d68a81d75",
+  "finalDeployment": "dpl_7SHtHERNcgYfFuY2yBmYCqfjPgti",
+  "followupPr": "https://github.com/keunyop/quizeey/pull/84",
+  "followupCi": {
+    "pullRequestRun": 39113832909,
+    "pushRun": 39113828010,
+    "both": "success",
+    "unit": 99,
+    "browserCases": 22,
+    "adsConsentScenarios": 3
+  },
+  "mobileAds": {
+    "practiceOverlay": "collapsed-bottom",
+    "studyAnnotationExcluded": true,
+    "inQuestionAdsObserved": 0,
+    "livePointerTest": "unintended advertiser navigation observed; no further live-ad pointer tests; future integration verifier is passive only",
+    "ownerFieldCheck": "confirmed normal by owner after final production release"
+  },
+  "ownerFieldConfirmation": {
+    "recordedAt": "2026-10-18T09:12:36Z",
+    "source": "Owner reply after fresh-tab production check",
+    "existingGa4RealtimeReceiving": true,
+    "mobileAdPlacementNormal": true,
+    "scope": "Owner-reported existing GA4 property receipt and tested real-phone ad placement; not universal regional/device certification."
+  }
+}

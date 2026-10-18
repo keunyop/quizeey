@@ -1,5 +1,7 @@
 # 되돌리기 계약 — 리허설 전
 
+Current execution: see [cutover-live-handoff.md](cutover-live-handoff.md). Source AWS/MySQL is retained. DNS rollback restores both original proxied A52.35.43.187 records. No source data deletion or new forum writes.
+
 **DNS rollback은 데이터 rollback이 아니다.** 어느 단계에서든 writer는 하나만 유지한다.
 
 2026-10-17 소유자 확인 DNS 복구 값: Cloudflare `@` A `52.35.43.187`, `www` A `52.35.43.187`, 두 레코드 모두 Proxied/TTL Auto. 전환 시 추가한 두 apex A 또는 www CNAME을 이 원래 형태로 복원한다. 네임서버는 `arnold.ns.cloudflare.com`, `miki.ns.cloudflare.com`을 유지한다. 이 값은 검증된 구 앱/DB 및 writer 통제와 함께 사용한다. 공개 DNS의 Cloudflare proxy IP로 되돌리지 않는다. 전환 후보·실행 전 재확인은 [migration-runbook.md](migration-runbook.md)의 DNS 표를 따른다.

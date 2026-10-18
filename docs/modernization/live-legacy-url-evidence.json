@@ -1,0 +1,54 @@
+{
+  "checkedAt": "2026-10-18T08:42:35.407318+00:00",
+  "scope": "Real public DNS URL/redirect statuses; no Google scripts or write endpoints requested.",
+  "checks": [
+    {
+      "url": "http://quizeey.com/sqlp-developer?verNbr=1",
+      "status": 308,
+      "location": "https://quizeey.com/sqlp-developer?verNbr=1",
+      "noindex": false
+    },
+    {
+      "url": "https://www.quizeey.com/sqlp-developer?verNbr=1",
+      "status": 308,
+      "location": "https://quizeey.com/sqlp-developer?verNbr=1",
+      "noindex": false
+    },
+    {
+      "url": "https://quizeey.com/kr/sqlp-developer",
+      "status": 200,
+      "location": null,
+      "noindex": false
+    },
+    {
+      "url": "https://quizeey.com/test?testId=5",
+      "status": 200,
+      "location": null,
+      "noindex": false
+    },
+    {
+      "url": "https://quizeey.com/naver90f2a35cffe6ae01fc8515f4efe88a59.html",
+      "status": 200,
+      "location": null,
+      "noindex": false
+    },
+    {
+      "url": "https://quizeey.com/privacy",
+      "status": 200,
+      "location": null,
+      "noindex": false
+    },
+    {
+      "url": "https://quizeey.com/en",
+      "status": 200,
+      "location": null,
+      "noindex": false
+    },
+    {
+      "url": "https://quizeey.com/unknown-cutover-path",
+      "status": 404,
+      "location": null,
+      "noindex": false
+    }
+  ]
+}

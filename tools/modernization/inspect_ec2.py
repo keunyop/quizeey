@@ -20,6 +20,7 @@ def main():
     parser.add_argument('--phase',choices=['runtime','schema','aggregates','export'],default='runtime')
     parser.add_argument('--export-mode',choices=['original','anonymized-authors'],help='Explicit owner-approved row export mode; does not replace obtaining actual owner authorization')
     parser.add_argument('--summary',action='store_true',help='Print bounded runtime summary; keep full nonsecret evidence in docs')
+    parser.add_argument('--evidence-prefix',choices=['','precutover-','postcutover-'],default='',help='Preserve earlier snapshot evidence during cutover')
     args=parser.parse_args()
     if args.phase=='export' and not args.export_mode:parser.error('Row export needs explicit owner authorization and its corresponding --export-mode')
     if not args.key.is_file():raise SystemExit('Existing SSH key not found')
@@ -65,7 +66,9 @@ def main():
             normalized.write_text(json.dumps(tables,ensure_ascii=False,separators=(',',':'))+'\n',encoding='utf-8')
             summary={'status':'consistent_read_only_snapshot','exportMode':args.export_mode,'authorNamesAnonymized':args.export_mode=='anonymized-authors','sourceInstanceId':'i-046087bdb8dff10f7','sourceEngine':start['serverVersion'],'sourceDatabase':start['database'],'snapshotUtc':start['snapshotUtc'],'completedUtc':end['completedUtc'],'sessionTimezone':start['sessionTimezone'],'sessionReadOnly':True,'tables':expected,'snapshotBytes':completed.stat().st_size,'snapshotSha256':hashlib.sha256(completed.read_bytes()).hexdigest(),'normalizedSha256':hashlib.sha256(normalized.read_bytes()).hexdigest(),'privatePath':str(destination.relative_to(ROOT)).replace('\\','/'),'privateStorage':'owner-only directory ACL; Git ignored','sourceRowsPrinted':False,'credentialsPrinted':False,'sourceMutations':0,'scope':'Development snapshot only; not a final migration or whole-instance backup'}
             (destination/'snapshot-evidence.json').write_text(json.dumps(summary,indent=2)+'\n',encoding='utf-8')
-            (ROOT/'docs/modernization/source-snapshot-evidence.json').write_text(json.dumps(summary,indent=2)+'\n',encoding='utf-8')
+            if args.evidence_prefix:summary['scope']=('Post-cutover' if args.evidence_prefix=='postcutover-' else 'Pre-cutover')+' read-only snapshot; source writers are not frozen. Not a final frozen snapshot or whole-instance backup.'
+            (destination/'snapshot-evidence.json').write_text(json.dumps(summary,indent=2)+'\n',encoding='utf-8')
+            (ROOT/'docs/modernization'/(args.evidence_prefix+'source-snapshot-evidence.json')).write_text(json.dumps(summary,indent=2)+'\n',encoding='utf-8')
             print(json.dumps(summary,indent=2))
         except Exception as error:raise SystemExit('Snapshot unavailable: '+type(error).__name__+'. Partial private output retained; no final import performed.')
         return

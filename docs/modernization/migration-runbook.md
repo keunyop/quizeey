@@ -1,5 +1,9 @@
 # 운영 이전 실행안 — 트래픽 전환 전
 
+CUTOVER COMPLETE: Owner confirmed existing GA4 Realtime receipt and normal real-phone ad placement after the final production release. Master8ce414df / dpl_7SHtHERNcgYfFuY2yBmYCqfjPgti. CMP CORS incident resolved; historical interrupted live-pointer test remains unchanged as evidence. No additional owner setup is required for cutover. Keep AWS/MySQL and private backups. Monitoring and separately authorized source retirement are follow-up work. See [current handoff](cutover-live-handoff.md) and [execution evidence](cutover-execution-2026-10-18.json).
+
+---
+
 2026-10-17 후속: 소유자가 GA4 `G-XM8XM4CHX7`, AdSense Auto optimize/Auto ads ON, Cloudflare 원본 레코드를 제공했다. 기존 Vercel 프로젝트 `prj_0SVBqfgurtvZErmpMJl01BJkUKOd`에 해당 GA4 ID를 plain/server env로 Production·Preview에 등록하고 재조회했다. 프리뷰는 광고·분석을 실행하지 않는다. `quizeey.com`, `www.quizeey.com`도 같은 프로젝트에 등록했고 둘 다 verified=true다. DNS/네임서버/기존 AWS/Google 계정 설정은 변경하지 않았다. 상세 변경·검증은 [cutover-owner-followup-evidence.json](cutover-owner-followup-evidence.json), 이전 콘텐츠·UI 증거는 [cutover-preparation-evidence.json](cutover-preparation-evidence.json)을 참조한다.
 
 ## 소유자 확인 및 설정

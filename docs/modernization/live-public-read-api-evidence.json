@@ -1,0 +1,47 @@
+{
+  "checkedAt": "2026-10-18T08:40:08.070Z",
+  "status": "passed",
+  "scope": "Actual public DNS production Supabase-backed read endpoints; no DNS override, content emitted, write endpoints or Google requests.",
+  "checks": [
+    {
+      "name": "Korean catalog",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "name": "Existing exam identity",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "name": "Exam versions",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "name": "Question and choices",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "name": "Legacy statistics",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "name": "User posts remain deferred",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "name": "Invalid ID rejected",
+      "status": 400,
+      "passed": true
+    },
+    {
+      "name": "Unknown question rejected",
+      "status": 404,
+      "passed": true
+    }
+  ]
+}

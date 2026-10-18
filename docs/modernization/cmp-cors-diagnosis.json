@@ -1,0 +1,53 @@
+{
+  "checkedAt": "2026-10-18T08:54:03.396Z",
+  "scope": "Direct browser production network, no relay/mock. Second case removes only CMP crossorigin at insertion to diagnose cause; no production changes or ad clicks.",
+  "results": [
+    {
+      "removeCmpCors": false,
+      "state": {
+        "cmpCrossorigin": "anonymous",
+        "consent": null,
+        "ga": false,
+        "ads": false
+      },
+      "errors": [
+        "Access to script at 'https://fundingchoicesmessages.google.com/i/pub-8362228066874729?ers=1' from origin 'https://quizeey.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "network": [
+        {
+          "host": "fundingchoicesmessages.google.com",
+          "failure": "net::ERR_FAILED"
+        }
+      ]
+    },
+    {
+      "removeCmpCors": true,
+      "state": {
+        "cmpCrossorigin": null,
+        "consent": {
+          "adStoragePurposeConsentStatus": 3,
+          "adUserDataPurposeConsentStatus": 3,
+          "adPersonalizationPurposeConsentStatus": 3,
+          "analyticsStoragePurposeConsentStatus": 3
+        },
+        "ga": true,
+        "ads": false
+      },
+      "errors": [],
+      "network": [
+        {
+          "host": "fundingchoicesmessages.google.com",
+          "status": 200,
+          "acao": null
+        },
+        {
+          "host": "www.google-analytics.com",
+          "path": "/collect",
+          "status": 204,
+          "expectedMeasurementId": true
+        }
+      ]
+    }
+  ]
+}

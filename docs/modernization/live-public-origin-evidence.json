@@ -1,0 +1,85 @@
+{
+  "checkedAt": "2026-10-18T08:40:06.887Z",
+  "status": "passed",
+  "scope": "Actual public DNS HTTPS with certificate validation; no DNS overrides or writes, scripts, ad/analytics requests.",
+  "checks": [
+    {
+      "address": null,
+      "path": "/robots.txt",
+      "status": 200,
+      "tlsAuthorized": true,
+      "hasNoindex": false,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "address": null,
+      "path": "/sitemap.xml",
+      "status": 200,
+      "tlsAuthorized": true,
+      "hasNoindex": false,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "address": null,
+      "path": "/ads.txt",
+      "status": 200,
+      "tlsAuthorized": true,
+      "hasNoindex": false,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "address": null,
+      "path": "/",
+      "status": 200,
+      "tlsAuthorized": true,
+      "hasNoindex": false,
+      "canonical": true,
+      "publicRobots": true,
+      "existingGa4": true,
+      "existingCmp": true,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "address": null,
+      "path": "/industrial-engineer-electric-work",
+      "status": 200,
+      "tlsAuthorized": true,
+      "hasNoindex": false,
+      "canonical": true,
+      "publicRobots": true,
+      "existingGa4": true,
+      "existingCmp": true,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "address": null,
+      "path": "/img/letter-q.svg",
+      "status": 200,
+      "tlsAuthorized": true,
+      "hasNoindex": false,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "address": null,
+      "path": "/img/favicon.ico",
+      "status": 200,
+      "tlsAuthorized": true,
+      "hasNoindex": false,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "address": null,
+      "path": "www redirect",
+      "status": 308,
+      "location": "https://quizeey.com/sqlp-developer?verNbr=1&page=2",
+      "passed": true
+    }
+  ]
+}

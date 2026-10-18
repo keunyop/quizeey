@@ -1,0 +1,7 @@
+{
+  "snapshotUtc": "2026-10-18 07:58:16.231038",
+  "sourceDelta": 272,
+  "payloadSha256": "62a1b4954390091bdc8c65d467f1503882cbb19c03a36a6c6156a1c74c09513b",
+  "privatePath": ".modernization/exports/source-060f63bf88",
+  "scope": "Existing legacy counters only; source questions/posts unchanged; no cloud mutation executed by this preparation."
+}

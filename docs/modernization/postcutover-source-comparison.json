@@ -1,0 +1,68 @@
+{
+  "snapshotUtc": "2026-10-18 08:40:06.186355",
+  "scope": "Compare07:58 pre-cutover and08:40 post-cutover private read-only snapshots; no content or author names emitted.",
+  "tables": {
+    "test": {
+      "before": 181,
+      "after": 181,
+      "added": 0,
+      "removed": 0,
+      "modified": 0,
+      "modifiedFields": {},
+      "valueSha256": "b7efd8f648038dea0420543e8d267d79708b64c74da8ac2b531e62655a3cbe88"
+    },
+    "version": {
+      "before": 330,
+      "after": 330,
+      "added": 0,
+      "removed": 0,
+      "modified": 0,
+      "modifiedFields": {},
+      "valueSha256": "96463a1c0276b12a1ebe87d618949281ae66c41631382523fd90fcfbd19ec8e1"
+    },
+    "question": {
+      "before": 27484,
+      "after": 27484,
+      "added": 0,
+      "removed": 0,
+      "modified": 0,
+      "modifiedFields": {},
+      "valueSha256": "7052bebfabc552d884fa6178ffdf76e6c7324d1bbce4b4831cfcdf68809b94a4"
+    },
+    "example": {
+      "before": 110387,
+      "after": 110387,
+      "added": 0,
+      "removed": 0,
+      "modified": 0,
+      "modifiedFields": {},
+      "valueSha256": "5223a1a49092cc29df7ac3f797b17e5f254466f11aed90d99c93d37dc41782dc"
+    },
+    "explanation": {
+      "before": 2209,
+      "after": 2209,
+      "added": 0,
+      "removed": 0,
+      "modified": 0,
+      "modifiedFields": {},
+      "valueSha256": "b113331663a5fb21cd77b340b8817f722e92ffc1c8b05aad233efff2ff4409c2"
+    },
+    "question_stats": {
+      "before": 26614,
+      "after": 26614,
+      "added": 0,
+      "removed": 0,
+      "modified": 8,
+      "modifiedFields": {
+        "created_date": 8,
+        "correct": 3,
+        "modified_date": 8,
+        "in_correct": 5
+      },
+      "valueSha256": "527f1802dcb9071d33c327f1fedf5f7cbb2fbefcc59611c85b9d9fbf0bff90db"
+    }
+  },
+  "sourceMutations": 0,
+  "userPostsUploaded": false,
+  "beforeSnapshotUtc": "2026-10-18 07:58:16.231038"
+}

@@ -1,0 +1,163 @@
+{
+  "checkedAt": "2026-10-18T08:30:35.264Z",
+  "status": "passed",
+  "scope": "HTTPS with real canonical Host/SNI and certificate validation, direct to both Vercel-recommended IPv4 addresses; no DNS writes, no scripts executed or ad/analytics requests.",
+  "checks": [
+    {
+      "address": "216.150.1.1",
+      "path": "/robots.txt",
+      "status": 200,
+      "tlsAuthorized": true,
+      "hasNoindex": false,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "address": "216.150.1.1",
+      "path": "/sitemap.xml",
+      "status": 200,
+      "tlsAuthorized": true,
+      "hasNoindex": false,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "address": "216.150.1.1",
+      "path": "/ads.txt",
+      "status": 200,
+      "tlsAuthorized": true,
+      "hasNoindex": false,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "address": "216.150.1.1",
+      "path": "/",
+      "status": 200,
+      "tlsAuthorized": true,
+      "hasNoindex": false,
+      "canonical": true,
+      "publicRobots": true,
+      "existingGa4": true,
+      "existingCmp": true,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "address": "216.150.1.1",
+      "path": "/industrial-engineer-electric-work",
+      "status": 200,
+      "tlsAuthorized": true,
+      "hasNoindex": false,
+      "canonical": true,
+      "publicRobots": true,
+      "existingGa4": true,
+      "existingCmp": true,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "address": "216.150.1.1",
+      "path": "/img/letter-q.svg",
+      "status": 200,
+      "tlsAuthorized": true,
+      "hasNoindex": false,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "address": "216.150.1.1",
+      "path": "/img/favicon.ico",
+      "status": 200,
+      "tlsAuthorized": true,
+      "hasNoindex": false,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "address": "216.150.1.1",
+      "path": "www redirect",
+      "status": 308,
+      "location": "https://quizeey.com/sqlp-developer?verNbr=1&page=2",
+      "passed": true
+    },
+    {
+      "address": "216.150.16.1",
+      "path": "/robots.txt",
+      "status": 200,
+      "tlsAuthorized": true,
+      "hasNoindex": false,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "address": "216.150.16.1",
+      "path": "/sitemap.xml",
+      "status": 200,
+      "tlsAuthorized": true,
+      "hasNoindex": false,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "address": "216.150.16.1",
+      "path": "/ads.txt",
+      "status": 200,
+      "tlsAuthorized": true,
+      "hasNoindex": false,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "address": "216.150.16.1",
+      "path": "/",
+      "status": 200,
+      "tlsAuthorized": true,
+      "hasNoindex": false,
+      "canonical": true,
+      "publicRobots": true,
+      "existingGa4": true,
+      "existingCmp": true,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "address": "216.150.16.1",
+      "path": "/industrial-engineer-electric-work",
+      "status": 200,
+      "tlsAuthorized": true,
+      "hasNoindex": false,
+      "canonical": true,
+      "publicRobots": true,
+      "existingGa4": true,
+      "existingCmp": true,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "address": "216.150.16.1",
+      "path": "/img/letter-q.svg",
+      "status": 200,
+      "tlsAuthorized": true,
+      "hasNoindex": false,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "address": "216.150.16.1",
+      "path": "/img/favicon.ico",
+      "status": 200,
+      "tlsAuthorized": true,
+      "hasNoindex": false,
+      "valid": true,
+      "passed": true
+    },
+    {
+      "address": "216.150.16.1",
+      "path": "www redirect",
+      "status": 308,
+      "location": "https://quizeey.com/sqlp-developer?verNbr=1&page=2",
+      "passed": true
+    }
+  ]
+}
