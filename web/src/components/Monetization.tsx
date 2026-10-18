@@ -7,12 +7,13 @@ import {analyticsLocation,analyticsReferrer} from '@/lib/google-analytics';
 type FundingChoices={callbackQueue:Record<string,()=>void>[];getGoogleConsentModeValues?:()=>GoogleConsentValues;showRevocationMessage?:()=>void;usstatesoptout?:{overrideDnsLink?:boolean;getInitialUsStatesOptOutStatus?:()=>number;openConfirmationDialog?:(callback:(optedOut:boolean)=>void)=>void}};
 declare global {interface Window{googlefc?:FundingChoices;dataLayer?:unknown[];gtag?:(...args:unknown[])=>void;adsbygoogle?:object[]}}
 const scripts=new Map<string,Promise<void>>();
-function loadScript(id:string,src:string){
+function loadScript(id:string,src:string,overlays?:'collapsed-bottom'){
   let promise=scripts.get(id);
   if(!promise){promise=new Promise<void>((resolve,reject)=>{const script=document.createElement('script');script.id=id;script.async=true;script.src=src;
     // Funding Choices has no Access-Control-Allow-Origin header and must use
     // classic script loading. Keep the documented anonymous mode for ad tags.
     if(id!=='quizeey-cmp')script.crossOrigin='anonymous';
+    if(overlays)script.dataset.overlays=overlays;
     script.onload=()=>resolve();script.onerror=()=>reject(new Error('Integration blocked'));document.head.append(script);});scripts.set(id,promise);}
   return promise;
 }
@@ -90,7 +91,7 @@ export function AdSlot({kind,locale}:{kind:'display'|'infeed';locale:'ko'|'en'})
     if(!ads||!node.current||failed)return;
     const element=node.current;
     lifecycle.current??=new AdLifecycle(policy,{
-      loadScript:publisher=>loadScript('quizeey-adsense','https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client='+publisher),
+      loadScript:publisher=>loadScript('quizeey-adsense','https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client='+publisher,kind==='display'?'collapsed-bottom':undefined),
       reserve:(slot,height)=>{slot.style.minHeight=height+'px';},
       initialize:()=>{(window.adsbygoogle??=[]).push({});},
     });

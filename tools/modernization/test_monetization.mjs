@@ -47,6 +47,7 @@ try{
   await page.waitForFunction(()=>window.__testGaLoaded===true);
   await page.evaluate(()=>window.scrollTo(0,document.body.scrollHeight));
   await expect.poll(()=>counts.ads).toBe(1);
+  await expect(page.locator('#quizeey-adsense')).toHaveAttribute('data-overlays','collapsed-bottom');
   if(mode==='filled'){
    await page.waitForFunction(()=>window.__adInitializations===1);
    const bounds=await page.evaluate(()=>({ad:document.querySelector('.ad-placement').getBoundingClientRect().top,buttons:document.querySelector('.practice-controls').getBoundingClientRect().bottom,overflow:document.documentElement.scrollWidth>innerWidth}));
