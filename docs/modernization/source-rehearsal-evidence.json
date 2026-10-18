@@ -1,0 +1,104 @@
+{
+  "status": "private_raw_and_typed_rehearsal_pass",
+  "sourceSnapshotSha256": "d2048f0f0ac7f22a29820e8bbb6d6ac770bb6f04ca65072467ba62f1531f3405",
+  "sourceTables": {
+    "test": {
+      "rows": 181,
+      "sha256": "12349875c395deba48f583e4f6defeca096889ed9c480090202b0cdb032d5fbf"
+    },
+    "version": {
+      "rows": 330,
+      "sha256": "6f6af717cc9cac43ad33db95a1091e1175772cc8f30cb4da5bd94c63eaf9f21c"
+    },
+    "question": {
+      "rows": 27484,
+      "sha256": "1d6379874a0b0587a179c88a04e5908dd6604d8671f84c76e9b65003a187ccfc"
+    },
+    "example": {
+      "rows": 110387,
+      "sha256": "4d555259a29ced4f5b375cd057defeccc46e15cfdb66185049657a3eb48d0f05"
+    },
+    "explanation": {
+      "rows": 2209,
+      "sha256": "3a7871dfa74818abd67b36ef9bc5203e96aea3034c2a12c230592d027e03fc88"
+    },
+    "question_stats": {
+      "rows": 26614,
+      "sha256": "182cc9550290b1c73437975b07d86614297689f95f44924e854ed9f25cd8a8e6"
+    }
+  },
+  "stages": [
+    {
+      "stage": "import_1",
+      "rows": 167205,
+      "allPayloadHashesMatch": true,
+      "examVersionHashesMatch": true,
+      "correctChoiceSetsMatch": true,
+      "typedArchiveUtcValuesMatch": true,
+      "identitySequencesAboveSourceIds": true
+    },
+    {
+      "stage": "import_2",
+      "rows": 167205,
+      "allPayloadHashesMatch": true,
+      "examVersionHashesMatch": true,
+      "correctChoiceSetsMatch": true,
+      "typedArchiveUtcValuesMatch": true,
+      "identitySequencesAboveSourceIds": true
+    },
+    {
+      "stage": "backup_restore",
+      "rows": 167205,
+      "allPayloadHashesMatch": true,
+      "examVersionHashesMatch": true,
+      "correctChoiceSetsMatch": true,
+      "typedArchiveUtcValuesMatch": true
+    }
+  ],
+  "postgresVersion": "psql (PostgreSQL) 18.3",
+  "typedArchive": {
+    "test": {
+      "rows": 181,
+      "utcSemanticSha256": "cf42646100e4d877725b28dd1afde800081b7a69217d4df1e5206076022a5584"
+    },
+    "version": {
+      "rows": 330,
+      "utcSemanticSha256": "073af53470e23cfc397fa891031b4e6fdbd38a5773cd794caff0f4f223e5acee"
+    },
+    "question": {
+      "rows": 27484,
+      "utcSemanticSha256": "3fce3793bd9714d54afbe16ae8727cf7926f8c6f9f3c05608375a8d174536153"
+    },
+    "example": {
+      "rows": 110387,
+      "utcSemanticSha256": "19ffb3c951c7f82586ecf675b97bd0dd962d951a9e38c37ce5f4650b03b50668"
+    },
+    "explanation": {
+      "rows": 2209,
+      "utcSemanticSha256": "98b279dbc6818c06a9e2e644b5964c016b12e0f01f03c8fa5fd286d3c1119f96"
+    },
+    "question_stats": {
+      "rows": 26614,
+      "utcSemanticSha256": "7aec5e1806bc74f906d6a4cc7b59dc257c9f6e9820bce12f60015ffc6b32ca04"
+    }
+  },
+  "sourceIssues": {
+    "duplicate_composite": 118,
+    "orphan_test": 596,
+    "orphan_version": 609,
+    "orphan_question": 2456,
+    "ambiguous_question": 204,
+    "correct_set_mismatch": 656
+  },
+  "unresolvedQuestionIds": 85,
+  "anonymousAndAuthenticatedDenied": true,
+  "serviceRoleDenied": true,
+  "publicServingEnabled": false,
+  "publicationStatus": "blocked",
+  "sourceMutations": 0,
+  "externalUploads": 0,
+  "privatePath": ".modernization/exports/source-265c3ca16e/postgres-2b5ce28cf5",
+  "scope": "Local raw JSONB and typed private archive preservation/restore; not public serving ETL, Supabase RLS proof, or whole-instance recovery",
+  "elapsedSeconds": 395.266,
+  "localServerStopped": true
+}

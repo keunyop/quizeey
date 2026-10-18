@@ -1,0 +1,313 @@
+{
+  "recordedAt": "2026-10-18T03:12:01.952Z",
+  "status": "PREPARATION_CONTINUES_NO_LIVE_TRAFFIC_SWITCH",
+  "target": {
+    "teamId": "team_VSzA796D92aso5IuzUIiOdnb",
+    "projectId": "prj_0SVBqfgurtvZErmpMJl01BJkUKOd",
+    "supabaseProjectId": "tfkhnrbshvyfmrzxqfmq"
+  },
+  "ownerAnswers": {
+    "existingGa4": "G-XM8XM4CHX7",
+    "adsense": {
+      "autoOptimize": true,
+      "autoAds": true,
+      "unitTypesReported": [
+        "display",
+        "in-article",
+        "in-feed",
+        "in-feed",
+        "display"
+      ],
+      "vignette": true,
+      "anchor": true,
+      "cmpPublished": true,
+      "cmpPublicationEvidence": "Owner confirmed European regulations message is published. This is account-state evidence, not real regional browser-delivery certification.",
+      "cmpConsentModeAdsSupport": true,
+      "cmpConsentModeAnalyticsSupport": true,
+      "cmpConsentModeEvidence": "Owner confirmed both English consent-mode checkboxes checked and Save completed; actual runtime/regional delivery remains unverified."
+    },
+    "cloudflareOriginRecords": [
+      {
+        "name": "@",
+        "type": "A",
+        "content": "52.35.43.187",
+        "proxy": "proxied",
+        "ttl": "auto"
+      },
+      {
+        "name": "www",
+        "type": "A",
+        "content": "52.35.43.187",
+        "proxy": "proxied",
+        "ttl": "auto"
+      }
+    ],
+    "adminUuid": "c07727e8-d90a-48af-acfa-1bd30cef41e5",
+    "userPostsDecision": "Retain privately; decide forum structure and publication later. Excluded from this public cutover."
+  },
+  "cloudChangesExecuted": {
+    "ga4Environment": {
+      "key": "QUIZEEY_GA4_MEASUREMENT_ID",
+      "value": "G-XM8XM4CHX7",
+      "type": "plain",
+      "targets": [
+        "production",
+        "preview"
+      ],
+      "readbackMatched": true,
+      "existingPropertyReused": true
+    },
+    "publicKeyPreviewEnvironment": {
+      "key": "QUIZEEY_SUPABASE_PUBLISHABLE_KEY",
+      "type": "plain",
+      "targets": [
+        "preview"
+      ],
+      "source": "Existing project's active modern publishable key via public-key-only connector",
+      "readbackMatched": true,
+      "newApiKeysCreated": false,
+      "secretKeysRetrieved": false,
+      "effectiveInExistingDeployment": true,
+      "activation": "Latest protected preview inherits the public key; forum remains explicitly disabled."
+    },
+    "customDomainPreparation": [
+      {
+        "name": "quizeey.com",
+        "addedToIdentifiedProject": true,
+        "verified": true
+      },
+      {
+        "name": "www.quizeey.com",
+        "addedToIdentifiedProject": true,
+        "verified": true
+      }
+    ],
+    "dnsWrites": 0,
+    "nameserverChanges": 0,
+    "googleAccountChanges": 0,
+    "supabaseDataOrAuthChanges": 0,
+    "productionReleaseFlagsEnabled": false,
+    "awsChanges": 0,
+    "operatorPreviewConfiguration": {
+      "uuid": "c07727e8-d90a-48af-acfa-1bd30cef41e5",
+      "provider": "supabase",
+      "target": "preview",
+      "readbackMatched": true,
+      "forumEnabled": false,
+      "actualLoginVerified": false
+    },
+    "productionPublicBaseline": {
+      "keys": [
+        "QUIZEEY_ENV",
+        "QUIZEEY_CONTENT_SOURCE",
+        "QUIZEEY_SUPABASE_URL",
+        "QUIZEEY_CONTENT_DATASET_SHA256",
+        "QUIZEEY_CANONICAL_ORIGIN",
+        "QUIZEEY_PREVIEW_USER"
+      ],
+      "reviewUser": "release-review",
+      "type": "plain",
+      "target": "production",
+      "readbackMatched": true,
+      "releaseEnabled": false,
+      "missingProductionSecrets": [],
+      "productionSecrets": {
+        "ownerConfirmedRegistered": true,
+        "metadataOnlyReadback": {
+          "keys": [
+            "QUIZEEY_SUPABASE_SECRET_KEY",
+            "QUIZEEY_PREVIEW_PASSWORD"
+          ],
+          "target": "production",
+          "type": "sensitive",
+          "valuesRetrieved": false
+        },
+        "actualBuildPreflight": {
+          "productionReadVerified": true,
+          "examCount": 181,
+          "sampledQuestions": 20,
+          "review": true
+        },
+        "passwordFormatCheck": "Production build passed environment guard requiring >=24 characters; actual hosted Basic login remains owner review."
+      }
+    },
+    "protectedProductionReview": {
+      "key": "QUIZEEY_PRODUCTION_REVIEW",
+      "value": "true",
+      "target": "production",
+      "releaseEnabled": false
+    },
+    "productionCmpEnvironment": {
+      "key": "QUIZEEY_CMP_SCRIPT_URL",
+      "value": "https://fundingchoicesmessages.google.com/i/pub-8362228066874729?ers=1",
+      "type": "plain",
+      "readbackMatched": true,
+      "effectiveInReviewDeployment": false,
+      "effectiveOnNextDeployment": true
+    }
+  },
+  "protectedPreview": {
+    "deploymentId": "dpl_494AaxJi1db2MpAeECFvQ9x2tW9o",
+    "url": "https://quizeey-bsobhuuup-kevins-projects-e2dcc34c.vercel.app",
+    "apiTarget": "staging",
+    "state": "READY",
+    "sourceHead": "e938e430d9f8ce1239f5efd850326ca173860c68",
+    "sourceWorkingTreeDirty": true,
+    "packageSha256": "363ceb8f861e19267ede6b49878ab4727824e6530827c2fc0416031bc1b7260c",
+    "files": 75,
+    "bytes": 2736754,
+    "privateArchiveOrEnvironmentFilesIncluded": false,
+    "temporaryProtectionBypassCreated": false,
+    "publicProbe": {
+      "status": 302,
+      "redirectHost": "vercel.com",
+      "robots": "noindex"
+    },
+    "adsOrAnalyticsActive": false,
+    "forumOrAdminActive": false,
+    "authenticatedHostedBrowserWithLatestCode": "pending owner review; local browser/mocked HTTP verification does not certify real hosted Auth/consent"
+  },
+  "dnsPlan": {
+    "status": "candidate only; no Cloudflare writes",
+    "authoritativeNameservers": [
+      "arnold.ns.cloudflare.com",
+      "miki.ns.cloudflare.com"
+    ],
+    "domainConfiguration": "verified ownership; DNS still points through Cloudflare to the existing origin; misconfigured=true expected before routing switch",
+    "rank1RecommendedA": [
+      "216.150.1.1",
+      "216.150.16.1"
+    ],
+    "rank1RecommendedCname": "a32fabf8efa8b80c.vercel-dns-016.com.",
+    "proposedProxy": "DNS only",
+    "proposedTtlSeconds": 300,
+    "mustRefreshRecommendationsBeforeCutover": true,
+    "rollbackOriginSource": "owner-supplied actual origin records, not public Cloudflare proxy addresses",
+    "runbook": "migration-runbook.md"
+  },
+  "hostedBackendCode": {
+    "status": "implemented locally; hosted activation remains disabled",
+    "explicitEnable": "QUIZEEY_FORUM_BACKEND=supabase plus exact project/dataset, actual Vercel environment, public/server keys, direct peer mode, separate HMAC and cron secrets",
+    "publicReads": "publishable key under existing RLS; max20 topics/50 posts; source question discussions retain locale sharing",
+    "privateOperations": "service-only allowlisted RPCs with input/output schemas; normalized empty displayName accepted; unknown response fields stripped; five-second timeout/no-store/no automatic write retry",
+    "contextValidation": "bounded hosted study reader verifies actual exam/question relation instead of four local fixture questions",
+    "requestOrigins": "exact system deployment/branch URL in preview; production canonical plus Basic-protected unique deployment host; no arbitrary Host-derived allowlist",
+    "abuseLimit": "daily HMAC of platform-overwritten x-vercel-forwarded-for; purpose separation; valid single IP only; no CF/XFF fallback or raw IP persistence",
+    "admin": "existing provider getUser, UUID allowlist and active hashed session required; actor from verified identity; logout revocation enforced; no visitor signup",
+    "retention": "authenticated daily09:00 UTC cleanup endpoint calling existing service-only cleanup RPC; secret required independently of cron headers; candidate exception only authenticated GET on exact cleanup path",
+    "actualCloudForumEnabled": false,
+    "actualLegacyExplanationsUploaded": false,
+    "actualAdminAccountsCreated": false
+  },
+  "verification": {
+    "typescript": "passed",
+    "eslint": "passed",
+    "nextProductionBuild": "passed",
+    "unitTestsPassed": 97,
+    "browserRegression": "22 of22 passed against compiled Next and isolated PostgreSQL/Auth fixture after HTTP wiring",
+    "finalMarkupRegression": "4 of4 catalog/focus scenarios passed against the final compiled bundle, including official vignette exclusion attributes",
+    "continuationRegression": "26 synthetic questions: 20→21, final batch, isolated saved progress and vignette exclusions passed; study-page-browser-evidence.json",
+    "hostedHttpBoundary": "synthetic tests execute actual HTTP handlers and Supabase SDK wire with intercepted fetch; no real cloud Auth or forum writes",
+    "realHostedAdminAndGuestCertification": "Deferred beyond this cutover by owner forum-scope decision; mandatory before future forum activation.",
+    "actualPublicKeyProbe": {
+      "publicTopicReadStatus": 200,
+      "publicTopicRows": 0,
+      "privilegedSessionActorRpcStatus": 401,
+      "privilegedSessionActorRpcErrorCode": "42501",
+      "signupDisabled": true,
+      "anonymousSignupEnabled": false,
+      "databaseMutations": 0,
+      "authAccountsCreated": 0
+    },
+    "actualReadOnlyDatabaseAggregate": {
+      "authUsers": 0,
+      "topics": 0,
+      "posts": 0,
+      "anonCanExecuteForumMutate": false,
+      "anonCanExecuteAdminSessionActor": false,
+      "snapshotBeforeOwnerAccountCreation": true
+    },
+    "cleanup": "Owned QA3112 closed; existing user dev3000 open. Earlier fixture QA cleanup remains historical.",
+    "operatorAccountReadOnlyCheck": {
+      "id": "c07727e8-d90a-48af-acfa-1bd30cef41e5",
+      "exists": true,
+      "anonymous": false,
+      "emailConfirmed": true,
+      "notDeleted": true,
+      "notBanned": true,
+      "loginOrJwtValidationPerformed": false
+    },
+    "latestLegacyBrowserChecks": "6 of6 passed against the final compiled bundle, including deferred user posts returning200/[] and unknown question404.",
+    "privateArchiveRetention": "Original snapshot hash and all2,209 user posts retained; filtered2,183 values/file hashes, owner-only ACL, existing native backup format/hash verified. No source modifications or post uploads.",
+    "productionReviewBrowser": "Passed actual Next production-review webpack build with synthetic RPCs/credentials, canonical browser origin, grading/restoration, all-host Basic, empty sitemap/disallow and no Google requests; production-review-browser-evidence.json.",
+    "actualProductionCredentialPreflight": {
+      "productionReadVerified": true,
+      "examCount": 181,
+      "sampledQuestions": 20,
+      "review": true
+    }
+  },
+  "remaining": [
+    "Owner review of protected Production configuration deployment; actual hosted Basic session and UI remain unverified by automation.",
+    "Verify real regional consent, existing GA4 property delivery and real ad/overlay behavior. Both consent-mode options are now owner-confirmed saved; do not ask again.",
+    "Build a separate final public release with production-review=false and verified release/ads gates. The current deliberately protected/noindex review build is not a promotable public release.",
+    "Complete final writer freeze, backup/delta reconciliation including subsequent private user posts, top incoming URLs and downtime/rollback criteria.",
+    "Execute the reviewed final Cloudflare change only after prerequisites and final cutover approval; retain AWS and verified recovery."
+  ],
+  "references": [
+    "https://supabase.com/docs/reference/javascript/auth-getuser",
+    "https://supabase.com/docs/guides/database/secure-data",
+    "https://vercel.com/docs/headers/request-headers",
+    "https://vercel.com/docs/environment-variables/system-environment-variables",
+    "https://vercel.com/docs/cron-jobs/manage-cron-jobs",
+    "https://support.google.com/adsense/answer/17016693?hl=en",
+    "https://support.google.com/adsense/answer/9262311?hl=en",
+    "https://support.google.com/adsense/answer/10961068?hl=en",
+    "https://support.google.com/adsense/answer/16053245?hl=en"
+  ],
+  "scope": {
+    "initialCutover": [
+      "study pages and built-in question explanations",
+      "legacy URL and SEO continuity",
+      "existing AdSense and GA4 integration"
+    ],
+    "deferred": [
+      "user-authored post import/publication",
+      "public forum writes",
+      "hosted administrator login and moderation activation"
+    ],
+    "retentionEvidence": "retained-user-posts-evidence.json",
+    "finalSnapshotRequirement": "Retain subsequent user posts privately at the final writer freeze; the verified development archive is point-in-time."
+  },
+  "deferredFutureTasks": [
+    "Design forum and user-post presentation with owner.",
+    "Decide and execute a private post import/publication plan; do not infer guest edit ownership from display names.",
+    "Complete actual hosted operator sign-in/session, moderation, rate-limit and retention tests before enabling writes."
+  ],
+  "protectedProductionReview": {
+    "id": "dpl_5EG6qKrFgWHyaQGmrQnTGNXWFc3R",
+    "url": "https://quizeey-8n6lje53f-kevins-projects-e2dcc34c.vercel.app",
+    "target": "production",
+    "state": "READY",
+    "aliases": [
+      "quizeey-kevins-projects-e2dcc34c.vercel.app"
+    ],
+    "customProductionDomainsAssigned": false,
+    "sourceHead": "e938e430d9f8ce1239f5efd850326ca173860c68",
+    "sourceWorkingTreeDirty": true,
+    "sourceProvenance": "Locally verified source/package hashes and submitted API metadata; not authenticated Git provenance.",
+    "files": 76,
+    "bytes": 2739618,
+    "packageSha256": "ebc4fc61570c7fab9834a82a7e842688e3d256aad003cd2a5dfeb3e8eabfed4e",
+    "packageEvidence": "production-review-package-evidence.json",
+    "actualArchiveFilesOrSecretsUploadedInSource": false,
+    "evidence": "production-review-deployment-evidence.json",
+    "publicProbe": {
+      "status": 302,
+      "redirectHost": "vercel.com",
+      "robots": "noindex"
+    },
+    "releaseReady": false,
+    "actualAuthenticatedHostedBrowser": "pending owner review"
+  }
+}

@@ -1,0 +1,19 @@
+# Private operational exports and local credentials must never be uploaded.
+/.modernization/
+/.aws/
+/.git/
+**/*.pem
+**/*.ppk
+/web/.env*
+!/web/.env.example
+/web/node_modules/
+/web/.next/
+/web/playwright-report/
+/web/test-results/
+# Legacy Java is not part of the new Vercel application.
+/src/
+/build/
+/bin/
+/.gradle/
+/util/
+/resources/

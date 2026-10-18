@@ -1,0 +1,93 @@
+{
+  "scope": "Three public read-only API samples; not a DB snapshot or live DDL",
+  "mutatingRequests": 0,
+  "adRequests": 0,
+  "results": [
+    {
+      "path": "/tests",
+      "method": "POST",
+      "sourceReviewedReadOnly": true,
+      "checkedAt": "2026-10-16T18:18:04.276181+00:00",
+      "status": 200,
+      "contentType": "application/json",
+      "responseSha256": "5c133fc73990712e0a2bfd496adc7194609fc03f36c7738c884a61429c015c80",
+      "shape": {
+        "type": "array",
+        "length": 181,
+        "itemShapes": [
+          {
+            "testId": "int",
+            "testNm": "str",
+            "url": "str"
+          }
+        ]
+      },
+      "privateSampleSaved": true
+    },
+    {
+      "path": "/versions",
+      "method": "POST",
+      "sourceReviewedReadOnly": true,
+      "checkedAt": "2026-10-16T18:18:05.457238+00:00",
+      "status": 200,
+      "contentType": "application/json",
+      "responseSha256": "9643b5a265f917e915c236cae7bd04fffd606d8d6eff8b67ff4f30b4531914bc",
+      "shape": {
+        "type": "array",
+        "length": 3,
+        "itemShapes": [
+          {
+            "verId": "int",
+            "verNbr": "int",
+            "verNm": "str"
+          }
+        ]
+      },
+      "privateSampleSaved": true
+    },
+    {
+      "path": "/question",
+      "method": "POST",
+      "sourceReviewedReadOnly": true,
+      "checkedAt": "2026-10-16T18:18:06.548649+00:00",
+      "status": 200,
+      "contentType": "application/json",
+      "responseSha256": "cbcc88c83fc0ba269c9592e69a24db8db578e1106f64175b3e0310be195520a6",
+      "shape": {
+        "examples": {
+          "type": "array",
+          "length": 4,
+          "itemShapes": [
+            {
+              "answer": "bool",
+              "exmpId": "int",
+              "exmpNbr": "int",
+              "exmpTxt": "str",
+              "questNbr": "int",
+              "testId": "int",
+              "verNbr": "int"
+            }
+          ]
+        },
+        "explanation": "str",
+        "multiAnswer": "bool",
+        "questId": "int",
+        "questNbr": "int",
+        "questTxt": "str",
+        "reference": "str",
+        "testId": "int",
+        "verName": "str",
+        "verNbr": "int"
+      },
+      "privateSampleSaved": true,
+      "identity": {
+        "questId": 751,
+        "testId": 5,
+        "verNbr": 2,
+        "questNbr": 5
+      },
+      "choiceCount": 4,
+      "correctChoiceCount": 1
+    }
+  ]
+}

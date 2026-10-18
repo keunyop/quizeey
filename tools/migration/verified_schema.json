@@ -1,0 +1,579 @@
+{
+  "sourceEngine": "MySQL 5.7.30",
+  "sourceInstanceId": "i-046087bdb8dff10f7",
+  "observedAt": "2026-10-16T19:00:42.866459+00:00",
+  "sourceMetadataSha256": "ab57e5b5229cf18cc6729d7d6ea71a3a9aabae40ae25776f732a9e783ba72ced",
+  "columns": [
+    {
+      "CHARACTER_SET_NAME": null,
+      "COLLATION_NAME": null,
+      "COLUMN_DEFAULT": null,
+      "COLUMN_NAME": "exmp_id",
+      "COLUMN_TYPE": "bigint(20)",
+      "EXTRA": "auto_increment",
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "1",
+      "TABLE_NAME": "example"
+    },
+    {
+      "CHARACTER_SET_NAME": null,
+      "COLLATION_NAME": null,
+      "COLUMN_DEFAULT": null,
+      "COLUMN_NAME": "test_id",
+      "COLUMN_TYPE": "bigint(20)",
+      "EXTRA": null,
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "2",
+      "TABLE_NAME": "example"
+    },
+    {
+      "CHARACTER_SET_NAME": null,
+      "COLLATION_NAME": null,
+      "COLUMN_DEFAULT": null,
+      "COLUMN_NAME": "ver_nbr",
+      "COLUMN_TYPE": "int(11)",
+      "EXTRA": null,
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "3",
+      "TABLE_NAME": "example"
+    },
+    {
+      "CHARACTER_SET_NAME": null,
+      "COLLATION_NAME": null,
+      "COLUMN_DEFAULT": null,
+      "COLUMN_NAME": "quest_nbr",
+      "COLUMN_TYPE": "int(11)",
+      "EXTRA": null,
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "4",
+      "TABLE_NAME": "example"
+    },
+    {
+      "CHARACTER_SET_NAME": null,
+      "COLLATION_NAME": null,
+      "COLUMN_DEFAULT": null,
+      "COLUMN_NAME": "exmp_nbr",
+      "COLUMN_TYPE": "int(11)",
+      "EXTRA": null,
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "5",
+      "TABLE_NAME": "example"
+    },
+    {
+      "CHARACTER_SET_NAME": "utf8",
+      "COLLATION_NAME": "utf8_general_ci",
+      "COLUMN_DEFAULT": null,
+      "COLUMN_NAME": "exmp_txt",
+      "COLUMN_TYPE": "varchar(1000)",
+      "EXTRA": null,
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "6",
+      "TABLE_NAME": "example"
+    },
+    {
+      "CHARACTER_SET_NAME": "utf8",
+      "COLLATION_NAME": "utf8_general_ci",
+      "COLUMN_DEFAULT": null,
+      "COLUMN_NAME": "answer_yn",
+      "COLUMN_TYPE": "varchar(1)",
+      "EXTRA": null,
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "7",
+      "TABLE_NAME": "example"
+    },
+    {
+      "CHARACTER_SET_NAME": null,
+      "COLLATION_NAME": null,
+      "COLUMN_DEFAULT": "CURRENT_TIMESTAMP",
+      "COLUMN_NAME": "created_date",
+      "COLUMN_TYPE": "timestamp",
+      "EXTRA": "on update CURRENT_TIMESTAMP",
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "8",
+      "TABLE_NAME": "example"
+    },
+    {
+      "CHARACTER_SET_NAME": null,
+      "COLLATION_NAME": null,
+      "COLUMN_DEFAULT": "CURRENT_TIMESTAMP",
+      "COLUMN_NAME": "modified_date",
+      "COLUMN_TYPE": "timestamp",
+      "EXTRA": "on update CURRENT_TIMESTAMP",
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "9",
+      "TABLE_NAME": "example"
+    },
+    {
+      "CHARACTER_SET_NAME": null,
+      "COLLATION_NAME": null,
+      "COLUMN_DEFAULT": null,
+      "COLUMN_NAME": "expl_id",
+      "COLUMN_TYPE": "bigint(20)",
+      "EXTRA": "auto_increment",
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "1",
+      "TABLE_NAME": "explanation"
+    },
+    {
+      "CHARACTER_SET_NAME": null,
+      "COLLATION_NAME": null,
+      "COLUMN_DEFAULT": null,
+      "COLUMN_NAME": "quest_id",
+      "COLUMN_TYPE": "bigint(20)",
+      "EXTRA": null,
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "2",
+      "TABLE_NAME": "explanation"
+    },
+    {
+      "CHARACTER_SET_NAME": "utf8",
+      "COLLATION_NAME": "utf8_general_ci",
+      "COLUMN_DEFAULT": null,
+      "COLUMN_NAME": "user_nm",
+      "COLUMN_TYPE": "varchar(100)",
+      "EXTRA": null,
+      "IS_NULLABLE": "YES",
+      "ORDINAL_POSITION": "3",
+      "TABLE_NAME": "explanation"
+    },
+    {
+      "CHARACTER_SET_NAME": "utf8",
+      "COLLATION_NAME": "utf8_general_ci",
+      "COLUMN_DEFAULT": null,
+      "COLUMN_NAME": "explanation",
+      "COLUMN_TYPE": "varchar(1000)",
+      "EXTRA": null,
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "4",
+      "TABLE_NAME": "explanation"
+    },
+    {
+      "CHARACTER_SET_NAME": null,
+      "COLLATION_NAME": null,
+      "COLUMN_DEFAULT": "CURRENT_TIMESTAMP",
+      "COLUMN_NAME": "created_date",
+      "COLUMN_TYPE": "timestamp",
+      "EXTRA": "on update CURRENT_TIMESTAMP",
+      "IS_NULLABLE": "YES",
+      "ORDINAL_POSITION": "5",
+      "TABLE_NAME": "explanation"
+    },
+    {
+      "CHARACTER_SET_NAME": null,
+      "COLLATION_NAME": null,
+      "COLUMN_DEFAULT": "CURRENT_TIMESTAMP",
+      "COLUMN_NAME": "modified_date",
+      "COLUMN_TYPE": "timestamp",
+      "EXTRA": "on update CURRENT_TIMESTAMP",
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "6",
+      "TABLE_NAME": "explanation"
+    },
+    {
+      "CHARACTER_SET_NAME": null,
+      "COLLATION_NAME": null,
+      "COLUMN_DEFAULT": null,
+      "COLUMN_NAME": "quest_id",
+      "COLUMN_TYPE": "bigint(20)",
+      "EXTRA": "auto_increment",
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "1",
+      "TABLE_NAME": "question"
+    },
+    {
+      "CHARACTER_SET_NAME": null,
+      "COLLATION_NAME": null,
+      "COLUMN_DEFAULT": null,
+      "COLUMN_NAME": "test_id",
+      "COLUMN_TYPE": "bigint(20)",
+      "EXTRA": null,
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "2",
+      "TABLE_NAME": "question"
+    },
+    {
+      "CHARACTER_SET_NAME": null,
+      "COLLATION_NAME": null,
+      "COLUMN_DEFAULT": null,
+      "COLUMN_NAME": "ver_nbr",
+      "COLUMN_TYPE": "int(11)",
+      "EXTRA": null,
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "3",
+      "TABLE_NAME": "question"
+    },
+    {
+      "CHARACTER_SET_NAME": null,
+      "COLLATION_NAME": null,
+      "COLUMN_DEFAULT": null,
+      "COLUMN_NAME": "quest_nbr",
+      "COLUMN_TYPE": "int(11)",
+      "EXTRA": null,
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "4",
+      "TABLE_NAME": "question"
+    },
+    {
+      "CHARACTER_SET_NAME": "utf8",
+      "COLLATION_NAME": "utf8_general_ci",
+      "COLUMN_DEFAULT": null,
+      "COLUMN_NAME": "quest_txt",
+      "COLUMN_TYPE": "varchar(2000)",
+      "EXTRA": null,
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "5",
+      "TABLE_NAME": "question"
+    },
+    {
+      "CHARACTER_SET_NAME": "utf8",
+      "COLLATION_NAME": "utf8_general_ci",
+      "COLUMN_DEFAULT": null,
+      "COLUMN_NAME": "explanation",
+      "COLUMN_TYPE": "varchar(4000)",
+      "EXTRA": null,
+      "IS_NULLABLE": "YES",
+      "ORDINAL_POSITION": "6",
+      "TABLE_NAME": "question"
+    },
+    {
+      "CHARACTER_SET_NAME": "utf8",
+      "COLLATION_NAME": "utf8_general_ci",
+      "COLUMN_DEFAULT": null,
+      "COLUMN_NAME": "reference",
+      "COLUMN_TYPE": "varchar(1000)",
+      "EXTRA": null,
+      "IS_NULLABLE": "YES",
+      "ORDINAL_POSITION": "7",
+      "TABLE_NAME": "question"
+    },
+    {
+      "CHARACTER_SET_NAME": "utf8",
+      "COLLATION_NAME": "utf8_general_ci",
+      "COLUMN_DEFAULT": null,
+      "COLUMN_NAME": "multi_answer_yn",
+      "COLUMN_TYPE": "varchar(1)",
+      "EXTRA": null,
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "8",
+      "TABLE_NAME": "question"
+    },
+    {
+      "CHARACTER_SET_NAME": null,
+      "COLLATION_NAME": null,
+      "COLUMN_DEFAULT": "CURRENT_TIMESTAMP",
+      "COLUMN_NAME": "created_date",
+      "COLUMN_TYPE": "timestamp",
+      "EXTRA": "on update CURRENT_TIMESTAMP",
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "9",
+      "TABLE_NAME": "question"
+    },
+    {
+      "CHARACTER_SET_NAME": null,
+      "COLLATION_NAME": null,
+      "COLUMN_DEFAULT": "CURRENT_TIMESTAMP",
+      "COLUMN_NAME": "modified_date",
+      "COLUMN_TYPE": "timestamp",
+      "EXTRA": "on update CURRENT_TIMESTAMP",
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "10",
+      "TABLE_NAME": "question"
+    },
+    {
+      "CHARACTER_SET_NAME": null,
+      "COLLATION_NAME": null,
+      "COLUMN_DEFAULT": null,
+      "COLUMN_NAME": "quest_id",
+      "COLUMN_TYPE": "bigint(20)",
+      "EXTRA": null,
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "1",
+      "TABLE_NAME": "question_stats"
+    },
+    {
+      "CHARACTER_SET_NAME": null,
+      "COLLATION_NAME": null,
+      "COLUMN_DEFAULT": null,
+      "COLUMN_NAME": "correct",
+      "COLUMN_TYPE": "int(11)",
+      "EXTRA": null,
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "2",
+      "TABLE_NAME": "question_stats"
+    },
+    {
+      "CHARACTER_SET_NAME": null,
+      "COLLATION_NAME": null,
+      "COLUMN_DEFAULT": null,
+      "COLUMN_NAME": "in_correct",
+      "COLUMN_TYPE": "int(11)",
+      "EXTRA": null,
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "3",
+      "TABLE_NAME": "question_stats"
+    },
+    {
+      "CHARACTER_SET_NAME": null,
+      "COLLATION_NAME": null,
+      "COLUMN_DEFAULT": "CURRENT_TIMESTAMP",
+      "COLUMN_NAME": "created_date",
+      "COLUMN_TYPE": "timestamp",
+      "EXTRA": "on update CURRENT_TIMESTAMP",
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "4",
+      "TABLE_NAME": "question_stats"
+    },
+    {
+      "CHARACTER_SET_NAME": null,
+      "COLLATION_NAME": null,
+      "COLUMN_DEFAULT": "CURRENT_TIMESTAMP",
+      "COLUMN_NAME": "modified_date",
+      "COLUMN_TYPE": "timestamp",
+      "EXTRA": "on update CURRENT_TIMESTAMP",
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "5",
+      "TABLE_NAME": "question_stats"
+    },
+    {
+      "CHARACTER_SET_NAME": null,
+      "COLLATION_NAME": null,
+      "COLUMN_DEFAULT": null,
+      "COLUMN_NAME": "test_id",
+      "COLUMN_TYPE": "bigint(20)",
+      "EXTRA": "auto_increment",
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "1",
+      "TABLE_NAME": "test"
+    },
+    {
+      "CHARACTER_SET_NAME": "utf8",
+      "COLLATION_NAME": "utf8_general_ci",
+      "COLUMN_DEFAULT": null,
+      "COLUMN_NAME": "test_nm",
+      "COLUMN_TYPE": "varchar(500)",
+      "EXTRA": null,
+      "IS_NULLABLE": "YES",
+      "ORDINAL_POSITION": "2",
+      "TABLE_NAME": "test"
+    },
+    {
+      "CHARACTER_SET_NAME": "utf8",
+      "COLLATION_NAME": "utf8_general_ci",
+      "COLUMN_DEFAULT": null,
+      "COLUMN_NAME": "test_nm_eng",
+      "COLUMN_TYPE": "varchar(500)",
+      "EXTRA": null,
+      "IS_NULLABLE": "YES",
+      "ORDINAL_POSITION": "3",
+      "TABLE_NAME": "test"
+    },
+    {
+      "CHARACTER_SET_NAME": "utf8",
+      "COLLATION_NAME": "utf8_general_ci",
+      "COLUMN_DEFAULT": null,
+      "COLUMN_NAME": "url",
+      "COLUMN_TYPE": "varchar(100)",
+      "EXTRA": null,
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "4",
+      "TABLE_NAME": "test"
+    },
+    {
+      "CHARACTER_SET_NAME": null,
+      "COLLATION_NAME": null,
+      "COLUMN_DEFAULT": "0",
+      "COLUMN_NAME": "inqr_seq",
+      "COLUMN_TYPE": "int(3)",
+      "EXTRA": null,
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "5",
+      "TABLE_NAME": "test"
+    },
+    {
+      "CHARACTER_SET_NAME": null,
+      "COLLATION_NAME": null,
+      "COLUMN_DEFAULT": "CURRENT_TIMESTAMP",
+      "COLUMN_NAME": "created_date",
+      "COLUMN_TYPE": "timestamp",
+      "EXTRA": "on update CURRENT_TIMESTAMP",
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "6",
+      "TABLE_NAME": "test"
+    },
+    {
+      "CHARACTER_SET_NAME": null,
+      "COLLATION_NAME": null,
+      "COLUMN_DEFAULT": "CURRENT_TIMESTAMP",
+      "COLUMN_NAME": "modified_date",
+      "COLUMN_TYPE": "timestamp",
+      "EXTRA": "on update CURRENT_TIMESTAMP",
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "7",
+      "TABLE_NAME": "test"
+    },
+    {
+      "CHARACTER_SET_NAME": null,
+      "COLLATION_NAME": null,
+      "COLUMN_DEFAULT": null,
+      "COLUMN_NAME": "ver_id",
+      "COLUMN_TYPE": "bigint(20)",
+      "EXTRA": "auto_increment",
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "1",
+      "TABLE_NAME": "version"
+    },
+    {
+      "CHARACTER_SET_NAME": null,
+      "COLLATION_NAME": null,
+      "COLUMN_DEFAULT": null,
+      "COLUMN_NAME": "test_id",
+      "COLUMN_TYPE": "bigint(20)",
+      "EXTRA": null,
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "2",
+      "TABLE_NAME": "version"
+    },
+    {
+      "CHARACTER_SET_NAME": null,
+      "COLLATION_NAME": null,
+      "COLUMN_DEFAULT": null,
+      "COLUMN_NAME": "ver_nbr",
+      "COLUMN_TYPE": "int(11)",
+      "EXTRA": null,
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "3",
+      "TABLE_NAME": "version"
+    },
+    {
+      "CHARACTER_SET_NAME": "utf8",
+      "COLLATION_NAME": "utf8_general_ci",
+      "COLUMN_DEFAULT": null,
+      "COLUMN_NAME": "ver_nm",
+      "COLUMN_TYPE": "varchar(500)",
+      "EXTRA": null,
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "4",
+      "TABLE_NAME": "version"
+    },
+    {
+      "CHARACTER_SET_NAME": null,
+      "COLLATION_NAME": null,
+      "COLUMN_DEFAULT": "CURRENT_TIMESTAMP",
+      "COLUMN_NAME": "created_date",
+      "COLUMN_TYPE": "timestamp",
+      "EXTRA": "on update CURRENT_TIMESTAMP",
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "5",
+      "TABLE_NAME": "version"
+    },
+    {
+      "CHARACTER_SET_NAME": null,
+      "COLLATION_NAME": null,
+      "COLUMN_DEFAULT": "CURRENT_TIMESTAMP",
+      "COLUMN_NAME": "modified_date",
+      "COLUMN_TYPE": "timestamp",
+      "EXTRA": "on update CURRENT_TIMESTAMP",
+      "IS_NULLABLE": "NO",
+      "ORDINAL_POSITION": "6",
+      "TABLE_NAME": "version"
+    }
+  ],
+  "indexes": [
+    {
+      "COLUMN_NAME": "exmp_id",
+      "INDEX_NAME": "PRIMARY",
+      "NON_UNIQUE": "0",
+      "SEQ_IN_INDEX": "1",
+      "TABLE_NAME": "example"
+    },
+    {
+      "COLUMN_NAME": "expl_id",
+      "INDEX_NAME": "PRIMARY",
+      "NON_UNIQUE": "0",
+      "SEQ_IN_INDEX": "1",
+      "TABLE_NAME": "explanation"
+    },
+    {
+      "COLUMN_NAME": "quest_id",
+      "INDEX_NAME": "PRIMARY",
+      "NON_UNIQUE": "0",
+      "SEQ_IN_INDEX": "1",
+      "TABLE_NAME": "question"
+    },
+    {
+      "COLUMN_NAME": "quest_id",
+      "INDEX_NAME": "PRIMARY",
+      "NON_UNIQUE": "0",
+      "SEQ_IN_INDEX": "1",
+      "TABLE_NAME": "question_stats"
+    },
+    {
+      "COLUMN_NAME": "test_id",
+      "INDEX_NAME": "PRIMARY",
+      "NON_UNIQUE": "0",
+      "SEQ_IN_INDEX": "1",
+      "TABLE_NAME": "test"
+    },
+    {
+      "COLUMN_NAME": "ver_id",
+      "INDEX_NAME": "PRIMARY",
+      "NON_UNIQUE": "0",
+      "SEQ_IN_INDEX": "1",
+      "TABLE_NAME": "version"
+    }
+  ],
+  "constraints": [
+    {
+      "COLUMN_NAME": "exmp_id",
+      "CONSTRAINT_NAME": "PRIMARY",
+      "REFERENCED_COLUMN_NAME": null,
+      "REFERENCED_TABLE_NAME": null,
+      "TABLE_NAME": "example"
+    },
+    {
+      "COLUMN_NAME": "expl_id",
+      "CONSTRAINT_NAME": "PRIMARY",
+      "REFERENCED_COLUMN_NAME": null,
+      "REFERENCED_TABLE_NAME": null,
+      "TABLE_NAME": "explanation"
+    },
+    {
+      "COLUMN_NAME": "quest_id",
+      "CONSTRAINT_NAME": "PRIMARY",
+      "REFERENCED_COLUMN_NAME": null,
+      "REFERENCED_TABLE_NAME": null,
+      "TABLE_NAME": "question"
+    },
+    {
+      "COLUMN_NAME": "quest_id",
+      "CONSTRAINT_NAME": "PRIMARY",
+      "REFERENCED_COLUMN_NAME": null,
+      "REFERENCED_TABLE_NAME": null,
+      "TABLE_NAME": "question_stats"
+    },
+    {
+      "COLUMN_NAME": "test_id",
+      "CONSTRAINT_NAME": "PRIMARY",
+      "REFERENCED_COLUMN_NAME": null,
+      "REFERENCED_TABLE_NAME": null,
+      "TABLE_NAME": "test"
+    },
+    {
+      "COLUMN_NAME": "ver_id",
+      "CONSTRAINT_NAME": "PRIMARY",
+      "REFERENCED_COLUMN_NAME": null,
+      "REFERENCED_TABLE_NAME": null,
+      "TABLE_NAME": "version"
+    }
+  ],
+  "ddl": {
+    "example": "CREATE TABLE `example` (\n  `exmp_id` bigint(20) NOT NULL AUTO_INCREMENT,\n  `test_id` bigint(20) NOT NULL,\n  `ver_nbr` int(11) NOT NULL,\n  `quest_nbr` int(11) NOT NULL,\n  `exmp_nbr` int(11) NOT NULL,\n  `exmp_txt` varchar(1000) NOT NULL,\n  `answer_yn` varchar(1) NOT NULL,\n  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  `modified_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  PRIMARY KEY (`exmp_id`)\n) ENGINE=InnoDB AUTO_INCREMENT=124559 DEFAULT CHARSET=utf8",
+    "explanation": "CREATE TABLE `explanation` (\n  `expl_id` bigint(20) NOT NULL AUTO_INCREMENT,\n  `quest_id` bigint(20) NOT NULL,\n  `user_nm` varchar(100) DEFAULT NULL,\n  `explanation` varchar(1000) NOT NULL,\n  `created_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  `modified_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  PRIMARY KEY (`expl_id`)\n) ENGINE=InnoDB AUTO_INCREMENT=2210 DEFAULT CHARSET=utf8",
+    "question": "CREATE TABLE `question` (\n  `quest_id` bigint(20) NOT NULL AUTO_INCREMENT,\n  `test_id` bigint(20) NOT NULL,\n  `ver_nbr` int(11) NOT NULL,\n  `quest_nbr` int(11) NOT NULL,\n  `quest_txt` varchar(2000) NOT NULL,\n  `explanation` varchar(4000) DEFAULT NULL,\n  `reference` varchar(1000) DEFAULT NULL,\n  `multi_answer_yn` varchar(1) NOT NULL,\n  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  `modified_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  PRIMARY KEY (`quest_id`)\n) ENGINE=InnoDB AUTO_INCREMENT=30946 DEFAULT CHARSET=utf8",
+    "question_stats": "CREATE TABLE `question_stats` (\n  `quest_id` bigint(20) NOT NULL,\n  `correct` int(11) NOT NULL,\n  `in_correct` int(11) NOT NULL,\n  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  `modified_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  PRIMARY KEY (`quest_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+    "test": "CREATE TABLE `test` (\n  `test_id` bigint(20) NOT NULL AUTO_INCREMENT,\n  `test_nm` varchar(500) DEFAULT NULL,\n  `test_nm_eng` varchar(500) DEFAULT NULL,\n  `url` varchar(100) NOT NULL,\n  `inqr_seq` int(3) NOT NULL DEFAULT '0',\n  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  `modified_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  PRIMARY KEY (`test_id`)\n) ENGINE=InnoDB AUTO_INCREMENT=234 DEFAULT CHARSET=utf8",
+    "version": "CREATE TABLE `version` (\n  `ver_id` bigint(20) NOT NULL AUTO_INCREMENT,\n  `test_id` bigint(20) NOT NULL,\n  `ver_nbr` int(11) NOT NULL,\n  `ver_nm` varchar(500) NOT NULL,\n  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  `modified_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  PRIMARY KEY (`ver_id`)\n) ENGINE=InnoDB AUTO_INCREMENT=410 DEFAULT CHARSET=utf8"
+  },
+  "schemaVerified": true,
+  "rowDataIncluded": false
+}

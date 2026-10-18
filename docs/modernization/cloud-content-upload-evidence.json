@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "status": "uploaded-and-full-value-hashes-matched",
+  "projectId": "tfkhnrbshvyfmrzxqfmq",
+  "datasetSha256": "88ed4da320cf3bbd40d65f1aa6de7ba6b81a09f5aa6bbcef1e3860ca58ccb42f",
+  "deletedIdSetSha256": "425654b55ad190dce415c853c95908521c6de0ed9e2860101d0ae8ac2730c6fd",
+  "tables": {
+    "exams": {
+      "rows": 181,
+      "framedSha256": "5fdf531957cfb3e798655b7a91c07708049ce2cf2456c19c130426d354edc5d8"
+    },
+    "versions": {
+      "rows": 330,
+      "framedSha256": "63e491dd0b8697ff5864e1e1f0fef168063c5097e6ab4a5e8beefb7b663792bf"
+    },
+    "questions": {
+      "rows": 26733,
+      "framedSha256": "5c79d1c8b80f72683efcdbfa2e498c4e09b8293060395659d71df81adf6f3b7e"
+    },
+    "choices": {
+      "rows": 107516,
+      "framedSha256": "ac36b555b4dddfac5128c96b469cf12b3af5c34433c399a06e362f41caaf8f07"
+    },
+    "legacy_counters": {
+      "rows": 25870,
+      "framedSha256": "20dd6e1e7e83717fa34aef4a137fd18e64917198b044df075afdf7713ffc3b5d"
+    }
+  },
+  "nativePostsIncluded": false,
+  "sourceAuthorColumnsIncluded": false,
+  "recordedAt": "2026-10-17",
+  "ownerApproved": true,
+  "batchesCompleted": 191,
+  "totalRows": 160630,
+  "tableHashesMatched": true,
+  "readerMigration": {
+    "name": "quizeey_private_study_reader_v1",
+    "version": "20261017071433"
+  },
+  "publicDefiners": 0,
+  "authUsers": 0,
+  "nativePosts": 0,
+  "nativeTopics": 0,
+  "constraintsValidated": true,
+  "databaseBytesObserved": 44168883,
+  "productionPublished": false,
+  "sequenceWatermarks": {
+    "exams": {
+      "lastValue": 234,
+      "isCalled": false,
+      "maxId": 233
+    },
+    "versions": {
+      "lastValue": 410,
+      "isCalled": false,
+      "maxId": 409
+    },
+    "questions": {
+      "lastValue": 30946,
+      "isCalled": false,
+      "maxId": 30945
+    },
+    "choices": {
+      "lastValue": 124559,
+      "isCalled": false,
+      "maxId": 124558
+    }
+  },
+  "httpBoundaryChecks": [
+    {
+      "schema": "quizeey_content",
+      "status": 406,
+      "code": "PGRST106"
+    },
+    {
+      "schema": "quizeey_private",
+      "status": 406,
+      "code": "PGRST106"
+    },
+    {
+      "anonymousReaderStatus": 401,
+      "code": "42501"
+    }
+  ]
+}

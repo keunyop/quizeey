@@ -1,0 +1,156 @@
+{
+  "recordedAt": "2026-10-16",
+  "mode": "read-only",
+  "supabase": {
+    "project": {
+      "id": "tfkhnrbshvyfmrzxqfmq",
+      "ref": "tfkhnrbshvyfmrzxqfmq",
+      "organization_id": "ffwqtsvqdnhmpnfqnjuq",
+      "organization_slug": "ffwqtsvqdnhmpnfqnjuq",
+      "name": "quizeey",
+      "region": "us-west-2",
+      "status": "ACTIVE_HEALTHY",
+      "database": {
+        "host": "db.tfkhnrbshvyfmrzxqfmq.supabase.co",
+        "version": "17.11.0.003",
+        "postgres_engine": "17",
+        "release_channel": "ga"
+      },
+      "created_at": "2026-10-16T17:15:01.565021Z"
+    },
+    "organization": {
+      "id": "ffwqtsvqdnhmpnfqnjuq",
+      "name": "kevin",
+      "plan": "pro",
+      "tier": "tier_pro",
+      "opt_in_tags": [],
+      "allowed_release_channels": [
+        "ga",
+        "preview"
+      ]
+    },
+    "database": {
+      "roles": [
+        {
+          "name": "anon",
+          "login": false,
+          "create_db": false,
+          "superuser": false,
+          "bypass_rls": false,
+          "create_role": false
+        },
+        {
+          "name": "authenticated",
+          "login": false,
+          "create_db": false,
+          "superuser": false,
+          "bypass_rls": false,
+          "create_role": false
+        },
+        {
+          "name": "authenticator",
+          "login": true,
+          "create_db": false,
+          "superuser": false,
+          "bypass_rls": false,
+          "create_role": false
+        },
+        {
+          "name": "postgres",
+          "login": true,
+          "create_db": true,
+          "superuser": false,
+          "bypass_rls": true,
+          "create_role": true
+        },
+        {
+          "name": "service_role",
+          "login": false,
+          "create_db": false,
+          "superuser": false,
+          "bypass_rls": true,
+          "create_role": false
+        }
+      ],
+      "schemas": [
+        "auth",
+        "extensions",
+        "graphql",
+        "graphql_public",
+        "public",
+        "realtime",
+        "storage",
+        "vault"
+      ],
+      "version": "PostgreSQL 17.11 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 15.2.0, 64-bit",
+      "read_only": "on",
+      "query_role": "postgres",
+      "auth_user_count": 0,
+      "auth_session_count": 0,
+      "application_relations": []
+    },
+    "migrations": [],
+    "authSettings": {
+      "disable_signup": false,
+      "mailer_autoconfirm": false,
+      "phone_autoconfirm": false,
+      "external": {
+        "anonymous_users": false,
+        "apple": false,
+        "azure": false,
+        "bitbucket": false,
+        "discord": false,
+        "facebook": false,
+        "snapchat": false,
+        "figma": false,
+        "fly": false,
+        "github": false,
+        "gitlab": false,
+        "google": false,
+        "keycloak": false,
+        "kakao": false,
+        "linkedin": false,
+        "linkedin_oidc": false,
+        "notion": false,
+        "spotify": false,
+        "slack": false,
+        "slack_oidc": false,
+        "workos": false,
+        "twitch": false,
+        "twitter": false,
+        "email": true,
+        "phone": false,
+        "zoom": false
+      }
+    },
+    "securityAdvisors": {
+      "result": {
+        "lints": []
+      }
+    },
+    "permissionLimit": "Project/organization metadata, read-only SQL and public Auth settings GET succeeded. SQL ran as postgres; connected human organization role and write permissions were not established."
+  },
+  "vercel": {
+    "team": {
+      "name": "Kevin's projects",
+      "slug": "kevins-projects-e2dcc34c",
+      "id": "team_VSzA796D92aso5IuzUIiOdnb",
+      "saml": {}
+    },
+    "projectNames": [
+      "switchabank-public",
+      "switchabank-api",
+      "rubricheck",
+      "fpds",
+      "seed"
+    ],
+    "matchingQuizeeyProjects": 0,
+    "projectId": null,
+    "planVerified": false,
+    "permissionLimit": "Team/project list access succeeded; connector response omits subscription and member role."
+  },
+  "productionMutations": 0,
+  "sourceContentUploaded": 0,
+  "newResourcesCreated": 0,
+  "credentialsPersisted": 0
+}

@@ -1,0 +1,142 @@
+{
+  "checkedOn": "2026-10-17",
+  "timezone": "America/Vancouver",
+  "decision": "NOT_READY_FOR_LIVE_TRAFFIC",
+  "summary": "UI 개선은 로컬 검증을 통과했지만 운영 설정과 전체 문항 학습, 기존 기능 보존을 완료해야 한다. 현재 도메인을 전환하면 기능 누락 또는 서비스 오류가 발생할 수 있다.",
+  "scope": "Read-only cloud preflight and local deployment-candidate packaging. No deployment, migration, environment, DNS, auth, advertising or AWS changes were made during this preflight.",
+  "source": {
+    "branch": "modernization/discovery-foundation",
+    "head": "e938e430d9f8ce1239f5efd850326ca173860c68",
+    "workingTreeContainsUncommittedUiChanges": true,
+    "latestUiVerification": "ui-ux-review.json: latest_ui_adjustments; build/lint and 13 Edge browser tests passed locally with synthetic questions. This is not a live-production readiness check.",
+    "candidateEvidence": "cutover-preview-package-evidence.json",
+    "candidateUploaded": false
+  },
+  "verifiedCloudState": {
+    "vercel": {
+      "teamId": "team_VSzA796D92aso5IuzUIiOdnb",
+      "projectId": "prj_0SVBqfgurtvZErmpMJl01BJkUKOd",
+      "latestDeploymentId": "dpl_J7CWcYe8G9ZchXSkx2zPC7TZQhJJ",
+      "latestDeploymentUrl": "quizeey-c7pch0buf-kevins-projects-e2dcc34c.vercel.app",
+      "latestDeploymentState": "READY",
+      "latestDeploymentApiTarget": null,
+      "latestDeploymentCommit": "e938e430d9f8ce1239f5efd850326ca173860c68",
+      "latestDeploymentContainsCurrentUncommittedUi": false,
+      "productionEnvironmentVariableCount": 0,
+      "previewEnvironmentVariableCount": 7,
+      "environmentValuesInspected": false,
+      "projectCustomDomainAttached": false,
+      "ssoProtection": "all_except_custom_domains",
+      "temporaryProtectionBypassCreated": false,
+      "note": "get_project, list_project_domains and deployment alias responses use different generated aliases. None of the returned project domains is quizeey.com; no production alias is inferred from them."
+    },
+    "supabase": {
+      "projectId": "tfkhnrbshvyfmrzxqfmq",
+      "status": "ACTIVE_HEALTHY",
+      "region": "us-west-2",
+      "queryMode": "BEGIN READ ONLY; aggregate counts only",
+      "counts": {
+        "exams": 181,
+        "versions": 330,
+        "questions": 26733,
+        "choices": 107516,
+        "legacyCounters": 25870,
+        "forumTopics": 0,
+        "forumPosts": 0,
+        "authUsers": 0
+      },
+      "note": "Counts were refreshed. Whole-value import verification is prior evidence in cloud-content-upload-evidence.json and was not repeated in this preflight."
+    },
+    "dns": {
+      "host": "quizeey.com",
+      "provider": "Cloudflare",
+      "nameservers": [
+        "arnold.ns.cloudflare.com",
+        "miki.ns.cloudflare.com"
+      ],
+      "publicA": [
+        "104.21.76.75",
+        "172.67.191.25"
+      ],
+      "observedTtlSeconds": 300,
+      "originRecordSnapshotAvailable": false,
+      "vercelConfigurationStatus": "misconfigured=true; configuredBy=null",
+      "note": "Public Cloudflare proxy IPs are not the origin record values needed for rollback. Obtain the actual zone records/proxy state before preparing an executable DNS change. Re-fetch per-domain Vercel recommendations when the release is ready."
+    }
+  },
+  "requiredBeforeCutover": [
+    {
+      "issue": "일반 학습은 첫 20문항에서 끝남",
+      "evidence": [
+        "web/src/server/study-store.ts: questions() slices to 20",
+        "supabase/migrations/20261016235845_private_study_reader.sql: bounded limit 20",
+        "web/src/components/Practice.tsx: no continuation after the batch result"
+      ],
+      "requiredResult": "Bounded pagination or cursor continuation reaches all questions without shipping the whole archive. Verify question 20→21, final batch, version selection, direct links, grading and saved progress. The legacy random API and direct-ID access already support questions beyond 20; that does not provide continuation in the normal practice UI."
+    },
+    {
+      "issue": "운영 실행과 검색 노출이 의도적으로 차단됨",
+      "evidence": [
+        "web/src/lib/environment.ts: production stage throws; Supabase restricted to preview",
+        "web/next.config.ts: global X-Robots-Tag noindex",
+        "web/src/components/RouteView.tsx: robots false/false; no canonical",
+        "Vercel production env has no registered application variables"
+      ],
+      "requiredResult": "Implement and test production configuration, canonical/redirect/query policy and SEO assets while preserving preview authentication/noindex. Stage a production build without assigning live domains, then verify it before promotion. Do not merely remove the guard."
+    },
+    {
+      "issue": "기존 사용자 해설과 운영 관리 기능이 hosted 앱에 연결되지 않음",
+      "evidence": [
+        "Live forum topics/posts both 0",
+        "web/src/components/RouteView.tsx: forum only rendered with fixture and local database",
+        "Hosted RPC transport exists but is not connected to the forum HTTP flow"
+      ],
+      "requiredResult": "Preserve existing explanations under the agreed import/publication policy and verify hosted guest posting/moderation/ownership. Keep public signup disabled. Existing local rehearsal is not evidence that hosted integration is complete."
+    },
+    {
+      "issue": "첫 운영 릴리스의 광고·동의 및 분석 설정 미완료",
+      "evidence": [
+        "web/src/lib/environment.ts: adsEnabled=false and analyticsEnabled=false",
+        "docs/modernization/ads-analytics-contract.md"
+      ],
+      "requiredResult": "Preserve existing AdSense publisher/ads.txt and verify placements and consent behavior. Confirm the real GA4/CMP account configuration; do not invent a GA4 ID or silently remove monetization. Preview must remain ad-free."
+    },
+    {
+      "issue": "최종 데이터 변경분·백업 복구·Cloudflare 전환 및 복귀 값 미확정",
+      "evidence": [
+        "docs/modernization/migration-runbook.md",
+        "docs/modernization/rollback-runbook.md",
+        "Cloudflare authoritative DNS; actual origin records not retrieved"
+      ],
+      "requiredResult": "Prepare the exact record before/after and proxy/TTL state, final snapshot/delta and single-writer procedure, restore evidence, accepted downtime and rollback thresholds. Keep AWS available. DNS rollback alone must not discard new accepted writes."
+    }
+  ],
+  "completedDuringPreflight": [
+    "Refreshed Vercel deployment, domain and environment metadata without decrypting credentials.",
+    "Refreshed Supabase health and aggregate row counts in a read-only transaction.",
+    "Checked public DNS and per-domain Vercel configuration without changing records.",
+    "Fixed explicit upload packaging to include self-hosted WOFF2 and original ICO assets.",
+    "Added --candidate mode to preserve historical deployment payload/evidence.",
+    "Prepared 64-file code candidate, verified logo/favicon/font/license byte equality, private export and env exclusion, payload hash and previous evidence preservation. No upload."
+  ],
+  "executionOrder": [
+    "Resolve the required application and hosted integration changes; keep existing signup restrictions and v1 identity.",
+    "Build a concrete release candidate and validate the latest UI against hosted content, all-question continuation, old URLs/APIs and preserved functions.",
+    "Prepare and verify a staged production deployment, backup/delta and exact Cloudflare change/rollback details.",
+    "Review the concrete cutover change with the owner, then freeze/drain old writers and reconcile the final delta.",
+    "Promote the verified build and apply the approved domain routing; verify SSL, redirects, SEO, ads and quiz flows; monitor against the agreed rollback criteria.",
+    "Retain the old AWS system through the observation window. AWS termination remains a separate action."
+  ],
+  "referenceDocs": [
+    "https://vercel.com/docs/deployments/promoting-a-deployment",
+    "https://vercel.com/docs/domains/working-with-domains/add-a-domain"
+  ],
+  "followUpEvidence": "cutover-preparation-evidence.json",
+  "followUpStatus": "Protected latest UI preview READY; bounded reader applied and verified. Google/DNS owner inputs, hosted explanations and final release gates remain pending.",
+  "ownerScopeOverride": {
+    "recordedAt": "2026-10-18T02:31:05.918012+00:00",
+    "reference": "cutover-owner-followup-evidence.json",
+    "forumBlockerDeferred": true,
+    "decision": "User posts retained privately; forum publication and operator activation are future work, not initial cutover blockers."
+  }
+}

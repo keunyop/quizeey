@@ -1,0 +1,45 @@
+{
+  "recordedAt": "2026-10-17",
+  "projectId": "prj_0SVBqfgurtvZErmpMJl01BJkUKOd",
+  "attempts": [
+    {
+      "id": "dpl_BmaVCM98JEns29WDBbJEfRCfYKn4",
+      "targetRequested": "omitted, documented preview default",
+      "targetReturned": "production",
+      "readyState": "ERROR",
+      "error": "npm ci lockfile missing optional emnapi entries",
+      "applicationServed": false,
+      "ssoProtectionEnabled": true,
+      "productionAppVariablesConfigured": false,
+      "sourceExportsInFiles": false,
+      "fileCount": 57
+    },
+    {
+      "id": "dpl_D576fzEfZJZDkXYEekr53Us4YAXg",
+      "url": "https://quizeey-g0uixlog0-kevins-projects-e2dcc34c.vercel.app",
+      "targetRequested": "staging (legacy preview API target)",
+      "targetReturned": "staging",
+      "readyState": "READY",
+      "packageSha256": "a452acc45e9ed71267f647ecad261e2ee0c0ee1a02de7a491b6659406e3b290a"
+    },
+    {
+      "id": "dpl_ANXS2HUdcsoZeV6z7gPPjPZeJGWX",
+      "url": "https://quizeey-13nrq49m1-kevins-projects-e2dcc34c.vercel.app",
+      "targetRequested": "staging (legacy preview API target)",
+      "targetReturned": "staging",
+      "readyState": "READY",
+      "packageSha256": "5a6a3835c9fbc7a048560762e7b00a9c97929827a7b8970e1f8523de9706c788",
+      "change": "Constrain version select to form width after real mobile verification detected 2px overflow"
+    }
+  ],
+  "platformFirstDeploymentReference": "https://github.com/vercel/vercel/pull/17206",
+  "productionGuardRelaxed": false,
+  "lockfileRepair": "Add only three missing emnapi package entries; preserve all existing versions and direct pins; Linux npm ci dry-run passed",
+  "automaticBrowserVerification": "passed",
+  "shareLinkAutomaticReviewRejections": 2,
+  "temporaryAccessOwnerApproved": true,
+  "previousTemporaryAccessRevokedAndHttpDenied": true,
+  "finalDeploymentId": "dpl_ANXS2HUdcsoZeV6z7gPPjPZeJGWX",
+  "temporaryAccessRevokedAfterVerification": true,
+  "flowEvidence": "cloud-preview-flow-evidence.json"
+}

@@ -1,0 +1,170 @@
+{
+  "recordedOn": "2026-10-17 America/Vancouver",
+  "status": "PROTECTED_PREVIEW_READY_LIVE_CUTOVER_PENDING",
+  "followUp": "cutover-owner-followup-evidence.json contains subsequent owner GA4/DNS/AdSense answers, public GA4 env registration, Vercel domain preparation and disabled hosted HTTP wiring. This document retains the preceding deployment/test snapshot.",
+  "scope": "Owner-authorized cutover preparation. Existing live AWS site, Cloudflare DNS, Google accounts, production Vercel env and public signup settings were not changed.",
+  "deployment": {
+    "teamId": "team_VSzA796D92aso5IuzUIiOdnb",
+    "projectId": "prj_0SVBqfgurtvZErmpMJl01BJkUKOd",
+    "deploymentId": "dpl_Fd5d2TxREt1SkpimXaTLgLdhsYzf",
+    "url": "https://quizeey-5cktb5zi7-kevins-projects-e2dcc34c.vercel.app",
+    "apiTarget": "staging",
+    "state": "READY",
+    "sourceHead": "e938e430d9f8ce1239f5efd850326ca173860c68",
+    "sourceWorkingTreeDirty": true,
+    "payloadSha256": "2bae2441f48134f4ff87cc75e57705c7369ad0b9cb1a1adbd45c469e92c52228",
+    "codeFiles": 70,
+    "codeBytes": 2729350,
+    "deployedFilesMatchCurrentWorkingTree": false,
+    "privateArchivesOrEnvironmentFilesUploaded": false,
+    "publicProbe": {
+      "status": 302,
+      "redirectHost": "vercel.com",
+      "robots": "noindex"
+    },
+    "protection": "Vercel SSO plus existing application Basic credentials; no temporary bypass created",
+    "hostedBrowserFlowWithLatestUi": "Pending authenticated owner review. No expired temporary-share approval was reused. Local browser tests and aggregate cloud reader postflight do not certify this boundary."
+  },
+  "contentContinuation": {
+    "localMigration": "supabase/migrations/20261018005413_study_page_continuation.sql",
+    "cloudMigration": {
+      "projectId": "tfkhnrbshvyfmrzxqfmq",
+      "name": "quizeey_study_page_continuation",
+      "version": "20261018010420"
+    },
+    "changes": "Added a separate service-only bounded page reader. Existing random/direct-ID RPC was preserved. No content rows were changed.",
+    "cloudPostflight": {
+      "largeExamTotal": 1533,
+      "firstBatch": 20,
+      "secondBatch": 20,
+      "lastBatch": 13,
+      "firstAndSecondDoNotOverlap": true,
+      "anonDenied": true,
+      "authenticatedDenied": true,
+      "publicWrapperIsInvoker": true,
+      "questionRows": 26733,
+      "choiceRows": 107516
+    },
+    "localDatabaseEvidence": "hosted-study-page-evidence.json: PostgreSQL17.11 non-superuser migration, role boundaries, pagination, 15-table backup/restore and transactional rollback passed",
+    "browserEvidence": "study-page-browser-evidence.json: real Next bundle, 26 synthetic questions, 20→21 and final batch, saved per-page progress, generic URL/set selection and invalid page handling passed",
+    "advisors": {
+      "errorOrWarningFindings": 0,
+      "informationalFinding": "RLS enabled without policies on 13 intentionally closed private/content tables; access remains service-only through reviewed RPCs",
+      "reference": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy"
+    }
+  },
+  "googlePreservation": {
+    "liveHtmlReadback": {
+      "publisher": "ca-pub-8362228066874729",
+      "displayUnit": "1033140566",
+      "infeedUnit": "8990988805",
+      "infeedLayoutKey": "-f9+5v+4m-d8+7b",
+      "analyticsIdObserved": "UA-66061566-2",
+      "ga4IdObserved": null,
+      "cmpBootstrapObservedInHtml": false,
+      "limitation": "HTML inspection does not prove which messages/formats are enabled in the private Google account."
+    },
+    "adsTxtPreserved": true,
+    "implementation": [
+      "Original publisher, slot types, slot IDs and infeed layout key preserved.",
+      "One catalog infeed after the first six cards; one study display unit in the right margin at viewport >=1540px, otherwise below practice controls and question navigation.",
+      "Advertisement label, at least 48px separation from answer controls, 250px reservation on activation, near-viewport loading, no timed/question-transition refresh.",
+      "One loader per document and one initialization per physical slot, including React StrictMode; no retry loop after blockers; remove unfilled/blocked placements.",
+      "Production canonical host only. Preview, local, admin and unavailable-content pages have no ad/analytics activation.",
+      "Google Funding Choices adapter prepared: separate four-purpose consent, explicit grant/inapplicability only, US opt-out checks, privacy/revocation controls. Account publication and regional behavior remain unverified.",
+      "Existing GA4 measurement ID is required. No new property was created and the obsolete UA ID was not presented as a working GA4 migration.",
+      "Analytics loads after consent and initializes before quiz events; one page_view per actual page path, no page_view for each question; safe campaign source/medium/name retained; arbitrary query/form values and answer text excluded."
+    ],
+    "mockBrowserEvidence": "monetization-browser-evidence.json: filled, unfilled, blocked; initial/denied consent and US opt-out; mobile and wide-screen bounds; one loader/slot/pageview; grading remains usable. All Google requests intercepted, no real ad clicks or live Google scripts.",
+    "accountChanges": 0,
+    "revenueOrCtrImprovementClaimed": false,
+    "beforeLive": "Confirm existing GA4 ID and published certified CMP configuration. Review Auto ads excluded areas/overlays in the same cutover window; code cannot override all account-level Auto ads decisions. Compare AdSense RPM/viewability/CTR with quiz completion, continuation and Core Web Vitals after release."
+  },
+  "seo": {
+    "implemented": [
+      "Preserve original controller URLs and titles; production HTTPS canonical origin is quizeey.com.",
+      "Canonical aliases /kr and /app; generic test URLs map to named exam pages; valid page/version identities remain distinct; tracking parameters removed from canonical.",
+      "Production robots and sitemap; previews/candidates/admin/API remain protected or noindex. Production candidate host never becomes publicly indexable just because VERCEL_ENV is production.",
+      "Hreflang only for home and identical-slug exam pages with verified shared identity; no invented translated equivalent.",
+      "Permanent redirects for known old catalog paths /microsoft-az-500 and /@ccna-300-115; preserve query IDs and version values.",
+      "Correct refrigeration exam mapping from electrical-work ID140 to verified refrigeration ID141; original source fixture retained unchanged.",
+      "Original ads.txt, Naver verification, logo and favicon retained. No fabricated sitemap last-modified times."
+    ],
+    "routeMappingEvidence": {
+      "electricalWorkId": "140",
+      "electricalWorkQuestions": 329,
+      "refrigerationId": "141",
+      "refrigerationQuestions": 73,
+      "ccnaCatalogId": "174",
+      "az500CatalogId": "198"
+    },
+    "remaining": "Production response/SSL/canonical and Search Console top-URL validation, actual indexing after cutover, real GA4/CMP/AdSense delivery and field performance. Query-based single-question URLs are deliberately noindex/follow pending a separate publication/indexing policy; exam/version/page URLs are indexable in production."
+  },
+  "verification": {
+    "typescript": "passed",
+    "eslint": "passed",
+    "nextBuild": "passed",
+    "unitTestsPassed": 80,
+    "browserChecksPassed": 22,
+    "browserRunDetail": "21 passed in the final full run; one redirect test initially assumed an absolute Location header. Next emits a valid relative Location. Fixed only the test URL parser and reran that check successfully; no application change was required.",
+    "browserEngine": "Installed Microsoft Edge",
+    "coverage": [
+      "legacy routes/titles/APIs",
+      "aliases and preview SEO assets",
+      "quiz grading/storage/reviews",
+      "responsive layouts and axe",
+      "guest ownership/moderation/rate limits",
+      "verified admin session/audit/logout"
+    ],
+    "additionalBrowserChecks": "three monetization mock cases and the synthetic 26-question Next continuation flow passed separately",
+    "limits": [
+      "Google account and real ad delivery were not certified",
+      "Latest protected hosted UI needs authenticated review",
+      "Safari/WebKit runtime not available in this environment",
+      "Native explanations/admin remain local-only; these tests do not certify hosted integration"
+    ]
+  },
+  "ownerInformationRequested": [
+    {
+      "item": "Google Analytics",
+      "needed": "Current quizeey.com web-stream G- measurement ID. In Analytics: Admin → Data streams → Web. Do not send passwords or API keys.",
+      "why": "The live HTML still contains only the discontinued UA ID; reuse the real existing GA4 property."
+    },
+    {
+      "item": "AdSense",
+      "needed": "Current Auto ads, vignette and anchor states; Privacy & messaging CMP provider/publication and consent-mode configuration.",
+      "why": "Preserve the existing account and select a verified consent adapter. Keep v1 settings unchanged until the concrete cutover window."
+    },
+    {
+      "item": "Cloudflare",
+      "needed": "@ and www record type, actual target and proxy state. DNS export should retain other verification/mail records.",
+      "why": "Prepare exact before/after/rollback records; public Cloudflare proxy IPs are not the origin values."
+    }
+  ],
+  "remainingBeforeLiveCutover": [
+    "Receive and verify the requested Google/DNS information, then verify real account delivery/consent on an appropriate production candidate.",
+    "Complete hosted native explanations/guest/admin wiring and the approved import/publication policy for 2,183 legacy explanations. No extra user/author data was uploaded in this preparation.",
+    "Prepare production server-only environment, owner-admin allowlist and abuse/rate-limit configuration; keep public signup disabled.",
+    "Verify the staged production build, final backup/restore and data delta with all old writers drained; agree downtime/rollback criteria and retain AWS.",
+    "Apply the concrete approved Cloudflare/domain change only after those checks, then verify live SSL, SEO, monetization and learning flows."
+  ],
+  "references": [
+    "https://support.google.com/adsense/answer/9305577",
+    "https://support.google.com/adsense/answer/1346295",
+    "https://developers.google.com/funding-choices/fc-api-docs",
+    "https://developers.google.com/tag-platform/security/guides/consent",
+    "https://support.google.com/analytics/answer/10089681",
+    "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls",
+    "https://vercel.com/docs/deployments/promoting-a-deployment"
+  ],
+  "localPreview": {
+    "url": "http://127.0.0.1:3000",
+    "lastStatus": 200
+  },
+  "testCleanup": {
+    "nextServers3100And3108Stopped": true,
+    "syntheticServer3110Stopped": true,
+    "postgresAndAuthFixtureStopped": true,
+    "postgresStatusVerified": "pg_ctl: no server running"
+  }
+}

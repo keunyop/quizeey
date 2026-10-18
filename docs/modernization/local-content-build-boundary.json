@@ -1,0 +1,9 @@
+{
+  "status": "private_archive_build_boundary_pass",
+  "traceFiles": 21,
+  "privateArchiveFilesInTrace": 0,
+  "clientJsFiles": 11,
+  "clientPrivateMarkerMatches": 0,
+  "privateContentExternalUploads": 0,
+  "limits": "Checks trace paths and fixed client markers; does not attest a hosted deployment."
+}

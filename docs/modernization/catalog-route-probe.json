@@ -1,0 +1,35 @@
+[
+  {
+    "path": "/industrial-engineer-air-conditioning-and-refrigerating-machinery",
+    "checkedAt": "2026-10-16T18:20:01.999510+00:00",
+    "status": 200,
+    "title": "공조냉동기계산업기사 기출문제 - Quizeey",
+    "description": "공조냉동기계산업기사 기출문제 CBT 문제은행 제공 수많은 공조냉동기계산업기사 기출문제가 준비되어 있습니다.",
+    "declaredTestId": "140",
+    "sha256": "cb02bac1260dccdf805684a34e03fac00d2561d4c8c7f1813f42b8ee96b8dd36",
+    "canonical": "",
+    "redirect": null
+  },
+  {
+    "path": "/@ccna-300-115",
+    "checkedAt": "2026-10-16T18:20:03.097136+00:00",
+    "status": 404,
+    "title": "",
+    "description": "",
+    "declaredTestId": "",
+    "sha256": "567dfa5d18c973d78193660212a516b7257ecb7b641f6c06530eb9816fed367f",
+    "canonical": "",
+    "redirect": null
+  },
+  {
+    "path": "/microsoft-az-500",
+    "checkedAt": "2026-10-16T18:20:04.191638+00:00",
+    "status": 404,
+    "title": "",
+    "description": "",
+    "declaredTestId": "",
+    "sha256": "96dd7f0bb763e73bc484bb9566006c8921df71550d74e9af3e0e2914c06b026c",
+    "canonical": "",
+    "redirect": null
+  }
+]

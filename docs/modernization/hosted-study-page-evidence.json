@@ -1,0 +1,320 @@
+{
+  "recordedAt": "2026-10-18T01:03:01.495Z",
+  "timezone": "America/Vancouver",
+  "status": "passed",
+  "runtime": "postgres (PostgreSQL) 17.11",
+  "runtimeBinarySha256": "f5dbfd059f8088b9511a02fc014e659369996fc7d3e88e47658b1cfa2fbb02d2",
+  "privateLogs": "C:\\Users\\kylee\\AppData\\Local\\Temp\\hosted-schema-67e365723e",
+  "migrations": [
+    {
+      "file": "202610160002_native_forum.sql",
+      "sha256": "0a880273fdc48c49acda373b975247e1afbf21b6ba5e4de4b961f9682ee438e2"
+    },
+    {
+      "file": "202610160003_guest_private_preview.sql",
+      "sha256": "d374790a6534e3461bac0494896dff049d5db5d6a6d343b65e15c5fd9d68e915"
+    },
+    {
+      "file": "202610160004_admin_moderation.sql",
+      "sha256": "d60ab8d39c9d501fed200a0211a0b4bbe066e085630deb615f1eaf6461ab5264"
+    },
+    {
+      "file": "202610160006_exam_content.sql",
+      "sha256": "108d8f85394a770b0bbc890d33b31c072adb13bf2ad7676ea82e8884c8f658f3"
+    },
+    {
+      "file": "20261016233418_private_rpc_boundary.sql",
+      "sha256": "135a4437baf23f4075e28fcafc23663333aa3075a497f465739e042e8ec2502f"
+    },
+    {
+      "file": "20261016235845_private_study_reader.sql",
+      "sha256": "d24660ead88b05dfdf422acb867417c9cc2c9d85770a2dffffc22f588861a202"
+    },
+    {
+      "file": "20261018005413_study_page_continuation.sql",
+      "sha256": "20b85233fa51e63f61c2c92e6887136ff46c5401ff8116ad3d9cdfbed52b0d2d"
+    }
+  ],
+  "cloudMutations": 0,
+  "sourceContentReadOrUploaded": 0,
+  "limitation": "Local EDB17.11 role/default-ACL model; not a complete hosted Supabase/PostgREST/Auth replica.",
+  "migrationRole": {
+    "bypassrls": true,
+    "superuser": false,
+    "createrole": true,
+    "current_user": "postgres",
+    "session_user": "postgres"
+  },
+  "schemaOnlyBackupRestore": "passed as non-superuser postgres before synthetic data was inserted",
+  "boundaryChecks": "passed",
+  "studyReaderChecks": "passed: role denial, bounded batch, direct ID beyond20, filters, NULL, counters",
+  "contentHashFraming": "passed on synthetic values: Python/PostgreSQL UTF8 length-prefix/null/UTC framing",
+  "existingSecurityTests": "forum/admin passed as non-superuser postgres",
+  "concurrentWrites": {
+    "acceptedPending": 10,
+    "rateLimited": 10
+  },
+  "backupRestore": {
+    "tablesMatched": 15,
+    "fullRowsAndHashesMatched": true,
+    "functionOwnersAclSearchPathMatched": true,
+    "roleBoundaryRechecked": true,
+    "adminSessionsRevokedAfterRestore": true
+  },
+  "functions": [
+    {
+      "acl": "{postgres=X/postgres,service_role=X/postgres}",
+      "name": "quizeey_admin_login_limit",
+      "owner": "postgres",
+      "schema": "public",
+      "definer": false,
+      "settings": [
+        "search_path=\"\""
+      ]
+    },
+    {
+      "acl": "{postgres=X/postgres,service_role=X/postgres}",
+      "name": "quizeey_admin_moderate",
+      "owner": "postgres",
+      "schema": "public",
+      "definer": false,
+      "settings": [
+        "search_path=\"\""
+      ]
+    },
+    {
+      "acl": "{postgres=X/postgres,service_role=X/postgres}",
+      "name": "quizeey_admin_queue",
+      "owner": "postgres",
+      "schema": "public",
+      "definer": false,
+      "settings": [
+        "search_path=\"\""
+      ]
+    },
+    {
+      "acl": "{postgres=X/postgres,service_role=X/postgres}",
+      "name": "quizeey_admin_session_actor",
+      "owner": "postgres",
+      "schema": "public",
+      "definer": false,
+      "settings": [
+        "search_path=\"\""
+      ]
+    },
+    {
+      "acl": "{postgres=X/postgres,service_role=X/postgres}",
+      "name": "quizeey_admin_session_create",
+      "owner": "postgres",
+      "schema": "public",
+      "definer": false,
+      "settings": [
+        "search_path=\"\""
+      ]
+    },
+    {
+      "acl": "{postgres=X/postgres,service_role=X/postgres}",
+      "name": "quizeey_admin_session_revoke",
+      "owner": "postgres",
+      "schema": "public",
+      "definer": false,
+      "settings": [
+        "search_path=\"\""
+      ]
+    },
+    {
+      "acl": "{postgres=X/postgres,service_role=X/postgres}",
+      "name": "quizeey_forum_cleanup",
+      "owner": "postgres",
+      "schema": "public",
+      "definer": false,
+      "settings": [
+        "search_path=\"\""
+      ]
+    },
+    {
+      "acl": "{postgres=X/postgres,service_role=X/postgres}",
+      "name": "quizeey_forum_mine",
+      "owner": "postgres",
+      "schema": "public",
+      "definer": false,
+      "settings": [
+        "search_path=\"\""
+      ]
+    },
+    {
+      "acl": "{postgres=X/postgres}",
+      "name": "quizeey_forum_moderate",
+      "owner": "postgres",
+      "schema": "public",
+      "definer": false,
+      "settings": [
+        "search_path=\"\""
+      ]
+    },
+    {
+      "acl": "{postgres=X/postgres,service_role=X/postgres}",
+      "name": "quizeey_forum_mutate",
+      "owner": "postgres",
+      "schema": "public",
+      "definer": false,
+      "settings": [
+        "search_path=\"\""
+      ]
+    },
+    {
+      "acl": "{postgres=X/postgres,service_role=X/postgres}",
+      "name": "quizeey_study_context",
+      "owner": "postgres",
+      "schema": "public",
+      "definer": false,
+      "settings": [
+        "search_path=\"\""
+      ]
+    },
+    {
+      "acl": "{postgres=X/postgres,service_role=X/postgres}",
+      "name": "quizeey_study_page",
+      "owner": "postgres",
+      "schema": "public",
+      "definer": false,
+      "settings": [
+        "search_path=\"\""
+      ]
+    },
+    {
+      "acl": "{postgres=X/postgres}",
+      "name": "consume_rate",
+      "owner": "postgres",
+      "schema": "quizeey_private",
+      "definer": true,
+      "settings": [
+        "search_path=\"\""
+      ]
+    },
+    {
+      "acl": "{postgres=X/postgres,service_role=X/postgres}",
+      "name": "quizeey_admin_login_limit",
+      "owner": "postgres",
+      "schema": "quizeey_private",
+      "definer": true,
+      "settings": [
+        "search_path=\"\""
+      ]
+    },
+    {
+      "acl": "{postgres=X/postgres,service_role=X/postgres}",
+      "name": "quizeey_admin_moderate",
+      "owner": "postgres",
+      "schema": "quizeey_private",
+      "definer": true,
+      "settings": [
+        "search_path=\"\""
+      ]
+    },
+    {
+      "acl": "{postgres=X/postgres,service_role=X/postgres}",
+      "name": "quizeey_admin_queue",
+      "owner": "postgres",
+      "schema": "quizeey_private",
+      "definer": true,
+      "settings": [
+        "search_path=\"\""
+      ]
+    },
+    {
+      "acl": "{postgres=X/postgres,service_role=X/postgres}",
+      "name": "quizeey_admin_session_actor",
+      "owner": "postgres",
+      "schema": "quizeey_private",
+      "definer": true,
+      "settings": [
+        "search_path=\"\""
+      ]
+    },
+    {
+      "acl": "{postgres=X/postgres,service_role=X/postgres}",
+      "name": "quizeey_admin_session_create",
+      "owner": "postgres",
+      "schema": "quizeey_private",
+      "definer": true,
+      "settings": [
+        "search_path=\"\""
+      ]
+    },
+    {
+      "acl": "{postgres=X/postgres,service_role=X/postgres}",
+      "name": "quizeey_admin_session_revoke",
+      "owner": "postgres",
+      "schema": "quizeey_private",
+      "definer": true,
+      "settings": [
+        "search_path=\"\""
+      ]
+    },
+    {
+      "acl": "{postgres=X/postgres,service_role=X/postgres}",
+      "name": "quizeey_forum_cleanup",
+      "owner": "postgres",
+      "schema": "quizeey_private",
+      "definer": true,
+      "settings": [
+        "search_path=\"\""
+      ]
+    },
+    {
+      "acl": "{postgres=X/postgres,service_role=X/postgres}",
+      "name": "quizeey_forum_mine",
+      "owner": "postgres",
+      "schema": "quizeey_private",
+      "definer": true,
+      "settings": [
+        "search_path=\"\""
+      ]
+    },
+    {
+      "acl": "{postgres=X/postgres}",
+      "name": "quizeey_forum_moderate",
+      "owner": "postgres",
+      "schema": "quizeey_private",
+      "definer": true,
+      "settings": [
+        "search_path=\"\""
+      ]
+    },
+    {
+      "acl": "{postgres=X/postgres,service_role=X/postgres}",
+      "name": "quizeey_forum_mutate",
+      "owner": "postgres",
+      "schema": "quizeey_private",
+      "definer": true,
+      "settings": [
+        "search_path=\"\""
+      ]
+    },
+    {
+      "acl": "{postgres=X/postgres,service_role=X/postgres}",
+      "name": "quizeey_study_context",
+      "owner": "postgres",
+      "schema": "quizeey_private",
+      "definer": true,
+      "settings": [
+        "search_path=\"\""
+      ]
+    },
+    {
+      "acl": "{postgres=X/postgres,service_role=X/postgres}",
+      "name": "quizeey_study_page",
+      "owner": "postgres",
+      "schema": "quizeey_private",
+      "definer": true,
+      "settings": [
+        "search_path=\"\""
+      ]
+    }
+  ],
+  "transactionalAbort": "passed: all selected DDL rolled back, zero application relations",
+  "serverStopped": true,
+  "recordedAtSource": "Completion file timestamp; corrected the rehearsal generator static date",
+  "studyPageChecks": "passed: 20?21, last page, exam/version filters, role denial and bounded offset"
+}

@@ -1,0 +1,11 @@
+{
+  "provider": "Eclipse Temurin/Adoptium",
+  "version": "8.0.504+1",
+  "archiveSha256": "ea43d46ede95b51e44a12c66711706cddc762e0a766c54bccea18954e902b2aa",
+  "scope": "compile/package only; no application runtime or DB connection; no Java test sources present",
+  "skillRevisions": {
+    "vercel-agent-skills": "063bee94c3f4df8453406c830b0a7df0f2860278",
+    "supabase-agent-skills": "c9be0e931b7930f7d02126d04774d904c381e7d7"
+  },
+  "uiGuidelinesSha256": "d246b026f4f29b5823a9cc857f9edf3d2507002e055e32040cadeaf3b38e0234"
+}

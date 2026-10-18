@@ -1,0 +1,61 @@
+{
+  "files": [
+    {
+      "path": "src/main/java/com/questionbank/webservice/util/sql.sql",
+      "bytes": 738231,
+      "sha256": "3e1bf897e82b9bc557492c8aaa7acc21e532e702fd652c7dccfcedfe9b829707",
+      "textEncoding": "utf-8",
+      "ddlStatements": 0,
+      "insertStatements": {
+        "question": 502,
+        "example": 2126
+      },
+      "insertColumns": {
+        "question": [
+          "created_date",
+          "explanation",
+          "modified_date",
+          "multi_answer_yn",
+          "quest_nbr",
+          "quest_txt",
+          "reference",
+          "test_id",
+          "ver_nbr"
+        ],
+        "example": [
+          "answer_yn",
+          "created_date",
+          "exmp_nbr",
+          "exmp_txt",
+          "modified_date",
+          "quest_nbr",
+          "test_id",
+          "ver_nbr"
+        ]
+      },
+      "hasQuestionPrimaryIds": false,
+      "hasChoicePrimaryIds": false,
+      "sourceQuestionMarkers": 0,
+      "assetHosts": [
+        "docs.aws.amazon.com"
+      ]
+    },
+    {
+      "path": "src/main/resources/dumps/수질환경산업기사@industrial-engineer-water-pollution-environmental@2020-08-22.txt",
+      "bytes": 27486,
+      "sha256": "67e758fe6605be7636992296d2b05f35a39e33cfaefb35281e441db68c4bd72c",
+      "textEncoding": "utf-8",
+      "ddlStatements": 0,
+      "insertStatements": {},
+      "insertColumns": {},
+      "hasQuestionPrimaryIds": false,
+      "hasChoicePrimaryIds": false,
+      "sourceQuestionMarkers": 74,
+      "assetHosts": []
+    }
+  ],
+  "liveDdlAvailable": false,
+  "productionSnapshotAvailable": false,
+  "disqusExportAvailable": false,
+  "finding": "Source SQL/dumps and JPA provide partial content/relationship evidence, not deployed IDs or complete live schema. No data generator or SQL was executed."
+}

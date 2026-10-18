@@ -1,0 +1,17 @@
+{
+  "status": "automated_checks_pass",
+  "sourceSnapshotSha256": "d2048f0f0ac7f22a29820e8bbb6d6ac770bb6f04ca65072467ba62f1531f3405",
+  "sanitizerSourceSha256": "0db7f4f955ee32a069bfaa72c6ae6bc8c713178332b8c3fb43b7675838ee20e1",
+  "textFieldsChecked": 144033,
+  "normalizedHtmlFields": 8966,
+  "visibleTextDifferenceCandidates": 36,
+  "expectedTechnicalRestorationFields": 36,
+  "unexpectedVisibleTextDifferenceFields": 0,
+  "idempotencyFailures": 0,
+  "activeMarkupFailures": 0,
+  "sanitizedOutputSha256": "39be74c7de92e319698fbf4eb0a0e9fc6571f299c2d6b757f597e4ce3175f5b5",
+  "externalRequests": 0,
+  "sourceBodiesPrinted": false,
+  "publicationAllowed": false,
+  "scope": "Full offline sanitizer/security/idempotency and parsed-text comparison; not full browser layout, content rights, or production approval"
+}

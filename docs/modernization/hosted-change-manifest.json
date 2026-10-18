@@ -1,0 +1,76 @@
+{
+  "recordedAt": "2026-10-16",
+  "status": "prepared-not-approved-not-applied",
+  "target": {
+    "supabaseProjectId": "tfkhnrbshvyfmrzxqfmq",
+    "organizationId": "ffwqtsvqdnhmpnfqnjuq",
+    "region": "us-west-2",
+    "postgresVersion": "17.11",
+    "vercelTeamId": "team_VSzA796D92aso5IuzUIiOdnb",
+    "vercelProjectId": "prj_0SVBqfgurtvZErmpMJl01BJkUKOd"
+  },
+  "applyMigrationName": "quizeey_schema_preview_candidate_v1",
+  "sourceMigrations": [
+    {
+      "file": "202610160002_native_forum.sql",
+      "sha256": "0a880273fdc48c49acda373b975247e1afbf21b6ba5e4de4b961f9682ee438e2"
+    },
+    {
+      "file": "202610160003_guest_private_preview.sql",
+      "sha256": "d374790a6534e3461bac0494896dff049d5db5d6a6d343b65e15c5fd9d68e915"
+    },
+    {
+      "file": "202610160004_admin_moderation.sql",
+      "sha256": "d60ab8d39c9d501fed200a0211a0b4bbe066e085630deb615f1eaf6461ab5264"
+    },
+    {
+      "file": "202610160006_exam_content.sql",
+      "sha256": "108d8f85394a770b0bbc890d33b31c072adb13bf2ad7676ea82e8884c8f658f3"
+    },
+    {
+      "file": "20261016233418_private_rpc_boundary.sql",
+      "sha256": "135a4437baf23f4075e28fcafc23663333aa3075a497f465739e042e8ec2502f"
+    }
+  ],
+  "schemaBundle": {
+    "file": "hosted-schema-candidate.sql",
+    "sha256": "e39095edb20acce1b999aee0e276c78b1c9317d8b55d2222799acac142200cff"
+  },
+  "expected": {
+    "applicationTables": 15,
+    "applicationRows": 0,
+    "publicInvokerFunctions": 10,
+    "publicDefinerFunctions": 0,
+    "privateDefinerFunctions": 11
+  },
+  "excludedMigrations": [
+    "202610160001_raw_staging.sql",
+    "202610160005_legacy_archive.sql"
+  ],
+  "authProposal": {
+    "method": "PATCH",
+    "path": "/v1/projects/tfkhnrbshvyfmrzxqfmq/config/auth",
+    "before": {
+      "disable_signup": false
+    },
+    "after": {
+      "disable_signup": true
+    },
+    "rollback": {
+      "disable_signup": false
+    },
+    "adminUsersCreated": 0
+  },
+  "cloudMutations": 0,
+  "sourceContentReadOrUploaded": 0,
+  "newResourcesCreated": 0,
+  "containmentRollback": {
+    "file": "hosted-schema-close-access.sql",
+    "sha256": "7313c3aa22f702c4ae081ce034b6e1f3c07b771d79f53786395143878bfda279",
+    "preservesSchemasAndData": true
+  },
+  "readOnlyPostflight": {
+    "file": "hosted-schema-postflight.sql",
+    "sha256": "918ac318f2284f61eb132ad2b861efa8c8e221e76208843c2e814e6c3aa655ec"
+  }
+}

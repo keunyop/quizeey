@@ -1,0 +1,341 @@
+{
+  "recordedAt": "2026-10-16",
+  "authorization": "User selected A+B approval; selected waiting for real-question version and declined sample preview deployment.",
+  "target": "tfkhnrbshvyfmrzxqfmq",
+  "request": {
+    "project": "tfkhnrbshvyfmrzxqfmq",
+    "name": "quizeey_schema_preview_candidate_v1",
+    "sha256": "e39095edb20acce1b999aee0e276c78b1c9317d8b55d2222799acac142200cff"
+  },
+  "apply": {
+    "success": true
+  },
+  "migrations": [
+    {
+      "version": "20261016235602",
+      "name": "quizeey_schema_preview_candidate_v1"
+    }
+  ],
+  "postflight": {
+    "read_only": "on",
+    "rpc_acl_ok": true,
+    "table_acl_ok": true,
+    "all_force_rls": true,
+    "public_definers": 0,
+    "public_invokers": 10,
+    "application_rows": 0,
+    "private_definers": 11,
+    "application_tables": 15,
+    "public_execute_revoked": true,
+    "content_sequences_closed": true,
+    "function_owner_search_path_ok": true
+  },
+  "dataApiPreflight": [
+    {
+      "schema": "quizeey_private",
+      "status": 406,
+      "body": "{\"code\":\"PGRST106\",\"details\":null,\"hint\":\"Only the following schemas are exposed: public, graphql_public\",\"message\":\"Invalid schema: quizeey_private\"}"
+    },
+    {
+      "schema": "quizeey_content",
+      "status": 406,
+      "body": "{\"code\":\"PGRST106\",\"details\":null,\"hint\":\"Only the following schemas are exposed: public, graphql_public\",\"message\":\"Invalid schema: quizeey_content\"}"
+    }
+  ],
+  "securityAdvisors": {
+    "lints": [
+      {
+        "name": "rls_enabled_no_policy",
+        "title": "RLS Enabled No Policy",
+        "level": "INFO",
+        "facing": "EXTERNAL",
+        "categories": [
+          "SECURITY"
+        ],
+        "description": "Detects cases where row level security (RLS) has been enabled on a table but no RLS policies have been created.",
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy",
+        "count": 13,
+        "findings": [
+          {
+            "detail": "Table \\`quizeey_content.choices\\` has RLS enabled, but no policies exist",
+            "metadata": {
+              "name": "choices",
+              "type": "table",
+              "schema": "quizeey_content"
+            },
+            "observed_at": "2026-10-16T23:56:22.175Z"
+          },
+          {
+            "detail": "Table \\`quizeey_content.exams\\` has RLS enabled, but no policies exist",
+            "metadata": {
+              "name": "exams",
+              "type": "table",
+              "schema": "quizeey_content"
+            },
+            "observed_at": "2026-10-16T23:56:22.175Z"
+          },
+          {
+            "detail": "Table \\`quizeey_content.legacy_counters\\` has RLS enabled, but no policies exist",
+            "metadata": {
+              "name": "legacy_counters",
+              "type": "table",
+              "schema": "quizeey_content"
+            },
+            "observed_at": "2026-10-16T23:56:22.175Z"
+          },
+          {
+            "detail": "Table \\`quizeey_content.questions\\` has RLS enabled, but no policies exist",
+            "metadata": {
+              "name": "questions",
+              "type": "table",
+              "schema": "quizeey_content"
+            },
+            "observed_at": "2026-10-16T23:56:22.175Z"
+          },
+          {
+            "detail": "Table \\`quizeey_content.versions\\` has RLS enabled, but no policies exist",
+            "metadata": {
+              "name": "versions",
+              "type": "table",
+              "schema": "quizeey_content"
+            },
+            "observed_at": "2026-10-16T23:56:22.175Z"
+          },
+          {
+            "detail": "Table \\`quizeey_private.admin_sessions\\` has RLS enabled, but no policies exist",
+            "metadata": {
+              "name": "admin_sessions",
+              "type": "table",
+              "schema": "quizeey_private"
+            },
+            "observed_at": "2026-10-16T23:56:22.175Z"
+          },
+          {
+            "detail": "Table \\`quizeey_private.forum_reports\\` has RLS enabled, but no policies exist",
+            "metadata": {
+              "name": "forum_reports",
+              "type": "table",
+              "schema": "quizeey_private"
+            },
+            "observed_at": "2026-10-16T23:56:22.175Z"
+          },
+          {
+            "detail": "Table \\`quizeey_private.guest_capabilities\\` has RLS enabled, but no policies exist",
+            "metadata": {
+              "name": "guest_capabilities",
+              "type": "table",
+              "schema": "quizeey_private"
+            },
+            "observed_at": "2026-10-16T23:56:22.175Z"
+          },
+          {
+            "detail": "Table \\`quizeey_private.moderation_audit\\` has RLS enabled, but no policies exist",
+            "metadata": {
+              "name": "moderation_audit",
+              "type": "table",
+              "schema": "quizeey_private"
+            },
+            "observed_at": "2026-10-16T23:56:22.175Z"
+          },
+          {
+            "detail": "Table \\`quizeey_private.mutation_receipts\\` has RLS enabled, but no policies exist",
+            "metadata": {
+              "name": "mutation_receipts",
+              "type": "table",
+              "schema": "quizeey_private"
+            },
+            "observed_at": "2026-10-16T23:56:22.175Z"
+          },
+          {
+            "detail": "Table \\`quizeey_private.post_owners\\` has RLS enabled, but no policies exist",
+            "metadata": {
+              "name": "post_owners",
+              "type": "table",
+              "schema": "quizeey_private"
+            },
+            "observed_at": "2026-10-16T23:56:22.175Z"
+          },
+          {
+            "detail": "Table \\`quizeey_private.post_revisions\\` has RLS enabled, but no policies exist",
+            "metadata": {
+              "name": "post_revisions",
+              "type": "table",
+              "schema": "quizeey_private"
+            },
+            "observed_at": "2026-10-16T23:56:22.175Z"
+          },
+          {
+            "detail": "Table \\`quizeey_private.rate_windows\\` has RLS enabled, but no policies exist",
+            "metadata": {
+              "name": "rate_windows",
+              "type": "table",
+              "schema": "quizeey_private"
+            },
+            "observed_at": "2026-10-16T23:56:22.175Z"
+          }
+        ]
+      }
+    ]
+  },
+  "performanceAdvisors": {
+    "lints": [
+      {
+        "name": "unindexed_foreign_keys",
+        "title": "Unindexed foreign keys",
+        "level": "INFO",
+        "facing": "EXTERNAL",
+        "categories": [
+          "PERFORMANCE"
+        ],
+        "description": "Identifies foreign key constraints without a covering index, which can impact database performance.",
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys",
+        "count": 1,
+        "findings": [
+          {
+            "detail": "Table \\`quizeey_private.forum_reports\\` has a foreign key \\`forum_reports_post_id_fkey\\` without a covering index. This can lead to suboptimal query performance.",
+            "metadata": {
+              "name": "forum_reports",
+              "type": "table",
+              "schema": "quizeey_private",
+              "fkey_name": "forum_reports_post_id_fkey",
+              "fkey_columns": [
+                2
+              ]
+            },
+            "observed_at": "2026-10-16T23:56:22.269Z"
+          }
+        ]
+      },
+      {
+        "name": "unused_index",
+        "title": "Unused Index",
+        "level": "INFO",
+        "facing": "EXTERNAL",
+        "categories": [
+          "PERFORMANCE"
+        ],
+        "description": "Detects if an index has never been used and may be a candidate for removal.",
+        "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index",
+        "count": 9,
+        "findings": [
+          {
+            "detail": "Index \\`quizeey_revisions_post_idx\\` on table \\`quizeey_private.post_revisions\\` has not been used",
+            "metadata": {
+              "name": "post_revisions",
+              "type": "table",
+              "schema": "quizeey_private"
+            },
+            "observed_at": "2026-10-16T23:56:22.269Z"
+          },
+          {
+            "detail": "Index \\`quizeey_topics_context_idx\\` on table \\`public.quizeey_topics\\` has not been used",
+            "metadata": {
+              "name": "quizeey_topics",
+              "type": "table",
+              "schema": "public"
+            },
+            "observed_at": "2026-10-16T23:56:22.269Z"
+          },
+          {
+            "detail": "Index \\`quizeey_posts_topic_idx\\` on table \\`public.quizeey_posts\\` has not been used",
+            "metadata": {
+              "name": "quizeey_posts",
+              "type": "table",
+              "schema": "public"
+            },
+            "observed_at": "2026-10-16T23:56:22.269Z"
+          },
+          {
+            "detail": "Index \\`quizeey_posts_parent_idx\\` on table \\`public.quizeey_posts\\` has not been used",
+            "metadata": {
+              "name": "quizeey_posts",
+              "type": "table",
+              "schema": "public"
+            },
+            "observed_at": "2026-10-16T23:56:22.269Z"
+          },
+          {
+            "detail": "Index \\`quizeey_owners_capability_idx\\` on table \\`quizeey_private.post_owners\\` has not been used",
+            "metadata": {
+              "name": "post_owners",
+              "type": "table",
+              "schema": "quizeey_private"
+            },
+            "observed_at": "2026-10-16T23:56:22.269Z"
+          },
+          {
+            "detail": "Index \\`quizeey_admin_session_expiry_idx\\` on table \\`quizeey_private.admin_sessions\\` has not been used",
+            "metadata": {
+              "name": "admin_sessions",
+              "type": "table",
+              "schema": "quizeey_private"
+            },
+            "observed_at": "2026-10-16T23:56:22.269Z"
+          },
+          {
+            "detail": "Index \\`quizeey_moderation_created_idx\\` on table \\`quizeey_private.moderation_audit\\` has not been used",
+            "metadata": {
+              "name": "moderation_audit",
+              "type": "table",
+              "schema": "quizeey_private"
+            },
+            "observed_at": "2026-10-16T23:56:22.269Z"
+          },
+          {
+            "detail": "Index \\`quizeey_reports_open_idx\\` on table \\`quizeey_private.forum_reports\\` has not been used",
+            "metadata": {
+              "name": "forum_reports",
+              "type": "table",
+              "schema": "quizeey_private"
+            },
+            "observed_at": "2026-10-16T23:56:22.269Z"
+          },
+          {
+            "detail": "Index \\`quizeey_posts_review_idx\\` on table \\`public.quizeey_posts\\` has not been used",
+            "metadata": {
+              "name": "quizeey_posts",
+              "type": "table",
+              "schema": "public"
+            },
+            "observed_at": "2026-10-16T23:56:22.269Z"
+          }
+        ]
+      },
+      {
+        "name": "auth_db_connections_absolute",
+        "title": "Auth DB Connection Strategy is not Percentage",
+        "level": "INFO",
+        "facing": "EXTERNAL",
+        "categories": [
+          "PERFORMANCE"
+        ],
+        "description": "Using a percentage based allocation connection strategy for Auth can help to improve the server's performance when increasing instance size.",
+        "remediation": "https://supabase.com/docs/guides/deployment/going-into-prod",
+        "count": 1,
+        "findings": [
+          {
+            "detail": "Your project's Auth server is configured to use at most 10 connections. Increasing the instance size without manually adjusting this number will not improve the performance of the Auth server. Switch to a percentage based connection allocation strategy instead.",
+            "metadata": {
+              "type": "auth",
+              "entity": "Auth"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "interpretation": {
+    "noPolicy13": "Intentional default-deny for private/content tables; no permissive policy added.",
+    "unusedIndexes9": "Fresh empty schema; retain lookup/security indexes.",
+    "unindexedReportsFk": "Plan a narrow follow-up index.",
+    "authConnections": "Existing platform Auth connection allocation; no silent config change."
+  },
+  "authSignup": {
+    "approved": true,
+    "applied": false,
+    "reason": "Connector has no Auth config GET/PATCH and no existing local Management token."
+  },
+  "sourceContentUploaded": 0,
+  "applicationRows": 0,
+  "vercelDeploymentsCreated": 0
+}

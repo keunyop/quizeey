@@ -1,0 +1,105 @@
+{
+  "scope": "Actual local DB schema metadata only; no source rows or credential output",
+  "status": "verified_live_schema",
+  "instanceId": "i-046087bdb8dff10f7",
+  "checkedAt": "2026-10-16T19:00:42.866459+00:00",
+  "credentialsPrinted": false,
+  "mutations": 0,
+  "configurationDocuments": [
+    {
+      "datasourceFields": [],
+      "hasPlaceholder": false,
+      "profile": "base"
+    },
+    {
+      "datasourceFields": [
+        "driver-class-name",
+        "password",
+        "url",
+        "username"
+      ],
+      "hasPlaceholder": false,
+      "profile": "local"
+    },
+    {
+      "datasourceFields": [
+        "driver-class-name",
+        "password",
+        "url",
+        "username"
+      ],
+      "hasPlaceholder": false,
+      "profile": "prod"
+    }
+  ],
+  "selectedDatasourceFields": [
+    "driver-class-name",
+    "password",
+    "url",
+    "username"
+  ],
+  "server": [
+    {
+      "database_charset": "latin1",
+      "database_collation": "latin1_swedish_ci",
+      "server_hostname": "ip-172-30-2-154",
+      "server_version": "5.7.30",
+      "session_timezone": "SYSTEM",
+      "source_database": "quizeey",
+      "system_timezone": "UTC"
+    }
+  ],
+  "tables": [
+    {
+      "DATA_LENGTH": "11026432",
+      "ENGINE": "InnoDB",
+      "INDEX_LENGTH": "0",
+      "TABLE_COLLATION": "utf8_general_ci",
+      "TABLE_NAME": "example",
+      "TABLE_ROWS": "96618"
+    },
+    {
+      "DATA_LENGTH": "311296",
+      "ENGINE": "InnoDB",
+      "INDEX_LENGTH": "0",
+      "TABLE_COLLATION": "utf8_general_ci",
+      "TABLE_NAME": "explanation",
+      "TABLE_ROWS": "2209"
+    },
+    {
+      "DATA_LENGTH": "8929280",
+      "ENGINE": "InnoDB",
+      "INDEX_LENGTH": "0",
+      "TABLE_COLLATION": "utf8_general_ci",
+      "TABLE_NAME": "question",
+      "TABLE_ROWS": "25186"
+    },
+    {
+      "DATA_LENGTH": "2637824",
+      "ENGINE": "InnoDB",
+      "INDEX_LENGTH": "0",
+      "TABLE_COLLATION": "utf8_general_ci",
+      "TABLE_NAME": "question_stats",
+      "TABLE_ROWS": "27384"
+    },
+    {
+      "DATA_LENGTH": "16384",
+      "ENGINE": "InnoDB",
+      "INDEX_LENGTH": "0",
+      "TABLE_COLLATION": "utf8_general_ci",
+      "TABLE_NAME": "test",
+      "TABLE_ROWS": "162"
+    },
+    {
+      "DATA_LENGTH": "49152",
+      "ENGINE": "InnoDB",
+      "INDEX_LENGTH": "0",
+      "TABLE_COLLATION": "utf8_general_ci",
+      "TABLE_NAME": "version",
+      "TABLE_ROWS": "310"
+    }
+  ],
+  "missingExpectedTables": [],
+  "readOnlyEnforcement": "Fixed SELECT/SHOW query allowlist; no writes issued. No full data snapshot claimed.",
+  "privateMetadataSha256": "ab57e5b5229cf18cc6729d7d6ea71a3a9aabae40ae25776f732a9e783ba72ced"
+}

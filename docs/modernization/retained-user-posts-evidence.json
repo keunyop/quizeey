@@ -1,0 +1,19 @@
+{
+  "checkedAt": "2026-10-18T02:27:15.598112+00:00",
+  "policy": "Retain privately; forum design and publication deferred beyond this cutover",
+  "originalSnapshotSha256Matched": true,
+  "ownerOnlyDirectoryPermissionsVerified": true,
+  "originalSnapshotUtc": "2026-10-16 19:13:19.072129",
+  "originalUserPostsPreserved": 2209,
+  "filteredSnapshotSha256Matched": true,
+  "filteredUserPosts": 2183,
+  "filteredUserPostValuesSha256Matched": true,
+  "postsAssociatedWithExcludedQuestionsStillInOriginal": 26,
+  "existingNativeRehearsalDirectoryPresent": true,
+  "existingNativeBackupPresent": true,
+  "nativeBackupSha256": "79a467bc0dc3aa1922fa5319f6331a77e9a279fda240e63cf2b159095bd97554",
+  "sourceFilesModified": false,
+  "newCopiesOrExternalUploads": false,
+  "userTextOrDisplayNamesPrinted": false,
+  "limit": "Point-in-time development archive; final cutover archive must retain subsequent user writes too"
+}

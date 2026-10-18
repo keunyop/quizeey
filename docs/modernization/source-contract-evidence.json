@@ -1,0 +1,56 @@
+{
+  "status": "pass",
+  "sourceSnapshotSha256": "d2048f0f0ac7f22a29820e8bbb6d6ac770bb6f04ca65072467ba62f1531f3405",
+  "verifiedSchemaSha256": "fafb9125d4d536e3342d1403a67035822b88d4bb6260eef40bf461adf131da6d",
+  "schemaVerified": true,
+  "errors": {},
+  "markup": {
+    "textFieldsInspected": 144033,
+    "tags": {
+      "other_tag": 82,
+      "br": 47288,
+      "table": 26,
+      "tr": 67,
+      "td": 152,
+      "u": 7,
+      "th": 23,
+      "tbody": 8,
+      "pre": 20,
+      "b": 5,
+      "font": 1,
+      "object": 1,
+      "body": 9,
+      "html": 6,
+      "img": 1,
+      "map": 1,
+      "area": 1,
+      "select": 1,
+      "hr": 1,
+      "div": 1,
+      "head": 6,
+      "ol": 1,
+      "ul": 1,
+      "li": 1,
+      "meta": 1
+    },
+    "markupRiskOccurrences": {
+      "active_tag_object": 1,
+      "active_tag_meta": 1
+    },
+    "referenceOccurrences": 0,
+    "externalFetches": 0,
+    "scope": "HTML shape inventory only, not sanitization, content rights review, or verified file checksum manifest"
+  },
+  "relationships": {
+    "duplicateQuestionGroups": 41,
+    "identicalQuestionContentGroups": 31,
+    "differingQuestionContentGroups": 10,
+    "duplicateChoiceNumberGroups": 77,
+    "identicalChoiceContentGroups": 4,
+    "differingChoiceContentGroups": 73,
+    "automaticRepairs": 0,
+    "publicationAllowed": false
+  },
+  "privateReferencesPrinted": false,
+  "publicServingEnabled": false
+}

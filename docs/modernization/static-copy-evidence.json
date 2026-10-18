@@ -1,0 +1,25 @@
+{
+  "/about": {
+    "source": "src/main/resources/templates/about.hbs",
+    "sourceSha256": "602b8ceb3497ae2b86979c92a107e6bde893fbe35902e24a205dd077c92bb974",
+    "extractedSha256": "9b5836398e6423183393d40137a8d6f71e5a6288850ee6739d89ecd232c5954f",
+    "sourceStatus": "reviewed-source-only",
+    "liveBodyVerified": false
+  },
+  "/privacy": {
+    "source": "src/main/resources/templates/privacy.hbs",
+    "sourceSha256": "87cb6a2aed259c1fa9b6b91f60bff39692a4e6ac13433b8b66fed0aec7266e3c",
+    "extractedSha256": "1d135f8f6048e240fadd7b2aa2c42a1a3a1a70fa83569b8925cc234b5374eef0",
+    "sourceStatus": "reviewed-source-only",
+    "liveBodyVerified": false
+  },
+  "assets": [
+    {
+      "path": "/img/awsCertifiedDeveloper-associate_badge.png",
+      "sha256": "dadf7045f3bef1358e205641356e7470c1ac6a0e9710f6fa1b536f5197fabb41",
+      "bytes": 6470,
+      "origin": "existing-repository-asset",
+      "rightsReview": "prelaunch"
+    }
+  ]
+}

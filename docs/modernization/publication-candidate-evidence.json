@@ -1,0 +1,100 @@
+{
+  "schema": 1,
+  "status": "owner_approved_new_service_exclusion",
+  "publicationAllowed": false,
+  "ownerPolicyApproved": true,
+  "sourceQuestionCount": 27484,
+  "structurallyEligibleQuestions": 26733,
+  "reviewPendingQuestions": 0,
+  "reasonCountsOverlapping": {
+    "choice_ambiguous_question": 85,
+    "duplicate_composite": 85,
+    "choice_duplicate_composite": 31,
+    "correct_set_mismatch": 656,
+    "orphan_version": 609,
+    "orphan_test": 596
+  },
+  "examCountWithCandidates": 180,
+  "tables": {
+    "test": {
+      "rows": 181,
+      "sha256": "12349875c395deba48f583e4f6defeca096889ed9c480090202b0cdb032d5fbf"
+    },
+    "version": {
+      "rows": 330,
+      "sha256": "6f6af717cc9cac43ad33db95a1091e1175772cc8f30cb4da5bd94c63eaf9f21c"
+    },
+    "question": {
+      "rows": 26733,
+      "sha256": "142554b5a51d3a0f6fdb51b47c8409d0e643ffa688dce9cf6b9ee7c2e992161d"
+    },
+    "example": {
+      "rows": 107516,
+      "sha256": "6bddf0457d0de7ee8e64398695dd8f54450c8343031b12fd654b37a4f2ab40ce"
+    },
+    "explanation": {
+      "rows": 2183,
+      "sha256": "a46f7dfaccf874f328a1c52371558419bb905f6a93ab1016ffbb0046d31917fe"
+    },
+    "question_stats": {
+      "rows": 25870,
+      "sha256": "d93ed4710c4272a8cf477debf3d1d3539074a0120219caee6cd431a43e648a33"
+    }
+  },
+  "retainedSourceCounts": {
+    "test": 181,
+    "version": 330,
+    "question": 27484,
+    "example": 110387,
+    "explanation": 2209,
+    "question_stats": 26614
+  },
+  "candidateSubsetCounts": {
+    "test": 181,
+    "version": 330,
+    "question": 26733,
+    "example": 107516,
+    "explanation": 2183,
+    "question_stats": 25870
+  },
+  "excludedFromCandidateCounts": {
+    "test": 0,
+    "version": 0,
+    "question": 751,
+    "example": 2871,
+    "explanation": 26,
+    "question_stats": 744
+  },
+  "candidateReconciliationStatus": "pass",
+  "candidateReconciliationSha256": "f5584d2231bc1d230a50dfbc127af6950438c1233256171855a0eebd3a40a542",
+  "originalRowsDeleted": 0,
+  "originalIdsReassigned": 0,
+  "policyProposal": "Owner confirmed deletion from new service migration dataset; no review placeholders. Original archive unchanged.",
+  "remainingGates": [
+    "Source HTML preservation/security",
+    "Locale and content rights",
+    "Legacy catalog/route conflicts",
+    "Hosted account/security",
+    "Launch and final delta approval"
+  ],
+  "reviewQuestionIdSetSha256": "425654b55ad190dce415c853c95908521c6de0ed9e2860101d0ae8ac2730c6fd",
+  "deletionScope": "New service migration dataset only; source MySQL and original backups retained",
+  "removedQuestionsFromNewDataset": 751,
+  "reviewedIssueQuestions": 751,
+  "relatedRowsExcluded": {
+    "question": 751,
+    "example": 433,
+    "explanation": 26,
+    "question_stats": 726
+  },
+  "unrelatedUnlinkedRowsPreservedPrivately": {
+    "test": 0,
+    "version": 0,
+    "question": 0,
+    "example": 2438,
+    "explanation": 0,
+    "question_stats": 18
+  },
+  "newServiceDatasetSha256": "88ed4da320cf3bbd40d65f1aa6de7ba6b81a09f5aa6bbcef1e3860ca58ccb42f",
+  "sourceSnapshotSha256": "d2048f0f0ac7f22a29820e8bbb6d6ac770bb6f04ca65072467ba62f1531f3405"
+}

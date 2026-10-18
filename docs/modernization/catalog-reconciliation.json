@@ -1,0 +1,24 @@
+{
+  "apiCatalogRows": 181,
+  "urlFormat": "relative-slug",
+  "allUrlsRelative": true,
+  "catalogControllerIdMismatches": [
+    {
+      "path": "/industrial-engineer-air-conditioning-and-refrigerating-machinery",
+      "apiTestId": "141",
+      "controllerTestId": "140"
+    }
+  ],
+  "catalogPathsWithoutController": [
+    {
+      "path": "/@ccna-300-115",
+      "apiTestId": "174"
+    },
+    {
+      "path": "/microsoft-az-500",
+      "apiTestId": "198"
+    }
+  ],
+  "liveDatabaseSchemaVerified": false,
+  "scope": "Korean /tests single public sample compared with reviewed controller inventory"
+}

@@ -1,0 +1,50 @@
+{
+  "recordedAt": "2026-10-16",
+  "timezone": "America/Vancouver",
+  "authorization": "User explicitly requested creation of a new Vercel quizeey project, superseding the earlier no-new-project restriction for this project only.",
+  "request": {
+    "teamId": "team_VSzA796D92aso5IuzUIiOdnb",
+    "name": "quizeey",
+    "framework": "nextjs",
+    "rootDirectory": "web",
+    "publicSource": false
+  },
+  "verifiedProject": {
+    "id": "prj_0SVBqfgurtvZErmpMJl01BJkUKOd",
+    "name": "quizeey",
+    "framework": "nextjs",
+    "accountId": "team_VSzA796D92aso5IuzUIiOdnb",
+    "createdAt": 1792192559786,
+    "updatedAt": 1792192559958,
+    "nodeVersion": "24.x",
+    "live": false,
+    "latestDeployment": null,
+    "domains": [],
+    "passwordProtection": {
+      "enabled": false,
+      "deploymentType": null
+    },
+    "ssoProtection": {
+      "enabled": true,
+      "deploymentType": "all_except_custom_domains"
+    },
+    "trustedIps": {
+      "enabled": false,
+      "deploymentType": null,
+      "addresses": [],
+      "protectionMode": null
+    }
+  },
+  "dashboard": "https://vercel.com/kevins-projects-e2dcc34c/quizeey",
+  "verification": "create_project followed by get_project using exact project and team IDs",
+  "limits": {
+    "rootDirectory": "Submitted as web; connector get_project response omits this field",
+    "plan": "Vercel plan/member role not returned by connector",
+    "deploymentsCreated": 0,
+    "sourceContentUploaded": 0,
+    "gitRepositoryConnected": false,
+    "environmentVariablesAdded": 0,
+    "supabaseMutations": 0,
+    "dnsChanges": 0
+  }
+}
