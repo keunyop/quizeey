@@ -49,6 +49,8 @@ jobs:
           psql -X -h 127.0.0.1 -p 55432 -U quizeey_fixture -d quizeey_fixture -v ON_ERROR_STOP=1 -f supabase/tests/admin_security.sql
       - run: npm run check
       - run: npx playwright install --with-deps chromium
+      - name: Consent, ads and analytics browser regression
+        run: node ../tools/modernization/test_monetization.mjs
       - name: Browser journeys with local Auth HTTP double
         env:
           QUIZEEY_AUTH_FIXTURE_URL: http://127.0.0.1:55433

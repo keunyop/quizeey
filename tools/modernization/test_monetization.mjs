@@ -11,17 +11,22 @@ const out=path.join(root,'.modernization/monetization-browser');
 await build({root:path.join(root,'web'),configFile:false,publicDir:false,logLevel:'error',define:{'process.env.NODE_ENV':JSON.stringify('development')},resolve:{alias:{'@':path.join(root,'web/src')}},oxc:{jsx:{runtime:'automatic'}},build:{outDir:out,emptyOutDir:false,lib:{entry:path.join(root,'web/e2e/monetization-harness.tsx'),name:'MonetizationTest',formats:['iife'],fileName:()=> 'harness.js'}}});
 const js=fs.readFileSync(path.join(out,'harness.js'),'utf8');
 const css=fs.readFileSync(path.join(root,'web/src/app/globals.css'),'utf8').replace('@import "tailwindcss";','');
-const browser=await chromium.launch({channel:'msedge',headless:true});
+const browser=await chromium.launch({channel:process.env.PLAYWRIGHT_CHANNEL??(process.platform==='win32'?'msedge':undefined),headless:true});
 const results=[];
 try{
  for(const mode of ['filled','unfilled','blocked']){
   const context=await browser.newContext({viewport:{width:390,height:844}});
   const page=await context.newPage();const errors=[];const external=[];const counts={cmp:0,ads:0,ga:0};
+  const cmpCorsAttributes=[];
   page.on('pageerror',error=>errors.push(error.message));
   await page.route('**/*',async route=>{
    const url=new URL(route.request().url());
    if(url.hostname==='quizeey.com')return route.fulfill({contentType:'text/html',body:`<!doctype html><html lang="ko"><head><meta charset="utf-8"><style>${css}</style><title>Synthetic test</title></head><body><div id="root"></div><script>${js}</script></body></html>`});
    if(url.hostname==='fundingchoicesmessages.google.com'){
+    // The real CMP endpoint intentionally has no ACAO header. Route fulfillment
+    // bypasses CORS and omits Sec-Fetch-Mode, so check the browser's script
+    // element: a crossorigin attribute would require the missing ACAO header.
+    cmpCorsAttributes.push(await page.locator('#quizeey-cmp').getAttribute('crossorigin'));
     counts.cmp++;return route.fulfill({contentType:'application/javascript',body:`window.__testConsent=undefined;window.__testUs=undefined;googlefc.getGoogleConsentModeValues=()=>window.__testConsent;googlefc.usstatesoptout.getInitialUsStatesOptOutStatus=()=>window.__testUs;window.__signal=()=>googlefc.callbackQueue.forEach(item=>Object.values(item).forEach(fn=>fn()));googlefc.showRevocationMessage=()=>{window.__revoked=true;};`});
    }
    if(url.hostname==='www.googletagmanager.com'){counts.ga++;return route.fulfill({contentType:'application/javascript',body:'window.__testGaLoaded=true;'});}
@@ -35,6 +40,7 @@ try{
   await page.waitForFunction(()=>typeof window.__signal==='function',{},{timeout:10000}).catch(error=>{throw new Error(JSON.stringify({failure:error.message,errors,counts}));});
   await expect(page.locator('.ad-placement')).toHaveCount(0);
   assert.deepEqual(counts,{cmp:1,ads:0,ga:0});
+  assert.deepEqual(cmpCorsAttributes,[null],'CMP must load without requiring a CORS response header');
   await page.evaluate(()=>{window.__testUs=1;window.__testConsent={adStoragePurposeConsentStatus:2,adUserDataPurposeConsentStatus:2,adPersonalizationPurposeConsentStatus:2,analyticsStoragePurposeConsentStatus:2};window.__signal();});
   await expect(page.locator('.adsbygoogle')).toHaveCount(0);assert.equal(counts.ga,0);
   await page.evaluate(()=>{window.__testConsent={adStoragePurposeConsentStatus:1,adUserDataPurposeConsentStatus:1,adPersonalizationPurposeConsentStatus:1,analyticsStoragePurposeConsentStatus:1};window.__signal();});

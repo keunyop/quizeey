@@ -9,7 +9,11 @@ declare global {interface Window{googlefc?:FundingChoices;dataLayer?:unknown[];g
 const scripts=new Map<string,Promise<void>>();
 function loadScript(id:string,src:string){
   let promise=scripts.get(id);
-  if(!promise){promise=new Promise<void>((resolve,reject)=>{const script=document.createElement('script');script.id=id;script.async=true;script.src=src;script.crossOrigin='anonymous';script.onload=()=>resolve();script.onerror=()=>reject(new Error('Integration blocked'));document.head.append(script);});scripts.set(id,promise);}
+  if(!promise){promise=new Promise<void>((resolve,reject)=>{const script=document.createElement('script');script.id=id;script.async=true;script.src=src;
+    // Funding Choices has no Access-Control-Allow-Origin header and must use
+    // classic script loading. Keep the documented anonymous mode for ad tags.
+    if(id!=='quizeey-cmp')script.crossOrigin='anonymous';
+    script.onload=()=>resolve();script.onerror=()=>reject(new Error('Integration blocked'));document.head.append(script);});scripts.set(id,promise);}
   return promise;
 }
 const disabled:{ads:boolean;analytics:boolean;track:(event:EventName,payload:QuizPayload)=>boolean}={ads:false,analytics:false,track:()=>false};
