@@ -38,7 +38,7 @@ export function Monetization({enabled,measurementId,cmpScriptUrl,pagePath,locale
     const update=()=>{
       if(!active)return;
       let next={ads:false,analytics:false};
-      try{next=googleConsent(fc.getGoogleConsentModeValues?.(),usStatus);}catch{/* Fail closed when CMP is unavailable. */}
+      try{next=googleConsent(fc.getGoogleConsentModeValues?.(),usStatus,typeof fc.usstatesoptout?.getInitialUsStatesOptOutStatus==='function');}catch{/* Fail closed when CMP is unavailable. */}
       allowed.current=next;setConsent(next);
       (window as unknown as Record<string,unknown>)['ga-disable-'+measurementId]=!next.analytics;
       window.gtag?.('consent','update',{ad_storage:next.ads?'granted':'denied',ad_user_data:next.ads?'granted':'denied',ad_personalization:next.ads?'granted':'denied',analytics_storage:next.analytics?'granted':'denied'});

@@ -5,6 +5,16 @@ import robots from './app/robots';
 import sitemap from './app/sitemap';
 const env={VERCEL_ENV:'production',QUIZEEY_RELEASE_READY:'true',QUIZEEY_CONTENT_SOURCE:'supabase',QUIZEEY_ADS_VERIFIED:'true',QUIZEEY_GA4_MEASUREMENT_ID:'G-TESTONLY123',QUIZEEY_CMP_SCRIPT_URL:'https://fundingchoicesmessages.google.com/i/pub-8362228066874729?ers=1',QUIZEEY_PREVIEW_USER:'review',QUIZEEY_PREVIEW_PASSWORD:'x'.repeat(24),QUIZEEY_SUPABASE_URL:'https://tfkhnrbshvyfmrzxqfmq.supabase.co',QUIZEEY_SUPABASE_SECRET_KEY:'sb_secret_mock',QUIZEEY_CONTENT_DATASET_SHA256:'88ed4da320cf3bbd40d65f1aa6de7ba6b81a09f5aa6bbcef1e3860ca58ccb42f'};
 afterEach(()=>vi.unstubAllEnvs());
+it('uses the routed Host behind a loopback server and ignores untrusted forwarded hosts',()=>{
+  for(const [key,value]of Object.entries(env))vi.stubEnv(key,value);
+  const url='http://127.0.0.1:3114/sqlp-developer?verNbr=1&page=2';
+  expect(proxy(new NextRequest(url,{headers:{host:'quizeey.com'}})).headers.get('x-robots-tag')).toBeNull();
+  const redirect=proxy(new NextRequest(url,{headers:{host:'www.quizeey.com'}}));
+  expect(redirect.status).toBe(308);expect(redirect.headers.get('location')).toBe('https://quizeey.com/sqlp-developer?verNbr=1&page=2');
+  expect(proxy(new NextRequest(url,{headers:{host:'synthetic.vercel.app','x-forwarded-host':'quizeey.com'}})).status).toBe(401);
+  const alias=proxy(new NextRequest('http://127.0.0.1:3114/microsoft-az-500?verNbr=1',{headers:{host:'quizeey.com'}}));
+  expect(alias.headers.get('location')).toBe('https://quizeey.com/az-500?verNbr=1');
+});
 it('keeps staged production protected/noindex while allowing only the live canonical host',()=>{
   for(const [key,value]of Object.entries(env))vi.stubEnv(key,value);
   const candidate='https://quizeey-preview.vercel.app/sqlp-developer';
