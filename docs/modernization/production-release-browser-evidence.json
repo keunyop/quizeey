@@ -1,0 +1,24 @@
+{
+  "checkedAt": "2026-10-18T07:55:00.640Z",
+  "status": "passed",
+  "scope": "Actual Next public production configuration with synthetic RPCs and intercepted CMP/AdSense/GA4 scripts; no real Google/cloud requests.",
+  "checks": [
+    "canonical public access without Basic; www308; candidate Basic/noindex",
+    "public robots/sitemap with canonical URLs and no global noindex",
+    "existing ads.txt publisher retained",
+    "canonical metadata and existing GA4/publisher script identities",
+    "single page_view per document after synthetic consent",
+    "grading, restore, next question and deferred posts",
+    "zero browser errors or unhandled external requests"
+  ],
+  "actualProductionCredentialVerified": false,
+  "actualHostedBrowserVerified": false,
+  "buildMode": "webpack",
+  "externalBrowserRequests": 0,
+  "browserErrors": 0,
+  "integrationScriptInterceptions": {
+    "cmp": 3,
+    "ads": 2,
+    "ga": 3
+  }
+}
