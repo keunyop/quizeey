@@ -24,15 +24,15 @@ it('requires protected preview and exact project before any network request', ()
 it('uses the publishable key for public reads and preserves locale-shared imported explanations', async () => {
   const topic = { id: uuid, title: 'import', locale: 'ko', created_at: '2026-10-16T00:00:00Z' };
   const post = { id: uuid, topic_id: uuid, parent_id: null, display_name: null, body: '<script>plain text</script>', created_at: topic.created_at };
-  const fetcher = vi.fn().mockResolvedValueOnce(json([topic])).mockResolvedValueOnce(json([post]));
+  const cursor = { createdAt: '2026-10-16T00:00:00.123456Z', id: uuid };
+  const fetcher = vi.fn().mockResolvedValueOnce(json({ topics: [topic], posts: [post], next: cursor }));
   vi.stubGlobal('fetch', fetcher);
-  expect(await createSupabaseTransport(config).publicForum('1', 'en', '123')).toEqual({ topics: [topic], posts: [post] });
+  expect(await createSupabaseTransport(config).publicForum('1', 'en', '123', cursor)).toMatchObject({ topics: [topic], posts: [post], nextCursor: expect.any(String) });
   const topicUrl = new URL(fetcher.mock.calls[0][0]);
-  expect(topicUrl.searchParams.get('or')).toBe('(locale.eq.en,source_thread_id.eq.mysql:question:123)');
-  expect(topicUrl.searchParams.get('question_id')).toBe('eq.123');
-  expect(topicUrl.searchParams.get('limit')).toBe('20');
+  expect(topicUrl.pathname).toBe('/rest/v1/rpc/quizeey_forum_page');
+  expect(JSON.parse(fetcher.mock.calls[0][1].body)).toEqual({ p_exam_id: '1', p_locale: 'en', p_question_id: '123', p_cursor_time: cursor.createdAt, p_cursor_id: uuid });
   for (const [url, init] of fetcher.mock.calls) {
-    expect(new URL(url).searchParams.get('visibility')).toBe('eq.approved');
+    expect(new URL(url).pathname).toBe('/rest/v1/rpc/quizeey_forum_page');
     expect(new Headers(init.headers).get('apikey')).toBe(config.QUIZEEY_SUPABASE_PUBLISHABLE_KEY);
     expect(JSON.stringify(init)).not.toContain(config.QUIZEEY_SUPABASE_SECRET_KEY);
     expect(init).toMatchObject({ cache: 'no-store', redirect: 'error' });
@@ -41,9 +41,9 @@ it('uses the publishable key for public reads and preserves locale-shared import
 });
 
 it('does not query posts for empty topics and rejects filter injection without HTTP', async () => {
-  const fetcher = vi.fn().mockResolvedValue(json([])); vi.stubGlobal('fetch', fetcher);
+  const fetcher = vi.fn().mockResolvedValue(json({ topics: [], posts: [], next: null })); vi.stubGlobal('fetch', fetcher);
   const transport = createSupabaseTransport(config);
-  expect(await transport.publicForum('1', 'ko', null)).toEqual({ topics: [], posts: [] });
+  expect(await transport.publicForum('1', 'ko', null)).toEqual({ topics: [], posts: [], nextCursor: null });
   expect(fetcher).toHaveBeenCalledTimes(1);
   await expect(transport.publicForum('1', 'ko', '1,visibility.eq.pending')).rejects.toThrow(SupabaseTransportError);
   expect(fetcher).toHaveBeenCalledTimes(1);

@@ -47,21 +47,23 @@ it('keeps hosted routes closed unless explicitly configured and rejects forged o
 it('validates actual question context, bounds public reads and never uses the privileged key for public tables', async () => {
   expect((await forumGet(request('/api/forum?testId=1&locale=ko&questId=999'))).status).toBe(404);
   expect((await forumGet(request('/api/forum?testId=1&testId=2&locale=ko'))).status).toBe(400);
+  expect((await forumGet(request('/api/forum?testId=1&locale=ko&cursor=bad'))).status).toBe(400);
+  expect((await forumGet(request('/api/forum/mine?posts=' + Array(11).fill(uuid).join(','), undefined, { cookie }), true)).status).toBe(400);
   expect(fetcher).not.toHaveBeenCalled();
-  fetcher.mockResolvedValueOnce(json([]));
+  fetcher.mockResolvedValueOnce(json({ topics: [], posts: [], next: null }));
   const result = await forumGet(request('/api/forum?testId=1&locale=ko&questId=123'));
-  expect(result.status).toBe(200); expect(await result.json()).toEqual({ topics: [], posts: [] });
+  expect(result.status).toBe(200); expect(await result.json()).toEqual({ topics: [], posts: [], nextCursor: null });
   expect(result.headers.get('cache-control')).toBe('private, no-store');
   const [url, init] = fetcher.mock.calls[0];
-  expect(new URL(url).searchParams.get('question_id')).toBe('eq.123');
-  expect(new URL(url).searchParams.get('limit')).toBe('20');
+  expect(new URL(url).pathname).toBe('/rest/v1/rpc/quizeey_forum_page');
+  expect(JSON.parse(init.body)).toMatchObject({ p_question_id: '123', p_cursor_time: null, p_cursor_id: null });
   expect(new Headers(init.headers).get('apikey')).toBe(config.QUIZEEY_SUPABASE_PUBLISHABLE_KEY);
 });
 
 it('issues secure guest ownership only on accepted writes, hashes capabilities and shares the peer bucket across cookie rotation', async () => {
-  fetcher.mockImplementation(async () => json({ status: 202, postId: uuid, topicId: uuid, secret: 'must be stripped' }));
+  fetcher.mockImplementation(async () => json({ status: 201, postId: uuid, topicId: uuid, visibility: 'approved', secret: 'must be stripped' }));
   const result = await forumPost(request('/api/forum', create));
-  expect(result.status).toBe(202); expect(await result.json()).toEqual({ status: 202, postId: uuid, topicId: uuid });
+  expect(result.status).toBe(201); expect(await result.json()).toEqual({ status: 201, postId: uuid, topicId: uuid, visibility: 'approved' });
   const setCookie = result.headers.get('set-cookie')!;
   for (const part of [guestCookieName, 'HttpOnly', 'Secure', 'SameSite=strict', 'Path=/']) expect(setCookie).toContain(part);
   const args = JSON.parse(fetcher.mock.calls[0][1].body);
@@ -87,9 +89,14 @@ it('returns private owned posts only through a capability hash and redacts provi
   expect(await owned.json()).toEqual({ posts: [] });
   expect(fetcher.mock.calls[0][0]).toMatch(/\/rpc\/quizeey_forum_mine$/);
   expect(JSON.parse(fetcher.mock.calls[0][1].body)).toEqual({ p_capability_hash: createHash('sha256').update('a'.repeat(43)).digest('hex') });
+  fetcher.mockResolvedValueOnce(json([]));
+  const pageOwned = await forumGet(request('/api/forum/mine?posts=' + uuid, undefined, { cookie }), true);
+  expect(await pageOwned.json()).toEqual({ posts: [] });
+  expect(fetcher.mock.calls[1][0]).toMatch(/\/rpc\/quizeey_forum_owned$/);
+  expect(JSON.parse(fetcher.mock.calls[1][1].body)).toMatchObject({ p_post_ids: [uuid] });
   fetcher.mockResolvedValueOnce(json({ message: 'private detail sb_secret_mock' }, 503));
   const failed = await forumPost(request('/api/forum', create));
-  expect(failed.status).toBe(503); expect(await failed.text()).not.toContain('sb_secret'); expect(fetcher).toHaveBeenCalledTimes(2);
+  expect(failed.status).toBe(503); expect(await failed.text()).not.toContain('sb_secret'); expect(fetcher).toHaveBeenCalledTimes(3);
 });
 
 it('verifies provider identity and registered sessions for moderation, preserves cursor paging and rejects replay after logout', async () => {

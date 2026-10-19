@@ -94,6 +94,8 @@ def main():
         (directory / "security-result.txt").write_text(output, encoding="utf-8")
         output = run('psql',*common,'-d','quizeey_fixture','-f',ROOT/'supabase/tests/admin_security.sql')
         (directory/'admin-security-result.txt').write_text(output,encoding='utf-8')
+        output = run('psql', *common, '-d', 'quizeey_fixture', '-f', ROOT / 'supabase/tests/forum_paging.sql')
+        (directory / 'forum-paging-result.txt').write_text(output, encoding='utf-8')
         def parallel_write(_):
             query = "select public.quizeey_forum_mutate(repeat('f',64),repeat('1',64),'"+str(uuid.uuid4())+"','create','{\"examId\":\"5\",\"locale\":\"en\",\"title\":\"Concurrent fixture\",\"body\":\"Text\"}');"
             result = run("psql", *common, "-d", "quizeey_fixture", "-At", input=query)
@@ -113,7 +115,7 @@ def main():
         if before != after: raise RuntimeError("Fixture restore reconciliation mismatch")
         (directory / 'restore-reconciliation.json').write_text(before+'\n',encoding='utf-8')
         print("Isolated PostgreSQL RLS/ownership/moderation/rate checks passed. Fixture backup/restore counts match.")
-        print('Concurrent writes: 10 accepted pending, 10 rate-limited. Staging replay: 7 rows. Restored tables: '+str(len(retained)))
+        print('Concurrent writes: 10 published, 10 rate-limited. Staging replay: 7 rows. Restored tables: '+str(len(retained)))
         print("Private fixture evidence: " + str(directory.relative_to(ROOT)))
     finally:
         if auth_process is not None:

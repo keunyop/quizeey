@@ -8,7 +8,7 @@ do $$ declare result jsonb; second jsonb; pid uuid; tid uuid; rid uuid; i intege
   payload jsonb:='{"examId":"5","locale":"ko","title":"Synthetic discussion","body":"Original public text","displayName":"  \t  "}';
 begin
   result:=public.quizeey_forum_mutate(cap,abuse,'00000000-0000-4000-8000-000000000001','create',payload);
-  perform pg_temp.assert_true((result->>'status')::int=202,'signup-free create enters pending');
+  perform pg_temp.assert_true((result->>'status')::int=202 and result->>'visibility'='approved','signup-free create is public immediately');
   pid:=(result->>'postId')::uuid; tid:=(result->>'topicId')::uuid;
   perform set_config('quizeey.test_post',pid::text,false);
   perform set_config('quizeey.test_topic',tid::text,false);
@@ -24,8 +24,8 @@ begin
 end $$;
 
 set role anon;
-select pg_temp.assert_true((select count(*)=0 from public.quizeey_posts),'pending post invisible to anon');
-select pg_temp.assert_true((select count(*)=0 from public.quizeey_topics),'pending/empty topic invisible to anon');
+select pg_temp.assert_true((select count(*)=1 from public.quizeey_posts),'created post visible to anon');
+select pg_temp.assert_true((select count(*)=1 from public.quizeey_topics),'created topic visible to anon');
 do $$ begin
   begin insert into public.quizeey_topics(exam_id,locale,title) values('5','ko','Forbidden'); raise exception 'public insert allowed'; exception when insufficient_privilege then null; end;
   begin update public.quizeey_posts set body='Forbidden'; raise exception 'public update allowed'; exception when insufficient_privilege then null; end;
@@ -36,7 +36,7 @@ do $$ begin
 end $$;
 reset role;
 set role authenticated;
-select pg_temp.assert_true((select count(*)=0 from public.quizeey_posts),'non-admin authenticated cannot see pending');
+select pg_temp.assert_true((select count(*)=1 from public.quizeey_posts),'authenticated reader sees published comment');
 do $$ begin
   begin perform public.quizeey_forum_moderate('approve',current_setting('quizeey.test_post')::uuid); raise exception 'ordinary auth moderator allowed'; exception when insufficient_privilege then null; end;
 end $$;
@@ -53,14 +53,11 @@ reset role;
 do $$ declare result jsonb; pid uuid:=current_setting('quizeey.test_post')::uuid; tid uuid:=current_setting('quizeey.test_topic')::uuid; revision_id uuid; imported_id uuid; i integer;
 begin
   result:=public.quizeey_forum_mutate(repeat('a',64),repeat('d',64),gen_random_uuid(),'edit',jsonb_build_object('postId',pid,'body','Pending private edit'));
-  perform pg_temp.assert_true((result->>'status')::int=202,'approved edit creates pending revision');
-  revision_id:=(result->>'revisionId')::uuid;
-  perform pg_temp.assert_true((select body='Original public text' from public.quizeey_posts where id=pid),'approved body unchanged before moderation');
-  perform pg_temp.assert_true((select visibility='pending' from quizeey_private.post_revisions where id=revision_id),'revision pending');
-  perform public.quizeey_forum_moderate('approve_revision',revision_id);
-  perform pg_temp.assert_true((select body='Pending private edit' from public.quizeey_posts where id=pid),'moderator accepts revision');
+  perform pg_temp.assert_true((result->>'status')::int=200 and result->>'visibility'='approved','edit publishes immediately');
+  perform pg_temp.assert_true((select body='Pending private edit' from public.quizeey_posts where id=pid),'edited body immediately visible');
+  perform pg_temp.assert_true(not exists(select 1 from quizeey_private.post_revisions where post_id=pid and visibility='pending'),'no pending revision created');
   result:=public.quizeey_forum_mutate(repeat('b',64),repeat('d',64),gen_random_uuid(),'reply',jsonb_build_object('topicId',tid,'parentId',pid,'body','Pending reply'));
-  perform pg_temp.assert_true((result->>'status')::int=202,'reply enters pending with parent');
+  perform pg_temp.assert_true((result->>'status')::int=202 and result->>'visibility'='approved','reply is public with parent');
   perform pg_temp.assert_true((select parent_id=pid from public.quizeey_posts where id=(result->>'postId')::uuid),'parent preserved');
   insert into public.quizeey_posts(topic_id,body,source_post_id) values(tid,'Imported historical author','disqus-fixture-1') returning id into imported_id;
   result:=public.quizeey_forum_mutate(repeat('a',64),repeat('d',64),gen_random_uuid(),'edit',jsonb_build_object('postId',imported_id,'body','Claim history'));
@@ -72,7 +69,7 @@ begin
   result:=public.quizeey_forum_mutate(repeat('a',64),repeat('d',64),gen_random_uuid(),'report',jsonb_build_object('postId',pid,'reason','Synthetic report'));
   perform pg_temp.assert_true((result->>'status')::int=202,'reports private');
   perform public.quizeey_forum_moderate('hide',pid);
-  perform pg_temp.assert_true((select approved_post_count=0 from public.quizeey_topics where id=tid),'takedown updates approved count');
+  perform pg_temp.assert_true((select approved_post_count=1 from public.quizeey_topics where id=tid),'takedown preserves approved reply count');
   perform public.quizeey_forum_moderate('lock',tid);
   result:=public.quizeey_forum_mutate(repeat('b',64),repeat('d',64),gen_random_uuid(),'reply',jsonb_build_object('topicId',tid,'body','Locked reply'));
   perform pg_temp.assert_true((result->>'status')::int=403,'moderator lock enforced');
@@ -83,8 +80,8 @@ begin
 end $$;
 
 set role anon;
-select pg_temp.assert_true((select count(*)=0 from public.quizeey_topics),'no empty or hidden indexable topics');
-select pg_temp.assert_true((select count(*)=0 from public.quizeey_posts),'hidden/pending content excluded');
+select pg_temp.assert_true((select count(*)=0 from public.quizeey_topics where approved_post_count=0),'no empty indexable topics');
+select pg_temp.assert_true((select count(*)=0 from public.quizeey_posts where id=current_setting('quizeey.test_post')::uuid or source_post_id='disqus-fixture-1'),'hidden and pending imported content excluded');
 do $$ begin
   begin perform * from quizeey_private.post_revisions; raise exception 'private revision leaked'; exception when insufficient_privilege then null; end;
   begin perform * from quizeey_private.forum_reports; raise exception 'private report leaked'; exception when insufficient_privilege then null; end;

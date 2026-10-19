@@ -1,5 +1,6 @@
 import { expect, test, type APIRequestContext } from "@playwright/test";
 import pg from "pg";
+import AxeBuilder from "@axe-core/playwright";
 test.skip(!process.env.QUIZEEY_LOCAL_FORUM_DATABASE_URL, "Isolated forum database is not configured");
 
 async function mutate(request: APIRequestContext, body: Record<string, unknown>, extra: Record<string, string> = {}) {
@@ -16,7 +17,7 @@ async function fixtureAdmin(query: string, values: unknown[] = []) {
 
 test.beforeEach(async () => { await fixtureAdmin("delete from quizeey_private.rate_windows"); });
 
-test("two guest browsers: pending privacy, optional name, ownership, revisions, replies, reports and deletion", async ({ browser }) => {
+test("two guest browsers: immediate publication, optional name, ownership, edits, replies, reports and deletion", async ({ browser }) => {
   const a = await browser.newContext(); const b = await browser.newContext();
   try {
     const pageA = await a.newPage();
@@ -31,7 +32,7 @@ test("two guest browsers: pending privacy, optional name, ownership, revisions, 
     expect(created.status()).toBe(202);
     const requestId = created.request().headers()['idempotency-key'];
     const payload = created.request().postDataJSON();
-    await expect(pageA.locator('.own-posts')).toContainText('Original approved body');
+    await expect(pageA.locator('.forum-comments')).toContainText('Original approved body');
     const initialOwn = (await (await a.request.get('http://127.0.0.1:3100/api/forum/mine')).json()).posts[0];
     const post = { postId: initialOwn.id, topicId: initialOwn.topic_id };
     const cookie = (await a.cookies()).find((c) => c.name === "__Host-quizeey-guest")!;
@@ -43,18 +44,17 @@ test("two guest browsers: pending privacy, optional name, ownership, revisions, 
     expect((await mine.json()).posts).toHaveLength(1);
     expect((await mine.json()).posts[0].display_name).toBeNull();
     expect((await (await b.request.get("http://127.0.0.1:3100/api/forum/mine")).json()).posts).toEqual([]);
-    expect((await (await b.request.get("http://127.0.0.1:3100/api/forum?testId=5&locale=ko")).json()).posts).toEqual([]);
+    expect((await (await b.request.get("http://127.0.0.1:3100/api/forum?testId=5&locale=ko")).json()).posts[0].body).toBe("Original approved body");
     expect((await mutate(b.request, { action: "edit", postId: post.postId, body: "Other browser", displayName: "same name" })).status()).toBe(403);
 
-    await fixtureAdmin("select public.quizeey_forum_moderate('approve',$1)", [post.postId]);
     const visible = await (await b.request.get("http://127.0.0.1:3100/api/forum?testId=5&locale=ko")).json();
     expect(visible.posts[0].body).toBe("Original approved body");
-    expect((await mutate(a.request, { action: "edit", postId: post.postId, body: "<script>window.forumXss=1</script>Pending private revision" })).status()).toBe(202);
-    expect((await (await b.request.get("http://127.0.0.1:3100/api/forum?testId=5&locale=ko")).json()).posts[0].body).toBe("Original approved body");
+    expect((await mutate(a.request, { action: "edit", postId: post.postId, body: "<script>window.forumXss=1</script>Immediate edit" })).status()).toBe(200);
+    expect((await (await b.request.get("http://127.0.0.1:3100/api/forum?testId=5&locale=ko")).json()).posts[0].body).toContain("Immediate edit");
     await pageA.reload();
-    await expect(pageA.locator(".own-posts")).toContainText("<script>window.forumXss=1</script>");
+    await expect(pageA.locator(".forum-comments")).toContainText("<script>window.forumXss=1</script>");
     expect(await pageA.evaluate(() => "forumXss" in window)).toBe(false);
-    expect(await pageA.locator(".own-posts script").count()).toBe(0);
+    expect(await pageA.locator(".forum-comments script").count()).toBe(0);
 
     expect((await mutate(b.request, { action: "report", postId: post.postId, reason: "Test report" })).status()).toBe(202);
     expect((await b.cookies()).some((c) => c.name === "__Host-quizeey-guest")).toBe(false);
@@ -63,7 +63,7 @@ test("two guest browsers: pending privacy, optional name, ownership, revisions, 
     expect((await (await b.request.get("http://127.0.0.1:3100/api/forum/mine")).json()).posts[0].parent_id).toBe(post.postId);
     expect((await mutate(b.request, { action: "delete", postId: reply.postId })).status()).toBe(200);
     expect((await mutate(a.request, { action: "delete", postId: post.postId })).status()).toBe(200);
-    expect((await (await b.request.get("http://127.0.0.1:3100/api/forum?testId=5&locale=ko")).json()).topics).toEqual([]);
+    expect((await (await b.request.get("http://127.0.0.1:3100/api/forum?testId=5&locale=ko")).json()).posts.some((value: { id: string }) => [post.postId, reply.postId].includes(value.id))).toBe(false);
     await a.clearCookies();
     expect((await mutate(a.request, { action: "edit", postId: post.postId, body: "Lost cookie" })).status()).toBe(403);
   } finally { await a.close(); await b.close(); }
@@ -98,8 +98,8 @@ test("exam comments and answer-area question comments have independent forms, au
   await expect(page.getByRole('heading', { name: '문제 댓글', exact: true })).toHaveCount(0);
   await exam.getByLabel('댓글', { exact: true }).fill('Only an exam comment');
   await exam.getByRole('button', { name: '댓글 등록', exact: true }).click();
-  await expect(exam.locator('.own-posts')).toContainText('Only an exam comment');
-  await expect(exam.locator('.own-posts')).toContainText('익명');
+  await expect(exam.locator('.forum-comments')).toContainText('Only an exam comment');
+  await expect(exam.locator('.forum-comments')).toContainText('익명');
   await page.locator('input[value="910000002"]').check();
   await page.getByRole('button', { name: '정답 확인', exact: true }).click();
   const problem = page.getByRole('region', { name: '문제 댓글', exact: true });
@@ -109,8 +109,8 @@ test("exam comments and answer-area question comments have independent forms, au
   await problem.getByLabel('작성자명 (선택)').fill('Study partner');
   await problem.getByLabel('댓글', { exact: true }).fill('Only the first question');
   await problem.getByRole('button', { name: '댓글 등록', exact: true }).click();
-  await expect(problem.locator('.own-posts')).toContainText('Only the first question');
-  await expect(problem.locator('.own-posts')).toContainText('Study partner');
+  await expect(problem.locator('.forum-comments')).toContainText('Only the first question');
+  await expect(problem.locator('.forum-comments')).toContainText('Study partner');
   await expect(exam).not.toContainText('Only the first question');
   const ids = await page.locator('[id]').evaluateAll(nodes => nodes.map(node => node.id));
   expect(new Set(ids).size).toBe(ids.length);
@@ -120,13 +120,91 @@ test("exam comments and answer-area question comments have independent forms, au
   await page.getByRole('button', { name: '정답 확인', exact: true }).click();
   await expect(problem).not.toContainText('Only the first question');
   await page.getByRole('button', { name: '이전', exact: true }).click();
-  await expect(problem.locator('.own-posts')).toContainText('Only the first question');
+  await expect(problem.locator('.forum-comments')).toContainText('Only the first question');
   await page.reload();
-  await expect(problem.locator('.own-posts')).toContainText('Only the first question');
-  await expect(exam.locator('.own-posts')).toContainText('Only an exam comment');
+  await expect(problem.locator('.forum-comments')).toContainText('Only the first question');
+  await expect(exam.locator('.forum-comments')).toContainText('Only an exam comment');
   const tab = await context.newPage();
   await tab.goto('/engineer-electricity?verNbr=202610');
   const otherExam = tab.getByRole('region', { name: '시험 댓글', exact: true });
   await expect(otherExam).not.toContainText('Only an exam comment');
   await tab.close();
+});
+
+test('comment pages include large threads and retain ownership past the newest twenty comments', async ({ page, context }) => {
+  const created = await mutate(context.request, { action: 'create', examId: '5', locale: 'ko', title: 'Paging ownership fixture', body: 'Owner seed' });
+  expect(created.status()).toBe(202);
+  const { postId, topicId } = await created.json();
+  try {
+    await fixtureAdmin("insert into public.quizeey_posts(topic_id,body,visibility,created_at) select $1,'Paged comment '||n,'approved','2099-01-01T03:04:05.123456Z'::timestamptz from generate_series(1,25) n", [topicId]);
+    await fixtureAdmin('insert into quizeey_private.post_owners select id,(select capability_hash from quizeey_private.post_owners where post_id=$2) from public.quizeey_posts where topic_id=$1 and id<>$2', [topicId, postId]);
+    await fixtureAdmin('update public.quizeey_topics set approved_post_count=26 where id=$1', [topicId]);
+    await page.goto('/sqlp-developer');
+    const forum = page.getByRole('region', { name: '시험 댓글', exact: true });
+    const pages = forum.getByRole('navigation', { name: '댓글 페이지' });
+    await expect(forum.locator('.forum-post')).toHaveCount(10);
+    const first = await forum.locator('.forum-body').allTextContents();
+    await pages.getByRole('button', { name: '다음 댓글', exact: true }).click();
+    await expect(pages).toContainText('2 페이지');
+    await expect(forum.locator('.forum-post')).toHaveCount(10);
+    const second = await forum.locator('.forum-body').allTextContents();
+    expect(second.some(value => first.includes(value))).toBe(false);
+    await pages.getByRole('button', { name: '다음 댓글', exact: true }).click();
+    await expect(pages).toContainText('3 페이지');
+    const oldComment = forum.locator('.forum-post').filter({ hasText: 'Paged comment' }).first();
+    await oldComment.getByRole('button', { name: '수정', exact: true }).click();
+    await forum.getByLabel('댓글 수정', { exact: true }).fill('Older-page edit is immediately public');
+    await forum.getByRole('button', { name: '댓글 등록', exact: true }).click();
+    await expect(forum.locator('.forum-comments')).toContainText('Older-page edit is immediately public');
+    await pages.getByRole('button', { name: '이전 댓글', exact: true }).click();
+    await expect(pages).toContainText('2 페이지');
+    await expect(forum.locator('.forum-body')).toHaveText(second);
+    expect((await context.request.get('/api/forum?testId=5&locale=ko&cursor=invalid')).status()).toBe(400);
+  } finally {
+    await fixtureAdmin('delete from quizeey_private.post_owners where post_id in (select id from public.quizeey_posts where topic_id=$1)', [topicId]);
+    await fixtureAdmin('delete from public.quizeey_posts where topic_id=$1', [topicId]);
+    await fixtureAdmin('delete from public.quizeey_topics where id=$1', [topicId]);
+  }
+});
+
+test('mobile title opens a right-hand modal with focus containment, draft retention and desktop sidebar', async ({ page }) => {
+  const errors: string[] = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto('/sqlp-developer');
+  const trigger = page.getByRole('button', { name: '댓글', exact: true });
+  await expect(trigger).toBeVisible();
+  await expect(page.locator('.exam-comments-panel')).toHaveCount(0);
+  await trigger.click();
+  const dialog = page.getByRole('dialog', { name: '시험 댓글' });
+  await expect(dialog).toBeVisible();
+  await expect(dialog.getByRole('button', { name: '댓글 닫기' })).toBeFocused();
+  expect(await page.evaluate(() => document.body.style.overflow)).toBe('hidden');
+  await dialog.getByLabel('댓글', { exact: true }).fill('Preserved mobile draft');
+  await expect(dialog).not.toContainText('쿠키를 유지');
+  await expect(dialog).not.toContainText('검토 대기');
+  for (let index = 0; index < 6; index++) {
+    await page.keyboard.press('Tab');
+    expect(await dialog.evaluate(element => element.contains(document.activeElement))).toBe(true);
+  }
+  expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+  await page.screenshot({ path: test.info().outputPath('mobile-comments.png') });
+  await page.keyboard.press('Escape');
+  await expect(dialog).not.toBeVisible();
+  await expect(trigger).toBeFocused();
+  expect(await page.evaluate(() => document.body.style.overflow)).not.toBe('hidden');
+  await trigger.click();
+  await expect(dialog.getByLabel('댓글', { exact: true })).toHaveValue('Preserved mobile draft');
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await expect(page.locator('.exam-comments-panel')).toBeVisible();
+  const question = await page.locator('.question-card').boundingBox();
+  const sidebar = await page.locator('.exam-comments-panel').boundingBox();
+  expect(sidebar!.x).toBeGreaterThan(question!.x + question!.width);
+  const card = await page.locator('.exam-comments-card').boundingBox();
+  expect(card!.y + card!.height).toBeLessThanOrEqual(900);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.screenshot({ path: test.info().outputPath('desktop-comments.png'), fullPage: true });
+  await page.setViewportSize({ width: 375, height: 812 });
+  await expect(page.getByRole('dialog')).not.toBeVisible();
+  expect(errors).toEqual([]);
 });

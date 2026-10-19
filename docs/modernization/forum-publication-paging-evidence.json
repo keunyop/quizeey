@@ -1,0 +1,98 @@
+{
+  "verifiedAtUtc": "2026-10-19T06:49:00Z",
+  "projectId": "tfkhnrbshvyfmrzxqfmq",
+  "migration": {
+    "file": "supabase/migrations/20261019064644_forum_publication_and_paging.sql",
+    "sha256": "4964c75e93d0009cbd32e5ecc8b8a9e342b3eeb316218c134ccbb6d6c63127fb",
+    "version": "20261019064644",
+    "name": "forum_publication_and_paging",
+    "applied": true,
+    "repositoryVersionMatchesHostedHistory": true
+  },
+  "features": {
+    "removedSignInAndCookieHints": true,
+    "immediateCreateReplyAndEdit": true,
+    "acceptedWriteStatusKeptForExistingDeployments": 202,
+    "commentsPerPage": 10,
+    "cursorIncludesMicrosecondsAndUuid": true,
+    "offsetUsed": false,
+    "fullCountUsed": false,
+    "ownershipIdsPerRequest": 10,
+    "desktopSidebarMinimumWidth": 1180,
+    "mobileRightDialog": true,
+    "mobileFetchOnFirstOpen": true,
+    "draftKeptWhenDialogCloses": true,
+    "focusContainmentAndRestoration": true,
+    "questionForumRemainsInAnswer": true
+  },
+  "checks": {
+    "typecheck": true,
+    "lint": true,
+    "productionBuild": true,
+    "unitTestsPassed": 115,
+    "browserScenariosCovered": 30,
+    "correctiveBrowserRerunPassed": 9,
+    "finalResponsiveRerunPassed": 1,
+    "localSqlSuites": [
+      "forum_security",
+      "admin_security",
+      "forum_paging"
+    ],
+    "syntheticLoad": {
+      "comments": 10000,
+      "threads": 10000,
+      "pagesVerified": 2,
+      "rowsPerPage": 10,
+      "duplicateIds": 0
+    }
+  },
+  "productionTransactionVerification": {
+    "immediateEdit": true,
+    "immediateCreate": true,
+    "ownershipLookup": true,
+    "anonymousPublicRead": true,
+    "testWritesRolledBack": true,
+    "privateOwnershipProtected": true
+  },
+  "reconciliation": {
+    "beforeAfterIdentical": true,
+    "exams": 181,
+    "posts": 2184,
+    "questions": 26733,
+    "importedPosts": {
+      "rows": 2183,
+      "sha256": "6c3d97e11082d44b8c6fa7d8a29a47322c2ac8d5fea5a04d752daa065d865ae9"
+    },
+    "importedTopics": {
+      "rows": 630,
+      "sha256": "8364321ddb5abb43b7c4401a7751da04b76e13ae4c59e0773be70418ffccb166"
+    },
+    "contexts": 630,
+    "duplicateIds": 0,
+    "maximumPageSize": 10,
+    "restoredCommentsReached": 2183
+  },
+  "productionRest": {
+    "publishableKey": true,
+    "koStatus": 200,
+    "enStatus": 200,
+    "legacyLocaleSharing": true
+  },
+  "security": {
+    "newAdvisoryFindings": 0,
+    "unchangedPrivateDenyAllRlsInfo": 13,
+    "existingAuthWarning": {
+      "name": "auth_leaked_password_protection",
+      "count": 1,
+      "remediation": "https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection"
+    }
+  },
+  "publication": {
+    "databaseApplied": true,
+    "frontendDeploymentPerformed": false,
+    "vercelSettingsChanged": false,
+    "productionTestCommentsPersisted": false,
+    "userTextOrSecretsInReport": false
+  },
+  "rollbackSqlPrivatePath": ".modernization/forum-publication-202610/rollback.sql"
+}

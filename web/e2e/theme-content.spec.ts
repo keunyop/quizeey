@@ -72,7 +72,7 @@ test("all 181 exams offer the new set and native question identities through leg
 test("an original practice set supports grading, explanations, refresh, completion and direct links", async ({ page }) => {
   const questions = authoredQuestions("27", "ko");
   await page.goto("/engineer-electricity?verNbr=202610");
-  await expect(page.locator(".authored-badge")).toHaveText("자체 제작");
+  await expect(page.locator(".authored-badge")).toHaveCount(0);
   for (const question of questions) {
     await page.locator(`input[value="${question.choices.find(choice => choice.correct)!.id}"]`).check();
     await page.getByRole("button", { name: "정답 확인", exact: true }).click();

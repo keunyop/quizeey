@@ -4,6 +4,7 @@ import type { forumRequest } from "./guest-policy";
 import { environment } from "@/lib/environment";
 import { forumConfiguration } from './forum-config';
 import { createSupabaseTransport } from './supabase-transport';
+import { encodeForumCursor, type ForumCursor } from '@/lib/forum-page';
 
 let pool: pg.Pool | undefined;
 export function forumConfigured() { return forumConfiguration() !== null; }
@@ -35,20 +36,23 @@ export async function mutateForum(capabilityHash: string, abuseHash: string, req
 export type PublicTopic = { id: string; title: string; locale: "ko" | "en"; created_at: string };
 export type PublicPost = { id: string; topic_id: string; parent_id: string | null; display_name: string | null; body: string; created_at: string };
 export type OwnedPost = PublicPost & { visibility: "pending" | "approved"; exam_id: string; question_id: string | null; locale: "ko" | "en"; title: string; pending_body: string | null };
-export async function publicForum(examId: string, locale: "ko" | "en", questionId: string | null) {
+export type ForumPage = { topics: PublicTopic[]; posts: PublicPost[]; nextCursor: string | null };
+export async function publicForum(examId: string, locale: "ko" | "en", questionId: string | null, cursor: ForumCursor | null = null): Promise<ForumPage> {
   const hosted = hostedForumTransport();
-  if (hosted) return hosted.publicForum(examId, locale, questionId);
-  const db = forumConnection();
-  // quizeey_server inherits anon SELECT permissions/RLS. It has no table write grant.
-  // Old MySQL explanations were keyed only by question ID, shared across locales.
-  // This reserved import namespace keeps that behavior without sharing new topics.
-  const topics = await db.query<PublicTopic>("select id,title,locale,created_at from public.quizeey_topics where exam_id=$1 and question_id is not distinct from $3 and (locale=$2 or ($3::text is not null and source_thread_id='mysql:question:'||$3)) order by created_at desc,id limit 20", [examId, locale, questionId]);
-  const ids = topics.rows.map((t) => t.id);
-  const posts = ids.length ? await db.query<PublicPost>("select id,topic_id,parent_id,display_name,body,created_at from public.quizeey_posts where topic_id=any($1::uuid[]) order by created_at,id limit 50", [ids]) : { rows: [] };
-  return { topics: topics.rows, posts: posts.rows };
+  if (hosted) return hosted.publicForum(examId, locale, questionId, cursor);
+  const result = await forumConnection().query<{ result: { topics: PublicTopic[]; posts: PublicPost[]; next: ForumCursor | null } }>(
+    'select public.quizeey_forum_page($1,$2,$3,$4,$5) as result', [examId, locale, questionId, cursor?.createdAt ?? null, cursor?.id ?? null]);
+  const page = result.rows[0].result;
+  return { topics: page.topics, posts: page.posts, nextCursor: encodeForumCursor(page.next) };
 }
-export async function ownForum(hash: string): Promise<OwnedPost[]> {
+export async function ownForum(hash: string, postIds?: string[]): Promise<OwnedPost[]> {
   const hosted = hostedForumTransport();
+  if (postIds) {
+    if (!postIds.length) return [];
+    if (hosted) return hosted.rpc('quizeey_forum_owned', { p_capability_hash: hash, p_post_ids: postIds });
+    const result = await forumConnection().query<{ result: OwnedPost[] }>('select public.quizeey_forum_owned($1,$2) as result', [hash, postIds]);
+    return result.rows[0].result;
+  }
   if (hosted) return hosted.rpc('quizeey_forum_mine', { p_capability_hash: hash });
   const result = await forumConnection().query<{ result: OwnedPost[] }>("select public.quizeey_forum_mine($1) as result", [hash]);
   return result.rows[0].result;

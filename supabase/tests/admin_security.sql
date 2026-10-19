@@ -40,7 +40,10 @@ do $$ declare output jsonb; first_result jsonb; pid uuid; tid uuid; r1 uuid; r2 
 begin
   output:=public.quizeey_forum_mutate(repeat('7',64),repeat('8',64),gen_random_uuid(),'create','{"examId":"5","locale":"ko","title":"Admin review fixture","body":"Original body"}');
   pid:=(output->>'postId')::uuid;tid:=(output->>'topicId')::uuid;
-  perform pg_temp.assert_true((output->>'status')::int=202,'pending guest post for moderator');
+  perform pg_temp.assert_true((output->>'status')::int=202,'published guest post');
+  -- Historical pending content is seeded explicitly to exercise the existing queue.
+  update public.quizeey_posts set visibility='pending' where id=pid;
+  update public.quizeey_topics set visibility='pending',approved_post_count=0 where id=tid;
   queue:=public.quizeey_admin_queue('posts');
   perform pg_temp.assert_true(exists(select 1 from jsonb_array_elements(queue->'items') i where i->>'id'=pid::text),'pending review queue');
   perform pg_temp.assert_true(queue::text not like '%capability%' and queue::text not like '%abuse%' and queue::text not like '%email%','review queue has no ownership or abuse secrets');
@@ -52,10 +55,8 @@ begin
   perform pg_temp.assert_true((public.quizeey_admin_moderate(gen_random_uuid(),fixture_request,'approve',pid)->>'status')::int=409,'idempotency is bound to actor');
   perform pg_temp.assert_true((public.quizeey_admin_moderate(actor,fixture_request,'hide',pid)->>'status')::int=409,'idempotency is bound to action');
   perform pg_temp.assert_true((select actor_id=actor and action='approve' and target_id=pid from quizeey_private.moderation_audit where moderation_audit.request_id=fixture_request),'private audit stores verified actor');
-  output:=public.quizeey_forum_mutate(repeat('7',64),repeat('8',64),gen_random_uuid(),'edit',jsonb_build_object('postId',pid,'body','Older private edit'));
-  r1:=(output->>'revisionId')::uuid;
-  output:=public.quizeey_forum_mutate(repeat('7',64),repeat('8',64),gen_random_uuid(),'edit',jsonb_build_object('postId',pid,'body','Newest private edit'));
-  r2:=(output->>'revisionId')::uuid;
+  insert into quizeey_private.post_revisions(post_id,body) values(pid,'Older private edit') returning id into r1;
+  insert into quizeey_private.post_revisions(post_id,body) values(pid,'Newest private edit') returning id into r2;
   -- now() is transaction-stable, so force chronological order for this single-transaction fixture.
   update quizeey_private.post_revisions set created_at=now()-interval '1 second' where id=r1;
   perform pg_temp.assert_true((public.quizeey_admin_moderate(actor,gen_random_uuid(),'approve_revision',r1)->>'status')::int=409,'stale revision cannot overwrite newer submitted content');
@@ -63,8 +64,8 @@ begin
   perform pg_temp.assert_true((public.quizeey_admin_moderate(actor,gen_random_uuid(),'approve_revision',r2)->>'status')::int=200,'latest revision accepted');
   perform pg_temp.assert_true((select body='Newest private edit' from public.quizeey_posts where id=pid),'approved revision visible');
   perform pg_temp.assert_true((select visibility='rejected' from quizeey_private.post_revisions where id=r1),'superseded pending revision closed');
-  output:=public.quizeey_forum_mutate(repeat('7',64),repeat('8',64),gen_random_uuid(),'edit',jsonb_build_object('postId',pid,'body','Rejected private edit'));
-  perform pg_temp.assert_true((public.quizeey_admin_moderate(actor,gen_random_uuid(),'reject_revision',(output->>'revisionId')::uuid)->>'status')::int=200,'moderator can reject revision');
+  insert into quizeey_private.post_revisions(post_id,body) values(pid,'Rejected private edit') returning id into r1;
+  perform pg_temp.assert_true((public.quizeey_admin_moderate(actor,gen_random_uuid(),'reject_revision',r1)->>'status')::int=200,'moderator can reject revision');
   perform public.quizeey_admin_moderate(actor,gen_random_uuid(),'lock',tid);
   perform pg_temp.assert_true((select locked from public.quizeey_topics where id=tid),'topic locked');
   perform public.quizeey_admin_moderate(actor,gen_random_uuid(),'unlock',tid);

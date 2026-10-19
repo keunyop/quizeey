@@ -3,6 +3,7 @@ import { createClient } from '@supabase/supabase-js';
 import { z } from 'zod';
 import { environment } from '@/lib/environment';
 import { forumRequest } from './guest-policy';
+import { encodeForumCursor, forumCursor, forumPageSize, type ForumCursor } from '@/lib/forum-page';
 
 const projectUrl = 'https://tfkhnrbshvyfmrzxqfmq.supabase.co';
 const hash = z.string().regex(/^[a-f0-9]{64}$/);
@@ -16,6 +17,7 @@ const operations = {
     if (!forumRequest.safeParse({ ...payload, action: value.p_action }).success) ctx.addIssue({ code: 'custom', message: 'Invalid forum payload' });
   }),
   quizeey_forum_mine: z.object({ p_capability_hash: hash }).strict(),
+  quizeey_forum_owned: z.object({ p_capability_hash: hash, p_post_ids: z.array(z.uuid()).min(1).max(forumPageSize) }).strict(),
   quizeey_admin_login_limit: z.object({ p_abuse_hash: hash }).strict(),
   quizeey_admin_queue: z.object({ p_kind: z.enum(['posts', 'revisions', 'reports']), p_state: z.enum(['pending', 'approved', 'hidden']), p_cursor_time: z.iso.datetime({ offset: true }).nullable(), p_cursor_id: z.uuid().nullable() }).strict().refine(value => (value.p_cursor_time === null) === (value.p_cursor_id === null)),
   quizeey_admin_moderate: z.object({ p_actor_id: z.uuid(), p_request_id: z.uuid(), p_action: z.enum(['approve', 'hide', 'delete', 'lock', 'unlock', 'approve_revision', 'reject_revision', 'resolve_report']), p_id: z.uuid() }).strict(),
@@ -32,6 +34,7 @@ const queueItem = z.object({ id: z.uuid(), created_at: z.iso.datetime({ offset: 
 const outputs = {
   quizeey_forum_mutate: status.extend({ postId: z.uuid().optional(), topicId: z.uuid().optional(), revisionId: z.uuid().optional(), visibility: z.string().optional() }),
   quizeey_forum_mine: z.array(ownedPost).max(20),
+  quizeey_forum_owned: z.array(ownedPost).max(forumPageSize),
   quizeey_admin_login_limit: z.boolean(),
   quizeey_admin_queue: status.extend({ items: z.array(queueItem).max(21) }),
   quizeey_admin_moderate: status,
@@ -75,24 +78,16 @@ export function createSupabaseTransport(input: Record<string, string | undefined
         return outputs[name].parse(data) as z.output<(typeof outputs)[N]>;
       } catch { throw new SupabaseTransportError(); }
     },
-    async publicForum(examId: string, locale: 'ko' | 'en', questionId: string | null) {
+    async publicForum(examId: string, locale: 'ko' | 'en', questionId: string | null, cursor: ForumCursor | null = null) {
       try {
         id.parse(examId); z.enum(['ko', 'en']).parse(locale); id.nullable().parse(questionId);
-        let query = publicClient.from('quizeey_topics').select('id,title,locale,created_at')
-          .eq('exam_id', examId).eq('visibility', 'approved');
-        query = questionId === null ? query.is('question_id', null).eq('locale', locale)
-          : query.eq('question_id', questionId).or(`locale.eq.${locale},source_thread_id.eq.mysql:question:${questionId}`);
-        const topicsResult = await query.order('created_at', { ascending: false }).order('id').limit(20);
-        if (topicsResult.error) throw new Error();
-        const topics = z.array(topic).max(20).parse(topicsResult.data);
-        if (!topics.length) return { topics, posts: [] };
-        const postsResult = await publicClient.from('quizeey_posts')
-          .select('id,topic_id,parent_id,display_name,body,created_at').in('topic_id', topics.map(value => value.id))
-          .eq('visibility', 'approved').order('created_at').order('id').limit(50);
-        if (postsResult.error) throw new Error();
-        const posts = z.array(post).max(50).parse(postsResult.data);
+        if (cursor) forumCursor.parse(cursor);
+        const { data, error } = await publicClient.rpc('quizeey_forum_page', { p_exam_id: examId, p_locale: locale, p_question_id: questionId,
+          p_cursor_time: cursor?.createdAt ?? null, p_cursor_id: cursor?.id ?? null });
+        if (error) throw new Error();
+        const { topics, posts, next } = z.object({ topics: z.array(topic).max(forumPageSize), posts: z.array(post).max(forumPageSize), next: forumCursor.nullable() }).parse(data);
         if (posts.some(value => !topics.some(item => item.id === value.topic_id))) throw new Error();
-        return { topics, posts };
+        return { topics, posts, nextCursor: encodeForumCursor(next) };
       } catch { throw new SupabaseTransportError(); }
     },
   };

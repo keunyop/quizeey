@@ -21,6 +21,8 @@ test('verified admin session, pending review, revisions, reports, locking, audit
     const visitor=await guest.newPage();await visitor.goto(origin+'/sqlp-developer');
     const created=await post(guest.request,'/api/forum',{action:'create',examId:'5',locale:'ko',title:'Authenticated moderator journey',body:'Original guest body'});
     expect(created.status()).toBe(202);const {postId,topicId:tid}=await created.json();topicId=tid;
+    await fixture("update public.quizeey_posts set visibility='pending' where id=$1",[postId]);
+    await fixture("update public.quizeey_topics set visibility='pending',approved_post_count=0 where id=$1",[tid]);
     expect((await (await request.get('http://127.0.0.1:55433/_fixture')).json()).counts).toEqual(countsBefore);
     expect((await guest.request.get(origin+'/api/admin/queue')).status()).toBe(401);
     expect((await post(guest.request,'/api/admin/moderate',{action:'approve',id:postId})).status()).toBe(401);
@@ -48,7 +50,7 @@ test('verified admin session, pending review, revisions, reports, locking, audit
     await article.getByRole('button',{name:'Approve',exact:true}).click();await expect(article).toHaveCount(0);
     const publicRead=()=>guest.request.get(origin+'/api/forum?testId=5&locale=ko');
     expect(await (await publicRead()).text()).toContain('Original guest body');
-    const edit=await post(guest.request,'/api/forum',{action:'edit',postId,body:'Reviewed guest revision'});expect(edit.status()).toBe(202);
+    await fixture("insert into quizeey_private.post_revisions(post_id,body) values($1,'Reviewed guest revision')",[postId]);
     expect(await (await publicRead()).text()).not.toContain('Reviewed guest revision');
     await page.getByRole('button',{name:'Revisions',exact:true}).click();await expect(article).toContainText('Reviewed guest revision');
     await article.getByRole('button',{name:'Approve revision',exact:true}).click();await expect(article).toHaveCount(0);
