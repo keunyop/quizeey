@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
-import { authoredCatalog, authoredQuestions } from "../src/lib/authored-practice";
+import { authoredCatalog, authoredDefaultLocale, authoredQuestions } from "../src/lib/authored-practice";
 
 test("theme follows the system, persists across pages and languages, and syncs between tabs", async ({ page, context }) => {
   const errors: string[] = []; page.on("pageerror", error => errors.push(error.message));
@@ -55,12 +55,12 @@ test("both themes remain accessible at mobile and desktop sizes", async ({ page 
   }
 });
 
-test("all 181 exams offer the new set and native question identities through legacy APIs", async ({ request }) => {
+test("all catalog exams offer the new set and native question identities through legacy APIs", async ({ request }) => {
   for (const exam of authoredCatalog) {
     const versions = await request.post("/versions", { data: { testId: exam.id } });
     expect(versions.status(), exam.slug).toBe(200);
     expect(await versions.json(), exam.slug).toEqual(expect.arrayContaining([expect.objectContaining({ verNm: "2026-10", verNbr: 202610 })]));
-    const question = authoredQuestions(exam.id, "ko")[0];
+    const question = authoredQuestions(exam.id, authoredDefaultLocale(exam.id))[0];
     const response = await request.post("/question", { data: { testId: exam.id, questId: question.id, verNbr: 202610 } });
     expect(response.status(), exam.slug).toBe(200);
     const value = await response.json();

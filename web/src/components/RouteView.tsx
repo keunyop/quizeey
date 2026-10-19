@@ -13,7 +13,7 @@ import { learningHtml,staticPage } from "@/lib/content";
 import { environment } from "@/lib/environment";
 import { examName } from "@/lib/exam-catalog";
 import { Icon } from "./Icon";
-import { canonicalPath,seoAlternates } from '@/lib/seo';
+import { canonicalPath,searchMetadata,pageStructuredData,serializeStructuredData } from '@/lib/seo';
 import { Monetization,AdSlot } from './Monetization';
 
 export type Query = Record<string, string | string[] | undefined>;
@@ -35,17 +35,9 @@ function resolve(path: string, query: Query) {
   return { route, exam, input };
 }
 export function routeMetadata(path: string, query: Query): Metadata {
-  const { route, exam, input } = resolve(path, query);
+  const { exam } = resolve(path, query);
   const env=environment(process.env);
-  const production=env.stage==='production';
-  const title = exam.title || (exam.headings[0] ? `${exam.headings[0]} - Quizeey` : "Quizeey");
-  return {
-    title: { absolute: title }, description: exam.description || undefined,
-    // Keep query-based single-question practice out of search until its content policy is verified.
-    robots: { index: production&&!env.protectedReview&&!input.questId, follow: production&&!env.protectedReview },
-    ...(production?{alternates:seoAlternates(path,queryParams(query),env.origin)}:{}),
-    openGraph: { title, description: exam.description || undefined, locale: route.locale === "en" ? "en_US" : "ko_KR",...(production?{url:seoAlternates(path,queryParams(query),env.origin)?.canonical as string}:{}),siteName:'Quizeey',type:'website' },
-  };
+  return searchMetadata(path,queryParams(query),exam,env.origin,env.stage==='production'&&!env.protectedReview);
 }
 
 export async function RouteView({ path, query }: { path: string; query: Query }) {
@@ -95,6 +87,7 @@ export async function RouteView({ path, query }: { path: string; query: Query })
         {exam.links.length > 0 && <nav className="legacy-links" aria-label={locale === "ko" ? "관련 링크" : "Related links"}><ul>{exam.links.filter((l) => l.label).map((l, i) => <li key={i}><a href={l.href}>{l.label}</a></li>)}</ul></nav>}
   </>;
   return <Monetization enabled={integrations} measurementId={env.ga4MeasurementId} cmpScriptUrl={env.cmpScriptUrl} locale={locale} pagePath={canonicalPath(path,queryParams(query))}>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{__html:serializeStructuredData(pageStructuredData(path,queryParams(query),exam,env.origin))}} />
     <a className="skip-link" href="#main">{m.main}</a>
     <header className="site-header"><a className="brand" href={home} translate="no"><img src="/img/letter-q.svg" width="30" height="30" alt="" />Quizeey</a>
       <nav aria-label={locale === "ko" ? "메인 메뉴" : "Main navigation"}>
@@ -108,7 +101,10 @@ export async function RouteView({ path, query }: { path: string; query: Query })
         <p>{locale==='ko'?'샘플 문항과 연습문항으로 학습할 수 있습니다. 실제 기출문항은 이 미리보기에 연결하지 않았습니다.':'Study with samples and practice sets. The full exam archive is not connected to this preview.'}</p>
         <a href="/sqlp-developer">한국어 샘플 연습</a>{' · '}<a href="/en/aws-certified-developer-associate">Try English samples</a>
       </aside>}
-      {isHome ? <ExamSearch routes={examRoutes} locale={locale} advertisement={<AdSlot kind="infeed" locale={locale}/>} /> : exam.testId && commentsEnabled ?
+      {isHome ? <><ExamSearch routes={examRoutes} locale={locale} advertisement={<AdSlot kind="infeed" locale={locale}/>} />
+        <details className="exam-directory"><summary>{locale==='ko'?'전체 자격증 시험 목록':'All certification practice exams'}</summary>
+          <nav aria-label={locale==='ko'?'전체 시험 바로가기':'All exam links'}><ul>{examRoutes.map(r=><li key={r.path}><a href={r.path}>{examName(r)}</a></li>)}</ul></nav>
+        </details></> : exam.testId && commentsEnabled ?
         <ExamComments key={`${exam.testId}:${locale}`} examId={exam.testId} locale={locale} title={examName(exam)}>{pageContent}</ExamComments> : <>
         {!exam.testId && <a className="back-link" href={home}><Icon name="back" />{m.home}</a>}
         <div className={`page-heading ${exam.testId ? "study-heading" : ""}`}><h1>{exam.testId ? examName(exam) : exam.headings[0] || exam.title || "Quizeey"}</h1></div>

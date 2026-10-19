@@ -2,6 +2,8 @@ import { expect, test } from "@playwright/test";
 import contract from "../fixtures/legacy-contract.json" with { type: "json" };
 import staticPages from '../fixtures/legacy-pages.json' with {type:'json'};
 import { staticPage,learningHtml } from '../src/lib/content';
+import { findRoute } from '../src/lib/contracts';
+import { homeSearchCopy } from '../src/lib/seo';
 
 test('verified catalog redirects retain question and set identities',async({request})=>{
   for(const [source,target]of [['/microsoft-az-500','/az-500'],['/@ccna-300-115','/ccnp-300-115']]){
@@ -29,12 +31,13 @@ test('technical placeholders remain visible and active markup stays absent in th
   expect(requests).toEqual([]);
 });
 
-test("all discovered controller entry routes render and retain their original titles", async ({ request }) => {
+test("all discovered controller entry routes render with localized home titles and preserved exam titles", async ({ request }) => {
   for (const route of contract.routes) {
     const url = route.path.endsWith('/test') ? `${route.path}?testId=${route.locale==='en'?'1':'5'}` : route.path;
     const response = await request.get(url);
     expect(response.status(),url).toBe(200);
-    if (route.title && !route.path.endsWith('/test')) expect(await response.text(),url).toContain(`<title>${route.title.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;')}</title>`);
+    const title=['/','/kr','/app','/en'].includes(route.path)?homeSearchCopy[route.locale as 'ko'|'en'].title:route.title;
+    if (title && !route.path.endsWith('/test')) expect(await response.text(),url).toContain(`<title>${title.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;')}</title>`);
   }
 });
 
@@ -63,7 +66,7 @@ test("legacy POST read contracts keep boolean wire names and stable IDs", async 
   expect((await request.post('/question',{data:{testId:'5',verNbr:'1',questId:'900000002'}})).status()).toBe(200);
   expect((await (await request.post('/versions',{data:{testId:5}})).json()).map((v:{verNbr:number})=>v.verNbr).sort()).toEqual([1,2,202610]);
   const english = await (await request.post('/tests',{data:{languageCd:'en'}})).json();
-  expect(english.every((exam:{url:string})=>!exam.url.startsWith('/')&&contract.routes.some((route)=>route.path==='/en/'+exam.url))).toBe(true);
+  expect(english.every((exam:{url:string;testId:number})=>!exam.url.startsWith('/')&&findRoute('/en/'+exam.url)?.testId===String(exam.testId))).toBe(true);
   const korean=await (await request.post('/tests',{data:{languageCd:'kr'}})).json();
   expect(korean.find((exam:{testId:number})=>exam.testId===5).url).toBe('sqlp-developer');
   expect((await request.post('/tests',{data:{languageCd:'invalid'}})).status()).toBe(400);

@@ -1,6 +1,6 @@
 import type { Locale } from "@/lib/contracts";
 import { legacy } from "@/lib/contracts";
-import { authoredCatalog, authoredQuestions, authoredVersion, authoredVersionId, authoredVersionName, findAuthoredQuestion } from "@/lib/authored-practice";
+import { authoredCatalog, authoredDefaultLocale, authoredQuestions, authoredVersion, authoredVersionId, authoredVersionName, findAuthoredQuestion } from "@/lib/authored-practice";
 import type { StudyStore } from "./study-store";
 import { loadStudyStore, type StudyContext } from "./study-loader";
 
@@ -17,13 +17,13 @@ export class LearningStore {
     this.version = base.version;
     const existing = new Set(base.exams.map(exam => exam.id));
     this.exams = [...base.exams, ...authoredCatalog.filter(exam => !existing.has(exam.id)).map(exam => ({
-      id: exam.id, nameKo: exam.name, nameEn: legacy.routes.find(route => route.testId === exam.id && route.locale === "en")?.headings[0] ?? null,
+      id: exam.id, nameKo: exam.locale === "en" ? null : exam.name, nameEn: legacy.routes.find(route => route.testId === exam.id && route.locale === "en")?.headings[0] ?? null,
       slug: exam.slug, priority: 1000,
     }))];
   }
   hasExam(id: string) { return this.base.hasExam(id) || authoredCatalog.some(exam => exam.id === id); }
   hasQuestion(id: string) { return this.base.hasQuestion(id) || !!findAuthoredQuestion(id); }
-  defaultLocale(id: string): Locale { return this.base.defaultLocale(id); }
+  defaultLocale(id: string): Locale { return this.base.hasExam(id) ? this.base.defaultLocale(id) : authoredDefaultLocale(id); }
   versions(id: string, locale: Locale) {
     const extra = authoredQuestions(id, locale).length ? [{ id: authoredVersionId(id), number: authoredVersion, name: authoredVersionName }] : [];
     return [...extra, ...this.base.versions(id, locale)];

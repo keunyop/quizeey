@@ -6,6 +6,9 @@ import type { Question } from "./quiz";
 export const authoredVersion = 202610;
 export const authoredVersionName = "2026-10";
 export const authoredCatalog = catalog;
+export function authoredDefaultLocale(examId: string): Locale {
+  return catalog.find(exam => exam.id === examId)?.locale === "en" ? "en" : "ko";
+}
 const byExam = new Map(content.groups.flatMap(group => group.examIds.map(id => [id, group] as const)));
 function escape(value: string) { return value.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;"); }
 export function authoredQuestionId(examId: string, index: number) { return String(8_000_000_000 + Number(examId) * 100 + index + 1); }
@@ -13,7 +16,8 @@ export function authoredVersionId(examId: string) { return String(8_100_000_000 
 
 export function authoredQuestions(examId: string, locale: Locale): Question[] {
   const group = byExam.get(examId);
-  if (!group) return [];
+  const supportedLocale = catalog.find(exam => exam.id === examId)?.locale;
+  if (!group || (supportedLocale && supportedLocale !== locale)) return [];
   return group.questions.map((item, index) => {
     const rotation = (Number(examId) + index) % 4;
     return {
@@ -30,10 +34,10 @@ export function authoredQuestions(examId: string, locale: Locale): Question[] {
   });
 }
 
-export function findAuthoredQuestion(questionId: string, locale: Locale = "ko") {
+export function findAuthoredQuestion(questionId: string, locale?: Locale) {
   // IDs are below Number.MAX_SAFE_INTEGER; reject other namespaces before conversion.
   if (!/^80000\d{5}$/.test(questionId)) return undefined;
   const value = Number(questionId) - 8_000_000_000;
   const examId = String(Math.floor(value / 100));
-  return authoredQuestions(examId, locale).find(question => question.id === questionId);
+  return authoredQuestions(examId, locale ?? authoredDefaultLocale(examId)).find(question => question.id === questionId);
 }

@@ -8,6 +8,11 @@
   },
   "scripts": {
     "dev": "next dev --hostname 127.0.0.1",
+    "dev:local": "node scripts/local-workflow.ts dev",
+    "build:local": "node scripts/local-workflow.ts build",
+    "test:local": "node scripts/local-workflow.ts test",
+    "test:e2e:local": "node scripts/local-workflow.ts e2e",
+    "check:local": "node scripts/local-workflow.ts check",
     "build": "node scripts/preflight-production.ts && next build",
     "start": "next start --hostname 127.0.0.1",
     "typecheck": "tsc --noEmit",

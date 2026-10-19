@@ -2,7 +2,7 @@ import { expect, it, vi } from "vitest";
 vi.mock("server-only", () => ({}));
 import { LearningStore } from "./learning-store";
 import { coreStudyStore } from "./study-store";
-import { authoredCatalog, authoredQuestions, authoredQuestionId, findAuthoredQuestion } from "@/lib/authored-practice";
+import { authoredCatalog, authoredDefaultLocale, authoredQuestions, authoredQuestionId, findAuthoredQuestion } from "@/lib/authored-practice";
 import { grade } from "@/lib/quiz";
 import { emptyProgress, readProgress } from "@/lib/progress";
 import { findRoute } from "@/lib/contracts";
@@ -16,13 +16,14 @@ function archive(count: number) {
   }, pendingExplanationCounts: {} }, "unchanged-archive");
 }
 
-it("covers all 181 catalog exams with 543 distinct, answerable, attributed original questions", () => {
-  expect(authoredCatalog).toHaveLength(181);
+it("covers all 182 catalog exams with 583 distinct, answerable, attributed original questions", () => {
+  expect(authoredCatalog).toHaveLength(182);
   const ids = new Set<string>(); const choiceIds = new Set<string>();
   for (const exam of authoredCatalog) {
-    expect(findRoute("/" + exam.slug)?.testId).toBe(exam.id);
-    const questions = authoredQuestions(exam.id, "ko");
-    expect(questions).toHaveLength(3);
+    const locale = authoredDefaultLocale(exam.id);
+    expect(findRoute((locale === "en" ? "/en/" : "/") + exam.slug)?.testId).toBe(exam.id);
+    const questions = authoredQuestions(exam.id, locale);
+    expect(questions).toHaveLength(exam.questionCount ?? 3);
     for (const q of questions) {
       expect(q).toMatchObject({ version: 202610, versionName: "2026-10", authored: true });
       expect(q.text.length).toBeLessThan(2000); expect(q.explanation).toBeTruthy(); expect(q.reference).toContain('href="https://');
@@ -35,8 +36,33 @@ it("covers all 181 catalog exams with 543 distinct, answerable, attributed origi
       for (const choice of q.choices) { expect(choiceIds.has(choice.id)).toBe(false); choiceIds.add(choice.id); }
     }
   }
-  expect(ids.size).toBe(543); expect(choiceIds.size).toBe(2172);
+  expect(ids.size).toBe(583); expect(choiceIds.size).toBe(2332);
   expect(findAuthoredQuestion("8000099999")).toBeUndefined();
+});
+
+it("offers the English-only Food Handler set through discovery, both pages, and direct identities", () => {
+  const store = new LearningStore(archive(0));
+  expect(findRoute("/en/servsafe-food-handler")).toMatchObject({ testId: "234", locale: "en" });
+  expect(findRoute("/servsafe-food-handler")).toBeUndefined();
+  expect(store.exams.find(exam => exam.id === "234")).toMatchObject({ nameKo: null, nameEn: "ServSafe Food Handler Practice Questions" });
+  expect(store.defaultLocale("234")).toBe("en");
+  expect(store.versions("234", "en")).toEqual([{ id: "8100000234", number: 202610, name: "2026-10" }]);
+  expect(store.versions("234", "ko")).toEqual([]);
+  expect(store.questions("234", "ko", 202610)).toEqual([]);
+  expect(store.pagination("234", "en", 202610)).toEqual({ page: 1, total: 40, pages: 2 });
+  const first = store.questions("234", "en", 202610);
+  const second = store.questions("234", "en", 202610, undefined, 2);
+  expect(first).toHaveLength(20); expect(second).toHaveLength(20);
+  expect([...first, ...second].map(q => q.questionNumber)).toEqual(Array.from({ length: 40 }, (_, i) => i + 1));
+  expect(new Set([...first, ...second].map(q => q.id)).size).toBe(40);
+  expect(store.questions("234", "en", 0, undefined, 2)).toEqual(second);
+  expect(store.questions("234", "en", 202610, undefined, 3)).toEqual([]);
+  expect(store.questions("234", "en", 202610, second[19].id)).toEqual([second[19]]);
+  expect(store.hasQuestion(second[19].id)).toBe(true);
+  expect(findAuthoredQuestion(second[19].id)?.locale).toBe("en");
+  expect(findAuthoredQuestion(second[19].id, "ko")).toBeUndefined();
+  expect(store.questions("234", "en", 1, second[19].id)).toEqual([]);
+  for (const q of [...first, ...second]) expect(q.text + q.explanation + q.reference + q.choices.map(c => c.text).join(" ")).not.toMatch(/[\u3131-\u318e\uac00-\ud7a3]/);
 });
 
 it.each([0, 1, 17, 18, 19, 20, 21, 37, 38, 39, 40, 41])("appends originals to %i archived questions without gaps or pagination overlap", count => {

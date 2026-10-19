@@ -23,12 +23,18 @@ def build():
             if current is None or len(parts) != 6 or len(set(parts[1:5])) != 4 or any(not value.strip() for value in parts):
                 raise ValueError(f'Invalid question at line {number}')
             current['questions'].append({'prompt': parts[0], 'choices': parts[1:5], 'explanation': parts[5]})
-    if assigned != {exam['id'] for exam in catalog} or any(len(group['questions']) != 3 for group in groups):
-        raise ValueError('Every catalog exam must have exactly three authored questions')
+    expected = {exam['id']: exam.get('questionCount', 3) for exam in catalog}
+    if assigned != set(expected) or any(
+        not 1 <= len(group['questions']) < 100 or
+        any(len(group['questions']) != expected[exam_id] for exam_id in group['examIds'])
+        for group in groups
+    ):
+        raise ValueError('Every catalog exam must have its declared question count (default: three, maximum: 99)')
     payload = {'version': '2026-10', 'kind': 'original-practice', 'groups': groups}
     output = ROOT / 'web/src/data/practice-2026-10.json'
     output.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-    print(f'{len(assigned)} exams, {len(groups)} topic groups, {len(assigned) * 3} original practice questions')
+    total = sum(len(group['questions']) * len(group['examIds']) for group in groups)
+    print(f'{len(assigned)} exams, {len(groups)} topic groups, {total} original practice questions')
 
 
 if __name__ == '__main__':

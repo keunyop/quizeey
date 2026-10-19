@@ -44,6 +44,7 @@ export function ExamSearch({ routes, locale,advertisement }: { routes: LegacyRou
   return <>
     <section className="catalog-hero" aria-labelledby="catalog-heading">
       <h1 id="catalog-heading">{en ? "Practice exams" : "자격증 기출문제"}</h1>
+      <p className="catalog-description">{en ? 'Free English certification practice for learners in the United States and Canada. Explore AWS, Azure, Cisco and more, check your answers and review mistakes.' : 'SQLD, 정보처리기사, 전기기사 등 한국 자격증 기출문제와 연습문제를 풀어보세요. 정답 확인과 오답 복습으로 CBT 시험을 준비할 수 있습니다.'}</p>
       <div className="search-field"><Icon name="search" /><label className="sr-only" htmlFor="exam-search">{en ? "Search exams" : "자격증 검색"}</label>
         <input id="exam-search" type="search" autoComplete="off" placeholder={en ? "Find your exam" : "어떤 자격증을 준비하세요?"} value={search} onChange={(e) => { setSearch(e.target.value); setLimit(18); }} />
         {search && <button className="icon-button" aria-label={en ? "Clear search" : "검색어 지우기"} onClick={() => { setSearch(""); setLimit(18); document.getElementById("exam-search")?.focus(); }}><Icon name="close" /></button>}

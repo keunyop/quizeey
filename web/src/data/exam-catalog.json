@@ -903,5 +903,13 @@
     "id": "4",
     "slug": "computer-science",
     "name": "컴퓨터 공학"
+  },
+  {
+    "id": "234",
+    "slug": "servsafe-food-handler",
+    "name": "ServSafe Food Handler",
+    "locale": "en",
+    "questionCount": 40,
+    "description": "Practice basic food safety, personal hygiene, cross-contamination and allergens, time and temperature, and cleaning and sanitation for U.S. food service. This 2026-10 set contains 40 original English practice questions with explanations. It is independent study material, not an official ServSafe exam."
   }
 ]

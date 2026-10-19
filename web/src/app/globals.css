@@ -41,6 +41,11 @@ button:disabled:hover { background:var(--surface); border-color:var(--line); }
 h1,h2,h3,p { overflow-wrap:anywhere; }
 h1 { font-size:clamp(23px,3vw,28px); line-height:1.45; font-weight:600; letter-spacing:-.6px; margin:0 0 20px; text-wrap:balance; }
 .catalog-hero h1 { font-size:28px; margin-bottom:22px; }
+.catalog-description { max-width:75ch; margin:-8px 0 22px; color:var(--muted); font-size:14px; }
+.exam-directory { margin-top:32px; padding:18px 22px; background:var(--surface); border:1px solid var(--line); border-radius:12px; font-size:14px; }
+.exam-directory summary { cursor:pointer; }
+.exam-directory ul { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr)); gap:10px 24px; margin-top:16px; padding:0; list-style:none; }
+.exam-directory a { overflow-wrap:anywhere; }
 .search-field { display:flex; align-items:center; gap:12px; width:100%; border:1px solid var(--line); border-radius:8px; background:var(--surface); padding:5px 10px 5px 16px; }
 .search-field:focus-within { border-color:var(--blue); outline:3px solid #2775ae18; }
 .search-field > .icon { color:var(--blue); }

@@ -1,5 +1,47 @@
 import type { Metadata, MetadataRoute } from 'next';
-import { findRoute,legacy,parseQuery,routesForExam } from './contracts';
+import { findRoute,legacy,parseQuery,routesForExam,type LegacyRoute,type Locale } from './contracts';
+import { examName } from './exam-catalog';
+
+export const searchMarkets = {
+  ko: { languages: ['ko', 'ko-KR'], openGraph: 'ko_KR', alternateOpenGraph: [] },
+  en: { languages: ['en', 'en-US', 'en-CA'], openGraph: 'en_US', alternateOpenGraph: ['en_CA'] },
+} as const;
+
+export const homeSearchCopy = {
+  ko: {
+    title: 'Quizeey - 자격증 시험 기출문제 CBT 문제은행',
+    description: 'SQLD, 정보처리기사, 전기기사 등 한국 자격증 시험을 준비하세요. Quizeey에서 한국어 기출문제와 연습문제를 풀고, 정답 확인과 오답 복습으로 CBT 시험에 대비할 수 있습니다.',
+  },
+  en: {
+    title: 'Free Certification Practice Questions & Exam Prep | Quizeey',
+    description: 'Free certification practice questions for learners in the United States and Canada. Study AWS, Azure, Cisco and more in English with Quizeey.',
+  },
+} as const;
+
+export function searchCopy(path: string, query: URLSearchParams, exam: LegacyRoute) {
+  const locale = exam.locale as Locale;
+  const base = canonicalPath(path, query).split('?')[0];
+  if (base === '/' || base === '/en') return homeSearchCopy[locale];
+  let title = exam.title || `${examName(exam)} - Quizeey`;
+  let description = exam.description || undefined;
+  if (exam.testId) {
+    const input = parseQuery(query, path.endsWith('/test'));
+    const name = examName(exam);
+    description = locale === 'ko'
+      ? `${name} 기출문제와 연습문제를 Quizeey에서 풀어보세요. 한국어 CBT 문제 풀이, 정답 확인, 오답 복습으로 ${name} 시험을 준비할 수 있습니다.`
+      : `Prepare for ${name} with free English practice questions on Quizeey. Check your answers, review mistakes and build your exam knowledge at your own pace.`;
+    if (exam.template === 'authored-practice' && exam.description) description = exam.description;
+    const qualifiers = locale === 'ko'
+      ? [input.verNbr ? `${input.verNbr} 회차` : '', input.page > 1 ? `${input.page}페이지` : '']
+      : [input.verNbr ? `Set ${input.verNbr}` : '', input.page > 1 ? `Page ${input.page}` : ''];
+    const detail = qualifiers.filter(Boolean).join(' · ');
+    if (detail) {
+      title = `${title.replace(/\s*[-|]\s*Quizeey\s*$/i, '')} · ${detail} - Quizeey`;
+      description += ` (${detail})`;
+    }
+  }
+  return { title, description };
+}
 
 export function canonicalPath(path:string,query:URLSearchParams){
   const input=parseQuery(query,path.endsWith('/test'));
@@ -14,15 +56,74 @@ export function canonicalPath(path:string,query:URLSearchParams){
 export function seoAlternates(path:string,query:URLSearchParams,origin:string):Metadata['alternates']{
   const canonical=canonicalPath(path,query);
   const base=canonical.split('?')[0];const suffix=canonical.slice(base.length);
-  let languages:Record<string,string>|undefined;
-  if(base==='/'||base==='/en')languages={ko:origin+'/',en:origin+'/en','x-default':origin+'/'};
+  const route=findRoute(base);
+  const languages:Record<string,string>={};
+  const add=(locale:Locale,url:string)=>{
+    for(const language of searchMarkets[locale].languages)languages[language]=url;
+  };
+  if(base==='/'||base==='/en'){
+    add('ko',origin+'/');add('en',origin+'/en');languages['x-default']=origin+'/';
+  }
   else {
+    if(route)add(route.locale as Locale,origin+canonical);
     const ko=base.startsWith('/en/')?base.slice(3):base;
     const a=findRoute(ko),b=findRoute('/en'+ko);
     // Shared exam identity and identical slug are required; titles are not translations.
-    if(a?.testId&&a.testId===b?.testId)languages={ko:origin+ko+suffix,en:origin+'/en'+ko+suffix};
+    // Set, question and pagination identities are not verified across languages.
+    if(!suffix&&a?.testId&&a.testId===b?.testId){add('ko',origin+ko);add('en',origin+'/en'+ko);}
   }
-  return {canonical:origin+canonical,...(languages?{languages}:{})};
+  return {canonical:origin+canonical,...(Object.keys(languages).length?{languages}:{})};
+}
+
+export function searchMetadata(path: string, query: URLSearchParams, exam: LegacyRoute, origin: string, publicProduction: boolean): Metadata {
+  const { title, description } = searchCopy(path, query, exam);
+  const market = searchMarkets[exam.locale as Locale];
+  const input = parseQuery(query, path.endsWith('/test'));
+  return {
+    title: { absolute: title }, description,
+    // Direct questions remain excluded until their publication policy is verified.
+    robots: { index: publicProduction && !input.questId, follow: publicProduction },
+    ...(publicProduction ? { alternates: seoAlternates(path, query, origin) } : {}),
+    openGraph: {
+      title, description, locale: market.openGraph, alternateLocale: [...market.alternateOpenGraph],
+      ...(publicProduction ? { url: origin + canonicalPath(path, query) } : {}),
+      siteName: 'Quizeey', type: 'website',
+    },
+    twitter: { card: 'summary', title, description },
+  };
+}
+
+export function pageStructuredData(path: string, query: URLSearchParams, exam: LegacyRoute, origin: string) {
+  const locale = exam.locale as Locale;
+  const home = locale === 'en' ? '/en' : '/';
+  const url = origin + canonicalPath(path, query);
+  const isHome = canonicalPath(path, query).split('?')[0] === home;
+  const copy = searchCopy(path, query, exam);
+  const website = {
+    '@type': 'WebSite', '@id': origin + '/#website', url: origin + '/', name: 'Quizeey',
+    inLanguage: ['ko-KR', 'en-US', 'en-CA'],
+  };
+  const breadcrumb = {
+    '@type': 'BreadcrumbList', '@id': url + '#breadcrumb',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: locale === 'ko' ? '자격증 기출문제' : 'Practice exams', item: origin + home },
+      { '@type': 'ListItem', position: 2, name: examName(exam), item: url },
+    ],
+  };
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [website, {
+      '@type': isHome ? 'CollectionPage' : 'WebPage', '@id': url + '#webpage', url,
+      name: copy.title, description: copy.description,
+      inLanguage: locale === 'ko' ? 'ko-KR' : ['en-US', 'en-CA'],
+      isPartOf: { '@id': website['@id'] },
+      ...(!isHome && exam.testId ? { breadcrumb: { '@id': breadcrumb['@id'] } } : {}),
+    }, ...(!isHome && exam.testId ? [breadcrumb] : [])],
+  };
+}
+
+export function serializeStructuredData(data: ReturnType<typeof pageStructuredData>) {
+  return JSON.stringify(data).replace(/</g, '\\u003c');
 }
 export function publicSitemap(origin:string):MetadataRoute.Sitemap{
   return legacy.routes.filter(r=>!['/kr','/app'].includes(r.path)&&!r.path.startsWith('/kr/')&&!r.path.endsWith('/test'))

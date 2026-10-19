@@ -7,7 +7,7 @@ test("Korean SSR, grading, refresh, multiple answers, back, bookmark and complet
   expect(html).toContain("SELECT COUNT(*) FROM sample;");
   expect(response.headers()["x-robots-tag"]).toContain("noindex");
   await page.goto("/sqlp-developer?verNbr=1");
-  await expect(page).toHaveTitle("SQLD - 국가공인 SQL개발자 기출문제 - Quizeey");
+  await expect(page).toHaveTitle("SQLD - 국가공인 SQL개발자 기출문제 · 1 회차 - Quizeey");
   await page.locator('input[value="910000001"]').check();
   await page.getByRole("button", { name: "정답 확인", exact: true }).click();
   await expect(page.getByText("오답입니다.", { exact: true })).toBeVisible();
