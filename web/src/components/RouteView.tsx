@@ -81,7 +81,7 @@ export async function RouteView({ path, query }: { path: string; query: Query })
     <main id="main" className={`container ${isHome ? "home-container" : exam.testId ? "study-container google-anno-skip" : ""}`}>
       {previewSamples && <aside className="preview-notice" aria-label={locale==='ko'?'미리보기 안내':'Preview notice'}>
         <strong>{locale==='ko'?'미리보기 · 샘플 문항':'Preview · Sample questions'}</strong>
-        <p>{locale==='ko'?'샘플 문항과 자체 제작 연습문항으로 학습할 수 있습니다. 실제 기출문항은 이 미리보기에 연결하지 않았습니다.':'Study with samples and original practice sets. The full exam archive is not connected to this preview.'}</p>
+        <p>{locale==='ko'?'샘플 문항과 연습문항으로 학습할 수 있습니다. 실제 기출문항은 이 미리보기에 연결하지 않았습니다.':'Study with samples and practice sets. The full exam archive is not connected to this preview.'}</p>
         <a href="/sqlp-developer">한국어 샘플 연습</a>{' · '}<a href="/en/aws-certified-developer-associate">Try English samples</a>
       </aside>}
       {isHome ? <ExamSearch routes={examRoutes} locale={locale} advertisement={<AdSlot kind="infeed" locale={locale}/>} /> : <>

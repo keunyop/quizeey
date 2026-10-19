@@ -372,5 +372,4 @@ input::placeholder,textarea::placeholder { color:var(--muted); opacity:1; }
 .forum-own summary { font-size:13px; color:var(--muted); }
 .forum-own .own-posts { padding:0 12px; }
 .forum-context { padding:8px 12px; border-left:3px solid var(--blue); background:var(--blue-soft); font-size:13px; }
-.authored-badge { display:inline-flex; margin-left:8px; padding:2px 8px; border:1px solid var(--line); border-radius:5px; color:var(--blue-dark); background:var(--blue-soft); font-size:11px; }
 @media(max-width:480px) { .site-header nav { gap:12px; } .theme-toggle { padding:8px; } .theme-toggle span { display:none; } .forum-form { padding:14px; } }

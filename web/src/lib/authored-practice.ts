@@ -20,7 +20,7 @@ export function authoredQuestions(examId: string, locale: Locale): Question[] {
       id: authoredQuestionId(examId, index), testId: examId, locale, version: authoredVersion,
       versionName: authoredVersionName, questionNumber: index + 1, authored: true,
       text: `<p>${escape(item.prompt)}</p>`, explanation: `<p>${escape(item.explanation)}</p>`,
-      reference: `<p>${locale === "ko" ? "Quizeey 자체 제작 · 참고 학습자료" : "Original Quizeey practice · Learning reference"}: <a href="${escape(group.source)}" rel="noopener noreferrer">${escape(new URL(group.source).hostname)}</a></p>`,
+      reference: `<p>${locale === "ko" ? "참고 학습자료" : "Learning reference"}: <a href="${escape(group.source)}" rel="noopener noreferrer">${escape(new URL(group.source).hostname)}</a></p>`,
       preserveOrder: true,
       choices: item.choices.map((_, position) => {
         const original = (position + rotation) % 4;
