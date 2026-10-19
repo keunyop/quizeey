@@ -25,6 +25,9 @@ test("mobile practice prioritizes the question and one main action without losin
   await page.getByRole("button", { name: "정답 확인", exact: true }).click();
   await expect(page.getByText("정답입니다.", { exact: true })).toBeVisible();
   await expect(page.getByRole("button", { name: "다음", exact: true })).toBeFocused();
+  const nextButton = await page.getByRole("button", { name: "다음", exact: true }).boundingBox();
+  const explanation = await page.locator('.explanation-region > details > summary').boundingBox();
+  expect(nextButton!.y + nextButton!.height).toBeLessThan(explanation!.y);
   await expect(page.getByRole("button", { name: "건너뛰기", exact: true })).toHaveCount(0);
   await expect(page.locator(".practice-controls .primary")).toHaveCount(1);
   await page.reload();
@@ -63,5 +66,8 @@ test("compact mobile controls remain usable at 320px and keep multiple-answer gr
   await expect(page.locator(".answer-key")).toHaveText("정답 A, B");
   await expect(page.locator(".choice-correct")).toHaveCount(2);
   await expect(page.getByRole("button", { name: "다음", exact: true })).toBeEnabled();
+  const nextButton = await page.getByRole("button", { name: "다음", exact: true }).boundingBox();
+  const explanation = await page.locator('.explanation-region > details > summary').boundingBox();
+  expect(nextButton!.y + nextButton!.height).toBeLessThan(explanation!.y);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });

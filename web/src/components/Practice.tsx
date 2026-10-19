@@ -68,11 +68,6 @@ function QuestionCard({ question, locale, attempt, onGrade, onPrevious, onNext, 
       {attempt && <>
         <p className={`answer-feedback ${attempt.correct ? "correct" : "error"}`}><Icon name={attempt.correct ? "check" : "close"} />{attempt.correct ? m.correct : m.incorrect}</p>
         <p className="answer-key">{locale === "ko" ? "정답" : "Answer"} <strong>{answerLetters.join(", ")}</strong></p>
-        <details open onToggle={event=>{if(event.currentTarget.open)analytics.track('explanation_open',{test_id:question.testId,quest_id:question.id,locale});}}><summary>{m.explanation}</summary>
-          {question.explanation && <div className="learning-content" dangerouslySetInnerHTML={{ __html: question.explanation }} />}
-          {question.reference&&<div className="learning-content reference" dangerouslySetInnerHTML={{__html:question.reference}}/>}
-          {commentsEnabled && <Forum key={`${question.id}:${locale}`} examId={question.testId} questionId={question.id} locale={locale} />}
-        </details>
       </>}
     </div>
     <div className="practice-controls">
@@ -84,6 +79,13 @@ function QuestionCard({ question, locale, attempt, onGrade, onPrevious, onNext, 
         {!attempt && <button className="text-button skip-button" onClick={onNext}>{m.skip}</button>}
       </div>
     </div>
+    {attempt && <div className="explanation-region">
+      <details open onToggle={event=>{if(event.currentTarget.open)analytics.track('explanation_open',{test_id:question.testId,quest_id:question.id,locale});}}><summary>{m.explanation}</summary>
+        {question.explanation && <div className="learning-content" dangerouslySetInnerHTML={{ __html: question.explanation }} />}
+        {question.reference&&<div className="learning-content reference" dangerouslySetInnerHTML={{__html:question.reference}}/>}
+        {commentsEnabled && <Forum key={`${question.id}:${locale}`} examId={question.testId} questionId={question.id} locale={locale} />}
+      </details>
+    </div>}
   </section>;
 }
 

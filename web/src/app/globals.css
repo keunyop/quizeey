@@ -199,6 +199,8 @@ fieldset:disabled .choice { cursor:default; }
 .reference { margin-top:18px; color:var(--muted); font-size:13px; }
 .actions { display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-top:22px; }
 .practice-controls { display:flex; align-items:center; justify-content:space-between; gap:12px; background:var(--surface); border-top:1px solid var(--line); margin:24px -28px -28px; padding:16px 28px; border-radius:0 0 8px 8px; }
+.practice-controls:has(+ .explanation-region) { margin-bottom:0;border-bottom:1px solid var(--line);border-radius:0; }
+.explanation-region { margin-top:24px; }
 .practice-primary { min-width:148px; min-height:44px; }
 .practice-secondary { display:flex; align-items:center; gap:12px; order:-1; }
 .practice-secondary .text-button { color:var(--muted); font-size:13px; font-weight:400; }
