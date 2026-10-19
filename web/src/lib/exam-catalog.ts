@@ -15,7 +15,7 @@ export function examCategory(route: LegacyRoute): Exclude<Category, "all"> {
   if (/안전|환경|위험물|가스|소방|산업위생|소음|폐기물|safety|environment|pollution|hazard|fire-protection|gas/.test(name)) return "safety";
   if (/전기|전자|무선|전파|방송통신|정보통신|통신선로|electri|electronic|radio|telecommunication/.test(name)) return "electrical";
   if (/건축|건설|토목|측량|기계|용접|자동차|금속|재료|공조|냉동|에너지|승강기|지게차|굴삭기|철도|교통|도시|조경|콘크리트|설비|화공|화학|품질경영|machin|architect|weld|motor|surveying|fork-lift|construction|refrigera|energy|landscape|elevator|metal|transportation/.test(name)) return "engineering";
-  if (/미용|조리|제빵|제과|식품|조주|직업상담|사회조사|간호|임상|영양|위생사|피부|네일|메이크업|서비스|유통|텔레마케팅|hair|cook|food|bread|baker|bartender|nail|esthetician|make-up|counsel|nurs|psycholog|survey-analyst|telemarketing|distribution/.test(name)) return "service";
+  if (/미용|조리|제빵|제과|식품|조주|직업상담|사회조사|간호|임상|영양|위생사|피부|네일|메이크업|서비스|유통|텔레마케팅|부동산|보험|hair|cook|food|bread|baker|bartender|nail|esthetician|make-up|counsel|nurs|psycholog|survey-analyst|telemarketing|distribution|real-estate|insurance/.test(name)) return "service";
   return "other";
 }
 function normalize(value: string) { return value.toLocaleLowerCase().replace(/[\s–—·()_-]/g, ""); }

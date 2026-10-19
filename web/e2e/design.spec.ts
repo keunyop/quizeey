@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
-import { readFileSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { authoredQuestions } from "../src/lib/authored-practice";
 
 test("catalog filters, initials, pagination, favorites, cross-tab sync and recovery", async ({ page, context }) => {
@@ -87,9 +87,16 @@ test("question navigator, skipped counts and independent unanswered/bookmark/mis
   await expect(page.locator(".result-stats strong")).toHaveText(["1", "0", "0"]);
 });
 
-test("v1 assets and responsive layouts in both languages", async ({ page, request }) => {
-  expect(Buffer.from(await (await request.get("/img/letter-q.svg")).body())).toEqual(readFileSync("../src/main/resources/static/img/letter-q.svg"));
-  expect(Buffer.from(await (await request.get("/img/favicon.ico")).body())).toEqual(readFileSync("../src/main/resources/static/img/favicon.ico"));
+test("branding assets and responsive layouts in both languages", async ({ page, request }) => {
+  // Pin the preserved branding bytes without depending on the retired Java tree.
+  for (const [path, sha256] of [
+    ["/img/letter-q.svg", "cbaff1e68d3f261d7b0879dc2c4498a1f4815361c078741422d284b71ba86959"],
+    ["/img/favicon.ico", "ffd7fcf1f85e07065b4e42be5b7a081b3fac5a973f99838dfdb583b9001769be"],
+  ]) {
+    const response = await request.get(path);
+    expect(response.ok(), path).toBe(true);
+    expect(createHash("sha256").update(await response.body()).digest("hex"), path).toBe(sha256);
+  }
   for (const width of [320, 390, 768, 1440]) {
     await page.setViewportSize({ width, height: 900 });
     for (const path of ["/", "/en", "/sqlp-developer", "/en/aws-certified-developer-associate", "/privacy", "/about", "/engineer-electricity"]) {

@@ -1,5 +1,7 @@
 # Quizeey 개편 작업 기록
 
+이 문서는 전환 당시의 조사·승인·검증 이력이다. 2026-10-19에 v1 코드와 소스 전용 조사 도구를 정리했으며, 현재 v2 개발·검증 절차는 루트 [README](../../README.md)와 [AGENTS.md](../../AGENTS.md)를 따른다.
+
 최종 preview 검증 완료(2026-10-17): [실제 문항 보호 preview](https://quizeey-13nrq49m1-kevins-projects-e2dcc34c.vercel.app) READY. 실제 API 원본 대사/한국어·영어 채점/복수정답/새로고침 복원/모바일/권한·정적 bundle 경계가 통과했다. 모바일 회차 선택 상자의2px 넘침을 수정했고 owner가 승인한 임시 접근은 검증 후 모두 폐기했다. SSO+앱 Basic은 유지된다. [흐름 증거](cloud-preview-flow-evidence.json), [임시 접근 폐기](cloud-preview-access-evidence.json), [배포 기록](cloud-preview-deployment-report.md). 아래 자동검증 승인 대기 문구는 이전 상태다.
 
 2026-10-17 최신: 실제 콘텐츠 업로드와 보호 preview를 별도 승인받아5테이블160,630행(문항26,733개)을 적재·전체 값 해시 대사했다. Signup 차단과 Preview Secret 등록도 확인했다. Vercel `dpl_D576fzEfZJZDkXYEekr53Us4YAXg`는 READY/API target=staging이며 SSO+앱 Basic 유지, 공개 접근302 인증 이동을 확인했다. 자동 브라우저 검증은 임시 접근 승인 대기다. [배포·검증 한계](cloud-preview-deployment-report.md), [적재 증거](cloud-content-upload-evidence.json). 아래 미승인/미적용 기록은 과거 이력이다.
@@ -45,26 +47,17 @@
 재현:
 
 ```powershell
-python tools/modernization/discover.py
-# URL 목록 재생성은 기존 운영 GET 결과를 덮어쓴다. 필요 시 아래의 작은 공개 감사만 다시 실행한다.
-python tools/modernization/probe_public.py
-python tools/modernization/source_data_evidence.py
-python tools/modernization/extract_static_pages.py
-# 공개 API probe는 각각 1회씩만 읽는다. DB dump를 대신하지 않는다.
-python tools/modernization/probe_read_api.py
 python -m unittest discover -s tools/migration -p 'test_*.py'
 python tools/modernization/test_database.py
-node tools/modernization/verify_preview.mjs
 cd web
 npm.cmd ci
-npm.cmd run check
-npm.cmd run test:e2e
-npm.cmd run dev
+npm.cmd run check:local
+npm.cmd run dev:local
 ```
 
-기존 Java 소스·Travis 설정·생산 배포 루트는 유지한다. 새 앱은 로컬 fixture와 보호된 preview 준비 단계이며 전체 개편 완료나 운영 배포 승인으로 해석하지 않는다.
+2026-10-19 v1 정리: 기존 Java 소스·템플릿, Gradle·Travis·Eclipse 설정과 빌드 결과, 해당 소스에 의존하던 조사·추출·JDBC 검사 도구는 제거했다. 이전 소스는 Git 이력에 남아 있다. `web/fixtures/legacy-contract.json`, `web/fixtures/legacy-pages.json`, `web/public/`의 이관 자산은 v2가 계속 사용하므로 보존한다. 아래를 포함한 전환 단계·승인 대기 기록은 작성 당시의 이력이며, 현재 개발·검증·릴리스 규칙은 루트 [README](../../README.md)와 [AGENTS.md](../../AGENTS.md)를 따른다. 회귀 테스트는 로컬 fixture만 사용한다.
 
-native forum의 로컬 작성 화면은 `test_database.py --serve`로 비어 있는 격리 DB를 시작하고 web/.env.local에 `.env.example`의 정확한 loopback URL을 설정하면 활성화된다. Playwright forum 검증도 이 환경 변수가 없으면 명시적으로 skip한다. Windows에서는 `PLAYWRIGHT_CHANNEL=msedge`로 설치된 Edge를 사용할 수 있다. CI는 별도 PostgreSQL18 service를 만들어 확인하며 실제 GitHub 실행 결과는 아직 없다.
+native forum의 로컬 작성 화면은 `test_database.py --serve`로 비어 있는 격리 DB를 시작하고 셸의 `QUIZEEY_LOCAL_FORUM_DATABASE_URL`에 `.env.example`의 정확한 loopback URL을 설정하면 활성화된다. 자동 로드되는 `.env.local` 파일은 만들지 않는다. Playwright forum 검증도 이 환경 변수가 없으면 명시적으로 skip한다. Windows에서는 `PLAYWRIGHT_CHANNEL=msedge`로 설치된 Edge를 사용할 수 있다. CI는 별도 PostgreSQL18 service를 만들어 확인한다.
 
 관리자 브라우저 재현은 `test_database.py --serve --auth-fixture`와 `QUIZEEY_AUTH_FIXTURE_URL=http://127.0.0.1:55433`를 명시한다. Playwright가 테스트용 provider/allowlist를 로컬 Next 서버에 전달한다. 실제 Supabase 계정을 만들거나 가입 설정을 바꾸지 않는다. 방문자에 Auth 호출이 없고 logout 후 공급자 JWT가 유효해도 서버 측 재사용이 차단됨을 검증한다.
 

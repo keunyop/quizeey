@@ -1,5 +1,3 @@
-# Preserve v1 branding bytes on both Windows and Linux.
-src/main/resources/static/img/letter-q.svg -text
+# Preserve branding bytes on both Windows and Linux.
 web/public/img/letter-q.svg -text
-src/main/resources/static/img/favicon.ico -text
 web/public/img/favicon.ico -text

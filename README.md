@@ -8,6 +8,13 @@ Most of the time I used my smart phone to study the AWS practice questions which
 It was so hard to see the PDF file through a small phone screen and with an answer placed right under the questions make it hard to concentrate.
 So I decided to make a mobile friendly pool of quizzes to study more effectively
 
+현재 v2 앱은 `web/`의 Next.js 앱입니다. v1 Spring Boot 소스·템플릿·Gradle·Travis 설정과 Java 빌드 결과는 제거했습니다. 이전 소스는 Git 이력에서 확인할 수 있습니다.
+
+- `web/`: v2 앱, 정적 자산, 호환 URL·본문 데이터와 테스트
+- `supabase/`: v2 데이터베이스 마이그레이션과 보안 검증
+- `tools/content/`: v2 문항 생성 도구
+- `tools/migration/`, `tools/modernization/`, `docs/modernization/`: 데이터 이전·복원 도구와 전환 근거
+
 ## 로컬 개발·검증과 배포 비용
 
 Node.js 24에서 `web` 디렉터리로 이동해 `npm ci`를 실행합니다.

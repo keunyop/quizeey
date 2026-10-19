@@ -911,5 +911,31 @@
     "locale": "en",
     "questionCount": 40,
     "description": "Practice basic food safety, personal hygiene, cross-contamination and allergens, time and temperature, and cleaning and sanitation for U.S. food service. This 2026-10 set contains 40 original English practice questions with explanations. It is independent study material, not an official ServSafe exam."
+  },
+  {
+    "id": "235",
+    "slug": "servsafe-food-protection-manager",
+    "name": "ServSafe Food Protection Manager",
+    "locale": "en",
+    "questionCount": 90,
+    "description": "Prepare for U.S. food protection manager responsibilities with 90 original English practice questions and explanations in the 2026-10 set. Topics include foodborne hazards, employee health, purchasing and storage, preparation and service, HACCP, facilities, and sanitation. All questions are scored for practice. This is independent study material, not an official ServSafe exam."
+  },
+  {
+    "id": "236",
+    "slug": "california-real-estate-salesperson",
+    "name": "California Real Estate Salesperson",
+    "locale": "en",
+    "questionCount": 150,
+    "idBlockSize": 1000,
+    "description": "Study for the California Real Estate Salesperson exam with 150 original English practice questions and explanations in the 2026-10 set. Cover property ownership, agency, valuation, financing, transfers, real estate practice and disclosures, and contracts, including California-specific rules and calculations. Independent practice material, not an official California DRE examination."
+  },
+  {
+    "id": "237",
+    "slug": "texas-life-and-health-insurance",
+    "name": "Texas Life and Health Insurance",
+    "locale": "en",
+    "questionCount": 130,
+    "idBlockSize": 1000,
+    "description": "Prepare for the Texas General Lines Life, Accident, Health and HMO license with 130 original English practice questions and explanations in the 2026-10 set. Study life insurance, annuities, health and disability coverage, social insurance, Texas regulations, and HMOs. Topic counts follow the scored content outline effective September 1, 2026; every question is graded for practice. Independent study material, not an official TDI or Pearson VUE examination."
   }
 ]

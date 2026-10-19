@@ -10,10 +10,8 @@
 /web/.next/
 /web/playwright-report/
 /web/test-results/
-# Legacy Java is not part of the new Vercel application.
-/src/
+# Retired Java build artifacts must stay out of uploads if regenerated locally.
 /build/
 /bin/
 /.gradle/
-/util/
-/resources/
+/.metadata/

@@ -24,12 +24,16 @@ def build():
                 raise ValueError(f'Invalid question at line {number}')
             current['questions'].append({'prompt': parts[0], 'choices': parts[1:5], 'explanation': parts[5]})
     expected = {exam['id']: exam.get('questionCount', 3) for exam in catalog}
+    blocks = {exam['id']: exam.get('idBlockSize', 100) for exam in catalog}
+    if any(block not in (100, 1000) for block in blocks.values()):
+        raise ValueError('Unsupported authored identity block size')
     if assigned != set(expected) or any(
-        not 1 <= len(group['questions']) < 100 or
-        any(len(group['questions']) != expected[exam_id] for exam_id in group['examIds'])
+        any(len(group['questions']) != expected[exam_id] or
+            not 1 <= len(group['questions']) < blocks[exam_id]
+            for exam_id in group['examIds'])
         for group in groups
     ):
-        raise ValueError('Every catalog exam must have its declared question count (default: three, maximum: 99)')
+        raise ValueError('Every catalog exam must have its declared question count within its identity block')
     payload = {'version': '2026-10', 'kind': 'original-practice', 'groups': groups}
     output = ROOT / 'web/src/data/practice-2026-10.json'
     output.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')

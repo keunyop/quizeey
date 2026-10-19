@@ -6,17 +6,22 @@ import type { Question } from "./quiz";
 export const authoredVersion = 202610;
 export const authoredVersionName = "2026-10";
 export const authoredCatalog = catalog;
+const catalogById = new Map(catalog.map(exam => [exam.id, exam]));
 export function authoredDefaultLocale(examId: string): Locale {
-  return catalog.find(exam => exam.id === examId)?.locale === "en" ? "en" : "ko";
+  return catalogById.get(examId)?.locale === "en" ? "en" : "ko";
 }
 const byExam = new Map(content.groups.flatMap(group => group.examIds.map(id => [id, group] as const)));
 function escape(value: string) { return value.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;"); }
-export function authoredQuestionId(examId: string, index: number) { return String(8_000_000_000 + Number(examId) * 100 + index + 1); }
+// Larger sets opt into a separate namespace; existing IDs and saved progress stay stable.
+function extendedIds(examId: string) { return catalogById.get(examId)?.idBlockSize === 1000; }
+export function authoredQuestionId(examId: string, index: number) {
+  return String((extendedIds(examId) ? 8_200_000_000 + Number(examId) * 1000 : 8_000_000_000 + Number(examId) * 100) + index + 1);
+}
 export function authoredVersionId(examId: string) { return String(8_100_000_000 + Number(examId)); }
 
 export function authoredQuestions(examId: string, locale: Locale): Question[] {
   const group = byExam.get(examId);
-  const supportedLocale = catalog.find(exam => exam.id === examId)?.locale;
+  const supportedLocale = catalogById.get(examId)?.locale;
   if (!group || (supportedLocale && supportedLocale !== locale)) return [];
   return group.questions.map((item, index) => {
     const rotation = (Number(examId) + index) % 4;
@@ -28,7 +33,8 @@ export function authoredQuestions(examId: string, locale: Locale): Question[] {
       preserveOrder: true,
       choices: item.choices.map((_, position) => {
         const original = (position + rotation) % 4;
-        return { id: String(9_000_000_000 + Number(examId) * 1000 + index * 10 + original), position: position + 1, text: escape(item.choices[original]), correct: original === 0 };
+        const choiceBase = extendedIds(examId) ? 9_100_000_000 + Number(examId) * 10_000 : 9_000_000_000 + Number(examId) * 1000;
+        return { id: String(choiceBase + index * 10 + original), position: position + 1, text: escape(item.choices[original]), correct: original === 0 };
       }),
     };
   });
@@ -36,8 +42,9 @@ export function authoredQuestions(examId: string, locale: Locale): Question[] {
 
 export function findAuthoredQuestion(questionId: string, locale?: Locale) {
   // IDs are below Number.MAX_SAFE_INTEGER; reject other namespaces before conversion.
-  if (!/^80000\d{5}$/.test(questionId)) return undefined;
-  const value = Number(questionId) - 8_000_000_000;
-  const examId = String(Math.floor(value / 100));
+  const extended = /^8200\d{6}$/.test(questionId);
+  if (!extended && !/^80000\d{5}$/.test(questionId)) return undefined;
+  const value = Number(questionId) - (extended ? 8_200_000_000 : 8_000_000_000);
+  const examId = String(Math.floor(value / (extended ? 1000 : 100)));
   return authoredQuestions(examId, locale ?? authoredDefaultLocale(examId)).find(question => question.id === questionId);
 }

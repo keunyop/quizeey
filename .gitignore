@@ -1,29 +1,17 @@
-.gradle
-/build/
-!gradle/wrapper/gradle-wrapper.jar
-
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
+# Editor state
 .idea
 *.iws
 *.iml
 *.ipr
 /out/
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
+# Prevent retired Java build and Eclipse artifacts from returning.
+/.gradle/
+/.metadata/
+/bin/
+/build/
 
-# Modernization: local dependencies, credentials and operational exports
+# Local dependencies, credentials and operational exports
 /web/node_modules/
 /web/.next/
 /web/playwright-report/
@@ -34,5 +22,3 @@
 /.modernization/
 /supabase/.temp/
 /tools/**/__pycache__/
-/nbdist/
-/.nb-gradle/
