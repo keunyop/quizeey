@@ -14,18 +14,19 @@ async function fixtureAdmin(query: string, values: unknown[] = []) {
   try { return await client.query(query, values); } finally { await client.end(); }
 }
 
+test.beforeEach(async () => { await fixtureAdmin("delete from quizeey_private.rate_windows"); });
+
 test("two guest browsers: pending privacy, optional name, ownership, revisions, replies, reports and deletion", async ({ browser }) => {
   const a = await browser.newContext(); const b = await browser.newContext();
   try {
     const pageA = await a.newPage();
     await pageA.goto("http://127.0.0.1:3100/sqlp-developer");
-    await expect(pageA.getByRole("heading", { name: "토론", exact: true })).toBeVisible();
+    await expect(pageA.getByRole("heading", { name: "시험 댓글", exact: true })).toBeVisible();
     expect((await a.cookies()).some((c) => c.name === "__Host-quizeey-guest")).toBe(false);
-    await pageA.locator('#forum-name').fill('   ');
-    await pageA.locator('#forum-title').fill('Browser ownership fixture');
-    await pageA.locator('#forum-body').fill('Original approved body');
+    await pageA.getByLabel('작성자명 (선택)').fill('   ');
+    await pageA.getByLabel('댓글', { exact: true }).fill('Original approved body');
     const pendingResponse = pageA.waitForResponse((r) => r.url().endsWith('/api/forum') && r.request().method()==='POST');
-    await pageA.getByRole('button',{name:'등록',exact:true}).click();
+    await pageA.getByRole('button',{name:'댓글 등록',exact:true}).click();
     const created = await pendingResponse;
     expect(created.status()).toBe(202);
     const requestId = created.request().headers()['idempotency-key'];
@@ -87,4 +88,45 @@ test("CSRF, bounds, expiry, context validation and concurrent shared limits", as
     expect(results.filter((r) => r.status() === 202)).toHaveLength(9);
     expect(results.filter((r) => r.status() === 429)).toHaveLength(11);
   } finally { await guest.close(); }
+});
+
+
+test("exam comments and answer-area question comments have independent forms, authors and contexts", async ({ page, context }) => {
+  await page.goto('/sqlp-developer?verNbr=1');
+  const exam = page.getByRole('region', { name: '시험 댓글', exact: true });
+  await expect(exam).toBeVisible();
+  await expect(page.getByRole('heading', { name: '문제 댓글', exact: true })).toHaveCount(0);
+  await exam.getByLabel('댓글', { exact: true }).fill('Only an exam comment');
+  await exam.getByRole('button', { name: '댓글 등록', exact: true }).click();
+  await expect(exam.locator('.own-posts')).toContainText('Only an exam comment');
+  await expect(exam.locator('.own-posts')).toContainText('익명');
+  await page.locator('input[value="910000002"]').check();
+  await page.getByRole('button', { name: '정답 확인', exact: true }).click();
+  const problem = page.getByRole('region', { name: '문제 댓글', exact: true });
+  await expect(problem).toBeVisible();
+  await expect(problem).not.toContainText('Only an exam comment');
+  await problem.getByText('댓글 남기기', { exact: true }).click();
+  await problem.getByLabel('작성자명 (선택)').fill('Study partner');
+  await problem.getByLabel('댓글', { exact: true }).fill('Only the first question');
+  await problem.getByRole('button', { name: '댓글 등록', exact: true }).click();
+  await expect(problem.locator('.own-posts')).toContainText('Only the first question');
+  await expect(problem.locator('.own-posts')).toContainText('Study partner');
+  await expect(exam).not.toContainText('Only the first question');
+  const ids = await page.locator('[id]').evaluateAll(nodes => nodes.map(node => node.id));
+  expect(new Set(ids).size).toBe(ids.length);
+  await page.getByRole('button', { name: '다음', exact: true }).click();
+  await page.locator('input[value="910000004"]').check();
+  await page.locator('input[value="910000005"]').check();
+  await page.getByRole('button', { name: '정답 확인', exact: true }).click();
+  await expect(problem).not.toContainText('Only the first question');
+  await page.getByRole('button', { name: '이전', exact: true }).click();
+  await expect(problem.locator('.own-posts')).toContainText('Only the first question');
+  await page.reload();
+  await expect(problem.locator('.own-posts')).toContainText('Only the first question');
+  await expect(exam.locator('.own-posts')).toContainText('Only an exam comment');
+  const tab = await context.newPage();
+  await tab.goto('/engineer-electricity?verNbr=202610');
+  const otherExam = tab.getByRole('region', { name: '시험 댓글', exact: true });
+  await expect(otherExam).not.toContainText('Only an exam comment');
+  await tab.close();
 });

@@ -11,7 +11,9 @@ export function readProgress(raw: string | null, ids: string[], contentVersion: 
   if (!raw || raw.length > 100_000) return null;
   try {
     const value = JSON.parse(raw) as Progress;
-    if (value.schema !== 1 || value.contentVersion !== contentVersion || JSON.stringify(value.ids) !== JSON.stringify(ids)) return null;
+    if (value.schema !== 1 || value.contentVersion !== contentVersion || !Array.isArray(value.ids)) return null;
+    // Appending a new practice set must retain existing attempts and bookmarks.
+    if (value.ids.length > ids.length || value.ids.some((id, index) => id !== ids[index])) return null;
     if (!Number.isInteger(value.index) || value.index < 0 || value.index > ids.length || !Array.isArray(value.bookmarks)) return null;
     if (!value.attempts || typeof value.attempts !== "object" || Array.isArray(value.attempts) || !value.choiceOrders || typeof value.choiceOrders !== "object" || Array.isArray(value.choiceOrders)) return null;
     if (value.bookmarks.some((id) => typeof id !== "string" || !ids.includes(id))) return null;
@@ -20,7 +22,7 @@ export function readProgress(raw: string | null, ids: string[], contentVersion: 
     if (value.reviewMode !== undefined && !["mistakes", "bookmarks", "unanswered"].includes(value.reviewMode)) return null;
     if (Object.entries(value.attempts).some(([id, a]) => !ids.includes(id) || !a || !Array.isArray(a.selected) || a.selected.length > 100 || a.selected.some((id) => typeof id !== "string") || typeof a.correct !== "boolean")) return null;
     if (Object.entries(value.choiceOrders).some(([id, order]) => !ids.includes(id) || !Array.isArray(order) || order.length > 100 || order.some((choice) => typeof choice !== "string"))) return null;
-    return value;
+    return { ...value, ids };
   } catch { return null; }
 }
 

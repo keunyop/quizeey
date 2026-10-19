@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto';
 import { afterEach, beforeEach, expect, it, vi } from 'vitest';
 vi.mock('server-only', () => ({}));
 vi.mock('./study-loader', () => ({ loadStudyStore: vi.fn(async ({ examId, questionId }: { examId: string; questionId?: string }) => ({
+  exams: [], source: 'supabase', version: 'synthetic',
   hasExam: (id: string) => id === '1', questions: () => examId === '1' && questionId === '123' ? [{}] : [],
 })) }));
 import { forumGet, forumPost } from './forum-http';

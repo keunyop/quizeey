@@ -1,0 +1,2847 @@
+{
+  "version": "2026-10",
+  "kind": "original-practice",
+  "groups": [
+    {
+      "topic": "sql-basic",
+      "examIds": [
+        "5"
+      ],
+      "source": "https://www.postgresql.org/docs/current/tutorial-agg.html",
+      "questions": [
+        {
+          "prompt": "값이 4, NULL, 9인 열 x에 COUNT(x)를 적용한 결과는?",
+          "choices": [
+            "2",
+            "3",
+            "13",
+            "NULL"
+          ],
+          "explanation": "COUNT(열)은 NULL이 아닌 값만 센다. COUNT(*)였다면 세 행을 모두 세어 3이 된다."
+        },
+        {
+          "prompt": "부서별 평균 급여가 300 이상인 그룹만 남기려면 어떤 절이 적절한가?",
+          "choices": [
+            "HAVING AVG(salary) >= 300",
+            "WHERE AVG(salary) >= 300",
+            "ORDER BY salary >= 300",
+            "DISTINCT salary >= 300"
+          ],
+          "explanation": "HAVING은 GROUP BY로 만든 그룹에 조건을 적용한다. WHERE는 집계 전의 개별 행을 필터링한다."
+        },
+        {
+          "prompt": "다른 테이블의 키를 참조하여 참조 무결성을 유지하는 제약조건은?",
+          "choices": [
+            "외래 키",
+            "정렬 순서",
+            "별칭",
+            "주석"
+          ],
+          "explanation": "외래 키는 참조 대상에 없는 키 값의 입력을 제한하여 테이블 사이의 관계를 보호한다."
+        }
+      ]
+    },
+    {
+      "topic": "sql-advanced",
+      "examIds": [
+        "2"
+      ],
+      "source": "https://www.postgresql.org/docs/current/indexes-intro.html",
+      "questions": [
+        {
+          "prompt": "인덱스를 추가한 뒤 조회는 빨라졌지만 INSERT 비용이 늘어난 주된 이유는?",
+          "choices": [
+            "행을 넣을 때 인덱스도 갱신하기 때문",
+            "인덱스가 모든 행을 삭제하기 때문",
+            "인덱스가 트랜잭션을 금지하기 때문",
+            "INSERT가 항상 전체 정렬을 하기 때문"
+          ],
+          "explanation": "인덱스는 탐색 비용을 줄일 수 있지만 저장 공간과 쓰기 시 유지 비용이 든다."
+        },
+        {
+          "prompt": "복합 B-tree 인덱스 (customer_id, ordered_at)의 선두 열은?",
+          "choices": [
+            "customer_id",
+            "ordered_at",
+            "두 열의 평균",
+            "생성 시각"
+          ],
+          "explanation": "복합 인덱스에서 열의 순서는 중요하다. 선두 열에 대한 조건은 탐색할 범위를 줄이는 데 유리하다."
+        },
+        {
+          "prompt": "실행 계획의 예상 행 수가 실제 행 수와 크게 다를 때 먼저 확인할 항목은?",
+          "choices": [
+            "통계 정보의 최신성과 데이터 분포",
+            "SQL 문장의 글꼴",
+            "결과 창의 배경색",
+            "테이블 이름의 길이"
+          ],
+          "explanation": "옵티마이저는 통계로 선택도와 비용을 추정한다. 오래된 통계나 치우친 분포는 부정확한 추정의 원인이 된다."
+        }
+      ]
+    },
+    {
+      "topic": "software",
+      "examIds": [
+        "6",
+        "35",
+        "41"
+      ],
+      "source": "https://docs.python.org/3/tutorial/datastructures.html",
+      "questions": [
+        {
+          "prompt": "가장 나중에 넣은 데이터를 먼저 꺼내는 자료구조는?",
+          "choices": [
+            "스택",
+            "큐",
+            "원형 연결 리스트만 가능",
+            "이진 탐색 트리만 가능"
+          ],
+          "explanation": "스택의 입출력 원칙은 LIFO이다. 큐는 먼저 들어온 데이터를 먼저 꺼내는 FIFO 원칙을 따른다."
+        },
+        {
+          "prompt": "정렬된 배열에서 이진 탐색의 평균적인 시간 복잡도는?",
+          "choices": [
+            "O(log n)",
+            "O(n²)",
+            "O(n!)",
+            "O(2ⁿ)"
+          ],
+          "explanation": "이진 탐색은 비교할 때마다 탐색 범위를 절반으로 줄이므로 필요한 비교 횟수가 로그에 비례한다."
+        },
+        {
+          "prompt": "소프트웨어 단위 테스트가 주로 확인하는 대상은?",
+          "choices": [
+            "함수나 모듈의 개별 동작",
+            "전체 조직의 매출",
+            "서버실의 습도만",
+            "운영체제 설치 순서만"
+          ],
+          "explanation": "단위 테스트는 작은 코드 단위의 입력과 출력을 검증하여 결함의 위치를 좁히는 데 도움을 준다."
+        }
+      ]
+    },
+    {
+      "topic": "computer-science",
+      "examIds": [
+        "4",
+        "161",
+        "200",
+        "215"
+      ],
+      "source": "https://docs.python.org/3/tutorial/datastructures.html",
+      "questions": [
+        {
+          "prompt": "CPU와 주기억장치 사이에서 자주 쓰는 데이터를 빠르게 제공하는 장치는?",
+          "choices": [
+            "캐시 메모리",
+            "광학 디스크",
+            "프린터",
+            "스캐너"
+          ],
+          "explanation": "캐시는 자주 접근하는 데이터와 명령을 가까이 보관하여 평균 메모리 접근 시간을 줄인다."
+        },
+        {
+          "prompt": "10진수 13을 2진수로 표현하면?",
+          "choices": [
+            "1101",
+            "1011",
+            "1110",
+            "1001"
+          ],
+          "explanation": "13은 8+4+1이므로 2의 거듭제곱 자리값에 따라 1101로 표현한다."
+        },
+        {
+          "prompt": "프로세스가 교착 상태에 빠지는 필요조건에 해당하는 것은?",
+          "choices": [
+            "상호 배제",
+            "모든 자원의 무제한 공유",
+            "항상 즉시 자원 반납",
+            "순환 대기의 완전한 금지"
+          ],
+          "explanation": "교착 상태의 필요조건은 상호 배제, 점유와 대기, 비선점, 순환 대기이다."
+        }
+      ]
+    },
+    {
+      "topic": "office",
+      "examIds": [
+        "11",
+        "12",
+        "42",
+        "117"
+      ],
+      "source": "https://support.microsoft.com/en-us/office/sum-function-043e1c7d-7726-4e80-8f32-07b23e057f89",
+      "questions": [
+        {
+          "prompt": "스프레드시트에서 A1부터 A5까지 더하는 수식은?",
+          "choices": [
+            "=SUM(A1:A5)",
+            "=SUM(A1;A5)만 가능",
+            "=COUNT(A1:A5)",
+            "=MAX(A1:A5)"
+          ],
+          "explanation": "콜론은 연속 범위를 나타낸다. SUM은 범위 안 숫자의 합을 구하며 COUNT는 숫자가 있는 셀을 센다."
+        },
+        {
+          "prompt": "수식을 복사해도 행과 열이 모두 바뀌지 않는 참조는?",
+          "choices": [
+            "$A$1",
+            "A1",
+            "$A1",
+            "A$1"
+          ],
+          "explanation": "열 문자와 행 번호 앞에 모두 달러 기호를 붙이면 행과 열을 모두 고정하는 절대 참조가 된다."
+        },
+        {
+          "prompt": "조건에 맞는 데이터 행만 화면에 표시하는 기능은?",
+          "choices": [
+            "필터",
+            "셀 병합",
+            "페이지 방향",
+            "글꼴 변경"
+          ],
+          "explanation": "필터는 원본 데이터를 삭제하지 않고 지정한 조건을 충족하는 행을 표시한다."
+        }
+      ]
+    },
+    {
+      "topic": "word",
+      "examIds": [
+        "15",
+        "225"
+      ],
+      "source": "https://support.microsoft.com/en-us/word",
+      "questions": [
+        {
+          "prompt": "문서 전체의 제목 서식을 일관되게 관리하기에 적절한 기능은?",
+          "choices": [
+            "스타일",
+            "각 글자의 개별 확대",
+            "문서 암호 해제",
+            "화면 배율 조정"
+          ],
+          "explanation": "스타일은 제목과 본문의 서식 규칙을 묶어 적용하며 목차를 구성하는 데도 활용된다."
+        },
+        {
+          "prompt": "여러 수신자에게 이름만 다른 안내문을 만들 때 적절한 기능은?",
+          "choices": [
+            "편지 병합",
+            "맞춤법 검사만",
+            "문단 나누기만",
+            "눈금자 숨기기"
+          ],
+          "explanation": "편지 병합은 공통 문서와 수신자 데이터를 결합하여 개인별 문서를 만든다."
+        },
+        {
+          "prompt": "웹 검색 결과의 신뢰성을 평가하는 방법으로 가장 적절한 것은?",
+          "choices": [
+            "작성 주체와 근거 및 갱신일을 함께 확인한다",
+            "검색 순위만 확인한다",
+            "광고가 많으면 무조건 신뢰한다",
+            "제목이 길면 사실로 판단한다"
+          ],
+          "explanation": "정보의 출처, 작성 목적, 근거와 최신성을 함께 확인해야 신뢰도를 평가할 수 있다."
+        }
+      ]
+    },
+    {
+      "topic": "electricity",
+      "examIds": [
+        "26",
+        "27",
+        "29",
+        "80",
+        "95",
+        "140"
+      ],
+      "source": "https://openstax.org/books/college-physics-2e/pages/20-2-ohms-law-resistance-and-simple-circuits",
+      "questions": [
+        {
+          "prompt": "저항 20 Ω에 직류 전압 100 V를 가할 때 전류는?",
+          "choices": [
+            "5 A",
+            "0.2 A",
+            "20 A",
+            "2000 A"
+          ],
+          "explanation": "옴의 법칙 I=V/R을 적용하면 100/20=5 A이다."
+        },
+        {
+          "prompt": "10 Ω과 15 Ω 저항을 직렬로 연결한 합성저항은?",
+          "choices": [
+            "25 Ω",
+            "6 Ω",
+            "150 Ω",
+            "5 Ω"
+          ],
+          "explanation": "직렬 회로에서는 저항을 더한다. 병렬 연결이었다면 역수의 합으로 계산한다."
+        },
+        {
+          "prompt": "저항 부하에 220 V, 2 A가 공급될 때 소비전력은?",
+          "choices": [
+            "440 W",
+            "110 W",
+            "222 W",
+            "48400 W"
+          ],
+          "explanation": "직류 또는 역률 1인 저항 부하의 전력은 P=VI이므로 220×2=440 W이다."
+        }
+      ]
+    },
+    {
+      "topic": "electronics",
+      "examIds": [
+        "96",
+        "120",
+        "152",
+        "158"
+      ],
+      "source": "https://openstax.org/books/university-physics-volume-3/pages/9-7-semiconductor-devices",
+      "questions": [
+        {
+          "prompt": "일반적인 정류 회로에서 다이오드의 주된 역할은?",
+          "choices": [
+            "전류를 한 방향으로 흐르게 한다",
+            "모든 주파수를 증폭한다",
+            "전하를 무한히 저장한다",
+            "저항을 항상 0으로 만든다"
+          ],
+          "explanation": "다이오드는 순방향과 역방향의 전도 특성이 달라 교류를 정류하는 데 쓰인다."
+        },
+        {
+          "prompt": "AND 논리 게이트의 출력이 1이 되는 조건은?",
+          "choices": [
+            "모든 입력이 1일 때",
+            "입력 중 하나만 0일 때",
+            "모든 입력이 0일 때",
+            "입력과 무관하게 항상"
+          ],
+          "explanation": "AND 연산은 모든 입력이 참일 때만 참을 출력한다."
+        },
+        {
+          "prompt": "주파수가 1 kHz인 주기 신호의 주기는?",
+          "choices": [
+            "1 ms",
+            "1 s",
+            "1000 s",
+            "100 ms"
+          ],
+          "explanation": "주기 T는 주파수 f의 역수이다. 1/1000초는 1 ms이다."
+        }
+      ]
+    },
+    {
+      "topic": "network",
+      "examIds": [
+        "81",
+        "114",
+        "126",
+        "148",
+        "76",
+        "101",
+        "9"
+      ],
+      "source": "https://www.rfc-editor.org/rfc/rfc8200",
+      "questions": [
+        {
+          "prompt": "IPv4 주소의 길이는?",
+          "choices": [
+            "32비트",
+            "16비트",
+            "48비트",
+            "128비트"
+          ],
+          "explanation": "IPv4 주소는 32비트이다. IPv6 주소는 128비트이며 일반적인 MAC 주소는 48비트이다."
+        },
+        {
+          "prompt": "도메인 이름을 IP 주소 등의 레코드로 조회하는 시스템은?",
+          "choices": [
+            "DNS",
+            "NTP",
+            "SMTP",
+            "SNMP만"
+          ],
+          "explanation": "DNS는 이름과 주소 등 자원 레코드를 연결한다. NTP는 시간 동기화에 쓰인다."
+        },
+        {
+          "prompt": "TCP 통신의 특성으로 적절한 것은?",
+          "choices": [
+            "연결 지향적이며 순서와 재전송을 관리한다",
+            "데이터 순서를 절대 관리하지 않는다",
+            "오직 브로드캐스트만 지원한다",
+            "포트 번호를 사용하지 않는다"
+          ],
+          "explanation": "TCP는 연결을 설정하고 순서 번호와 확인 응답을 사용하여 신뢰성 있는 바이트 스트림을 제공한다."
+        }
+      ]
+    },
+    {
+      "topic": "cisco",
+      "examIds": [
+        "166",
+        "174",
+        "180",
+        "182",
+        "204",
+        "208"
+      ],
+      "source": "https://learningcontent.cisco.com/documents/marketing/study-plans/2023_CCNAExam_StudyTool.pdf",
+      "questions": [
+        {
+          "prompt": "How many usable host addresses are in a conventional IPv4 /27 subnet?",
+          "choices": [
+            "30",
+            "32",
+            "62",
+            "14"
+          ],
+          "explanation": "A /27 leaves five host bits. Of 32 addresses, the network and broadcast addresses are excluded, leaving 30 hosts."
+        },
+        {
+          "prompt": "What is the primary purpose of Spanning Tree Protocol in a switched LAN?",
+          "choices": [
+            "Prevent Layer 2 forwarding loops",
+            "Encrypt application payloads",
+            "Assign public IP addresses",
+            "Translate domain names"
+          ],
+          "explanation": "STP creates a loop-free forwarding topology by placing redundant paths into a non-forwarding state."
+        },
+        {
+          "prompt": "Which route is selected first when destination prefixes have different lengths?",
+          "choices": [
+            "The route with the longest matching prefix",
+            "The route with the shortest prefix",
+            "The oldest route regardless of prefix",
+            "The route with the lowest interface number"
+          ],
+          "explanation": "Routers use longest-prefix matching. Administrative distance and metric decide between eligible routes to the same prefix."
+        }
+      ]
+    },
+    {
+      "topic": "security",
+      "examIds": [
+        "54",
+        "168",
+        "177",
+        "205"
+      ],
+      "source": "https://www.nist.gov/cyberframework",
+      "questions": [
+        {
+          "prompt": "Which security principle grants only the permissions required for a task?",
+          "choices": [
+            "Least privilege",
+            "Implicit trust",
+            "Unlimited delegation",
+            "Security through obscurity"
+          ],
+          "explanation": "Least privilege limits access to what a user or service needs, reducing the impact of mistakes and compromise."
+        },
+        {
+          "prompt": "Which combination provides two different authentication factor types?",
+          "choices": [
+            "A password and a hardware security key",
+            "Two passwords",
+            "A password and a PIN",
+            "Two security questions"
+          ],
+          "explanation": "A password is something you know; a hardware key is something you have. Two secrets from the same category do not provide two distinct factor types."
+        },
+        {
+          "prompt": "What is a cryptographic hash primarily used to verify?",
+          "choices": [
+            "Data integrity",
+            "Guaranteed confidentiality by itself",
+            "User location",
+            "Network availability"
+          ],
+          "explanation": "A hash can reveal changes to data when compared against a trusted digest. Hashing alone does not encrypt the original data."
+        }
+      ]
+    },
+    {
+      "topic": "linux",
+      "examIds": [
+        "110",
+        "118"
+      ],
+      "source": "https://www.gnu.org/software/coreutils/manual/html_node/Mode-Structure.html",
+      "questions": [
+        {
+          "prompt": "Linux 파일 권한 640에서 그룹 사용자에게 부여된 권한은?",
+          "choices": [
+            "읽기",
+            "읽기와 쓰기",
+            "읽기와 실행",
+            "모든 권한"
+          ],
+          "explanation": "640은 소유자 rw-, 그룹 r--, 그 외 ---이다. 4는 읽기, 2는 쓰기, 1은 실행을 뜻한다."
+        },
+        {
+          "prompt": "실행 중인 프로세스 목록을 확인하는 명령은?",
+          "choices": [
+            "ps",
+            "pwd",
+            "mkdir",
+            "touch"
+          ],
+          "explanation": "ps는 프로세스 상태를 보여준다. pwd는 현재 작업 디렉터리의 경로를 표시한다."
+        },
+        {
+          "prompt": "표준 출력을 파일에 덧붙이는 셸 연산자는?",
+          "choices": [
+            ">>",
+            ">",
+            "<",
+            "2<"
+          ],
+          "explanation": ">>는 기존 파일 끝에 출력을 덧붙인다. >는 일반적으로 파일을 새로 쓰거나 기존 내용을 덮어쓴다."
+        }
+      ]
+    },
+    {
+      "topic": "pc",
+      "examIds": [
+        "127",
+        "128",
+        "181"
+      ],
+      "source": "https://www.intel.com/content/www/us/en/gaming/resources/how-to-build-a-gaming-pc.html",
+      "questions": [
+        {
+          "prompt": "Which component normally loses its stored data when power is removed?",
+          "choices": [
+            "DRAM",
+            "SSD",
+            "ROM",
+            "Optical disc"
+          ],
+          "explanation": "DRAM is volatile memory and requires power and refresh. SSDs retain data without power."
+        },
+        {
+          "prompt": "What should a technician check before installing a replacement CPU?",
+          "choices": [
+            "Socket and motherboard compatibility",
+            "Only the case color",
+            "Only the monitor size",
+            "The keyboard layout"
+          ],
+          "explanation": "The CPU socket, chipset support, firmware and power requirements must be compatible with the motherboard."
+        },
+        {
+          "prompt": "Which storage device has no moving mechanical read/write head?",
+          "choices": [
+            "SSD",
+            "Hard disk drive",
+            "Floppy drive",
+            "Tape drive"
+          ],
+          "explanation": "An SSD stores data electronically in flash memory rather than using rotating platters and a mechanical head."
+        }
+      ]
+    },
+    {
+      "topic": "aws-developer",
+      "examIds": [
+        "1"
+      ],
+      "source": "https://docs.aws.amazon.com/lambda/latest/dg/with-s3.html",
+      "questions": [
+        {
+          "prompt": "An application must process each newly uploaded S3 object without polling. Which integration fits?",
+          "choices": [
+            "S3 event notifications invoking Lambda",
+            "A daily manual download",
+            "A permanently open browser tab",
+            "A DNS record update"
+          ],
+          "explanation": "S3 event notifications can invoke Lambda for object events. Handlers should tolerate retries and duplicate events."
+        },
+        {
+          "prompt": "What should a Lambda function use to call an AWS API with temporary permissions?",
+          "choices": [
+            "Its execution role",
+            "An access key embedded in source code",
+            "A shared root password",
+            "A public bucket policy for every API"
+          ],
+          "explanation": "Lambda assumes its execution role to obtain temporary credentials. Grant that role only the permissions the function requires."
+        },
+        {
+          "prompt": "Why should a consumer of retried events be idempotent?",
+          "choices": [
+            "The same event may be delivered more than once",
+            "Every event is guaranteed to arrive exactly once",
+            "Retries always change the event meaning",
+            "Idempotency disables authorization"
+          ],
+          "explanation": "An idempotent handler avoids duplicate side effects when processing an event again, for example by tracking a stable event identifier."
+        }
+      ]
+    },
+    {
+      "topic": "aws-architect",
+      "examIds": [
+        "143"
+      ],
+      "source": "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html",
+      "questions": [
+        {
+          "prompt": "Which deployment improves resilience to a single Availability Zone failure?",
+          "choices": [
+            "Run application instances in multiple Availability Zones",
+            "Run every instance on one host",
+            "Store all copies on one local disk",
+            "Remove health checks"
+          ],
+          "explanation": "Availability Zones isolate many infrastructure failures. Distributing healthy instances across zones reduces dependence on one zone."
+        },
+        {
+          "prompt": "Which service provides managed object storage?",
+          "choices": [
+            "Amazon S3",
+            "Amazon EC2 only",
+            "Amazon Route 53 only",
+            "AWS IAM only"
+          ],
+          "explanation": "Amazon S3 stores objects in buckets. EC2 provides compute and Route 53 provides DNS services."
+        },
+        {
+          "prompt": "Which design helps a decoupled application absorb bursts of background work?",
+          "choices": [
+            "Place messages in Amazon SQS for workers",
+            "Require every producer to wait on one worker",
+            "Store the work only in browser memory",
+            "Disable all retries"
+          ],
+          "explanation": "A queue buffers pending work so producers and consumers can scale separately. Consumers still need retry and duplicate-handling logic."
+        }
+      ]
+    },
+    {
+      "topic": "azure",
+      "examIds": [
+        "169",
+        "170",
+        "172",
+        "187",
+        "198"
+      ],
+      "source": "https://learn.microsoft.com/en-us/azure/role-based-access-control/overview",
+      "questions": [
+        {
+          "prompt": "What determines the resources covered by an Azure role assignment?",
+          "choices": [
+            "The assignment scope",
+            "The portal language",
+            "The resource icon",
+            "The browser zoom"
+          ],
+          "explanation": "An Azure RBAC assignment combines a security principal, a role definition and a scope such as a subscription or resource group."
+        },
+        {
+          "prompt": "Which Azure service stores secrets, keys and certificates?",
+          "choices": [
+            "Azure Key Vault",
+            "Azure DNS",
+            "Azure Load Balancer",
+            "Azure Monitor Metrics only"
+          ],
+          "explanation": "Key Vault provides managed storage and access control for secrets, cryptographic keys and certificates."
+        },
+        {
+          "prompt": "What is the main benefit of placing resources in a resource group?",
+          "choices": [
+            "Managing related resources as a logical unit",
+            "Making every resource free",
+            "Removing all access controls",
+            "Guaranteeing every resource is in one region"
+          ],
+          "explanation": "A resource group groups related resources for lifecycle and access management. Its resources can be in different regions."
+        }
+      ]
+    },
+    {
+      "topic": "windows",
+      "examIds": [
+        "183",
+        "190",
+        "195"
+      ],
+      "source": "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview",
+      "questions": [
+        {
+          "prompt": "What is a main purpose of Active Directory Domain Services?",
+          "choices": [
+            "Centralized directory and domain identity management",
+            "Replacing all application code",
+            "Compressing every disk automatically",
+            "Providing public website rankings"
+          ],
+          "explanation": "AD DS maintains directory objects and supports centralized domain authentication and administration."
+        },
+        {
+          "prompt": "Which protocol commonly assigns IP configuration to clients automatically?",
+          "choices": [
+            "DHCP",
+            "SMTP",
+            "IMAP",
+            "FTP"
+          ],
+          "explanation": "DHCP leases IP configuration to clients. DNS resolves names, while SMTP transports email."
+        },
+        {
+          "prompt": "What is the purpose of a Group Policy Object?",
+          "choices": [
+            "Apply configuration policies to users and computers",
+            "Replace physical memory",
+            "Calculate disk rotation speed",
+            "Create public DNS zones only"
+          ],
+          "explanation": "Group Policy provides centralized configuration management for domain users and computers within its scope."
+        }
+      ]
+    },
+    {
+      "topic": "vmware",
+      "examIds": [
+        "194"
+      ],
+      "source": "https://www.vmware.com/topics/hypervisor",
+      "questions": [
+        {
+          "prompt": "What is the primary role of a hypervisor?",
+          "choices": [
+            "Run and isolate virtual machines on a host",
+            "Translate every DNS name",
+            "Replace application source code",
+            "Prevent all hardware failures"
+          ],
+          "explanation": "A hypervisor allocates host resources and provides isolation so multiple virtual machines can run on the same physical host."
+        },
+        {
+          "prompt": "What does live migration of a virtual machine aim to reduce?",
+          "choices": [
+            "Service interruption during a host move",
+            "The number of application users",
+            "The need for any storage",
+            "All network traffic forever"
+          ],
+          "explanation": "Live migration transfers a running VM between compatible hosts while minimizing interruption. Appropriate network and storage configuration is still needed."
+        },
+        {
+          "prompt": "Why is a VM snapshot not a replacement for a separate backup?",
+          "choices": [
+            "It can depend on the original VM storage",
+            "It always contains no data",
+            "It prevents every deletion",
+            "It is stored only in the CPU"
+          ],
+          "explanation": "Snapshots often depend on base disks and can share the same failure domain. An independent backup provides a separate recovery copy."
+        }
+      ]
+    },
+    {
+      "topic": "pmp",
+      "examIds": [
+        "185"
+      ],
+      "source": "https://www.pmi.org/certifications/project-management-pmp",
+      "questions": [
+        {
+          "prompt": "What should a project team do when a stakeholder requests a major scope change?",
+          "choices": [
+            "Evaluate impacts and use the agreed change process",
+            "Implement it without analysis",
+            "Delete the project baseline immediately",
+            "Ignore the stakeholder permanently"
+          ],
+          "explanation": "The team evaluates effects on scope, schedule, cost, risk and value, then follows the project's agreed governance process."
+        },
+        {
+          "prompt": "What is the main purpose of a risk register?",
+          "choices": [
+            "Record risks and planned responses",
+            "Record only completed invoices",
+            "Replace all stakeholder communication",
+            "Guarantee that no uncertainty exists"
+          ],
+          "explanation": "A risk register helps track identified risks, owners and responses so uncertainty can be actively managed."
+        },
+        {
+          "prompt": "In an adaptive project, why is stakeholder feedback reviewed frequently?",
+          "choices": [
+            "To adapt priorities and validate delivered value",
+            "To eliminate every planning activity",
+            "To stop all releases",
+            "To guarantee that scope never changes"
+          ],
+          "explanation": "Frequent feedback helps the team test assumptions and adjust the backlog toward the outcomes stakeholders need."
+        }
+      ]
+    },
+    {
+      "topic": "itil",
+      "examIds": [
+        "196"
+      ],
+      "source": "https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1",
+      "questions": [
+        {
+          "prompt": "What is the main goal of incident management?",
+          "choices": [
+            "Restore normal service as quickly as practical",
+            "Find every root cause before restoring service",
+            "Approve every purchase",
+            "Replace all monitoring"
+          ],
+          "explanation": "Incident management focuses on restoring service. Problem management focuses on causes and reducing recurrence."
+        },
+        {
+          "prompt": "What does a service level agreement describe?",
+          "choices": [
+            "Agreed service targets between provider and customer",
+            "Only the provider's office location",
+            "Only the server brand",
+            "A guarantee that failures are impossible"
+          ],
+          "explanation": "An SLA documents agreed service expectations and targets, allowing service performance to be assessed consistently."
+        },
+        {
+          "prompt": "What is the purpose of continual improvement?",
+          "choices": [
+            "Improve services and practices using feedback and measurement",
+            "Freeze every process forever",
+            "Remove customer feedback",
+            "Change systems without objectives"
+          ],
+          "explanation": "Continual improvement connects objectives, observations, actions and measurement to improve outcomes over time."
+        }
+      ]
+    },
+    {
+      "topic": "mechanical",
+      "examIds": [
+        "40",
+        "85",
+        "145",
+        "206",
+        "219",
+        "226"
+      ],
+      "source": "https://openstax.org/books/college-physics-2e/pages/9-1-the-first-condition-for-equilibrium",
+      "questions": [
+        {
+          "prompt": "힘 200 N이 축에서 수직 거리 0.3 m인 점에 작용할 때 토크는?",
+          "choices": [
+            "60 N·m",
+            "600 N·m",
+            "200.3 N·m",
+            "0.0015 N·m"
+          ],
+          "explanation": "토크는 힘과 힘의 작용선까지의 수직 거리의 곱이다. 200×0.3=60 N·m이다."
+        },
+        {
+          "prompt": "원통형 공작물을 회전시키면서 바깥지름을 깎는 대표적인 공작기계는?",
+          "choices": [
+            "선반",
+            "평면 연삭기만",
+            "드릴 프레스만",
+            "절곡기"
+          ],
+          "explanation": "선반은 공작물을 회전시키고 공구를 이송하여 원통면과 단면 등을 가공한다."
+        },
+        {
+          "prompt": "끼워맞춤에서 축의 최대치수가 구멍의 최소치수보다 작으면?",
+          "choices": [
+            "항상 틈새가 생긴다",
+            "항상 억지 끼움이 된다",
+            "측정이 불가능하다",
+            "온도와 무관하게 용접된다"
+          ],
+          "explanation": "가장 큰 축도 가장 작은 구멍보다 작으므로 모든 허용치수 조합에서 틈새가 남는다."
+        }
+      ]
+    },
+    {
+      "topic": "cad",
+      "examIds": [
+        "66",
+        "69"
+      ],
+      "source": "https://www.q-net.or.kr/cst006.do?id=cst00601&code=1202",
+      "questions": [
+        {
+          "prompt": "제도에서 숨은 모서리를 나타내는 데 일반적으로 쓰는 선은?",
+          "choices": [
+            "파선",
+            "굵은 실선만",
+            "치수선",
+            "해칭선"
+          ],
+          "explanation": "파선은 보이지 않는 모서리와 윤곽을 나타내며, 외형선은 일반적으로 굵은 실선으로 표시한다."
+        },
+        {
+          "prompt": "도면 축척이 1:5일 때 실제 길이 100 mm는 도면에서 얼마인가?",
+          "choices": [
+            "20 mm",
+            "500 mm",
+            "100 mm",
+            "5 mm"
+          ],
+          "explanation": "축척 1:5는 실제 크기의 5분의 1로 그린다는 뜻이므로 100/5=20 mm이다."
+        },
+        {
+          "prompt": "CAD 도면에서 레이어를 나누는 주된 목적은?",
+          "choices": [
+            "객체 종류별 표시와 편집 속성을 관리한다",
+            "모든 치수를 삭제한다",
+            "도면을 자동으로 법적 승인한다",
+            "파일 형식을 항상 사진으로 바꾼다"
+          ],
+          "explanation": "레이어는 외형선, 치수, 문자 등의 가시성, 선종류, 색 등을 분리하여 관리하게 한다."
+        }
+      ]
+    },
+    {
+      "topic": "maintenance",
+      "examIds": [
+        "150",
+        "184",
+        "227"
+      ],
+      "source": "https://www.osha.gov/control-hazardous-energy",
+      "questions": [
+        {
+          "prompt": "설비 정비 전에 에너지원을 차단하고 재가동을 방지하는 절차는?",
+          "choices": [
+            "잠금 및 표지 절차",
+            "단순 도색",
+            "표면 연마만",
+            "부품의 일괄 교환만"
+          ],
+          "explanation": "잠금 및 표지 절차는 정비 중 예기치 않은 가동이나 저장 에너지 방출로 인한 사고를 예방한다."
+        },
+        {
+          "prompt": "회전체 설비의 상태 기반 보전에 유용한 측정값은?",
+          "choices": [
+            "진동 추세",
+            "외장 색상만",
+            "작업복 색상만",
+            "제조사 로고 크기"
+          ],
+          "explanation": "진동, 온도, 윤활 상태 등의 추세는 이상 징후를 조기에 찾아 정비 시점을 판단하는 데 쓰인다."
+        },
+        {
+          "prompt": "윤활유의 주된 역할에 해당하는 것은?",
+          "choices": [
+            "마찰과 마모를 줄인다",
+            "모든 베어링 간극을 없앤다",
+            "회전 방향을 항상 역전한다",
+            "금속 부품을 반드시 녹인다"
+          ],
+          "explanation": "적절한 윤활막은 접촉면 사이의 마찰과 마모를 줄이고 열과 오염물을 운반하는 데 도움을 준다."
+        }
+      ]
+    },
+    {
+      "topic": "automation",
+      "examIds": [
+        "157",
+        "207",
+        "210"
+      ],
+      "source": "https://www.q-net.or.kr/cst006.do?id=cst00601&code=1202",
+      "questions": [
+        {
+          "prompt": "PLC의 일반적인 반복 처리 순서는?",
+          "choices": [
+            "입력 읽기 → 프로그램 실행 → 출력 갱신",
+            "출력 삭제 → 전원 차단 → 재부팅",
+            "프로그램 삭제 → 입력 차단",
+            "항상 수동 조작만 수행"
+          ],
+          "explanation": "PLC는 입력 상태를 읽고 논리를 실행한 뒤 출력을 갱신하는 스캔을 반복한다."
+        },
+        {
+          "prompt": "공압 실린더가 주로 사용하는 작동 매체는?",
+          "choices": [
+            "압축 공기",
+            "전기 절연유만",
+            "액체 질소만",
+            "증류수만"
+          ],
+          "explanation": "공압 시스템은 압축 공기의 에너지를 사용한다. 유압 시스템은 주로 압력 유체를 사용한다."
+        },
+        {
+          "prompt": "유압 실린더의 유효 면적이 0.01 m²이고 압력이 2 MPa일 때 이론적인 힘은?",
+          "choices": [
+            "20000 N",
+            "200 N",
+            "20 N",
+            "0.02 N"
+          ],
+          "explanation": "F=pA이므로 2000000×0.01=20000 N이다. 실제 출력은 마찰 등의 손실로 감소할 수 있다."
+        }
+      ]
+    },
+    {
+      "topic": "safety",
+      "examIds": [
+        "28",
+        "52",
+        "74",
+        "173"
+      ],
+      "source": "https://www.osha.gov/safety-management/hazard-prevention",
+      "questions": [
+        {
+          "prompt": "위험성 감소 대책의 우선순위가 가장 높은 것은?",
+          "choices": [
+            "위험요인의 제거",
+            "주의 표지 부착만",
+            "보호구 착용만",
+            "사고 후 기록만"
+          ],
+          "explanation": "위험요인을 제거할 수 있다면 작업자의 주의나 보호구에만 의존하는 대책보다 우선한다."
+        },
+        {
+          "prompt": "회전 기계의 동력 전달부에 방호덮개를 설치하는 주된 목적은?",
+          "choices": [
+            "접촉과 말림 위험을 줄인다",
+            "기계 속도를 무한히 높인다",
+            "윤활을 영구적으로 없앤다",
+            "점검 기록을 대체한다"
+          ],
+          "explanation": "방호덮개는 작업자가 위험한 회전체나 끼임점에 접근하는 것을 제한한다."
+        },
+        {
+          "prompt": "작업 전 위험성 평가에서 위험도를 판단하는 기본 요소는?",
+          "choices": [
+            "발생 가능성과 피해의 중대성",
+            "작업복 가격과 색상",
+            "문서의 쪽수만",
+            "작업장 이름의 길이"
+          ],
+          "explanation": "위험도는 일반적으로 사고가 발생할 가능성과 결과의 심각성을 함께 고려하여 평가한다."
+        }
+      ]
+    },
+    {
+      "topic": "hygiene",
+      "examIds": [
+        "93",
+        "199",
+        "230"
+      ],
+      "source": "https://www.osha.gov/ergonomics",
+      "questions": [
+        {
+          "prompt": "작업 자세의 인체공학적 개선에 해당하는 것은?",
+          "choices": [
+            "작업 높이를 조절하여 불필요한 굽힘을 줄인다",
+            "몸을 더 비틀도록 배치한다",
+            "모든 휴식을 없앤다",
+            "무조건 작업 속도만 높인다"
+          ],
+          "explanation": "작업물과 도구의 위치를 조절하면 부자연스러운 자세와 반복적인 부담을 줄일 수 있다."
+        },
+        {
+          "prompt": "유해 분진을 발생 지점 가까이에서 포집하는 대책은?",
+          "choices": [
+            "국소배기",
+            "실내 방향제 분사",
+            "작업복 색상 변경",
+            "출입문 잠금만"
+          ],
+          "explanation": "국소배기는 오염원이 작업자의 호흡 영역으로 퍼지기 전에 오염물질을 포집한다."
+        },
+        {
+          "prompt": "소음 노출 평가에서 시간과 함께 고려해야 하는 값은?",
+          "choices": [
+            "소음의 강도",
+            "벽의 색",
+            "신발의 길이",
+            "작업자 이름"
+          ],
+          "explanation": "소음으로 인한 위험은 소리의 크기뿐 아니라 노출 시간에도 영향을 받는다."
+        }
+      ]
+    },
+    {
+      "topic": "hazardous",
+      "examIds": [
+        "37",
+        "44",
+        "124",
+        "224"
+      ],
+      "source": "https://www.osha.gov/hazcom",
+      "questions": [
+        {
+          "prompt": "안전보건자료(SDS)를 확인하는 주된 목적은?",
+          "choices": [
+            "물질의 유해성 및 안전 취급 정보를 파악한다",
+            "제품의 광고 효과를 측정한다",
+            "작업자 임금을 결정한다",
+            "모든 물질을 같은 방법으로 보관한다"
+          ],
+          "explanation": "SDS에는 유해성, 취급·보관, 응급조치와 사고 대응 등의 정보가 포함된다."
+        },
+        {
+          "prompt": "연소의 기본 3요소에 해당하지 않는 것은?",
+          "choices": [
+            "소음",
+            "가연물",
+            "산소 공급원",
+            "점화 에너지"
+          ],
+          "explanation": "연소의 기본 요소는 가연물, 산소 공급원과 점화 에너지이다. 소음은 이 세 요소에 포함되지 않는다."
+        },
+        {
+          "prompt": "서로 반응할 수 있는 화학물질의 보관 원칙은?",
+          "choices": [
+            "혼촉 위험에 따라 분리 보관한다",
+            "용기 색이 같으면 섞어 보관한다",
+            "라벨을 모두 제거한다",
+            "점화원 옆에 한꺼번에 쌓는다"
+          ],
+          "explanation": "화학적으로 부적합한 물질은 위험한 반응을 일으킬 수 있으므로 SDS와 적합성 정보를 바탕으로 분리한다."
+        }
+      ]
+    },
+    {
+      "topic": "fire",
+      "examIds": [
+        "31",
+        "33"
+      ],
+      "source": "https://www.usfa.fema.gov/prevention/home-fires/prepare-for-fire/smoke-alarms/",
+      "questions": [
+        {
+          "prompt": "자동화재탐지설비에서 감지기의 주된 기능은?",
+          "choices": [
+            "화재 현상을 감지하여 신호를 전달한다",
+            "모든 화재를 직접 소화한다",
+            "배관의 물을 가열한다",
+            "피난문을 영구 폐쇄한다"
+          ],
+          "explanation": "감지기는 열이나 연기 등의 화재 현상을 감지하고 수신기 등에 신호를 전달한다."
+        },
+        {
+          "prompt": "옥내소화전 설비의 배관 내 마찰손실에 영향을 주는 요소는?",
+          "choices": [
+            "유량과 배관의 길이 및 지름",
+            "건물 이름만",
+            "배관 도색의 글자 크기",
+            "소화전 표지의 언어만"
+          ],
+          "explanation": "배관 마찰손실은 유량, 길이, 내경, 거칠기 등에 영향을 받으며 적절한 공급 압력 계산이 필요하다."
+        },
+        {
+          "prompt": "전기 화재 위험을 줄이기 위한 관리 방법은?",
+          "choices": [
+            "손상된 배선과 과부하를 점검한다",
+            "차단기를 임의로 우회한다",
+            "접속부를 느슨하게 둔다",
+            "정격을 초과하여 기기를 연결한다"
+          ],
+          "explanation": "배선 손상, 접속 불량과 과부하는 발열과 화재 원인이 되므로 점검과 적정 용량 관리가 필요하다."
+        }
+      ]
+    },
+    {
+      "topic": "gas",
+      "examIds": [
+        "84",
+        "102",
+        "107"
+      ],
+      "source": "https://www.osha.gov/compressed-gas",
+      "questions": [
+        {
+          "prompt": "고압가스 용기를 운반·보관할 때 적절한 조치는?",
+          "choices": [
+            "넘어지지 않도록 고정하고 열원에서 보호한다",
+            "밸브를 잡고 끌어 운반한다",
+            "직사광선과 열원 바로 옆에 둔다",
+            "내용물 표시를 지운다"
+          ],
+          "explanation": "용기 전도나 밸브 손상 및 과열은 위험을 유발하므로 고정, 보호와 식별이 중요하다."
+        },
+        {
+          "prompt": "이상기체의 온도를 일정하게 유지하며 부피를 절반으로 줄이면 압력은?",
+          "choices": [
+            "2배",
+            "절반",
+            "4분의 1",
+            "변하지 않는다"
+          ],
+          "explanation": "일정한 양의 이상기체에서 온도가 일정하면 압력과 부피의 곱이 일정하다."
+        },
+        {
+          "prompt": "가스 누출 여부를 확인하는 방법으로 적절한 것은?",
+          "choices": [
+            "적합한 누출 검지기나 지정된 검지액을 사용한다",
+            "라이터 불꽃으로 확인한다",
+            "맨손으로 용기를 가열한다",
+            "표시를 지우고 기다린다"
+          ],
+          "explanation": "불꽃은 점화 위험이 있다. 가스의 특성에 적합한 검지 장비와 절차를 사용해야 한다."
+        }
+      ]
+    },
+    {
+      "topic": "refrigeration",
+      "examIds": [
+        "56",
+        "104",
+        "141"
+      ],
+      "source": "https://openstax.org/books/college-physics-2e/pages/15-5-applications-of-thermodynamics-heat-pumps-and-refrigerators",
+      "questions": [
+        {
+          "prompt": "증기압축식 냉동 사이클에서 냉매가 주위로부터 열을 흡수하는 장치는?",
+          "choices": [
+            "증발기",
+            "응축기",
+            "압축기 케이싱만",
+            "수액기만"
+          ],
+          "explanation": "증발기에서는 저압 냉매가 증발하면서 냉각 대상의 열을 흡수한다."
+        },
+        {
+          "prompt": "냉동기 성적계수(COP)를 나타내는 식은?",
+          "choices": [
+            "냉동 효과 / 투입 일",
+            "투입 일 / 냉동 효과",
+            "응축 압력 / 배관 길이",
+            "전압 / 냉매 질량"
+          ],
+          "explanation": "냉동기의 COP는 유용하게 얻는 냉동 효과를 필요한 일 또는 에너지 투입으로 나눈 값이다."
+        },
+        {
+          "prompt": "팽창밸브의 주요 역할은?",
+          "choices": [
+            "냉매의 압력을 낮추고 유량을 조절한다",
+            "냉매 압력을 압축기로 높인다",
+            "모든 냉매를 고체로 만든다",
+            "응축기 팬의 전원을 생성한다"
+          ],
+          "explanation": "팽창 장치는 고압 액체 냉매를 저압 측으로 보내며 증발기에 공급되는 냉매를 조절한다."
+        }
+      ]
+    },
+    {
+      "topic": "energy",
+      "examIds": [
+        "79",
+        "99",
+        "218"
+      ],
+      "source": "https://openstax.org/books/college-physics-2e/pages/15-1-the-first-law-of-thermodynamics",
+      "questions": [
+        {
+          "prompt": "연료의 투입 열량이 1000 kJ이고 유효 열량이 800 kJ이면 효율은?",
+          "choices": [
+            "80%",
+            "20%",
+            "125%",
+            "8%"
+          ],
+          "explanation": "효율은 유효 출력과 투입 에너지의 비에 100을 곱한 값이다. 800/1000×100=80%이다."
+        },
+        {
+          "prompt": "보일러 급수의 용존 산소를 줄이는 주된 이유는?",
+          "choices": [
+            "부식을 억제하기 위해",
+            "증기 온도를 무조건 낮추기 위해",
+            "모든 열손실을 0으로 만들기 위해",
+            "연료 성분을 바꾸기 위해"
+          ],
+          "explanation": "급수의 용존 산소는 금속 부식을 촉진할 수 있으므로 탈기와 적절한 수처리가 중요하다."
+        },
+        {
+          "prompt": "배기가스의 폐열을 회수하여 급수를 예열하는 장치는?",
+          "choices": [
+            "절탄기",
+            "압력계",
+            "안전밸브",
+            "차단기"
+          ],
+          "explanation": "절탄기는 배기가스에 남은 열을 급수에 전달하여 연료 사용량을 줄이는 데 활용된다."
+        }
+      ]
+    },
+    {
+      "topic": "welding",
+      "examIds": [
+        "62",
+        "202"
+      ],
+      "source": "https://www.osha.gov/welding-cutting-brazing",
+      "questions": [
+        {
+          "prompt": "아크 용접에서 적절한 차광면을 사용하는 주요 이유는?",
+          "choices": [
+            "유해 광선과 비산물로부터 눈과 얼굴을 보호한다",
+            "용접 전류를 자동으로 낮춘다",
+            "용접부 치수를 자동 보증한다",
+            "모재의 종류를 바꾼다"
+          ],
+          "explanation": "용접 아크는 강한 광선과 열을 발생시키므로 작업에 맞는 차광과 보호 장비가 필요하다."
+        },
+        {
+          "prompt": "TIG 용접에서 주로 사용하는 비소모성 전극 재료는?",
+          "choices": [
+            "텅스텐",
+            "납",
+            "아연",
+            "목재"
+          ],
+          "explanation": "TIG는 텅스텐 전극과 불활성 보호 가스를 사용하는 용접 방식이며 필요에 따라 용가재를 별도로 공급한다."
+        },
+        {
+          "prompt": "용접부의 기공 발생을 줄이기 위한 조치는?",
+          "choices": [
+            "모재의 오염을 제거하고 보호 가스 상태를 확인한다",
+            "기름을 충분히 바른다",
+            "보호 가스를 무조건 차단한다",
+            "젖은 용접봉을 사용한다"
+          ],
+          "explanation": "수분, 기름과 불충분한 차폐는 기공의 원인이 될 수 있으므로 청결과 적정한 보호 조건이 중요하다."
+        }
+      ]
+    },
+    {
+      "topic": "vehicles",
+      "examIds": [
+        "64",
+        "149",
+        "221"
+      ],
+      "source": "https://www.nhtsa.gov/equipment/tires",
+      "questions": [
+        {
+          "prompt": "자동차 타이어 공기압은 어떤 기준으로 점검하는 것이 적절한가?",
+          "choices": [
+            "차량 제작사의 권장 냉간 공기압",
+            "타이어 측면 최대 압력만",
+            "옆 차량의 공기압",
+            "외관으로 보이는 눌림만"
+          ],
+          "explanation": "권장 공기압은 차량 표지와 설명서에서 확인한다. 타이어 측면의 최대 압력은 차량 권장치와 다를 수 있다."
+        },
+        {
+          "prompt": "내연기관 냉각장치에서 서모스탯의 주요 역할은?",
+          "choices": [
+            "냉각수 흐름을 조절하여 적정 온도를 유지한다",
+            "연료를 직접 분사한다",
+            "타이어의 압력을 높인다",
+            "배터리를 직접 충전한다"
+          ],
+          "explanation": "서모스탯은 온도에 따라 냉각수의 순환 경로와 유량을 조절하여 정상 작동 온도 유지에 도움을 준다."
+        },
+        {
+          "prompt": "유압식 브레이크 작동의 기본 원리는?",
+          "choices": [
+            "파스칼의 원리",
+            "광전 효과",
+            "도플러 효과",
+            "전자기 유도만"
+          ],
+          "explanation": "밀폐된 유체에 가한 압력이 전달되는 성질을 이용하여 페달의 힘을 브레이크 작동부로 전달한다."
+        }
+      ]
+    },
+    {
+      "topic": "lifting",
+      "examIds": [
+        "13",
+        "138"
+      ],
+      "source": "https://www.osha.gov/powered-industrial-trucks",
+      "questions": [
+        {
+          "prompt": "지게차 운행 시 적재물로 전방 시야가 가려지는 경우 적절한 조치는?",
+          "choices": [
+            "현장 절차에 따라 시야가 확보되는 방법과 유도자를 활용한다",
+            "무조건 속도를 높인다",
+            "적재물을 더 높이 든다",
+            "경적만 울리며 시야 없이 전진한다"
+          ],
+          "explanation": "이동 경로의 시야 확보가 우선이며 현장 절차에 따라 안전한 진행 방향과 유도 방법을 정해야 한다."
+        },
+        {
+          "prompt": "굴착기의 작업 반경 안에 사람이 들어오지 못하게 하는 주된 이유는?",
+          "choices": [
+            "선회체와 작업 장치에 의한 충돌을 예방한다",
+            "연료 색상을 유지한다",
+            "작업 소음을 없앤다",
+            "주행 속도를 높인다"
+          ],
+          "explanation": "굴착기 선회체와 붐·버킷은 넓은 범위로 움직이므로 출입 통제와 신호 체계가 필요하다."
+        },
+        {
+          "prompt": "하역 작업 전 지반 상태를 확인하는 주된 이유는?",
+          "choices": [
+            "침하와 전도 위험을 줄인다",
+            "화물의 색을 바꾸기 위해",
+            "적재물 무게를 없애기 위해",
+            "운전석 높이를 장식하기 위해"
+          ],
+          "explanation": "약한 지반이나 경사는 장비의 안정성을 저하시킬 수 있으므로 하중과 지지 조건을 확인해야 한다."
+        }
+      ]
+    },
+    {
+      "topic": "elevator",
+      "examIds": [
+        "103",
+        "188"
+      ],
+      "source": "https://www.osha.gov/control-hazardous-energy",
+      "questions": [
+        {
+          "prompt": "승강기 유지보수 중 예기치 않은 기동을 막기 위한 기본 조치는?",
+          "choices": [
+            "에너지 차단과 잠금 및 표지를 실시한다",
+            "문을 열어둔 채 운전한다",
+            "안전회로를 상시 우회한다",
+            "운전 속도만 낮춘다"
+          ],
+          "explanation": "정비 작업 중 전원과 저장 에너지로 인한 기동 위험을 통제해야 한다."
+        },
+        {
+          "prompt": "승강기의 도어 인터록 장치가 확인하는 상태는?",
+          "choices": [
+            "문이 안전하게 닫히고 잠긴 상태",
+            "조명 색상",
+            "카 바닥 무늬",
+            "건물 외벽 재질"
+          ],
+          "explanation": "도어 인터록은 문 상태와 잠금 상태를 안전회로와 연동하여 위험한 운행을 방지한다."
+        },
+        {
+          "prompt": "승강기 제동장치의 주된 역할은?",
+          "choices": [
+            "운행을 정지시키거나 정지 상태를 유지한다",
+            "카의 실내 온도를 낮춘다",
+            "승객 수를 자동으로 늘린다",
+            "도어 표시 언어를 바꾼다"
+          ],
+          "explanation": "제동장치는 정지와 유지에 필요한 힘을 제공하며 안전한 운행을 위해 점검해야 한다."
+        }
+      ]
+    },
+    {
+      "topic": "architecture",
+      "examIds": [
+        "8",
+        "136",
+        "144",
+        "151",
+        "212"
+      ],
+      "source": "https://www.q-net.or.kr/cst006.do?id=cst00601&code=1202",
+      "questions": [
+        {
+          "prompt": "철근콘크리트에서 철근이 주로 보완하는 콘크리트의 성질은?",
+          "choices": [
+            "낮은 인장강도",
+            "높은 비중",
+            "낮은 전기전도도",
+            "높은 열용량"
+          ],
+          "explanation": "콘크리트는 압축에 강하지만 인장에 상대적으로 약하므로 철근이 인장력을 분담한다."
+        },
+        {
+          "prompt": "건축물의 단열 성능을 높이는 설계는?",
+          "choices": [
+            "외피의 열교를 줄인다",
+            "단열재를 불연속으로 제거한다",
+            "외기에 틈을 더 만든다",
+            "기밀층을 항상 파괴한다"
+          ],
+          "explanation": "열교는 열이 집중해서 전달되는 부분이다. 단열의 연속성과 적절한 기밀 계획은 열손실 감소에 도움을 준다."
+        },
+        {
+          "prompt": "실내 동선 계획에서 우선 고려할 사항은?",
+          "choices": [
+            "사용 목적과 이동 흐름 및 접근성",
+            "가구 가격만",
+            "천장 색상만",
+            "창문 수만"
+          ],
+          "explanation": "사용자의 이동 패턴과 활동, 피난 및 접근 요구를 함께 고려해야 사용성이 좋은 공간을 구성할 수 있다."
+        }
+      ]
+    },
+    {
+      "topic": "building-services",
+      "examIds": [
+        "147",
+        "159"
+      ],
+      "source": "https://www.q-net.or.kr/cst006.do?id=cst00601&code=1202",
+      "questions": [
+        {
+          "prompt": "배수 트랩의 봉수가 수행하는 주된 기능은?",
+          "choices": [
+            "하수 가스가 실내로 들어오는 것을 막는다",
+            "급수 압력을 항상 높인다",
+            "배관을 자동으로 용접한다",
+            "냉방 용량을 늘린다"
+          ],
+          "explanation": "트랩 안의 물은 배수관에서 올라오는 악취와 가스의 통로를 차단한다."
+        },
+        {
+          "prompt": "배관의 열팽창을 고려해야 하는 이유는?",
+          "choices": [
+            "온도 변화에 따른 변형과 응력을 흡수하기 위해",
+            "모든 부식을 즉시 없애기 위해",
+            "유체의 밀도를 고정하기 위해",
+            "배관의 질량을 줄이기 위해"
+          ],
+          "explanation": "온도 변화로 배관 길이가 달라지므로 신축 장치, 지지와 고정점의 설계가 필요하다."
+        },
+        {
+          "prompt": "급수관의 역류 방지 장치를 설치하는 주된 목적은?",
+          "choices": [
+            "오염된 물이 상수 계통으로 되돌아가는 것을 막는다",
+            "물 사용량을 무조건 0으로 만든다",
+            "배수 트랩을 없앤다",
+            "배관 색을 자동으로 바꾼다"
+          ],
+          "explanation": "역류는 수질을 오염시킬 수 있으므로 용도와 위험에 맞는 역류 방지 대책을 사용한다."
+        }
+      ]
+    },
+    {
+      "topic": "surveying",
+      "examIds": [
+        "78",
+        "179",
+        "216",
+        "228"
+      ],
+      "source": "https://www.q-net.or.kr/cst006.do?id=cst00601&code=1202",
+      "questions": [
+        {
+          "prompt": "지도 축척이 1:1000일 때 지도에서 3 cm인 거리는 실제로 얼마인가?",
+          "choices": [
+            "30 m",
+            "3 m",
+            "300 m",
+            "0.3 m"
+          ],
+          "explanation": "3 cm에 축척 분모 1000을 곱하면 3000 cm이며, 이는 30 m이다."
+        },
+        {
+          "prompt": "수준측량에서 후시가 1.25 m, 전시가 0.85 m라면 전시점은 기준점보다?",
+          "choices": [
+            "0.40 m 높다",
+            "0.40 m 낮다",
+            "2.10 m 높다",
+            "높이가 같다"
+          ],
+          "explanation": "높이 차는 후시에서 전시를 뺀 값이다. 1.25-0.85=0.40 m이므로 전시점이 높다."
+        },
+        {
+          "prompt": "동일 지점을 반복 측정하여 평균을 내면 주로 줄일 수 있는 오차는?",
+          "choices": [
+            "우연오차의 영향",
+            "모든 계통오차",
+            "좌표계의 정의",
+            "기준점 이름의 차이"
+          ],
+          "explanation": "독립적인 우연오차는 반복 관측과 평균으로 영향을 줄일 수 있지만 계통오차는 별도 보정이 필요하다."
+        }
+      ]
+    },
+    {
+      "topic": "planning",
+      "examIds": [
+        "7",
+        "10"
+      ],
+      "source": "https://www.q-net.or.kr/cst006.do?id=cst00601&code=1202",
+      "questions": [
+        {
+          "prompt": "대중교통 중심의 도시 개발에서 일반적으로 지향하는 것은?",
+          "choices": [
+            "대중교통 접근성과 보행 연결성 향상",
+            "모든 보행로의 철거",
+            "역 주변의 무조건적 단일 용도화",
+            "모든 환승의 금지"
+          ],
+          "explanation": "대중교통 중심 개발은 역과 정류장 주변의 접근성, 보행 및 토지 이용의 연계를 중시한다."
+        },
+        {
+          "prompt": "교통량이 시간당 900대이고 평균 속도가 45 km/h인 균일 흐름의 밀도는?",
+          "choices": [
+            "20대/km",
+            "40500대/km",
+            "45대/km",
+            "0.05대/km"
+          ],
+          "explanation": "기본 관계 q=kv에 따라 k=q/v=900/45=20대/km이다."
+        },
+        {
+          "prompt": "도시계획에서 공원과 녹지의 역할로 적절한 것은?",
+          "choices": [
+            "휴식과 생태 연결 및 열환경 개선에 기여한다",
+            "모든 통행을 영구 금지한다",
+            "우수 침투를 반드시 차단한다",
+            "용도 간 완충 기능이 없다"
+          ],
+          "explanation": "공원과 녹지는 휴식 공간, 생태 연결, 완충 및 도시 열환경 조절 등의 기능을 수행할 수 있다."
+        }
+      ]
+    },
+    {
+      "topic": "water",
+      "examIds": [
+        "94",
+        "105",
+        "233"
+      ],
+      "source": "https://www.usgs.gov/special-topics/water-science-school/science/biochemical-oxygen-demand-bod-and-water",
+      "questions": [
+        {
+          "prompt": "BOD가 나타내는 의미로 적절한 것은?",
+          "choices": [
+            "미생물이 유기물을 분해할 때 소비하는 산소량",
+            "물속의 총 금속 질량",
+            "물의 전기저항만",
+            "물의 색상만"
+          ],
+          "explanation": "BOD는 정해진 조건에서 미생물에 의한 유기물 분해에 필요한 산소량으로 유기 오염의 지표로 활용된다."
+        },
+        {
+          "prompt": "pH가 7보다 작은 수용액의 일반적인 성질은?",
+          "choices": [
+            "산성",
+            "항상 강알칼리성",
+            "항상 중성",
+            "항상 불연성 고체"
+          ],
+          "explanation": "일반적인 수용액에서 pH 7 미만은 산성, 7 초과는 염기성으로 분류한다."
+        },
+        {
+          "prompt": "활성슬러지 공정의 폭기조에 공기를 공급하는 주된 목적은?",
+          "choices": [
+            "호기성 미생물에 산소를 공급한다",
+            "모든 미생물을 즉시 사멸시킨다",
+            "유기물을 금속으로 바꾼다",
+            "배관의 지름을 줄인다"
+          ],
+          "explanation": "호기성 미생물은 산소를 사용해 유기물을 분해한다. 폭기는 산소 전달과 혼합을 돕는다."
+        }
+      ]
+    },
+    {
+      "topic": "air-waste",
+      "examIds": [
+        "89",
+        "155"
+      ],
+      "source": "https://www.epa.gov/air-emissions-monitoring-knowledge-base/basic-information-about-air-emissions-monitoring",
+      "questions": [
+        {
+          "prompt": "집진 장치에서 여과 집진기의 기본 원리는?",
+          "choices": [
+            "여과재로 입자상 물질을 포집한다",
+            "산소를 모두 질소로 바꾼다",
+            "빛의 굴절만 이용한다",
+            "기체의 질량을 없앤다"
+          ],
+          "explanation": "여과 집진기는 섬유 등의 여과재를 통해 가스를 통과시키면서 분진을 걸러낸다."
+        },
+        {
+          "prompt": "폐기물 관리에서 발생 억제를 우선하는 이유는?",
+          "choices": [
+            "처리가 필요한 폐기물 자체를 줄일 수 있다",
+            "재활용을 반드시 금지하기 위해",
+            "처리 비용을 항상 늘리기 위해",
+            "모든 물질을 소각하기 위해"
+          ],
+          "explanation": "발생 단계에서 폐기물을 줄이면 수거, 운반과 처리에 필요한 자원 및 환경 부담을 줄일 수 있다."
+        },
+        {
+          "prompt": "연소 과정에서 일산화탄소가 증가하는 원인으로 적절한 것은?",
+          "choices": [
+            "불완전 연소",
+            "항상 완전 연소",
+            "산소와의 반응 완전 차단만",
+            "연료가 전혀 없는 상태"
+          ],
+          "explanation": "불충분한 산소 공급이나 혼합 불량 등으로 탄소가 완전히 산화되지 않으면 일산화탄소가 생길 수 있다."
+        }
+      ]
+    },
+    {
+      "topic": "chemistry",
+      "examIds": [
+        "58",
+        "98",
+        "186"
+      ],
+      "source": "https://openstax.org/books/chemistry-2e/pages/4-5-quantitative-chemical-analysis",
+      "questions": [
+        {
+          "prompt": "용액 2 L에 용질 0.5 mol이 녹아 있을 때 몰농도는?",
+          "choices": [
+            "0.25 mol/L",
+            "1 mol/L",
+            "4 mol/L",
+            "2.5 mol/L"
+          ],
+          "explanation": "몰농도는 용질의 몰수를 용액의 부피(L)로 나눈 값이므로 0.5/2=0.25 mol/L이다."
+        },
+        {
+          "prompt": "산과 염기가 반응하여 염과 물을 만드는 대표적인 반응은?",
+          "choices": [
+            "중화 반응",
+            "핵분열",
+            "승화",
+            "전기 분해만"
+          ],
+          "explanation": "전형적인 산-염기 중화에서 수소 이온과 수산화 이온은 물을 만들고 나머지 이온이 염을 구성한다."
+        },
+        {
+          "prompt": "적정 분석에서 공시험을 실시하는 주된 목적은?",
+          "choices": [
+            "시약과 절차에서 생기는 배경 소모량을 보정한다",
+            "시료 농도를 무조건 0으로 만든다",
+            "뷰렛 눈금을 지운다",
+            "모든 실험 오차를 자동 제거한다"
+          ],
+          "explanation": "공시험은 시료 성분 외의 요인으로 소비되는 적정액 등의 양을 파악하여 결과를 보정하는 데 쓰인다."
+        }
+      ]
+    },
+    {
+      "topic": "quality",
+      "examIds": [
+        "68",
+        "220"
+      ],
+      "source": "https://www.itl.nist.gov/div898/handbook/pmc/section3/pmc3.htm",
+      "questions": [
+        {
+          "prompt": "관리도에서 관리한계의 주된 목적은?",
+          "choices": [
+            "공정의 이상 변동 신호를 구분한다",
+            "모든 제품의 판매가를 정한다",
+            "고객 규격과 항상 동일한 값을 정한다",
+            "측정을 생략하게 한다"
+          ],
+          "explanation": "관리한계는 공정의 통계적 변동을 판단하는 기준이며 고객의 규격한계와 구분된다."
+        },
+        {
+          "prompt": "10, 12, 14의 산술평균은?",
+          "choices": [
+            "12",
+            "10",
+            "14",
+            "36"
+          ],
+          "explanation": "관측값의 합 36을 관측 개수 3으로 나누면 평균은 12이다."
+        },
+        {
+          "prompt": "파레토도를 활용하는 주된 목적은?",
+          "choices": [
+            "문제 유형의 빈도 등을 비교하여 개선 우선순위를 찾는다",
+            "시간에 따른 온도만 기록한다",
+            "모든 원인이 동일하다고 가정한다",
+            "측정 단위를 없앤다"
+          ],
+          "explanation": "파레토도는 유형별 빈도나 손실을 큰 순서로 보여주어 주요 문제에 개선 노력을 집중하도록 돕는다."
+        }
+      ]
+    },
+    {
+      "topic": "forestry",
+      "examIds": [
+        "82",
+        "123",
+        "135",
+        "176"
+      ],
+      "source": "https://www.fs.usda.gov/managing-land/silviculture",
+      "questions": [
+        {
+          "prompt": "어린 나무의 생육 공간을 확보하기 위해 경쟁 나무 일부를 제거하는 작업은?",
+          "choices": [
+            "솎아베기",
+            "접붙이기",
+            "종자 소독",
+            "완전 밀폐"
+          ],
+          "explanation": "솎아베기는 남길 나무의 빛, 수분과 양분 이용 여건을 개선하고 임분 구조를 조절한다."
+        },
+        {
+          "prompt": "조경 수목을 심은 후 적절한 관수 방법은?",
+          "choices": [
+            "뿌리 부근까지 물이 도달하도록 토양 상태에 맞춰 준다",
+            "잎 끝에만 항상 소량 뿌린다",
+            "배수와 무관하게 항상 침수시킨다",
+            "계절과 토양을 무시하고 중단한다"
+          ],
+          "explanation": "관수는 토양 수분과 배수, 수종 및 기상 조건을 고려하여 뿌리 영역에 충분히 공급해야 한다."
+        },
+        {
+          "prompt": "산림의 생태적 기능으로 적절한 것은?",
+          "choices": [
+            "토양 보호와 서식처 제공",
+            "모든 토양 침식의 촉진",
+            "수분 순환의 완전 중단",
+            "모든 생물의 제거"
+          ],
+          "explanation": "수관과 낙엽층 및 뿌리는 토양을 보호하고 산림은 다양한 생물의 서식 공간을 제공한다."
+        }
+      ]
+    },
+    {
+      "topic": "agriculture",
+      "examIds": [
+        "142",
+        "153",
+        "209",
+        "213",
+        "214"
+      ],
+      "source": "https://www.fao.org/agriculture/crops/thematic-sitemap/theme/pests/ipm/en/",
+      "questions": [
+        {
+          "prompt": "종자 발아의 기본 조건에 해당하지 않는 것은?",
+          "choices": [
+            "모든 종자에 반드시 고농도 비료를 준다",
+            "적절한 수분",
+            "적절한 온도",
+            "산소 공급"
+          ],
+          "explanation": "수분, 온도와 산소는 발아의 기본 조건이다. 광 조건이나 휴면 타파 요구는 종에 따라 다르다."
+        },
+        {
+          "prompt": "병해충 종합관리(IPM)의 기본 취지는?",
+          "choices": [
+            "관찰과 예방 및 여러 관리 수단을 종합한다",
+            "발생 여부와 무관하게 같은 약제를 계속 쓴다",
+            "천적을 모두 제거한다",
+            "토양 관리를 완전히 생략한다"
+          ],
+          "explanation": "IPM은 모니터링과 예방을 바탕으로 생물적, 재배적, 물리적 및 필요한 화학적 관리 수단을 통합한다."
+        },
+        {
+          "prompt": "버섯 배양 과정에서 배지와 기구의 위생을 관리하는 주된 이유는?",
+          "choices": [
+            "잡균의 오염과 경쟁을 줄인다",
+            "버섯을 식물의 잎으로 바꾼다",
+            "배지의 수분을 항상 0으로 만든다",
+            "균사의 생장을 반드시 막는다"
+          ],
+          "explanation": "목표 균의 안정적인 배양을 위해 오염 미생물의 유입과 증식을 억제하는 관리가 필요하다."
+        }
+      ]
+    },
+    {
+      "topic": "ecology",
+      "examIds": [
+        "229"
+      ],
+      "source": "https://www.epa.gov/wetlands",
+      "questions": [
+        {
+          "prompt": "생태 복원에서 지역의 자생종을 우선 고려하는 이유는?",
+          "choices": [
+            "지역 환경과 생태적 상호작용에 적응했을 가능성이 크다",
+            "항상 관리가 전혀 필요 없기 때문",
+            "모든 외래종이 반드시 독성이기 때문",
+            "종 다양성을 무조건 낮추기 위해"
+          ],
+          "explanation": "자생종은 지역 환경과 생물 관계에 맞는 복원을 계획하는 데 중요하지만 현장 조건과 관리도 함께 검토해야 한다."
+        },
+        {
+          "prompt": "서식지 사이를 연결하는 생태통로의 주된 목적은?",
+          "choices": [
+            "생물의 이동과 유전적 교류를 돕는다",
+            "도로 속도를 높인다",
+            "모든 사람의 출입을 유도한다",
+            "서식지를 더 잘게 분리한다"
+          ],
+          "explanation": "생태통로는 단절된 서식지 사이의 이동을 돕고 단절로 인한 영향을 줄이는 수단이다."
+        },
+        {
+          "prompt": "습지가 수행하는 생태계 기능에 해당하는 것은?",
+          "choices": [
+            "서식처 제공과 물의 저장 및 정화",
+            "모든 생물의 생육 차단",
+            "항상 지하수의 고갈",
+            "토양 유기물의 완전 제거"
+          ],
+          "explanation": "습지는 다양한 생물의 서식처이며 물의 저장, 흐름 완화와 오염물질 처리에 기여할 수 있다."
+        }
+      ]
+    },
+    {
+      "topic": "food",
+      "examIds": [
+        "14",
+        "106"
+      ],
+      "source": "https://www.fda.gov/food/buy-store-serve-safe-food/safe-food-handling",
+      "questions": [
+        {
+          "prompt": "생고기와 바로 먹는 채소를 손질할 때 적절한 방법은?",
+          "choices": [
+            "도마와 기구를 분리하거나 세척·소독 후 사용한다",
+            "같은 도마를 씻지 않고 계속 쓴다",
+            "생고기 육즙을 채소에 뿌린다",
+            "손질 순서와 위생은 관계가 없다"
+          ],
+          "explanation": "생고기의 미생물이 채소 등으로 옮겨가지 않도록 분리 취급과 적절한 세척·소독이 필요하다."
+        },
+        {
+          "prompt": "가열한 식품의 안전한 중심 온도를 확인하는 데 적절한 도구는?",
+          "choices": [
+            "식품용 온도계",
+            "눈으로 확인한 색만",
+            "주방 시계만",
+            "손잡이 길이"
+          ],
+          "explanation": "식품의 색이나 겉모습만으로 충분한 가열을 판단하기 어렵기 때문에 중심 온도를 측정한다."
+        },
+        {
+          "prompt": "조리 후 남은 많은 양의 음식을 빠르게 식히는 데 유리한 방법은?",
+          "choices": [
+            "얕은 용기에 나누어 담는다",
+            "깊은 대형 냄비에 밀집해 둔다",
+            "실온에서 밤새 둔다",
+            "온도 측정 없이 계속 보온을 끈다"
+          ],
+          "explanation": "음식을 작은 양과 얕은 깊이로 나누면 열이 빠져나가기 쉬워 빠른 냉각에 도움을 준다."
+        }
+      ]
+    },
+    {
+      "topic": "bread",
+      "examIds": [
+        "97",
+        "201"
+      ],
+      "source": "https://www.q-net.or.kr/cst006.do?id=cst00601&code=1202",
+      "questions": [
+        {
+          "prompt": "제빵에서 효모 발효로 생성되어 반죽을 부풀리는 주된 기체는?",
+          "choices": [
+            "이산화탄소",
+            "산소",
+            "염소",
+            "헬륨"
+          ],
+          "explanation": "효모는 당을 이용하여 발효하면서 이산화탄소를 만들고 반죽 구조가 그 기체를 보유하여 부피가 늘어난다."
+        },
+        {
+          "prompt": "밀가루 반죽에서 글루텐 형성과 관련이 큰 단백질은?",
+          "choices": [
+            "글리아딘과 글루테닌",
+            "카제인과 알부민만",
+            "콜라겐과 엘라스틴만",
+            "케라틴과 멜라닌"
+          ],
+          "explanation": "밀가루에 물을 넣고 반죽하면 글리아딘과 글루테닌이 글루텐 망을 형성하여 점성과 탄성에 기여한다."
+        },
+        {
+          "prompt": "계량 정확도가 제과·제빵에서 중요한 이유는?",
+          "choices": [
+            "재료 비율이 제품의 조직과 품질에 영향을 주기 때문",
+            "모든 재료가 같은 성질이기 때문",
+            "오븐 온도와 전혀 관계없기 때문",
+            "발효 시간만으로 모든 결과가 같아지기 때문"
+          ],
+          "explanation": "수분, 당, 지방과 팽창제 등의 배합 비율은 반죽과 최종 제품의 구조, 맛 및 품질을 좌우한다."
+        }
+      ]
+    },
+    {
+      "topic": "beauty",
+      "examIds": [
+        "25",
+        "51",
+        "55",
+        "73"
+      ],
+      "source": "https://www.cdc.gov/clean-hands/about/index.html",
+      "questions": [
+        {
+          "prompt": "여러 고객에게 사용하는 도구를 관리하는 적절한 방법은?",
+          "choices": [
+            "용도와 재질에 맞게 세척하고 적절히 소독한다",
+            "겉만 마른 수건으로 닦는다",
+            "한 달에 한 번만 확인한다",
+            "오염 상태와 무관하게 함께 보관한다"
+          ],
+          "explanation": "오염물을 제거하는 세척과 적합한 소독 절차를 통해 교차오염 위험을 줄여야 한다."
+        },
+        {
+          "prompt": "미용 작업 전 손 위생을 실시하는 주된 목적은?",
+          "choices": [
+            "고객과 작업자 사이의 미생물 전파를 줄인다",
+            "모든 피부 질환을 직접 진단한다",
+            "도구 세척을 영구적으로 대체한다",
+            "화장품의 색상을 바꾼다"
+          ],
+          "explanation": "손은 미생물을 옮기는 통로가 될 수 있으므로 작업 전후의 적절한 손 위생이 중요하다."
+        },
+        {
+          "prompt": "화장품 사용 전에 고객의 알레르기 경험을 확인하는 이유는?",
+          "choices": [
+            "성분에 대한 이상 반응 위험을 파악하기 위해",
+            "모든 제품을 동일하게 사용하기 위해",
+            "제품 표시를 읽지 않기 위해",
+            "상담 기록을 없애기 위해"
+          ],
+          "explanation": "고객의 과거 반응과 제품 성분 및 사용 지침을 확인하여 부적절한 제품 사용을 피하도록 한다."
+        }
+      ]
+    },
+    {
+      "topic": "nursing",
+      "examIds": [
+        "108"
+      ],
+      "source": "https://www.cdc.gov/hand-hygiene/hcp/core/index.html",
+      "questions": [
+        {
+          "prompt": "환자 접촉 전후에 손 위생을 실시하는 주된 목적은?",
+          "choices": [
+            "미생물의 교차 전파를 줄인다",
+            "장갑의 재사용을 늘린다",
+            "모든 투약 오류를 자동 방지한다",
+            "환자의 체온을 낮춘다"
+          ],
+          "explanation": "손 위생은 의료 관련 감염 예방의 기본이다. 장갑 사용도 필요한 손 위생을 대체하지 않는다."
+        },
+        {
+          "prompt": "사용한 일회용 장갑을 벗은 후 적절한 행동은?",
+          "choices": [
+            "손 위생을 실시한다",
+            "같은 장갑을 다른 환자에게 재사용한다",
+            "장갑을 주머니에 보관한다",
+            "손 위생을 항상 생략한다"
+          ],
+          "explanation": "장갑을 벗는 과정에서도 손이 오염될 수 있으므로 장갑 제거 후 손 위생이 필요하다."
+        },
+        {
+          "prompt": "혈액이나 체액에 오염된 기구를 다룰 때의 기본 원칙은?",
+          "choices": [
+            "표준주의와 기관의 처리 절차를 따른다",
+            "외관상 깨끗하면 맨손으로 다룬다",
+            "일반 식기와 섞어서 보관한다",
+            "오염 사실을 기록하지 않는다"
+          ],
+          "explanation": "오염된 기구는 노출 위험에 맞는 보호구를 사용하고 기관의 세척·소독 및 폐기 절차로 다룬다."
+        }
+      ]
+    },
+    {
+      "topic": "psychology",
+      "examIds": [
+        "109",
+        "134"
+      ],
+      "source": "https://openstax.org/books/psychology-2e/pages/2-2-approaches-to-research",
+      "questions": [
+        {
+          "prompt": "심리검사의 신뢰도가 주로 의미하는 것은?",
+          "choices": [
+            "측정 결과의 일관성",
+            "측정 목적과의 적합성만",
+            "점수의 절대적 높이",
+            "모든 대상의 점수가 동일함"
+          ],
+          "explanation": "신뢰도는 반복 측정이나 문항 간 일관성과 관련된다. 측정하려는 개념을 얼마나 잘 측정하는지는 타당도이다."
+        },
+        {
+          "prompt": "고전적 조건형성에서 원래 반응을 일으키지 않던 자극이 반응을 유발하게 되는 과정은?",
+          "choices": [
+            "자극 간 연합의 학습",
+            "염색체 수의 증가",
+            "무조건적인 기억 상실",
+            "논리적 연역만"
+          ],
+          "explanation": "중립 자극을 무조건 자극과 연합하면 중립 자극이 조건 자극이 되어 조건 반응을 유발할 수 있다."
+        },
+        {
+          "prompt": "상담자가 내담자의 감정을 이해하고 그 이해를 전달하는 태도는?",
+          "choices": [
+            "공감적 이해",
+            "성급한 평가",
+            "강압적 지시",
+            "일방적인 비난"
+          ],
+          "explanation": "공감적 이해는 내담자의 관점에서 경험을 이해하고 이를 전달하여 상담 관계를 형성하는 데 도움을 준다."
+        }
+      ]
+    },
+    {
+      "topic": "social-basic",
+      "examIds": [
+        "111"
+      ],
+      "source": "https://openstax.org/books/psychology-2e/pages/9-introduction",
+      "questions": [
+        {
+          "prompt": "인간 발달을 이해하는 생태체계적 관점은 무엇을 강조하는가?",
+          "choices": [
+            "개인과 환경 체계 사이의 상호작용",
+            "개인에게만 모든 원인이 있음",
+            "사회적 관계가 발달에 영향 없음",
+            "발달이 성인기 전에 완전히 중단됨"
+          ],
+          "explanation": "생태체계 관점은 가족, 지역사회와 사회 구조 등 여러 수준의 환경과 개인의 상호작용을 고려한다."
+        },
+        {
+          "prompt": "사회조사에서 표본을 사용하는 주된 이유는?",
+          "choices": [
+            "자원 제약 안에서 모집단의 특성을 추정하기 위해",
+            "항상 모든 오차를 없애기 위해",
+            "모집단 정의를 생략하기 위해",
+            "조사 결과를 반드시 동일하게 만들기 위해"
+          ],
+          "explanation": "표본조사는 시간과 비용을 줄일 수 있지만 표집 방법과 표본오차 등을 고려해야 한다."
+        },
+        {
+          "prompt": "연구 참여자에게 목적과 절차를 설명하고 자발적 참여를 확인하는 과정은?",
+          "choices": [
+            "충분한 설명에 근거한 동의",
+            "무조건적인 강제 배정",
+            "결과의 사전 조작",
+            "비밀보장의 포기 강요"
+          ],
+          "explanation": "연구 윤리는 참여자의 이해와 자발적 선택을 중요하게 다루며 필요한 정보를 제공해야 한다."
+        }
+      ]
+    },
+    {
+      "topic": "social-practice",
+      "examIds": [
+        "113"
+      ],
+      "source": "https://www.ifsw.org/what-is-social-work/global-definition-of-social-work/",
+      "questions": [
+        {
+          "prompt": "사회복지 실천에서 클라이언트의 강점에 주목하는 이유는?",
+          "choices": [
+            "보유한 자원과 역량을 문제 해결에 활용하기 위해",
+            "모든 위험을 무시하기 위해",
+            "지원 필요성을 반드시 부정하기 위해",
+            "전문가가 모든 선택을 대신하기 위해"
+          ],
+          "explanation": "강점 관점은 개인과 환경의 자원 및 가능성을 확인하여 변화 과정에 활용한다."
+        },
+        {
+          "prompt": "사례관리에서 여러 기관의 서비스를 조정하는 목적은?",
+          "choices": [
+            "복합적인 욕구에 연속적이고 통합적으로 대응하기 위해",
+            "서비스 중복을 무조건 늘리기 위해",
+            "모든 기관의 역할을 없애기 위해",
+            "대상자의 의견을 배제하기 위해"
+          ],
+          "explanation": "사례관리는 욕구 사정, 자원 연계와 점검을 통해 서비스의 연속성과 통합성을 높인다."
+        },
+        {
+          "prompt": "클라이언트와 목표를 설정할 때 적절한 방식은?",
+          "choices": [
+            "상호 협의하여 구체적이고 평가 가능한 목표를 정한다",
+            "전문가가 설명 없이 강제한다",
+            "변화 여부를 확인할 수 없게 정한다",
+            "대상자의 상황을 고려하지 않는다"
+          ],
+          "explanation": "구체적인 공동 목표는 실천 방향을 공유하고 개입의 성과를 확인하는 기준이 된다."
+        }
+      ]
+    },
+    {
+      "topic": "social-policy",
+      "examIds": [
+        "115"
+      ],
+      "source": "https://www.ifsw.org/what-is-social-work/global-definition-of-social-work/",
+      "questions": [
+        {
+          "prompt": "사회복지 정책의 효과성을 평가하는 질문은?",
+          "choices": [
+            "의도한 목표가 어느 정도 달성되었는가",
+            "예산 문서의 글꼴은 무엇인가",
+            "보고서 표지는 어떤 색인가",
+            "기관 이름이 얼마나 긴가"
+          ],
+          "explanation": "효과성은 정책이나 사업의 목표 달성 정도를 뜻한다. 투입 대비 산출과 관련된 효율성과 구분된다."
+        },
+        {
+          "prompt": "사회복지 전달체계의 접근성을 높이는 조치는?",
+          "choices": [
+            "이용 절차와 정보를 이해하기 쉽게 제공한다",
+            "모든 안내를 비공개로 한다",
+            "이동이 어려운 사람을 배제한다",
+            "신청 창구를 임의로 숨긴다"
+          ],
+          "explanation": "정보, 절차와 물리적 이용의 장벽을 줄여야 필요한 사람이 서비스에 접근할 수 있다."
+        },
+        {
+          "prompt": "공공부조와 사회보험을 구분하는 설명으로 적절한 것은?",
+          "choices": [
+            "공공부조는 일반적으로 자산·소득 등 필요 요건을 심사한다",
+            "사회보험은 어떤 기여 방식도 없다",
+            "공공부조는 모든 국민에게 같은 보험료를 받는다",
+            "두 제도는 목적과 재원에서 항상 완전히 같다"
+          ],
+          "explanation": "공공부조는 필요에 따른 지원을, 사회보험은 보험 방식의 위험 분산을 기본으로 하며 구체적 제도는 법령에 따른다."
+        }
+      ]
+    },
+    {
+      "topic": "counseling",
+      "examIds": [
+        "60",
+        "133"
+      ],
+      "source": "https://www.q-net.or.kr/cst006.do?id=cst00601&code=1202",
+      "questions": [
+        {
+          "prompt": "직업상담에서 내담자의 흥미, 가치관과 능력을 함께 살피는 이유는?",
+          "choices": [
+            "개인에게 적합한 진로 선택을 돕기 위해",
+            "한 가지 직업을 모두에게 강요하기 위해",
+            "노동시장 정보를 무조건 배제하기 위해",
+            "모든 검사를 같은 점수로 만들기 위해"
+          ],
+          "explanation": "진로 선택은 개인의 특성과 직업 환경을 함께 고려해야 하며 검사 결과도 상담 맥락에서 해석한다."
+        },
+        {
+          "prompt": "내담자의 말을 자신의 표현으로 되돌려 확인하는 상담 기법은?",
+          "choices": [
+            "재진술",
+            "명령",
+            "비난",
+            "설교"
+          ],
+          "explanation": "재진술은 내담자의 표현을 정리하여 이해가 맞는지 확인하고 대화를 이어가도록 돕는다."
+        },
+        {
+          "prompt": "직업정보의 품질을 평가할 때 확인할 사항은?",
+          "choices": [
+            "정보의 출처와 최신성 및 관련성",
+            "화면 장식만",
+            "광고 문구의 길이만",
+            "게시자의 별명만"
+          ],
+          "explanation": "직업정보는 출처가 신뢰할 만하고 현재 상황에 맞으며 내담자의 의사결정에 관련되어야 한다."
+        }
+      ]
+    },
+    {
+      "topic": "survey",
+      "examIds": [
+        "87"
+      ],
+      "source": "https://www.census.gov/about/what/data-equity/sampling.html",
+      "questions": [
+        {
+          "prompt": "모집단의 모든 구성원이 표본으로 뽑힐 확률이 같은 기본 표집은?",
+          "choices": [
+            "단순무작위표집",
+            "편의표집",
+            "판단표집",
+            "눈덩이표집"
+          ],
+          "explanation": "단순무작위표집은 모집단 단위가 동일한 선택 확률을 갖도록 하는 확률표집 방법이다."
+        },
+        {
+          "prompt": "설문에서 한 문항으로 서로 다른 두 사안을 동시에 묻는 문제는?",
+          "choices": [
+            "이중질문",
+            "무작위배정",
+            "층화표집",
+            "단순집계"
+          ],
+          "explanation": "이중질문은 응답자가 두 사안에 다른 의견을 가질 경우 명확히 답하기 어렵게 한다."
+        },
+        {
+          "prompt": "두 변수 사이의 상관관계가 높다는 사실만으로 확정할 수 없는 것은?",
+          "choices": [
+            "인과관계",
+            "관련된 변동의 존재",
+            "상관계수 계산 가능성",
+            "통계적 연관성의 관찰"
+          ],
+          "explanation": "상관관계만으로 원인과 결과를 정할 수 없다. 제3의 변수와 시간적 선후 관계 등을 검토해야 한다."
+        }
+      ]
+    },
+    {
+      "topic": "accounting",
+      "examIds": [
+        "112",
+        "121",
+        "129",
+        "130",
+        "132"
+      ],
+      "source": "https://openstax.org/books/principles-financial-accounting/pages/3-2-define-and-describe-the-expanded-accounting-equation-and-its-relationship-to-analyzing-transactions",
+      "questions": [
+        {
+          "prompt": "자산이 1000만 원이고 부채가 400만 원이면 자본은?",
+          "choices": [
+            "600만 원",
+            "1400만 원",
+            "400만 원",
+            "250만 원"
+          ],
+          "explanation": "회계 등식 자산=부채+자본에 따라 자본은 자산에서 부채를 차감한 600만 원이다."
+        },
+        {
+          "prompt": "현금으로 비품을 구입한 거래의 기본적인 영향은?",
+          "choices": [
+            "자산 구성 항목 사이의 대체",
+            "항상 수익 증가",
+            "항상 부채 증가",
+            "항상 자본 증가"
+          ],
+          "explanation": "현금 자산이 감소하고 비품 자산이 증가한다. 같은 금액이라면 이 거래 자체로 자산 총액은 변하지 않는다."
+        },
+        {
+          "prompt": "발생주의 회계의 기본 취지는?",
+          "choices": [
+            "현금 수수만이 아니라 거래 발생에 따라 수익과 비용을 인식한다",
+            "현금을 받을 때만 모든 수익을 인식한다",
+            "비용은 절대 기록하지 않는다",
+            "자산과 부채를 기록하지 않는다"
+          ],
+          "explanation": "발생주의는 거래와 경제적 사건의 발생에 따라 인식하여 기간별 성과를 적절히 나타내려는 방식이다."
+        }
+      ]
+    },
+    {
+      "topic": "insurance",
+      "examIds": [
+        "116"
+      ],
+      "source": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=9668",
+      "questions": [
+        {
+          "prompt": "농작물 손해평가에서 피해 사실과 범위를 객관적으로 기록하는 이유는?",
+          "choices": [
+            "평가의 근거와 재현성을 확보하기 위해",
+            "손해 원인을 숨기기 위해",
+            "계약 내용을 무시하기 위해",
+            "모든 사고를 동일하게 보상하기 위해"
+          ],
+          "explanation": "손해평가는 현장 자료와 계약 조건에 기초해야 하므로 피해 원인, 범위와 관측 근거를 기록한다."
+        },
+        {
+          "prompt": "보험의 위험 분산 원리와 관련이 큰 것은?",
+          "choices": [
+            "다수의 유사한 위험을 공동으로 묶는다",
+            "한 계약자의 손실만 무한히 확대한다",
+            "사고 확률을 항상 0으로 만든다",
+            "모든 불확실성을 법적으로 없앤다"
+          ],
+          "explanation": "보험은 다수의 위험을 모아 손실의 경제적 영향을 분산한다. 실제 보상은 계약 조건에 따른다."
+        },
+        {
+          "prompt": "손해평가 전에 보험 계약을 확인해야 하는 핵심 이유는?",
+          "choices": [
+            "담보 범위와 면책 및 평가 기준을 파악하기 위해",
+            "작물의 종류를 임의로 바꾸기 위해",
+            "증거 수집을 생략하기 위해",
+            "보험료와 무관하게 보상을 확약하기 위해"
+          ],
+          "explanation": "같은 피해라도 담보와 면책 및 계약 기준이 다를 수 있으므로 계약 내용의 확인이 선행되어야 한다."
+        }
+      ]
+    },
+    {
+      "topic": "design",
+      "examIds": [
+        "45",
+        "53",
+        "137",
+        "178",
+        "189",
+        "211",
+        "223"
+      ],
+      "source": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Accessibility",
+      "questions": [
+        {
+          "prompt": "화면용 RGB 색상 모델의 혼합 방식은?",
+          "choices": [
+            "가산 혼합",
+            "감산 혼합",
+            "안료 혼합만",
+            "명도 제거"
+          ],
+          "explanation": "RGB는 빛의 세 원색을 더하는 가산 혼합이며 인쇄의 CMYK 감산 혼합과 구분된다."
+        },
+        {
+          "prompt": "벡터 그래픽의 일반적인 장점은?",
+          "choices": [
+            "확대해도 도형의 경계가 선명하게 유지된다",
+            "픽셀 수가 고정되어 항상 깨진다",
+            "사진만 저장할 수 있다",
+            "색상을 전혀 사용할 수 없다"
+          ],
+          "explanation": "벡터 그래픽은 점과 선 및 곡선 등의 수학적 표현으로 구성되어 해상도에 덜 의존한다."
+        },
+        {
+          "prompt": "디자인에서 정보의 시각적 위계를 만드는 방법은?",
+          "choices": [
+            "크기와 간격 및 대비로 중요도를 구분한다",
+            "모든 요소를 무조건 같은 모양으로 만든다",
+            "본문의 대비를 최대한 없앤다",
+            "의미와 무관하게 장식을 계속 추가한다"
+          ],
+          "explanation": "일관된 크기, 무게와 간격 및 대비를 사용하면 사용자가 중요한 정보를 빠르게 파악할 수 있다."
+        }
+      ]
+    },
+    {
+      "topic": "photography",
+      "examIds": [
+        "156"
+      ],
+      "source": "https://www.nikonusa.com/learn-and-explore/c/tips-and-techniques/understanding-maximum-aperture",
+      "questions": [
+        {
+          "prompt": "다른 조건이 같을 때 조리개를 f/8에서 f/4로 바꾸면 들어오는 빛은?",
+          "choices": [
+            "4배",
+            "2배",
+            "절반",
+            "4분의 1"
+          ],
+          "explanation": "f/8→f/5.6→f/4는 두 스톱 밝아지는 변화이므로 광량은 4배가 된다."
+        },
+        {
+          "prompt": "빠르게 움직이는 피사체의 움직임을 정지해 표현하려면?",
+          "choices": [
+            "셔터 시간을 짧게 한다",
+            "셔터 시간을 항상 수초로 늘린다",
+            "초점을 무조건 해제한다",
+            "렌즈 캡을 닫는다"
+          ],
+          "explanation": "짧은 노출 시간은 피사체가 센서에 기록되는 동안 이동하는 거리를 줄여 흔들림을 억제한다."
+        },
+        {
+          "prompt": "화이트 밸런스 조절의 주된 목적은?",
+          "choices": [
+            "광원의 색에 따른 색 편향을 보정한다",
+            "렌즈의 물리적 초점거리를 바꾼다",
+            "센서 픽셀 수를 늘린다",
+            "파일을 무조건 흑백으로 만든다"
+          ],
+          "explanation": "화이트 밸런스는 광원의 색온도 등에 따른 색 편향을 보정하여 중성색과 전체 색을 조정한다."
+        }
+      ]
+    },
+    {
+      "topic": "floral",
+      "examIds": [
+        "139"
+      ],
+      "source": "https://www.q-net.or.kr/cst006.do?id=cst00601&code=1202",
+      "questions": [
+        {
+          "prompt": "절화의 물올림을 돕는 기본 관리에 해당하는 것은?",
+          "choices": [
+            "줄기 절단면을 적절히 정리하고 깨끗한 물을 사용한다",
+            "잎을 모두 물속에 잠기게 둔다",
+            "물을 교체하지 않는다",
+            "절단면을 오염된 바닥에 문지른다"
+          ],
+          "explanation": "깨끗한 절단면과 물은 수분 흡수를 돕고 물속 잎 제거와 용기 위생은 미생물 증식을 줄인다."
+        },
+        {
+          "prompt": "화훼 장식에서 시각적 균형이 뜻하는 것은?",
+          "choices": [
+            "형태와 색 및 배치에 따른 무게감의 조화",
+            "좌우 소재 수의 무조건적인 일치만",
+            "모든 꽃의 같은 길이만",
+            "용기를 사용하지 않는 것"
+          ],
+          "explanation": "시각적 균형은 소재의 크기, 색과 배치로 형성되는 무게감이 안정적으로 조화를 이루는 상태이다."
+        },
+        {
+          "prompt": "절화를 보관할 때 에틸렌 발생원과의 분리를 고려하는 이유는?",
+          "choices": [
+            "민감한 꽃의 노화를 촉진할 수 있기 때문",
+            "모든 꽃의 색을 즉시 검게 만들기 때문",
+            "줄기를 금속으로 바꾸기 때문",
+            "수분 흡수를 항상 두 배로 만들기 때문"
+          ],
+          "explanation": "에틸렌에 민감한 절화는 노화나 낙화가 촉진될 수 있으므로 과일 등 발생원과의 분리를 고려한다."
+        }
+      ]
+    },
+    {
+      "topic": "coffee",
+      "examIds": [
+        "125"
+      ],
+      "source": "https://www.kca-coffee.org/cms/FrCon/index.do?MENU_ID=630",
+      "questions": [
+        {
+          "prompt": "추출 시간이 일정할 때 분쇄도를 더 곱게 하면 일반적으로 어떤 변화가 생기는가?",
+          "choices": [
+            "물과 닿는 표면적과 유동 저항이 커진다",
+            "원두의 질량이 무조건 0이 된다",
+            "카페인이 항상 완전히 사라진다",
+            "모든 추출 조건이 동일해진다"
+          ],
+          "explanation": "고운 분쇄는 표면적을 늘리지만 흐름을 어렵게 할 수 있다. 적정 추출은 다른 조건과 함께 조절해야 한다."
+        },
+        {
+          "prompt": "스팀 완드 사용 후 청소와 퍼지를 하는 주된 목적은?",
+          "choices": [
+            "우유 잔여물과 오염을 줄인다",
+            "우유의 지방을 모두 제거한다",
+            "커피의 품종을 바꾼다",
+            "보일러 압력을 항상 0으로 고정한다"
+          ],
+          "explanation": "우유가 묻은 완드를 방치하면 오염이 쌓일 수 있으므로 기기 지침에 따라 닦고 퍼지한다."
+        },
+        {
+          "prompt": "커피 보관 시 향미 변화를 늦추는 방법으로 적절한 것은?",
+          "choices": [
+            "산소와 습기 및 과도한 열 노출을 줄인다",
+            "개방된 용기에 습하게 보관한다",
+            "강한 냄새의 식품과 섞는다",
+            "직사광선 아래 오래 둔다"
+          ],
+          "explanation": "커피의 향미는 산화, 수분과 열의 영향을 받으므로 적절한 밀폐 및 보관 환경이 중요하다."
+        }
+      ]
+    },
+    {
+      "topic": "bartending",
+      "examIds": [
+        "83"
+      ],
+      "source": "https://www.q-net.or.kr/cst006.do?id=cst00601&code=1202",
+      "questions": [
+        {
+          "prompt": "칵테일 제조에서 지거를 사용하는 주된 목적은?",
+          "choices": [
+            "재료의 부피를 계량한다",
+            "얼음을 직접 제빙한다",
+            "알코올을 완전히 제거한다",
+            "잔을 가열한다"
+          ],
+          "explanation": "지거는 정해진 양의 액체를 계량하여 배합 비율과 음료 품질을 일관되게 유지하는 도구이다."
+        },
+        {
+          "prompt": "탄산이 들어 있는 재료를 취급하는 적절한 방법은?",
+          "choices": [
+            "압력과 거품 발생을 고려하여 혼합한다",
+            "밀폐 셰이커에서 무조건 강하게 흔든다",
+            "온도를 무조건 끓는점까지 올린다",
+            "뚜껑을 막고 계속 기체를 주입한다"
+          ],
+          "explanation": "탄산 재료는 흔들거나 온도가 올라가면 기체 방출과 압력 상승이 커질 수 있으므로 제조법에 맞게 다룬다."
+        },
+        {
+          "prompt": "얼음이 칵테일에 미치는 영향으로 적절한 것은?",
+          "choices": [
+            "냉각과 희석에 함께 영향을 준다",
+            "맛과 온도에 전혀 영향이 없다",
+            "알코올 양을 반드시 증가시킨다",
+            "모든 재료를 고체로 만든다"
+          ],
+          "explanation": "얼음은 음료를 차갑게 하고 녹으면서 물을 더하므로 크기와 혼합 시간이 최종 맛에 영향을 준다."
+        }
+      ]
+    },
+    {
+      "topic": "laundry",
+      "examIds": [
+        "167"
+      ],
+      "source": "https://www.ftc.gov/business-guidance/resources/clothes-captioning-complying-care-labeling-rule",
+      "questions": [
+        {
+          "prompt": "세탁 전 의류의 취급 표시를 확인하는 주된 이유는?",
+          "choices": [
+            "섬유와 제품에 적합한 세탁·건조 방법을 정하기 위해",
+            "모든 옷을 같은 고온으로 세탁하기 위해",
+            "오염 종류를 무시하기 위해",
+            "탈색을 항상 유도하기 위해"
+          ],
+          "explanation": "취급 표시는 물세탁, 표백과 건조 및 다림질의 가능 조건을 알려주므로 제품 손상을 줄이는 데 쓰인다."
+        },
+        {
+          "prompt": "색이 진한 의류를 밝은 의류와 분리하는 이유는?",
+          "choices": [
+            "이염 위험을 줄이기 위해",
+            "세제의 양을 항상 0으로 하기 위해",
+            "모든 섬유를 늘리기 위해",
+            "세탁기의 전원을 차단하기 위해"
+          ],
+          "explanation": "세탁 중 염료가 빠져 다른 제품에 옮겨갈 수 있으므로 색과 취급 조건에 따라 분류한다."
+        },
+        {
+          "prompt": "울 제품에 강한 마찰과 부적절한 온도를 가하면 생길 수 있는 현상은?",
+          "choices": [
+            "수축과 펠팅",
+            "금속 부식",
+            "플라스틱 용접",
+            "전기 분해"
+          ],
+          "explanation": "울은 표면 비늘 구조와 수분, 열 및 마찰의 영향으로 엉키고 수축할 수 있어 적절한 취급이 필요하다."
+        }
+      ]
+    },
+    {
+      "topic": "printing3d",
+      "examIds": [
+        "122"
+      ],
+      "source": "https://www.q-net.or.kr/cst006.do?id=cst00601&code=1202",
+      "questions": [
+        {
+          "prompt": "FDM 방식 3D 프린터의 기본 적층 원리는?",
+          "choices": [
+            "가열된 필라멘트를 압출하여 층을 쌓는다",
+            "금속판을 망치로만 성형한다",
+            "빛으로 종이를 인쇄한다",
+            "완제품을 절삭만 한다"
+          ],
+          "explanation": "FDM은 열가소성 재료를 노즐로 압출하고 경로에 따라 층별로 쌓아 형상을 만든다."
+        },
+        {
+          "prompt": "적층 제작에서 서포트가 필요한 대표적인 이유는?",
+          "choices": [
+            "처짐이 우려되는 돌출부를 지지하기 위해",
+            "모든 내부 공간을 영구 밀폐하기 위해",
+            "필라멘트 색상을 없애기 위해",
+            "프린터 전원을 만들기 위해"
+          ],
+          "explanation": "허공에 놓이는 돌출부나 브리지는 적층 중 지지가 필요할 수 있으며 형상과 공정 조건으로 판단한다."
+        },
+        {
+          "prompt": "동일한 형상에서 레이어 높이를 더 작게 하면 일반적으로?",
+          "choices": [
+            "표면 계단 효과는 줄지만 출력 시간이 늘 수 있다",
+            "출력 시간이 항상 0이 된다",
+            "재료가 전혀 필요 없다",
+            "모든 강도가 무한히 커진다"
+          ],
+          "explanation": "얇은 층은 세부 표현에 유리하지만 층수가 증가하여 제작 시간이 늘어날 수 있다."
+        }
+      ]
+    },
+    {
+      "topic": "aircraft",
+      "examIds": [
+        "175"
+      ],
+      "source": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation",
+      "questions": [
+        {
+          "prompt": "항공기 비행 전 점검의 주된 목적은?",
+          "choices": [
+            "안전 운항에 영향을 줄 수 있는 이상을 발견한다",
+            "정비 기록을 모두 폐기한다",
+            "기체 중량을 임의로 바꾼다",
+            "필요한 연료 계산을 생략한다"
+          ],
+          "explanation": "정해진 점검 절차를 통해 기체 상태와 유체, 장착 상태 등의 이상을 확인하고 처리한다."
+        },
+        {
+          "prompt": "날개에 작용하는 양력과 가장 직접 관련이 있는 것은?",
+          "choices": [
+            "날개 주변 유동과 압력 분포",
+            "도장 색상만",
+            "등록 기호의 길이",
+            "좌석 번호"
+          ],
+          "explanation": "양력은 날개와 주변 공기의 상호작용으로 발생하는 공기력이며 속도, 받음각과 형상 등의 영향을 받는다."
+        },
+        {
+          "prompt": "항공기 정비에서 승인된 절차와 기록을 사용하는 이유는?",
+          "choices": [
+            "작업의 적합성과 추적성을 확보하기 위해",
+            "정비 내용을 숨기기 위해",
+            "어떤 부품이든 임의로 대체하기 위해",
+            "점검 주기를 항상 없애기 위해"
+          ],
+          "explanation": "항공기 정비는 해당 기종과 작업에 적합한 승인 자료를 따르고 수행 사항을 기록해야 한다."
+        }
+      ]
+    },
+    {
+      "topic": "biomedical",
+      "examIds": [
+        "160"
+      ],
+      "source": "https://www.fda.gov/medical-devices",
+      "questions": [
+        {
+          "prompt": "의료기기의 정기적인 교정이 필요한 주된 이유는?",
+          "choices": [
+            "측정 결과의 정확성과 추적성을 유지하기 위해",
+            "환자 정보를 더 많이 공개하기 위해",
+            "전원 연결을 생략하기 위해",
+            "기기의 모든 수명을 무한히 늘리기 위해"
+          ],
+          "explanation": "교정은 기준과 비교하여 측정기의 편차를 확인하고 측정 결과의 신뢰성을 관리하는 과정이다."
+        },
+        {
+          "prompt": "환자 접촉 의료기기에서 누설전류를 관리하는 이유는?",
+          "choices": [
+            "감전 위험을 줄이기 위해",
+            "기기의 색을 유지하기 위해",
+            "소모품 가격을 낮추기 위해",
+            "화면 해상도를 늘리기 위해"
+          ],
+          "explanation": "원하지 않는 경로로 흐르는 전류는 환자와 사용자에게 위험할 수 있으므로 적절한 전기적 안전 점검이 필요하다."
+        },
+        {
+          "prompt": "생체 신호 측정에서 전극 접촉이 불량할 때 나타날 수 있는 문제는?",
+          "choices": [
+            "잡음과 신호 왜곡",
+            "신호가 항상 완벽해짐",
+            "시간 단위의 소멸",
+            "환자 체중의 자동 감소"
+          ],
+          "explanation": "전극과 피부의 접촉 상태는 임피던스와 측정 품질에 영향을 미치므로 접촉과 배선을 확인한다."
+        }
+      ]
+    },
+    {
+      "topic": "metal",
+      "examIds": [
+        "231"
+      ],
+      "source": "https://openstax.org/books/chemistry-2e/pages/10-5-the-solid-state-of-matter",
+      "questions": [
+        {
+          "prompt": "금속의 소성변형이란?",
+          "choices": [
+            "하중을 제거해도 일부 변형이 남는 현상",
+            "모든 변형이 완전히 회복되는 현상",
+            "금속이 기체로만 바뀌는 현상",
+            "질량이 항상 사라지는 현상"
+          ],
+          "explanation": "탄성 범위를 넘은 변형에서는 하중을 제거해도 원래 형상으로 완전히 돌아가지 않는 영구 변형이 남을 수 있다."
+        },
+        {
+          "prompt": "탄소강을 담금질하는 대표적인 목적은?",
+          "choices": [
+            "적절한 조건에서 경도를 높인다",
+            "항상 경도를 0으로 만든다",
+            "탄소를 모두 없앤다",
+            "금속을 반드시 액화한다"
+          ],
+          "explanation": "오스테나이트화 후 적절히 급랭하면 마르텐사이트 등이 형성되어 경도가 증가할 수 있다."
+        },
+        {
+          "prompt": "금속 부식 방지 방법에 해당하는 것은?",
+          "choices": [
+            "보호 도막으로 환경과의 접촉을 줄인다",
+            "젖은 염분에 항상 노출한다",
+            "이종 금속을 조건 없이 접촉시킨다",
+            "모든 표면 보호층을 제거한다"
+          ],
+          "explanation": "도장과 도금 등의 보호층은 금속과 부식 환경의 접촉을 제한할 수 있으며 환경에 맞는 방법을 선택한다."
+        }
+      ]
+    },
+    {
+      "topic": "business",
+      "examIds": [
+        "154",
+        "217",
+        "222"
+      ],
+      "source": "https://www.q-net.or.kr/cst006.do?id=cst00601&code=1202",
+      "questions": [
+        {
+          "prompt": "고객 요구를 파악하기 위해 적절한 질문 방식은?",
+          "choices": [
+            "상황을 설명할 수 있는 개방형 질문을 사용한다",
+            "답을 미리 강요한다",
+            "고객의 말을 계속 끊는다",
+            "불만을 기록하지 않는다"
+          ],
+          "explanation": "개방형 질문과 경청은 고객의 기대, 문제와 맥락을 이해하는 데 도움을 준다."
+        },
+        {
+          "prompt": "행사의 손익분기점을 계산하는 데 필요한 기본 정보는?",
+          "choices": [
+            "고정비와 단위당 공헌이익",
+            "포스터의 색만",
+            "행사명 글자 수만",
+            "직원의 별명만"
+          ],
+          "explanation": "단위당 공헌이익은 판매가에서 단위당 변동비를 뺀 값이다. 고정비를 이를 통해 회수하는 수준이 손익분기점이다."
+        },
+        {
+          "prompt": "서비스 제공 후 만족도를 조사하는 주된 목적은?",
+          "choices": [
+            "고객 경험을 평가하고 개선할 점을 찾는다",
+            "모든 의견을 삭제한다",
+            "고객 정보를 무조건 공개한다",
+            "실제 경험과 무관한 홍보만 한다"
+          ],
+          "explanation": "설문과 피드백은 서비스의 강점과 문제를 파악하고 개선 결과를 확인하는 근거가 된다."
+        }
+      ]
+    },
+    {
+      "topic": "english",
+      "examIds": [
+        "232"
+      ],
+      "source": "https://learnenglish.britishcouncil.org/grammar/english-grammar-reference/present-perfect",
+      "questions": [
+        {
+          "prompt": "Choose the correct sentence.",
+          "choices": [
+            "She has lived here for five years.",
+            "She have lived here for five years.",
+            "She has live here for five years.",
+            "She having lived here for five years."
+          ],
+          "explanation": "With the singular subject she, the present perfect uses has plus the past participle lived. For introduces a duration."
+        },
+        {
+          "prompt": "Choose the word closest in meaning to concise.",
+          "choices": [
+            "Brief",
+            "Complicated",
+            "Uncertain",
+            "Careless"
+          ],
+          "explanation": "Concise means expressing information clearly in few words. Brief is the closest option."
+        },
+        {
+          "prompt": "Choose the correct connector: It was raining, ___ we took an umbrella.",
+          "choices": [
+            "so",
+            "although",
+            "unless",
+            "despite"
+          ],
+          "explanation": "So connects a cause to its result. The rain explains why the speakers took an umbrella."
+        }
+      ]
+    }
+  ]
+}

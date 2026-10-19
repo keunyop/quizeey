@@ -1,6 +1,7 @@
 import { expect, test } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { readFileSync } from "node:fs";
+import { authoredQuestions } from "../src/lib/authored-practice";
 
 test("catalog filters, initials, pagination, favorites, cross-tab sync and recovery", async ({ page, context }) => {
   const errors: string[] = []; page.on("pageerror", (error) => errors.push(error.message));
@@ -56,13 +57,19 @@ test("question navigator, skipped counts and independent unanswered/bookmark/mis
   await expect(page.getByRole("progressbar")).toHaveAttribute("value", "2");
   await expect(page.locator(".question-version")).toHaveText("회차 · SQL 조건");
   await page.getByRole("button", { name: "건너뛰기", exact: true }).click();
-  await expect(page.locator(".result-stats strong")).toHaveText(["1", "1", "1"]);
+  for (let i = 0; i < 3; i++) await page.getByRole("button", { name: "건너뛰기", exact: true }).click();
+  await expect(page.locator(".result-stats strong")).toHaveText(["1", "1", "4"]);
   await page.getByRole("button", { name: /미응답 풀기/ }).click();
   await page.locator('input[value="910000008"]').check();
   await page.getByRole("button", { name: "정답 확인", exact: true }).click();
   await page.reload(); await expect(page.getByText("정답입니다.", { exact: true })).toBeVisible();
   await page.getByRole("button", { name: "다음", exact: true }).click();
-  await expect(page.locator(".result-stats strong")).toHaveText(["1", "0", "0"]);
+  for (const question of authoredQuestions("5", "ko")) {
+    await page.locator(`input[value="${question.choices.find(choice => choice.correct)!.id}"]`).check();
+    await page.getByRole("button", { name: "정답 확인", exact: true }).click();
+    await page.getByRole("button", { name: "다음", exact: true }).click();
+  }
+  await expect(page.locator(".result-stats strong")).toHaveText(["4", "0", "0"]);
   await page.getByRole("button", { name: /북마크 복습/ }).click();
   await expect(page.getByText("복수 선택", { exact: true })).toBeVisible();
   await expect(page.getByRole("button", { name: "정답 확인", exact: true })).toBeVisible();

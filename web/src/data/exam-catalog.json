@@ -1,0 +1,907 @@
+[
+  {
+    "id": "28",
+    "slug": "engineer-industrial-safety",
+    "name": "산업안전기사"
+  },
+  {
+    "id": "29",
+    "slug": "industrial-engineer-electricity",
+    "name": "전기산업기사"
+  },
+  {
+    "id": "31",
+    "slug": "engineer-fire-protection-system-electrical",
+    "name": "소방설비기사(전기분야)"
+  },
+  {
+    "id": "33",
+    "slug": "engineer-fire-protection-system-mechanical",
+    "name": "소방설비기사(기계분야)"
+  },
+  {
+    "id": "35",
+    "slug": "craftsman-information-processing",
+    "name": "정보처리기능사"
+  },
+  {
+    "id": "37",
+    "slug": "industrial-engineer-hazardous-material",
+    "name": "위험물산업기사"
+  },
+  {
+    "id": "40",
+    "slug": "engineer-general-machinery",
+    "name": "일반기계기사"
+  },
+  {
+    "id": "41",
+    "slug": "industrial-engineer-information-processing",
+    "name": "정보처리산업기사"
+  },
+  {
+    "id": "42",
+    "slug": "industrial-engineer-office-automation",
+    "name": "사무자동화산업기사"
+  },
+  {
+    "id": "44",
+    "slug": "craftsman-hazardous-material",
+    "name": "위험물기능사"
+  },
+  {
+    "id": "45",
+    "slug": "craftsman-computer-graphics-operation",
+    "name": "컴퓨터그래픽스운용기능사"
+  },
+  {
+    "id": "51",
+    "slug": "nail-technician",
+    "name": "미용사(네일)"
+  },
+  {
+    "id": "52",
+    "slug": "industrial-engineer-industrial-safety",
+    "name": "산업안전산업기사"
+  },
+  {
+    "id": "53",
+    "slug": "craftsman-web-design",
+    "name": "웹디자인기능사"
+  },
+  {
+    "id": "54",
+    "slug": "engineer-information-security",
+    "name": "정보보안기사"
+  },
+  {
+    "id": "55",
+    "slug": "esthetician",
+    "name": "미용사(피부)"
+  },
+  {
+    "id": "56",
+    "slug": "engineer-air-conditioning-refrigerating-machinery",
+    "name": "공조냉동기계기사"
+  },
+  {
+    "id": "58",
+    "slug": "engineer-chemical-industry",
+    "name": "화공기사"
+  },
+  {
+    "id": "60",
+    "slug": "vocational-counselor",
+    "name": "직업상담사2급"
+  },
+  {
+    "id": "62",
+    "slug": "craftsman-welding",
+    "name": "용접기능사"
+  },
+  {
+    "id": "64",
+    "slug": "craftsman-motor-vehicles-maintenance",
+    "name": "자동차정비기능사"
+  },
+  {
+    "id": "66",
+    "slug": "craftsman-computer-aided-mechanical-drawing",
+    "name": "전산응용기계제도기능사"
+  },
+  {
+    "id": "68",
+    "slug": "engineer-quality-management",
+    "name": "품질경영기사"
+  },
+  {
+    "id": "69",
+    "slug": "craftsman-computer-aided-architectural-drawing",
+    "name": "전산응용건축제도기능사"
+  },
+  {
+    "id": "73",
+    "slug": "make-up-artist",
+    "name": "미용사(메이크업)"
+  },
+  {
+    "id": "74",
+    "slug": "engineer-construction-safety",
+    "name": "건설안전기사"
+  },
+  {
+    "id": "76",
+    "slug": "engineer-information-communication",
+    "name": "정보통신기사"
+  },
+  {
+    "id": "78",
+    "slug": "engineer-civil-engineering",
+    "name": "토목기사"
+  },
+  {
+    "id": "79",
+    "slug": "craftsman-energy-management",
+    "name": "에너지관리기능사"
+  },
+  {
+    "id": "80",
+    "slug": "engineer-electric-work",
+    "name": "전기공사기사"
+  },
+  {
+    "id": "81",
+    "slug": "craftsman-information-equipment-operation",
+    "name": "정보기기운용기능사"
+  },
+  {
+    "id": "82",
+    "slug": "craftsman-landscape-architecture",
+    "name": "조경기능사"
+  },
+  {
+    "id": "83",
+    "slug": "craftsman-bartender",
+    "name": "조주기능사"
+  },
+  {
+    "id": "84",
+    "slug": "craftsman-gas",
+    "name": "가스기능사"
+  },
+  {
+    "id": "85",
+    "slug": "industrial-engineer-machinery-design",
+    "name": "기계설계산업기사"
+  },
+  {
+    "id": "87",
+    "slug": "survey-analyst-junior",
+    "name": "사회조사분석사2급"
+  },
+  {
+    "id": "89",
+    "slug": "engineer-air-pollution-environmental",
+    "name": "대기환경기사"
+  },
+  {
+    "id": "93",
+    "slug": "engineer-industrial-hygiene-management",
+    "name": "산업위생관리기사"
+  },
+  {
+    "id": "94",
+    "slug": "engineer-water-pollution-environmental",
+    "name": "수질환경기사"
+  },
+  {
+    "id": "95",
+    "slug": "master-craftsman-electricity",
+    "name": "전기기능장"
+  },
+  {
+    "id": "96",
+    "slug": "craftsman-electronic-apparatus",
+    "name": "전자기기기능사"
+  },
+  {
+    "id": "97",
+    "slug": "craftsman-breads-making",
+    "name": "제빵기능사"
+  },
+  {
+    "id": "98",
+    "slug": "engineer-chemical-analysis",
+    "name": "화학분석기사"
+  },
+  {
+    "id": "99",
+    "slug": "engineer-energy-management",
+    "name": "에너지관리기사"
+  },
+  {
+    "id": "101",
+    "slug": "engineer-radio-telecommunication-equipment",
+    "name": "무선설비기사"
+  },
+  {
+    "id": "102",
+    "slug": "engineer-gas",
+    "name": "가스기사"
+  },
+  {
+    "id": "103",
+    "slug": "craftsman-elevator",
+    "name": "승강기기능사"
+  },
+  {
+    "id": "104",
+    "slug": "craftsman-air-conditioning-and-refrigerating-machinery",
+    "name": "공조냉동기계기능사"
+  },
+  {
+    "id": "105",
+    "slug": "craftsman-environmental",
+    "name": "환경기능사"
+  },
+  {
+    "id": "106",
+    "slug": "engineer-food-processing",
+    "name": "식품기사"
+  },
+  {
+    "id": "107",
+    "slug": "industrial-engineer-gas",
+    "name": "가스산업기사"
+  },
+  {
+    "id": "108",
+    "slug": "nursing-assistant",
+    "name": "간호조무사"
+  },
+  {
+    "id": "109",
+    "slug": "clinical-psychology-practitioner",
+    "name": "임상심리사2급"
+  },
+  {
+    "id": "110",
+    "slug": "linux-master-2",
+    "name": "리눅스마스터 2급"
+  },
+  {
+    "id": "111",
+    "slug": "1st-grade-social-worker-1",
+    "name": "사회복지사 1급(1교시)"
+  },
+  {
+    "id": "112",
+    "slug": "computer-accounting-1",
+    "name": "전산회계 1급"
+  },
+  {
+    "id": "113",
+    "slug": "1st-grade-social-worker-2",
+    "name": "사회복지사 1급(2교시)"
+  },
+  {
+    "id": "114",
+    "slug": "network-manager-2",
+    "name": "네트워크관리사 2급"
+  },
+  {
+    "id": "115",
+    "slug": "1st-grade-social-worker-3",
+    "name": "사회복지사 1급(3교시)"
+  },
+  {
+    "id": "116",
+    "slug": "agriculture-insurance-claim-adjuster",
+    "name": "손해평가사"
+  },
+  {
+    "id": "117",
+    "slug": "diat",
+    "name": "DIAT 정보통신상식"
+  },
+  {
+    "id": "118",
+    "slug": "linux-master-1",
+    "name": "리눅스마스터 1급"
+  },
+  {
+    "id": "120",
+    "slug": "engineer-electronics",
+    "name": "전자기사"
+  },
+  {
+    "id": "121",
+    "slug": "computer-tax-1",
+    "name": "전산세무 1급"
+  },
+  {
+    "id": "122",
+    "slug": "craftsman-3D-printer-operation",
+    "name": "3D프린터운용기능사"
+  },
+  {
+    "id": "123",
+    "slug": "engineer-forest",
+    "name": "산림기사"
+  },
+  {
+    "id": "124",
+    "slug": "master-craftsman-hazardous-material",
+    "name": "위험물기능장"
+  },
+  {
+    "id": "125",
+    "slug": "barista-2",
+    "name": "바리스타 2급"
+  },
+  {
+    "id": "126",
+    "slug": "network-manager-1",
+    "name": "네트워크관리사 1급"
+  },
+  {
+    "id": "127",
+    "slug": "pc-mechanic-1",
+    "name": "PC정비사 1급"
+  },
+  {
+    "id": "128",
+    "slug": "pc-mechanic-2",
+    "name": "PC정비사 2급"
+  },
+  {
+    "id": "129",
+    "slug": "computerized-accounting-specialist-1",
+    "name": "전산회계운용사 1급"
+  },
+  {
+    "id": "130",
+    "slug": "computerized-accounting-specialist-2",
+    "name": "전산회계운용사 2급"
+  },
+  {
+    "id": "132",
+    "slug": "computerized-accounting-specialist-3",
+    "name": "전산회계운용사 3급"
+  },
+  {
+    "id": "133",
+    "slug": "vocational-counselor-senior",
+    "name": "직업상담사 1급"
+  },
+  {
+    "id": "134",
+    "slug": "clinical-psychologist",
+    "name": "임상심리사 1급"
+  },
+  {
+    "id": "135",
+    "slug": "engineer-landscape-architecture",
+    "name": "조경기사"
+  },
+  {
+    "id": "136",
+    "slug": "engineer-interior-architecture",
+    "name": "실내건축기사"
+  },
+  {
+    "id": "137",
+    "slug": "specialist-multimedia-contents-producing",
+    "name": "멀티미디어콘텐츠제작전문가"
+  },
+  {
+    "id": "138",
+    "slug": "craftsman-excavating-machine-operator",
+    "name": "굴삭기운전기능사"
+  },
+  {
+    "id": "139",
+    "slug": "craftsman-floral-design",
+    "name": "화훼장식기능사"
+  },
+  {
+    "id": "140",
+    "slug": "industrial-engineer-electric-work",
+    "name": "전기공사산업기사"
+  },
+  {
+    "id": "141",
+    "slug": "industrial-engineer-air-conditioning-and-refrigerating-machinery",
+    "name": "공조냉동기계산업기사"
+  },
+  {
+    "id": "142",
+    "slug": "engineer-plant-protection",
+    "name": "식물보호기사"
+  },
+  {
+    "id": "143",
+    "slug": "aws-certified-solution-architect-associate",
+    "name": "AWS 공인 솔루션 아키텍트 - 어소시에이트"
+  },
+  {
+    "id": "144",
+    "slug": "craftsman-interior-architecture",
+    "name": "실내건축기능사"
+  },
+  {
+    "id": "145",
+    "slug": "industrial-engineer-computer-aided-manufacturing",
+    "name": "컴퓨터응용가공산업기사"
+  },
+  {
+    "id": "147",
+    "slug": "engineer-building-facilities",
+    "name": "건축설비기사"
+  },
+  {
+    "id": "148",
+    "slug": "industrial-engineer-information-communication",
+    "name": "정보통신산업기사"
+  },
+  {
+    "id": "149",
+    "slug": "industrial-engineer-motor-vehicles-maintenance",
+    "name": "자동차정비산업기사"
+  },
+  {
+    "id": "150",
+    "slug": "industrial-engineer-machinery-maintenance",
+    "name": "기계정비산업기사"
+  },
+  {
+    "id": "151",
+    "slug": "industrial-engineer-architecture",
+    "name": "건축산업기사"
+  },
+  {
+    "id": "152",
+    "slug": "craftsman-electronic-cad",
+    "name": "전자캐드기능사"
+  },
+  {
+    "id": "153",
+    "slug": "craftsman-organic-agriculture",
+    "name": "유기농업기능사"
+  },
+  {
+    "id": "154",
+    "slug": "telemarketing-administrator",
+    "name": "텔레마케팅관리사"
+  },
+  {
+    "id": "155",
+    "slug": "engineer-wastes-treatment",
+    "name": "폐기물처리기사"
+  },
+  {
+    "id": "156",
+    "slug": "craftsman-photography",
+    "name": "사진기능사"
+  },
+  {
+    "id": "157",
+    "slug": "industrial-engineer-manufacturing-automatization",
+    "name": "생산자동화산업기사"
+  },
+  {
+    "id": "158",
+    "slug": "industrial-engineer-electronics",
+    "name": "전자산업기사"
+  },
+  {
+    "id": "159",
+    "slug": "craftsman-plumbing",
+    "name": "배관기능사"
+  },
+  {
+    "id": "160",
+    "slug": "engineer-biomedical",
+    "name": "의공기사"
+  },
+  {
+    "id": "161",
+    "slug": "engineer-computer-system-application",
+    "name": "전자계산기조직응용기사"
+  },
+  {
+    "id": "166",
+    "slug": "ccna-200-125",
+    "name": "Cisco Certified Network Associate(CCNA 200-125)"
+  },
+  {
+    "id": "167",
+    "slug": "craftsman-laundry",
+    "name": "세탁기능사"
+  },
+  {
+    "id": "168",
+    "slug": "comptia-sy0-501",
+    "name": "CompTIA Security+ SY0-501"
+  },
+  {
+    "id": "169",
+    "slug": "az-103",
+    "name": "Microsoft Azure Administrator(AZ-103)"
+  },
+  {
+    "id": "170",
+    "slug": "az-900",
+    "name": "Microsoft Azure Fundamentals(AZ-900)"
+  },
+  {
+    "id": "172",
+    "slug": "az-300",
+    "name": "Microsoft Azure architect Technologies(AZ-300)"
+  },
+  {
+    "id": "173",
+    "slug": "industrial-engineer-construction-safety",
+    "name": "건설안전산업기사"
+  },
+  {
+    "id": "174",
+    "slug": "ccnp-300-115",
+    "name": "Cisco 공인 네트워크 어소시에이트(CCNA 300-115)"
+  },
+  {
+    "id": "175",
+    "slug": "industrial-engineer-aircraft-maintenance",
+    "name": "항공산업기사"
+  },
+  {
+    "id": "176",
+    "slug": "craftsman-forest",
+    "name": "산림기능사"
+  },
+  {
+    "id": "177",
+    "slug": "cissp",
+    "name": "ISC CISSP"
+  },
+  {
+    "id": "178",
+    "slug": "industrial-engineer-colorist",
+    "name": "컬러리스트산업기사"
+  },
+  {
+    "id": "179",
+    "slug": "engineer-surveying-geo-spatial-information",
+    "name": "측량및지형공간정보기사"
+  },
+  {
+    "id": "180",
+    "slug": "ccnp-300-101",
+    "name": "Cisco Implementing IP Routing(CCNP 300-101)"
+  },
+  {
+    "id": "181",
+    "slug": "comptia-220-1001",
+    "name": "CompTIA A+ Certification Core 1 (220-1001)"
+  },
+  {
+    "id": "182",
+    "slug": "comptia-n10-007",
+    "name": "CompTIA Network+ (N10-007)"
+  },
+  {
+    "id": "183",
+    "slug": "microsoft-70-740",
+    "name": "Microsoft Installation, Storage, and Compute with Windows Server(70-740)"
+  },
+  {
+    "id": "184",
+    "slug": "engineer-plant-maintenance",
+    "name": "설비보전기사"
+  },
+  {
+    "id": "185",
+    "slug": "pmi-pmp",
+    "name": "PMI PMP"
+  },
+  {
+    "id": "186",
+    "slug": "craftsman-chemical-analysis",
+    "name": "화학분석기능사"
+  },
+  {
+    "id": "187",
+    "slug": "az-301",
+    "name": "Microsoft Azure Architect Design(AZ-301)"
+  },
+  {
+    "id": "188",
+    "slug": "engineer-elevator",
+    "name": "승강기기사"
+  },
+  {
+    "id": "189",
+    "slug": "industrial-engineer-visual-communication-design",
+    "name": "시각디자인산업기사"
+  },
+  {
+    "id": "190",
+    "slug": "ms-100",
+    "name": "Microsoft 365 Identity and Services(MS-100)"
+  },
+  {
+    "id": "194",
+    "slug": "2V0-21.19",
+    "name": "VMware Professional vSphere 6.7(2V0-21.19)"
+  },
+  {
+    "id": "195",
+    "slug": "microsoft-70-741",
+    "name": "Microsoft Networking with Windows Server(70-741)"
+  },
+  {
+    "id": "196",
+    "slug": "itilfnd-v4",
+    "name": "ITIL Foundation V4(ITILFND-V4)"
+  },
+  {
+    "id": "198",
+    "slug": "az-500",
+    "name": "Microsoft Azure Security Technologies(AZ-500)"
+  },
+  {
+    "id": "199",
+    "slug": "engineer-ergonomics",
+    "name": "인간공학기사"
+  },
+  {
+    "id": "200",
+    "slug": "engineer-computer",
+    "name": "전자계산기기사"
+  },
+  {
+    "id": "201",
+    "slug": "craftsman-confectionary-making",
+    "name": "제과기능사"
+  },
+  {
+    "id": "202",
+    "slug": "craftsman-inert-gas-arc-welding",
+    "name": "특수용접기능사"
+  },
+  {
+    "id": "204",
+    "slug": "ccna-200-301",
+    "name": "Cisco Certified Network Associate(CCNA 200-301)"
+  },
+  {
+    "id": "205",
+    "slug": "cas-003",
+    "name": "CompTIA Advanced Security Practitioner - CASP(CAS-003)"
+  },
+  {
+    "id": "206",
+    "slug": "craftsman-computer-aided-milling",
+    "name": "컴퓨터응용밀링기능사"
+  },
+  {
+    "id": "207",
+    "slug": "craftsman-hydro-pneumatic",
+    "name": "공유압기능사"
+  },
+  {
+    "id": "208",
+    "slug": "cisco-350-401",
+    "name": "Cisco Implementing Cisco Enterprise Network Core Technologies ENCOR"
+  },
+  {
+    "id": "209",
+    "slug": "craftsman-mushroom-seeds",
+    "name": "버섯종균기능사"
+  },
+  {
+    "id": "210",
+    "slug": "craftsman-production-automatic-operation",
+    "name": "생산자동화기능사"
+  },
+  {
+    "id": "211",
+    "slug": "engineer-colorist",
+    "name": "컬러리스트기사"
+  },
+  {
+    "id": "212",
+    "slug": "industrial-engineer-interior-architecture",
+    "name": "실내건축산업기사"
+  },
+  {
+    "id": "213",
+    "slug": "craftsman-seeds",
+    "name": "종자기능사"
+  },
+  {
+    "id": "214",
+    "slug": "engineer-seeds",
+    "name": "종자기사"
+  },
+  {
+    "id": "215",
+    "slug": "craftsman-computer",
+    "name": "전자계산기기능사"
+  },
+  {
+    "id": "216",
+    "slug": "engineer-cadastral-surveying",
+    "name": "지적기사"
+  },
+  {
+    "id": "217",
+    "slug": "sport-business-manager",
+    "name": "스포츠경영관리사"
+  },
+  {
+    "id": "218",
+    "slug": "industrial-engineer-energy-management",
+    "name": "에너지관리산업기사"
+  },
+  {
+    "id": "219",
+    "slug": "engineer-construction-equipment",
+    "name": "건설기계설비기사"
+  },
+  {
+    "id": "220",
+    "slug": "industrial-engineer-quality-management",
+    "name": "품질경영산업기사"
+  },
+  {
+    "id": "221",
+    "slug": "engineer-motor-vehicles-maintenance",
+    "name": "자동차정비기사"
+  },
+  {
+    "id": "222",
+    "slug": "convention-meeting-planner2",
+    "name": "컨벤션기획사2급"
+  },
+  {
+    "id": "223",
+    "slug": "craftsman-desktop-publishing",
+    "name": "전자출판기능사"
+  },
+  {
+    "id": "224",
+    "slug": "engineer-explosives-handling",
+    "name": "화약류관리기사"
+  },
+  {
+    "id": "225",
+    "slug": "internet-information-administrator",
+    "name": "인터넷정보관리사2급"
+  },
+  {
+    "id": "226",
+    "slug": "craftsman-computer-aided-lath",
+    "name": "컴퓨터응용선반기능사"
+  },
+  {
+    "id": "227",
+    "slug": "craftsman-plant-maintenance",
+    "name": "설비보전기능사"
+  },
+  {
+    "id": "228",
+    "slug": "craftsman-surveying",
+    "name": "측량기능사"
+  },
+  {
+    "id": "229",
+    "slug": "engineer-in-nature-environment-and-ecological-restoration",
+    "name": "자연생태복원기사"
+  },
+  {
+    "id": "230",
+    "slug": "industrial-engineer-industrial-hygiene-management",
+    "name": "산업위생관리산업기사"
+  },
+  {
+    "id": "231",
+    "slug": "engineer-metal",
+    "name": "금속재료기사"
+  },
+  {
+    "id": "232",
+    "slug": "level9-national-officials-english",
+    "name": "9급 국가직 공무원 영어"
+  },
+  {
+    "id": "233",
+    "slug": "industrial-engineer-water-pollution-environmental",
+    "name": "수질환경산업기사"
+  },
+  {
+    "id": "6",
+    "slug": "engineer-information-processing",
+    "name": "정보처리기사"
+  },
+  {
+    "id": "27",
+    "slug": "engineer-electricity",
+    "name": "전기기사"
+  },
+  {
+    "id": "12",
+    "slug": "computer-specialist-in-spreadsheet-and-database-level-1",
+    "name": "컴퓨터활용능력 1급"
+  },
+  {
+    "id": "11",
+    "slug": "computer-specialist-in-spreadsheet-and-database-level-2",
+    "name": "컴퓨터활용능력 2급"
+  },
+  {
+    "id": "15",
+    "slug": "word-processor",
+    "name": "워드프로세서"
+  },
+  {
+    "id": "26",
+    "slug": "craftsman-electricity",
+    "name": "전기기능사"
+  },
+  {
+    "id": "2",
+    "slug": "sqlp-professional",
+    "name": "SQLP - 국가공인 SQL전문가"
+  },
+  {
+    "id": "5",
+    "slug": "sqlp-developer",
+    "name": "SQLD - 국가공인 SQL개발자"
+  },
+  {
+    "id": "8",
+    "slug": "engineer-architecture",
+    "name": "건축기사"
+  },
+  {
+    "id": "13",
+    "slug": "craftsman-fork-lift-truck-operator",
+    "name": "지게차운전기능사"
+  },
+  {
+    "id": "14",
+    "slug": "craftsman-cook-korean-food",
+    "name": "한식조리기능사"
+  },
+  {
+    "id": "1",
+    "slug": "aws-certified-developer-associate",
+    "name": "AWS 공인 개발자 - 어소시에이트"
+  },
+  {
+    "id": "10",
+    "slug": "engineer-urban-planning",
+    "name": "도시계획기사"
+  },
+  {
+    "id": "7",
+    "slug": "engineer-transportation",
+    "name": "교통기사"
+  },
+  {
+    "id": "9",
+    "slug": "engineer-broadcasting-communication",
+    "name": "방송통신기사"
+  },
+  {
+    "id": "25",
+    "slug": "hairdresser",
+    "name": "미용사(일반)"
+  },
+  {
+    "id": "4",
+    "slug": "computer-science",
+    "name": "컴퓨터 공학"
+  }
+]

@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { boundedJson } from "./guest-policy";
 import { identifier, legacy } from "@/lib/contracts";
-import { loadStudyStore,type StudyContext } from './study-loader';
+import type { StudyContext } from './study-loader';
+import { loadLearningStore } from './learning-store';
 import { learningHtml } from "@/lib/content";
 
 type Endpoint = "question" | "versions" | "tests" | "questionStats" | "explanations";
@@ -33,8 +34,8 @@ export async function legacyRead(request: Request, endpoint: Endpoint) {
       {examId:id(input.testId)!,...(endpoint==='question'?{questionId:id(input.questId,false),version:versionNumber(input.verNbr),random:input.questId===undefined||input.questId===null}:{})};
     if(endpoint==='tests')z.enum(['kr','en']).parse(input.languageCd);
   } catch{return result({error:'Invalid legacy request'},400);}
-  let store:Awaited<ReturnType<typeof loadStudyStore>>;
-  try{store=await loadStudyStore(context);}catch{return result({error:'Study content unavailable'},503);}
+  let store:Awaited<ReturnType<typeof loadLearningStore>>;
+  try{store=await loadLearningStore(context);}catch{return result({error:'Study content unavailable'},503);}
   try {
     if (endpoint === "tests") {
       const language = z.enum(["kr", "en"]).parse(input.languageCd);

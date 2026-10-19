@@ -2,7 +2,7 @@ export type Choice = { id: string; text: string; correct: boolean; position: num
 export type Question = {
   id: string; testId: string; locale: "ko" | "en"; version: number; versionName: string;
   text: string; explanation: string|null; choices: Choice[]; preserveOrder: boolean;
-  questionNumber?: number; reference?: string | null;
+  questionNumber?: number; reference?: string | null; authored?: boolean;
 };
 export function grade(question: Question, selected: string[]): boolean {
   const ids = new Set(selected);

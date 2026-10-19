@@ -6,6 +6,7 @@ import type { Locale } from "@/lib/contracts";
 import { emptyProgress, practiceStats, readProgress, reviewProgress, type Progress } from "@/lib/progress";
 import { grade, shuffleChoices, type Question } from "@/lib/quiz";
 import { Icon } from "./Icon";
+import { Forum } from "./Forum";
 import { useAnalytics } from './Monetization';
 
 function createProgressStore(key: string, onError: (error: boolean) => void) {
@@ -37,10 +38,10 @@ function useProgress(key: string, ids: string[], contentVersion: string) {
   return { progress, save: store.write, storageError };
 }
 
-function QuestionCard({ question, locale, attempt, onGrade, onPrevious, onNext, canPrevious }: {
+function QuestionCard({ question, locale, attempt, onGrade, onPrevious, onNext, canPrevious, commentsEnabled }: {
   question: Question; locale: Locale; attempt: Progress["attempts"][string] | undefined;
   onGrade: (selected: string[]) => void;
-  onPrevious: () => void; onNext: () => void; canPrevious: boolean;
+  onPrevious: () => void; onNext: () => void; canPrevious: boolean; commentsEnabled: boolean;
 }) {
   const m = messages[locale];
   const [draft, setDraft] = useState<string[]>([]);
@@ -49,7 +50,7 @@ function QuestionCard({ question, locale, attempt, onGrade, onPrevious, onNext, 
   const answerLetters = question.choices.flatMap((choice, index) => choice.correct ? [String.fromCharCode(65 + index)] : []);
   const analytics=useAnalytics();
   return <section className="question-card" aria-label={locale === "ko" ? "문제" : "Question"}>
-    <p className="question-version">{locale === "ko" ? "회차" : "Set"} · {question.versionName || question.version}</p>
+    <p className="question-version">{locale === "ko" ? "회차" : "Set"} · {question.versionName || question.version}{question.authored && <span className="authored-badge">{locale === "ko" ? "자체 제작" : "Original practice"}</span>}</p>
     <div id="question-content" tabIndex={-1} className="learning-content question-prompt" dangerouslySetInnerHTML={{ __html: question.text }} />
     <fieldset disabled={!!attempt}>
       <legend>{multiple ? m.multiple : m.single}</legend>
@@ -67,10 +68,11 @@ function QuestionCard({ question, locale, attempt, onGrade, onPrevious, onNext, 
       {attempt && <>
         <p className={`answer-feedback ${attempt.correct ? "correct" : "error"}`}><Icon name={attempt.correct ? "check" : "close"} />{attempt.correct ? m.correct : m.incorrect}</p>
         <p className="answer-key">{locale === "ko" ? "정답" : "Answer"} <strong>{answerLetters.join(", ")}</strong></p>
-        {(question.explanation || question.reference) && <details open onToggle={event=>{if(event.currentTarget.open)analytics.track('explanation_open',{test_id:question.testId,quest_id:question.id,locale});}}><summary>{m.explanation}</summary>
+        <details open onToggle={event=>{if(event.currentTarget.open)analytics.track('explanation_open',{test_id:question.testId,quest_id:question.id,locale});}}><summary>{m.explanation}</summary>
           {question.explanation && <div className="learning-content" dangerouslySetInnerHTML={{ __html: question.explanation }} />}
           {question.reference&&<div className="learning-content reference" dangerouslySetInnerHTML={{__html:question.reference}}/>}
-        </details>}
+          {commentsEnabled && <Forum key={`${question.id}:${locale}`} examId={question.testId} questionId={question.id} locale={locale} />}
+        </details>
       </>}
     </div>
     <div className="practice-controls">
@@ -113,12 +115,13 @@ function QuestionNavigator({ questions, question, locale, testId, progress, onNa
   </details>;
 }
 
-export function Practice({ questions, locale, testId, contentVersion, directId, pageNumber=1, nextPage }: {
-  questions: Question[]; locale: Locale; testId: string; contentVersion: string; directId?: string;pageNumber?:number;nextPage?:string;
+export function Practice({ questions, locale, testId, contentVersion, directId, pageNumber=1, nextPage, commentsEnabled=false }: {
+  questions: Question[]; locale: Locale; testId: string; contentVersion: string; directId?: string;pageNumber?:number;nextPage?:string;commentsEnabled?:boolean;
 }) {
   const m = messages[locale];
   const ids = useMemo(() => questions.map((q) => q.id), [questions]);
-  const key = `quizeey:progress:v1:${locale}:${testId}:${contentVersion}:${questions.map((q) => q.version).join(",")}:${directId ?? "all"}${pageNumber>1?`:page${pageNumber}`:''}`;
+  const retained = questions.filter(question => !question.authored);
+  const key = `quizeey:progress:v1:${locale}:${testId}:${contentVersion}:${(retained.length ? retained : questions).map((q) => q.version).join(",")}:${directId ?? "all"}${pageNumber>1?`:page${pageNumber}`:''}`;
   const { progress, save, storageError } = useProgress(key, ids, contentVersion);
   const activeQuestions = progress.reviewIds ? questions.filter((q) => progress.reviewIds!.includes(q.id)) : questions;
   const question = activeQuestions[progress.index];
@@ -193,7 +196,7 @@ export function Practice({ questions, locale, testId, contentVersion, directId, 
     </div>
     <progress value={stats.answered} max={activeQuestions.length} aria-label={en ? "Practice progress" : "학습 진행률"}
       aria-valuetext={en ? `${stats.answered} of ${activeQuestions.length} answered` : `${activeQuestions.length}문제 중 ${stats.answered}문제 완료`} />
-    <QuestionCard key={`${question.id}:${progress.reviewMode ?? "all"}`} question={displayed} locale={locale} attempt={attempt}
+    <QuestionCard commentsEnabled={commentsEnabled} key={`${question.id}:${progress.reviewMode ?? "all"}`} question={displayed} locale={locale} attempt={attempt}
       canPrevious={progress.index > 0} onPrevious={() => navigate(progress.index - 1)} onNext={() => navigate(progress.index + 1)}
       onGrade={(selected) => {const correct=grade(question,selected);analytics.track('answer_submit',{test_id:testId,quest_id:question.id,locale,correct});save({ ...progress,
       attempts: { ...progress.attempts, [question.id]: { selected, correct } },

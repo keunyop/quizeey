@@ -4,10 +4,11 @@ import { headers } from 'next/headers';
 import { ExamSearch } from "./ExamSearch";
 import { Practice } from "./Practice";
 import { Forum } from "./Forum";
+import { ThemeToggle } from "./ThemeToggle";
 import { forumConfigured } from "@/server/forum-database";
 import { findRoute, legacy, parseQuery, routesForExam, type Locale } from "@/lib/contracts";
 import { messages } from "@/lib/i18n";
-import { loadStudyStore } from '@/server/study-loader';
+import { loadLearningStore } from '@/server/learning-store';
 import { learningHtml,staticPage } from "@/lib/content";
 import { environment } from "@/lib/environment";
 import { examName } from "@/lib/exam-catalog";
@@ -52,7 +53,7 @@ export async function RouteView({ path, query }: { path: string; query: Query })
   const locale = route.locale as Locale;
   const m = messages[locale];
   const home = locale === "en" ? "/en" : "/";
-  const store=await loadStudyStore({examId:exam.testId??undefined,questionId:input.questId,version:input.verNbr,page:input.page});
+  const store=await loadLearningStore({examId:exam.testId??undefined,questionId:input.questId,version:input.verNbr,page:input.page});
   const previewSamples=environment(process.env).stage==='preview'&&store.source==='fixture';
   // Direct IDs are resolved before the bounded practice batch is selected.
   const batch = exam.testId ? store.questions(exam.testId,locale,input.verNbr,input.questId,input.page) : [];
@@ -73,13 +74,14 @@ export async function RouteView({ path, query }: { path: string; query: Query })
     <a className="skip-link" href="#main">{m.main}</a>
     <header className="site-header"><a className="brand" href={home} translate="no"><img src="/img/letter-q.svg" width="30" height="30" alt="" />Quizeey</a>
       <nav aria-label={locale === "ko" ? "메인 메뉴" : "Main navigation"}>
+        <ThemeToggle locale={locale} />
         <a className="language-link" href={locale === "en" ? "/" : "/en"} lang={locale === "en" ? "ko" : "en"}><Icon name="globe" />{locale === "en" ? "한국어" : "English"}</a>
       </nav>
     </header>
     <main id="main" className={`container ${isHome ? "home-container" : exam.testId ? "study-container google-anno-skip" : ""}`}>
       {previewSamples && <aside className="preview-notice" aria-label={locale==='ko'?'미리보기 안내':'Preview notice'}>
         <strong>{locale==='ko'?'미리보기 · 샘플 문항':'Preview · Sample questions'}</strong>
-        <p>{locale==='ko'?'샘플 문항으로 채점, 해설, 학습 기록 저장을 확인할 수 있습니다. 실제 기출문항은 아직 연결하지 않았습니다.':'Try grading, explanations and saved progress with sample questions. The full exam archive is not connected yet.'}</p>
+        <p>{locale==='ko'?'샘플 문항과 자체 제작 연습문항으로 학습할 수 있습니다. 실제 기출문항은 이 미리보기에 연결하지 않았습니다.':'Study with samples and original practice sets. The full exam archive is not connected to this preview.'}</p>
         <a href="/sqlp-developer">한국어 샘플 연습</a>{' · '}<a href="/en/aws-certified-developer-associate">Try English samples</a>
       </aside>}
       {isHome ? <ExamSearch routes={examRoutes} locale={locale} advertisement={<AdSlot kind="infeed" locale={locale}/>} /> : <>
@@ -93,7 +95,7 @@ export async function RouteView({ path, query }: { path: string; query: Query })
             <select id="version" name="verNbr" defaultValue={input.verNbr}><option value="0">{m.all}</option>{versions.map(v => <option key={v.id} value={v.number}>{v.name}</option>)}</select>
             <button type="submit">{locale === "ko" ? "적용" : "Apply"}</button>
           </form>}
-          {publicBatch.length ? <Practice key={`${path}:${input.verNbr}:${input.page}:${input.questId ?? "all"}`} questions={publicBatch} locale={locale} testId={exam.testId} contentVersion={store.version} directId={input.questId} pageNumber={input.page} nextPage={pagination&&input.page<pagination.pages?pageLink(input.page+1):undefined} /> : <div className="empty-state" role="status"><div className="empty-icon"><Icon name="book" /></div><h2>{locale === "ko" ? "문제를 준비하고 있어요" : "Questions are not available yet"}</h2><p>{m.unavailable}</p><a className="button-link" href={home}>{m.home}<Icon name="arrow" /></a></div>}
+          {publicBatch.length ? <Practice key={`${path}:${input.verNbr}:${input.page}:${input.questId ?? "all"}`} questions={publicBatch} locale={locale} testId={exam.testId} contentVersion={store.version} directId={input.questId} pageNumber={input.page} commentsEnabled={forumConfigured()} nextPage={pagination&&input.page<pagination.pages?pageLink(input.page+1):undefined} /> : <div className="empty-state" role="status"><div className="empty-icon"><Icon name="book" /></div><h2>{locale === "ko" ? "문제를 준비하고 있어요" : "Questions are not available yet"}</h2><p>{m.unavailable}</p><a className="button-link" href={home}>{m.home}<Icon name="arrow" /></a></div>}
           {pagination&&pagination.pages>1&&<nav className="practice-pages" aria-label={locale==='ko'?'문제 묶음':'Practice pages'}>
             {input.page>1?<a href={pageLink(input.page-1)} rel="prev" data-google-vignette="false">{locale==='ko'?'이전 문제':'Previous questions'}</a>:<span/>}
             <span>{input.page} / {pagination.pages}</span>
@@ -104,7 +106,7 @@ export async function RouteView({ path, query }: { path: string; query: Query })
             <summary>{locale === "ko" ? "시험 기본정보" : "About this exam"}</summary>
             {exam.headings.slice(1).map((text, i) => <p className="exam-description" key={i}>{text}</p>)}
           </details>}
-          {forumConfigured() && <Forum key={`${exam.testId}:${locale}:${input.questId ?? "exam"}`} examId={exam.testId} locale={locale} questionId={input.questId} />}
+          {forumConfigured() && <Forum key={`${exam.testId}:${locale}`} examId={exam.testId} locale={locale} />}
         </>}
         {exam.links.length > 0 && <nav className="legacy-links" aria-label={locale === "ko" ? "관련 링크" : "Related links"}><ul>{exam.links.filter((l) => l.label).map((l, i) => <li key={i}><a href={l.href}>{l.label}</a></li>)}</ul></nav>}
       </>}

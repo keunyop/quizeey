@@ -2,10 +2,9 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { boundedJson, capabilityHash, forumRequest, guestCookieName, guestCookieOptions, issueCapability } from "./guest-policy";
 import { findRoute, identifier, legacy } from "@/lib/contracts";
-import { getQuestions } from "@/lib/fixtures";
 import { forumConfigured, mutateForum, ownForum, publicForum } from "./forum-database";
 import { forumAbuseHash, forumConfiguration, forumOriginAllowed } from './forum-config';
-import { loadStudyStore } from './study-loader';
+import { loadLearningStore } from './learning-store';
 
 const privateHeaders = { "Cache-Control": "private, no-store", "X-Robots-Tag": "noindex, nofollow" };
 function response(value: unknown, status = 200) { return NextResponse.json(value, { status, headers: privateHeaders }); }
@@ -18,12 +17,14 @@ function readToken(request: Request) {
 function available() { return forumConfigured(); }
 async function validContext(testId: string, locale: "ko" | "en", questionId?: string) {
   if (forumConfiguration()?.kind === 'supabase') {
-    const store = await loadStudyStore({ examId: testId, questionId });
+    const store = await loadLearningStore({ examId: testId, questionId });
     return store.hasExam(testId) && (!questionId || store.questions(testId, locale, 0, questionId).length === 1);
   }
   const path = legacy.routes.find((r) => r.testId === testId && r.locale === locale)?.path;
   if (!path || !findRoute(path)) return false;
-  return !questionId || getQuestions(testId, locale).some((q) => q.id === questionId);
+  if (!questionId) return true;
+  const store = await loadLearningStore({ examId: testId, questionId });
+  return store.questions(testId, locale, 0, questionId).length === 1;
 }
 export async function forumGet(request: Request, mine = false) {
   if (!available()) return response({ error: "Forum unavailable" }, 503);
