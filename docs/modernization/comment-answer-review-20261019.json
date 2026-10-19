@@ -1,0 +1,215 @@
+{
+  "reviewDate": "2026-10-19",
+  "projectId": "tfkhnrbshvyfmrzxqfmq",
+  "status": "applied_and_read_back",
+  "ownerRequestedAnswerChanges": [
+    {
+      "questionId": 749,
+      "examId": 5,
+      "previousCorrectChoiceId": 3113,
+      "previousCorrectAnswer": "청약자",
+      "correctChoiceId": 3114,
+      "correctAnswer": "수강",
+      "basis": "Explicit user instruction after discussion of the question's ambiguity.",
+      "studyReaderRpcAsServiceRole": "verified: only 수강 is marked correct",
+      "questionAndExplanationTextChanged": false
+    }
+  ],
+  "scope": {
+    "postsScanned": 2186,
+    "questionThreads": 630,
+    "method": "All posts fetched; correction and clarification claims compared with stored question and choice text. Repeated and unrelated posts do not establish answer errors. Choice positions taken from the database because historical comments may use a different display order.",
+    "commentTextOrAuthorNamesIncluded": false
+  },
+  "answerCorrections": [
+    {
+      "questionId": 6112,
+      "examId": 94,
+      "exam": "수질환경기사",
+      "version": "2019-08-04 기출문제",
+      "questionNumber": 35,
+      "previousCorrectChoice": 4,
+      "correctChoice": 3,
+      "explanation": "정답은 3번이다. 플록이 성장한 뒤 강한 교반을 계속하면 플록이 파괴될 수 있으므로, 플록형성지의 교반강도는 하류로 갈수록 점차 낮추는 것이 바람직하다. 단락류와 정체부를 방지하고 충분히 교반될 수 있게 한다는 4번 설명은 옳다.",
+      "reference": "https://www.epa.gov/sites/default/files/2020-06/documents/swtr_turbidity_gm_final_508.pdf",
+      "evidence": "Primary source and question/choice text reviewed."
+    },
+    {
+      "questionId": 6514,
+      "examId": 68,
+      "exam": "품질경영기사",
+      "version": "2017-05-07 기출문제",
+      "questionNumber": 20,
+      "previousCorrectChoice": 1,
+      "correctChoice": 4,
+      "explanation": "정답은 4번 최소분산성이다. 오차를 평균 0인 정규분포 N(0, σ²)에서 독립적으로 추출한다고 가정하므로 정규성, 독립성, 평균 0에 해당하는 불편성은 포함된다. 최소분산성은 추정량의 효율성에 관한 성질로, 이 오차의 분포 가정 자체가 의미하는 것은 아니다.",
+      "reference": "https://www.itl.nist.gov/div898/handbook/pri/section2/pri245.htm",
+      "evidence": "Primary source and question/choice text reviewed."
+    },
+    {
+      "questionId": 6548,
+      "examId": 68,
+      "exam": "품질경영기사",
+      "version": "2017-05-07 기출문제",
+      "questionNumber": 61,
+      "previousCorrectChoice": 4,
+      "correctChoice": 1,
+      "explanation": "정답은 1번 58.3시간이다. 독립적으로 작동하며 고장률이 일정한 두 부품의 병렬 시스템은 두 부품이 모두 고장나야 정지한다. 따라서 MTTF = 1/λ1 + 1/λ2 - 1/(λ1 + λ2) = 1/0.02 + 1/0.04 - 1/0.06 = 50 + 25 - 16.6667 ≈ 58.3시간이다.",
+      "reference": "https://www.itl.nist.gov/div898/handbook/apr/section1/apr183.htm",
+      "evidence": "Derived from independent parallel reliability: integral of exp(-0.02t)+exp(-0.04t)-exp(-0.06t) equals 58.333333 hours."
+    },
+    {
+      "questionId": 11106,
+      "examId": 133,
+      "exam": "직업상담사 1급",
+      "version": "2005-09 기출문제",
+      "questionNumber": 4,
+      "previousCorrectChoice": 4,
+      "correctChoice": 3,
+      "explanation": "정답은 3번 ㄷ, ㄹ이다. 직업상담은 변화하는 직업세계에 대한 이해를 토대로 진로와 직업에 관한 의사결정을 돕는 과정이다. 내담자와의 관계형성도 중요하므로 ㄱ은 틀리며, 청년기의 일회적인 직업선택에만 한정되지 않으므로 ㄴ도 틀리다.",
+      "reference": null,
+      "evidence": "Direct evaluation of propositions: rapport matters; counseling is not limited to one youth career choice; understanding the changing world of work and decision support are valid."
+    },
+    {
+      "questionId": 14544,
+      "examId": 143,
+      "exam": "AWS 공인 솔루션 아키텍트 - 어소시에이트",
+      "version": "SAA-C01 V15.75",
+      "questionNumber": 81,
+      "previousCorrectChoice": 1,
+      "correctChoice": 2,
+      "explanation": "The correct answer is Amazon EFS. The requirement is a shared file system that 10–50 concurrent EC2 instances can mount and read from and write to. EFS provides shared NFS file storage for this workload. In the SAA-C01 context of this question, Amazon S3 is object storage rather than the shared mounted file system being asked for.",
+      "reference": "https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html",
+      "evidence": "Primary source and question/choice text reviewed."
+    },
+    {
+      "questionId": 14663,
+      "examId": 143,
+      "exam": "AWS 공인 솔루션 아키텍트 - 어소시에이트",
+      "version": "SAA-C01 V15.75",
+      "questionNumber": 200,
+      "previousCorrectChoice": 2,
+      "correctChoice": 1,
+      "explanation": "The correct answer is Amazon API Gateway and AWS Lambda. API Gateway provides the API endpoint and invokes Lambda, which runs application code and scales without requiring the architect to provision or manage EC2 instances. An Auto Scaling group behind a load balancer still uses EC2 instances that require instance management.",
+      "reference": "https://docs.aws.amazon.com/lambda/latest/dg/welcome.html",
+      "evidence": "Primary source and question/choice text reviewed."
+    }
+  ],
+  "contentRepairs": [
+    {
+      "questionId": 685,
+      "choiceNumber": 2,
+      "repair": "Restored missing leading and trailing percent wildcards to match existing explanation.",
+      "correctChoicesUnchanged": [
+        2,
+        4
+      ],
+      "reference": "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Pattern-matching-Conditions.html"
+    },
+    {
+      "questionId": 6514,
+      "repair": "Restored missing variance symbol in normal-distribution notation N(0, σ²)."
+    }
+  ],
+  "requiresSourceClarification": [
+    {
+      "questionId": 745,
+      "reason": "No DBMS specified; ||, +, CONCAT and & do not give one consistent result across Oracle and SQL Server. Choice 2 also contains RDMBS instead of RDBMS. A new unique answer cannot be justified by changing only the answer flag.",
+      "action": "Unchanged; needs an explicitly selected DBMS and corrected choices.",
+      "references": [
+        "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Concatenation-Operator.html"
+      ]
+    },
+    {
+      "questionId": 749,
+      "reason": "Professor, student, applicant and enrollment can all be entities depending on business requirements. Enrollment may be modeled as an associative/event entity. Changing to the comment's suggested enrollment answer would not resolve the ambiguity.",
+      "action": "Subsequently changed from 청약자 to 수강 on explicit user instruction; see ownerRequestedAnswerChanges. Original ambiguity finding retained as review history."
+    },
+    {
+      "questionId": 19557,
+      "reason": "Microsoft documentation contradicts the stored key-viewing answer: ReadOnly blocks List Keys. However, data-plane blob uploads can remain possible with appropriate credentials, and the historical automation-script option needs its original portal context.",
+      "action": "Unchanged; needs an explicitly scoped historical/current question before choosing a unique replacement answer.",
+      "references": [
+        "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources"
+      ]
+    },
+    {
+      "questionId": 27039,
+      "reason": "Choices refer to statements 1–4, but those statements are absent from the stored question. A comment supplies a possible reconstruction, which is insufficient to establish the original exam wording.",
+      "action": "Unchanged; original exam text needed to restore missing statements."
+    }
+  ],
+  "unchangedChecks": [
+    {
+      "questionId": 694,
+      "reason": "ROW_NUMBER returns five rows; RANK, DENSE_RANK and TOP 5 date-membership query return six for the supplied tied dates."
+    },
+    {
+      "questionId": 696,
+      "reason": "SUM(col2+col3) skips NULL row results and returns 90."
+    },
+    {
+      "questionId": 748,
+      "reason": "Stored answer identifies the non-atomic attribute statement."
+    },
+    {
+      "questionId": 750,
+      "reason": "Employee is a basic entity, not a central entity."
+    },
+    {
+      "questionId": 752,
+      "reason": "Explicit NULL remains NULL; only omitted column receives DEFAULT 10."
+    },
+    {
+      "questionId": 1465,
+      "reason": "Bacterial cells and heat-stable enterotoxin are different; answer concerns the cells."
+    },
+    {
+      "questionId": 4775,
+      "reason": "Roman numerals are the incorrect drawing-number convention."
+    },
+    {
+      "questionId": 15845,
+      "reason": "The acid-resistance claim in the comment is false; no answer change justified."
+    },
+    {
+      "questionId": 15890,
+      "reason": "Question asks for the unsuitable method, so a comment that sugar is suitable does not contradict the stored acid-addition answer."
+    },
+    {
+      "questionId": 27007,
+      "reason": "Comment names a different display letter; stored correct choice is already the healthy-growth expression."
+    },
+    {
+      "questionId": 27012,
+      "reason": "Chavicine/ginger is an intentionally incorrect distractor; the mustard connection is the correct choice."
+    },
+    {
+      "questionId": 27041,
+      "reason": "50/0.9*1500 is about 83333.33; stored 83400 option is nearest."
+    },
+    {
+      "questionId": 1475,
+      "reason": "Older comments about reporting to a public-health-center head do not establish an error after the statutory reporting-recipient amendment.",
+      "references": [
+        "https://www.law.go.kr/lsInfoP.do?chrClsCd=010202&lsId=001805&lsiSeq=140273&urlMode=lsEfInfoR&viewCls=lsRvsDocInfoR"
+      ]
+    }
+  ],
+  "verification": {
+    "directDatabaseReadback": "passed",
+    "studyReaderRpcAsServiceRole": "passed for all 7 affected questions",
+    "correctedAnswerSets": "passed",
+    "questionCount": 26733,
+    "choiceCount": 107516,
+    "postCount": 2186,
+    "topicCount": 633,
+    "unrelatedQuestionsAndChoicesHashesUnchanged": true,
+    "postsHashUnchanged": true,
+    "sourceArchiveModified": false,
+    "schemaChanged": false,
+    "rollbackPrepared": true,
+    "privateBackupDirectory": ".modernization/answer-review-20261019",
+    "browserEndToEndTestRun": false
+  }
+}

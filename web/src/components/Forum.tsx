@@ -83,7 +83,7 @@ export function Forum({ examId, questionId, locale }: { examId: string; question
         return;
       }
       retry.current = null;
-      setNotice(value.action === "report" ? en ? "Report received." : "신고가 접수되었습니다." : value.action === "delete" ? en ? "Comment deleted." : "댓글을 삭제했습니다." : en ? "Comment saved." : "댓글을 등록했습니다.");
+      setNotice(value.action === "report" ? en ? "Report received." : "신고가 접수되었습니다." : value.action === "delete" ? en ? "Comment deleted." : "댓글을 삭제했습니다." : "");
       if (["create", "reply", "edit"].includes(String(value.action))) { setBody(""); setEditing(null); setReply(null); }
       if (["create", "reply"].includes(String(value.action))) setCursors([null]);
       setLoading(true);
@@ -107,6 +107,24 @@ export function Forum({ examId, questionId, locale }: { examId: string; question
   return <section className={`forum${questionId ? " question-forum" : ""}`} aria-labelledby={`${id}-heading`}>
     <div className="forum-heading"><h2 id={`${id}-heading`}>{heading}</h2></div>
     <p className="forum-intro">{questionId ? en ? "Share a question or explanation about this problem." : "이 문제에 대한 질문이나 풀이를 나눠보세요." : en ? "Share study tips and questions about this exam." : "이 시험의 공부 방법과 궁금한 점을 나눠보세요."}</p>
+    <details className="comment-composer" ref={composer} open={!questionId || undefined}>
+      <summary>{en ? "Write a comment" : "댓글 남기기"}</summary>
+      <form className="forum-form" aria-label={heading} onSubmit={event => {
+      event.preventDefault();
+      if (!body.trim()) { textarea.current?.focus(); return; }
+      const base = { body: body.trim(), displayName: name };
+      void send(editing ? { action: "edit", postId: editing, ...base } : reply ? { action: "reply", ...reply, ...base } : { action: "create", examId, ...(questionId ? { questionId } : {}), locale, title: body.trim().replace(/\s+/g, " ").slice(0, 100), ...base });
+    }}>
+      {(editing || reply) && <p className="forum-context">{editing ? en ? "Editing your comment" : "내 댓글 수정 중" : en ? "Writing a reply" : "답글 작성 중"}</p>}
+      <label htmlFor={`${id}-name`}>{en ? "Name (optional)" : "작성자명 (선택)"}</label>
+      <input id={`${id}-name`} name="displayName" autoComplete="nickname" maxLength={80} value={name} disabled={busy} onChange={e => setName(e.target.value)} placeholder={en ? "Leave blank for Anonymous" : "비워두면 익명으로 등록됩니다"} />
+      <label htmlFor={`${id}-body`}>{editing ? en ? "Edit comment" : "댓글 수정" : reply ? en ? "Reply" : "답글" : en ? "Comment" : "댓글"}</label>
+      <textarea id={`${id}-body`} ref={textarea} name="body" rows={3} required maxLength={4000} value={body} disabled={busy} onChange={e => setBody(e.target.value)} placeholder={en ? "Write a comment." : "댓글을 입력해 주세요."} />
+      <div className="actions"><button className="primary" type="submit" disabled={busy || !body.trim()}>{busy ? en ? "Saving…" : "등록 중…" : en ? "Post comment" : "댓글 등록"}</button>
+        {(editing || reply) && <button type="button" disabled={busy} onClick={() => { setEditing(null); setReply(null); setBody(""); }}>{en ? "Cancel" : "취소"}</button>}</div>
+      <p className="forum-notice" role="status" aria-live="polite">{notice}</p>
+      </form>
+    </details>
     {loading && <p className="forum-loading" role="status">{en ? "Loading comments…" : "댓글을 불러오는 중…"}</p>}
     {(loadError || ownError) && <p className="forum-notice" role="status">{loadError ? en ? "Unable to load comments." : "댓글을 불러오지 못했습니다." : en ? "Unable to load your comments." : "내 댓글을 불러오지 못했습니다."}{" "}<button type="button" className="text-button" onClick={() => { setLoading(true); refresh(v => v + 1); }}>{en ? "Retry" : "다시 시도"}</button></p>}
     {!loading && !loadError && !data.posts.length && <p className="forum-empty">{en ? "No comments yet. Start the conversation." : "아직 댓글이 없습니다. 첫 댓글을 남겨보세요."}</p>}
@@ -127,23 +145,5 @@ export function Forum({ examId, questionId, locale }: { examId: string; question
       <span role="status">{en ? `Page ${cursors.length}` : `${cursors.length} 페이지`}</span>
       <button type="button" aria-label={en ? "Next comments" : "다음 댓글"} disabled={busy || loading || !nextCursor} onClick={() => { if (nextCursor) { setLoading(true); setCursors(current => [...current, nextCursor]); } }}>{en ? "Next" : "다음"}</button>
     </nav>}
-    <details className="comment-composer" ref={composer} open={!questionId || undefined}>
-      <summary>{en ? "Write a comment" : "댓글 남기기"}</summary>
-      <form className="forum-form" aria-label={heading} onSubmit={event => {
-      event.preventDefault();
-      if (!body.trim()) { textarea.current?.focus(); return; }
-      const base = { body: body.trim(), displayName: name };
-      void send(editing ? { action: "edit", postId: editing, ...base } : reply ? { action: "reply", ...reply, ...base } : { action: "create", examId, ...(questionId ? { questionId } : {}), locale, title: body.trim().replace(/\s+/g, " ").slice(0, 100), ...base });
-    }}>
-      {(editing || reply) && <p className="forum-context">{editing ? en ? "Editing your comment" : "내 댓글 수정 중" : en ? "Writing a reply" : "답글 작성 중"}</p>}
-      <label htmlFor={`${id}-name`}>{en ? "Name (optional)" : "작성자명 (선택)"}</label>
-      <input id={`${id}-name`} name="displayName" autoComplete="nickname" maxLength={80} value={name} disabled={busy} onChange={e => setName(e.target.value)} placeholder={en ? "Leave blank for Anonymous" : "비워두면 익명으로 등록됩니다"} />
-      <label htmlFor={`${id}-body`}>{editing ? en ? "Edit comment" : "댓글 수정" : reply ? en ? "Reply" : "답글" : en ? "Comment" : "댓글"}</label>
-      <textarea id={`${id}-body`} ref={textarea} name="body" rows={3} required maxLength={4000} value={body} disabled={busy} onChange={e => setBody(e.target.value)} placeholder={en ? "Write a comment." : "댓글을 입력해 주세요."} />
-      <div className="actions"><button className="primary" type="submit" disabled={busy || !body.trim()}>{busy ? en ? "Saving…" : "등록 중…" : en ? "Post comment" : "댓글 등록"}</button>
-        {(editing || reply) && <button type="button" disabled={busy} onClick={() => { setEditing(null); setReply(null); setBody(""); }}>{en ? "Cancel" : "취소"}</button>}</div>
-      <p className="forum-notice" role="status" aria-live="polite">{notice}</p>
-      </form>
-    </details>
   </section>;
 }

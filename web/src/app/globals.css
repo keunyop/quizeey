@@ -391,10 +391,12 @@ input::placeholder,textarea::placeholder { color:var(--muted); opacity:1; }
 @keyframes comment-sheet-in { from { transform:translateX(100%); } to { transform:translateX(0); } }
 @media(prefers-reduced-motion:reduce) { .exam-comments-dialog[open] { animation:none; } }
 @media(min-width:1180px) {
-  .study-with-comments { max-width:1180px;padding-right:380px; }
+  .study-with-comments { display:grid;grid-template-columns:minmax(0,1fr) 320px;align-items:start;gap:32px;max-width:1180px; }
+  .study-with-comments > .preview-notice { grid-column:1 / -1; }
+  .study-main { min-width:0; }
   .exam-comments-trigger { display:none; }
-  .exam-comments-panel { position:absolute;top:18px;right:28px;bottom:80px;width:320px; }
-  .exam-comments-card { position:sticky;top:24px;max-height:calc(100dvh - 128px);overflow:auto;overscroll-behavior:contain;padding:18px;background:var(--surface);border:1px solid var(--line);border-radius:12px; }
+  .exam-comments-panel { min-width:0; }
+  .exam-comments-card { padding:18px;background:var(--surface);border:1px solid var(--line);border-radius:12px; }
   .exam-comments-card > .forum { margin:0;padding:0;border:0; }
   .exam-comments-card h2 { font-size:18px; }
   .exam-comments-card .forum-form { padding:12px; }
