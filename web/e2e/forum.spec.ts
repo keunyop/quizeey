@@ -23,6 +23,8 @@ test("two guest browsers: immediate publication, optional name, ownership, edits
     const pageA = await a.newPage();
     await pageA.goto("http://127.0.0.1:3100/sqlp-developer");
     await expect(pageA.getByRole("heading", { name: "시험 댓글", exact: true })).toBeVisible();
+    await expect(pageA.locator('.forum-empty')).toBeVisible();
+    await expect(pageA.locator('.comment-composer')).toHaveAttribute('open', '');
     expect((await a.cookies()).some((c) => c.name === "__Host-quizeey-guest")).toBe(false);
     await pageA.getByLabel('작성자명 (선택)').fill('   ');
     await pageA.getByLabel('댓글', { exact: true }).fill('Original approved body');
@@ -96,6 +98,14 @@ test("exam comments and answer-area question comments have independent forms, au
   await page.goto('/sqlp-developer?verNbr=1');
   const exam = page.getByRole('region', { name: '시험 댓글', exact: true });
   await expect(exam).toBeVisible();
+  await expect(exam.locator('.forum-comments')).toBeVisible();
+  const hasExamComments = await exam.locator('.forum-post').count() > 0;
+  if (hasExamComments) {
+    await expect(exam.locator('.comment-composer')).not.toHaveAttribute('open');
+    await exam.getByText('댓글 남기기', { exact: true }).click();
+  } else {
+    await expect(exam.locator('.comment-composer')).toHaveAttribute('open', '');
+  }
   await expect(page.getByRole('heading', { name: '문제 댓글', exact: true })).toHaveCount(0);
   await exam.getByLabel('댓글', { exact: true }).fill('Only an exam comment');
   await exam.getByRole('button', { name: '댓글 등록', exact: true }).click();
@@ -110,7 +120,8 @@ test("exam comments and answer-area question comments have independent forms, au
   const problem = page.getByRole('region', { name: '문제 댓글', exact: true });
   await expect(problem).toBeVisible();
   await expect(problem).not.toContainText('Only an exam comment');
-  await problem.getByText('댓글 남기기', { exact: true }).click();
+  await expect(problem.locator('.forum-empty')).toBeVisible();
+  await expect(problem.locator('.comment-composer')).toHaveAttribute('open', '');
   await problem.getByLabel('작성자명 (선택)').fill('Study partner');
   await problem.getByLabel('댓글', { exact: true }).fill('Only the first question');
   await problem.getByRole('button', { name: '댓글 등록', exact: true }).click();
@@ -133,6 +144,8 @@ test("exam comments and answer-area question comments have independent forms, au
   await page.reload();
   await expect(problem.locator('.forum-comments')).toContainText('Only the first question');
   await expect(exam.locator('.forum-comments')).toContainText('Only an exam comment');
+  await expect(exam.locator('.comment-composer')).not.toHaveAttribute('open');
+  await expect(problem.locator('.comment-composer')).not.toHaveAttribute('open');
   const tab = await context.newPage();
   await tab.goto('/engineer-electricity?verNbr=202610');
   const otherExam = tab.getByRole('region', { name: '시험 댓글', exact: true });
@@ -202,6 +215,9 @@ test('mobile title opens a right-hand modal with focus containment, draft retent
   await expect(dialog).toBeVisible();
   await expect(dialog.getByRole('button', { name: '댓글 닫기' })).toBeFocused();
   expect(await page.evaluate(() => document.body.style.overflow)).toBe('hidden');
+  await expect(dialog.locator('.forum-comments')).toBeVisible();
+  await expect(dialog.locator('.comment-composer')).not.toHaveAttribute('open');
+  await dialog.getByText('댓글 남기기', { exact: true }).click();
   await dialog.getByLabel('댓글', { exact: true }).fill('Preserved mobile draft');
   await expect(dialog).not.toContainText('쿠키를 유지');
   await expect(dialog).not.toContainText('검토 대기');

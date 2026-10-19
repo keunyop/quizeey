@@ -107,7 +107,7 @@ export function Forum({ examId, questionId, locale }: { examId: string; question
   return <section className={`forum${questionId ? " question-forum" : ""}`} aria-labelledby={`${id}-heading`}>
     <div className="forum-heading"><h2 id={`${id}-heading`}>{heading}</h2></div>
     <p className="forum-intro">{questionId ? en ? "Share a question or explanation about this problem." : "이 문제에 대한 질문이나 풀이를 나눠보세요." : en ? "Share study tips and questions about this exam." : "이 시험의 공부 방법과 궁금한 점을 나눠보세요."}</p>
-    <details className="comment-composer" ref={composer} open={!questionId || undefined}>
+    <details className="comment-composer" ref={composer} open={(!loading && !loadError && data.posts.length === 0) || undefined}>
       <summary>{en ? "Write a comment" : "댓글 남기기"}</summary>
       <form className="forum-form" aria-label={heading} onSubmit={event => {
       event.preventDefault();
