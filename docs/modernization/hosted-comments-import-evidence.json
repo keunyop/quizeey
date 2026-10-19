@@ -1,0 +1,102 @@
+{
+  "verifiedAtUtc": "2026-10-19T05:43:00Z",
+  "ownerApprovalDate": "2026-10-18",
+  "projectId": "tfkhnrbshvyfmrzxqfmq",
+  "datasetSha256": "88ed4da320cf3bbd40d65f1aa6de7ba6b81a09f5aa6bbcef1e3860ca58ccb42f",
+  "scope": "Restore approved legacy question comments only",
+  "before": {
+    "topics": 0,
+    "posts": 0,
+    "exams": 181,
+    "questions": 26733
+  },
+  "staged": {
+    "exams": 181,
+    "posts": {
+      "rows": 2183,
+      "pending": 2183,
+      "approved": 0,
+      "framedSha256": "caeb5a24d05dde1f2f400267e6dad720f22b9cb5c53e283ec8c4a051bb754c03"
+    },
+    "topics": {
+      "rows": 630,
+      "pending": 630,
+      "approved": 0,
+      "framedSha256": "c03c2edb1d8d77246c89de86650dc1a182610077addc081ec4ff319e622ca19e"
+    },
+    "questions": 26733,
+    "countMismatch": 0,
+    "importedOwners": 0,
+    "invalidContexts": 0
+  },
+  "after": {
+    "exams": 181,
+    "posts": {
+      "rows": 2183,
+      "pending": 0,
+      "approved": 2183,
+      "framedSha256": "caeb5a24d05dde1f2f400267e6dad720f22b9cb5c53e283ec8c4a051bb754c03"
+    },
+    "topics": {
+      "rows": 630,
+      "pending": 0,
+      "approved": 630,
+      "framedSha256": "c03c2edb1d8d77246c89de86650dc1a182610077addc081ec4ff319e622ca19e"
+    },
+    "questions": 26733,
+    "countMismatch": 0,
+    "importedOwners": 0,
+    "invalidContexts": 0
+  },
+  "publicRls": {
+    "before": {
+      "posts": 0,
+      "topics": 0
+    },
+    "anon": {
+      "posts": 2183,
+      "topics": 630
+    },
+    "authenticated": {
+      "posts": 2183,
+      "topics": 630
+    }
+  },
+  "integrity": {
+    "allImmutableValuesMatchedSource": true,
+    "publicationAtomic": true,
+    "originalBackupChanged": false,
+    "guestOwnershipInferred": false,
+    "schemaChanged": false,
+    "contentRowsWritten": false,
+    "privateTextInReport": false
+  },
+  "http": {
+    "origin": "https://quizeey.com",
+    "questionContext": {
+      "examId": "123",
+      "questionId": "10055"
+    },
+    "questionForumStatus": 503,
+    "examForumStatus": 503,
+    "error": "Forum unavailable",
+    "displayVerified": false
+  },
+  "deploymentConfiguration": {
+    "inspectedWithoutDecryption": true,
+    "productionVariablesMissing": [
+      "QUIZEEY_FORUM_BACKEND",
+      "QUIZEEY_TRUSTED_PROXY",
+      "QUIZEEY_ABUSE_HMAC_KEY",
+      "CRON_SECRET",
+      "QUIZEEY_SUPABASE_PUBLISHABLE_KEY"
+    ],
+    "configurationChanged": false,
+    "redeployed": false
+  },
+  "automatedChecks": {
+    "offlineImportSafetyTests": 2,
+    "passed": true
+  },
+  "privateCheckpoint": ".modernization/exports/source-265c3ca16e/hosted-comments-202610/checkpoint.json"
+}
