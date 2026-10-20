@@ -36,7 +36,7 @@ export function forumOriginAllowed(request: Request, input: Record<string, strin
   return !!config && config.origins.some(origin => sameOrigin(request, origin));
 }
 
-export function forumAbuseHash(request: Request, purpose: 'forum' | 'admin', input: Record<string, string | undefined> = process.env) {
+export function forumAbuseHash(request: Request, purpose: 'forum' | 'admin' | 'submission', input: Record<string, string | undefined> = process.env) {
   const config = forumConfiguration(input);
   if (!config) throw new Error('Forum unavailable');
   // Vercel overwrites this header. External CF/XFF values are never trusted.

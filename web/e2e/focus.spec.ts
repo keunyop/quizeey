@@ -7,7 +7,8 @@ test("mobile practice prioritizes the question and one main action without losin
   const question = page.locator(".question-card");
   expect((await question.boundingBox())!.y).toBeLessThan(260);
   await expect(page.locator(".question-map")).not.toHaveAttribute("open");
-  await expect(page.locator(".study-settings")).not.toHaveAttribute("open");
+  await expect(page.getByRole("button", { name: "시험 기본정보", exact: true })).toHaveAttribute("aria-expanded", "false");
+  await expect(page.locator(".exam-info-description")).toBeHidden();
   await expect(page.getByLabel("시험 회차", { exact: true })).toBeVisible();
   expect((await page.locator(".version-form").boundingBox())!.y).toBeLessThan((await question.boundingBox())!.y);
   await expect(page.locator(".question-version")).toHaveText("회차 · SQL 기본");

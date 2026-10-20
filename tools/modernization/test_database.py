@@ -96,6 +96,17 @@ def main():
         (directory/'admin-security-result.txt').write_text(output,encoding='utf-8')
         output = run('psql', *common, '-d', 'quizeey_fixture', '-f', ROOT / 'supabase/tests/forum_paging.sql')
         (directory / 'forum-paging-result.txt').write_text(output, encoding='utf-8')
+        output = run('psql', *common, '-d', 'quizeey_fixture', '-f', ROOT / 'supabase/tests/exam_popularity.sql')
+        (directory / 'exam-popularity-result.txt').write_text(output, encoding='utf-8')
+        output = run('psql', *common, '-d', 'quizeey_fixture', '-f', ROOT / 'supabase/tests/visitor_feedback.sql')
+        (directory / 'visitor-feedback-result.txt').write_text(output, encoding='utf-8')
+        def parallel_click(_):
+            return run('psql', *common, '-d', 'quizeey_fixture', '-At', input="set role service_role; select public.quizeey_exam_click('900003');")
+        with ThreadPoolExecutor(max_workers=8) as pool:
+            list(pool.map(parallel_click, range(40)))
+        clicks = run('psql', *common, '-d', 'quizeey_fixture', '-At', input="select public.quizeey_exam_popularity(array['900003'])->>'900003';").strip()
+        if clicks != '40': raise RuntimeError('Concurrent exam clicks lost increments')
+        print('Exam popularity: SQL permission/precision checks and 40 concurrent clicks passed.')
         def parallel_write(_):
             query = "select public.quizeey_forum_mutate(repeat('f',64),repeat('1',64),'"+str(uuid.uuid4())+"','create','{\"examId\":\"5\",\"locale\":\"en\",\"title\":\"Concurrent fixture\",\"body\":\"Text\"}');"
             result = run("psql", *common, "-d", "quizeey_fixture", "-At", input=query)
@@ -108,7 +119,8 @@ def main():
         run("pg_dump", "-h", "127.0.0.1", "-p", PORT, "-U", "quizeey_fixture", "-Fc", "-f", directory / "fixture.dump", "quizeey_fixture")
         run("psql", *common, "-d", "postgres", input="CREATE DATABASE quizeey_fixture_restore;")
         run("pg_restore", "-h", "127.0.0.1", "-p", PORT, "-U", "quizeey_fixture", "-d", "quizeey_fixture_restore", "--exit-on-error", directory / "fixture.dump")
-        retained = ['public.quizeey_topics','public.quizeey_posts','quizeey_private.guest_capabilities','quizeey_private.post_owners','quizeey_private.post_revisions','quizeey_private.forum_reports','quizeey_private.rate_windows','quizeey_private.mutation_receipts','quizeey_private.moderation_audit','quizeey_private.admin_sessions','quizeey_import.raw_rows']
+        retained = ['public.quizeey_topics','public.quizeey_posts','quizeey_private.guest_capabilities','quizeey_private.post_owners','quizeey_private.post_revisions','quizeey_private.forum_reports','quizeey_private.rate_windows','quizeey_private.mutation_receipts','quizeey_private.moderation_audit','quizeey_private.admin_sessions','quizeey_import.raw_rows','quizeey_private.exam_clicks']
+        retained += ['quizeey_private.visitor_submissions','quizeey_private.operator_credentials']
         snapshot = "select jsonb_build_object("+",".join("'"+table+"',(select jsonb_build_object('rows',count(*),'sha256',encode(sha256(convert_to(coalesce(jsonb_agg(to_jsonb(t) order by to_jsonb(t)::text)::text,'[]'),'UTF8')),'hex')) from "+table+" t)" for table in retained)+");"
         before = run("psql", *common, "-d", "quizeey_fixture", "-At", input=snapshot).strip()
         after = run("psql", *common, "-d", "quizeey_fixture_restore", "-At", input=snapshot).strip()

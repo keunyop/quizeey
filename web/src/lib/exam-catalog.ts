@@ -9,6 +9,20 @@ export const categoryNames: Record<Locale, Record<Category, string>> = {
 export function examName(route: LegacyRoute) {
   return (route.headings[0] || route.title || "Quizeey").replace(/\s*(기출문제|Practice Questions)\s*$/i, "").trim();
 }
+export type ExamSort = "popular" | "name";
+// Decimal strings preserve the database's bigint counts across JSON and SSR.
+export type ExamPopularity = Record<string, string>;
+export function sortExams(routes: LegacyRoute[], locale: Locale, sort: ExamSort, popularity: ExamPopularity) {
+  const collator = new Intl.Collator(locale, { sensitivity: "base", numeric: true });
+  return [...routes].sort((a, b) => {
+    if (sort === "popular") {
+      const left = BigInt(popularity[a.testId ?? ""] ?? "0");
+      const right = BigInt(popularity[b.testId ?? ""] ?? "0");
+      if (left !== right) return left > right ? -1 : 1;
+    }
+    return collator.compare(examName(a), examName(b)) || collator.compare(a.path, b.path);
+  });
+}
 export function examCategory(route: LegacyRoute): Exclude<Category, "all"> {
   const name = route.path + " " + examName(route);
   if (/sql|aws|azure|microsoft|ms-\d|az-\d|정보처리|정보보안|정보기기|정보관리|컴퓨터|컴활|컴퓨터활용|워드프로세서|사무자동화|웹디자인|게임|멀티미디어|네트워크|리눅스|전자계산|빅데이터|데이터|network|linux|comptia/i.test(name)) return "it";

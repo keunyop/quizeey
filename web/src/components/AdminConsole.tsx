@@ -1,8 +1,9 @@
 'use client';
-import { useEffect,useState } from 'react';
+import { useCallback,useEffect,useState } from 'react';
 import type { Locale } from '@/lib/contracts';
 import { adminMessages } from '@/lib/admin-messages';
 import type { ModerationAction,QueueItem,QueueKind,QueueState } from '@/server/admin-database';
+import { AdminDashboard } from './AdminDashboard';
 
 export function AdminConsole({locale}:{locale:Locale}) {
   const m=adminMessages[locale];
@@ -11,6 +12,7 @@ export function AdminConsole({locale}:{locale:Locale}) {
   const [kind,setKind]=useState<QueueKind>('posts');const [state,setState]=useState<QueueState>('pending');
   const [items,setItems]=useState<QueueItem[]>([]);const [cursor,setCursor]=useState<string|null>(null);
   const [busy,setBusy]=useState(false);const [notice,setNotice]=useState('');const [revision,refresh]=useState(0);
+  const expire=useCallback(()=>{setSession('signed-out');setItems([]);setCursor(null);},[]);
   useEffect(()=>{
     let active=true;
     fetch('/api/admin/session',{cache:'no-store'}).then((r)=>{if(active)setSession(r.ok?'signed-in':r.status===503?'unavailable':'signed-out');}).catch(()=>{if(active)setSession('unavailable');});
@@ -30,7 +32,7 @@ export function AdminConsole({locale}:{locale:Locale}) {
   async function login(event:React.FormEvent) {
     event.preventDefault();setBusy(true);setNotice('');
     try {
-      const r=await fetch('/api/admin/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,password})});await r.json();
+      const r=await fetch('/api/admin/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(email.includes('@')?{email,password}:{username:email,password})});await r.json();
       setPassword('');if(r.ok)setSession('signed-in');else setNotice(r.status===503?m.unavailable:m.denied);
     }catch{setNotice(m.error);}finally{setBusy(false);}
   }
@@ -57,7 +59,7 @@ export function AdminConsole({locale}:{locale:Locale}) {
     <a href={locale==='en'?'/en':'/'}>{m.home}</a><h1>{m.title}</h1>
     {session==='unavailable'&&<p role='status'>{m.unavailable}</p>}
     {session==='signed-out'&&<form className='forum-form' onSubmit={login}>
-      <label htmlFor='admin-email'>{m.email}</label><input id='admin-email' name='email' type='email' autoComplete='username' required value={email} onChange={(e)=>setEmail(e.target.value)}/>
+      <label htmlFor='admin-email'>{m.email}</label><input id='admin-email' name='username' type='text' autoComplete='username' required value={email} onChange={(e)=>setEmail(e.target.value)}/>
       <label htmlFor='admin-password'>{m.password}</label><input id='admin-password' name='password' type='password' autoComplete='current-password' required value={password} onChange={(e)=>setPassword(e.target.value)}/>
       <button className='primary' disabled={busy}>{busy?m.busy:m.signIn}</button>
     </form>}
@@ -66,6 +68,8 @@ export function AdminConsole({locale}:{locale:Locale}) {
         <button disabled={busy} onClick={logout}>{m.signOut}</button>
         <button onClick={()=>refresh((v)=>v+1)}>{m.refresh}</button>
       </div>
+      <AdminDashboard locale={locale} revision={revision} onExpired={expire}/>
+      <h2>{locale==='ko'?'댓글 관리':'Comment moderation'}</h2>
       <div className='actions' aria-label={locale==='en'?'Review queues':'검토 목록'}>{(['posts','revisions','reports'] as const).map((k)=><button key={k} aria-pressed={kind===k} onClick={()=>{setKind(k);setItems([]);setCursor(null);}}>{m[k]}</button>)}</div>
       {kind==='posts'&&<div className='actions'>{(['pending','approved','hidden'] as const).map((s)=><button key={s} aria-pressed={state===s} onClick={()=>{setState(s);setItems([]);setCursor(null);}}>{m[s]}</button>)}</div>}
       {!items.length&&<p>{m.empty}</p>}

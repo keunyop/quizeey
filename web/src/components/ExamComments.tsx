@@ -5,6 +5,7 @@ import type { ReactNode } from "react";
 import type { Locale } from "@/lib/contracts";
 import { Forum } from "./Forum";
 import { Icon } from "./Icon";
+import { ExamHeading } from "./ExamHeading";
 
 const desktopQuery = "(min-width: 1180px)";
 function subscribe(listener: () => void) {
@@ -14,7 +15,7 @@ function subscribe(listener: () => void) {
 }
 function snapshot() { return window.matchMedia(desktopQuery).matches; }
 
-export function ExamComments({ examId, locale, title, children }: { examId: string; locale: Locale; title: string; children: ReactNode }) {
+export function ExamComments({ examId, locale, title, description, children }: { examId: string; locale: Locale; title: string; description: string[]; children: ReactNode }) {
   const [open, setOpen] = useState(false);
   const [activated, setActivated] = useState(false);
   const subscribeAndClose = useCallback((listener: () => void) => subscribe(() => { setOpen(false); listener(); }), []);
@@ -37,13 +38,12 @@ export function ExamComments({ examId, locale, title, children }: { examId: stri
 
   return <>
     <div className="study-main">
-      <div className="page-heading study-heading study-heading-comments">
-        <h1>{title}</h1>
+      <ExamHeading title={title} locale={locale} description={description}>
         <button type="button" className="exam-comments-trigger" aria-haspopup="dialog" aria-expanded={open}
           aria-controls={`${id}-dialog`} onClick={() => { setActivated(true); setOpen(true); }}>
           {en ? "Comments" : "댓글"} <span aria-hidden="true">▶</span>
         </button>
-      </div>
+      </ExamHeading>
       {children}
     </div>
     {desktop ? <aside className="exam-comments-panel" aria-label={en ? "Exam discussion" : "시험 댓글 영역"}>

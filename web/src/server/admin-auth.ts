@@ -3,6 +3,13 @@ import { z } from "zod";
 import { environment } from "@/lib/environment";
 import { verifiedAdminAllowed } from "./guest-policy";
 import { activeAdminSession } from './admin-session';
+import { randomBytes, scrypt, timingSafeEqual } from 'node:crypto';
+import { promisify } from 'node:util';
+import { adminCredential } from './submission-database';
+
+const derivePassword = promisify(scrypt);
+const operatorToken = /^operator_[A-Za-z0-9_-]{43}$/;
+const operatorId = '00000000-0000-4000-8000-000000000001';
 
 export const adminCookieName = "__Host-quizeey-admin";
 export const adminCookieOptions = { httpOnly: true, secure: true, sameSite: "strict", path: "/" } as const;
@@ -52,11 +59,22 @@ export async function requireAdmin(request: Request) {
   if (!token) throw new AdminAuthError(401);
   const actor=await activeAdminSession(token);
   if(!actor)throw new AdminAuthError(401);
+  if (operatorToken.test(token)) {
+    if (actor !== operatorId) throw new AdminAuthError(403);
+    return { id: actor };
+  }
   const user=await verifyAdminToken(token);
   if(user.id!==actor)throw new AdminAuthError(403);
   return user;
 }
 export async function signInAdmin(email: string,password: string) {
+  if (!email.includes('@')) {
+    const credential = await adminCredential(email);
+    // The same password derivation runs for unknown usernames.
+    const derived = await derivePassword(password, credential?.salt ?? '0'.repeat(32), 64) as Buffer;
+    if (!credential || credential.actor_id !== operatorId || !timingSafeEqual(derived, Buffer.from(credential.password_hash, 'hex'))) throw new AdminAuthError(401);
+    return { id: credential.actor_id, token: 'operator_' + randomBytes(32).toString('base64url'), maxAge: 3600 };
+  }
   const {supabase}=client();
   const {data,error}=await supabase.auth.signInWithPassword({email,password});
   if (error || !data.session || !data.user) throw new AdminAuthError(401);
@@ -65,6 +83,7 @@ export async function signInAdmin(email: string,password: string) {
   return {id:user.id,token:data.session.access_token,maxAge:Math.max(1,Math.min(3600,(data.session.expires_at??0)-Math.floor(Date.now()/1000)))};
 }
 export async function signOutAdmin(token: string) {
+  if (operatorToken.test(token)) return;
   const {supabase}=client();
   await supabase.auth.admin.signOut(token,'local');
 }

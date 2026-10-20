@@ -1,8 +1,9 @@
 "use client";
 import { useState, useSyncExternalStore,type ReactNode } from "react";
 import type { LegacyRoute, Locale } from "@/lib/contracts";
-import { categories, categoryNames, examCategory, examName, matchesExam, readFavorites, type Category } from "@/lib/exam-catalog";
+import { categories, categoryNames, examCategory, examName, matchesExam, readFavorites, sortExams, type Category, type ExamPopularity, type ExamSort } from "@/lib/exam-catalog";
 import { Icon } from "./Icon";
+import { ExamLink } from "./ExamLink";
 
 const favoriteKey = "quizeey:favorite-exams:v1";
 function subscribe(listener: () => void) {
@@ -12,11 +13,12 @@ function subscribe(listener: () => void) {
 }
 function snapshot() { try { return localStorage.getItem(favoriteKey); } catch { return null; } }
 
-export function ExamSearch({ routes, locale,advertisement }: { routes: LegacyRoute[]; locale: Locale;advertisement?:ReactNode }) {
+export function ExamSearch({ routes, locale, popularity, advertisement }: { routes: LegacyRoute[]; locale: Locale; popularity: ExamPopularity; advertisement?:ReactNode }) {
   const en = locale === "en";
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState<Category>("all");
   const [savedOnly, setSavedOnly] = useState(false);
+  const [sort, setSort] = useState<ExamSort>("popular");
   const [limit, setLimit] = useState(18);
   const [storageError, setStorageError] = useState(false);
   const [fallback, setFallback] = useState<string[] | null>(null);
@@ -24,7 +26,7 @@ export function ExamSearch({ routes, locale,advertisement }: { routes: LegacyRou
   const favorites = fallback ?? readFavorites(raw);
   const names = categoryNames[locale];
   const savedCount = routes.filter((r) => favorites.includes(r.path)).length;
-  const filtered = routes.filter((r) => matchesExam(r, search) && (category === "all" || examCategory(r) === category) && (!savedOnly || favorites.includes(r.path)));
+  const filtered = sortExams(routes.filter((r) => matchesExam(r, search) && (category === "all" || examCategory(r) === category) && (!savedOnly || favorites.includes(r.path))), locale, sort, popularity);
   const visibleCategories = categories.filter((c) => c === "all" || routes.some((r) => examCategory(r) === c));
   function reset() { setSearch(""); setCategory("all"); setSavedOnly(false); setLimit(18); }
   function toggleFavorite(path: string) {
@@ -37,7 +39,7 @@ export function ExamSearch({ routes, locale,advertisement }: { routes: LegacyRou
   function cards(items:LegacyRoute[]){return items.map((r)=>{
     const c=examCategory(r),name=examName(r),saved=favorites.includes(r.path);
     return <li key={r.path} className={`exam-card category-${c}`}>
-      <a href={r.path} data-google-vignette="false"><span className="exam-category">{names[c]}</span><h3>{name}</h3><span className="exam-card-bottom">{en?'Practice questions':'기출문제 풀기'}<Icon name="arrow"/></span></a>
+      <ExamLink href={r.path}><span className="exam-category">{names[c]}</span><h3>{name}</h3><span className="exam-card-bottom">{en?'Practice questions':'기출문제 풀기'}<Icon name="arrow"/></span></ExamLink>
       <button className="icon-button favorite-button" aria-label={`${name} ${saved?en?'Remove favorite':'즐겨찾기 해제':en?'Add favorite':'즐겨찾기'}`} aria-pressed={saved} onClick={()=>toggleFavorite(r.path)}><Icon name="bookmark"/></button>
     </li>;
   });}
@@ -58,7 +60,14 @@ export function ExamSearch({ routes, locale,advertisement }: { routes: LegacyRou
         <button aria-pressed={savedOnly} onClick={() => { setSavedOnly(true); setLimit(18); }}><Icon name="bookmark" />{en ? "Favorites" : "즐겨찾기"}<span>{savedCount}</span></button>
       </div>
       <div className="category-filters" role="group" aria-label={en ? "Exam category" : "시험 분야"}>{visibleCategories.map((c) => <button key={c} aria-pressed={category === c} onClick={() => { setCategory(c); setLimit(18); }}>{names[c]}</button>)}</div>
-      <div className="results-line"><p role="status">{en ? `${filtered.length} exams` : `${filtered.length}개의 시험`}{search && <span> · “{search}”</span>}</p>{(search || category !== "all") && <button className="text-button" onClick={reset}>{en ? "Reset filters" : "필터 초기화"}<Icon name="refresh" /></button>}</div>
+      <div className="results-line"><p role="status">{en ? `${filtered.length} exams` : `${filtered.length}개의 시험`}{search && <span> · “{search}”</span>}</p><div className="catalog-controls">
+        {(search || category !== "all") && <button className="text-button" onClick={reset}>{en ? "Reset filters" : "필터 초기화"}<Icon name="refresh" /></button>}
+        <label className="sr-only" htmlFor="exam-sort">{en ? "Sort exams" : "시험 정렬"}</label>
+        <select id="exam-sort" value={sort} onChange={(event) => { setSort(event.target.value as ExamSort); setLimit(18); }}>
+          <option value="popular">{en ? "Most popular" : "인기도순"}</option>
+          <option value="name">{en ? "Alphabetical" : "가나다순"}</option>
+        </select>
+      </div></div>
       <ul className="exam-list">{cards(filtered.slice(0,6))}</ul>
       {advertisement}
       {filtered.length>6&&<ul className="exam-list exam-list-continuation">{cards(filtered.slice(6,limit))}</ul>}

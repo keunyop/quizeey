@@ -31,7 +31,7 @@ test('verified admin session, pending review, revisions, reports, locking, audit
     const ordinary=await post(guest.request,'/api/admin/login',{email:'ordinary@quizeey.invalid',password:'fixture-password-only'});
     expect(ordinary.status()).toBe(403);expect(ordinary.headers()['set-cookie']).toBeUndefined();
     const page=await admin.newPage();await page.goto(origin+'/en/admin');
-    await page.getByLabel('Email',{exact:true}).fill('admin@quizeey.invalid');
+    await page.getByLabel('ID or email',{exact:true}).fill('admin@quizeey.invalid');
     await page.getByLabel('Password',{exact:true}).fill('fixture-password-only');
     const loginResponse=page.waitForResponse((r)=>r.url().endsWith('/api/admin/login'));
     await page.getByRole('button',{name:'Sign in',exact:true}).click();

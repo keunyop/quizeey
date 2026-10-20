@@ -4,12 +4,20 @@ import { z } from 'zod';
 import { environment } from '@/lib/environment';
 import { forumRequest } from './guest-policy';
 import { encodeForumCursor, forumCursor, forumPageSize, type ForumCursor } from '@/lib/forum-page';
+import { inboxKind, inboxItem, overviewSchema, storedSubmission } from '@/lib/submissions';
 
 const projectUrl = 'https://tfkhnrbshvyfmrzxqfmq.supabase.co';
 const hash = z.string().regex(/^[a-f0-9]{64}$/);
 const id = z.string().regex(/^[1-9]\d{0,18}$/).refine(value => BigInt(value) <= 9223372036854775807n);
 const status = z.object({ status: z.number().int().min(100).max(599) });
 const operations = {
+  quizeey_submit_feedback: z.object({ p_request_id: z.uuid(), p_abuse_hash: hash, p_payload: storedSubmission }).strict(),
+  quizeey_admin_credential: z.object({ p_username: z.string().min(1).max(80) }).strict(),
+  quizeey_admin_overview: z.object({}).strict(),
+  quizeey_admin_inbox: z.object({ p_kind: inboxKind, p_state: z.enum(['all', 'open', 'resolved']), p_cursor_time: z.iso.datetime({ offset: true }).nullable(), p_cursor_id: z.uuid().nullable() }).strict().refine(value => (value.p_cursor_time === null) === (value.p_cursor_id === null)),
+  quizeey_admin_resolve_submission: z.object({ p_actor_id: z.uuid(), p_request_id: z.uuid(), p_id: z.uuid(), p_state: z.enum(['open', 'resolved']) }).strict(),
+  quizeey_exam_click: z.object({ p_exam_id: id }).strict(),
+  quizeey_exam_popularity: z.object({ p_exam_ids: z.array(id).min(1).max(500) }).strict(),
   quizeey_forum_mutate: z.object({ p_capability_hash: hash, p_abuse_hash: hash, p_request_id: z.uuid(), p_action: z.string(), p_payload: z.record(z.string(), z.unknown()) }).strict().superRefine((value, ctx) => {
     const payload = { ...value.p_payload };
     // HTTP validation normalizes an empty optional display name to null.
@@ -32,6 +40,13 @@ const post = z.object({ id: z.uuid(), topic_id: z.uuid(), parent_id: z.uuid().nu
 const ownedPost = post.extend({ visibility: z.enum(['pending', 'approved']), exam_id: id, question_id: id.nullable(), locale: z.enum(['ko', 'en']), title: z.string(), pending_body: z.string().nullable() });
 const queueItem = z.object({ id: z.uuid(), created_at: z.iso.datetime({ offset: true }), body: z.string().optional(), published_body: z.string().optional(), reason: z.string().optional(), display_name: z.string().nullable().optional(), visibility: z.string().optional(), topic_id: z.uuid(), post_id: z.uuid().optional(), parent_id: z.uuid().nullable().optional(), title: z.string(), exam_id: id, question_id: id.nullable(), locale: z.enum(['ko', 'en']), locked: z.boolean().optional() });
 const outputs = {
+  quizeey_submit_feedback: status,
+  quizeey_admin_credential: z.object({ actor_id: z.uuid(), salt: z.string().regex(/^[a-f0-9]{32}$/), password_hash: z.string().regex(/^[a-f0-9]{128}$/) }).nullable(),
+  quizeey_admin_overview: overviewSchema,
+  quizeey_admin_inbox: z.array(inboxItem).max(21),
+  quizeey_admin_resolve_submission: status,
+  quizeey_exam_click: z.null(),
+  quizeey_exam_popularity: z.record(id, z.string().regex(/^(0|[1-9]\d{0,18})$/).refine(value => BigInt(value) <= 9223372036854775807n)),
   quizeey_forum_mutate: status.extend({ postId: z.uuid().optional(), topicId: z.uuid().optional(), revisionId: z.uuid().optional(), visibility: z.string().optional() }),
   quizeey_forum_mine: z.array(ownedPost).max(20),
   quizeey_forum_owned: z.array(ownedPost).max(forumPageSize),

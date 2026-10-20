@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { boundedJson } from './guest-policy';
-import { adminConfiguration,adminCookieName,adminCookieOptions,AdminAuthError,readAdminToken,requireAdmin,signInAdmin,signOutAdmin } from './admin-auth';
+import { adminCookieName,adminCookieOptions,AdminAuthError,readAdminToken,requireAdmin,signInAdmin,signOutAdmin } from './admin-auth';
 import { adminLoginLimit,moderate,moderationQueue } from './admin-database';
 import { forumConfigured } from './forum-database';
 import { registerAdminSession,revokeAdminSession } from './admin-session';
@@ -11,7 +11,7 @@ export const adminHeaders={'Cache-Control':'private, no-store','X-Robots-Tag':'n
 function response(value:unknown,status=200) {return NextResponse.json(value,{status,headers:adminHeaders});}
 function failure(error:unknown) {return response({error:'Admin request unavailable or denied'},error instanceof AdminAuthError?error.status:503);}
 function available() {
-  return forumConfigured() && adminConfiguration()!==null;
+  return forumConfigured();
 }
 export async function adminSession(request:Request) {
   try {
@@ -26,10 +26,13 @@ export async function adminLogin(request:Request) {
     if(!available()) return response({error:'Admin sign-in unavailable'},503);
     const abuse=forumAbuseHash(request,'admin');
     if(!await adminLoginLimit(abuse)) return response({error:'Try again later'},429);
-    let input:{email:string;password:string};
-    try {input=z.object({email:z.email().max(254),password:z.string().min(1).max(1024)}).strict().parse(await boundedJson(request));}
+    let input:{email?:string;username?:string;password:string};
+    try {input=z.union([
+      z.object({username:z.string().trim().min(1).max(80),password:z.string().min(1).max(1024)}).strict(),
+      z.object({email:z.email().max(254),password:z.string().min(1).max(1024)}).strict(),
+    ]).parse(await boundedJson(request));}
     catch {return response({error:'Invalid sign-in input'},400);}
-    const session=await signInAdmin(input.email,input.password);
+    const session=await signInAdmin(input.username ?? input.email!,input.password);
     await registerAdminSession(session.token,session.id,session.maxAge);
     const output=response({authenticated:true});
     output.cookies.set(adminCookieName,session.token,{...adminCookieOptions,maxAge:session.maxAge});

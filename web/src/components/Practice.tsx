@@ -8,6 +8,7 @@ import { grade, shuffleChoices, type Question } from "@/lib/quiz";
 import { Icon } from "./Icon";
 import { Forum } from "./Forum";
 import { useAnalytics } from './Monetization';
+import { SubmissionDialog } from './SubmissionDialog';
 
 function createProgressStore(key: string, onError: (error: boolean) => void) {
     let fallback: string | null = null;
@@ -79,6 +80,7 @@ function QuestionCard({ question, locale, attempt, onGrade, onPrevious, onNext, 
         {!attempt && <button className="text-button skip-button" onClick={onNext}>{m.skip}</button>}
       </div>
     </div>
+    <SubmissionDialog locale={locale} question={{ examId: question.testId, questionId: question.id }}/>
     {attempt && <div className="explanation-region">
       <details open onToggle={event=>{if(event.currentTarget.open)analytics.track('explanation_open',{test_id:question.testId,quest_id:question.id,locale});}}><summary>{m.explanation}</summary>
         {question.explanation && <div className="learning-content" dangerouslySetInnerHTML={{ __html: question.explanation }} />}

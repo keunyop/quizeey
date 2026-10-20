@@ -99,3 +99,35 @@ it('does not retry writes or expose provider failures and rejects malformed succ
     expect(fetcher).toHaveBeenCalledTimes(attempt);
   }
 });
+
+it('sends exam counts through server-only RPCs and preserves bigint JSON precision', async () => {
+  const fetcher = vi.fn().mockResolvedValueOnce(json(null)).mockResolvedValueOnce(json({ '5': '9007199254740993' }));
+  vi.stubGlobal('fetch', fetcher);
+  const transport = createSupabaseTransport(config);
+  expect(await transport.rpc('quizeey_exam_click', { p_exam_id: '5' })).toBeNull();
+  expect(await transport.rpc('quizeey_exam_popularity', { p_exam_ids: ['5'] })).toEqual({ '5': '9007199254740993' });
+  expect(JSON.parse(fetcher.mock.calls[0][1].body)).toEqual({ p_exam_id: '5' });
+  expect(JSON.parse(fetcher.mock.calls[1][1].body)).toEqual({ p_exam_ids: ['5'] });
+  for (const [, init] of fetcher.mock.calls) {
+    expect(new Headers(init.headers).get('apikey')).toBe(config.QUIZEEY_SUPABASE_SECRET_KEY);
+    expect(init.cache).toBe('no-store');
+  }
+  await expect(transport.rpc('quizeey_exam_click', { p_exam_id: '0' })).rejects.toThrow(SupabaseTransportError);
+  await expect(transport.rpc('quizeey_exam_popularity', { p_exam_ids: [] })).rejects.toThrow(SupabaseTransportError);
+  expect(fetcher).toHaveBeenCalledTimes(2);
+  fetcher.mockResolvedValueOnce(json({ '5': 9007199254740992 }));
+  await expect(transport.rpc('quizeey_exam_popularity', { p_exam_ids: ['5'] })).rejects.toThrow(SupabaseTransportError);
+});
+
+it('keeps submission and management RPCs server-only and validates contexts before HTTP', async () => {
+  const payload = { kind: 'question_report' as const, locale: 'ko' as const, path: '/sqlp-developer', body: 'Answer issue', examId: '5', questionId: '123' };
+  const fetcher = vi.fn().mockResolvedValueOnce(json({ status: 201 })).mockResolvedValueOnce(json([]));
+  vi.stubGlobal('fetch', fetcher); const transport = createSupabaseTransport(config);
+  expect(await transport.rpc('quizeey_submit_feedback', { p_request_id: uuid, p_abuse_hash: digest, p_payload: payload })).toEqual({ status: 201 });
+  expect(await transport.rpc('quizeey_admin_inbox', { p_kind: 'feedback', p_state: 'open', p_cursor_time: null, p_cursor_id: null })).toEqual([]);
+  expect(JSON.parse(fetcher.mock.calls[0][1].body).p_payload).toEqual(payload);
+  for (const [, init] of fetcher.mock.calls) expect(new Headers(init.headers).get('apikey')).toBe(config.QUIZEEY_SUPABASE_SECRET_KEY);
+  await expect(transport.rpc('quizeey_submit_feedback', { p_request_id: uuid, p_abuse_hash: digest, p_payload: { ...payload, questionId: null } })).rejects.toThrow(SupabaseTransportError);
+  await expect(transport.rpc('quizeey_admin_inbox', { p_kind: 'feedback', p_state: 'all', p_cursor_time: null, p_cursor_id: uuid })).rejects.toThrow(SupabaseTransportError);
+  expect(fetcher).toHaveBeenCalledTimes(2);
+});

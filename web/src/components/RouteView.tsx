@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { headers } from 'next/headers';
 import { ExamSearch } from "./ExamSearch";
+import { ExamLink } from "./ExamLink";
+import { ExamHeading } from "./ExamHeading";
+import { SubmissionDialog } from "./SubmissionDialog";
+import { examPopularity } from "@/server/exam-popularity";
 import { Practice } from "./Practice";
 import { ExamComments } from "./ExamComments";
 import { ThemeToggle } from "./ThemeToggle";
@@ -45,7 +49,12 @@ export async function RouteView({ path, query }: { path: string; query: Query })
   const locale = route.locale as Locale;
   const m = messages[locale];
   const home = locale === "en" ? "/en" : "/";
-  const store=await loadLearningStore({examId:exam.testId??undefined,questionId:input.questId,version:input.verNbr,page:input.page});
+  const isHome = ["/", "/kr", "/en", "/app"].includes(path);
+  const examRoutes = legacy.routes.filter((r) => r.testId && r.locale === locale && !r.path.startsWith("/kr/"));
+  const [store, popularity] = await Promise.all([
+    loadLearningStore({examId:exam.testId??undefined,questionId:input.questId,version:input.verNbr,page:input.page}),
+    isHome ? examPopularity(examRoutes) : Promise.resolve({}),
+  ]);
   const previewSamples=environment(process.env).stage==='preview'&&store.source==='fixture';
   // Direct IDs are resolved before the bounded practice batch is selected.
   const batch = exam.testId ? store.questions(exam.testId,locale,input.verNbr,input.questId,input.page) : [];
@@ -57,8 +66,6 @@ export async function RouteView({ path, query }: { path: string; query: Query })
     reference:q.reference?learningHtml(q.reference):q.reference,
     choices: q.choices.map((c) => ({ ...c, text: learningHtml(c.text) })) }));
   const versions = exam.testId ? store.versions(exam.testId,locale) : [];
-  const isHome = ["/", "/kr", "/en", "/app"].includes(path);
-  const examRoutes = legacy.routes.filter((r) => r.testId && r.locale === locale && !r.path.startsWith("/kr/"));
   const copy=staticPage(path);
   const env=environment(process.env);
   const commentsEnabled = forumConfigured();
@@ -79,10 +86,6 @@ export async function RouteView({ path, query }: { path: string; query: Query })
             {input.page<pagination.pages?<a href={pageLink(input.page+1)} rel="next" data-google-vignette="false">{locale==='ko'?'다음 문제':'Next questions'}</a>:<span/>}
           </nav>}
           {publicBatch.length>0&&<AdSlot kind="display" locale={locale}/>}
-          {!copy && exam.headings.length > 1 && <details className="study-settings">
-            <summary>{locale === "ko" ? "시험 기본정보" : "About this exam"}</summary>
-            {exam.headings.slice(1).map((text, i) => <p className="exam-description" key={i}>{text}</p>)}
-          </details>}
         </>}
         {exam.links.length > 0 && <nav className="legacy-links" aria-label={locale === "ko" ? "관련 링크" : "Related links"}><ul>{exam.links.filter((l) => l.label).map((l, i) => <li key={i}><a href={l.href}>{l.label}</a></li>)}</ul></nav>}
   </>;
@@ -101,16 +104,16 @@ export async function RouteView({ path, query }: { path: string; query: Query })
         <p>{locale==='ko'?'샘플 문항과 연습문항으로 학습할 수 있습니다. 실제 기출문항은 이 미리보기에 연결하지 않았습니다.':'Study with samples and practice sets. The full exam archive is not connected to this preview.'}</p>
         <a href="/sqlp-developer">한국어 샘플 연습</a>{' · '}<a href="/en/aws-certified-developer-associate">Try English samples</a>
       </aside>}
-      {isHome ? <><ExamSearch routes={examRoutes} locale={locale} advertisement={<AdSlot kind="infeed" locale={locale}/>} />
+      {isHome ? <><ExamSearch routes={examRoutes} locale={locale} popularity={popularity} advertisement={<AdSlot kind="infeed" locale={locale}/>} />
         <details className="exam-directory"><summary>{locale==='ko'?'전체 자격증 시험 목록':'All certification practice exams'}</summary>
-          <nav aria-label={locale==='ko'?'전체 시험 바로가기':'All exam links'}><ul>{examRoutes.map(r=><li key={r.path}><a href={r.path}>{examName(r)}</a></li>)}</ul></nav>
+          <nav aria-label={locale==='ko'?'전체 시험 바로가기':'All exam links'}><ul>{examRoutes.map(r=><li key={r.path}><ExamLink href={r.path}>{examName(r)}</ExamLink></li>)}</ul></nav>
         </details></> : exam.testId && commentsEnabled ?
-        <ExamComments key={`${exam.testId}:${locale}`} examId={exam.testId} locale={locale} title={examName(exam)}>{pageContent}</ExamComments> : <>
+        <ExamComments key={`${exam.testId}:${locale}`} examId={exam.testId} locale={locale} title={examName(exam)} description={exam.headings.slice(1)}>{pageContent}</ExamComments> : <>
         {!exam.testId && <a className="back-link" href={home}><Icon name="back" />{m.home}</a>}
-        <div className={`page-heading ${exam.testId ? "study-heading" : ""}`}><h1>{exam.testId ? examName(exam) : exam.headings[0] || exam.title || "Quizeey"}</h1></div>
+        {exam.testId ? <ExamHeading title={examName(exam)} locale={locale} description={exam.headings.slice(1)} /> : <div className="page-heading"><h1>{exam.headings[0] || exam.title || "Quizeey"}</h1></div>}
         {pageContent}
       </>}
     </main>
-    <footer className="site-footer"><div><a className="brand footer-brand" href={home} translate="no"><img src="/img/letter-q.svg" width="22" height="22" alt="" />Quizeey</a><span className="footer-note">{locale === "ko" ? "한 문제씩, 더 가까이." : "One question closer."}</span></div><nav aria-label={locale === "ko" ? "사이트 정보" : "Site information"}><a href="/about">{locale === "ko" ? "소개" : "About"}</a><a href="/privacy">{locale === "ko" ? "개인정보처리방침" : "Privacy"}</a></nav></footer>
+    <footer className="site-footer"><div><a className="brand footer-brand" href={home} translate="no"><img src="/img/letter-q.svg" width="22" height="22" alt="" />Quizeey</a><span className="footer-note">{locale === "ko" ? "한 문제씩, 더 가까이." : "One question closer."}</span></div><nav aria-label={locale === "ko" ? "사이트 정보" : "Site information"}><a href="/about">{locale === "ko" ? "소개" : "About"}</a><a href="/privacy">{locale === "ko" ? "개인정보처리방침" : "Privacy"}</a><SubmissionDialog locale={locale}/></nav></footer>
   </Monetization>;
 }
