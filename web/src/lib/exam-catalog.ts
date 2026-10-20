@@ -7,7 +7,7 @@ export const categoryNames: Record<Locale, Record<Category, string>> = {
   en: { all: "All", it: "IT & data", electrical: "Electrical", safety: "Safety & environment", engineering: "Engineering", service: "Life & services", other: "Other" },
 };
 export function examName(route: LegacyRoute) {
-  return (route.headings[0] || route.title || "Quizeey").replace(/\s*(기출문제|Practice Questions)\s*$/i, "").trim();
+  return (route.headings[0] || route.title || "Quizeey").replace(/\s*(기출문제|연습문제|Practice Questions)\s*$/i, "").trim();
 }
 export type ExamSort = "popular" | "name";
 // Decimal strings preserve the database's bigint counts across JSON and SSR.
@@ -25,6 +25,7 @@ export function sortExams(routes: LegacyRoute[], locale: Locale, sort: ExamSort,
 }
 export function examCategory(route: LegacyRoute): Exclude<Category, "all"> {
   const name = route.path + " " + examName(route);
+  if (/nclex|llqp/i.test(name)) return "service";
   if (/sql|aws|azure|microsoft|ms-\d|az-\d|정보처리|정보보안|정보기기|정보관리|컴퓨터|컴활|컴퓨터활용|워드프로세서|사무자동화|웹디자인|게임|멀티미디어|네트워크|리눅스|전자계산|빅데이터|데이터|network|linux|comptia/i.test(name)) return "it";
   if (/안전|환경|위험물|가스|소방|산업위생|소음|폐기물|safety|environment|pollution|hazard|fire-protection|gas/.test(name)) return "safety";
   if (/전기|전자|무선|전파|방송통신|정보통신|통신선로|electri|electronic|radio|telecommunication/.test(name)) return "electrical";

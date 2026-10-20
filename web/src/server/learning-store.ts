@@ -16,14 +16,20 @@ export class LearningStore {
     this.source = base.source;
     this.version = base.version;
     const existing = new Set(base.exams.map(exam => exam.id));
-    this.exams = [...base.exams, ...authoredCatalog.filter(exam => !existing.has(exam.id)).map(exam => ({
+    this.exams = [...base.exams.map(exam => {
+      const global = authoredCatalog.find(entry => entry.id === exam.id && entry.locale === "all");
+      return global ? { ...exam, nameKo: global.name, nameEn: global.name } : exam;
+    }), ...authoredCatalog.filter(exam => !existing.has(exam.id)).map(exam => ({
       id: exam.id, nameKo: exam.locale === "en" ? null : exam.name, nameEn: legacy.routes.find(route => route.testId === exam.id && route.locale === "en")?.headings[0] ?? null,
       slug: exam.slug, priority: 1000,
     }))];
   }
   hasExam(id: string) { return this.base.hasExam(id) || authoredCatalog.some(exam => exam.id === id); }
   hasQuestion(id: string) { return this.base.hasQuestion(id) || !!findAuthoredQuestion(id); }
-  defaultLocale(id: string): Locale { return this.base.hasExam(id) ? this.base.defaultLocale(id) : authoredDefaultLocale(id); }
+  defaultLocale(id: string): Locale {
+    if (authoredCatalog.some(exam => exam.id === id && exam.locale === "all")) return "en";
+    return this.base.hasExam(id) ? this.base.defaultLocale(id) : authoredDefaultLocale(id);
+  }
   versions(id: string, locale: Locale) {
     const extra = authoredQuestions(id, locale).length ? [{ id: authoredVersionId(id), number: authoredVersion, name: authoredVersionName }] : [];
     return [...extra, ...this.base.versions(id, locale)];

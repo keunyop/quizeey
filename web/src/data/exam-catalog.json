@@ -522,7 +522,10 @@
   {
     "id": "168",
     "slug": "comptia-sy0-501",
-    "name": "CompTIA Security+ SY0-501"
+    "name": "CompTIA Security+ SY0-501",
+    "description": "Study CompTIA Security+ with 30 additional original English questions and explanations in the 2026-10 set, alongside the 3 existing practice questions. Covers security concepts, threats, architecture, operations, and security program management using SY0-701 subject areas. Shared in the Korean and English catalogs. Independent practice material, not an official CompTIA exam.",
+    "locale": "all",
+    "questionCount": 33
   },
   {
     "id": "169",
@@ -582,7 +585,10 @@
   {
     "id": "181",
     "slug": "comptia-220-1001",
-    "name": "CompTIA A+ Certification Core 1 (220-1001)"
+    "name": "CompTIA A+ Certification Core 1 (220-1001)",
+    "description": "Study CompTIA A+ Core 1 topics with 30 additional original English questions and explanations in the 2026-10 set, alongside the 3 existing practice questions. Covers mobile devices, networking, hardware, virtualization, cloud concepts, and troubleshooting. Shared in the Korean and English catalogs. Independent practice material, not an official CompTIA exam.",
+    "locale": "all",
+    "questionCount": 33
   },
   {
     "id": "182",
@@ -937,5 +943,45 @@
     "questionCount": 130,
     "idBlockSize": 1000,
     "description": "Prepare for the Texas General Lines Life, Accident, Health and HMO license with 130 original English practice questions and explanations in the 2026-10 set. Study life insurance, annuities, health and disability coverage, social insurance, Texas regulations, and HMOs. Topic counts follow the scored content outline effective September 1, 2026; every question is graded for practice. Independent study material, not an official TDI or Pearson VUE examination."
+  },
+  {
+    "id": "238",
+    "slug": "comptia-a-plus-core-2",
+    "name": "CompTIA A+ Core 2",
+    "locale": "all",
+    "questionCount": 30,
+    "description": "Prepare with 30 original English practice questions and explanations in the 2026-10 set. Operating systems, security, software troubleshooting, and operational procedures. Independent study material, not an official examination."
+  },
+  {
+    "id": "239",
+    "slug": "aws-certified-cloud-practitioner",
+    "name": "AWS Certified Cloud Practitioner",
+    "locale": "all",
+    "questionCount": 30,
+    "description": "Prepare with 30 original English practice questions and explanations in the 2026-10 set. CLF-C02 cloud concepts, security and compliance, AWS services, and billing and pricing. Independent study material, not an official examination."
+  },
+  {
+    "id": "240",
+    "slug": "foodsafe-level-1",
+    "name": "FOODSAFE Level 1",
+    "locale": "en",
+    "questionCount": 30,
+    "description": "Prepare with 30 original English practice questions and explanations in the 2026-10 set. British Columbia, Canada: safe food handling, time and temperature control, hygiene, contamination prevention, sanitation, and worker safety. Uses BC temperature guidance. Independent study material, not an official examination."
+  },
+  {
+    "id": "241",
+    "slug": "llqp",
+    "name": "LLQP - Life Licence Qualification Program",
+    "locale": "en",
+    "questionCount": 30,
+    "description": "Prepare with 30 original English practice questions and explanations in the 2026-10 set. Canada: life insurance, accident and sickness insurance, segregated funds and annuities, and ethics and professional practice for common-law jurisdictions. Does not cover Quebec civil-code specifics. Independent study material, not an official examination."
+  },
+  {
+    "id": "242",
+    "slug": "nclex-rn",
+    "name": "NCLEX-RN",
+    "locale": "all",
+    "questionCount": 30,
+    "description": "Prepare with 30 original English practice questions and explanations in the 2026-10 set. 2026 RN test-plan subject areas: safe care, health promotion, psychosocial care, basic care, medications, risk reduction, physiological adaptation, and clinical judgment. Single-best-answer study questions; not an adaptive test or a simulation of all NGN item formats. Independent study material, not an official examination."
   }
 ]

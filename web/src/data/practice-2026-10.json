@@ -6978,6 +6978,2179 @@
           "explanation": "An HMO's network responsibilities include access to covered medically necessary care. When the network cannot provide the service, applicable referral and out-of-network arrangements should be pursued under the plan and Texas requirements."
         }
       ]
+    },
+    {
+      "topic": "a-plus-core-1-2026",
+      "examIds": [
+        "181"
+      ],
+      "source": "https://www.comptia.org/en-us/certifications/a/",
+      "questions": [
+        {
+          "prompt": "A laptop touchpad stops responding immediately after the user presses a function-key combination. An external mouse still works. What should the technician check first?",
+          "choices": [
+            "Whether the touchpad was disabled with its keyboard shortcut",
+            "Whether the laptop battery needs replacement",
+            "Whether the SSD has reached its write limit",
+            "Whether the wireless access point is overloaded"
+          ],
+          "explanation": "Many laptops provide a function-key shortcut that disables the touchpad. Checking that setting addresses the immediate change before replacing hardware or drivers."
+        },
+        {
+          "prompt": "A laptop battery is visibly swollen and pushing against the case. What is the safest response?",
+          "choices": [
+            "Stop using the laptop, disconnect external power safely, and arrange approved battery replacement",
+            "Press the battery flat before closing the case",
+            "Puncture the battery to release trapped gas",
+            "Continue charging until a diagnostic completes"
+          ],
+          "explanation": "A swollen lithium-ion battery is a safety hazard. Stop using and charging the device and follow the manufacturer's handling and disposal procedures; do not crush or puncture it."
+        },
+        {
+          "prompt": "A workstation receives 169.254.18.42/16 and cannot reach resources outside its local link. Which service should the technician investigate first?",
+          "choices": [
+            "DHCP",
+            "DNS",
+            "NTP",
+            "SMTP"
+          ],
+          "explanation": "An IPv4 link-local address commonly indicates that the client could not obtain a DHCP lease. DNS does not assign the client's IP configuration."
+        },
+        {
+          "prompt": "A user can reach a web server by its IP address but cannot resolve its hostname. Which service is the most likely source of the problem?",
+          "choices": [
+            "DNS",
+            "DHCP lease renewal",
+            "Ethernet autonegotiation",
+            "Network address translation"
+          ],
+          "explanation": "Successful IP connectivity with failed name resolution points to DNS. Check the configured DNS server and the relevant records before changing working physical connections."
+        },
+        {
+          "prompt": "Which device forwards packets between different IP networks using a routing table?",
+          "choices": [
+            "Router",
+            "Layer 2 unmanaged switch",
+            "Passive patch panel",
+            "Ethernet repeater"
+          ],
+          "explanation": "A router selects a next hop for traffic between IP networks. A basic Layer 2 switch forwards Ethernet frames within a local network using MAC addresses."
+        },
+        {
+          "prompt": "A technician needs to verify which physical cable connects a wall jack to a patch-panel port. Which tool combination is most appropriate?",
+          "choices": [
+            "Tone generator and probe",
+            "Optical power meter only",
+            "Loopback plug only",
+            "Wi-Fi spectrum analyzer"
+          ],
+          "explanation": "A tone generator places an identifiable signal on a cable and a probe locates that signal at the other end. This identifies the cable without relying on its label."
+        },
+        {
+          "prompt": "A desktop must use a nearby wired Ethernet network but has no built-in Ethernet port. Which accessory is most appropriate?",
+          "choices": [
+            "A compatible USB-to-Ethernet adapter",
+            "A USB Bluetooth audio adapter",
+            "A passive HDMI splitter",
+            "A cellular SIM card"
+          ],
+          "explanation": "A USB-to-Ethernet adapter adds a wired network interface when its connector, driver, and operating system are compatible. The other accessories do not provide Ethernet connectivity."
+        },
+        {
+          "prompt": "A customer wants one cable to a laptop dock for power, an external display, and USB peripherals. What must be checked before selecting the dock?",
+          "choices": [
+            "The laptop port and dock support the required video mode and USB Power Delivery capacity",
+            "Every USB-C port automatically supports all docking features",
+            "The dock has a VGA connector even if no VGA display is used",
+            "The laptop has an optical drive"
+          ],
+          "explanation": "USB-C describes a connector, not a guarantee of video output, data speed, or charging capability. Match the host's supported features and the dock's power budget to the workload."
+        },
+        {
+          "prompt": "A desktop with four memory slots has two identical DIMMs. What is the best way to choose their slots for dual-channel operation?",
+          "choices": [
+            "Follow the motherboard manual's recommended two-DIMM channel configuration",
+            "Install both DIMMs into whichever adjacent slots are closest",
+            "Mix one DDR4 DIMM with one DDR5 DIMM",
+            "Use only one DIMM because dual-channel requires four"
+          ],
+          "explanation": "Motherboard slot assignments vary, so the manual identifies the correct paired slots. Compatible modules in the recommended channels allow the memory controller to use dual-channel operation."
+        },
+        {
+          "prompt": "A technician is replacing an M.2 storage device. What must be confirmed in addition to the module's physical length?",
+          "choices": [
+            "The slot and drive support the same storage interface, such as SATA or PCIe NVMe",
+            "All M.2 devices use the same electrical interface",
+            "The drive has a separate Molex power connector",
+            "The drive uses an external USB cable"
+          ],
+          "explanation": "M.2 is a form factor and connector family. A physically suitable module still needs a compatible SATA or PCIe/NVMe interface and platform support."
+        },
+        {
+          "prompt": "A workstation needs to continue operating after either one of two identical storage drives fails. Which RAID level meets this requirement?",
+          "choices": [
+            "RAID 1",
+            "RAID 0",
+            "JBOD without redundancy",
+            "A single spanned volume"
+          ],
+          "explanation": "RAID 1 mirrors data across drives and can tolerate one member's failure in a two-drive mirror. Mirroring does not replace backups against deletion, corruption, or ransomware."
+        },
+        {
+          "prompt": "A desktop frequently overheats under load after being moved to a dusty office. What is the best initial hardware maintenance action after safely powering it down?",
+          "choices": [
+            "Inspect and clear blocked vents, heatsinks, and fans using approved methods",
+            "Increase the CPU voltage",
+            "Disable thermal shutdown protections",
+            "Replace the keyboard cable"
+          ],
+          "explanation": "Restricted airflow and dust accumulation can cause overheating. Restore cooling and verify fan operation before considering component replacement or performance changes."
+        },
+        {
+          "prompt": "A computer powers on but repeatedly emits a beep pattern and shows no video after a RAM upgrade. What should the technician do next?",
+          "choices": [
+            "Consult the system's POST-code documentation and verify the RAM is compatible and seated",
+            "Reinstall the web browser",
+            "Change the DNS server address",
+            "Replace the printer toner"
+          ],
+          "explanation": "POST beeps can identify hardware initialization failures. The timing after a memory change makes module seating and compatibility relevant, but the manufacturer's code documentation should guide diagnosis."
+        },
+        {
+          "prompt": "A desktop clock resets whenever mains power is disconnected, and firmware settings return to defaults. Which component is the most likely cause?",
+          "choices": [
+            "The motherboard RTC/CMOS battery",
+            "The CPU cooling fan",
+            "The Ethernet patch cable",
+            "The display backlight"
+          ],
+          "explanation": "The motherboard battery maintains the real-time clock and retained firmware settings when external power is absent. A weak battery can cause lost time and reset configuration."
+        },
+        {
+          "prompt": "A laser printer produces pages on which toner rubs off easily. Which assembly should be investigated first?",
+          "choices": [
+            "Fuser",
+            "ADF pickup rollers",
+            "Ethernet interface",
+            "Paper output sensor"
+          ],
+          "explanation": "The fuser bonds toner to paper using heat and pressure. Loose toner after printing suggests a fusing problem rather than a network or document-feeding fault."
+        },
+        {
+          "prompt": "A laser printer prints a repeating vertical streak on every page, including an internal test page. What does the internal test establish?",
+          "choices": [
+            "The fault is within the printer rather than only the workstation's application or print driver",
+            "The network switch must be replaced",
+            "The document font is missing",
+            "The user's account has no print permission"
+          ],
+          "explanation": "An internal test bypasses the workstation and its driver. A repeated defect there points to the printer's imaging, toner, or paper path and should be investigated using its maintenance guidance."
+        },
+        {
+          "prompt": "An inkjet printer has missing lines in its output after weeks without use. Which maintenance step is most appropriate first?",
+          "choices": [
+            "Run the manufacturer's nozzle-check and printhead-cleaning routine",
+            "Replace the laser fuser",
+            "Change the network's DHCP lease duration",
+            "Add toner to the ink cartridge"
+          ],
+          "explanation": "Dried ink or blocked nozzles can cause gaps in inkjet output. Use the supported cleaning routine before replacing components; inkjet printers do not use toner or a laser fuser."
+        },
+        {
+          "prompt": "A wireless client has poor performance only when it is far from the access point behind several concrete walls. What is the most likely contributing factor?",
+          "choices": [
+            "Signal attenuation",
+            "An expired DNS zone",
+            "A failed printer driver",
+            "A mismatched keyboard layout"
+          ],
+          "explanation": "Distance and dense building materials reduce received wireless signal strength. Improve access-point placement or coverage after checking the actual signal and interference conditions."
+        },
+        {
+          "prompt": "A small office is experiencing interference from many nearby 2.4 GHz wireless networks. What is a reasonable improvement for compatible nearby clients?",
+          "choices": [
+            "Move them to a properly planned 5 GHz or 6 GHz wireless network",
+            "Set all access points to the same 2.4 GHz channel",
+            "Disable wireless encryption",
+            "Increase the DHCP address lease to one year"
+          ],
+          "explanation": "Using another supported band can reduce competition in the crowded 2.4 GHz spectrum. Coverage, client compatibility, channel planning, and local regulatory requirements still matter."
+        },
+        {
+          "prompt": "A workstation must use TCP port 443 to reach a secure public website. Which application protocol normally uses that destination port?",
+          "choices": [
+            "HTTPS",
+            "SSH",
+            "SMTP",
+            "RDP"
+          ],
+          "explanation": "HTTPS normally uses TCP 443 for HTTP protected with TLS. SSH commonly uses 22, SMTP 25, and RDP 3389, so those ports do not match this request."
+        },
+        {
+          "prompt": "A server delivers shared network storage as files and folders over SMB. Which storage category best describes it?",
+          "choices": [
+            "Network-attached storage",
+            "Direct-attached SATA storage only",
+            "CPU cache",
+            "Removable optical media"
+          ],
+          "explanation": "A NAS makes file-based storage available across a network. Direct-attached storage connects locally to a host rather than exposing network file shares itself."
+        },
+        {
+          "prompt": "A team wants separate guest operating systems running on one physical host. Which component manages the virtual machines' access to hardware?",
+          "choices": [
+            "Hypervisor",
+            "DNS resolver",
+            "Print spooler",
+            "SMTP relay"
+          ],
+          "explanation": "A hypervisor creates and manages virtual machines and allocates their CPU, memory, and other resources. Each guest can run its own operating system within the virtualized environment."
+        },
+        {
+          "prompt": "A browser-based service provides ready-to-use email without the customer managing mail-server software or the underlying servers. Which cloud service model fits?",
+          "choices": [
+            "Software as a Service",
+            "Infrastructure as a Service",
+            "Bare-metal colocation",
+            "Direct-attached storage"
+          ],
+          "explanation": "SaaS provides a complete application managed by the provider. With IaaS, customers typically manage guest operating systems and their installed applications."
+        },
+        {
+          "prompt": "A host cannot start a virtual machine because the VM configuration requests more RAM than the host can allocate. What should be evaluated first?",
+          "choices": [
+            "The VM memory allocation and the host's available RAM",
+            "The monitor's refresh rate",
+            "The USB cable's color",
+            "The number of printer trays"
+          ],
+          "explanation": "Virtual machines consume host memory as well as CPU and storage resources. Adjust allocations or capacity based on the workload and the host's available resources."
+        },
+        {
+          "prompt": "A smartphone can browse over cellular data but cannot join any Wi-Fi network after airplane mode was enabled. What should be checked first?",
+          "choices": [
+            "Whether Wi-Fi is currently enabled in the device settings",
+            "Whether the cellular data plan has roaming",
+            "Whether the laptop's RAM is dual-channel",
+            "Whether the public DNS zone has a new MX record"
+          ],
+          "explanation": "Airplane mode can disable radios, and users may re-enable them individually. Verify the device's Wi-Fi state before replacing networking hardware or changing unrelated services."
+        },
+        {
+          "prompt": "A mobile device needs centralized enforcement of a screen lock and the ability to remove company data if lost. Which solution is appropriate?",
+          "choices": [
+            "Mobile device management",
+            "A consumer photo-filter app",
+            "An unmanaged Ethernet switch",
+            "A passive USB charging cable"
+          ],
+          "explanation": "MDM supports centralized device policies and supported remote-management actions. Enrollment mode and platform capabilities determine whether an organization can wipe company data or the entire device."
+        },
+        {
+          "prompt": "A user reports that a monitor displays 'No signal' after the computer was moved. Which check should come first?",
+          "choices": [
+            "Verify the display cable connections and selected input source",
+            "Reformat the system drive",
+            "Reset all user passwords",
+            "Replace the CPU without testing"
+          ],
+          "explanation": "Loose cables or an incorrect input selection are simple, common causes after moving equipment. Confirm the display path before disruptive repairs."
+        },
+        {
+          "prompt": "A desktop loses network connectivity when its damaged patch cable is flexed. Which troubleshooting action best tests the suspected cause?",
+          "choices": [
+            "Replace it temporarily with a known-good compatible cable",
+            "Create a new local user account",
+            "Change the browser's home page",
+            "Increase the monitor brightness"
+          ],
+          "explanation": "A known-good cable isolates a suspected physical-layer fault. Once connectivity is stable, document the finding and replace the damaged cable permanently."
+        },
+        {
+          "prompt": "A technician has identified a likely cause and developed a repair plan. Before applying a change that could interrupt a shared service, what should happen?",
+          "choices": [
+            "Assess the impact and obtain the required change authorization",
+            "Apply it immediately without notifying affected users",
+            "Delete the incident record",
+            "Disable backups to reduce troubleshooting noise"
+          ],
+          "explanation": "Troubleshooting plans should account for service impact, safeguards, and the organization's change procedure. Required authorization helps avoid an unplanned interruption to other users."
+        },
+        {
+          "prompt": "After replacing a failed workstation network adapter, what completes the troubleshooting process?",
+          "choices": [
+            "Verify full functionality, apply relevant preventive measures, and document the work",
+            "Close the ticket as soon as the adapter is installed",
+            "Delete the previous network configuration records",
+            "Ask the user to test it next month"
+          ],
+          "explanation": "A component replacement alone does not prove resolution. Confirm the reported issue is resolved, check related functionality, and record the cause and corrective action."
+        }
+      ]
+    },
+    {
+      "topic": "a-plus-core-2-2026",
+      "examIds": [
+        "238"
+      ],
+      "source": "https://www.comptia.org/en-us/certifications/a/",
+      "questions": [
+        {
+          "prompt": "A Windows workstation becomes unstable immediately after a display-driver update. Which recovery action most directly reverses that change?",
+          "choices": [
+            "Roll back the driver using Device Manager if a previous driver is available",
+            "Delete every local user profile",
+            "Format the data partition",
+            "Disable all security updates permanently"
+          ],
+          "explanation": "Driver rollback restores the prior driver when Windows has retained it. This targets the recent change with less disruption than reinstalling the operating system."
+        },
+        {
+          "prompt": "A Windows application is unresponsive while the rest of the desktop works. Which tool is most appropriate to end that application's process?",
+          "choices": [
+            "Task Manager",
+            "Disk Management",
+            "BitLocker recovery",
+            "Windows Memory Diagnostic"
+          ],
+          "explanation": "Task Manager shows running processes and can end an unresponsive application. Warn the user that unsaved work in that application may be lost."
+        },
+        {
+          "prompt": "A Windows technician needs detailed application and system event logs for a recurring crash. Which tool should be used?",
+          "choices": [
+            "Event Viewer",
+            "Character Map",
+            "Disk Cleanup",
+            "Credential Manager"
+          ],
+          "explanation": "Event Viewer exposes Windows event logs that can help correlate failures with services, drivers, or applications. Logs support diagnosis rather than proving a cause without further investigation."
+        },
+        {
+          "prompt": "Which Windows command displays the workstation's IPv4 address, subnet mask, and default gateway?",
+          "choices": [
+            "ipconfig",
+            "sfc",
+            "chkdsk",
+            "taskkill"
+          ],
+          "explanation": "ipconfig reports network interface configuration. Its output helps establish addressing and gateway settings before investigating routing or DNS failures."
+        },
+        {
+          "prompt": "A technician suspects Windows protected system files were damaged. Which command checks their integrity and attempts repair from available sources?",
+          "choices": [
+            "sfc /scannow",
+            "ipconfig /flushdns",
+            "net user",
+            "shutdown /l"
+          ],
+          "explanation": "System File Checker checks protected Windows system files and can repair detected corruption. If it cannot repair them, further servicing or recovery may be required."
+        },
+        {
+          "prompt": "An NTFS file has a read permission entry for a group and an applicable explicit deny-write entry for that same group. What happens when an ordinary member attempts to modify the file?",
+          "choices": [
+            "The write attempt is denied",
+            "Read permission automatically grants write permission",
+            "The file is deleted automatically",
+            "Windows ignores all group permissions"
+          ],
+          "explanation": "An applicable deny entry can prevent the requested write access. Reading and modifying are separate permissions, so a read grant alone does not authorize editing."
+        },
+        {
+          "prompt": "A Windows device stores sensitive customer records and could be stolen. Which control best protects the data on its internal drive while the device is powered off?",
+          "choices": [
+            "BitLocker drive encryption with properly managed recovery information",
+            "A hidden desktop shortcut",
+            "A renamed administrator account alone",
+            "A longer screen timeout"
+          ],
+          "explanation": "Full-volume encryption protects stored data if an attacker removes the drive or boots another operating system. Recovery keys must be stored securely so authorized users can recover access."
+        },
+        {
+          "prompt": "A standard user receives a User Account Control prompt when installing approved system software. What is the intended purpose of the prompt?",
+          "choices": [
+            "Require appropriate elevation before a change needing administrator privileges",
+            "Encrypt every file uploaded by the application",
+            "Guarantee that the installer is malware-free",
+            "Turn off audit logging for the installation"
+          ],
+          "explanation": "UAC separates ordinary user activity from elevated operations. Approval or administrator credentials authorize elevation but do not establish that the software is trustworthy."
+        },
+        {
+          "prompt": "A technician needs to list hidden files in a Linux directory. Which command is appropriate?",
+          "choices": [
+            "ls -a",
+            "pwd",
+            "cd /",
+            "mkdir -p"
+          ],
+          "explanation": "The -a option includes hidden entries whose names begin with a dot. pwd prints the current directory, while cd and mkdir change or create directories."
+        },
+        {
+          "prompt": "A Linux file should be readable and writable by its owner, with no access for the group or others. Which permission mode fits?",
+          "choices": [
+            "600",
+            "644",
+            "755",
+            "777"
+          ],
+          "explanation": "Mode 600 grants read and write to the owner and no permissions to other classes. The other modes allow additional users to read, execute, or modify the file."
+        },
+        {
+          "prompt": "A technician needs to inspect the last lines of a Linux text log as new records are added. Which command is most appropriate?",
+          "choices": [
+            "tail -f application.log",
+            "mkdir application.log",
+            "chmod 000 application.log",
+            "rm application.log"
+          ],
+          "explanation": "tail -f follows a file and displays newly appended lines. Changing permissions or removing the log would disrupt observation rather than display events."
+        },
+        {
+          "prompt": "A macOS user wants automated, versioned backups to a supported backup destination. Which built-in feature is designed for this purpose?",
+          "choices": [
+            "Time Machine",
+            "Keychain Access",
+            "Activity Monitor",
+            "Disk Utility First Aid"
+          ],
+          "explanation": "Time Machine maintains backups that can support restoring files or a system. Verify the destination and successful backups instead of assuming the feature is working merely because it is enabled."
+        },
+        {
+          "prompt": "A company plans an operating-system upgrade on a workstation with a specialized business application. What should happen before the upgrade?",
+          "choices": [
+            "Verify hardware and application compatibility and create a recoverable backup",
+            "Delete the existing license records",
+            "Disable recovery options permanently",
+            "Upgrade first and ask about compatibility afterward"
+          ],
+          "explanation": "Compatibility checks reduce the risk of losing essential functionality. A verified backup and recovery plan provide a way to recover if the upgrade fails."
+        },
+        {
+          "prompt": "A workstation boots correctly in Safe Mode but fails during a normal startup. What does this observation suggest?",
+          "choices": [
+            "An additional driver, service, or startup application may be involved",
+            "The monitor has no electrical power",
+            "All hardware is proven to be fault-free",
+            "The system drive is definitely empty"
+          ],
+          "explanation": "Safe Mode loads a reduced set of drivers and services. Successful startup there narrows investigation but does not prove every hardware component is healthy."
+        },
+        {
+          "prompt": "A user receives a message demanding an immediate password reset through an unfamiliar link. What is the best response?",
+          "choices": [
+            "Report it and verify the request through a known trusted channel",
+            "Enter credentials quickly to avoid account suspension",
+            "Forward it to coworkers asking them to sign in",
+            "Disable the email spam filter"
+          ],
+          "explanation": "Urgency and an unfamiliar sign-in link are phishing indicators. A separately verified channel avoids trusting contact details controlled by the sender."
+        },
+        {
+          "prompt": "A user gives a remote caller a one-time authentication code, believing the caller is IT support. Which attack technique is illustrated?",
+          "choices": [
+            "Social engineering",
+            "Disk fragmentation",
+            "Port mirroring",
+            "Load balancing"
+          ],
+          "explanation": "The attacker manipulates the user into revealing an authentication secret. One-time codes should only be entered into a trusted sign-in flow initiated by the user."
+        },
+        {
+          "prompt": "A technician suspects an actively spreading malware infection on a workstation. What is the best immediate containment action under the incident procedure?",
+          "choices": [
+            "Isolate the workstation from the network while preserving evidence",
+            "Copy suspicious files to shared drives for colleagues to open",
+            "Disable logging to improve performance",
+            "Use the infected workstation for administrator password resets"
+          ],
+          "explanation": "Network isolation can limit spread and remote control. Follow the incident plan and preserve relevant evidence instead of conducting sensitive activity on the suspected system."
+        },
+        {
+          "prompt": "Why should a user have a standard account for routine work and a separate privileged account for administration?",
+          "choices": [
+            "It limits the privileges available to everyday applications and mistakes",
+            "It guarantees phishing messages cannot arrive",
+            "It removes the need for software updates",
+            "It makes every file publicly readable"
+          ],
+          "explanation": "Least privilege reduces the impact of compromised applications and accidental changes. Administrative access should be used only when the task requires it."
+        },
+        {
+          "prompt": "A shared workstation must lock automatically when unattended. Which setting most directly implements this requirement?",
+          "choices": [
+            "Require authentication after a short inactivity lock timeout",
+            "Turn off the monitor without locking the session",
+            "Disable all user passwords",
+            "Keep a shared administrator session open"
+          ],
+          "explanation": "An authenticated inactivity lock prevents someone from using an unattended logged-in session. A dark display alone does not provide an access control."
+        },
+        {
+          "prompt": "A laptop is leaving the company permanently and contains confidential data on an SSD. What should the technician do before disposal?",
+          "choices": [
+            "Use an approved sanitization method suitable for the SSD and verify the result",
+            "Delete the desktop shortcuts",
+            "Empty only the browser cache",
+            "Move the files to the recycle bin without emptying it"
+          ],
+          "explanation": "Ordinary deletion does not ensure data is unrecoverable. Use an approved sanitization, cryptographic erase, or destruction process appropriate to the device and data classification."
+        },
+        {
+          "prompt": "A technician is asked to examine suspected illegal material on a company device. What is the correct approach?",
+          "choices": [
+            "Follow the organization's reporting and evidence-preservation procedure",
+            "Copy it to a personal account for later study",
+            "Delete it to protect the employee",
+            "Discuss it openly with unrelated coworkers"
+          ],
+          "explanation": "Evidence handling must follow policy and applicable authority. Avoid unnecessary access, copying, alteration, or disclosure that could damage evidence or privacy."
+        },
+        {
+          "prompt": "A department needs to restore a file accidentally overwritten yesterday. Which capability is most directly useful?",
+          "choices": [
+            "A tested backup retaining previous file versions",
+            "A RAID 0 array",
+            "A faster Internet connection",
+            "A new monitor cable"
+          ],
+          "explanation": "Versioned backups can recover an earlier state after an accidental overwrite. RAID and faster connectivity do not preserve old content on their own."
+        },
+        {
+          "prompt": "After a full backup on Sunday, an incremental backup is made each evening. Which backups are generally needed to restore to Wednesday evening?",
+          "choices": [
+            "Sunday's full backup and the Monday, Tuesday, and Wednesday incremental backups",
+            "Only Wednesday's incremental backup",
+            "Only Sunday's full backup",
+            "Monday's incremental backup and no full backup"
+          ],
+          "explanation": "A typical incremental chain records changes since the previous backup. Restoration needs the full backup and each required incremental in sequence."
+        },
+        {
+          "prompt": "A company has approved a workstation configuration change. What should the technician document before implementation to support recovery?",
+          "choices": [
+            "The current configuration, planned steps, and rollback procedure",
+            "Only the new desktop wallpaper",
+            "Only the technician's preferred browser",
+            "An instruction to discard all backups"
+          ],
+          "explanation": "A documented baseline and rollback plan help reverse an unsuccessful change. Records should also identify validation steps and the authorized change window."
+        },
+        {
+          "prompt": "A user asks a technician to install software using the technician's personal license. What should happen?",
+          "choices": [
+            "Check the organization's approved software and licensing process",
+            "Install it because any paid license permits unlimited business use",
+            "Share the technician's personal account credentials",
+            "Disable license validation"
+          ],
+          "explanation": "Software use must follow its license terms and the organization's approval process. Personal ownership does not establish that installation on a company device is authorized."
+        },
+        {
+          "prompt": "A workstation must connect to a remote corporate network over an untrusted Internet connection. Which solution provides an encrypted tunnel?",
+          "choices": [
+            "An approved VPN client",
+            "An unencrypted FTP bookmark",
+            "A local printer driver",
+            "A passive HDMI adapter"
+          ],
+          "explanation": "A VPN protects supported traffic between the device and the VPN endpoint. Its configuration and routing determine which traffic is included in the tunnel."
+        },
+        {
+          "prompt": "A user reports that a known printer fails only after changing the default paper size in an application. What should be checked first?",
+          "choices": [
+            "The application's print settings and their agreement with the printer's supported paper configuration",
+            "The entire office's DNS zone",
+            "The laptop's battery chemistry",
+            "The server room's humidity sensor"
+          ],
+          "explanation": "The issue follows an application-level print-setting change. Verify that configuration and reproduce the problem before replacing working printer hardware."
+        },
+        {
+          "prompt": "A technician handles a support call with a frustrated customer. Which response is most professional?",
+          "choices": [
+            "Listen, confirm the problem and business impact, and explain the next steps clearly",
+            "Interrupt repeatedly to finish the call faster",
+            "Blame the customer before investigating",
+            "Discuss another customer's confidential incident"
+          ],
+          "explanation": "Clear listening and expectation setting support effective troubleshooting. Keep communication respectful and disclose only information relevant and authorized for the call."
+        },
+        {
+          "prompt": "A power supply inside a desktop is suspected to have failed. Which action is safest for a general support technician?",
+          "choices": [
+            "Replace the complete approved unit after safely disconnecting power",
+            "Open the power supply and touch its internal capacitors",
+            "Work on its internal board while it is plugged in",
+            "Bypass its protective fuse"
+          ],
+          "explanation": "Power supplies can retain hazardous charge after being unplugged. General desktop support should replace the approved assembly rather than open or bypass its safety components."
+        },
+        {
+          "prompt": "A support technician resolves a startup failure by removing a defective peripheral. What should be included when closing the incident?",
+          "choices": [
+            "The symptoms, tests, identified cause, corrective action, and verified outcome",
+            "Only the statement 'fixed'",
+            "An unrelated customer's account password",
+            "A recommendation to stop keeping incident records"
+          ],
+          "explanation": "Useful incident documentation explains what failed and how resolution was verified. It supports future troubleshooting while avoiding unnecessary sensitive data."
+        }
+      ]
+    },
+    {
+      "topic": "aws-cloud-practitioner-2026",
+      "examIds": [
+        "239"
+      ],
+      "source": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/",
+      "questions": [
+        {
+          "prompt": "A retailer wants to add computing capacity during short seasonal sales and remove it afterward. Which cloud characteristic best supports this goal?",
+          "choices": [
+            "Elasticity",
+            "A fixed hardware depreciation schedule",
+            "Single-site physical hosting",
+            "Manual tape rotation"
+          ],
+          "explanation": "Elasticity allows capacity to grow and shrink with demand. It reduces the need to own enough hardware for a brief peak throughout the year."
+        },
+        {
+          "prompt": "A company moves from buying servers in advance to paying for consumed cloud resources. Which financial change does this illustrate?",
+          "choices": [
+            "Trading substantial upfront infrastructure expense for variable usage expense",
+            "Eliminating every operating expense",
+            "Requiring the same server purchase before every deployment",
+            "Making software licensing irrelevant"
+          ],
+          "explanation": "Cloud consumption can replace large upfront infrastructure purchases with variable costs. Organizations still need cost management because consumption and related services remain billable."
+        },
+        {
+          "prompt": "Which statement best distinguishes an AWS Availability Zone from an AWS Region?",
+          "choices": [
+            "A Region is a geographic area containing multiple Availability Zones",
+            "An Availability Zone contains all AWS Regions",
+            "Every Region consists of exactly one physical server",
+            "An Availability Zone is a customer billing account"
+          ],
+          "explanation": "A Region contains multiple isolated Availability Zones connected by low-latency networking. Deploying across zones can reduce the impact of a zone-level failure."
+        },
+        {
+          "prompt": "An application must remain available if one Availability Zone fails. Which design best addresses that requirement?",
+          "choices": [
+            "Deploy application instances across multiple Availability Zones",
+            "Place every instance on one host in one zone",
+            "Store the only backup on the same instance",
+            "Use a longer administrator password as the sole availability measure"
+          ],
+          "explanation": "Using multiple zones reduces dependence on a single zone's facilities. The application must also handle traffic routing and data availability across those zones."
+        },
+        {
+          "prompt": "Which customer action remains a responsibility when running an application on Amazon EC2?",
+          "choices": [
+            "Patching the guest operating system",
+            "Replacing failed physical server disks in an AWS data centre",
+            "Maintaining the physical power systems in the AWS facility",
+            "Controlling physical access to AWS server racks"
+          ],
+          "explanation": "For EC2, AWS manages the physical infrastructure while customers manage the guest operating system and their applications. Responsibility boundaries change with the managed service used."
+        },
+        {
+          "prompt": "An organization uses Amazon RDS rather than installing a database on EC2. Which responsibility generally remains with the customer?",
+          "choices": [
+            "Managing application data and database access permissions",
+            "Replacing the database host's physical memory",
+            "Maintaining the data centre's cooling equipment",
+            "Repairing the underlying hardware network cards"
+          ],
+          "explanation": "RDS manages many infrastructure and database administration tasks, but customers still control their data and access configuration. A managed service does not remove all customer security responsibilities."
+        },
+        {
+          "prompt": "Which practice best protects the AWS account root user?",
+          "choices": [
+            "Enable multifactor authentication and reserve root use for tasks that require it",
+            "Create root access keys for every developer",
+            "Use root credentials for routine application calls",
+            "Share the root password with the support queue"
+          ],
+          "explanation": "The root identity has extensive privileges. Protect it with MFA and use appropriately scoped identities for routine administration and workloads."
+        },
+        {
+          "prompt": "An application on EC2 needs temporary permissions to read one S3 bucket. Which approach is preferred?",
+          "choices": [
+            "Attach an IAM role with the necessary permissions to the instance",
+            "Embed the root user's access keys in application code",
+            "Make every account bucket public",
+            "Give all developers the same permanent administrator keys"
+          ],
+          "explanation": "An instance role supplies temporary credentials that AWS rotates. A scoped policy limits the application to the access it needs without embedding long-lived secrets."
+        },
+        {
+          "prompt": "A company wants workforce users to access several AWS accounts through centrally managed sign-in. Which service is designed for this?",
+          "choices": [
+            "AWS IAM Identity Center",
+            "Amazon Route 53",
+            "AWS Snowball",
+            "Amazon EBS"
+          ],
+          "explanation": "IAM Identity Center supports centralized workforce access to AWS accounts and supported applications. It addresses user access rather than DNS or block storage."
+        },
+        {
+          "prompt": "Which policy design follows least privilege for an application that only reads objects from a specific S3 location?",
+          "choices": [
+            "Allow only the required read actions on the required resources",
+            "Allow every action on every AWS resource",
+            "Grant account administrator access to simplify deployment",
+            "Publish the application's credentials so users can troubleshoot"
+          ],
+          "explanation": "Least privilege limits actions and resources to the task. Broad administrator policies create unnecessary access even if the application currently performs only reads."
+        },
+        {
+          "prompt": "An auditor asks which principal changed a security group and when. Which AWS service provides the relevant account activity records?",
+          "choices": [
+            "AWS CloudTrail",
+            "Amazon CloudFront",
+            "Amazon ElastiCache",
+            "AWS Direct Connect"
+          ],
+          "explanation": "CloudTrail records supported AWS account and API activity, including identity and timing details. It is used for auditing actions rather than caching application content."
+        },
+        {
+          "prompt": "An operations team wants an alarm when an EC2 instance's CPU utilization remains high. Which service is the best fit?",
+          "choices": [
+            "Amazon CloudWatch",
+            "AWS Artifact",
+            "Amazon Registrar",
+            "AWS Snowball"
+          ],
+          "explanation": "CloudWatch collects operational metrics and can trigger alarms. CloudTrail focuses on account activity, while Artifact provides access to compliance reports and agreements."
+        },
+        {
+          "prompt": "An auditor needs AWS compliance reports supplied by AWS. Which service provides access to them?",
+          "choices": [
+            "AWS Artifact",
+            "Amazon SQS",
+            "Amazon EFS",
+            "Amazon EventBridge"
+          ],
+          "explanation": "AWS Artifact provides supported compliance reports and agreements. Customers still evaluate whether their own workload configuration and processes meet their obligations."
+        },
+        {
+          "prompt": "A security team wants managed detection of suspicious activity based on supported AWS telemetry. Which service best fits?",
+          "choices": [
+            "Amazon GuardDuty",
+            "AWS Budgets",
+            "Amazon Route 53",
+            "AWS DataSync"
+          ],
+          "explanation": "GuardDuty analyzes supported data sources for threats and suspicious behavior. It produces security findings and does not replace permissions management or incident response."
+        },
+        {
+          "prompt": "A company needs managed keys for encrypting data in supported AWS services. Which service is most appropriate?",
+          "choices": [
+            "AWS Key Management Service",
+            "Amazon CloudFront",
+            "Amazon WorkSpaces",
+            "AWS Cost Explorer"
+          ],
+          "explanation": "AWS KMS supports creating and controlling cryptographic keys used by supported services and applications. Key permissions and configuration remain important customer responsibilities."
+        },
+        {
+          "prompt": "Which AWS service provides resizable virtual servers that let a customer manage the guest operating system?",
+          "choices": [
+            "Amazon EC2",
+            "Amazon S3",
+            "Amazon Route 53",
+            "AWS Artifact"
+          ],
+          "explanation": "EC2 provides virtual compute instances. Customers choose an image and instance resources and manage the guest operating system, unlike object storage or DNS services."
+        },
+        {
+          "prompt": "A team wants to run a function in response to uploaded objects without provisioning servers. Which compute service fits?",
+          "choices": [
+            "AWS Lambda",
+            "Amazon EBS",
+            "AWS Direct Connect",
+            "Amazon Route 53"
+          ],
+          "explanation": "Lambda runs event-driven functions without the customer managing servers. The team still manages its function code, permissions, and supported runtime configuration."
+        },
+        {
+          "prompt": "Which service is best suited to storing image files as objects accessed through APIs?",
+          "choices": [
+            "Amazon S3",
+            "Amazon EC2 instance memory",
+            "Amazon Route 53",
+            "AWS IAM Identity Center"
+          ],
+          "explanation": "S3 stores objects within buckets and exposes APIs for access. It is different from block storage attached to a virtual machine or a relational database."
+        },
+        {
+          "prompt": "An EC2 instance needs a persistent block device for its operating system. Which service is appropriate?",
+          "choices": [
+            "Amazon EBS",
+            "Amazon SQS",
+            "Amazon CloudFront",
+            "AWS Artifact"
+          ],
+          "explanation": "EBS provides block storage volumes for EC2. A volume's attachment and availability characteristics must be considered when designing recovery and zone-level resilience."
+        },
+        {
+          "prompt": "Several Linux instances need concurrent access to a managed shared file system. Which service is most appropriate?",
+          "choices": [
+            "Amazon EFS",
+            "Amazon S3 Glacier Deep Archive",
+            "AWS CloudTrail",
+            "Amazon Route 53"
+          ],
+          "explanation": "EFS supplies a shared file system that supported clients can mount. Archival object storage is not a drop-in shared filesystem for active applications."
+        },
+        {
+          "prompt": "A team wants a managed relational database that supports SQL without managing the underlying database host. Which service is appropriate?",
+          "choices": [
+            "Amazon RDS",
+            "Amazon SQS",
+            "Amazon CloudFront",
+            "AWS IAM"
+          ],
+          "explanation": "RDS manages supported relational database engines and infrastructure tasks. The customer still designs the schema, controls access, and manages application use of the database."
+        },
+        {
+          "prompt": "A workload needs a managed key-value database with flexible scaling and no database servers to administer. Which service best fits?",
+          "choices": [
+            "Amazon DynamoDB",
+            "Amazon EBS",
+            "AWS Direct Connect",
+            "Amazon Route 53"
+          ],
+          "explanation": "DynamoDB is a managed NoSQL key-value and document database. It does not require the customer to install a database engine on EC2 instances."
+        },
+        {
+          "prompt": "A web application needs to distribute incoming requests among healthy targets. Which service provides this capability?",
+          "choices": [
+            "Elastic Load Balancing",
+            "AWS Artifact",
+            "Amazon Macie",
+            "AWS Cost Explorer"
+          ],
+          "explanation": "Elastic Load Balancing distributes traffic to configured healthy targets. It is commonly paired with multiple instances and zones to support resilient applications."
+        },
+        {
+          "prompt": "A company wants its group of EC2 instances to increase or decrease automatically with workload demand. Which service provides this function?",
+          "choices": [
+            "Amazon EC2 Auto Scaling",
+            "Amazon Route 53 Resolver alone",
+            "AWS CloudTrail",
+            "Amazon EBS Snapshot Archive"
+          ],
+          "explanation": "EC2 Auto Scaling adjusts the number of instances in a group using configured policies and health information. Load balancing routes requests but does not itself create the required instance capacity."
+        },
+        {
+          "prompt": "A website wants to cache content close to users around the world. Which service is most appropriate?",
+          "choices": [
+            "Amazon CloudFront",
+            "Amazon RDS",
+            "AWS CloudFormation",
+            "AWS Secrets Manager"
+          ],
+          "explanation": "CloudFront is a content delivery network using edge locations. Caching content near users can reduce latency and reduce requests to the origin."
+        },
+        {
+          "prompt": "A company needs managed DNS hosting and domain-based traffic routing. Which service fits?",
+          "choices": [
+            "Amazon Route 53",
+            "Amazon EBS",
+            "Amazon SQS",
+            "AWS Batch"
+          ],
+          "explanation": "Route 53 provides DNS and supported routing capabilities. DNS maps names and routing policies to endpoints; it is separate from block storage and job execution."
+        },
+        {
+          "prompt": "An application should place work in a queue so workers can process it independently of the request service. Which service is designed for this?",
+          "choices": [
+            "Amazon SQS",
+            "Amazon Route 53",
+            "AWS Artifact",
+            "Amazon EBS"
+          ],
+          "explanation": "SQS provides managed message queues that decouple producers and consumers. Workers must still handle delivery semantics and make processing appropriately idempotent."
+        },
+        {
+          "prompt": "A finance team wants a notification when monthly AWS cost reaches a configured threshold. Which service is the best fit?",
+          "choices": [
+            "AWS Budgets",
+            "AWS CloudTrail",
+            "Amazon EFS",
+            "Amazon GuardDuty"
+          ],
+          "explanation": "AWS Budgets can monitor supported cost or usage targets and send threshold alerts. An alert alone does not guarantee that spending immediately stops."
+        },
+        {
+          "prompt": "A team wants to explore historical AWS spending by service and time period. Which tool is most appropriate?",
+          "choices": [
+            "AWS Cost Explorer",
+            "AWS IAM Policy Simulator",
+            "Amazon Route 53",
+            "Amazon Inspector"
+          ],
+          "explanation": "Cost Explorer visualizes and analyzes cost and usage data. Budgets focuses on targets and notifications, while permissions simulation serves a different purpose."
+        },
+        {
+          "prompt": "A batch job can tolerate interruption and resume later. Which EC2 purchasing option may reduce cost by using spare capacity?",
+          "choices": [
+            "Spot Instances",
+            "Dedicated Hosts as a mandatory choice",
+            "Only On-Demand Instances regardless of interruption tolerance",
+            "A physical server purchased from AWS"
+          ],
+          "explanation": "Spot Instances use spare EC2 capacity and can be interrupted. A suitable workload must tolerate interruptions and preserve progress or retry work safely."
+        }
+      ]
+    },
+    {
+      "topic": "security-plus-2026",
+      "examIds": [
+        "168"
+      ],
+      "source": "https://assets.ctfassets.net/82ripq7fjls2/6TYWUym0Nudqa8nGEnegjG/0f9b974d3b1837fe85ab8e6553f4d623/CompTIA-Security-Plus-SY0-701-Exam-Objectives.pdf",
+      "questions": [
+        {
+          "prompt": "An organization restricts access to payroll records so only authorized staff can read them. Which security objective is addressed most directly?",
+          "choices": [
+            "Confidentiality",
+            "Availability",
+            "Fault tolerance",
+            "Load distribution"
+          ],
+          "explanation": "Confidentiality protects information from unauthorized disclosure. Integrity addresses unauthorized alteration, while availability concerns timely access to systems and data."
+        },
+        {
+          "prompt": "A recipient verifies a downloaded file's hash against a trusted published hash. Which property is being checked most directly?",
+          "choices": [
+            "Integrity",
+            "Availability",
+            "Geographic redundancy",
+            "User authorization"
+          ],
+          "explanation": "Matching a trusted hash helps detect a changed file. The trusted source for the expected hash matters because a hash supplied by an attacker does not establish authenticity."
+        },
+        {
+          "prompt": "A digital signature on a document can help a recipient establish which combination of properties?",
+          "choices": [
+            "Integrity and origin authentication",
+            "Confidentiality and compression",
+            "Network availability and redundancy",
+            "Physical access and fire resistance"
+          ],
+          "explanation": "A digital signature can demonstrate that signed data has not changed and that the signer controlled the corresponding private key. It does not encrypt the document's contents by itself."
+        },
+        {
+          "prompt": "A security camera records entries into a restricted server room. Which control function is its recording primarily providing?",
+          "choices": [
+            "Detective",
+            "Corrective",
+            "Recovery",
+            "Compensating by definition"
+          ],
+          "explanation": "Recorded surveillance helps detect and investigate events. A visible camera can also deter behavior, but the recording function provides evidence rather than repairing damage."
+        },
+        {
+          "prompt": "A company cannot install a required patch immediately and temporarily isolates the affected system behind stricter access controls. How is the temporary alternative best described?",
+          "choices": [
+            "Compensating control",
+            "Risk elimination by default",
+            "Data anonymization",
+            "Nonrepudiation"
+          ],
+          "explanation": "A compensating control provides an alternative safeguard when the preferred control cannot currently be applied. Its effectiveness and residual risk still need evaluation."
+        },
+        {
+          "prompt": "An employee receives a convincing text message asking them to sign in through a link controlled by an attacker. What is this attack called?",
+          "choices": [
+            "Smishing",
+            "Vishing",
+            "Tailgating",
+            "DNS zone transfer"
+          ],
+          "explanation": "Smishing is phishing through text messages. Vishing uses voice communication, while tailgating concerns physical entry behind an authorized person."
+        },
+        {
+          "prompt": "A user receives repeated unexpected MFA approval prompts after an attacker obtains the user's password. What is the most appropriate response?",
+          "choices": [
+            "Deny the prompts, report the activity, and secure the compromised account",
+            "Approve one prompt to stop the notifications",
+            "Tell the caller the next one-time code",
+            "Disable logging until the prompts stop"
+          ],
+          "explanation": "Repeated prompts may be an MFA fatigue attack. Do not approve unknown requests; report them and follow the account recovery and incident procedures."
+        },
+        {
+          "prompt": "A web application builds SQL by concatenating untrusted input. Which mitigation most directly addresses SQL injection?",
+          "choices": [
+            "Use parameterized queries with appropriate input handling",
+            "Hide the database server's hostname in a comment",
+            "Compress database backups",
+            "Increase the browser's cache size"
+          ],
+          "explanation": "Parameterized queries separate data from executable SQL syntax. Validation and least-privileged database access add protection but do not justify unsafe query construction."
+        },
+        {
+          "prompt": "An attacker places JavaScript in a comment that later executes in other users' browsers. Which vulnerability is demonstrated?",
+          "choices": [
+            "Stored cross-site scripting",
+            "ARP poisoning",
+            "A SYN flood",
+            "A buffer underrun in a printer"
+          ],
+          "explanation": "Stored XSS occurs when malicious content is saved and later rendered as executable browser code. Context-aware output encoding and safe rendering prevent untrusted text from becoming active content."
+        },
+        {
+          "prompt": "An application allows a signed-in user to download another user's invoice by changing an invoice ID in the URL. Which missing control is most relevant?",
+          "choices": [
+            "Object-level authorization",
+            "Password complexity",
+            "Data compression",
+            "Time synchronization"
+          ],
+          "explanation": "Authentication alone does not authorize access to every object. The server must verify that the current principal can access the particular invoice on each request."
+        },
+        {
+          "prompt": "A network is divided so a compromise of a guest Wi-Fi client does not directly expose payroll servers. Which technique supports this design?",
+          "choices": [
+            "Network segmentation with enforced access rules",
+            "Using one shared administrator password",
+            "Disabling all monitoring",
+            "Putting every host into the same broadcast domain"
+          ],
+          "explanation": "Segmentation limits communication between areas with different trust requirements. Enforcement rules are necessary; merely naming separate groups does not restrict traffic."
+        },
+        {
+          "prompt": "Which statement best reflects a zero trust approach?",
+          "choices": [
+            "Evaluate access explicitly using identity, context, and policy rather than trusting network location alone",
+            "Trust every request originating from the office network",
+            "Grant all permissions after the first successful login",
+            "Remove authentication from internal services"
+          ],
+          "explanation": "Zero trust does not treat network presence as sufficient proof of trust. Access decisions should be limited to the resource and conditions needed for the request."
+        },
+        {
+          "prompt": "A user authenticates with a password and a hardware security key. Which description is correct?",
+          "choices": [
+            "Two different authentication factor categories are used",
+            "Both factors are knowledge factors",
+            "A username supplies a third secret factor",
+            "Two passwords always provide the same factor diversity"
+          ],
+          "explanation": "The password is something the user knows and the key is something the user has. Distinct factor categories provide stronger protection than two secrets from the same category."
+        },
+        {
+          "prompt": "A service account needs database read access for one application and no interactive login. Which configuration best follows least privilege?",
+          "choices": [
+            "Grant only necessary read permissions and restrict its allowed use",
+            "Add it to every administrative group",
+            "Let all employees share its secret",
+            "Allow it to modify all database users"
+          ],
+          "explanation": "A service identity should have the minimum permissions and usage scope required. Restricting interactive access and managing credentials reduce unnecessary exposure."
+        },
+        {
+          "prompt": "Why should password hashes normally use a unique salt for each password?",
+          "choices": [
+            "To make identical passwords produce different stored results and impede precomputed attacks",
+            "To make passwords recoverable as plaintext",
+            "To replace the need for a password hashing algorithm",
+            "To encrypt every user's network session"
+          ],
+          "explanation": "A unique salt prevents equal passwords from sharing the same hash and reduces reuse of precomputed tables. It should be combined with an appropriate slow password hashing scheme."
+        },
+        {
+          "prompt": "A company wants to protect a private key from direct export while allowing approved cryptographic operations. Which technology best fits?",
+          "choices": [
+            "Hardware security module",
+            "Public DNS resolver",
+            "Network repeater",
+            "Load balancer without cryptographic functions"
+          ],
+          "explanation": "An HSM protects keys within a controlled cryptographic boundary and performs supported operations. Access controls, configuration, and backup procedures still matter."
+        },
+        {
+          "prompt": "A browser reports that a server certificate has expired. What should an administrator do?",
+          "choices": [
+            "Renew or replace the certificate through the approved process and verify the deployed chain",
+            "Tell all users to ignore certificate warnings permanently",
+            "Publish the server's private key",
+            "Disable time validation on every client"
+          ],
+          "explanation": "An expired certificate no longer meets its validity-period check. Correct certificate lifecycle management restores trusted TLS service without weakening clients' validation behavior."
+        },
+        {
+          "prompt": "A vulnerability scanner finds many issues, but one affects an Internet-facing service, is actively exploited, and exposes sensitive data. What should guide prioritization?",
+          "choices": [
+            "Exploit activity, exposure, asset importance, and business impact",
+            "The alphabetical order of hostnames",
+            "Only the age of the scanner's output file",
+            "The number of characters in the vulnerability name"
+          ],
+          "explanation": "Remediation should be risk-based rather than a simple list order. Active exploitation, reachable attack paths, and sensitive assets can make an issue urgent."
+        },
+        {
+          "prompt": "How does a penetration test differ most directly from a routine vulnerability scan?",
+          "choices": [
+            "It attempts authorized exploitation to validate attack paths and impact",
+            "It guarantees that no vulnerability remains afterward",
+            "It can always proceed without owner permission",
+            "It only inventories installed fonts"
+          ],
+          "explanation": "A penetration test uses an agreed scope and authorization to validate weaknesses through controlled exploitation. Neither testing nor scanning proves that a system has no remaining weaknesses."
+        },
+        {
+          "prompt": "A security team wants to correlate authentication failures from many hosts and alert on suspicious patterns. Which platform is designed for this purpose?",
+          "choices": [
+            "Security information and event management system",
+            "An isolated unmanaged hub",
+            "A passive patch panel",
+            "A document scanner"
+          ],
+          "explanation": "A SIEM collects and correlates security telemetry from multiple sources. Useful alerts depend on data quality, detection rules, tuning, and a response process."
+        },
+        {
+          "prompt": "An endpoint detection system identifies a process encrypting large numbers of files unexpectedly. What is an appropriate initial response under the incident plan?",
+          "choices": [
+            "Isolate the endpoint to limit spread and preserve relevant evidence",
+            "Copy the executable onto all shared servers",
+            "Delete all central logs",
+            "Reset administrator passwords from the suspected endpoint"
+          ],
+          "explanation": "Containment can reduce additional damage while evidence is preserved. Further eradication and recovery should follow the incident plan and verified findings."
+        },
+        {
+          "prompt": "Why should responders record every transfer of a collected evidence drive?",
+          "choices": [
+            "To maintain chain of custody",
+            "To improve Wi-Fi bandwidth",
+            "To make the drive writable by everyone",
+            "To replace the need for evidence integrity checks"
+          ],
+          "explanation": "Chain-of-custody records document who controlled evidence and when. They complement integrity checks and appropriate storage rather than replacing those safeguards."
+        },
+        {
+          "prompt": "An organization can tolerate losing no more than 15 minutes of transaction data after an outage. Which recovery target describes this limit?",
+          "choices": [
+            "Recovery point objective",
+            "Recovery time objective",
+            "Mean time to repair",
+            "Maximum password age"
+          ],
+          "explanation": "RPO expresses the acceptable amount of data loss in time. RTO expresses the targeted duration for restoring a service after disruption."
+        },
+        {
+          "prompt": "A service must be restored within two hours after a major outage. Which target is being specified?",
+          "choices": [
+            "Recovery time objective",
+            "Recovery point objective",
+            "Annualized rate of occurrence",
+            "Data retention period"
+          ],
+          "explanation": "RTO is the target time to recover service. It is distinct from RPO, which describes how much recent data loss the business can tolerate."
+        },
+        {
+          "prompt": "Which backup design best reduces the risk that ransomware encrypts both production data and every recovery copy?",
+          "choices": [
+            "Maintain protected offline or immutable backups and regularly test restoration",
+            "Keep the only backup permanently writable from production administrator accounts",
+            "Store all backups on the infected user's desktop",
+            "Disable backup monitoring to avoid alerts"
+          ],
+          "explanation": "Protected offline or immutable copies reduce an attacker's ability to alter recovery data. Restore tests establish whether those copies can actually support recovery."
+        },
+        {
+          "prompt": "A company buys cyber insurance to cover part of the financial consequences of a specified incident. Which risk treatment does this represent?",
+          "choices": [
+            "Risk transfer",
+            "Risk avoidance of every incident",
+            "Automatic risk elimination",
+            "Data classification"
+          ],
+          "explanation": "Insurance transfers defined financial exposure subject to policy terms. The organization retains other risks and still needs preventive and response controls."
+        },
+        {
+          "prompt": "A business impact analysis identifies critical activities and the consequences of their disruption. What is its primary use?",
+          "choices": [
+            "Inform continuity priorities and recovery requirements",
+            "Prove that every threat has been removed",
+            "Replace all access reviews",
+            "Guarantee that insurance claims will be paid"
+          ],
+          "explanation": "A BIA helps determine which services matter most and how disruption affects operations. These findings support recovery priorities and continuity planning."
+        },
+        {
+          "prompt": "A supplier will process sensitive customer data. What should the customer assess before granting access?",
+          "choices": [
+            "The supplier's relevant security controls, contractual obligations, and ongoing oversight arrangements",
+            "Only the supplier's logo design",
+            "Whether every employee uses the same desktop wallpaper",
+            "Only the number of pages on the supplier's website"
+          ],
+          "explanation": "Third-party risk review considers how the supplier protects the data and meets agreed obligations. Oversight must continue as the relationship and risks change."
+        },
+        {
+          "prompt": "A dataset replaces names with codes, but a separate lookup table can reconnect each code to a person. What is this technique?",
+          "choices": [
+            "Pseudonymization",
+            "Irreversible anonymization by definition",
+            "Full-disk encryption",
+            "Network segmentation"
+          ],
+          "explanation": "Pseudonymized data can be relinked using additional information. It should not be treated as irreversibly anonymous simply because direct names were removed."
+        },
+        {
+          "prompt": "An audit finds that terminated employees retain active accounts. Which process should be improved most directly?",
+          "choices": [
+            "Timely offboarding and access revocation",
+            "Printer maintenance",
+            "Wireless channel selection",
+            "Disk defragmentation"
+          ],
+          "explanation": "Offboarding should remove unneeded access promptly and address active sessions and credentials as required. Periodic access reviews help detect accounts missed by the process."
+        }
+      ]
+    },
+    {
+      "topic": "foodsafe-level-1-2026",
+      "examIds": [
+        "240"
+      ],
+      "source": "https://foodsafe.ca/courses/level-1.html",
+      "questions": [
+        {
+          "prompt": "A BC food handler checks a refrigerator holding potentially hazardous food. Which temperature meets the usual cold-holding limit?",
+          "choices": [
+            "4 degrees C or colder",
+            "8 degrees C",
+            "15 degrees C",
+            "Room temperature if the door stays closed"
+          ],
+          "explanation": "BC food-safety guidance uses 4 degrees C or colder for cold holding of potentially hazardous food. Measure actual food and equipment temperatures and act on unsafe readings."
+        },
+        {
+          "prompt": "What is the usual minimum hot-holding temperature for potentially hazardous food in BC?",
+          "choices": [
+            "60 degrees C",
+            "40 degrees C",
+            "25 degrees C",
+            "20 degrees C"
+          ],
+          "explanation": "Hot-held potentially hazardous food should be maintained at 60 degrees C or hotter. Holding equipment maintains safe temperatures and should not be relied on to reheat cold food rapidly."
+        },
+        {
+          "prompt": "Which cooling schedule follows the standard BC two-stage method for cooked potentially hazardous food?",
+          "choices": [
+            "60 to 20 degrees C within 2 hours, then 20 to 4 degrees C within 4 more hours",
+            "60 to 20 degrees C within 4 hours, then 20 to 4 degrees C within 8 more hours",
+            "Leave at room temperature overnight, then refrigerate",
+            "Cool from 60 to 4 degrees C at any rate over 24 hours"
+          ],
+          "explanation": "The two stages limit time in temperatures that support microbial growth. Both stages must be met; a six-hour total does not authorize taking more than two hours for the first stage.",
+          "source": "https://www.bccdc.ca/resource-gallery/Documents/Guidelines%20and%20Forms/Guidelines%20and%20Manuals/EH/FPS/Food/EnsuringFoodSafetyHACCPWay.pdf"
+        },
+        {
+          "prompt": "A large pot of cooked soup must be cooled safely. Which method is most appropriate?",
+          "choices": [
+            "Divide it into shallow containers and use an approved rapid-cooling method while monitoring temperatures",
+            "Leave the covered pot on the counter overnight",
+            "Add more hot soup whenever the surface cools",
+            "Put the deep covered pot in a crowded refrigerator without checking cooling times"
+          ],
+          "explanation": "Smaller, shallower portions and methods such as an ice-water bath help heat escape. Verify the required cooling stages rather than assuming placement in a refrigerator is enough."
+        },
+        {
+          "prompt": "Which temperature range is commonly called the food danger zone in BC food-safety training?",
+          "choices": [
+            "4 to 60 degrees C",
+            "Below minus 18 degrees C only",
+            "60 to 100 degrees C only",
+            "Only temperatures above boiling"
+          ],
+          "explanation": "Many foodborne microorganisms can multiply when potentially hazardous food remains between 4 and 60 degrees C. Limit time in this range through proper preparation, cooling, and holding."
+        },
+        {
+          "prompt": "A cook needs to verify that the centre of a poultry portion has reached its required cooking temperature. What is the best method?",
+          "choices": [
+            "Use a clean, sanitized, suitable food thermometer in the thickest part, avoiding bone",
+            "Check only whether the outside is brown",
+            "Ask whether the oven feels hot",
+            "Taste a small piece before the cooking time ends"
+          ],
+          "explanation": "Colour and cooking time alone are unreliable measures of internal temperature. Correct thermometer placement and a suitable probe provide a direct measurement at the relevant location."
+        },
+        {
+          "prompt": "Which internal temperature is generally required for cooking individual chicken pieces in BC guidance?",
+          "choices": [
+            "74 degrees C",
+            "40 degrees C",
+            "50 degrees C",
+            "60 degrees C"
+          ],
+          "explanation": "Chicken pieces should reach an internal temperature of 74 degrees C. Whole poultry has a different recommended endpoint, so do not assume the pieces' temperature applies to every poultry preparation.",
+          "source": "https://www.healthlinkbc.ca/living-well/healthy-schools/bc-school-food-toolkit/food-safety"
+        },
+        {
+          "prompt": "A worker measures cooked rice at 45 degrees C in a hot-holding unit and cannot establish how long it has been below the required temperature. What is the safest action?",
+          "choices": [
+            "Set it aside from service and follow the food-safety plan's discard and corrective-action procedure",
+            "Serve it quickly without recording the problem",
+            "Mix it into a fresh batch of hot rice",
+            "Assume it is safe because it smells normal"
+          ],
+          "explanation": "An unknown time at an unsafe holding temperature cannot establish safe service. Follow the documented plan and supervisor direction; smell and mixing do not make unsafe food safe."
+        },
+        {
+          "prompt": "How should a worker wash hands before preparing ready-to-eat food?",
+          "choices": [
+            "Use soap and warm running water, scrub for at least 20 seconds, rinse, and dry hygienically",
+            "Rinse briefly in a food-preparation sink without soap",
+            "Wipe hands on an apron",
+            "Use a food sanitizer bucket instead of handwashing"
+          ],
+          "explanation": "Proper handwashing removes contamination before food handling. Use the designated handwashing sink and dry with an approved hygienic method; surface sanitizers are not handwashing products."
+        },
+        {
+          "prompt": "A worker handles raw chicken and then needs to assemble a ready-to-eat salad. What should happen first?",
+          "choices": [
+            "Wash hands and change gloves if worn, then use cleaned and sanitized equipment",
+            "Wipe the chicken juice onto a towel and continue",
+            "Use the same gloves because gloves replace handwashing",
+            "Rinse only the salad after assembly"
+          ],
+          "explanation": "Hands, gloves, and utensils can transfer pathogens from raw poultry to food that will receive no further cooking. Prevent cross-contamination before beginning the ready-to-eat task."
+        },
+        {
+          "prompt": "How should raw poultry be stored in a refrigerator that also holds ready-to-eat desserts?",
+          "choices": [
+            "Covered in a leak-resistant container below ready-to-eat foods",
+            "On the highest shelf above uncovered desserts",
+            "Directly on top of the dessert containers without a tray",
+            "Uncovered beside prepared salads"
+          ],
+          "explanation": "Lower, contained storage helps prevent raw poultry juices from dripping onto ready-to-eat food. Organize other raw foods by their required cooking temperatures and the food-safety plan."
+        },
+        {
+          "prompt": "A customer reports a severe peanut allergy. Which response is most appropriate?",
+          "choices": [
+            "Check ingredients and preparation procedures, prevent cross-contact, and communicate accurately about what can be provided safely",
+            "Remove visible peanuts and promise the meal is safe",
+            "Assume cooking destroys all peanut allergens",
+            "Guess based on the dish's name"
+          ],
+          "explanation": "Allergens may be present in ingredients or transferred through equipment and handling. Verify information and avoid promises that the establishment cannot support."
+        },
+        {
+          "prompt": "Which example is allergen cross-contact?",
+          "choices": [
+            "Using the same uncleaned blender for a peanut drink and a peanut-free drink",
+            "Using separate cleaned equipment for different orders",
+            "Checking an ingredient label before service",
+            "Storing an allergen-free order in a covered labelled container"
+          ],
+          "explanation": "Allergen cross-contact transfers an allergen to food that should not contain it. Even small amounts may matter for an allergic customer, so effective separation and cleaning are necessary."
+        },
+        {
+          "prompt": "What is the correct basic sequence for manually cleaning and sanitizing a food-contact surface?",
+          "choices": [
+            "Remove debris, wash, rinse, sanitize as directed, and air-dry",
+            "Sanitize first, then wash and wipe with a dirty cloth",
+            "Rinse only, then immediately prepare food",
+            "Apply soap and leave it on the food-contact surface"
+          ],
+          "explanation": "Cleaning removes soil before sanitizing reduces microorganisms. Use the required sanitizer concentration and contact time, then allow air-drying instead of recontaminating the surface with a towel."
+        },
+        {
+          "prompt": "How should a worker verify the concentration of a chemical sanitizer solution?",
+          "choices": [
+            "Use the appropriate test strips or test kit and follow the product instructions and food-safety plan",
+            "Judge its strength only by smell",
+            "Add as much chemical as possible without measuring",
+            "Taste a drop"
+          ],
+          "explanation": "A sanitizer must be at an effective, approved concentration. The correct test kit checks the solution; stronger is not automatically safer and can leave hazardous residues."
+        },
+        {
+          "prompt": "Where should cleaning chemicals be stored?",
+          "choices": [
+            "In labelled containers in a designated area separated from food and food-contact items",
+            "Above uncovered food on the preparation shelf",
+            "In an unlabelled drinking-water bottle",
+            "In the dry ingredient bin"
+          ],
+          "explanation": "Separation and clear labels reduce chemical contamination and mistaken use. Follow the product's storage requirements and keep chemicals away from food and food-contact equipment."
+        },
+        {
+          "prompt": "A shipment of refrigerated, potentially hazardous food arrives warm, with no evidence of safe temperature control. What should the receiver do?",
+          "choices": [
+            "Reject or hold it out of use according to the receiving procedure and notify the supplier or supervisor",
+            "Accept it if the packaging looks attractive",
+            "Cool it and assume its earlier handling no longer matters",
+            "Leave it beside the loading door until tomorrow"
+          ],
+          "explanation": "Receiving checks should confirm safe product condition and temperature. Refrigerating an unsafe shipment does not reverse earlier microbial growth or toxin formation."
+        },
+        {
+          "prompt": "Which canned-food defect requires rejecting the product?",
+          "choices": [
+            "A bulging or leaking can",
+            "An intact legible label",
+            "An undamaged clean seam",
+            "An unopened can within its planned stock rotation"
+          ],
+          "explanation": "Bulging or leaking can indicate compromised packaging or spoilage and requires rejection. Do not open or taste a suspect product to decide whether it is safe."
+        },
+        {
+          "prompt": "What does first in, first out stock rotation mean when product dates and condition are suitable?",
+          "choices": [
+            "Use the older acceptable stock before newer stock",
+            "Always use the newest shipment first",
+            "Ignore all date labels",
+            "Mix new ingredients into every old container without checking it"
+          ],
+          "explanation": "FIFO reduces unnecessary storage time by using older suitable stock first. It does not override safety checks, applicable date requirements, or instructions for a particular product."
+        },
+        {
+          "prompt": "Which method is suitable for thawing frozen meat safely?",
+          "choices": [
+            "Thaw in a refrigerator that keeps the meat at 4 degrees C or colder",
+            "Leave it on a counter for the entire day",
+            "Put it beside a warm oven overnight",
+            "Immerse it in standing warm water without monitoring"
+          ],
+          "explanation": "Refrigerator thawing keeps food out of unsafe ambient temperatures. Contain drips and allow enough time; other approved thawing methods need their own controls."
+        },
+        {
+          "prompt": "A food handler has vomiting and diarrhea shortly before a shift. What should the worker do?",
+          "choices": [
+            "Report the symptoms and avoid food handling according to the illness-exclusion procedure",
+            "Handle ready-to-eat food while wearing two pairs of gloves",
+            "Work normally if no customer can see the symptoms",
+            "Take medicine and conceal the illness from the supervisor"
+          ],
+          "explanation": "Food workers with these symptoms can spread illness. Report promptly and follow exclusion and return-to-work requirements; gloves do not remove the risk."
+        },
+        {
+          "prompt": "A worker has a small cut on a finger and is permitted to work after assessment. What protection is appropriate for food handling?",
+          "choices": [
+            "A waterproof dressing and a suitable single-use glove over it, following workplace policy",
+            "An uncovered cut washed once before the shift",
+            "A loose fabric bandage with no covering",
+            "A paper napkin wrapped around the finger"
+          ],
+          "explanation": "An appropriate waterproof covering and glove reduce contamination from a covered hand wound. Change the protection as required and report infection or other concerns."
+        },
+        {
+          "prompt": "What should a worker do if a glass breaks beside uncovered ready-to-eat food?",
+          "choices": [
+            "Stop work, isolate the area, discard affected food, and clean up according to the procedure",
+            "Pick out the largest pieces and serve the food",
+            "Stir the food until fragments are no longer visible",
+            "Rinse the prepared food quickly and return it to service"
+          ],
+          "explanation": "Glass is a physical hazard and small fragments may be hard to detect. Protect the area and remove affected food rather than trying to salvage it by visual inspection."
+        },
+        {
+          "prompt": "Which situation creates the clearest cross-contamination risk?",
+          "choices": [
+            "Using an unwashed knife from raw meat to cut cooked meat",
+            "Using a separate sanitized knife for cooked meat",
+            "Storing cooked meat covered above raw meat",
+            "Washing hands before putting on fresh gloves"
+          ],
+          "explanation": "A contaminated knife can move pathogens from raw meat to cooked food. Clean and sanitize food-contact tools between incompatible tasks."
+        },
+        {
+          "prompt": "A worker wears disposable gloves to prepare sandwiches. When should the gloves be changed?",
+          "choices": [
+            "After contamination or changing tasks, with appropriate handwashing before fresh gloves",
+            "Only when a manager notices a hole",
+            "At the end of the week",
+            "Never if the worker avoids touching their face"
+          ],
+          "explanation": "Gloves become contaminated like hands. Change them when damaged, contaminated, or switching tasks and perform hand hygiene as required; they are not a substitute for handwashing."
+        },
+        {
+          "prompt": "What is the best routine way to deter pests in a food premises?",
+          "choices": [
+            "Remove food and water sources, manage waste, and seal entry points",
+            "Leave exterior doors open during quiet periods",
+            "Store open food directly on the floor",
+            "Spray unapproved pesticide over food-contact surfaces"
+          ],
+          "explanation": "Integrated prevention reduces pest access and attractants. Evidence of pests should be reported and managed through approved procedures rather than improvised chemical use."
+        },
+        {
+          "prompt": "Why is a written food-safety plan useful?",
+          "choices": [
+            "It identifies hazards, control measures, monitoring, and corrective actions for the operation",
+            "It guarantees food can never cause illness",
+            "It replaces all employee training",
+            "It allows temperature records to be invented later"
+          ],
+          "explanation": "A food-safety plan makes controls and responses explicit for the actual processes used. Staff must understand and follow it, and monitoring must reflect real observations."
+        },
+        {
+          "prompt": "A worker checks a probe thermometer in a properly prepared ice-water slurry. What reading should a correctly functioning instrument show, within its specified tolerance?",
+          "choices": [
+            "Approximately 0 degrees C",
+            "Approximately 20 degrees C",
+            "Approximately 60 degrees C",
+            "Approximately 100 degrees C"
+          ],
+          "explanation": "A well-prepared ice-point check should be near 0 degrees C. Follow the instrument's calibration procedure and tolerance rather than assuming every thermometer can be adjusted the same way."
+        },
+        {
+          "prompt": "A cook is reheating previously cooked, cooled potentially hazardous food for hot holding in BC. Which target is generally appropriate?",
+          "choices": [
+            "Reheat rapidly to at least 74 degrees C, then hold at 60 degrees C or hotter",
+            "Warm slowly to 40 degrees C and serve throughout the day",
+            "Use the hot-holding unit to warm it gradually overnight",
+            "Reheat only until the surface feels warm"
+          ],
+          "explanation": "Reheating should bring the food rapidly to the required internal temperature, generally at least 74 degrees C, before safe hot holding. Follow any more specific approved process in the establishment's plan.",
+          "source": "https://www.healthlinkbc.ca/living-well/healthy-schools/bc-school-food-toolkit/food-safety"
+        },
+        {
+          "prompt": "A kitchen floor has a fresh grease spill near a busy passage. What should happen first?",
+          "choices": [
+            "Keep people away from the hazard and arrange prompt cleanup using the workplace procedure",
+            "Cover it with a loose cardboard sheet and keep walking",
+            "Wait until the end of service without warning anyone",
+            "Carry a hot stockpot through the spill"
+          ],
+          "explanation": "Promptly isolating and cleaning a spill reduces slip and burn risks. Foodservice safety includes worker hazards as well as contamination controls."
+        }
+      ]
+    },
+    {
+      "topic": "llqp-common-law-2026",
+      "examIds": [
+        "241"
+      ],
+      "source": "https://www.cisro-ocra.com/Curriculum_SampleExamQuestions",
+      "questions": [
+        {
+          "prompt": "A parent needs life insurance primarily to replace income while children are financially dependent for the next 20 years. Which product is the most direct starting point for that temporary need?",
+          "choices": [
+            "A suitable 20-year term life policy",
+            "A travel medical policy",
+            "A property insurance policy",
+            "An immediate annuity as a substitute for death protection"
+          ],
+          "explanation": "Term life can match a defined temporary protection period. The final recommendation also depends on affordability, existing coverage, insurability, and the client's broader needs."
+        },
+        {
+          "prompt": "A client wants lifetime death-benefit protection rather than coverage ending after a fixed term. Which category should the agent evaluate?",
+          "choices": [
+            "Permanent life insurance",
+            "Only short-term travel insurance",
+            "A disability income policy without life coverage",
+            "A one-month term deposit"
+          ],
+          "explanation": "Permanent life insurance is designed to continue for life when the contract's requirements are met. Product guarantees, funding obligations, and costs still need careful review."
+        },
+        {
+          "prompt": "In a life insurance contract, who generally holds the contractual rights to make permitted policy changes?",
+          "choices": [
+            "The policyowner",
+            "Any family member of the insured",
+            "Only the employer of the insured",
+            "Every contingent beneficiary acting independently"
+          ],
+          "explanation": "The policyowner normally controls the contract, subject to its terms and applicable legal restrictions. The insured, owner, and beneficiary may be different people."
+        },
+        {
+          "prompt": "A client names a primary and a contingent beneficiary. What is the usual role of the contingent beneficiary?",
+          "choices": [
+            "Receive the benefit if the primary beneficiary cannot receive it under the contract's conditions",
+            "Receive every premium payment from the owner",
+            "Automatically become the insurer's claims examiner",
+            "Replace the insured while both are living"
+          ],
+          "explanation": "A contingent designation provides an alternative recipient under specified conditions. The policy and applicable law determine how the benefit is paid."
+        },
+        {
+          "prompt": "An agent estimates a family's life insurance need. Which information is most relevant?",
+          "choices": [
+            "Income replacement, debts, dependants' needs, existing coverage, and available assets",
+            "Only the client's preferred advertising slogan",
+            "Only the face amount of the largest policy sold last month",
+            "Only the commission rate available to the agent"
+          ],
+          "explanation": "Needs analysis estimates the financial gap the insurance is intended to cover. Recommendations should reflect the client's circumstances rather than a sales target."
+        },
+        {
+          "prompt": "A client is considering replacing an existing life policy. What should the agent do before recommending replacement?",
+          "choices": [
+            "Compare benefits, guarantees, costs, exclusions, and consequences and follow applicable replacement requirements",
+            "Assume the newest policy is always better",
+            "Cancel the existing policy before checking new coverage",
+            "Describe only the new policy's premium"
+          ],
+          "explanation": "Replacement can create costs, lost guarantees, or new underwriting and contractual limitations. A documented comparison and required disclosures help the client make an informed decision."
+        },
+        {
+          "prompt": "A client stops paying premiums on a permanent policy with a policy loan. Which risk should the agent explain?",
+          "choices": [
+            "The contract could lapse if available value becomes insufficient, subject to its terms",
+            "The loan automatically makes premiums unnecessary forever",
+            "Every policy loan is immediately forgiven by the insurer",
+            "The policy must always pay its full original benefit regardless of outstanding loans"
+          ],
+          "explanation": "Loans and interest can reduce available values and death proceeds and may contribute to lapse. Outcomes depend on the policy, so illustrations and contractual provisions must be reviewed."
+        },
+        {
+          "prompt": "A client applies for life coverage and asks the agent to omit a known medical condition to obtain a lower premium. What should the agent do?",
+          "choices": [
+            "Require accurate disclosure and explain that material misrepresentation can jeopardize coverage",
+            "Omit it if the client signs an informal note",
+            "Answer the health questions without consulting the client",
+            "Promise the insurer will never check medical information"
+          ],
+          "explanation": "Accurate material information is central to underwriting and the insurance contract. The agent should not help conceal facts or promise that false statements have no consequences."
+        },
+        {
+          "prompt": "A client depends on employment income and wants benefits if an illness prevents them from working. Which coverage should be evaluated?",
+          "choices": [
+            "Disability income insurance",
+            "Only life insurance payable on death",
+            "Only home insurance",
+            "Only an annuity beginning after death"
+          ],
+          "explanation": "Disability income coverage can replace part of earnings when the contract's disability definition is met. Benefit amounts, waiting periods, exclusions, and benefit duration must be reviewed."
+        },
+        {
+          "prompt": "What does an elimination period in a disability income policy usually mean?",
+          "choices": [
+            "The qualifying waiting period after disability begins before benefits become payable",
+            "The period during which all medical conditions are automatically covered",
+            "The length of time the insurer is licensed",
+            "A guarantee that benefits continue for life"
+          ],
+          "explanation": "The elimination period is a deductible expressed in time. The insured needs other resources for that interval, and the policy defines how qualifying days are counted."
+        },
+        {
+          "prompt": "Why should an agent carefully explain an own-occupation disability definition?",
+          "choices": [
+            "It relates eligibility to the insured's ability to perform the duties of their own occupation, as defined by the policy",
+            "It guarantees benefits for every job change",
+            "It pays only after the insured dies",
+            "It eliminates every exclusion and waiting period"
+          ],
+          "explanation": "Disability definitions determine when a claim qualifies and may change after an initial benefit period. The specific wording matters more than a broad product label."
+        },
+        {
+          "prompt": "How does critical illness insurance generally differ from disability income insurance?",
+          "choices": [
+            "It may pay a defined lump sum when a covered condition meets the contract's criteria",
+            "It always replaces salary each month for any illness",
+            "It covers only damage to business equipment",
+            "It pays every hospital bill without exclusions"
+          ],
+          "explanation": "Critical illness benefits depend on specified conditions and contractual definitions, sometimes including survival requirements. Disability income benefits focus on qualifying loss of work capacity and are structured differently."
+        },
+        {
+          "prompt": "A client wants help paying for qualifying personal care when they can no longer perform specified daily activities. Which product category is most relevant?",
+          "choices": [
+            "Long-term care insurance",
+            "Automobile collision insurance",
+            "Term life insurance alone",
+            "A short-term guaranteed investment certificate"
+          ],
+          "explanation": "Long-term care insurance may pay benefits when functional or cognitive triggers in the contract are met. Coverage limits, definitions, and service arrangements need to be checked."
+        },
+        {
+          "prompt": "A group health plan contains a coordination-of-benefits provision. What is its general purpose?",
+          "choices": [
+            "Coordinate payment with another plan so combined reimbursement follows the applicable limits",
+            "Guarantee reimbursement above the actual eligible expense",
+            "Remove all exclusions from both plans",
+            "Allow the same receipt to be altered before submission"
+          ],
+          "explanation": "Coordination provisions establish payment order and prevent duplicate reimbursement beyond applicable limits. The plans' terms determine how an actual claim is processed."
+        },
+        {
+          "prompt": "A traveller has a pre-existing medical condition and wants emergency medical coverage. What should the agent review?",
+          "choices": [
+            "The policy's eligibility, stability requirements, exclusions, and disclosure obligations",
+            "Only the suitcase allowance",
+            "Only the hotel rating",
+            "A promise that every pre-existing condition is covered automatically"
+          ],
+          "explanation": "Travel medical policies can limit coverage for pre-existing conditions or require stability. The client should understand the actual contract before departure rather than rely on a general assurance."
+        },
+        {
+          "prompt": "A disability policy offers a longer benefit period but a higher premium. What should guide the recommendation?",
+          "choices": [
+            "The client's income risk, existing resources, affordability, and intended protection period",
+            "Always select the highest premium for every client",
+            "Always select the shortest benefit period regardless of need",
+            "Only the policy brochure's page count"
+          ],
+          "explanation": "A benefit period affects how long qualifying payments may continue. Suitability requires balancing the duration of financial risk with the client's ability to maintain coverage."
+        },
+        {
+          "prompt": "What is a segregated fund contract in the Canadian life insurance context?",
+          "choices": [
+            "An individual variable insurance contract whose value is linked to underlying investments and includes contractual guarantees",
+            "A bank deposit with every dollar guaranteed by deposit insurance",
+            "A property insurance deductible",
+            "A government promise that market values cannot fall"
+          ],
+          "explanation": "Segregated fund contracts combine investment exposure with insurance-contract features. Their guarantees are subject to terms, dates, fees, and conditions rather than preventing daily market losses."
+        },
+        {
+          "prompt": "A segregated fund contract advertises a maturity guarantee. What should the agent explain?",
+          "choices": [
+            "It applies at the contractual maturity date and under the contract's conditions, not necessarily to an early surrender",
+            "It guarantees the daily market value never declines",
+            "It makes all withdrawals penalty-free",
+            "It guarantees the underlying assets earn a positive return every month"
+          ],
+          "explanation": "A maturity guarantee relates to a specified date and defined amount. Early withdrawals, resets, and other contract features can affect the guarantee and must be understood."
+        },
+        {
+          "prompt": "A retired client wants payments that continue for as long as they live. Which product should be evaluated?",
+          "choices": [
+            "A life annuity",
+            "A term life death benefit alone",
+            "A short-term travel medical policy",
+            "A disability policy restricted to current employment"
+          ],
+          "explanation": "A life annuity can address longevity risk by paying for life. Payment options, inflation exposure, survivor provisions, guarantees, and liquidity trade-offs should be considered."
+        },
+        {
+          "prompt": "Compared with an otherwise equivalent single-life annuity without a guarantee period, what does a guarantee period generally add?",
+          "choices": [
+            "Payments for the remaining guarantee period to the designated recipient if the annuitant dies early",
+            "A guarantee that the annuitant cannot die",
+            "Unlimited withdrawals from the original premium",
+            "A promise that every payment increases with the stock market"
+          ],
+          "explanation": "A guarantee period addresses the risk of death shortly after annuity payments begin. This feature generally affects the income amount and does not make the annuity fully liquid."
+        },
+        {
+          "prompt": "Before recommending a market-linked insurance investment, what should an agent assess?",
+          "choices": [
+            "Investment objectives, risk tolerance, time horizon, liquidity needs, and financial circumstances",
+            "Only which fund rose most last month",
+            "Only which option pays the highest commission",
+            "Only whether the client recognizes the fund's name"
+          ],
+          "explanation": "Suitability requires a complete understanding of the client and the product. Past performance and product familiarity do not establish that market risk or contractual restrictions are appropriate."
+        },
+        {
+          "prompt": "A client must use most of their savings for a home purchase in six months. Which concern is most important before recommending a long-term insurance investment contract?",
+          "choices": [
+            "The short liquidity horizon and the possibility of market losses or withdrawal restrictions",
+            "Whether the product's long-term chart has many colours",
+            "Whether all friends own the same product",
+            "Whether the contract name includes the word 'growth'"
+          ],
+          "explanation": "Money needed soon may be unsuitable for exposure to market declines and long-term withdrawal conditions. Consider liquidity and capital needs before potential return."
+        },
+        {
+          "prompt": "Why should fees be explained when comparing segregated fund options?",
+          "choices": [
+            "Fees reduce the net value available to the client and can differ with features and guarantees",
+            "Fees are always paid by the government",
+            "Fees guarantee higher future returns",
+            "Fees never affect long-term outcomes"
+          ],
+          "explanation": "Contract and investment costs affect net performance and may pay for guarantees or services. Compare the full costs and features rather than headline returns alone."
+        },
+        {
+          "prompt": "An agent recommends a product that pays a higher commission than another suitable option. What professional obligation is most relevant?",
+          "choices": [
+            "Identify and manage the conflict, make required disclosures, and base the recommendation on the client's interests",
+            "Hide the commission difference from all records",
+            "Assume a commission automatically proves suitability",
+            "Tell the client that all insurers pay identical compensation"
+          ],
+          "explanation": "Compensation can create a conflict of interest. Disclosure alone does not replace suitable advice or the obligation to manage the conflict under applicable professional requirements."
+        },
+        {
+          "prompt": "A client asks the agent to disclose the client's health information to an unrelated marketing company. What should the agent establish first?",
+          "choices": [
+            "Valid authority and informed consent for the specific disclosure, subject to applicable privacy requirements",
+            "That the marketing company has an attractive website",
+            "That the information would be commercially valuable",
+            "That the agent remembers the client's name"
+          ],
+          "explanation": "Sensitive personal information requires an appropriate legal basis and safeguards. Consent, where relied on, must be meaningful and match the information and purpose of the disclosure."
+        },
+        {
+          "prompt": "An applicant asks whether passing the LLQP automatically authorizes insurance sales in every province. Which answer is accurate?",
+          "choices": [
+            "Licensing requirements and authorization must still be satisfied in each relevant jurisdiction",
+            "Passing grants an unrestricted nationwide licence immediately",
+            "No licence is required when selling to relatives",
+            "A course provider issues the insurer's underwriting authority"
+          ],
+          "explanation": "LLQP education and examination support qualification, but they do not themselves issue an insurance licence. Provincial or territorial requirements and the intended activities still apply."
+        },
+        {
+          "prompt": "An agent is unsure whether a client can change an irrevocable beneficiary under a common-law policy. What is the best response?",
+          "choices": [
+            "Review the applicable law and contract and obtain any required consent before acting",
+            "Assume the owner can always change it unilaterally",
+            "Delete the designation without recording the change",
+            "Let any coworker sign as the beneficiary"
+          ],
+          "explanation": "An irrevocable beneficiary can restrict the owner's ability to make certain changes. Exact rights and consent requirements depend on the applicable jurisdiction and contract."
+        },
+        {
+          "prompt": "A client signs an incomplete insurance application because the agent promises to fill in the health answers later. What should the agent do instead?",
+          "choices": [
+            "Complete and review accurate answers with the client before obtaining the required signatures",
+            "Invent reasonable answers after the meeting",
+            "Copy another client's answers",
+            "Leave material blanks and promise guaranteed approval"
+          ],
+          "explanation": "An application should accurately reflect the applicant's disclosures and be properly reviewed and signed. Agents must not invent information or obtain signatures as a substitute for completing the process correctly."
+        },
+        {
+          "prompt": "A policyowner complains that an important exclusion was never explained. What is the best professional response?",
+          "choices": [
+            "Follow the complaint process, preserve relevant records, and address the concern fairly without making unauthorized promises",
+            "Delete the sales notes",
+            "Tell the client complaints cannot be recorded",
+            "Promise the claim will be paid regardless of the insurer's decision"
+          ],
+          "explanation": "A fair complaint process investigates the facts and preserves documentation. The agent should explain available escalation routes and avoid promises outside their authority."
+        },
+        {
+          "prompt": "A life insurance agent receives a transaction that triggers a concern under the firm's anti-money-laundering procedures. What should the agent do?",
+          "choices": [
+            "Follow applicable identification, recordkeeping, and reporting procedures through the designated compliance process",
+            "Ignore it because insurance can never be used for money laundering",
+            "Warn the client about confidential reporting decisions",
+            "Split the transaction to avoid controls"
+          ],
+          "explanation": "Life insurance activities can fall within anti-money-laundering requirements. Follow the applicable process and protect confidential reporting information rather than improvising or helping evade controls."
+        }
+      ]
+    },
+    {
+      "topic": "nclex-rn-2026",
+      "examIds": [
+        "242"
+      ],
+      "source": "https://www.ncsbn.org/public-files/2026_RN_Test-Plan_English-F.pdf",
+      "questions": [
+        {
+          "prompt": "An RN receives reports on four clients. Which client requires immediate assessment?",
+          "choices": [
+            "A recently extubated client with new stridor and increasing work of breathing",
+            "A stable client asking about tomorrow's discharge time",
+            "A client with unchanged chronic knee pain rated 2 out of 10",
+            "A client requesting a meal preference change"
+          ],
+          "explanation": "New stridor and increasing breathing effort indicate a possible airway emergency. Assess immediately and activate the appropriate emergency response while supporting oxygenation according to protocol."
+        },
+        {
+          "prompt": "Which activity is most appropriate to delegate to trained assistive personnel for a stable client, when permitted by local law and policy?",
+          "choices": [
+            "Measure routine vital signs and report specified abnormal findings",
+            "Perform the initial nursing assessment",
+            "Independently evaluate a new episode of chest pain",
+            "Develop the client's nursing care plan"
+          ],
+          "explanation": "Routine data collection may be delegated for a stable client with clear reporting instructions. Nursing assessment, clinical judgment, planning, and evaluation remain the licensed nurse's responsibilities.",
+          "source": "https://www.ncsbn.org/nursing-regulation/practice/delegation.page"
+        },
+        {
+          "prompt": "During a handoff, which information best fits the 'Recommendation' component of SBAR?",
+          "choices": [
+            "The nurse's request for prompt assessment and a proposed monitoring plan",
+            "Only the client's date of birth",
+            "Only the medical history from ten years ago",
+            "Only the statement that the nurse is leaving work"
+          ],
+          "explanation": "The recommendation communicates the action or response needed. A useful handoff also supplies the situation, relevant background, and current assessment."
+        },
+        {
+          "prompt": "A client scheduled for surgery says, 'I signed the consent, but I do not understand what the surgeon plans to do.' What should the nurse do?",
+          "choices": [
+            "Pause the preparation and contact the responsible clinician to clarify the procedure before proceeding",
+            "Explain that a signature means questions are no longer allowed",
+            "Give a sedative before the client asks more questions",
+            "Tell the family to decide without involving the client"
+          ],
+          "explanation": "Informed consent requires understanding as well as a voluntary decision. The nurse should advocate for clarification by the responsible clinician rather than treat the signed form as sufficient."
+        },
+        {
+          "prompt": "Before giving a newly prescribed antibiotic, the nurse learns that the client previously developed throat swelling after that medication. What is the safest action?",
+          "choices": [
+            "Withhold the medication and promptly clarify the order and allergy with the prescriber",
+            "Administer a smaller test dose without an order",
+            "Give it more slowly and leave the room",
+            "Ignore the history because the medication was prescribed"
+          ],
+          "explanation": "A history of throat swelling suggests a potentially serious allergy. Resolve the conflict before administration and ensure the allergy is clearly documented and communicated."
+        },
+        {
+          "prompt": "A nurse's hands are visibly soiled after care. Which hand-hygiene method is appropriate?",
+          "choices": [
+            "Wash with soap and water",
+            "Use alcohol-based hand rub as the sole method despite visible soil",
+            "Put clean gloves over the soiled hands",
+            "Wipe hands on the uniform"
+          ],
+          "explanation": "Soap and water are indicated when hands are visibly soiled. Gloves do not replace hand hygiene and can themselves become contaminated.",
+          "source": "https://www.cdc.gov/infection-control/hcp/core-practices/index.html"
+        },
+        {
+          "prompt": "A client with suspected infectious pulmonary tuberculosis is admitted. Which arrangement is appropriate?",
+          "choices": [
+            "Airborne precautions with an appropriate airborne infection isolation room and a fit-tested respirator for staff",
+            "A shared room with only standard surgical masks for all staff",
+            "Droplet precautions as the only transmission-based precaution",
+            "No additional precautions until a final culture result"
+          ],
+          "explanation": "Suspected infectious pulmonary TB requires airborne precautions while evaluation proceeds. Appropriate room ventilation and respiratory protection reduce exposure to airborne organisms."
+        },
+        {
+          "prompt": "A sterile instrument falls below the level of a prepared sterile field. What should the nurse do?",
+          "choices": [
+            "Treat it as contaminated and replace it with a sterile instrument",
+            "Return it to the field because it was out of view briefly",
+            "Wipe it on a clean uniform sleeve",
+            "Rinse it in tap water and call it sterile"
+          ],
+          "explanation": "An item that leaves the controlled sterile field is not assumed to remain sterile. Replacing it prevents uncertain contamination from being introduced into the procedure."
+        },
+        {
+          "prompt": "A confused client repeatedly tries to get out of bed without assistance. Which initial approach best reduces fall risk?",
+          "choices": [
+            "Assess contributing needs and use individualized measures such as a low bed, accessible call bell, and assisted toileting",
+            "Apply restraints automatically without assessment",
+            "Place the call bell out of reach",
+            "Tell the client to wait until the next shift"
+          ],
+          "explanation": "Fall prevention should address the person's risk factors and immediate needs. Use the least restrictive appropriate measures and follow policy rather than applying restraints automatically."
+        },
+        {
+          "prompt": "Which teaching should the nurse give a parent about sleep for a healthy infant?",
+          "choices": [
+            "Place the infant on their back on a firm, flat, separate sleep surface without loose bedding",
+            "Place the infant prone on a soft pillow",
+            "Use a sofa as the routine sleep space",
+            "Put loose blankets around the infant's face"
+          ],
+          "explanation": "Back sleeping on an appropriate firm, flat surface reduces sleep-related risk. Keep the sleep space free of soft objects and loose bedding.",
+          "source": "https://www.cdc.gov/reproductive-health/features/babies-sleep.html"
+        },
+        {
+          "prompt": "A pregnant client reports a persistent severe headache and new blurred vision. What should the nurse advise?",
+          "choices": [
+            "Seek prompt assessment for a possible serious pregnancy complication",
+            "Wait until the next routine appointment regardless of symptoms",
+            "Take another person's blood pressure medicine",
+            "Assume the symptoms are a normal part of every pregnancy"
+          ],
+          "explanation": "Persistent severe headache and visual changes are urgent maternal warning signs, including possible hypertensive complications. Prompt evaluation is needed rather than reassurance without assessment.",
+          "source": "https://www.cdc.gov/hearher/maternal-warning-signs/"
+        },
+        {
+          "prompt": "A parent reports that a toddler with diarrhea is drinking little and producing much less urine. Which finding would increase concern for dehydration?",
+          "choices": [
+            "Dry mucous membranes and increasing lethargy",
+            "Normal play with usual urine output",
+            "Moist mouth and normal tears",
+            "Normal intake and unchanged weight"
+          ],
+          "explanation": "Reduced intake, low urine output, dry mucosa, and lethargy support concern for dehydration. The child needs timely assessment, especially if symptoms are worsening."
+        },
+        {
+          "prompt": "A client says, 'Since my diagnosis I feel overwhelmed, and nobody understands.' Which response is therapeutic?",
+          "choices": [
+            "Tell me what has been most difficult for you.",
+            "You should stop thinking about it.",
+            "Other people have more serious illnesses.",
+            "I know exactly how you feel, so we do not need to discuss it."
+          ],
+          "explanation": "An open invitation encourages the client to describe their experience. Minimizing feelings or assuming an identical experience can discourage communication."
+        },
+        {
+          "prompt": "A client hears voices that others do not hear and appears frightened. Which response is most appropriate?",
+          "choices": [
+            "I do not hear the voices, but I can see they are upsetting you. What are they saying?",
+            "The voices are definitely real and should always be obeyed.",
+            "You are making this up for attention.",
+            "There is no reason to assess what the voices say."
+          ],
+          "explanation": "Acknowledge distress without reinforcing the hallucination. Assessing its content helps identify commands or other immediate safety concerns that need further intervention."
+        },
+        {
+          "prompt": "A client is experiencing acute anxiety, pacing, and rapid breathing. What is the nurse's best initial approach when no immediate medical emergency has been identified?",
+          "choices": [
+            "Remain with the client, reduce stimulation, and use brief calm statements",
+            "Give a long, complex teaching session",
+            "Leave the client alone as punishment for pacing",
+            "Argue that anxiety is irrational"
+          ],
+          "explanation": "Calm presence and reduced stimulation can support safety during acute anxiety. Assess symptoms and needs and use short, clear communication before detailed teaching."
+        },
+        {
+          "prompt": "A recently bereaved client begins to cry during a conversation. Which response best supports therapeutic communication?",
+          "choices": [
+            "Offer presence and allow the client to talk or remain silent",
+            "Tell the client crying delays recovery",
+            "Change the subject immediately",
+            "Promise the grief will end by a fixed date"
+          ],
+          "explanation": "Allowing emotion and offering presence respects the individual's grieving process. Avoid imposing a schedule or dismissing the experience."
+        },
+        {
+          "prompt": "A client with limited mobility is at risk for a pressure injury. Which plan is most appropriate?",
+          "choices": [
+            "Individualize repositioning, reduce pressure, inspect skin, and address moisture and nutrition",
+            "Massage persistently reddened bony areas firmly",
+            "Keep the client in one position all day",
+            "Use a ring cushion as the only prevention measure"
+          ],
+          "explanation": "Pressure-injury prevention combines pressure redistribution with ongoing skin assessment and attention to contributing factors. Repositioning should match the client's condition and support surface rather than be the sole intervention."
+        },
+        {
+          "prompt": "A client with known dysphagia has an ordered swallowing plan. Which action best supports safer meals?",
+          "choices": [
+            "Position the client upright and follow the prescribed food texture and feeding strategies",
+            "Give thin liquids to every client regardless of the assessment",
+            "Feed while the client lies flat",
+            "Offer large bites quickly to finish before fatigue"
+          ],
+          "explanation": "Swallowing precautions must follow the individualized assessment and orders. Upright positioning and prescribed textures and pacing help reduce aspiration risk."
+        },
+        {
+          "prompt": "A postoperative client has an order for early ambulation and no contraindication. Which nursing action supports prevention of venous thromboembolism?",
+          "choices": [
+            "Assist the client to mobilize safely and use other prescribed preventive measures",
+            "Keep the client immobile without a clinical reason",
+            "Massage a newly painful swollen calf",
+            "Stop all prescribed prevention when the client feels well"
+          ],
+          "explanation": "Safe early mobilization supports venous return and complements prescribed prophylaxis. New unilateral swelling or pain requires assessment rather than massage."
+        },
+        {
+          "prompt": "A conscious adult with diabetes is sweaty and shaky. Their glucose is 58 mg/dL, and they can swallow safely. Which response fits a standard hypoglycemia protocol?",
+          "choices": [
+            "Give 15 grams of fast-acting carbohydrate and recheck glucose after 15 minutes, following the protocol",
+            "Administer the scheduled rapid-acting insulin immediately",
+            "Give only a high-fat meal and recheck tomorrow",
+            "Withhold treatment because the client is awake"
+          ],
+          "explanation": "For an alert adult able to swallow, the 15-15 approach is a common initial treatment for low glucose. Reassess and repeat or escalate according to the protocol; do not give oral intake to a client who cannot swallow safely.",
+          "source": "https://www.cdc.gov/diabetes/treatment/treatment-low-blood-sugar-hypoglycemia.html"
+        },
+        {
+          "prompt": "After receiving an opioid, a client is difficult to arouse and has a respiratory rate of 6 per minute. What is the priority?",
+          "choices": [
+            "Call for immediate assistance, support ventilation, and follow the emergency opioid-reversal protocol",
+            "Give the next opioid dose early",
+            "Leave the client to sleep without reassessment",
+            "Offer oral fluids while the client is poorly responsive"
+          ],
+          "explanation": "Marked respiratory depression after an opioid is an emergency. Airway and ventilation support, prompt escalation, and a reversal agent when indicated take priority over routine tasks."
+        },
+        {
+          "prompt": "A peripheral IV site becomes cool, swollen, and uncomfortable during a nonvesicant infusion. What should the nurse do first?",
+          "choices": [
+            "Stop the infusion and assess for infiltration according to policy",
+            "Increase the infusion rate",
+            "Flush forcefully to clear the swelling",
+            "Ignore the change if the pump has no alarm"
+          ],
+          "explanation": "Cool swelling and discomfort suggest infiltration. Stop the infusion before further assessment and management; pump alarms do not reliably exclude a local IV complication."
+        },
+        {
+          "prompt": "A client develops chills, back pain, and new shortness of breath soon after a blood transfusion begins. What is the first action?",
+          "choices": [
+            "Stop the transfusion and initiate the transfusion-reaction response protocol",
+            "Increase the transfusion rate",
+            "Finish the unit before notifying anyone",
+            "Give the next unit through the same tubing immediately"
+          ],
+          "explanation": "Stop the suspected source of a transfusion reaction immediately and promptly assess and escalate. Maintain appropriate IV access and follow the required notification, monitoring, and specimen procedures.",
+          "source": "https://professionaleducation.blood.ca/en/transfusion/clinical-guide/blood-administration"
+        },
+        {
+          "prompt": "A laboratory reports potassium 6.3 mmol/L in a client with kidney disease, and the client reports new muscle weakness. What is the priority?",
+          "choices": [
+            "Promptly assess and escalate the finding, with cardiac monitoring and further management as indicated",
+            "Offer a potassium supplement",
+            "Wait for the next weekly appointment",
+            "Assume the value is harmless because the client is awake"
+          ],
+          "explanation": "Marked hyperkalemia can cause life-threatening cardiac disturbances. Urgent assessment, appropriate monitoring, and clinical management are needed; do not delay escalation for a symptomatic client."
+        },
+        {
+          "prompt": "A client taking warfarin reports black, tarry stools. What should the nurse do?",
+          "choices": [
+            "Arrange prompt assessment for possible bleeding and review anticoagulation information",
+            "Reassure the client that this always means adequate treatment",
+            "Advise doubling the next warfarin dose",
+            "Ignore it until the next annual examination"
+          ],
+          "explanation": "Black, tarry stools may indicate gastrointestinal bleeding and need prompt assessment. Anticoagulant use increases concern; medication changes should follow clinical evaluation and orders."
+        },
+        {
+          "prompt": "A client with heart failure has gained weight rapidly and reports worsening shortness of breath. Which interpretation is most concerning?",
+          "choices": [
+            "Possible fluid retention and worsening heart failure requiring prompt assessment",
+            "Expected improvement that needs no follow-up",
+            "Proof that the client should drink unlimited fluids",
+            "A finding that can be explained only by increased muscle mass"
+          ],
+          "explanation": "Rapid weight gain with increased dyspnea can indicate fluid accumulation. Assess promptly and follow the prescribed escalation and management plan rather than assuming normal fluctuation.",
+          "source": "https://www.nhlbi.nih.gov/health/heart-failure/living-with"
+        },
+        {
+          "prompt": "A client with a new stroke has not had a swallowing screen. What should happen before offering oral food, fluid, or medication?",
+          "choices": [
+            "Keep oral intake withheld until swallowing safety is assessed according to protocol",
+            "Give water to see whether the client coughs without following the screening procedure",
+            "Crush all medications into thin juice immediately",
+            "Feed the client while lying flat"
+          ],
+          "explanation": "Stroke can impair swallowing and increase aspiration risk. Follow the required swallowing assessment before oral intake and arrange alternative medication routes when needed."
+        },
+        {
+          "prompt": "A client with a severe infection becomes more confused, has a falling blood pressure, and produces very little urine. What is the priority?",
+          "choices": [
+            "Recognize possible deterioration and activate urgent assessment and the appropriate sepsis response",
+            "Wait to see whether the next meal improves the blood pressure",
+            "Record the findings only at the end of the shift",
+            "Stop monitoring because confusion is expected with every infection"
+          ],
+          "explanation": "Altered mental status, hypotension, and low urine output can indicate impaired organ perfusion. Urgent escalation supports timely evaluation and treatment for possible sepsis or shock."
+        },
+        {
+          "prompt": "A discharge prescription reads 'take one tablet daily,' but the medication bottle supplied has a different strength from the reconciled order. What should the nurse do?",
+          "choices": [
+            "Clarify the discrepancy with the prescriber and pharmacist before discharge teaching is finalized",
+            "Tell the client to choose either strength",
+            "Assume every tablet has the same dose",
+            "Remove the strength from the written instructions"
+          ],
+          "explanation": "Medication reconciliation must resolve inconsistent strength and dosing information. Clear verified instructions reduce the risk of a medication error after discharge."
+        },
+        {
+          "prompt": "After a breathing intervention, which finding best demonstrates that the client's respiratory status has improved?",
+          "choices": [
+            "Reduced work of breathing and oxygenation at the prescribed target with improved alertness",
+            "Increasing accessory-muscle use and new confusion",
+            "A falling oxygen saturation with worsening restlessness",
+            "A new inability to speak because of breathlessness"
+          ],
+          "explanation": "Evaluation compares relevant clinical findings with the intended outcome. Improved oxygenation and reduced effort support benefit, while worsening distress or mental status requires reassessment and escalation."
+        }
+      ]
     }
   ]
 }

@@ -3,15 +3,24 @@ import catalog from "@/data/exam-catalog.json" with { type: "json" };
 
 export type Locale = "ko" | "en";
 export type LegacyRoute = Omit<(typeof contract.routes)[number],'testId'|'links'> & {testId:string|null;links:{href:string;label:string}[]};
-// The source controller accidentally used the electrical-work identity for the
-// refrigeration exam. The verified live catalog and imported DB agree on 141.
-const authoredRoutes: LegacyRoute[] = catalog.filter(exam => exam.locale === "en").map(exam => ({
-  path: `/en/${exam.slug}`, locale: "en", testId: exam.id,
-  template: "authored-practice", templateExists: true,
-  title: `${exam.name} Practice Questions - Quizeey`, description: exam.description ?? "",
-  headings: [`${exam.name} Practice Questions`, exam.description ?? ""], links: [],
-}));
-export const legacy = {...contract,routes:[...contract.routes.map((route):LegacyRoute=>route.path==='/industrial-engineer-air-conditioning-and-refrigerating-machinery'?{...route,testId:'141'}:route),...authoredRoutes]};
+function authoredRoute(exam: (typeof catalog)[number], locale: Locale): LegacyRoute {
+  const title = `${exam.name} ${locale === "ko" ? "연습문제" : "Practice Questions"}`;
+  return {
+    path: `${locale === "en" ? "/en" : ""}/${exam.slug}`, locale, testId: exam.id,
+    template: "authored-practice", templateExists: true,
+    title: `${title} - Quizeey`, description: exam.description ?? "",
+    headings: [title, exam.description ?? ""], links: [],
+  };
+}
+// The source controller used the wrong exam; the verified catalog and DB agree on 141.
+const existingRoutes = contract.routes.map((route): LegacyRoute =>
+  route.path === '/industrial-engineer-air-conditioning-and-refrigerating-machinery' ? { ...route, testId: '141' } : route);
+const existingPaths = new Set(existingRoutes.map(route => route.path));
+const authoredRoutes = catalog.flatMap(exam => {
+  const locales: Locale[] = exam.locale === "all" ? ["ko", "en"] : exam.locale === "en" ? ["en"] : [];
+  return locales.map(locale => authoredRoute(exam, locale)).filter(route => !existingPaths.has(route.path));
+});
+export const legacy = { ...contract, routes: [...existingRoutes, ...authoredRoutes] };
 export const legacyRedirects:Readonly<Record<string,string>>={
   '/microsoft-az-500':'/az-500',
   '/@ccna-300-115':'/ccnp-300-115',
