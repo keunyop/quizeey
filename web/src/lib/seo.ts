@@ -1,6 +1,7 @@
 import type { Metadata, MetadataRoute } from 'next';
 import { findRoute,legacy,parseQuery,routesForExam,type LegacyRoute,type Locale } from './contracts';
 import { examName } from './exam-catalog';
+import { authoredSetSummary, authoredVersion, authoredVersionName } from './authored-practice';
 
 export const searchMarkets = {
   ko: { languages: ['ko', 'ko-KR'], openGraph: 'ko_KR', alternateOpenGraph: [] },
@@ -31,9 +32,18 @@ export function searchCopy(path: string, query: URLSearchParams, exam: LegacyRou
       ? `${name} 기출문제와 연습문제를 Quizeey에서 풀어보세요. 한국어 CBT 문제 풀이, 정답 확인, 오답 복습으로 ${name} 시험을 준비할 수 있습니다.`
       : `Prepare for ${name} with free English practice questions on Quizeey. Check your answers, review mistakes and build your exam knowledge at your own pace.`;
     if (exam.template === 'authored-practice' && exam.description) description = exam.description;
+    const authored = authoredSetSummary(exam.testId, locale);
+    if (input.verNbr === authoredVersion && authored) {
+      title = `${name} ${locale === 'ko' ? '연습문제' : 'Practice Questions'} - Quizeey`;
+      description = locale === 'ko'
+        ? `${name} ${authoredVersionName} 회차: 정답과 해설이 있는 자체 제작 연습문제 ${authored.count}개. 공식 기출 회차와 구분되는 학습 자료입니다.`
+        : `${name}, ${authoredVersionName}: ${authored.count} original practice questions with answers and explanations. Independent study material.`;
+      if (authored.scope) description += ` ${authored.scope}`;
+    }
+    const versionLabel = input.verNbr === authoredVersion ? authoredVersionName : String(input.verNbr);
     const qualifiers = locale === 'ko'
-      ? [input.verNbr ? `${input.verNbr} 회차` : '', input.page > 1 ? `${input.page}페이지` : '']
-      : [input.verNbr ? `Set ${input.verNbr}` : '', input.page > 1 ? `Page ${input.page}` : ''];
+      ? [input.verNbr ? `${versionLabel} 회차` : '', input.page > 1 ? `${input.page}페이지` : '']
+      : [input.verNbr ? `Set ${versionLabel}` : '', input.page > 1 ? `Page ${input.page}` : ''];
     const detail = qualifiers.filter(Boolean).join(' · ');
     if (detail) {
       title = `${title.replace(/\s*[-|]\s*Quizeey\s*$/i, '')} · ${detail} - Quizeey`;
@@ -99,6 +109,8 @@ export function pageStructuredData(path: string, query: URLSearchParams, exam: L
   const url = origin + canonicalPath(path, query);
   const isHome = canonicalPath(path, query).split('?')[0] === home;
   const copy = searchCopy(path, query, exam);
+  const input = parseQuery(query, path.endsWith('/test'));
+  const authored = exam.testId && input.verNbr === authoredVersion && !input.questId ? authoredSetSummary(exam.testId, locale) : undefined;
   const website = {
     '@type': 'WebSite', '@id': origin + '/#website', url: origin + '/', name: 'Quizeey',
     inLanguage: ['ko-KR', 'en-US', 'en-CA'],
@@ -117,6 +129,11 @@ export function pageStructuredData(path: string, query: URLSearchParams, exam: L
       name: copy.title, description: copy.description,
       inLanguage: locale === 'ko' ? 'ko-KR' : ['en-US', 'en-CA'],
       isPartOf: { '@id': website['@id'] },
+      ...(authored ? { mainEntity: {
+        '@type': ['CreativeWork', 'LearningResource'], name: `${examName(exam)} · ${authored.name}`,
+        url, description: copy.description, inLanguage: authored.languages,
+        learningResourceType: 'Practice questions', educationalUse: 'Self-study', isAccessibleForFree: true,
+      } } : {}),
       ...(!isHome && exam.testId ? { breadcrumb: { '@id': breadcrumb['@id'] } } : {}),
     }, ...(!isHome && exam.testId ? [breadcrumb] : [])],
   };
@@ -126,6 +143,18 @@ export function serializeStructuredData(data: ReturnType<typeof pageStructuredDa
   return JSON.stringify(data).replace(/</g, '\\u003c');
 }
 export function publicSitemap(origin:string):MetadataRoute.Sitemap{
-  return legacy.routes.filter(r=>!['/kr','/app'].includes(r.path)&&!r.path.startsWith('/kr/')&&!r.path.endsWith('/test'))
-    .map(r=>({url:origin+r.path,alternates:{languages:seoAlternates(r.path,new URLSearchParams(),origin)?.languages as Record<string,string>|undefined}}));
+  const routes = legacy.routes.filter(r=>!['/kr','/app'].includes(r.path)&&!r.path.startsWith('/kr/')&&!r.path.endsWith('/test'));
+  return routes.flatMap(route => {
+    const queries = [new URLSearchParams()];
+    const set = route.testId ? authoredSetSummary(route.testId, route.locale as Locale) : undefined;
+    if (set) {
+      for (let page = 1; page <= Math.ceil(set.count / 20); page++) {
+        queries.push(new URLSearchParams({ verNbr: String(set.version), ...(page > 1 ? { page: String(page) } : {}) }));
+      }
+    }
+    return queries.map(query => ({
+      url: origin + canonicalPath(route.path, query),
+      alternates: { languages: seoAlternates(route.path, query, origin)?.languages as Record<string,string> | undefined },
+    }));
+  });
 }

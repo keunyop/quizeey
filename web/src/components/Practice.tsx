@@ -10,16 +10,26 @@ import { Forum } from "./Forum";
 import { useAnalytics } from './Monetization';
 import { SubmissionDialog } from './SubmissionDialog';
 
-function createProgressStore(key: string, onError: (error: boolean) => void) {
+function createProgressStore(key: string, previousKeys: string[], ids: string[], contentVersion: string, onError: (error: boolean) => void) {
     let fallback: string | null = null;
     let useFallback = false;
     return {
       getSnapshot: () => {
         if (useFallback) return fallback;
-        try { return localStorage.getItem(key); } catch { return fallback; }
+        try {
+          const current = localStorage.getItem(key);
+          if (current !== null) return current;
+          // Original-only batches used a version entry per question in the key.
+          // A shorter prior batch is compatible only when its IDs are a prefix.
+          for (const previousKey of previousKeys) {
+            const raw = localStorage.getItem(previousKey);
+            if (readProgress(raw, ids, contentVersion)) return raw;
+          }
+          return null;
+        } catch { return fallback; }
       },
       subscribe: (listener: () => void) => {
-        const onStorage = (event: StorageEvent) => { if (event.key === key || event.key === null) listener(); };
+        const onStorage = (event: StorageEvent) => { if (event.key === key || event.key === null || previousKeys.includes(event.key)) listener(); };
         window.addEventListener("storage", onStorage);
         return () => window.removeEventListener("storage", onStorage);
       },
@@ -31,9 +41,9 @@ function createProgressStore(key: string, onError: (error: boolean) => void) {
       },
     };
 }
-function useProgress(key: string, ids: string[], contentVersion: string) {
+function useProgress(key: string, ids: string[], contentVersion: string, previousKeys: string[]) {
   const [storageError, setStorageError] = useState(false);
-  const store = useMemo(() => createProgressStore(key, setStorageError), [key]);
+  const store = useMemo(() => createProgressStore(key, previousKeys, ids, contentVersion, setStorageError), [key, previousKeys, ids, contentVersion]);
   const raw = useSyncExternalStore(store.subscribe, store.getSnapshot, () => null);
   const progress = useMemo(() => readProgress(raw, ids, contentVersion) ?? emptyProgress(ids, contentVersion), [raw, ids, contentVersion]);
   return { progress, save: store.write, storageError };
@@ -52,7 +62,7 @@ function QuestionCard({ question, locale, attempt, onGrade, onPrevious, onNext, 
   const analytics=useAnalytics();
   return <section className="question-card" aria-label={locale === "ko" ? "문제" : "Question"}>
     <p className="question-version">{locale === "ko" ? "회차" : "Set"} · {question.versionName || question.version}</p>
-    <div id="question-content" tabIndex={-1} className="learning-content question-prompt" dangerouslySetInnerHTML={{ __html: question.text }} />
+    <div id="question-content" lang={question.contentLocale ?? locale} tabIndex={-1} className="learning-content question-prompt" dangerouslySetInnerHTML={{ __html: question.text }} />
     <fieldset disabled={!!attempt}>
       <legend>{multiple ? m.multiple : m.single}</legend>
       {question.choices.map((choice, index) => <label className={`choice ${attempt ? choice.correct ? "choice-correct" : attempt.selected.includes(choice.id) ? "choice-incorrect" : "" : ""}`} key={choice.id}>
@@ -61,7 +71,7 @@ function QuestionCard({ question, locale, attempt, onGrade, onPrevious, onNext, 
             setDraft(multiple ? event.target.checked ? [...selected, choice.id] : selected.filter((id) => id !== choice.id) : [choice.id]);
           }} />
         <span aria-hidden="true" className="choice-letter">{String.fromCharCode(65 + index)}</span>
-        <span className="learning-content" dangerouslySetInnerHTML={{ __html: choice.text }} />
+        <span lang={question.contentLocale ?? locale} className="learning-content" dangerouslySetInnerHTML={{ __html: choice.text }} />
         {attempt && (choice.correct || attempt.selected.includes(choice.id)) && <span className="choice-result"><Icon name={choice.correct ? "check" : "close"} /><span className="sr-only">{choice.correct ? locale === "ko" ? "정답" : "Correct answer" : locale === "ko" ? "선택한 오답" : "Your incorrect answer"}</span></span>}
       </label>)}
     </fieldset>
@@ -83,7 +93,7 @@ function QuestionCard({ question, locale, attempt, onGrade, onPrevious, onNext, 
     <SubmissionDialog locale={locale} question={{ examId: question.testId, questionId: question.id }}/>
     {attempt && <div className="explanation-region">
       <details open onToggle={event=>{if(event.currentTarget.open)analytics.track('explanation_open',{test_id:question.testId,quest_id:question.id,locale});}}><summary>{m.explanation}</summary>
-        {question.explanation && <div className="learning-content" dangerouslySetInnerHTML={{ __html: question.explanation }} />}
+        {question.explanation && <div lang={question.contentLocale ?? locale} className="learning-content" dangerouslySetInnerHTML={{ __html: question.explanation }} />}
         {question.reference&&<div className="learning-content reference" dangerouslySetInnerHTML={{__html:question.reference}}/>}
         {commentsEnabled && <Forum key={`${question.id}:${locale}`} examId={question.testId} questionId={question.id} locale={locale} />}
       </details>
@@ -125,8 +135,13 @@ export function Practice({ questions, locale, testId, contentVersion, directId, 
   const m = messages[locale];
   const ids = useMemo(() => questions.map((q) => q.id), [questions]);
   const retained = questions.filter(question => !question.authored);
-  const key = `quizeey:progress:v1:${locale}:${testId}:${contentVersion}:${(retained.length ? retained : questions).map((q) => q.version).join(",")}:${directId ?? "all"}${pageNumber>1?`:page${pageNumber}`:''}`;
-  const { progress, save, storageError } = useProgress(key, ids, contentVersion);
+  const keyPrefix = `quizeey:progress:v1:${locale}:${testId}:${contentVersion}:`;
+  const keySuffix = `:${directId ?? "all"}${pageNumber>1?`:page${pageNumber}`:''}`;
+  const key = keyPrefix + (retained.length ? retained : questions).map((q) => q.version).join(",") + keySuffix;
+  const previousKeys = useMemo(() => retained.length || directId ? [] : Array.from({ length: Math.max(0, questions.length - 1) }, (_, index) =>
+    keyPrefix + questions.slice(0, questions.length - index - 1).map(question => question.version).join(",") + keySuffix),
+  [retained.length, directId, questions, keyPrefix, keySuffix]);
+  const { progress, save, storageError } = useProgress(key, ids, contentVersion, previousKeys);
   const activeQuestions = progress.reviewIds ? questions.filter((q) => progress.reviewIds!.includes(q.id)) : questions;
   const question = activeQuestions[progress.index];
   const attempt = question ? progress.attempts[question.id] : undefined;

@@ -18,7 +18,7 @@ function archive(count: number) {
   }, pendingExplanationCounts: {} }, "unchanged-archive");
 }
 
-it("covers all 190 catalog exams with 1163 distinct, answerable, attributed original questions", () => {
+it("covers all 190 catalog exams with 1563 distinct, answerable, attributed original questions", () => {
   expect(authoredCatalog).toHaveLength(190);
   const ids = new Set<string>(); const choiceIds = new Set<string>();
   for (const exam of authoredCatalog) {
@@ -38,7 +38,7 @@ it("covers all 190 catalog exams with 1163 distinct, answerable, attributed orig
       for (const choice of q.choices) { expect(choiceIds.has(choice.id)).toBe(false); choiceIds.add(choice.id); }
     }
   }
-  expect(ids.size).toBe(1163); expect(choiceIds.size).toBe(4652);
+  expect(ids.size).toBe(1563); expect(choiceIds.size).toBe(6252);
   expect(findAuthoredQuestion("8000099999")).toBeUndefined();
 });
 
@@ -192,7 +192,7 @@ it("keeps all 90 English Manager questions distinct from Food Handler and reacha
 it.each([0, 1, 17, 18, 19, 20, 21, 37, 38, 39, 40, 41])("appends originals to %i archived questions without gaps or pagination overlap", count => {
   const store = new LearningStore(archive(count));
   const { total, pages } = store.pagination("5", "ko");
-  expect(total).toBe(count + 3);
+  expect(total).toBe(count + authoredQuestions("5", "ko").length);
   const ids: string[] = [];
   for (let page = 1; page <= pages; page++) {
     const batch = store.questions("5", "ko", 0, undefined, page);
@@ -201,7 +201,7 @@ it.each([0, 1, 17, 18, 19, 20, 21, 37, 38, 39, 40, 41])("appends originals to %i
   expect(ids).toEqual([...Array.from({ length: count }, (_, i) => String(1000 + i)), ...authoredQuestions("5", "ko").map(q => q.id)]);
   expect(new Set(ids).size).toBe(total);
   expect(store.questions("5", "ko", 1).every(q => !q.authored)).toBe(true);
-  expect(store.questions("5", "ko", 202610)).toHaveLength(3);
+  expect(store.questions("5", "ko", 202610)).toHaveLength(20);
   expect(store.questions("1", "ko", 0, authoredQuestionId("5", 0))).toEqual([]);
   expect(store.questions("5", "ko", 1, authoredQuestionId("5", 0))).toEqual([]);
   expect(store.questions("5", "ko", 202610, authoredQuestionId("5", 0))).toHaveLength(1);

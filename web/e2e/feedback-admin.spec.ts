@@ -103,14 +103,14 @@ test.describe("visitor submissions and operator dashboard", () => {
     for (let n = 0; n < 2; n++) expect((await request.post("/api/feedback", { headers: { Origin: origin, "Idempotency-Key": key }, data })).status()).toBe(201);
     expect((await fixture("select count(*)::int as count from quizeey_private.visitor_submissions where id=$1", [key])).rows[0].count).toBe(1);
     for (const body of ["Older comment fixture", "Newest comment fixture"]) expect((await request.post("/api/forum", { headers: { Origin: origin, "Idempotency-Key": crypto.randomUUID() }, data: { action: "create", examId: "5", locale: "ko", title: "Latest comments fixture", body } })).status()).toBe(202);
-    await fixture("insert into quizeey_private.visitor_submissions(id,request_hash,kind,locale,path,body,created_at) select gen_random_uuid(),repeat('a',64),'feedback','ko','/','Latest paging fixture '||n,'2026-10-21T01:00:00.123456Z'::timestamptz from generate_series(1,25) n");
+    const paging = await fixture("with stamp as (select greatest(coalesce(max(created_at),now()),now()) + interval '1 day' as latest from quizeey_private.visitor_submissions) insert into quizeey_private.visitor_submissions(id,request_hash,kind,locale,path,body,created_at) select gen_random_uuid(),repeat('a',64),'feedback','ko','/','Latest paging fixture '||n,stamp.latest from generate_series(1,25) n cross join stamp returning created_at");
     const operator = await browser.newContext();
     try {
       expect((await operator.request.post(origin + "/api/admin/login", { headers: { Origin: origin }, data: { username: "admin", password: "admin" } })).status()).toBe(200);
       const first = await (await operator.request.get(origin + "/api/admin/inbox?kind=feedback")).json(); expect(first.items).toHaveLength(20); expect(first.nextCursor).toBeTruthy();
       const second = await (await operator.request.get(origin + "/api/admin/inbox?kind=feedback&cursor=" + first.nextCursor)).json();
       const ids = [...first.items, ...second.items].map(item => item.id); expect(new Set(ids).size).toBe(ids.length);
-      expect(new Date(first.items[0].created_at).toISOString()).toBe("2026-10-21T01:00:00.123Z");
+      expect(new Date(first.items[0].created_at).toISOString()).toBe(new Date(paging.rows[0].created_at).toISOString());
       const comments = await (await operator.request.get(origin + "/api/admin/inbox?kind=comments")).json();
       expect(comments.items.length).toBeGreaterThan(0);
       expect(comments.items[0].body).toBe("Newest comment fixture");

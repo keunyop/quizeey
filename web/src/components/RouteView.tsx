@@ -16,6 +16,7 @@ import { loadLearningStore } from '@/server/learning-store';
 import { learningHtml,staticPage } from "@/lib/content";
 import { environment } from "@/lib/environment";
 import { examName } from "@/lib/exam-catalog";
+import { authoredSetSummary, authoredVersion } from "@/lib/authored-practice";
 import { Icon } from "./Icon";
 import { canonicalPath,searchMetadata,pageStructuredData,serializeStructuredData } from '@/lib/seo';
 import { Monetization,AdSlot } from './Monetization';
@@ -66,6 +67,9 @@ export async function RouteView({ path, query }: { path: string; query: Query })
     reference:q.reference?learningHtml(q.reference):q.reference,
     choices: q.choices.map((c) => ({ ...c, text: learningHtml(c.text) })) }));
   const versions = exam.testId ? store.versions(exam.testId,locale) : [];
+  if (exam.testId && input.verNbr && !versions.some(version => version.number === input.verNbr)) notFound();
+  const authoredSet = exam.testId ? authoredSetSummary(exam.testId, locale) : undefined;
+  const examPath = exam.testId ? routesForExam(exam.testId, locale).find(route => !route.path.endsWith('/test'))?.path ?? path : path;
   const copy=staticPage(path);
   const env=environment(process.env);
   const commentsEnabled = forumConfigured();
@@ -85,6 +89,19 @@ export async function RouteView({ path, query }: { path: string; query: Query })
             <span>{input.page} / {pagination.pages}</span>
             {input.page<pagination.pages?<a href={pageLink(input.page+1)} rel="next" data-google-vignette="false">{locale==='ko'?'다음 문제':'Next questions'}</a>:<span/>}
           </nav>}
+          {authoredSet && <section className="practice-set-summary" aria-label={locale === "ko" ? "연습 회차 안내" : "Practice set information"}>
+            <a href={`${examPath}?verNbr=${authoredSet.version}`}>
+              {locale === "ko" ? `${authoredSet.name} 회차 · 연습문제 ${authoredSet.count}개와 해설` : `${authoredSet.name} · ${authoredSet.count} practice questions with explanations`}
+            </a>
+            <p>{locale === "ko" ? "공식 기출 회차와 구분되는 자체 제작 학습 자료입니다." : "Original, independent study material. This is not an official exam paper."}</p>
+            {authoredSet.scope && <p lang="en">{authoredSet.scope}</p>}
+          </section>}
+          {input.verNbr === authoredVersion && !input.questId && publicBatch.length > 0 && <details className="practice-outline">
+            <summary>{locale === "ko" ? `이 페이지의 연습문제 ${publicBatch.length}개` : `${publicBatch.length} questions on this page`}</summary>
+            <ol start={(input.page - 1) * 20 + 1}>{publicBatch.map(question => <li key={question.id}>
+              <a lang={question.contentLocale ?? locale} href={`${examPath}?questId=${question.id}&verNbr=${authoredVersion}`} dangerouslySetInnerHTML={{ __html: question.text }} />
+            </li>)}</ol>
+          </details>}
           {publicBatch.length>0&&<AdSlot kind="display" locale={locale}/>}
         </>}
         {exam.links.length > 0 && <nav className="legacy-links" aria-label={locale === "ko" ? "관련 링크" : "Related links"}><ul>{exam.links.filter((l) => l.label).map((l, i) => <li key={i}><a href={l.href}>{l.label}</a></li>)}</ul></nav>}

@@ -112,6 +112,15 @@ summary { cursor:pointer; min-height:44px; font-weight:600; }
 .version-form select { min-width:0; flex:1; max-width:100%; font-size:14px; background:var(--surface-soft); }
 .version-form button { color:var(--blue-dark); font-size:13px; }
 .version-form .icon { width:16px; height:16px; }
+.practice-set-summary { margin:0 0 16px; font-size:13px; }
+.practice-set-summary a { color:var(--blue-dark); font-weight:600; }
+.practice-set-summary p { margin:5px 0 0; color:var(--muted); line-height:1.6; }
+.practice-outline { margin:0 0 16px; font-size:13px; }
+.practice-outline summary { cursor:pointer; padding:8px 0; }
+.practice-outline ol { padding-left:24px; }
+.practice-outline li { margin:8px 0; }
+.practice-outline a { color:var(--blue-dark); overflow-wrap:anywhere; }
+.practice-outline p { margin:0; }
 .study-settings { padding:0; margin:0; border:0; border-bottom:1px solid var(--line); }
 .study-settings summary { display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:48px; padding:12px 4px; list-style:none; color:var(--muted); font-size:13px; font-weight:400; }
 .study-settings summary::-webkit-details-marker { display:none; }

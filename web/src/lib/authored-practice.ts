@@ -26,6 +26,18 @@ export function authoredQuestionId(examId: string, index: number) {
 }
 export function authoredVersionId(examId: string) { return String(8_100_000_000 + Number(examId)); }
 
+export function authoredSetSummary(examId: string, locale: Locale) {
+  const exam = catalogById.get(examId);
+  if (!exam || (exam.locale && exam.locale !== "all" && exam.locale !== locale)) return undefined;
+  const items = byExam.get(examId) ?? [];
+  if (!items.length) return undefined;
+  return {
+    count: items.length, version: authoredVersion, name: authoredVersionName,
+    scope: exam.practiceScope,
+    languages: [...new Set(items.map(item => /[\uac00-\ud7a3]/.test(item.prompt) ? "ko" as const : "en" as const))],
+  };
+}
+
 export function authoredQuestions(examId: string, locale: Locale): Question[] {
   const group = byExam.get(examId);
   const supportedLocale = catalogById.get(examId)?.locale;
@@ -35,6 +47,7 @@ export function authoredQuestions(examId: string, locale: Locale): Question[] {
     return {
       id: authoredQuestionId(examId, index), testId: examId, locale, version: authoredVersion,
       versionName: authoredVersionName, questionNumber: index + 1, authored: true,
+      contentLocale: /[\uac00-\ud7a3]/.test(item.prompt) ? "ko" : "en",
       text: `<p>${escape(item.prompt)}</p>`, explanation: `<p>${escape(item.explanation)}</p>`,
       reference: `<p>${locale === "ko" ? "참고 학습자료" : "Learning reference"}: <a href="${escape(item.source)}" rel="noopener noreferrer">${escape(new URL(item.source).hostname)}</a></p>`,
       preserveOrder: true,

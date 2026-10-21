@@ -7,7 +7,7 @@ it('preserves content identity and pages while consolidating aliases and trackin
   expect(canonicalPath('/app',new URLSearchParams())).toBe('/');
   expect(canonicalPath('/en/aws-certified-developer-associate',new URLSearchParams('verNbr=0&page=1'))).toBe('/en/aws-certified-developer-associate');
 });
-it('publishes only verified equivalents and unique static sitemap URLs',()=>{
+it('publishes only verified equivalents and unique canonical sitemap URLs',()=>{
   const origin='https://quizeey.com';
   const homes={ko:origin+'/','ko-KR':origin+'/',en:origin+'/en','en-US':origin+'/en','en-CA':origin+'/en','x-default':origin+'/'};
   expect(seoAlternates('/',new URLSearchParams(),origin)?.languages).toEqual(homes);
@@ -49,9 +49,29 @@ it('provides localized, page-specific search copy without unsupported pass guara
   expect(searchCopy(ko.path,new URLSearchParams(),ko).description).toContain('SQLD');
   expect(searchCopy(en.path,new URLSearchParams(),en).description).not.toMatch(/pass.*easily|exam dumps/i);
   const page=searchCopy(en.path,new URLSearchParams('page=2&verNbr=202610'),en);
-  expect(page.title).toContain('Set 202610 · Page 2');
+  expect(page.title).toContain('Set 2026-10 · Page 2');
   expect(page.description).toContain('Page 2');
   expect(searchCopy(ko.path,new URLSearchParams('page=2'),ko).title).toContain('2페이지');
+});
+
+it('includes every authored set page without inventing archive pages or direct-question index entries',()=>{
+  const origin='https://quizeey.com';
+  const urls=publicSitemap(origin).map(entry=>entry.url);
+  expect(urls).toContain(origin+'/sqlp-developer?verNbr=202610');
+  expect(urls).toContain(origin+'/sqlp-developer?verNbr=202610&page=2');
+  expect(urls).not.toContain(origin+'/sqlp-developer?verNbr=202610&page=3');
+  expect(urls).toContain(origin+'/en/comptia-sy0-501?verNbr=202610&page=3');
+  expect(urls).not.toContain(origin+'/en/comptia-sy0-501?verNbr=202610&page=4');
+  expect(urls.every(url=>!url.includes('questId=')&&!url.includes('verNbr=1'))).toBe(true);
+  const exam=findRoute('/sqlp-developer')!;
+  expect(searchCopy(exam.path,new URLSearchParams('verNbr=202610'),exam)).toMatchObject({
+    title:expect.stringContaining('2026-10'),description:expect.stringContaining('23개'),
+  });
+  expect(searchCopy(exam.path,new URLSearchParams('verNbr=202610'),exam).description).toContain('자체 제작');
+  expect(searchCopy(exam.path,new URLSearchParams('verNbr=202610'),exam).title).toContain('연습문제');
+  expect(pageStructuredData(exam.path,new URLSearchParams('verNbr=202610'),exam,origin)['@graph'][1]).toMatchObject({
+    mainEntity:{'@type':['CreativeWork','LearningResource'],inLanguage:['ko'],isAccessibleForFree:true},
+  });
 });
 
 it('opens only public production pages for indexing and keeps canonical identities in social cards',()=>{

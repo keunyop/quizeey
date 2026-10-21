@@ -1,0 +1,209 @@
+{
+  "version": "2026-10",
+  "observedDate": "2026-10-20",
+  "selectionMetric": "Retained lifetime correct + incorrect answer attempts, grouped by exam ID. Language cohorts use the registered public route locale. Counts are shared across languages for the same exam, not unique visitors or current-country search demand.",
+  "recentClickLimitation": "Only six exam IDs had recent click records (10 clicks total); insufficient for a reliable language-specific top ten.",
+  "addedQuestions": 400,
+  "exams": [
+    {
+      "examId": "14",
+      "locale": "ko",
+      "rank": 1,
+      "name": "한식조리기능사",
+      "retainedAttempts": "4265110",
+      "previousQuestionCount": 3,
+      "addedQuestionCount": 20,
+      "previousQuestionsSha256": "b28cb1c7f52ff611451f52fc257fba42cac0110f352df40947a7c0b4a856c7b0"
+    },
+    {
+      "examId": "5",
+      "locale": "ko",
+      "rank": 2,
+      "name": "SQLD - 국가공인 SQL개발자",
+      "retainedAttempts": "1117843",
+      "previousQuestionCount": 3,
+      "addedQuestionCount": 20,
+      "previousQuestionsSha256": "796cdbc63a82b771abd204bdf074cfd27c216ceee842375e8b1efe6f707654b1"
+    },
+    {
+      "examId": "122",
+      "locale": "ko",
+      "rank": 3,
+      "name": "3D프린터운용기능사",
+      "retainedAttempts": "516906",
+      "previousQuestionCount": 3,
+      "addedQuestionCount": 20,
+      "previousQuestionsSha256": "fffb26778a82876660bf35e88e9cdcbab946061b36ad50e79f5e8c72851f3f28"
+    },
+    {
+      "examId": "44",
+      "locale": "ko",
+      "rank": 4,
+      "name": "위험물기능사",
+      "retainedAttempts": "172251",
+      "previousQuestionCount": 3,
+      "addedQuestionCount": 20,
+      "previousQuestionsSha256": "88229be459ff00d0af5eb287dd260ecef73849f03b378a29089af29abb314f12"
+    },
+    {
+      "examId": "13",
+      "locale": "ko",
+      "rank": 5,
+      "name": "지게차운전기능사",
+      "retainedAttempts": "123432",
+      "previousQuestionCount": 3,
+      "addedQuestionCount": 20,
+      "previousQuestionsSha256": "cb9f62477661b5dc61145941a85fad10fe530c39528d8181f8c6113f1175bfdf"
+    },
+    {
+      "examId": "2",
+      "locale": "ko",
+      "rank": 6,
+      "name": "SQLP - 국가공인 SQL전문가",
+      "retainedAttempts": "111601",
+      "previousQuestionCount": 3,
+      "addedQuestionCount": 20,
+      "previousQuestionsSha256": "76a8f950b2308965331f8b72abfd289258a546a7a96190724173503e4f113d69"
+    },
+    {
+      "examId": "138",
+      "locale": "ko",
+      "rank": 7,
+      "name": "굴삭기운전기능사",
+      "retainedAttempts": "84919",
+      "previousQuestionCount": 3,
+      "addedQuestionCount": 20,
+      "previousQuestionsSha256": "cb9f62477661b5dc61145941a85fad10fe530c39528d8181f8c6113f1175bfdf"
+    },
+    {
+      "examId": "125",
+      "locale": "ko",
+      "rank": 8,
+      "name": "바리스타 2급",
+      "retainedAttempts": "81653",
+      "previousQuestionCount": 3,
+      "addedQuestionCount": 20,
+      "previousQuestionsSha256": "5ca3aee62f209007e6c8fd37e5bf96f67e69bf1fd9e7a2000686884e268fd878"
+    },
+    {
+      "examId": "55",
+      "locale": "ko",
+      "rank": 9,
+      "name": "미용사(피부)",
+      "retainedAttempts": "58580",
+      "previousQuestionCount": 3,
+      "addedQuestionCount": 20,
+      "previousQuestionsSha256": "5bb9945fcf7ef2921b96bd53d260dd05f9ed69c727377e1b9775f86f85c18dc5"
+    },
+    {
+      "examId": "54",
+      "locale": "ko",
+      "rank": 10,
+      "name": "정보보안기사",
+      "retainedAttempts": "54942",
+      "previousQuestionCount": 3,
+      "addedQuestionCount": 20,
+      "previousQuestionsSha256": "9441b39b1aab50bd5f3b3ba9c019e7409f50e31275182c52be4879c07a2c53e3"
+    },
+    {
+      "examId": "177",
+      "locale": "en",
+      "rank": 1,
+      "name": "ISC CISSP",
+      "retainedAttempts": "45510",
+      "previousQuestionCount": 3,
+      "addedQuestionCount": 20,
+      "previousQuestionsSha256": "9441b39b1aab50bd5f3b3ba9c019e7409f50e31275182c52be4879c07a2c53e3"
+    },
+    {
+      "examId": "204",
+      "locale": "en",
+      "rank": 2,
+      "name": "Cisco Certified Network Associate(CCNA 200-301)",
+      "retainedAttempts": "42042",
+      "previousQuestionCount": 3,
+      "addedQuestionCount": 20,
+      "previousQuestionsSha256": "cc98a1c56c39bc3e0e0c4ea3f739d56c6eb6ec7387b442a6e3f6cac4666bc2ee"
+    },
+    {
+      "examId": "170",
+      "locale": "en",
+      "rank": 3,
+      "name": "Microsoft Azure Fundamentals(AZ-900)",
+      "retainedAttempts": "37449",
+      "previousQuestionCount": 3,
+      "addedQuestionCount": 20,
+      "previousQuestionsSha256": "4943e6be8e2b0f0ff89379bb25c2cc2dd6b331c259f5d798be67d7cd504114b0"
+    },
+    {
+      "examId": "143",
+      "locale": "en",
+      "rank": 4,
+      "name": "AWS Certified Solution Architect – Associate",
+      "retainedAttempts": "21842",
+      "previousQuestionCount": 3,
+      "addedQuestionCount": 20,
+      "previousQuestionsSha256": "3353d115d03274d08d131f97d4ec87d8c807398971bb070d634c0cfb94935cb8"
+    },
+    {
+      "examId": "1",
+      "locale": "en",
+      "rank": 5,
+      "name": "AWS Certified Developer – Associate",
+      "retainedAttempts": "17291",
+      "previousQuestionCount": 3,
+      "addedQuestionCount": 20,
+      "previousQuestionsSha256": "f233aa6121a269b54983155c738134682a28d6cf2e384252a9818ad466d672da"
+    },
+    {
+      "examId": "185",
+      "locale": "en",
+      "rank": 6,
+      "name": "PMI PMP",
+      "retainedAttempts": "10985",
+      "previousQuestionCount": 3,
+      "addedQuestionCount": 20,
+      "previousQuestionsSha256": "09c3258d0b1f05c966790e6071f8da5904fb26400fabe69dc32a4d9699ea146d"
+    },
+    {
+      "examId": "168",
+      "locale": "en",
+      "rank": 7,
+      "name": "CompTIA Security+ SY0-501",
+      "retainedAttempts": "5191",
+      "previousQuestionCount": 33,
+      "addedQuestionCount": 20,
+      "previousQuestionsSha256": "89b59a27835c79c7f062e2f5c64c8fbb8d8a0d21ca143699b9fe1930ad81ba02"
+    },
+    {
+      "examId": "166",
+      "locale": "en",
+      "rank": 8,
+      "name": "Cisco Certified Network Associate(CCNA 200-125)",
+      "retainedAttempts": "3137",
+      "previousQuestionCount": 3,
+      "addedQuestionCount": 20,
+      "previousQuestionsSha256": "cc98a1c56c39bc3e0e0c4ea3f739d56c6eb6ec7387b442a6e3f6cac4666bc2ee"
+    },
+    {
+      "examId": "180",
+      "locale": "en",
+      "rank": 9,
+      "name": "Cisco Implementing IP Routing(CCNP 300-101)",
+      "retainedAttempts": "3018",
+      "previousQuestionCount": 3,
+      "addedQuestionCount": 20,
+      "previousQuestionsSha256": "cc98a1c56c39bc3e0e0c4ea3f739d56c6eb6ec7387b442a6e3f6cac4666bc2ee"
+    },
+    {
+      "examId": "196",
+      "locale": "en",
+      "rank": 10,
+      "name": "ITIL Foundation V4(ITILFND-V4)",
+      "retainedAttempts": "2875",
+      "previousQuestionCount": 3,
+      "addedQuestionCount": 20,
+      "previousQuestionsSha256": "c9bbf1877e6139f7bb3a722c245651eaab10157f658ed6672cf107218ff6b071"
+    }
+  ]
+}

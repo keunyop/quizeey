@@ -47,7 +47,8 @@
   {
     "id": "44",
     "slug": "craftsman-hazardous-material",
-    "name": "위험물기능사"
+    "name": "위험물기능사",
+    "questionCount": 23
   },
   {
     "id": "45",
@@ -72,12 +73,14 @@
   {
     "id": "54",
     "slug": "engineer-information-security",
-    "name": "정보보안기사"
+    "name": "정보보안기사",
+    "questionCount": 23
   },
   {
     "id": "55",
     "slug": "esthetician",
-    "name": "미용사(피부)"
+    "name": "미용사(피부)",
+    "questionCount": 23
   },
   {
     "id": "56",
@@ -322,7 +325,8 @@
   {
     "id": "122",
     "slug": "craftsman-3D-printer-operation",
-    "name": "3D프린터운용기능사"
+    "name": "3D프린터운용기능사",
+    "questionCount": 23
   },
   {
     "id": "123",
@@ -337,7 +341,8 @@
   {
     "id": "125",
     "slug": "barista-2",
-    "name": "바리스타 2급"
+    "name": "바리스타 2급",
+    "questionCount": 23
   },
   {
     "id": "126",
@@ -397,7 +402,8 @@
   {
     "id": "138",
     "slug": "craftsman-excavating-machine-operator",
-    "name": "굴삭기운전기능사"
+    "name": "굴삭기운전기능사",
+    "questionCount": 23
   },
   {
     "id": "139",
@@ -422,7 +428,8 @@
   {
     "id": "143",
     "slug": "aws-certified-solution-architect-associate",
-    "name": "AWS 공인 솔루션 아키텍트 - 어소시에이트"
+    "name": "AWS 공인 솔루션 아키텍트 - 어소시에이트",
+    "questionCount": 23
   },
   {
     "id": "144",
@@ -512,7 +519,9 @@
   {
     "id": "166",
     "slug": "ccna-200-125",
-    "name": "Cisco Certified Network Associate(CCNA 200-125)"
+    "name": "Cisco Certified Network Associate(CCNA 200-125)",
+    "questionCount": 23,
+    "practiceScope": "The exam code in this catalog entry is retired. This 2026-10 set reviews foundational concepts; it does not claim alignment with a current replacement exam blueprint."
   },
   {
     "id": "167",
@@ -523,9 +532,10 @@
     "id": "168",
     "slug": "comptia-sy0-501",
     "name": "CompTIA Security+ SY0-501",
-    "description": "Study CompTIA Security+ with 30 additional original English questions and explanations in the 2026-10 set, alongside the 3 existing practice questions. Covers security concepts, threats, architecture, operations, and security program management using SY0-701 subject areas. Shared in the Korean and English catalogs. Independent practice material, not an official CompTIA exam.",
+    "description": "Study CompTIA Security+ with 53 original English practice questions and explanations in the 2026-10 set. Topics include threats, access control, cryptography, architecture, and security operations. Shared in the Korean and English catalogs. The catalog retains the retired SY0-501 code; this supplemental set is independent foundational study material, not an official exam or a current-blueprint simulation.",
     "locale": "all",
-    "questionCount": 33
+    "questionCount": 53,
+    "practiceScope": "The exam code in this catalog entry is retired. This 2026-10 set reviews foundational concepts; it does not claim alignment with a current replacement exam blueprint."
   },
   {
     "id": "169",
@@ -535,7 +545,8 @@
   {
     "id": "170",
     "slug": "az-900",
-    "name": "Microsoft Azure Fundamentals(AZ-900)"
+    "name": "Microsoft Azure Fundamentals(AZ-900)",
+    "questionCount": 23
   },
   {
     "id": "172",
@@ -565,7 +576,8 @@
   {
     "id": "177",
     "slug": "cissp",
-    "name": "ISC CISSP"
+    "name": "ISC CISSP",
+    "questionCount": 23
   },
   {
     "id": "178",
@@ -580,7 +592,9 @@
   {
     "id": "180",
     "slug": "ccnp-300-101",
-    "name": "Cisco Implementing IP Routing(CCNP 300-101)"
+    "name": "Cisco Implementing IP Routing(CCNP 300-101)",
+    "questionCount": 23,
+    "practiceScope": "The exam code in this catalog entry is retired. This 2026-10 set reviews foundational concepts; it does not claim alignment with a current replacement exam blueprint."
   },
   {
     "id": "181",
@@ -608,7 +622,8 @@
   {
     "id": "185",
     "slug": "pmi-pmp",
-    "name": "PMI PMP"
+    "name": "PMI PMP",
+    "questionCount": 23
   },
   {
     "id": "186",
@@ -648,7 +663,8 @@
   {
     "id": "196",
     "slug": "itilfnd-v4",
-    "name": "ITIL Foundation V4(ITILFND-V4)"
+    "name": "ITIL Foundation V4(ITILFND-V4)",
+    "questionCount": 23
   },
   {
     "id": "198",
@@ -678,7 +694,8 @@
   {
     "id": "204",
     "slug": "ccna-200-301",
-    "name": "Cisco Certified Network Associate(CCNA 200-301)"
+    "name": "Cisco Certified Network Associate(CCNA 200-301)",
+    "questionCount": 23
   },
   {
     "id": "205",
@@ -858,12 +875,14 @@
   {
     "id": "2",
     "slug": "sqlp-professional",
-    "name": "SQLP - 국가공인 SQL전문가"
+    "name": "SQLP - 국가공인 SQL전문가",
+    "questionCount": 23
   },
   {
     "id": "5",
     "slug": "sqlp-developer",
-    "name": "SQLD - 국가공인 SQL개발자"
+    "name": "SQLD - 국가공인 SQL개발자",
+    "questionCount": 23
   },
   {
     "id": "8",
@@ -873,17 +892,20 @@
   {
     "id": "13",
     "slug": "craftsman-fork-lift-truck-operator",
-    "name": "지게차운전기능사"
+    "name": "지게차운전기능사",
+    "questionCount": 23
   },
   {
     "id": "14",
     "slug": "craftsman-cook-korean-food",
-    "name": "한식조리기능사"
+    "name": "한식조리기능사",
+    "questionCount": 23
   },
   {
     "id": "1",
     "slug": "aws-certified-developer-associate",
-    "name": "AWS 공인 개발자 - 어소시에이트"
+    "name": "AWS 공인 개발자 - 어소시에이트",
+    "questionCount": 23
   },
   {
     "id": "10",

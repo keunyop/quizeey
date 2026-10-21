@@ -23,14 +23,14 @@ it("adds exactly 210 distinct English questions and preserves the six existing C
   for (const id of ["181", "168"]) {
     const original = oldSets.find(group => group.examIds.includes(id))!;
     const questions = authoredQuestions(id, "en");
-    expect(questions).toHaveLength(33);
+    expect(questions).toHaveLength(id === "168" ? 53 : 33);
     for (const [index, item] of original.questions.entries()) {
       expect(questions[index].text).toContain(item.prompt);
       expect(questions[index].id).toBe(String(8_000_000_000 + Number(id) * 100 + index + 1));
       expect(questions[index].reference).toContain(original.source);
     }
   }
-  const newItems = ids.flatMap(id => authoredQuestions(id, "en").slice(["181", "168"].includes(id) ? 3 : 0));
+  const newItems = ids.flatMap(id => authoredQuestions(id, "en").slice(["181", "168"].includes(id) ? 3 : 0, ["181", "168"].includes(id) ? 33 : 30));
   expect(newItems).toHaveLength(210);
   expect(new Set(newItems.map(item => item.text)).size).toBe(210);
   for (const item of newItems) {
@@ -69,14 +69,15 @@ it("shares global exams across both catalogs without duplicate routes and keeps 
   expect(new Set(legacy.routes.map(route => route.path)).size).toBe(legacy.routes.length);
 });
 
-it("serves every 2026-10 question across both pages, direct links, and correct exam boundaries", () => {
+it("serves every 2026-10 question across all pages, direct links, and correct exam boundaries", () => {
   const learning = store();
   for (const id of ids) {
     const questions = authoredQuestions(id, "en");
     expect(learning.versions(id, "en")).toEqual([{ id: String(8_100_000_000 + Number(id)), number: 202610, name: "2026-10" }]);
-    expect(learning.pagination(id, "en", 202610)).toEqual({ page: 1, total: questions.length, pages: 2 });
-    expect([...learning.questions(id, "en", 202610), ...learning.questions(id, "en", 202610, undefined, 2)]).toEqual(questions);
-    expect(learning.questions(id, "en", 202610, undefined, 3)).toEqual([]);
+    const pages = Math.ceil(questions.length / 20);
+    expect(learning.pagination(id, "en", 202610)).toEqual({ page: 1, total: questions.length, pages });
+    expect(Array.from({ length: pages }, (_, index) => learning.questions(id, "en", 202610, undefined, index + 1)).flat()).toEqual(questions);
+    expect(learning.questions(id, "en", 202610, undefined, pages + 1)).toEqual([]);
     const last = questions.at(-1)!;
     expect(learning.questions(id, "en", 202610, last.id)).toEqual([last]);
     expect(findAuthoredQuestion(last.id)).toMatchObject({ testId: id, locale: "en" });

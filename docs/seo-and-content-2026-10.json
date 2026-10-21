@@ -1,0 +1,114 @@
+{
+  "reviewDate": "2026-10-20",
+  "branch": "content/october-top10-seo",
+  "releaseStatus": "approved-for-production-git-release",
+  "content": {
+    "versionName": "2026-10",
+    "versionNumber": 202610,
+    "addedExams": 0,
+    "supplementedExams": 20,
+    "questionsPerExamAdded": 20,
+    "koreanQuestionsAdded": 200,
+    "englishQuestionsAdded": 200,
+    "totalAuthoredQuestionsBefore": 1163,
+    "totalAuthoredQuestionsAfter": 1563,
+    "selectionManifest": "../web/content/top10-2026-10.manifest.json",
+    "selectionBasis": "Registered locale cohorts ranked by retained lifetime correct plus incorrect attempts. Totals are shared across the languages of an exam and are not unique visitors, recent clicks, or country search volume.",
+    "recentClickLimitation": "Only six exams had nonzero recent clicks (ten clicks total), insufficient for a reliable top ten in each language.",
+    "identityPolicy": "Append after existing groups; preserve all prior question and choice IDs, prior question payloads, version IDs and archived content.",
+    "progressCompatibility": "When an original-only batch expands, read compatible records from its shorter previous storage keys. Validate exam, locale, content version, page and question-ID prefix before reusing saved attempts, choice order and bookmarks.",
+    "storage": "Original questions use the existing public authored-content repository and LearningStore overlay; no production database content insertion is needed. A code release is required for public availability.",
+    "legacyCodes": [
+      "SY0-501",
+      "200-125",
+      "300-101"
+    ],
+    "legacyScope": "Retired codes remain in existing routes. The supplemental sets review foundational topics and do not claim current replacement-exam blueprint alignment.",
+    "contentNature": "Original single-best-answer study questions with explanations and related learning references; independent material rather than an official October exam paper. Not a full-length or adaptive exam simulation."
+  },
+  "seo": {
+    "marketsReviewed": [
+      "South Korea",
+      "United States",
+      "Canada",
+      "other English-language markets"
+    ],
+    "alreadyPresent": [
+      "Separate Korean and English routes and localized HTML shells",
+      "ko, ko-KR, en, en-US and en-CA alternates with a home-page x-default",
+      "Canonical URLs that retain set and pagination identity and remove tracking parameters",
+      "Production-only indexing, robots.txt and sitemap; protected and local environments remain noindex",
+      "Server-rendered full exam directory, localized titles and descriptions, social metadata and breadcrumbs",
+      "Preserved Naver verification HTML asset and canonical www redirect"
+    ],
+    "fixed": [
+      "Authored sets previously had no dedicated crawlable set link: added server-rendered set links and visible question counts",
+      "Sitemap previously omitted all authored set and pagination URLs: expanded canonical inventory from 229 to 514 URLs, including 221 set landing URLs and 285 set URLs across pagination",
+      "Set pages exposed only the active question without JavaScript: added a collapsible server-rendered prompt list for the current authored page",
+      "October metadata used numeric 202610 and generic past-paper copy: display 2026-10, actual counts and original-practice wording",
+      "Mixed-language content inherited interface language: mark prompt, choices and explanation with actual content language",
+      "Authored sets lacked learning-resource identity: add truthful CreativeWork/LearningResource metadata without hidden answers or rich-result guarantees",
+      "Nonexistent set numbers returned empty indexable pages: return 404 for unknown sets"
+    ],
+    "preserved": [
+      "Only verified alternate identities; question, set and page identities are not invented across languages",
+      "Direct question URLs remain noindex under the existing publication policy",
+      "No invented last-modified timestamps, ratings, pass guarantees or official-exam claims",
+      "Production guards, existing ads and consent configuration, and development-branch deployment suppression"
+    ],
+    "sources": [
+      "https://developers.google.com/search/docs/specialty/international/localized-versions",
+      "https://developers.google.com/search/docs/specialty/international/managing-multi-regional-sites",
+      "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls",
+      "https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap",
+      "https://searchadvisor.naver.com/guide/seo-basic-intro",
+      "https://schema.org/LearningResource"
+    ],
+    "limits": [
+      "No production crawl, regression, screenshot, accessibility or load test was run",
+      "Search Console, Naver Search Advisor and Bing Webmaster ownership state, submitted sitemaps and indexing reports were not accessed",
+      "Country traffic shares, keyword rankings and production Core Web Vitals were not measured",
+      "No French, Japanese or other missing translations or regional page variants were invented",
+      "Technical SEO improvements do not guarantee indexing or search rankings"
+    ]
+  },
+  "verification": {
+    "status": "passed",
+    "command": "npm run check:local",
+    "typecheck": "passed",
+    "lint": "passed",
+    "unitTests": {
+      "passed": 142,
+      "files": 25
+    },
+    "build": "passed",
+    "browserTests": {
+      "passed": 56,
+      "failed": 0,
+      "skipped": 0
+    },
+    "contentRebuild": "deterministic; all 81 preexisting groups compare equal to HEAD",
+    "regressionFixes": [
+      "Keep set information and prompt outlines below the practice controls so the mobile question remains in its established position",
+      "Use a fixture-relative timestamp for the inbox paging test instead of a hardcoded October 21 timestamp"
+    ],
+    "databaseFixture": "isolated PostgreSQL 18 at 127.0.0.1:55432/quizeey_fixture",
+    "authFixture": "isolated HTTP test double at 127.0.0.1:55433; not a real Supabase login",
+    "hostedTests": 0,
+    "deployments": 0,
+    "newQuestionApiChecks": 400,
+    "savedProgressExpansion": "passed: previous three-question storage key retains grading, bookmarks and subsequent saves",
+    "exitCode": 0,
+    "teardown": "Windows test-server shutdown required stopping the verified port-3100 child process after all tests passed; check:local then exited 0."
+  },
+  "releaseApproval": {
+    "date": "2026-10-20",
+    "userInstruction": "?? ?? ??",
+    "mechanism": "One push to master, using the existing Vercel production Git integration; no CLI/API deployment and no prebuilt upload.",
+    "baseCommit": "216d7b36cef182021d3541ad305a53a78807af04",
+    "project": "quizeey",
+    "projectId": "prj_0SVBqfgurtvZErmpMJl01BJkUKOd",
+    "target": "production",
+    "postReleaseCheck": "Small read-only smoke check of Korean and English October sets, an original question, sitemap and robots only; no hosted regression or crawling."
+  }
+}
