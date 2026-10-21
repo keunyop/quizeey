@@ -1,7 +1,7 @@
 {
   "reviewDate": "2026-10-20",
   "branch": "content/october-top10-seo",
-  "releaseStatus": "approved-for-production-git-release",
+  "releaseStatus": "initial-production-release-ready; verified sitemap correction approved within the requested release",
   "content": {
     "versionName": "2026-10",
     "versionNumber": 202610,
@@ -48,7 +48,8 @@
       "October metadata used numeric 202610 and generic past-paper copy: display 2026-10, actual counts and original-practice wording",
       "Mixed-language content inherited interface language: mark prompt, choices and explanation with actual content language",
       "Authored sets lacked learning-resource identity: add truthful CreativeWork/LearningResource metadata without hidden answers or rich-result guarantees",
-      "Nonexistent set numbers returned empty indexable pages: return 404 for unknown sets"
+      "Nonexistent set numbers returned empty indexable pages: return 404 for unknown sets",
+      "The installed Next.js sitemap serializer interpolates raw URLs: XML-escape locations and language alternate attributes at the sitemap boundary so paginated URLs remain well-formed XML"
     ],
     "preserved": [
       "Only verified alternate identities; question, set and page identities are not invented across languages",
@@ -78,19 +79,20 @@
     "typecheck": "passed",
     "lint": "passed",
     "unitTests": {
-      "passed": 142,
-      "files": 25
+      "passed": 144,
+      "files": 26
     },
     "build": "passed",
     "browserTests": {
-      "passed": 56,
+      "passed": 57,
       "failed": 0,
       "skipped": 0
     },
-    "contentRebuild": "deterministic; all 81 preexisting groups compare equal to HEAD",
+    "contentRebuild": "deterministic; all 81 preexisting groups compare equal to the pre-release base commit 216d7b36cef182021d3541ad305a53a78807af04",
     "regressionFixes": [
       "Keep set information and prompt outlines below the practice controls so the mobile question remains in its established position",
-      "Use a fixture-relative timestamp for the inbox paging test instead of a hardcoded October 21 timestamp"
+      "Use a fixture-relative timestamp for the inbox paging test instead of a hardcoded October 21 timestamp",
+      "Exercise the installed Next.js sitemap serializer and native browser XML parser against all 514 production-format URLs and language alternates without accessing the hosted app"
     ],
     "databaseFixture": "isolated PostgreSQL 18 at 127.0.0.1:55432/quizeey_fixture",
     "authFixture": "isolated HTTP test double at 127.0.0.1:55433; not a real Supabase login",
@@ -101,9 +103,25 @@
     "exitCode": 0,
     "teardown": "Windows test-server shutdown required stopping the verified port-3100 child process after all tests passed; check:local then exited 0."
   },
+  "initialProductionRelease": {
+    "commit": "372239a5fe9fb08e81ca0018387833e8f5ee8db1",
+    "deploymentId": "dpl_8eQ9TpJBsotdH1SWBFzsQLGmTydq",
+    "deploymentState": "READY",
+    "target": "production",
+    "mechanism": "One master Git push; no CLI/API deployment or prebuilt upload",
+    "readOnlySmoke": "Three content page GETs completed; the fourth GET exposed malformed sitemap XML. No crawl or hosted regression was run.",
+    "sitemapCorrection": {
+      "branch": "fix/sitemap-xml-escaping",
+      "cause": "Next.js 16.4.2 interpolates raw URL strings into XML; page query separators need XML escaping.",
+      "implementation": "Escape sitemap location text and hreflang attributes at serialization, preserving raw canonical URL identities elsewhere.",
+      "localVerification": "check:local passed: typecheck, lint, 144 unit tests, build, 57 browser tests, zero skipped; isolated database and Auth fixtures included.",
+      "releaseScope": "New corrective commit for the already approved content and SEO release, using the same production Git mechanism; no retry of the initial deployment.",
+      "plannedSmoke": "Five fixed read-only GETs: Korean and English October sets, one new direct question, sitemap and robots. No crawling or hosted regression."
+    }
+  },
   "releaseApproval": {
     "date": "2026-10-20",
-    "userInstruction": "?? ?? ??",
+    "userInstruction": "운영 배포 진행",
     "mechanism": "One push to master, using the existing Vercel production Git integration; no CLI/API deployment and no prebuilt upload.",
     "baseCommit": "216d7b36cef182021d3541ad305a53a78807af04",
     "project": "quizeey",

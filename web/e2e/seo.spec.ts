@@ -1,5 +1,25 @@
 import { expect, test } from '@playwright/test';
 import { legacy } from '../src/lib/contracts';
+import { publicSitemap } from '../src/lib/seo';
+import { sitemapXmlEntries } from '../src/lib/sitemap-xml';
+import { resolveSitemap } from 'next/dist/build/webpack/loaders/metadata/resolve-route-data.js';
+
+test('production sitemap XML parses and preserves query parameters and language alternates', async ({ page }) => {
+  // Generate production XML from public fixture content; no hosted request or production environment.
+  const entries = publicSitemap('https://quizeey.com');
+  const xml = resolveSitemap(sitemapXmlEntries(entries));
+  const parsed = await page.evaluate(xml => {
+    const document = new DOMParser().parseFromString(xml, 'application/xml');
+    return {
+      error: document.querySelector('parsererror')?.textContent ?? null,
+      locations: [...document.getElementsByTagNameNS('http://www.sitemaps.org/schemas/sitemap/0.9', 'loc')].map(node => node.textContent),
+      alternates: [...document.getElementsByTagNameNS('http://www.w3.org/1999/xhtml', 'link')].map(node => node.getAttribute('href')),
+    };
+  }, xml);
+  expect(parsed.error).toBeNull();
+  expect(parsed.locations).toEqual(entries.map(entry => entry.url));
+  expect(parsed.alternates).toEqual(entries.flatMap(entry => Object.values(entry.alternates?.languages ?? {})));
+});
 
 test('all exam links and localized introductions are available without JavaScript', async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false, baseURL: 'http://127.0.0.1:3100' });
