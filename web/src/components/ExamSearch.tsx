@@ -51,7 +51,6 @@ export function ExamSearch({ routes, locale, popularity, advertisement }: { rout
         <input id="exam-search" type="search" autoComplete="off" placeholder={en ? "Find your exam" : "어떤 자격증을 준비하세요?"} value={search} onChange={(e) => { setSearch(e.target.value); setLimit(18); }} />
         {search && <button className="icon-button" aria-label={en ? "Clear search" : "검색어 지우기"} onClick={() => { setSearch(""); setLimit(18); document.getElementById("exam-search")?.focus(); }}><Icon name="close" /></button>}
       </div>
-      {!en && <div className="quick-search"><span>빠른 검색</span>{["SQLD", "정보처리기사", "컴활 2급"].map((term) => <button key={term} onClick={() => { setSearch(term); setCategory("all"); setSavedOnly(false); setLimit(18); }}>{term}<Icon name="arrow" /></button>)}</div>}
     </section>
     <section className="catalog" aria-labelledby="exams-heading">
       <div className="catalog-heading"><div><h2 id="exams-heading">{en ? "Explore exams" : "시험 둘러보기"}</h2><span className="count-badge">{routes.length}</span></div></div>
