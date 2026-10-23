@@ -1,9 +1,10 @@
 "use client";
-import { useState, useSyncExternalStore,type ReactNode } from "react";
+import { useState, useSyncExternalStore } from "react";
 import type { LegacyRoute, Locale } from "@/lib/contracts";
 import { categories, categoryNames, examCategory, examName, matchesExam, readFavorites, sortExams, type Category, type ExamPopularity, type ExamSort } from "@/lib/exam-catalog";
 import { Icon } from "./Icon";
 import { ExamLink } from "./ExamLink";
+import { AdSlot } from "./Monetization";
 
 const favoriteKey = "quizeey:favorite-exams:v1";
 function subscribe(listener: () => void) {
@@ -13,7 +14,7 @@ function subscribe(listener: () => void) {
 }
 function snapshot() { try { return localStorage.getItem(favoriteKey); } catch { return null; } }
 
-export function ExamSearch({ routes, locale, popularity, advertisement }: { routes: LegacyRoute[]; locale: Locale; popularity: ExamPopularity; advertisement?:ReactNode }) {
+export function ExamSearch({ routes, locale, popularity }: { routes: LegacyRoute[]; locale: Locale; popularity: ExamPopularity }) {
   const en = locale === "en";
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState<Category>("all");
@@ -69,7 +70,7 @@ export function ExamSearch({ routes, locale, popularity, advertisement }: { rout
         </select>
       </div></div>
       <ul className="exam-list">{cards(filtered.slice(0,6))}</ul>
-      {advertisement}
+      <AdSlot kind="infeed" locale={locale} eligible={!search.trim() && category === "all" && !savedOnly && filtered.length > 6} />
       {filtered.length>6&&<ul className="exam-list exam-list-continuation">{cards(filtered.slice(6,limit))}</ul>}
       {!filtered.length && <div className="empty-state"><div className="empty-icon"><Icon name={savedOnly ? "bookmark" : "search"} /></div><h3>{savedOnly && !savedCount ? en ? "Your favorites, all in one place" : "자주 찾는 시험을 모아보세요" : en ? "No matching exams" : "검색 결과가 없습니다"}</h3><p>{savedOnly && !savedCount ? en ? "Use the bookmark on an exam to save it here." : "시험 카드의 북마크를 누르면 여기에 모아볼 수 있어요." : en ? "Try another name or category." : "다른 검색어나 분야로 찾아보세요."}</p><button onClick={reset}>{en ? "View all exams" : "전체 시험 보기"}<Icon name="arrow" /></button></div>}
       {filtered.length > limit && <div className="load-more"><button onClick={() => setLimit((value) => value + 18)}>{en ? "Show more" : "시험 더 보기"}<span>{Math.min(limit, filtered.length)} / {filtered.length}</span></button></div>}

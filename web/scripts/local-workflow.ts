@@ -55,7 +55,7 @@ async function main() {
     dev: [[next, 'dev', '--hostname', '127.0.0.1']], build, test: [unit],
     e2e: [...build, browser],
     check: [['node_modules/typescript/bin/tsc', '--noEmit'],
-      ['node_modules/eslint/bin/eslint.js', '.'], unit, ...build, browser],
+      ['node_modules/eslint/bin/eslint.js', '.'], unit, ...build, browser, ['../tools/modernization/test_monetization.mjs']],
   };
   console.log('Local fixture workflow: no Vercel deployment; browser server http://127.0.0.1:3100.');
   if (['check', 'e2e'].includes(mode)) {

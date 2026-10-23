@@ -8,6 +8,7 @@ import { grade, shuffleChoices, type Question } from "@/lib/quiz";
 import { Icon } from "./Icon";
 import { Forum } from "./Forum";
 import { useAnalytics } from './Monetization';
+import type { QuizPayload } from '@/lib/integrations';
 import { SubmissionDialog } from './SubmissionDialog';
 
 function createProgressStore(key: string, previousKeys: string[], ids: string[], contentVersion: string, onError: (error: boolean) => void) {
@@ -149,12 +150,21 @@ export function Practice({ questions, locale, testId, contentVersion, directId, 
   const stats = practiceStats(progress, activeIds);
   const allStats = practiceStats(progress, ids);
   const en = locale === "en";
-  const analytics=useAnalytics();const viewed=useRef<string|null>(null);
+  const analytics=useAnalytics();const viewed=useRef<string|null>(null);const started=useRef(false);
+  const practiceMode=progress.reviewMode??(directId?'direct':'standard');
   useEffect(()=>{
-    const identity=question?.id??'complete';
+    const identity=`${practiceMode}:${question?.id??'result'}`;
     if(!analytics.analytics||viewed.current===identity)return;
-    if(analytics.track(question?'question_start':'practice_complete',{test_id:testId,...(question?{quest_id:question.id}:{}),locale}))viewed.current=identity;
-  },[question,locale,testId,analytics]);
+    const payload:QuizPayload={test_id:testId,locale,practice_mode:practiceMode,question_count:activeQuestions.length,answered_count:stats.answered};
+    if(question){
+      if(!started.current)started.current=analytics.track('practice_start',payload);
+      if(analytics.track('question_start',{...payload,quest_id:question.id}))viewed.current=identity;
+    }else{
+      // Reopening saved results or skipping questions is not a completed run.
+      if(analytics.track('practice_result',payload))viewed.current=identity;
+      if(started.current&&activeQuestions.length>0&&stats.unanswered===0)analytics.track('practice_complete',payload);
+    }
+  },[question,locale,testId,analytics,practiceMode,activeQuestions.length,stats.answered,stats.unanswered]);
   const reviewLabel = progress.reviewMode === "bookmarks" ? en ? "Bookmarked questions" : "북마크 복습" : progress.reviewMode === "unanswered" ? en ? "Unanswered questions" : "미응답 풀기" : m.mistakes;
 
   function focusQuestion(hasQuestion = true) {
@@ -167,10 +177,12 @@ export function Practice({ questions, locale, testId, contentVersion, directId, 
   function review(mode: NonNullable<Progress["reviewMode"]>) {
     const next = reviewProgress(progress, mode);
     if (next === progress) return;
+    started.current=false;viewed.current=null;
     save(next); focusQuestion();
   }
   function exitReview() {
     const index = question ? ids.indexOf(question.id) : 0;
+    started.current=false;viewed.current=null;
     save({ ...progress, reviewIds: null, reviewMode: undefined, index: Math.max(0, index) }); focusQuestion();
   }
 
@@ -194,7 +206,7 @@ export function Practice({ questions, locale, testId, contentVersion, directId, 
       <button className="primary" disabled={!allStats.incorrect} onClick={() => review("mistakes")}><Icon name="refresh" />{m.mistakes}<span>{allStats.incorrect}</span></button>
       {allStats.unanswered > 0 && <button onClick={() => review("unanswered")}>{en ? "Answer remaining" : "미응답 풀기"}<span>{allStats.unanswered}</span></button>}
       <button disabled={!progress.bookmarks.length} onClick={() => review("bookmarks")}><Icon name="bookmark" />{en ? "Review bookmarks" : "북마크 복습"}<span>{progress.bookmarks.length}</span></button>
-      <button onClick={() => { save({ ...emptyProgress(ids, contentVersion), bookmarks: progress.bookmarks }); focusQuestion(); }}><Icon name="refresh" />{m.restart}</button>
+      <button onClick={() => { started.current=false;viewed.current=null;save({ ...emptyProgress(ids, contentVersion), bookmarks: progress.bookmarks }); focusQuestion(); }}><Icon name="refresh" />{m.restart}</button>
     </div>
     {progress.reviewIds && <button className="text-button" onClick={exitReview}>{en ? "Back to all questions" : "전체 문제로 돌아가기"}<Icon name="arrow" /></button>}
     {storageError && <p role="status" className="error">{m.storageError}</p>}

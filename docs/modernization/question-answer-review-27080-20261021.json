@@ -1,0 +1,60 @@
+{
+  "reviewDate": "2026-10-21",
+  "projectId": "tfkhnrbshvyfmrzxqfmq",
+  "questionId": 27080,
+  "examId": 14,
+  "version": "2014-04-06",
+  "questionNumber": 28,
+  "status": "applied_and_verified",
+  "decision": "Existing answer 3 (choice_id 109102, nitrosomyoglobin) is correct; retain all choice flags.",
+  "sources": [
+    "https://meatupdate.csiro.au/data/Meat_88_12.pdf",
+    "https://pubmed.ncbi.nlm.nih.gov/2293519/",
+    "https://pubmed.ncbi.nlm.nih.gov/22055936/"
+  ],
+  "scope": {
+    "explanation": true,
+    "reference": true,
+    "operatorComment": true,
+    "resolveSubmission": "1296dbc5-d52b-4e8c-9c92-0e7fec0deec5",
+    "questionBody": false,
+    "choices": false,
+    "schema": false,
+    "deployment": false
+  },
+  "verification": {
+    "localPostgresApply": true,
+    "idempotency": true,
+    "localServiceStudyReader": true,
+    "localAnonymousForumReader": true,
+    "rollbackRehearsal": true,
+    "htmlSanitizer": true,
+    "fullLocalCheck": "passed (exit 0)",
+    "typecheck": "passed",
+    "lint": "passed",
+    "unitTests": 144,
+    "browserTests": 57,
+    "skippedDbAuthTests": 0,
+    "authScope": "Local Auth HTTP double; no real Supabase sign-in test.",
+    "build": "passed",
+    "productionDataReadback": true,
+    "choicesHashUnchanged": true,
+    "existing11PostsHashUnchanged": true,
+    "approvedPostCount": 12,
+    "reportState": "resolved",
+    "liveQuestionPage": {
+      "httpStatus": 200,
+      "explanationPresent": true,
+      "referencesPresent": true
+    },
+    "liveCommentApi": {
+      "httpStatus": 200,
+      "operatorCommentPresent": true
+    },
+    "hostedReadOnlyRequests": 2
+  },
+  "privateArtifacts": ".modernization/question-review-27080",
+  "note": "Resolved_by remains null for direct owner-authorized automated maintenance; no human admin account impersonated.",
+  "operatorCommentId": "c3e8aee2-746b-41c5-a57a-4fc9b618e361",
+  "cleanup": "Playwright's completed local server required targeted process cleanup; check then exited 0. Fixture cluster stopped after verification."
+}

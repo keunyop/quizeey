@@ -1,19 +1,23 @@
 {
-  "checkedAt": "2026-10-18T07:52:48.934Z",
+  "checkedAt": "2026-10-23T22:50:07.740Z",
   "scope": "Actual React components in isolated synthetic harness; mock CMP, GA4 and AdSense only. Does not certify account configuration or live ad delivery.",
   "results": [
     {
       "mode": "filled",
+      "path": "/sqlp-developer",
+      "documents": 2,
       "status": "passed",
       "scriptRequests": {
-        "cmp": 1,
-        "ads": 1,
-        "ga": 1
+        "cmp": 2,
+        "ads": 2,
+        "ga": 2
       },
       "realNetworkRequests": 0
     },
     {
       "mode": "unfilled",
+      "path": "/sqlp-developer",
+      "documents": 1,
       "status": "passed",
       "scriptRequests": {
         "cmp": 1,
@@ -24,6 +28,44 @@
     },
     {
       "mode": "blocked",
+      "path": "/sqlp-developer",
+      "documents": 1,
+      "status": "passed",
+      "scriptRequests": {
+        "cmp": 1,
+        "ads": 1,
+        "ga": 1
+      },
+      "realNetworkRequests": 0
+    },
+    {
+      "mode": "filled",
+      "path": "/",
+      "documents": 1,
+      "status": "passed",
+      "scriptRequests": {
+        "cmp": 1,
+        "ads": 1,
+        "ga": 1
+      },
+      "realNetworkRequests": 0
+    },
+    {
+      "mode": "filled",
+      "path": "/?short",
+      "documents": 1,
+      "status": "passed",
+      "scriptRequests": {
+        "cmp": 1,
+        "ads": 0,
+        "ga": 1
+      },
+      "realNetworkRequests": 0
+    },
+    {
+      "mode": "delayed",
+      "path": "/",
+      "documents": 1,
       "status": "passed",
       "scriptRequests": {
         "cmp": 1,

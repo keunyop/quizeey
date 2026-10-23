@@ -90,7 +90,7 @@ export async function RouteView({ path, query }: { path: string; query: Query })
             {input.page<pagination.pages?<a href={pageLink(input.page+1)} rel="next" data-google-vignette="false">{locale==='ko'?'다음 문제':'Next questions'}</a>:<span/>}
           </nav>}
           {authoredSet && <section className="practice-set-summary" aria-label={locale === "ko" ? "연습 회차 안내" : "Practice set information"}>
-            <a href={`${examPath}?verNbr=${authoredSet.version}`}>
+            <a data-google-vignette="false" href={`${examPath}?verNbr=${authoredSet.version}`}>
               {locale === "ko" ? `${authoredSet.name} 회차 · 연습문제 ${authoredSet.count}개와 해설` : `${authoredSet.name} · ${authoredSet.count} practice questions with explanations`}
             </a>
             <p>{locale === "ko" ? "공식 기출 회차와 구분되는 자체 제작 학습 자료입니다." : "Original, independent study material. This is not an official exam paper."}</p>
@@ -99,7 +99,7 @@ export async function RouteView({ path, query }: { path: string; query: Query })
           {input.verNbr === authoredVersion && !input.questId && publicBatch.length > 0 && <details className="practice-outline">
             <summary>{locale === "ko" ? `이 페이지의 연습문제 ${publicBatch.length}개` : `${publicBatch.length} questions on this page`}</summary>
             <ol start={(input.page - 1) * 20 + 1}>{publicBatch.map(question => <li key={question.id}>
-              <a lang={question.contentLocale ?? locale} href={`${examPath}?questId=${question.id}&verNbr=${authoredVersion}`} dangerouslySetInnerHTML={{ __html: question.text }} />
+              <a lang={question.contentLocale ?? locale} data-google-vignette="false" href={`${examPath}?questId=${question.id}&verNbr=${authoredVersion}`} dangerouslySetInnerHTML={{ __html: question.text }} />
             </li>)}</ol>
           </details>}
           {publicBatch.length>0&&<AdSlot kind="display" locale={locale}/>}
@@ -121,7 +121,7 @@ export async function RouteView({ path, query }: { path: string; query: Query })
         <p>{locale==='ko'?'샘플 문항과 연습문항으로 학습할 수 있습니다. 실제 기출문항은 이 미리보기에 연결하지 않았습니다.':'Study with samples and practice sets. The full exam archive is not connected to this preview.'}</p>
         <a href="/sqlp-developer">한국어 샘플 연습</a>{' · '}<a href="/en/aws-certified-developer-associate">Try English samples</a>
       </aside>}
-      {isHome ? <><ExamSearch routes={examRoutes} locale={locale} popularity={popularity} advertisement={<AdSlot kind="infeed" locale={locale}/>} />
+      {isHome ? <><ExamSearch routes={examRoutes} locale={locale} popularity={popularity} />
         <details className="exam-directory"><summary>{locale==='ko'?'전체 자격증 시험 목록':'All certification practice exams'}</summary>
           <nav aria-label={locale==='ko'?'전체 시험 바로가기':'All exam links'}><ul>{examRoutes.map(r=><li key={r.path}><ExamLink href={r.path}>{examName(r)}</ExamLink></li>)}</ul></nav>
         </details></> : exam.testId && commentsEnabled ?

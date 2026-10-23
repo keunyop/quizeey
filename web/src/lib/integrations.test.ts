@@ -40,3 +40,18 @@ it("records quiz events without pageviews or PII", () => {
   expect(() => measure(allowed, send, "forum_post_created", { locale: "ko", body: "private" } as never)).toThrow(/payload/);
   expect(() => measure(allowed, send, "page_view" as never, { locale: "ko" })).toThrow();
 });
+it("accepts bounded practice measurements and rejects private or invalid dimensions", () => {
+  const send=vi.fn();
+  expect(measure(allowed,send,'practice_complete',{locale:'ko',test_id:'5',question_count:20,answered_count:20,practice_mode:'standard'})).toBe(true);
+  for(const payload of [
+    {locale:'ko',question_count:2,answered_count:3},
+    {locale:'ko',answered_count:-1},
+    {locale:'ko',question_count:NaN},
+    {locale:'ko',question_count:1.5},
+    {locale:'ko',question_count:10001},
+    {locale:'ko',practice_mode:'private query'},
+    {locale:'ko',question_count:20,search:'private query'},
+  ])expect(()=>measure(allowed,send,'practice_result',payload as never)).toThrow();
+  expect(measure({...allowed,consent:false},send,'practice_start',{locale:'en',question_count:20})).toBe(false);
+  expect(send).toHaveBeenCalledTimes(1);
+});

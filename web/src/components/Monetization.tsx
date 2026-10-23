@@ -1,6 +1,6 @@
 'use client';
 import {createContext,useCallback,useContext,useEffect,useMemo,useRef,useState,useSyncExternalStore,type ReactNode} from 'react';
-import {AdLifecycle,measure,PUBLISHER,type EventName,type QuizPayload} from '@/lib/integrations';
+import {AdLifecycle,measure,PUBLISHER,AD_POLICY_VERSION,type EventName,type QuizPayload} from '@/lib/integrations';
 import {googleConsent,type GoogleConsentValues} from '@/lib/google-consent';
 import {analyticsLocation,analyticsReferrer} from '@/lib/google-analytics';
 
@@ -17,7 +17,8 @@ function loadScript(id:string,src:string,overlays?:'collapsed-bottom'){
     script.onload=()=>resolve();script.onerror=()=>reject(new Error('Integration blocked'));document.head.append(script);});scripts.set(id,promise);}
   return promise;
 }
-const disabled:{ads:boolean;analytics:boolean;track:(event:EventName,payload:QuizPayload)=>boolean}={ads:false,analytics:false,track:()=>false};
+type AdKind='display'|'infeed';
+const disabled:{ads:boolean;analytics:boolean;claimAd:(kind:AdKind)=>boolean;track:(event:EventName,payload:QuizPayload)=>boolean}={ads:false,analytics:false,claimAd:()=>false,track:()=>false};
 const IntegrationContext=createContext(disabled);
 export const useAnalytics=()=>useContext(IntegrationContext);
 const subscribe=()=>()=>{};
@@ -27,8 +28,11 @@ export function Monetization({enabled,measurementId,cmpScriptUrl,pagePath,locale
   const [usApplicable,setUsApplicable]=useState(false);
   const [tagReady,setTagReady]=useState(false);
   const allowed=useRef(consent);const configured=useRef(false);const pageViewed=useRef('');
+  // One request per placement for this document, including filter/consent remounts.
+  const requestedAds=useRef(new Set<AdKind>());
+  const claimAd=useCallback((kind:AdKind)=>{if(requestedAds.current.has(kind))return false;requestedAds.current.add(kind);return true;},[]);
   const live=useSyncExternalStore(subscribe,()=>enabled&&window.location.origin==='https://quizeey.com',()=>false);
-  const track=useCallback((event:EventName,payload:QuizPayload)=>measure({stage:enabled?'production':'preview',consent:allowed.current.analytics,verified:!!measurementId&&configured.current},(name,data)=>window.gtag?.('event',name,{...data,send_to:measurementId,page_location:analyticsLocation(pagePath,window.location.search)}),event,payload),[enabled,measurementId,pagePath]);
+  const track=useCallback((event:EventName,payload:QuizPayload)=>measure({stage:live?'production':'preview',consent:allowed.current.analytics,verified:!!measurementId&&configured.current},(name,data)=>window.gtag?.('event',name,{...data,ad_policy:AD_POLICY_VERSION,send_to:measurementId,page_location:analyticsLocation(pagePath,window.location.search)}),event,payload),[live,measurementId,pagePath]);
   useEffect(()=>{
     if(!live||!measurementId||!cmpScriptUrl)return;
     let active=true;
@@ -63,7 +67,7 @@ export function Monetization({enabled,measurementId,cmpScriptUrl,pagePath,locale
       if(pageViewed.current===pagePath)return;
       pageViewed.current=pagePath;
       // Do not send arbitrary URL queries, form text, guest identities or answer text.
-      window.gtag?.('event','page_view',{send_to:measurementId,page_location:location,page_referrer:referrer,page_title:document.title});
+      window.gtag?.('event','page_view',{send_to:measurementId,page_location:location,page_referrer:referrer,page_title:document.title,ad_policy:AD_POLICY_VERSION});
     }).catch(()=>{});
     return()=>{active=false;};
   },[live,consent.analytics,measurementId,pagePath]);
@@ -76,30 +80,31 @@ export function Monetization({enabled,measurementId,cmpScriptUrl,pagePath,locale
     if(us)window.googlefc?.usstatesoptout?.openConfirmationDialog?.(()=>window.location.reload());
     else window.googlefc?.showRevocationMessage?.();
   }
-  const value=useMemo(()=>({ads:live&&consent.ads,analytics:live&&consent.analytics&&tagReady,track}),[live,consent,tagReady,track]);
+  const value=useMemo(()=>({ads:live&&consent.ads,analytics:live&&consent.analytics&&tagReady,track,claimAd}),[live,consent,tagReady,track,claimAd]);
   return <IntegrationContext value={value}>{children}{live&&<div className="privacy-controls"><button className="text-button" onClick={()=>privacy()}>{locale==='ko'?'개인정보 설정':'Privacy choices'}</button>{usApplicable&&<button className="text-button" onClick={()=>privacy(true)}>{locale==='ko'?'개인정보 판매·공유 거부':'Do not sell or share my personal information'}</button>}</div>}</IntegrationContext>;
 }
 
-export function AdSlot({kind,locale}:{kind:'display'|'infeed';locale:'ko'|'en'}){
-  const {ads}=useContext(IntegrationContext);
-  const node=useRef<HTMLModElement>(null);const lifecycle=useRef<AdLifecycle<HTMLElement>|null>(null);
+export function AdSlot({kind,locale,eligible=true}:{kind:AdKind;locale:'ko'|'en';eligible?:boolean}){
+  const {ads,claimAd}=useContext(IntegrationContext);
+  const node=useRef<HTMLModElement>(null);
   const attempted=useRef(new WeakSet<HTMLElement>());
   const [failed,setFailed]=useState(false);
   useEffect(()=>{
-    const policy={stage:'production' as const,consent:ads,verified:true};
-    lifecycle.current?.updatePolicy(policy);
-    if(!ads||!node.current||failed)return;
+    const policy={stage:'production' as const,consent:ads&&eligible,verified:true};
+    if(!ads||!eligible||!node.current||failed)return;
     const element=node.current;
-    lifecycle.current??=new AdLifecycle(policy,{
-      loadScript:publisher=>loadScript('quizeey-adsense','https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client='+publisher,kind==='display'?'collapsed-bottom':undefined),
+    // Each effect owns its in-flight work. A later consent grant/filter reset
+    // cannot revive a canceled request for a detached slot.
+    const lifecycle=new AdLifecycle<HTMLElement>(policy,{
+      loadScript:publisher=>loadScript('quizeey-adsense','https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client='+publisher,'collapsed-bottom'),
       reserve:(slot,height)=>{slot.style.minHeight=height+'px';},
-      initialize:()=>{(window.adsbygoogle??=[]).push({});},
+      initialize:slot=>{if(slot.isConnected)(window.adsbygoogle??=[]).push({});},
     });
-    const observer=new IntersectionObserver(entries=>{if(!entries.some(entry=>entry.isIntersecting))return;observer.disconnect();if(attempted.current.has(element))return;attempted.current.add(element);void lifecycle.current!.mount(element,kind==='display'?'1033140566':'8990988805',250).then(ok=>{if(!ok&&element.isConnected)setFailed(true);});},{rootMargin:'200px'});
+    const observer=new IntersectionObserver(entries=>{if(!entries.some(entry=>entry.isIntersecting))return;observer.disconnect();if(attempted.current.has(element))return;attempted.current.add(element);if(!claimAd(kind)){setFailed(true);return;}void lifecycle.mount(element,kind==='display'?'1033140566':'8990988805',250).then(ok=>{if(!ok&&element.isConnected)setFailed(true);});},{rootMargin:'200px'});
     const mutations=new MutationObserver(()=>{if(element.dataset.adStatus==='unfilled')setFailed(true);});mutations.observe(element,{attributes:true,attributeFilter:['data-ad-status']});
     observer.observe(element);
-    return()=>{observer.disconnect();mutations.disconnect();lifecycle.current?.updatePolicy({...policy,consent:false});};
-  },[ads,kind,failed]);
-  if(!ads||failed)return null;
+    return()=>{observer.disconnect();mutations.disconnect();lifecycle.updatePolicy({...policy,consent:false});};
+  },[ads,kind,failed,eligible,claimAd]);
+  if(!ads||!eligible||failed)return null;
   return <aside className="ad-placement" aria-label={locale==='ko'?'광고':'Advertisement'}><span>{locale==='ko'?'광고':'Advertisement'}</span><ins ref={node} className="adsbygoogle" style={{display:'block',minHeight:250}} data-ad-client={PUBLISHER} data-ad-slot={kind==='display'?'1033140566':'8990988805'} data-ad-format={kind==='display'?'auto':'fluid'} data-full-width-responsive={kind==='display'?'true':undefined} data-ad-layout-key={kind==='infeed'?'-f9+5v+4m-d8+7b':undefined}/></aside>;
 }
