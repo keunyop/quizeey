@@ -1005,5 +1005,115 @@
     "locale": "all",
     "questionCount": 30,
     "description": "Prepare with 30 original English practice questions and explanations in the 2026-10 set. 2026 RN test-plan subject areas: safe care, health promotion, psychosocial care, basic care, medications, risk reduction, physiological adaptation, and clinical judgment. Single-best-answer study questions; not an adaptive test or a simulation of all NGN item formats. Independent study material, not an official examination."
+  },
+  {
+    "id": "243",
+    "slug": "sat-math",
+    "name": "SAT Math",
+    "locale": "en",
+    "questionCount": 30,
+    "seoTitle": "Free SAT Math Practice Test with Answers",
+    "searchTerms": ["digital SAT", "SAT mathematics", "college admission math"],
+    "description": "Free SAT Math practice: 30 questions with answers and explanations in set 2026-10. Review algebra, advanced math, data analysis, geometry and trigonometry.",
+    "practiceScope": "Original multiple-choice skill practice for SAT Math topics, including algebra, nonlinear equations, data analysis, geometry and trigonometry. Includes worked explanations. Independent material; not a College Board test, an adaptive simulation or a score predictor."
+  },
+  {
+    "id": "244",
+    "slug": "sat-reading-writing",
+    "name": "SAT Reading and Writing",
+    "locale": "en",
+    "questionCount": 30,
+    "seoTitle": "Free SAT Reading and Writing Practice Test",
+    "searchTerms": ["digital SAT English", "SAT reading writing", "SAT grammar", "SAT verbal"],
+    "description": "Free SAT Reading and Writing practice: 30 questions with answers and explanations, set 2026-10. Study evidence, vocabulary, transitions and English conventions.",
+    "practiceScope": "Original short texts and multiple-choice exercises sample Information and Ideas, Craft and Structure, Expression of Ideas, and Standard English Conventions. Some drills are shorter than actual SAT passages. Independent material; not a College Board test or adaptive simulation."
+  },
+  {
+    "id": "245",
+    "slug": "ged-math",
+    "name": "GED Mathematical Reasoning (Math)",
+    "locale": "en",
+    "questionCount": 30,
+    "seoTitle": "Free GED Math Practice Test with Answers",
+    "searchTerms": ["GED mathematical reasoning", "GED mathematics", "high school equivalency math"],
+    "description": "Free GED Math practice: 30 Mathematical Reasoning questions with answers and explanations, set 2026-10. Review fractions, algebra, graphs and geometry.",
+    "practiceScope": "U.S. GED Mathematical Reasoning skill practice with original calculations and word problems. Multiple-choice review only; not a full GED test or an official GED Ready assessment. GED is not Canada's current high-school equivalency credential."
+  },
+  {
+    "id": "246",
+    "slug": "ged-language-arts",
+    "name": "GED Reasoning Through Language Arts",
+    "locale": "en",
+    "questionCount": 30,
+    "seoTitle": "Free GED Language Arts Practice Test with Answers",
+    "searchTerms": ["GED RLA", "GED reading", "GED English", "GED writing"],
+    "description": "Free GED Language Arts practice: 30 RLA questions with answers and explanations, set 2026-10. Study reading comprehension, arguments, grammar and editing.",
+    "practiceScope": "U.S. GED RLA skill practice using original short passages, evidence evaluation and editing exercises. Does not score an extended-response essay or simulate the full test. Independent study material, not an official GED assessment."
+  },
+  {
+    "id": "247",
+    "slug": "ged-science",
+    "name": "GED Science",
+    "locale": "en",
+    "questionCount": 30,
+    "seoTitle": "Free GED Science Practice Test with Answers",
+    "searchTerms": ["GED scientific reasoning", "GED biology", "GED physical science"],
+    "description": "Free GED Science practice: 30 questions with answers and explanations, set 2026-10. Review experiments, data, life science, physical science, Earth and space.",
+    "practiceScope": "U.S. GED Science skill practice emphasizes interpreting evidence, experimental design and quantitative reasoning in original scenarios. Single-best-answer review; not a full-length or official GED assessment."
+  },
+  {
+    "id": "248",
+    "slug": "ged-social-studies",
+    "name": "GED Social Studies",
+    "locale": "en",
+    "questionCount": 30,
+    "seoTitle": "Free GED Social Studies Practice Test with Answers",
+    "searchTerms": ["GED civics", "GED US history", "GED economics", "GED government"],
+    "description": "Free GED Social Studies practice: 30 questions with answers and explanations, set 2026-10. Study U.S. civics, history, economics, geography and source analysis.",
+    "practiceScope": "U.S. GED Social Studies skill practice uses original civic scenarios, brief source summaries and data questions. Covers government, U.S. history, economics and geography; not a full-length or official GED assessment."
+  },
+  {
+    "id": "249",
+    "slug": "california-dmv-permit",
+    "name": "California DMV Permit Knowledge Test",
+    "locale": "en",
+    "questionCount": 30,
+    "seoTitle": "Free California DMV Permit Practice Test",
+    "searchTerms": ["California written driving test", "CA DMV", "California learner permit", "California Class C"],
+    "description": "Free California DMV permit practice: 30 questions with answers and explanations, set 2026-10. Review Class C road signs, right-of-way and safe driving rules.",
+    "practiceScope": "California, United States: original passenger-vehicle knowledge questions informed by the California Driver's Handbook. Covers traffic controls, lane use, parking and defensive driving. Independent review, not an official DMV test; consult the current handbook for complete rules."
+  },
+  {
+    "id": "250",
+    "slug": "ontario-g1",
+    "name": "Ontario G1 Knowledge Test",
+    "locale": "en",
+    "questionCount": 30,
+    "seoTitle": "Free Ontario G1 Practice Test with Answers",
+    "searchTerms": ["G1 Ontario", "Ontario driving test", "MTO knowledge test", "G1 road signs", "G1 rules of the road"],
+    "description": "Free Ontario G1 practice: 30 questions with answers and explanations, set 2026-10. Review MTO road signs, traffic rules, safe driving and learner restrictions.",
+    "practiceScope": "Ontario, Canada: original G1 study questions informed by the Official MTO Driver's Handbook. Includes text descriptions of signs and Ontario-specific learner and school-bus rules. Independent review; not an official DriveTest or MTO examination or a complete two-section simulation."
+  },
+  {
+    "id": "251",
+    "slug": "bc-class-7-knowledge",
+    "name": "BC Class 7 Learner Knowledge Test",
+    "locale": "en",
+    "questionCount": 30,
+    "seoTitle": "Free BC ICBC Knowledge Practice Test (Class 7)",
+    "searchTerms": ["ICBC practice test", "BC knowledge test", "British Columbia learner", "Class 7L", "BC L test"],
+    "description": "Free BC Class 7 knowledge practice: 30 questions with answers and explanations, set 2026-10. Review ICBC signs, road rules, hazard awareness and L restrictions.",
+    "practiceScope": "British Columbia, Canada: original passenger-vehicle learner practice informed by ICBC's Learn to Drive Smart. Learner restrictions reflect ICBC's October 19, 2026 update. Includes BC-specific signs, school and playground zones. Independent material; not an official ICBC examination or a full test simulation."
+  },
+  {
+    "id": "252",
+    "slug": "canadian-citizenship",
+    "name": "Canadian Citizenship Test",
+    "locale": "en",
+    "questionCount": 30,
+    "seoTitle": "Free Canadian Citizenship Practice Test with Answers",
+    "searchTerms": ["Canada citizenship", "Discover Canada", "IRCC citizenship test", "Canadian citizen test"],
+    "description": "Free Canadian citizenship practice: 30 questions with answers and explanations, set 2026-10. Review Discover Canada topics: rights, government, history and geography.",
+    "practiceScope": "Original English study questions covering Discover Canada topics. Use IRCC's official guide as your primary resource. This set does not cover every topic or changing names of officeholders; check those separately. Independent material, not an official IRCC examination."
   }
 ]

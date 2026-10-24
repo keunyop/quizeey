@@ -1,10 +1,11 @@
 import type { LegacyRoute, Locale } from "./contracts";
+import catalog from "@/data/exam-catalog.json" with { type: "json" };
 
-export const categories = ["all", "it", "electrical", "safety", "engineering", "service", "other"] as const;
+export const categories = ["all", "it", "electrical", "safety", "engineering", "service", "academic", "driving", "citizenship", "other"] as const;
 export type Category = typeof categories[number];
 export const categoryNames: Record<Locale, Record<Category, string>> = {
-  ko: { all: "전체", it: "IT·데이터", electrical: "전기·전자", safety: "안전·환경", engineering: "건설·기계", service: "생활·서비스", other: "기타" },
-  en: { all: "All", it: "IT & data", electrical: "Electrical", safety: "Safety & environment", engineering: "Engineering", service: "Life & services", other: "Other" },
+  ko: { all: "전체", it: "IT·데이터", electrical: "전기·전자", safety: "안전·환경", engineering: "건설·기계", service: "생활·서비스", academic: "진학·학력", driving: "운전", citizenship: "시민권", other: "기타" },
+  en: { all: "All", it: "IT & data", electrical: "Electrical", safety: "Safety & environment", engineering: "Engineering", service: "Life & services", academic: "School & equivalency", driving: "Driving", citizenship: "Citizenship", other: "Other" },
 };
 export function examName(route: LegacyRoute) {
   return (route.headings[0] || route.title || "Quizeey").replace(/\s*(기출문제|연습문제|Practice Questions)\s*$/i, "").trim();
@@ -25,6 +26,9 @@ export function sortExams(routes: LegacyRoute[], locale: Locale, sort: ExamSort,
 }
 export function examCategory(route: LegacyRoute): Exclude<Category, "all"> {
   const name = route.path + " " + examName(route);
+  if (/\/(sat-|ged-)/i.test(route.path)) return "academic";
+  if (/\/(california-dmv-permit|ontario-g1|bc-class-7-knowledge)$/.test(route.path)) return "driving";
+  if (/\/canadian-citizenship$/.test(route.path)) return "citizenship";
   if (/nclex|llqp/i.test(name)) return "service";
   if (/sql|aws|azure|microsoft|ms-\d|az-\d|정보처리|정보보안|정보기기|정보관리|컴퓨터|컴활|컴퓨터활용|워드프로세서|사무자동화|웹디자인|게임|멀티미디어|네트워크|리눅스|전자계산|빅데이터|데이터|network|linux|comptia/i.test(name)) return "it";
   if (/안전|환경|위험물|가스|소방|산업위생|소음|폐기물|safety|environment|pollution|hazard|fire-protection|gas/.test(name)) return "safety";
@@ -38,9 +42,10 @@ function initials(value: string) {
   const cho = "ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ";
   return Array.from(value).map((c) => { const code = c.charCodeAt(0) - 44032; return code >= 0 && code < 11172 ? cho[Math.floor(code / 588)] : c; }).join("");
 }
+const searchAliases = new Map(catalog.map(exam => [exam.id, exam.searchTerms?.join(" ") ?? ""]));
 export function matchesExam(route: LegacyRoute, search: string) {
   const term = normalize(search);
-  const name = route.title + examName(route) + route.path + (route.testId === "5" ? " SQLD SQL개발자" : "");
+  const name = [route.title, examName(route), route.path, searchAliases.get(route.testId ?? ""), route.testId === "5" ? "SQLD SQL개발자" : ""].join(" ");
   const words = search.split(/[\s–—·()_-]+/).map(normalize).filter(Boolean);
   return words.every((word) => normalize(name).includes(word)) || normalize(initials(examName(route))).includes(term);
 }

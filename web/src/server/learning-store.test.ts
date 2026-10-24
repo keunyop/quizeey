@@ -18,8 +18,8 @@ function archive(count: number) {
   }, pendingExplanationCounts: {} }, "unchanged-archive");
 }
 
-it("covers all 190 catalog exams with 1563 distinct, answerable, attributed original questions", () => {
-  expect(authoredCatalog).toHaveLength(190);
+it("covers all 200 catalog exams with 1863 distinct, answerable, attributed original questions", () => {
+  expect(authoredCatalog).toHaveLength(200);
   const ids = new Set<string>(); const choiceIds = new Set<string>();
   for (const exam of authoredCatalog) {
     const locale = authoredDefaultLocale(exam.id);
@@ -38,7 +38,7 @@ it("covers all 190 catalog exams with 1563 distinct, answerable, attributed orig
       for (const choice of q.choices) { expect(choiceIds.has(choice.id)).toBe(false); choiceIds.add(choice.id); }
     }
   }
-  expect(ids.size).toBe(1563); expect(choiceIds.size).toBe(6252);
+  expect(ids.size).toBe(1863); expect(choiceIds.size).toBe(7452);
   expect(findAuthoredQuestion("8000099999")).toBeUndefined();
 });
 

@@ -64,10 +64,11 @@ test.describe("shared database click counts", () => {
     await page.getByRole("searchbox").fill("SQLD");
     await page.locator(".favorite-button").click();
     expect(await count("5")).toBe(initial);
-    const recorded = page.waitForResponse(r => r.url().endsWith("/api/exams/click") && r.request().method() === "POST");
     await page.locator('.exam-card a[href="/sqlp-developer"]').click();
-    expect((await recorded).status()).toBe(204);
     await expect(page).toHaveURL(origin + "/sqlp-developer");
+    // A keepalive request can outlive the old document's response event.
+    // Verify the persisted navigation effect, as for the keyboard/middle clicks below.
+    await expect.poll(() => count("5")).toBe(initial + 1);
     await page.reload();
     expect(await count("5")).toBe(initial + 1);
     await page.goto("/");

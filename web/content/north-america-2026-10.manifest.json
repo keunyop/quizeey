@@ -1,0 +1,29 @@
+{
+  "version": "2026-10",
+  "examIds": [
+    "243",
+    "244",
+    "245",
+    "246",
+    "247",
+    "248",
+    "249",
+    "250",
+    "251",
+    "252"
+  ],
+  "addedExams": 10,
+  "questionsPerExam": 30,
+  "addedQuestions": 300,
+  "previousGroups": {
+    "count": 101,
+    "sha256": "5937574281e7e4083feef0ecba4ba845cdce1e15430bb67594a8c948a53b8d13"
+  },
+  "previousCatalog": {
+    "count": 190,
+    "sha256": "f48eb8aebf322e0f151ac2c75eac68fdeb221f2c8f66c31d66ffdc32241f0801"
+  },
+  "baseCommit": "95764ab44866c83cbc8012fe22bf6ecd943a5b76",
+  "selectionBasis": "Coverage gaps across North American admissions, U.S. equivalency, regional driving and Canadian citizenship; not a measured keyword-volume ranking.",
+  "reviewDate": "2026-10-23"
+}

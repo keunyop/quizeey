@@ -14,8 +14,8 @@ export const homeSearchCopy = {
     description: 'SQLD, 정보처리기사, 전기기사 등 한국 자격증 시험을 준비하세요. Quizeey에서 한국어 기출문제와 연습문제를 풀고, 정답 확인과 오답 복습으로 CBT 시험에 대비할 수 있습니다.',
   },
   en: {
-    title: 'Free Certification Practice Questions & Exam Prep | Quizeey',
-    description: 'Free certification practice questions for learners in the United States and Canada. Study AWS, Azure, Cisco and more in English with Quizeey.',
+    title: 'Free Practice Tests & Exam Prep with Answers | Quizeey',
+    description: 'Free practice questions with answers and explanations for the United States and Canada. Prepare for SAT, GED, driving, Canadian citizenship and certification exams.',
   },
 } as const;
 
@@ -34,11 +34,11 @@ export function searchCopy(path: string, query: URLSearchParams, exam: LegacyRou
     if (exam.template === 'authored-practice' && exam.description) description = exam.description;
     const authored = authoredSetSummary(exam.testId, locale);
     if (input.verNbr === authoredVersion && authored) {
-      title = `${name} ${locale === 'ko' ? '연습문제' : 'Practice Questions'} - Quizeey`;
-      description = locale === 'ko'
+      if (exam.template !== 'authored-practice') title = `${name} ${locale === 'ko' ? '연습문제' : 'Practice Questions'} - Quizeey`;
+      description = exam.template === 'authored-practice' && exam.description ? exam.description : locale === 'ko'
         ? `${name} ${authoredVersionName} 회차: 정답과 해설이 있는 자체 제작 연습문제 ${authored.count}개. 공식 기출 회차와 구분되는 학습 자료입니다.`
         : `${name}, ${authoredVersionName}: ${authored.count} original practice questions with answers and explanations. Independent study material.`;
-      if (authored.scope) description += ` ${authored.scope}`;
+      if (authored.scope && exam.template !== 'authored-practice') description += ` ${authored.scope}`;
     }
     const versionLabel = input.verNbr === authoredVersion ? authoredVersionName : String(input.verNbr);
     const qualifiers = locale === 'ko'

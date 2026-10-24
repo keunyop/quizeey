@@ -122,7 +122,7 @@ export async function RouteView({ path, query }: { path: string; query: Query })
         <a href="/sqlp-developer">한국어 샘플 연습</a>{' · '}<a href="/en/aws-certified-developer-associate">Try English samples</a>
       </aside>}
       {isHome ? <><ExamSearch routes={examRoutes} locale={locale} popularity={popularity} />
-        <details className="exam-directory"><summary>{locale==='ko'?'전체 자격증 시험 목록':'All certification practice exams'}</summary>
+        <details className="exam-directory"><summary>{locale==='ko'?'전체 자격증 시험 목록':'All practice exams'}</summary>
           <nav aria-label={locale==='ko'?'전체 시험 바로가기':'All exam links'}><ul>{examRoutes.map(r=><li key={r.path}><ExamLink href={r.path}>{examName(r)}</ExamLink></li>)}</ul></nav>
         </details></> : exam.testId && commentsEnabled ?
         <ExamComments key={`${exam.testId}:${locale}`} examId={exam.testId} locale={locale} title={examName(exam)} description={exam.headings.slice(1)}>{pageContent}</ExamComments> : <>

@@ -8,7 +8,7 @@ function authoredRoute(exam: (typeof catalog)[number], locale: Locale): LegacyRo
   return {
     path: `${locale === "en" ? "/en" : ""}/${exam.slug}`, locale, testId: exam.id,
     template: "authored-practice", templateExists: true,
-    title: `${title} - Quizeey`, description: exam.description ?? "",
+    title: `${exam.seoTitle ?? title} - Quizeey`, description: exam.description ?? "",
     headings: [title, exam.description ?? ""], links: [],
   };
 }

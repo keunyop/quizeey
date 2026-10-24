@@ -1,0 +1,131 @@
+{
+  "reviewDate": "2026-10-23",
+  "releaseStatus": "local implementation; no release requested or deployed",
+  "selection": {
+    "basis": "Expand beyond the existing IT, food-service, insurance and nursing catalog into North American admissions, U.S. high-school equivalency, regional passenger-vehicle licensing and Canadian citizenship.",
+    "measuredKeywordVolume": false,
+    "trafficOrRankingClaims": false,
+    "manifest": "../web/content/north-america-2026-10.manifest.json"
+  },
+  "content": {
+    "set": "2026-10",
+    "versionNumber": 202610,
+    "language": "en",
+    "addedExams": 10,
+    "questionsPerExam": 30,
+    "addedQuestions": 300,
+    "addedExplanations": 300,
+    "catalogExamsAfter": 200,
+    "authoredQuestionsAfter": 1863,
+    "sourceFile": "../web/content/north-america-2026-10.txt",
+    "builder": "../tools/content/build_practice.py",
+    "nature": "Original single-best-answer study questions. All passages and numerical scenarios are independently written. No official questions, affiliation, full-test simulation, adaptive behavior or score prediction is claimed.",
+    "references": "Every question resolves to an HTTPS learning reference; regional rules use question-specific official references.",
+    "identityPolicy": "Append after all 101 existing groups. Preserve all 190 existing catalog entries, question payloads, question IDs, choice IDs and version IDs. The new manifest records pre-change hashes checked by the unit suite.",
+    "storage": "Existing public authored-content overlay; no hosted database writes or migrations.",
+    "exams": [
+      { "id": "243", "slug": "sat-math", "name": "SAT Math", "market": "U.S. college admissions and international SAT learners" },
+      { "id": "244", "slug": "sat-reading-writing", "name": "SAT Reading and Writing", "market": "U.S. college admissions and international SAT learners" },
+      { "id": "245", "slug": "ged-math", "name": "GED Mathematical Reasoning (Math)", "market": "United States" },
+      { "id": "246", "slug": "ged-language-arts", "name": "GED Reasoning Through Language Arts", "market": "United States" },
+      { "id": "247", "slug": "ged-science", "name": "GED Science", "market": "United States" },
+      { "id": "248", "slug": "ged-social-studies", "name": "GED Social Studies", "market": "United States" },
+      { "id": "249", "slug": "california-dmv-permit", "name": "California DMV Permit Knowledge Test", "market": "California, United States" },
+      { "id": "250", "slug": "ontario-g1", "name": "Ontario G1 Knowledge Test", "market": "Ontario, Canada" },
+      { "id": "251", "slug": "bc-class-7-knowledge", "name": "BC Class 7 Learner Knowledge Test", "market": "British Columbia, Canada" },
+      { "id": "252", "slug": "canadian-citizenship", "name": "Canadian Citizenship Test", "market": "Canada" }
+    ],
+    "scopeChecks": [
+      "SAT exercises sample published domains. Reading drills include some shorter text than actual test passages; math exercises are multiple choice only.",
+      "GED sets are explicitly U.S. practice. GED testing is no longer available in Canada; the sets do not claim to prepare learners for CAEC. RLA does not score an essay.",
+      "Driving sets are jurisdiction-specific and describe signs in text. They do not claim to reproduce the official test format or supply complete legal guidance.",
+      "ICBC's October 19, 2026 update takes precedence over the older Learn to Drive Smart licence chapter: Class 7L supervisor minimum age is 22, with the updated immediate-family passenger exception. Both questions explicitly name the effective date and link to the current Class 7L page.",
+      "Ontario's advance flashing green and BC's pedestrian-controlled flashing green circle have different explanations and a regression assertion.",
+      "Citizenship practice avoids changing officeholder names, population estimates and test timing. It links to Discover Canada as the primary official resource and explains that the set is not exhaustive."
+    ]
+  },
+  "seo": {
+    "implementation": [
+      "Ten readable English routes under /en/ with exam and jurisdiction terms in their slugs.",
+      "Unique search titles use Free, the exam name and Practice Test; H1 headings retain the actual exam identity.",
+      "Unique descriptions include 30 questions, answers and explanations, the 2026-10 set and subject-specific terms. Set metadata retains this copy instead of replacing it with a generic description.",
+      "Visible set summaries describe topics, jurisdiction, independent authorship and material limits.",
+      "The existing server-rendered English directory links every new exam. Set links and all prompts for each set page remain available without JavaScript.",
+      "The existing canonical, en/en-US/en-CA alternate, Open Graph, Twitter, breadcrumb and LearningResource paths cover the new sets.",
+      "Thirty sitemap URLs are added: ten exam roots, ten set landing pages and ten second set pages. Tracking parameters are omitted from canonical identities.",
+      "On-site aliases include digital SAT, GED RLA, CA DMV, MTO, ICBC, Class 7L, IRCC and Discover Canada. These are search aliases, not a keyword meta tag.",
+      "New School & equivalency, Driving and Citizenship filters make the enlarged English catalog navigable.",
+      "English home copy now represents SAT, GED, driving, citizenship and certification practice."
+    ],
+    "preserved": [
+      "Production-only indexing and sitemap guards; local and protected environments remain noindex.",
+      "English-only new routes; no invented Korean translations or duplicate regional landing pages.",
+      "Direct question URLs remain noindex. Unknown set numbers and out-of-range pages return 404.",
+      "Existing production credentials, release checks, ads and consent behavior, and development-branch deployment suppression."
+    ],
+    "limits": "No keyword-volume data, Search Console data, country traffic or ranking measurements were available. Implementation improves content coverage and crawlable exam relevance; it does not guarantee indexing, rankings or user growth."
+  },
+  "officialSourcesReviewed": {
+    "sat": [
+      "https://satsuite.collegeboard.org/sat/whats-on-the-test/math",
+      "https://satsuite.collegeboard.org/sat/whats-on-the-test/reading-writing"
+    ],
+    "ged": [
+      "https://www.ged.com/about-test/test-subjects.html",
+      "https://www.alberta.ca/general-educational-development"
+    ],
+    "california": [
+      "https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/laws-and-rules-of-the-road/",
+      "https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/navigating-the-roads-cont1/",
+      "https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/safe-driving/"
+    ],
+    "ontario": [
+      "https://www.ontario.ca/document/official-mto-drivers-handbook",
+      "https://www.ontario.ca/document/official-mto-drivers-handbook/driving-along",
+      "https://www.ontario.ca/document/official-mto-drivers-handbook/traffic-lights",
+      "https://www.ontario.ca/document/official-mto-drivers-handbook/sharing-road-other-road-users",
+      "https://www.ontario.ca/page/get-g-drivers-licence-new-drivers"
+    ],
+    "britishColumbia": [
+      "https://www.icbc.com/driver-licensing/driving-guides/Learn-to-Drive-Smart",
+      "https://www.icbc.com/assets/en/7CsgGUXEIxCwW8xQrqyoLu/drivers3.pdf",
+      "https://www.icbc.com/assets/en/DhxStHw3HmhFhbL8v150h/drivers4.pdf",
+      "https://www.icbc.com/assets/en/4y4ZwCc9FaBYZTxC5LVmue/drivers5.pdf",
+      "https://www.icbc.com/assets/en/2nzdWqYvb055vGu78wiXoN/drivers6.pdf",
+      "https://www.icbc.com/driver-licensing/new-drivers/you-have-a-class-7l-licence"
+    ],
+    "citizenship": [
+      "https://www.canada.ca/en/immigration-refugees-citizenship/corporate/publications-manuals/discover-canada.html",
+      "https://www.canada.ca/en/immigration-refugees-citizenship/corporate/publications-manuals/discover-canada/read-online.html"
+    ],
+    "search": [
+      "https://developers.google.com/search/docs/fundamentals/seo-starter-guide"
+    ],
+    "accessNotes": "Some Ontario direct reads returned HTTP 403; official indexed handbook and licensing excerpts were used. ICBC's full PDF exceeded the browser size limit; individual official chapters were read instead."
+  },
+  "verification": {
+    "status": "passed",
+    "date": "2026-10-24",
+    "command": "npm run check:local",
+    "exitCode": 0,
+    "typecheck": "passed",
+    "lint": "passed",
+    "unitTests": { "passed": 149, "files": 27 },
+    "build": "passed with isolated local fixture configuration",
+    "browserTests": { "passed": 70, "failed": 0, "skipped": 0 },
+    "newExamBrowserScenarios": 13,
+    "newQuestionApiChecks": 300,
+    "monetizationScenarios": { "passed": 6, "realNetworkRequests": 0 },
+    "databaseFixture": "Fresh PostgreSQL 18 cluster at 127.0.0.1:55432/quizeey_fixture; no existing or hosted database accessed",
+    "authFixture": "Isolated HTTP double at 127.0.0.1:55433; not a real Supabase login",
+    "fixtureLifecycle": "Use a fresh database for each full browser run: existing forum tests expect no comments from an earlier run. Final verification used a newly initialized cluster.",
+    "contentRebuild": "Byte-for-byte deterministic. All 101 preexisting groups compare equal to the base commit; previous catalog and question identities remain unchanged.",
+    "verificationFixes": [
+      "Browser assertions compare original prompt and explanation text rather than tag-stripped encoded HTML, preserving literal arrows and other text characters.",
+      "The existing click-count browser test now checks the persisted database increment after native navigation. A keepalive request can outlive the old document's response event; the API's 204 response remains covered by unit tests."
+    ],
+    "teardown": "After all 70 browser tests completed, the verified local Next.js child on port 3100 was stopped to finish Windows server teardown; the remaining checks passed and check:local exited 0. Fixture services were stopped after verification.",
+    "hostedRegressionRequests": 0,
+    "deployments": 0
+  }
+}
