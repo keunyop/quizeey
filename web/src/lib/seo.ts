@@ -57,6 +57,9 @@ export function canonicalPath(path:string,query:URLSearchParams){
   const input=parseQuery(query,path.endsWith('/test'));
   let canonical=['/','/kr','/app'].includes(path)?'/':path.startsWith('/kr/')?path.slice(3):path;
   if(path.endsWith('/test')&&input.testId)canonical=routesForExam(input.testId,path.startsWith('/en/')?'en':'ko').find(r=>!r.path.endsWith('/test'))?.path??canonical;
+  // Home and static pages do not select questions, sets or practice pages.
+  const route = findRoute(canonical);
+  if (route && !route.testId) return canonical;
   const params=new URLSearchParams();
   if(input.questId)params.set('questId',input.questId);
   if(input.verNbr)params.set('verNbr',String(input.verNbr));

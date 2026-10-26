@@ -57,3 +57,20 @@ export function parseQuery(query: URLSearchParams, requiredTest = false) {
 export function routesForExam(testId: string, locale: Locale) {
   return legacy.routes.filter((route) => route.testId === testId && route.locale === locale && !route.path.startsWith("/kr/"));
 }
+
+/** Redirect only declared aliases with a verified exam and language match. */
+export function legacyPageRedirect(path: string, query: URLSearchParams): string | undefined {
+  const route = findRoute(path);
+  if (!route) return undefined;
+  const generic = path.endsWith('/test');
+  const input = parseQuery(query, generic);
+  if (route.testId && input.testId && input.testId !== route.testId) return undefined;
+  const target = generic && input.testId
+    ? routesForExam(input.testId, route.locale as Locale).find(candidate => !candidate.path.endsWith('/test'))
+    : findRoute(path === '/kr' || path === '/app' ? '/' : path.startsWith('/kr/') ? path.slice(3) : path);
+  if (!target || target.path === path || target.locale !== route.locale || (!generic && target.testId !== route.testId)) return undefined;
+  const params = new URLSearchParams(query);
+  // The named route carries the exam identity. Keep question, set, page and tracking values.
+  if (generic) params.delete('testId');
+  return target.path + (params.size ? '?' + params : '');
+}

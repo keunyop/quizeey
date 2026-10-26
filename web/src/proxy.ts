@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { environment } from "./lib/environment";
-import { legacyRedirects,parseQuery } from "./lib/contracts";
+import { legacyPageRedirect,legacyRedirects,parseQuery } from "./lib/contracts";
 import { cronAuthorized } from './server/cron-auth';
 
 export function proxy(request: NextRequest) {
@@ -29,7 +29,15 @@ export function proxy(request: NextRequest) {
   try { parseQuery(request.nextUrl.searchParams, /^(\/(en|kr))?\/test$/.test(request.nextUrl.pathname)); }
   catch { return new NextResponse("Invalid quiz URL. Check testId, questId and verNbr.", { status: 400, headers: { "Cache-Control": "no-store","X-Robots-Tag":"noindex, nofollow" } }); }
   const alias=legacyRedirects[request.nextUrl.pathname];
-  if(alias){const url=env.stage==='production'&&!candidate?new URL(request.nextUrl.pathname+request.nextUrl.search,env.origin):request.nextUrl.clone();url.pathname=alias;const redirect=NextResponse.redirect(url,308);if(env.protectedReview||candidate)redirect.headers.set('X-Robots-Tag','noindex, nofollow');return redirect;}
+  const pageAlias = ['GET', 'HEAD'].includes(request.method)
+    ? legacyPageRedirect(request.nextUrl.pathname, request.nextUrl.searchParams) : undefined;
+  if (alias || pageAlias) {
+    const url = new URL(pageAlias ?? alias + request.nextUrl.search,
+      env.stage === 'production' && !candidate ? env.origin : request.nextUrl);
+    const redirect = NextResponse.redirect(url, 308);
+    if (env.protectedReview || candidate) redirect.headers.set('X-Robots-Tag', 'noindex, nofollow');
+    return redirect;
+  }
   const response=NextResponse.next();
   if(env.protectedReview||candidate){response.headers.set('Cache-Control','private, no-store');response.headers.set('X-Robots-Tag','noindex, nofollow, noarchive');}
   if(/^\/(?:en\/)?admin(?:\/|$)|^\/api\//.test(request.nextUrl.pathname)){

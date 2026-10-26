@@ -41,12 +41,13 @@ test("mobile practice prioritizes the question and one main action without losin
   await page.screenshot({ path: test.info().outputPath("focused-mobile.png"), fullPage: true });
 });
 
-test("visible set selection preserves generic URLs and shows the current question set", async ({ page }) => {
+test("visible set selection works after a generic URL redirects to its named exam", async ({ page }) => {
   await page.goto("/test?testId=5&questId=900000001");
-  await expect(page.locator('input[name="testId"]')).toHaveValue("5");
+  await expect(page).toHaveURL(/\/sqlp-developer\?questId=900000001$/);
+  await expect(page.locator('input[name="testId"]')).toHaveCount(0);
   await page.getByLabel("시험 회차", { exact: true }).selectOption("2");
   await page.getByRole("button", { name: "적용", exact: true }).click();
-  await expect(page).toHaveURL(/\/test\?testId=5&verNbr=2$/);
+  await expect(page).toHaveURL(/\/sqlp-developer\?verNbr=2$/);
   await expect(page.getByText("SQL에서 NULL을 검사하는 조건은 무엇인가요?", { exact: true })).toBeVisible();
   await expect(page.locator(".question-version")).toHaveText("회차 · SQL 조건");
   await page.locator(".question-map summary").click();

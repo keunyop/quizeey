@@ -4,6 +4,28 @@ import { publicSitemap } from '../src/lib/seo';
 import { sitemapXmlEntries } from '../src/lib/sitemap-xml';
 import { resolveSitemap } from 'next/dist/build/webpack/loaders/metadata/resolve-route-data.js';
 
+test('legacy page aliases redirect to working localized pages and retain invalid-context errors', async ({ request }) => {
+  for (const [source, target] of [
+    ['/kr', '/'], ['/app', '/'],
+    ['/kr/sqlp-developer?verNbr=202610&page=2&utm_source=gsc', '/sqlp-developer?verNbr=202610&page=2&utm_source=gsc'],
+    ['/test?testId=5&questId=900000002&verNbr=1', '/sqlp-developer?questId=900000002&verNbr=1'],
+    ['/en/test?testId=1', '/en/aws-certified-developer-associate'],
+  ]) {
+    const response = await request.get(source, {maxRedirects:0});
+    expect(response.status(), source).toBe(308);
+    const location = new URL(response.headers().location, response.url());
+    expect(location.pathname + location.search).toBe(target);
+    const destination = await request.get(target, {maxRedirects:0});
+    expect(destination.status(), target).toBe(200);
+    expect(destination.headers()['x-robots-tag']).toContain('noindex');
+  }
+  for (const path of ['/kr/sqlp-developer?testId=1', '/en/test?testId=5', '/test?testId=999999', '/kr/missing-exam']) {
+    const response = await request.get(path, {maxRedirects:0});
+    expect(response.status(), path).toBe(404);
+  }
+  expect((await request.get('/test?testId=5&testId=1', {maxRedirects:0})).status()).toBe(400);
+});
+
 test('production sitemap XML parses and preserves query parameters and language alternates', async ({ page }) => {
   // Generate production XML from public fixture content; no hosted request or production environment.
   const entries = publicSitemap('https://quizeey.com');

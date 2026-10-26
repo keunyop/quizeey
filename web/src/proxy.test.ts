@@ -5,6 +5,33 @@ import robots from './app/robots';
 import sitemap from './app/sitemap';
 const env={VERCEL_ENV:'production',QUIZEEY_RELEASE_READY:'true',QUIZEEY_CONTENT_SOURCE:'supabase',QUIZEEY_ADS_VERIFIED:'true',QUIZEEY_GA4_MEASUREMENT_ID:'G-TESTONLY123',QUIZEEY_CMP_SCRIPT_URL:'https://fundingchoicesmessages.google.com/i/pub-8362228066874729?ers=1',QUIZEEY_PREVIEW_USER:'review',QUIZEEY_PREVIEW_PASSWORD:'x'.repeat(24),QUIZEEY_SUPABASE_URL:'https://tfkhnrbshvyfmrzxqfmq.supabase.co',QUIZEEY_SUPABASE_SECRET_KEY:'sb_secret_mock',QUIZEEY_CONTENT_DATASET_SHA256:'88ed4da320cf3bbd40d65f1aa6de7ba6b81a09f5aa6bbcef1e3860ca58ccb42f'};
 afterEach(()=>vi.unstubAllEnvs());
+it('permanently redirects verified page aliases without losing content or tracking identity',()=>{
+  for(const [key,value]of Object.entries(env))vi.stubEnv(key,value);
+  const cases = [
+    ['/kr', '/'], ['/app', '/'],
+    ['/kr/sqlp-developer?verNbr=1&page=2&utm_source=gsc', '/sqlp-developer?verNbr=1&page=2&utm_source=gsc'],
+    ['/test?testId=5&questId=9007199254740993&verNbr=1', '/sqlp-developer?questId=9007199254740993&verNbr=1'],
+    ['/kr/test?testId=5&page=2', '/sqlp-developer?page=2'],
+    ['/en/test?testId=1&verNbr=202610&page=2', '/en/aws-certified-developer-associate?verNbr=202610&page=2'],
+  ];
+  for (const [source, target] of cases) {
+    for (const method of ['GET', 'HEAD']) {
+      const response = proxy(new NextRequest('https://quizeey.com'+source, {method}));
+      expect(response.status, source).toBe(308);
+      expect(response.headers.get('location')).toBe('https://quizeey.com'+target);
+      expect(response.headers.get('x-robots-tag')).toBeNull();
+      expect(proxy(new NextRequest('https://quizeey.com'+target)).headers.get('location')).toBeNull();
+    }
+  }
+  for (const path of ['/en/sqlp-developer', '/kr/missing-exam', '/test?testId=999999', '/en/test?testId=5', '/kr/sqlp-developer?testId=1']) {
+    expect(proxy(new NextRequest('https://quizeey.com'+path)).headers.get('location'), path).toBeNull();
+  }
+  expect(proxy(new NextRequest('https://quizeey.com/test?testId=5', {method:'POST'})).headers.get('location')).toBeNull();
+  for (const path of ['/test', '/test?testId=5&testId=1', '/kr/sqlp-developer?page=0']) {
+    expect(proxy(new NextRequest('https://quizeey.com'+path)).status).toBe(400);
+  }
+  expect(proxy(new NextRequest('https://candidate.vercel.app/kr')).status).toBe(401);
+});
 it('uses the routed Host behind a loopback server and ignores untrusted forwarded hosts',()=>{
   for(const [key,value]of Object.entries(env))vi.stubEnv(key,value);
   const url='http://127.0.0.1:3114/sqlp-developer?verNbr=1&page=2';

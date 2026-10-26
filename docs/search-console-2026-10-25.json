@@ -1,0 +1,53 @@
+{
+  "reviewDate": "2026-10-25",
+  "property": "quizeey.com",
+  "input": {
+    "exportDirectory": "quizeey.com-Coverage-2026-10-25",
+    "scope": "All known pages",
+    "lastChartDate": "2026-10-18",
+    "indexed": 297,
+    "notIndexed": 1081,
+    "reasons": {
+      "noindex": 554,
+      "notFound": 280,
+      "duplicateWithoutSelectedCanonical": 13,
+      "redirect": 3,
+      "alternateWithCanonical": 1,
+      "crawledCurrentlyNotIndexed": 230
+    },
+    "urlExamplesIncluded": false,
+    "limitation": "Aggregate counts cannot identify affected URLs, distinguish intentional exclusions individually, or prove a specific cause for the October 16 increase. The chart predates the October 20 sitemap and authored-set SEO fixes."
+  },
+  "changes": [
+    "308 redirects for declared /kr, /app, /kr/* and generic /test aliases when the target exam and language match; GET/HEAD only.",
+    "Generic test selectors become the verified named exam path; question, set, pagination and tracking parameters survive.",
+    "Home and static canonical URLs omit irrelevant practice selectors; exam canonical URLs retain question, set and pagination identity."
+  ],
+  "preserved": [
+    "Direct-question noindex policy and public production exam/set indexing.",
+    "404 for unknown routes, unknown exams and mismatched exam/language contexts; 400 for malformed query values.",
+    "Protected preview/local noindex, release/content/auth guards, and master-only automatic deployments.",
+    "No database changes or production credentials used in local tests."
+  ],
+  "verification": {
+    "command": "cd web && npm run check:local",
+    "target": "Local fixture server at http://127.0.0.1:3100",
+    "typecheck": "passed",
+    "lint": "passed; updated focus test also linted separately",
+    "unitTests": "151 passed across 27 files",
+    "build": "passed",
+    "browserTests": "61 distinct tests passed; 10 DB/Auth tests skipped. The first full run passed 60 and failed one obsolete generic-URL expectation. After updating that expectation, all 7 focus/SEO tests passed in the targeted local rerun.",
+    "monetization": "All 6 mocked browser scenarios passed; zero real network requests.",
+    "testServerCleanup": "The first sandboxed browser run required manual cleanup of its verified local Next server after all tests completed. The targeted rerun exited normally.",
+    "dbAuthFixtures": "Not configured; related tests are skipped. These flows are not verified by this run."
+  },
+  "searchConsole": {
+    "validationSubmitted": false,
+    "limitation": "Search Console is not connected. URL-level inspection and validation require its detailed URL exports or property access. Indexing is decided by Google after recrawling; redirect and canonical-alternate exclusions are expected."
+  },
+  "sources": [
+    "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls",
+    "https://developers.google.com/search/docs/crawling-indexing/block-indexing",
+    "https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl"
+  ]
+}

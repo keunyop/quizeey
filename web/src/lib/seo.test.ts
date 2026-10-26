@@ -7,6 +7,20 @@ it('preserves content identity and pages while consolidating aliases and trackin
   expect(canonicalPath('/app',new URLSearchParams())).toBe('/');
   expect(canonicalPath('/en/aws-certified-developer-associate',new URLSearchParams('verNbr=0&page=1'))).toBe('/en/aws-certified-developer-associate');
 });
+it('ignores practice selectors on home and static pages without excluding their content from search',()=>{
+  const origin = 'https://quizeey.com';
+  const query = new URLSearchParams('page=2&verNbr=1&utm_source=gsc');
+  for (const [path, target] of [['/', '/'], ['/kr', '/'], ['/app', '/'], ['/en', '/en'], ['/about', '/about'], ['/privacy', '/privacy']]) {
+    const route = findRoute(path)!;
+    expect(canonicalPath(path, query)).toBe(target);
+    const metadata = searchMetadata(path, query, route, origin, true);
+    expect(metadata.robots).toEqual({index:true, follow:true});
+    expect(metadata.alternates?.canonical).toBe(origin + target);
+    expect(metadata.openGraph).toMatchObject({url:origin + target});
+    expect(pageStructuredData(path, query, route, origin)['@graph'][1]).toMatchObject({url:origin + target});
+    expect(searchMetadata(path, query, route, origin, false).robots).toEqual({index:false, follow:false});
+  }
+});
 it('publishes only verified equivalents and unique canonical sitemap URLs',()=>{
   const origin='https://quizeey.com';
   const homes={ko:origin+'/','ko-KR':origin+'/',en:origin+'/en','en-US':origin+'/en','en-CA':origin+'/en','x-default':origin+'/'};
