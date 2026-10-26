@@ -1,0 +1,68 @@
+{
+  "reviewDate": "2026-10-25",
+  "releaseStatus": "local implementation verified; no release requested or deployed",
+  "selection": {
+    "examId": "170",
+    "name": "Microsoft Azure Fundamentals (AZ-900)",
+    "locale": "en",
+    "path": "/en/az-900?verNbr=202610",
+    "basis": "Focus an existing English cloud-fundamentals set on an international IT learning audience. Existing 23 questions, official learning references and working review/resume features provide a practical starting point.",
+    "limits": "Keyword volume, country-specific demand and overseas retention were not measured. This change adds study content; it does not establish traffic or revenue growth."
+  },
+  "content": {
+    "previousQuestions": 23,
+    "addedQuestions": 70,
+    "totalQuestions": 93,
+    "pages": 5,
+    "addedByDomain": {
+      "cloudConcepts": 23,
+      "architectureAndServices": 22,
+      "managementAndGovernance": 25
+    },
+    "officialReferences": 54,
+    "studyGuide": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
+    "skillsMeasuredAsOf": "2026-07-20",
+    "source": "../web/content/azure-fundamentals-depth-2026-10.txt",
+    "manifest": "../web/content/azure-fundamentals-depth-2026-10.manifest.json",
+    "nature": "Original English scenarios with four choices, one correct answer, an explanation and an official per-question learning reference. Independent practice; not an official exam paper, full test simulation or score predictor.",
+    "preserved": "All 111 previous topic groups and the original 23 Azure questions match the recorded baseline. Existing question IDs, choice IDs, version, archived content and other catalog entries remain unchanged.",
+    "storage": "Existing public authored-content overlay. No database writes, migrations or hosted service configuration changes.",
+    "catalogExams": 200,
+    "totalAuthoredQuestions": 1933
+  },
+  "verification": {
+    "command": "npm run check:local",
+    "exitCode": 0,
+    "target": "Local fixture server at http://127.0.0.1:3100",
+    "typecheck": "passed",
+    "lint": "passed",
+    "unitTests": {
+      "passed": 153,
+      "files": 28
+    },
+    "build": "passed with isolated fixture configuration",
+    "browserTests": {
+      "passed": 64,
+      "skipped": 10,
+      "failed": 0
+    },
+    "focusedBrowserTests": {
+      "passed": 3,
+      "coverage": [
+        "All 70 new question IDs resolve through the API with an answer, explanation and official reference; wrong-exam requests and page 6 return 404.",
+        "The English directory and all five set pages, question outlines and updated counts render without JavaScript.",
+        "A returning learner retains the former three-question second-page progress and bookmark; a new question supports grading, explanation, bookmark, reload, mistake review and a direct link."
+      ]
+    },
+    "dbAuthFixtures": "Not configured. Ten DB/Auth-related browser tests were skipped; those flows were not verified by this run.",
+    "monetization": {
+      "mockedScenariosPassed": 6,
+      "realNetworkRequests": 0,
+      "checkedAt": "2026-10-26T06:56:12.403Z"
+    },
+    "contentRebuild": "Byte-for-byte deterministic; SHA-256 b9b2a34838bbc878d56c574ac83e3cb5cd58ddd7dc9d88baee9ccde24fae1894",
+    "cleanup": "After all 74 browser cases finished, Windows server teardown remained pending. The verified Next child listening at 127.0.0.1:3100 was stopped; Playwright reported 64 passed and 10 skipped, the six monetization scenarios passed, and check:local exited 0. Build-generated next-env.d.ts changes were restored to the pre-task state.",
+    "hostedRegressionRequests": 0,
+    "deployments": 0
+  }
+}

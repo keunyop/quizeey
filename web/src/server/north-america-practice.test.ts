@@ -2,6 +2,7 @@ import { createHash } from "node:crypto";
 import { expect, it, vi } from "vitest";
 vi.mock("server-only", () => ({}));
 import manifest from "../../content/north-america-2026-10.manifest.json" with { type: "json" };
+import azureExpansion from "../../content/azure-fundamentals-depth-2026-10.manifest.json" with { type: "json" };
 import content from "@/data/practice-2026-10.json" with { type: "json" };
 import { authoredCatalog, authoredDefaultLocale, authoredQuestions, findAuthoredQuestion } from "@/lib/authored-practice";
 import { findRoute, legacy } from "@/lib/contracts";
@@ -20,9 +21,12 @@ it("appends 300 explained English questions without changing earlier content or 
   expect(exams).toHaveLength(10);
   const hash = (value: unknown) => createHash("sha256").update(JSON.stringify(value)).digest("hex");
   expect(hash(content.groups.slice(0, manifest.previousGroups.count))).toBe(manifest.previousGroups.sha256);
-  expect(hash(authoredCatalog.slice(0, manifest.previousCatalog.count))).toBe(manifest.previousCatalog.sha256);
+  // Restore the documented pre-expansion Azure entry when checking this earlier release's baseline.
+  const previousCatalog = authoredCatalog.slice(0, manifest.previousCatalog.count)
+    .map(exam => exam.id === azureExpansion.examId ? azureExpansion.previousCatalogEntry : exam);
+  expect(hash(previousCatalog)).toBe(manifest.previousCatalog.sha256);
   const oldPrompts = new Set(content.groups.slice(0, manifest.previousGroups.count).flatMap(group => group.questions.map(item => item.prompt)));
-  const newGroups = content.groups.slice(manifest.previousGroups.count);
+  const newGroups = content.groups.slice(manifest.previousGroups.count, manifest.previousGroups.count + manifest.examIds.length);
   expect(newGroups).toHaveLength(10);
   const items = newGroups.flatMap(group => group.questions);
   expect(items).toHaveLength(300);

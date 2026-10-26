@@ -1,0 +1,47 @@
+{
+  "examId": "170",
+  "locale": "en",
+  "version": "2026-10",
+  "reviewDate": "2026-10-25",
+  "sourceFile": "azure-fundamentals-depth-2026-10.txt",
+  "selectionBasis": "International English-language foundational cloud exam with an existing 23-question set. Selected for content focus, not measured keyword volume or proven overseas retention.",
+  "studyGuide": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
+  "skillsMeasuredAsOf": "2026-07-20",
+  "previousQuestionCount": 23,
+  "addedQuestionCount": 70,
+  "totalQuestionCount": 93,
+  "previousQuestionsSha256": "2409351ee98b3edc88caa483fab680fffc365a71bc2a1816d712ef4c5d747b28",
+  "previousGroups": {
+    "count": 111,
+    "sha256": "53e034d5b652c74f35dca01f20cc0ea7d1b9acbe0aebe669f242acd577175d06"
+  },
+  "previousCatalogEntry": {
+    "id": "170",
+    "slug": "az-900",
+    "name": "Microsoft Azure Fundamentals(AZ-900)",
+    "questionCount": 23
+  },
+  "previousCatalog": {
+    "count": 200,
+    "sha256": "ccf1c1b09326c9111eb48d024634d21620dc436e37e4532ede81f08724874bfd"
+  },
+  "topics": [
+    {
+      "key": "az900-depth-cloud-concepts",
+      "domain": "Describe cloud concepts",
+      "addedQuestions": 23
+    },
+    {
+      "key": "az900-depth-architecture-services",
+      "domain": "Describe Azure architecture and services",
+      "addedQuestions": 22
+    },
+    {
+      "key": "az900-depth-management-governance",
+      "domain": "Describe Azure management and governance",
+      "addedQuestions": 25
+    }
+  ],
+  "identityPolicy": "Append after all previous groups; preserve existing question, choice and version IDs and the original 23-question prefix. Keep the existing ID block.",
+  "contentNature": "Original English single-best-answer learning scenarios with explanations and per-question official references. Independent study material; not official exam questions, a timed simulation or a score predictor."
+}

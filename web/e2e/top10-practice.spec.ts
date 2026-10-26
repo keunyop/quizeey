@@ -8,7 +8,7 @@ test("all 400 supplemental questions resolve with answers and explanations in th
   for (const exam of manifest.exams) {
     const versions = await request.post("/versions", { data: { testId: exam.examId } });
     expect(await versions.json()).toContainEqual({ verId: 8_100_000_000 + Number(exam.examId), verNm: "2026-10", verNbr: 202610 });
-    for (const question of authoredQuestions(exam.examId, exam.locale as Locale).slice(exam.previousQuestionCount)) {
+    for (const question of authoredQuestions(exam.examId, exam.locale as Locale).slice(exam.previousQuestionCount, exam.previousQuestionCount + 20)) {
       const response = await request.post("/question", { data: { testId: exam.examId, questId: question.id, verNbr: 202610 } });
       expect(response.status()).toBe(200);
       const data = await response.json();

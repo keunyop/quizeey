@@ -25,9 +25,10 @@ it("adds 400 distinct localized questions to the ranked twenty exams while prese
     const raw = content.groups.filter(group => group.examIds.includes(exam.examId)).flatMap(group => group.questions);
     expect(createHash("sha256").update(JSON.stringify(raw.slice(0, exam.previousQuestionCount))).digest("hex")).toBe(exam.previousQuestionsSha256);
     const questions = authoredQuestions(exam.examId, locale);
-    expect(questions).toHaveLength(exam.previousQuestionCount + 20);
+    // Later expansions may append questions; this release still owns exactly its original twenty.
+    expect(questions.length).toBeGreaterThanOrEqual(exam.previousQuestionCount + 20);
     expect(authoredSetSummary(exam.examId, locale)?.count).toBe(questions.length);
-    for (const item of raw.slice(exam.previousQuestionCount)) {
+    for (const item of raw.slice(exam.previousQuestionCount, exam.previousQuestionCount + 20)) {
       expect(originalPrompts.has(item.prompt)).toBe(false);
       expect(prompts.has(item.prompt)).toBe(false); prompts.add(item.prompt);
       expect(/[\uac00-\ud7a3]/.test(item.prompt)).toBe(locale === "ko");

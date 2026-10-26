@@ -546,7 +546,8 @@
     "id": "170",
     "slug": "az-900",
     "name": "Microsoft Azure Fundamentals(AZ-900)",
-    "questionCount": 23
+    "questionCount": 93,
+    "practiceScope": "Original English AZ-900 study questions covering cloud concepts, Azure architecture and services, and management and governance. Expanded with scenario-based explanations and Microsoft Learn references reviewed against the July 20, 2026 skills outline. Independent practice, not official exam questions, a full exam simulation or a score predictor."
   },
   {
     "id": "172",
