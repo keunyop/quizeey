@@ -16,7 +16,9 @@ const hash = (value: unknown) => createHash("sha256").update(JSON.stringify(valu
 it("preserves all prior content, Azure identities and other catalog entries while appending seventy English scenarios", () => {
   expect(hash(content.groups.slice(0, manifest.previousGroups.count))).toBe(manifest.previousGroups.sha256);
   const entry = authoredCatalog.find(exam => exam.id === manifest.examId)!;
-  const previousCatalog = authoredCatalog.map(exam => exam.id === manifest.examId ? manifest.previousCatalogEntry : exam);
+  // Restore later catalog expansions when checking the historical Azure snapshot.
+  const previousCatalog = authoredCatalog.map(exam => exam.id === manifest.examId ? manifest.previousCatalogEntry :
+    exam.id === "14" ? { ...exam, questionCount: 23 } : exam);
   expect(previousCatalog).toHaveLength(manifest.previousCatalog.count);
   expect(hash(previousCatalog)).toBe(manifest.previousCatalog.sha256);
   const { practiceScope, ...sameEntry } = entry;
@@ -32,7 +34,7 @@ it("preserves all prior content, Azure identities and other catalog entries whil
     expect(question.choices.map(choice => choice.id).sort()).toEqual(
       Array.from({ length: 4 }, (_, choice) => String(9_000_170_000 + index * 10 + choice)).sort());
   }
-  const groups = content.groups.slice(manifest.previousGroups.count);
+  const groups = content.groups.slice(manifest.previousGroups.count, manifest.previousGroups.count + manifest.topics.length);
   expect(groups.map(group => group.topic)).toEqual(manifest.topics.map(topic => topic.key));
   expect(groups.map(group => group.questions.length)).toEqual([23, 22, 25]);
   const oldPrompts = new Set(content.groups.slice(0, manifest.previousGroups.count).flatMap(group => group.questions.map(item => item.prompt)));

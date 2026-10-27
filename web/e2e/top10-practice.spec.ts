@@ -35,7 +35,12 @@ test("set discovery and the full page of prompts work without JavaScript in both
     await expect(page.locator(".explanation-region")).toHaveCount(0);
     await page.locator(".practice-pages a[rel=next]").click();
     await expect(page).toHaveURL(`${path}?verNbr=202610&page=2`);
-    await expect(page.locator(".practice-outline li")).toHaveCount(id === "14" ? 3 : 20);
+    await expect(page.locator(".practice-outline li")).toHaveCount(20);
+    if (id === "14") {
+      await page.locator(".practice-pages a[rel=next]").click();
+      await expect(page).toHaveURL(`${path}?verNbr=202610&page=3`);
+      await expect(page.locator(".practice-outline li")).toHaveCount(20);
+    }
     expect((await request.get(`${path}?verNbr=999999`)).status()).toBe(404);
   }
   await context.close();

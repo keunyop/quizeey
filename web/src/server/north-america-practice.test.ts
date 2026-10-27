@@ -21,9 +21,10 @@ it("appends 300 explained English questions without changing earlier content or 
   expect(exams).toHaveLength(10);
   const hash = (value: unknown) => createHash("sha256").update(JSON.stringify(value)).digest("hex");
   expect(hash(content.groups.slice(0, manifest.previousGroups.count))).toBe(manifest.previousGroups.sha256);
-  // Restore the documented pre-expansion Azure entry when checking this earlier release's baseline.
+  // Restore later expansions when checking this earlier release's catalog baseline.
   const previousCatalog = authoredCatalog.slice(0, manifest.previousCatalog.count)
-    .map(exam => exam.id === azureExpansion.examId ? azureExpansion.previousCatalogEntry : exam);
+    .map(exam => exam.id === azureExpansion.examId ? azureExpansion.previousCatalogEntry :
+      exam.id === "14" ? { ...exam, questionCount: 23 } : exam);
   expect(hash(previousCatalog)).toBe(manifest.previousCatalog.sha256);
   const oldPrompts = new Set(content.groups.slice(0, manifest.previousGroups.count).flatMap(group => group.questions.map(item => item.prompt)));
   const newGroups = content.groups.slice(manifest.previousGroups.count, manifest.previousGroups.count + manifest.examIds.length);
