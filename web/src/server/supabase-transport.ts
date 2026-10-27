@@ -5,6 +5,7 @@ import { environment } from '@/lib/environment';
 import { forumRequest } from './guest-policy';
 import { encodeForumCursor, forumCursor, forumPageSize, type ForumCursor } from '@/lib/forum-page';
 import { inboxKind, inboxItem, overviewSchema, storedSubmission } from '@/lib/submissions';
+import { includeForumAncestors } from './forum-ancestors';
 
 const projectUrl = 'https://tfkhnrbshvyfmrzxqfmq.supabase.co';
 const hash = z.string().regex(/^[a-f0-9]{64}$/);
@@ -102,7 +103,15 @@ export function createSupabaseTransport(input: Record<string, string | undefined
         if (error) throw new Error();
         const { topics, posts, next } = z.object({ topics: z.array(topic).max(forumPageSize), posts: z.array(post).max(forumPageSize), next: forumCursor.nullable() }).parse(data);
         if (posts.some(value => !topics.some(item => item.id === value.topic_id))) throw new Error();
-        return { topics, posts, nextCursor: encodeForumCursor(next) };
+        const contextualPosts = await includeForumAncestors(posts, async (ids, topicIds) => {
+          // Use the public reader so hidden/deleted parents remain protected by RLS.
+          const { data, error } = await publicClient.from('quizeey_posts')
+            .select('id,topic_id,parent_id,display_name,body,created_at')
+            .in('id', ids).in('topic_id', topicIds).limit(forumPageSize);
+          if (error) throw new Error();
+          return z.array(post).max(forumPageSize).parse(data);
+        });
+        return { topics, posts: contextualPosts, nextCursor: encodeForumCursor(next) };
       } catch { throw new SupabaseTransportError(); }
     },
   };

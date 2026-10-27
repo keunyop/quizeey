@@ -49,6 +49,30 @@ it('does not query posts for empty topics and rejects filter injection without H
   expect(fetcher).toHaveBeenCalledTimes(1);
 });
 
+it('loads off-page parent context with anonymous RLS, bounded IDs and the same cursor', async () => {
+  const parentId = '00000000-0000-4000-8000-000000000102';
+  const created_at = '2026-10-16T00:00:00Z';
+  const topic = { id: uuid, title: 'thread', locale: 'ko', created_at };
+  const reply = { id: uuid, topic_id: uuid, parent_id: parentId, display_name: null, body: 'Reply', created_at };
+  const parent = { ...reply, id: parentId, parent_id: null, body: 'Parent' };
+  const cursor = { createdAt: created_at, id: uuid };
+  const fetcher = vi.fn().mockResolvedValueOnce(json({ topics: [topic], posts: [reply], next: cursor }))
+    .mockResolvedValueOnce(json([parent]));
+  vi.stubGlobal('fetch', fetcher);
+  const page = await createSupabaseTransport(config).publicForum('1', 'ko', null);
+  expect(page.posts).toEqual([reply, parent]);
+  expect(fetcher).toHaveBeenCalledTimes(2);
+  const [url, init] = fetcher.mock.calls[1];
+  const query = new URL(url);
+  expect(query.pathname).toBe('/rest/v1/quizeey_posts');
+  expect(query.searchParams.get('id')).toBe(`in.(${parentId})`);
+  expect(query.searchParams.get('topic_id')).toBe(`in.(${uuid})`);
+  expect(query.searchParams.get('limit')).toBe('10');
+  expect(new Headers(init.headers).get('apikey')).toBe(config.QUIZEEY_SUPABASE_PUBLISHABLE_KEY);
+  expect(JSON.stringify(init)).not.toContain(config.QUIZEEY_SUPABASE_SECRET_KEY);
+  expect(page.nextCursor).toBe(Buffer.from(JSON.stringify(cursor)).toString('base64url'));
+});
+
 it('matches the existing SQL RPC parameter names and keeps server credentials out of results', async () => {
   const fetcher = vi.fn(); vi.stubGlobal('fetch', fetcher);
   const transport = createSupabaseTransport(config);

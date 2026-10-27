@@ -3,6 +3,8 @@
 import { Fragment, useEffect, useId, useRef, useState } from "react";
 import type { Locale } from "@/lib/contracts";
 import { messages } from "@/lib/i18n";
+import { forumPageSize } from "@/lib/forum-page";
+import { orderForumThreads } from "@/lib/forum-threads";
 import type { OwnedPost, PublicPost, PublicTopic } from "@/server/forum-database";
 
 function TextBody({ value }: { value: string }) {
@@ -54,11 +56,16 @@ export function Forum({ examId, questionId, locale }: { examId: string; question
         setLoading(false);
         if (!visible.posts.length) { setOwnError(false); return; }
         try {
-          const ownQuery = new URLSearchParams({ posts: visible.posts.map((post: PublicPost) => post.id).join(',') });
-          const ownedResult = await fetch('/api/forum/mine?' + ownQuery, options);
-          if (!ownedResult.ok) throw new Error();
-          const owned = await ownedResult.json();
-          if (!controller.signal.aborted) { setData(current => ({ ...current, own: owned.posts })); setOwnError(false); }
+          const ownedPosts: OwnedPost[] = [];
+          // Parent context may add IDs; keep each ownership request bounded to ten.
+          for (let offset = 0; offset < visible.posts.length; offset += forumPageSize) {
+            const ownQuery = new URLSearchParams({ posts: visible.posts.slice(offset, offset + forumPageSize).map((post: PublicPost) => post.id).join(',') });
+            const ownedResult = await fetch('/api/forum/mine?' + ownQuery, options);
+            if (!ownedResult.ok) throw new Error();
+            const owned = await ownedResult.json();
+            ownedPosts.push(...owned.posts);
+          }
+          if (!controller.signal.aborted) { setData(current => ({ ...current, own: ownedPosts })); setOwnError(false); }
         } catch { if (!controller.signal.aborted) setOwnError(true); }
       }
     }).catch(() => { if (!controller.signal.aborted) setLoadError(true); })
@@ -129,9 +136,9 @@ export function Forum({ examId, questionId, locale }: { examId: string; question
     {(loadError || ownError) && <p className="forum-notice" role="status">{loadError ? en ? "Unable to load comments." : "댓글을 불러오지 못했습니다." : en ? "Unable to load your comments." : "내 댓글을 불러오지 못했습니다."}{" "}<button type="button" className="text-button" onClick={() => { setLoading(true); refresh(v => v + 1); }}>{en ? "Retry" : "다시 시도"}</button></p>}
     {!loading && !loadError && !data.posts.length && <p className="forum-empty">{en ? "No comments yet. Start the conversation." : "아직 댓글이 없습니다. 첫 댓글을 남겨보세요."}</p>}
     {!loading && !loadError && <div className="forum-comments" aria-busy={loading}>
-      {data.posts.map(post => {
+      {orderForumThreads(data.posts).map(({ post, isReply }) => {
         const own = ownById.get(post.id);
-        return <article className={post.parent_id ? "forum-post reply" : "forum-post"} key={post.id}>
+        return <article className={isReply ? "forum-post reply" : "forum-post"} key={post.id} data-post-id={post.id}>
           <div className="forum-post-meta"><strong>{post.display_name || messages[locale].anonymous}</strong><time dateTime={post.created_at}>{new Intl.DateTimeFormat(en ? "en-CA" : "ko-KR", { dateStyle: "medium", timeZone: "UTC" }).format(new Date(post.created_at))}</time></div>
           <TextBody value={post.body} />
           <div className="actions"><button type="button" disabled={busy} onClick={() => { setReply({ topicId: post.topic_id, parentId: post.id }); setEditing(null); setBody(""); focusComposer(); }}>{en ? "Reply" : "답글"}</button>

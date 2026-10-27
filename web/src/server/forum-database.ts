@@ -5,6 +5,7 @@ import { environment } from "@/lib/environment";
 import { forumConfiguration } from './forum-config';
 import { createSupabaseTransport } from './supabase-transport';
 import { encodeForumCursor, type ForumCursor } from '@/lib/forum-page';
+import { includeForumAncestors } from './forum-ancestors';
 
 let pool: pg.Pool | undefined;
 export function forumConfigured() { return forumConfiguration() !== null; }
@@ -43,7 +44,16 @@ export async function publicForum(examId: string, locale: "ko" | "en", questionI
   const result = await forumConnection().query<{ result: { topics: PublicTopic[]; posts: PublicPost[]; next: ForumCursor | null } }>(
     'select public.quizeey_forum_page($1,$2,$3,$4,$5) as result', [examId, locale, questionId, cursor?.createdAt ?? null, cursor?.id ?? null]);
   const page = result.rows[0].result;
-  return { topics: page.topics, posts: page.posts, nextCursor: encodeForumCursor(page.next) };
+  const posts = await includeForumAncestors(page.posts, async (ids, topicIds) => {
+    // Match the anonymous hosted reader's RLS explicitly on the local transport.
+    const parents = await forumConnection().query<PublicPost>(
+      `select p.id,p.topic_id,p.parent_id,p.display_name,p.body,to_jsonb(p)->>'created_at' as created_at
+       from public.quizeey_posts p join public.quizeey_topics t on t.id=p.topic_id
+       where p.id=any($1::uuid[]) and p.topic_id=any($2::uuid[])
+         and p.visibility='approved' and t.visibility='approved' and t.approved_post_count>0`, [ids, topicIds]);
+    return parents.rows;
+  });
+  return { topics: page.topics, posts, nextCursor: encodeForumCursor(page.next) };
 }
 export async function ownForum(hash: string, postIds?: string[]): Promise<OwnedPost[]> {
   const hosted = hostedForumTransport();

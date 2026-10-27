@@ -153,6 +153,82 @@ test("exam comments and answer-area question comments have independent forms, au
   await tab.close();
 });
 
+for (const question of [false, true]) test(`${question ? 'question' : 'exam'} replies stay under off-page parents after posting, nesting and reload`, async ({ page, context }) => {
+  const marker = question ? 'Question parent across pages' : 'Exam parent across pages';
+  const created = await mutate(context.request, { action: 'create', examId: '5', locale: 'ko',
+    ...(question ? { questionId: '900000001' } : {}), title: marker, body: marker });
+  expect(created.status()).toBe(202);
+  const { postId, topicId } = await created.json();
+  try {
+    // Put the parent beyond the first ten posts, including multiple roots in one legacy-style topic.
+    await fixtureAdmin("update public.quizeey_posts set created_at='2000-01-01T00:00:00Z' where id=$1", [postId]);
+    await fixtureAdmin("insert into public.quizeey_posts(topic_id,body,visibility,created_at) select $1,'Newer root '||n,'approved','2001-01-01T00:00:00Z'::timestamptz from generate_series(1,11) n", [topicId]);
+    await fixtureAdmin('update public.quizeey_topics set approved_post_count=12 where id=$1', [topicId]);
+    await page.goto('/sqlp-developer?verNbr=1');
+    if (question) {
+      await page.locator('input[value="910000002"]').check();
+      await page.getByRole('button', { name: '정답 확인', exact: true }).click();
+    }
+    const forum = page.getByRole('region', { name: question ? '문제 댓글' : '시험 댓글', exact: true });
+    await expect(forum.locator('.forum-comments')).toBeVisible();
+    await expect(forum.getByText(marker, { exact: true })).toHaveCount(0);
+    for (let attempts = 0; !await forum.getByText(marker, { exact: true }).count(); attempts++) {
+      expect(attempts).toBeLessThan(4);
+      const response = page.waitForResponse(r => r.url().includes('/api/forum?') && r.request().method() === 'GET');
+      await forum.getByRole('button', { name: '다음 댓글', exact: true }).click();
+      await response;
+      await expect(forum.locator('.forum-comments')).toBeVisible();
+    }
+    const parent = forum.locator(`[data-post-id="${postId}"]`);
+    await expect(parent.getByRole('button', { name: '수정', exact: true })).toBeVisible();
+    const replyTo = async (id: string, body: string) => {
+      await forum.locator(`[data-post-id="${id}"]`).getByRole('button', { name: '답글', exact: true }).click();
+      await forum.getByLabel('답글', { exact: true }).fill(body);
+      const saved = page.waitForResponse(r => r.url().endsWith('/api/forum') && r.request().method() === 'POST');
+      await forum.getByRole('button', { name: '댓글 등록', exact: true }).click();
+      const result = await saved;
+      expect(result.status()).toBe(202);
+      const posted = forum.locator('.forum-post').filter({ has: page.getByText(body, { exact: true }) });
+      await expect(posted).toBeVisible();
+      return (await posted.getAttribute('data-post-id'))!;
+    };
+    const first = await replyTo(postId, `${marker} first reply`);
+    const second = await replyTo(postId, `${marker} second reply`);
+    const nested = await replyTo(first, `${marker} nested reply`);
+    const assertOrder = async () => {
+      const ids = [postId, first, nested, second];
+      const thread = forum.locator('.forum-post').filter({ hasText: marker });
+      await expect(thread).toHaveCount(4);
+      expect(await thread.evaluateAll(nodes => nodes.map(node => node.getAttribute('data-post-id')))).toEqual(ids);
+      for (let index = 1; index < ids.length; index++) {
+        const child = forum.locator(`[data-post-id="${ids[index]}"]`);
+        await expect(child).toHaveClass('forum-post reply');
+        expect(await child.evaluate(node => node.previousElementSibling?.getAttribute('data-post-id'))).toBe(ids[index - 1]);
+      }
+      // The public page now includes extra parent context; ownership still loads in bounded batches.
+      await expect(parent.getByRole('button', { name: '수정', exact: true })).toBeVisible();
+    };
+    await assertOrder();
+    await page.reload();
+    await assertOrder();
+    await forum.screenshot({ path: test.info().outputPath(`${question ? 'question' : 'exam'}-reply-order.png`) });
+    const pages = forum.getByRole('navigation', { name: '댓글 페이지' });
+    await pages.getByRole('button', { name: '다음 댓글', exact: true }).click();
+    await expect(pages).toContainText('2 페이지');
+    await expect(forum.locator('.forum-comments')).toBeVisible();
+    // Missing public parents must not expose hidden text or hide the replies.
+    await fixtureAdmin("update public.quizeey_posts set visibility='hidden' where id=$1", [postId]);
+    await page.reload();
+    await expect(forum.locator(`[data-post-id="${first}"]`)).toBeVisible();
+    await expect(parent).toHaveCount(0);
+    await expect(forum.locator(`[data-post-id="${first}"]`)).toHaveClass('forum-post');
+  } finally {
+    await fixtureAdmin('delete from quizeey_private.post_owners where post_id in (select id from public.quizeey_posts where topic_id=$1)', [topicId]);
+    await fixtureAdmin('delete from public.quizeey_posts where topic_id=$1', [topicId]);
+    await fixtureAdmin('delete from public.quizeey_topics where id=$1', [topicId]);
+  }
+});
+
 test('comment pages include large threads and retain ownership past the newest twenty comments', async ({ page, context }) => {
   const created = await mutate(context.request, { action: 'create', examId: '5', locale: 'ko', title: 'Paging ownership fixture', body: 'Owner seed' });
   expect(created.status()).toBe(202);
