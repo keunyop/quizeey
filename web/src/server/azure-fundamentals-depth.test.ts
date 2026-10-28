@@ -2,6 +2,7 @@ import { createHash } from "node:crypto";
 import { expect, it, vi } from "vitest";
 vi.mock("server-only", () => ({}));
 import manifest from "../../content/azure-fundamentals-depth-2026-10.manifest.json" with { type: "json" };
+import popularExpansion from "../../content/popular-2026-10-28.manifest.json" with { type: "json" };
 import content from "@/data/practice-2026-10.json" with { type: "json" };
 import { authoredCatalog, authoredDefaultLocale, authoredQuestions, findAuthoredQuestion } from "@/lib/authored-practice";
 import { findRoute } from "@/lib/contracts";
@@ -17,7 +18,9 @@ it("preserves all prior content, Azure identities and other catalog entries whil
   expect(hash(content.groups.slice(0, manifest.previousGroups.count))).toBe(manifest.previousGroups.sha256);
   const entry = authoredCatalog.find(exam => exam.id === manifest.examId)!;
   // Restore later catalog expansions when checking the historical Azure snapshot.
-  const previousCatalog = authoredCatalog.map(exam => exam.id === manifest.examId ? manifest.previousCatalogEntry :
+  const previousCatalog = authoredCatalog
+    .map(exam => popularExpansion.exams.find(item => item.examId === exam.id)?.previousCatalogEntry ?? exam)
+    .map(exam => exam.id === manifest.examId ? manifest.previousCatalogEntry :
     exam.id === "14" ? { ...exam, questionCount: 23 } : exam);
   expect(previousCatalog).toHaveLength(manifest.previousCatalog.count);
   expect(hash(previousCatalog)).toBe(manifest.previousCatalog.sha256);
@@ -79,7 +82,7 @@ it("serves every expanded page and direct question through the hosted overlay wi
     const query = new URLSearchParams(`verNbr=202610${page > 1 ? `&page=${page}` : ""}`);
     expect(urls.has(`${origin}${path}?${query}`)).toBe(true);
     const metadata = searchMetadata(path, query, route, origin, true);
-    expect(metadata.description).toContain("93 original practice questions");
+    expect(metadata.description).toContain("93 practice questions");
     expect(metadata.robots).toEqual({ index: true, follow: true });
     expect(searchMetadata(path, query, route, origin, false).robots).toEqual({ index: false, follow: false });
     expect(pageStructuredData(path, query, route, origin)["@graph"][1]).toMatchObject({

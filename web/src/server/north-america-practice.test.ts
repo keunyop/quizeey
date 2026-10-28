@@ -3,6 +3,7 @@ import { expect, it, vi } from "vitest";
 vi.mock("server-only", () => ({}));
 import manifest from "../../content/north-america-2026-10.manifest.json" with { type: "json" };
 import azureExpansion from "../../content/azure-fundamentals-depth-2026-10.manifest.json" with { type: "json" };
+import popularExpansion from "../../content/popular-2026-10-28.manifest.json" with { type: "json" };
 import content from "@/data/practice-2026-10.json" with { type: "json" };
 import { authoredCatalog, authoredDefaultLocale, authoredQuestions, findAuthoredQuestion } from "@/lib/authored-practice";
 import { findRoute, legacy } from "@/lib/contracts";
@@ -23,6 +24,7 @@ it("appends 300 explained English questions without changing earlier content or 
   expect(hash(content.groups.slice(0, manifest.previousGroups.count))).toBe(manifest.previousGroups.sha256);
   // Restore later expansions when checking this earlier release's catalog baseline.
   const previousCatalog = authoredCatalog.slice(0, manifest.previousCatalog.count)
+    .map(exam => popularExpansion.exams.find(item => item.examId === exam.id)?.previousCatalogEntry ?? exam)
     .map(exam => exam.id === azureExpansion.examId ? azureExpansion.previousCatalogEntry :
       exam.id === "14" ? { ...exam, questionCount: 23 } : exam);
   expect(hash(previousCatalog)).toBe(manifest.previousCatalog.sha256);

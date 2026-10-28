@@ -2,6 +2,7 @@ import type { Metadata, MetadataRoute } from 'next';
 import { findRoute,legacy,parseQuery,routesForExam,type LegacyRoute,type Locale } from './contracts';
 import { examName } from './exam-catalog';
 import { authoredSetSummary, authoredVersion, authoredVersionName } from './authored-practice';
+import { studyGuideSitemap } from './study-guides';
 
 export const searchMarkets = {
   ko: { languages: ['ko', 'ko-KR'], openGraph: 'ko_KR', alternateOpenGraph: [] },
@@ -36,9 +37,12 @@ export function searchCopy(path: string, query: URLSearchParams, exam: LegacyRou
     if (input.verNbr === authoredVersion && authored) {
       if (exam.template !== 'authored-practice') title = `${name} ${locale === 'ko' ? '연습문제' : 'Practice Questions'} - Quizeey`;
       description = exam.template === 'authored-practice' && exam.description ? exam.description : locale === 'ko'
-        ? `${name} ${authoredVersionName} 회차: 정답과 해설이 있는 자체 제작 연습문제 ${authored.count}개. 공식 기출 회차와 구분되는 학습 자료입니다.`
-        : `${name}, ${authoredVersionName}: ${authored.count} original practice questions with answers and explanations. Independent study material.`;
+        ? `${name} ${authoredVersionName} 회차: 정답과 해설이 있는 연습문제 ${authored.count}개.`
+        : `${name}, ${authoredVersionName}: ${authored.count} practice questions with answers and explanations.`;
       if (authored.scope && exam.template !== 'authored-practice') description += ` ${authored.scope}`;
+    }
+    if (locale === 'en' && exam.testId === '170' && base === '/en/az-900') {
+      title = 'Free AZ-900 Practice Questions with Answers | Azure Fundamentals - Quizeey';
     }
     const versionLabel = input.verNbr === authoredVersion ? authoredVersionName : String(input.verNbr);
     const qualifiers = locale === 'ko'
@@ -147,7 +151,7 @@ export function serializeStructuredData(data: ReturnType<typeof pageStructuredDa
 }
 export function publicSitemap(origin:string):MetadataRoute.Sitemap{
   const routes = legacy.routes.filter(r=>!['/kr','/app'].includes(r.path)&&!r.path.startsWith('/kr/')&&!r.path.endsWith('/test'));
-  return routes.flatMap(route => {
+  return [...routes.flatMap(route => {
     const queries = [new URLSearchParams()];
     const set = route.testId ? authoredSetSummary(route.testId, route.locale as Locale) : undefined;
     if (set) {
@@ -159,5 +163,5 @@ export function publicSitemap(origin:string):MetadataRoute.Sitemap{
       url: origin + canonicalPath(route.path, query),
       alternates: { languages: seoAlternates(route.path, query, origin)?.languages as Record<string,string> | undefined },
     }));
-  });
+  }), ...studyGuideSitemap(origin)];
 }

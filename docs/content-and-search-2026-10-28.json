@@ -1,0 +1,272 @@
+{
+  "reviewDate": "2026-10-28",
+  "branch": "improve-reports-popular-exams-english-seo-20261028",
+  "releaseStatus": "Production question correction and both report resolutions applied. Application/content, removed notices and country-based home language selection locally verified. No deployment or remote push performed.",
+  "reportedQuestion": {
+    "examId": "14",
+    "questionId": "27068",
+    "duplicateReports": 2,
+    "finding": "Both open reports identify the same typo: 인상을 → 인산을.",
+    "correctionApplied": true,
+    "explanationAdded": true,
+    "referenceAdded": true,
+    "correctChoiceIdUnchanged": "109052",
+    "choicesUnchanged": true,
+    "countersUnchanged": true,
+    "reportsResolved": 2,
+    "resolutionAudited": true,
+    "readback": "Verified stored question and bounded study reader RPC",
+    "localRehearsal": "Isolated PostgreSQL 18: correction and audited resolution run twice; idempotence passed; rolled back fixture",
+    "backupDirectory": ".modernization/report-review-20261028",
+    "correctionScript": "../tools/content/correct_reported_question_27068.sql",
+    "references": [
+      "https://apps.who.int/food-additives-contaminants-jecfa-database/Home/Chemical/1477",
+      "https://www.ncbi.nlm.nih.gov/mesh/68054709"
+    ]
+  },
+  "selection": {
+    "observedDate": "2026-10-28",
+    "metric": "Accumulated exam_clicks.click_count; 92 clicks across the recorded exams",
+    "limitations": "No language, country or time breakdown; not unique users, Google query demand, or current search ranking.",
+    "korean": [
+      {
+        "examId": "14",
+        "clicks": 38
+      },
+      {
+        "examId": "5",
+        "clicks": 18
+      },
+      {
+        "examId": "2",
+        "clicks": 5
+      },
+      {
+        "examId": "6",
+        "clicks": 4
+      },
+      {
+        "examId": "11",
+        "clicks": 3
+      }
+    ],
+    "english": [
+      {
+        "examId": "240",
+        "clicks": 3
+      },
+      {
+        "examId": "239",
+        "clicks": 1
+      },
+      {
+        "examId": "234",
+        "clicks": 1
+      }
+    ],
+    "englishBasis": "FOODSAFE is the most-clicked English-only entry. Also supplement existing AWS Cloud Practitioner and ServSafe Food Handler English sets to support the requested English audience."
+  },
+  "versionDisplay": {
+    "korean": "2026-10 기출문제",
+    "english": "2026-10 practice questions",
+    "storedIdentityUnchanged": true,
+    "originalPracticeDisclosureRetained": false
+  },
+  "seo": {
+    "newEnglishGuideIndex": "/en/study-guides",
+    "guides": [
+      "/en/study-guides/aws-azure-certification-practice",
+      "/en/study-guides/sat-ged-practice-study-plan",
+      "/en/study-guides/servsafe-foodsafe-practice"
+    ],
+    "features": [
+      "Server-rendered homepage discovery",
+      "Topic-specific study plans and official resources",
+      "Actual available question counts with practice links",
+      "Exam-to-guide internal links",
+      "Canonical URLs, English alternates and sitemap entries",
+      "Production-only indexing",
+      "Clear free-practice search titles for AZ-900, AWS Cloud Practitioner, ServSafe Food Handler and FOODSAFE"
+    ],
+    "measurementLimits": [
+      "Search Console property not connected; no current query positions, CTR, country or language reports inspected.",
+      "Previous aggregate coverage export has no affected-URL samples; its chart ends 2026-10-18.",
+      "No claim of increased traffic or improved ranking without a post-release measurement period."
+    ],
+    "sources": [
+      "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+      "https://developers.google.com/search/docs/crawling-indexing/links-crawlable",
+      "https://developers.google.com/search/docs/specialty/international/localized-versions"
+    ]
+  },
+  "verification": {
+    "status": "passed",
+    "command": "npm.cmd run check:local",
+    "databaseFixture": "PostgreSQL 18 at 127.0.0.1:55432/quizeey_fixture",
+    "authFixture": "Isolated HTTP Auth double at 127.0.0.1:55433; not real Supabase login",
+    "hostedTests": 0,
+    "deployments": 0,
+    "typecheck": "passed",
+    "lint": "passed",
+    "unitTests": {
+      "passed": 169,
+      "files": 32
+    },
+    "build": "passed",
+    "exitCode": 0,
+    "browserTests": {
+      "passed": 82,
+      "failed": 0,
+      "skipped": 0
+    },
+    "skippedDbAuthTests": 0,
+    "monetization": {
+      "passed": 6,
+      "realNetworkRequests": 0
+    },
+    "generatorDeterministic": true,
+    "newQuestionApiChecks": 160,
+    "authLimit": "An isolated HTTP Auth fixture was used, not a real Supabase sign-in.",
+    "teardown": "After 82 tests passed, stopped the verified local Next start process to finish Windows teardown; check:local then completed all six mocked monetization scenarios and exited 0. PostgreSQL and Auth fixtures were stopped.",
+    "monetizationEvidence": ".modernization/report-review-20261028/monetization-evidence.json"
+  },
+  "searchFollowup": "After a requested code release, submit the updated sitemap in Search Console and measure English page impressions, clicks, CTR and position separately by query, page and country over the following 2–4 weeks. Current property access is unavailable.",
+  "content": {
+    "exams": 8,
+    "questionsPerExam": 20,
+    "totalNewQuestions": 160,
+    "korean": 100,
+    "english": 60,
+    "explanations": 160,
+    "identityPolicy": "Append new groups; keep all previous questions, IDs, choices and version identities unchanged.",
+    "nature": "Independent original practice, not official past examination papers",
+    "totalAuthoredBefore": 1970,
+    "totalAuthoredAfter": 2130,
+    "previousGroups": 117,
+    "groupsAfter": 125,
+    "selectionManifest": "../web/content/popular-2026-10-28.manifest.json",
+    "sourceFiles": [
+      "../web/content/popular-2026-10-28.txt",
+      "../web/content/popular-english-2026-10-28.txt"
+    ],
+    "generatorFix": "Restore the omitted existing korean-cooking-2026-10.txt input before appending new content so regeneration preserves all 117 existing groups.",
+    "independentReview": {
+      "sqlQuestions": 40,
+      "readOnlyLocalSqlChecks": 16,
+      "sqlChecksPassed": 16,
+      "wordingClarifications": 2,
+      "koreanQuestionsReviewed": 100,
+      "cookingNumericChecks": 6,
+      "spreadsheetNumericChecks": 11,
+      "spreadsheetMixedReferenceCheck": "=$A3*C$1",
+      "spreadsheetEngineExecuted": false
+    }
+  },
+  "displayCopyUpdate": {
+    "userRequest": "Remove the self-authored material notice.",
+    "scope": [
+      "Practice set summary",
+      "Korean and English search descriptions",
+      "English exam information and scope",
+      "English study guides and count labels"
+    ],
+    "dataPolicy": "Raw authored catalog, question text, answers, references, IDs and historical manifests remain unchanged.",
+    "preserved": "Jurisdiction, retired exam codes, learning coverage and format limitations.",
+    "validation": {
+      "catalogDescriptionsAndScopesReviewed": 200,
+      "remainingDisplayedAuthorshipNotices": 0,
+      "preservedScopeChecks": 12
+    }
+  },
+  "localeRouting": {
+    "before": "Language followed the URL only; browser locale and country did not choose it automatically.",
+    "entry": "GET/HEAD homepage /",
+    "countryHeader": "x-vercel-ip-country",
+    "korea": "KR -> / (Korean)",
+    "otherKnownCountries": "-> /en (English)",
+    "unknownCountry": "Keep existing Korean root. Browser locale is not used as country evidence.",
+    "manualSelection": "/?lang=ko and /en?lang=en set the quizeey_locale HttpOnly preference cookie, then redirect to the clean locale URL.",
+    "preference": "Manual choice overrides country for subsequent root visits. Explicit /en and exam/question URLs remain accessible.",
+    "redirect": "307 temporary, private no-store, varies by country/Cookie/User-Agent",
+    "crawl": "Search crawlers can access stable locale URLs without automatic country redirection.",
+    "protection": "Existing preview protection, admin/API noindex, host canonicalization and deployment guards remain in place.",
+    "sources": [
+      "https://vercel.com/docs/headers/request-headers#x-vercel-ip-country",
+      "https://vercel.com/docs/caching/cdn-cache",
+      "https://developers.google.com/search/docs/specialty/international/managing-multi-regional-sites"
+    ],
+    "independentReview": {
+      "navigationCombinations": 224,
+      "redirectLoops": 0,
+      "trackingQueryLoss": 0
+    },
+    "guideMobileWidthsChecked": [
+      320,
+      390
+    ],
+    "guideMobileHorizontalOverflow": false,
+    "browserValidation": {
+      "passed": 3,
+      "countries": [
+        "US",
+        "CA",
+        "KR"
+      ],
+      "browserLocaleOppositeToCountry": true,
+      "manualSwitchAndReturnVisit": "passed",
+      "crawlerAccess": "passed"
+    }
+  },
+  "verificationHistory": [
+    {
+      "status": "passed after targeted rerun",
+      "target": "127.0.0.1:3100 only",
+      "database": "Isolated PostgreSQL 18 at 127.0.0.1:55432/quizeey_fixture",
+      "auth": "Isolated HTTP Auth test double at 127.0.0.1:55433, not real Supabase login",
+      "deployments": 0,
+      "hostedCrawlsOrRegressionRuns": 0,
+      "command": "cd web; npm.cmd run check:local",
+      "typecheck": "passed",
+      "lint": "passed",
+      "unitTests": {
+        "passed": 166,
+        "files": 32
+      },
+      "build": "passed",
+      "generatorDeterministic": true,
+      "skippedDbAuthTests": 0,
+      "fullBrowserRun": {
+        "passed": 76,
+        "failed": 3,
+        "skipped": 0
+      },
+      "corrections": [
+        "Update the expected SQLD question count from 23 to 43.",
+        "Retain all legacy-title assertions except the explicitly improved English AZ-900 title.",
+        "Compare new API HTML with its sanitized public representation; quote entity differences do not change the displayed Excel formula.",
+        "Expand Food Handler boundary and completion checks from 40 questions/two pages to 60 questions/three pages."
+      ],
+      "monetization": {
+        "passed": 6,
+        "realNetworkRequests": 0
+      },
+      "serverCleanup": "After all 79 browser tests completed, stopped the verified Next start process for port 3100 to finish Windows teardown.",
+      "browserTests": {
+        "distinctPassed": 79,
+        "failedRemaining": 0,
+        "skipped": 0,
+        "fullRunPassed": 76,
+        "fullRunStaleExpectationsOrRepresentationMismatches": 3,
+        "targetedRerunPassed": 9,
+        "targetedRerunCommand": "npm.cmd run test:e2e:local -- e2e/compatibility.spec.ts e2e/popular-practice.spec.ts e2e/servsafe.spec.ts",
+        "targetedRerunExitCode": 0
+      },
+      "newQuestionApiChecks": 160,
+      "postCorrectionLint": "Three updated browser test files passed ESLint; the focused local rebuild passed TypeScript.",
+      "authLimit": "Auth flow used an isolated HTTP fixture, not a real Supabase sign-in.",
+      "teardown": "Stopped the command-line-verified local Next processes after browser completion and shut down the new PostgreSQL fixture and Auth HTTP fixture.",
+      "monetizationEvidence": ".modernization/report-review-20261028/monetization-evidence.json",
+      "sourceChangedDuringBrowserVerification": false
+    }
+  ]
+}

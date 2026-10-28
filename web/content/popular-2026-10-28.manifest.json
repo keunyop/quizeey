@@ -1,0 +1,151 @@
+{
+  "reviewDate": "2026-10-28",
+  "version": "2026-10",
+  "addedQuestionCount": 160,
+  "koreanQuestions": 100,
+  "englishQuestions": 60,
+  "selectionMetric": "Retained cumulative exam click counts read on 2026-10-28; 92 total clicks across the site. Counts have no time window or language segmentation and are not unique people, keyword volume or a ranking measurement.",
+  "selectionBasis": "The five highest-click Korean exams plus FOODSAFE Level 1 (the highest-click English-only exam), AWS Cloud Practitioner and ServSafe Food Handler to support the requested English-language audience. English expansion is an editorial priority, not a claim that these three lead all English demand.",
+  "previousGroups": {
+    "count": 117,
+    "sha256": "5dd8662833c5dc1a3833fb8ec309b558e004753f718ca1fa73ae1903f5bacdce"
+  },
+  "previousCatalog": {
+    "count": 200,
+    "sha256": "a56a0f7691f12469e0fd20ac3006a63dcfc66cebfc21b69b01cb78ba24df0133"
+  },
+  "previousQuestionCount": 1970,
+  "exams": [
+    {
+      "examId": "14",
+      "locale": "ko",
+      "observedClicks": 38,
+      "previousQuestionCount": 60,
+      "addedQuestionCount": 20,
+      "questionCount": 80,
+      "previousQuestionsSha256": "fc4b05f3937351305e6f52d8aa5ec28d62ca47f1e49b55442e44d06c793914bf",
+      "previousCatalogEntry": {
+        "id": "14",
+        "slug": "craftsman-cook-korean-food",
+        "name": "한식조리기능사",
+        "questionCount": 60
+      }
+    },
+    {
+      "examId": "5",
+      "locale": "ko",
+      "observedClicks": 18,
+      "previousQuestionCount": 23,
+      "addedQuestionCount": 20,
+      "questionCount": 43,
+      "previousQuestionsSha256": "bdd107a62391780d17ea0f12ec27eff679e0c288a2499009e82b50fcc604fabf",
+      "previousCatalogEntry": {
+        "id": "5",
+        "slug": "sqlp-developer",
+        "name": "SQLD - 국가공인 SQL개발자",
+        "questionCount": 23
+      }
+    },
+    {
+      "examId": "2",
+      "locale": "ko",
+      "observedClicks": 5,
+      "previousQuestionCount": 23,
+      "addedQuestionCount": 20,
+      "questionCount": 43,
+      "previousQuestionsSha256": "c0ea6c7c6307423abdad014131258712747223655dbda97722a7eb40f9a1d083",
+      "previousCatalogEntry": {
+        "id": "2",
+        "slug": "sqlp-professional",
+        "name": "SQLP - 국가공인 SQL전문가",
+        "questionCount": 23
+      }
+    },
+    {
+      "examId": "6",
+      "locale": "ko",
+      "observedClicks": 4,
+      "previousQuestionCount": 3,
+      "addedQuestionCount": 20,
+      "questionCount": 23,
+      "previousQuestionsSha256": "48b2027170d3afdd0bb1432f68425d82aa189035e4a65a6a26f873484bdd7c19",
+      "previousCatalogEntry": {
+        "id": "6",
+        "slug": "engineer-information-processing",
+        "name": "정보처리기사"
+      }
+    },
+    {
+      "examId": "11",
+      "locale": "ko",
+      "observedClicks": 3,
+      "previousQuestionCount": 3,
+      "addedQuestionCount": 20,
+      "questionCount": 23,
+      "previousQuestionsSha256": "c53e03017456baf9dbf9ac45e5d11d23c7404d7d92cd80cdc33e1db612068379",
+      "previousCatalogEntry": {
+        "id": "11",
+        "slug": "computer-specialist-in-spreadsheet-and-database-level-2",
+        "name": "컴퓨터활용능력 2급"
+      }
+    },
+    {
+      "examId": "240",
+      "locale": "en",
+      "observedClicks": 3,
+      "previousQuestionCount": 30,
+      "addedQuestionCount": 20,
+      "questionCount": 50,
+      "previousQuestionsSha256": "e7ba4b0a8ce1216fe622c62e4cf0bc29f67dd9d8b7065668e238534d5a4fb334",
+      "previousCatalogEntry": {
+        "id": "240",
+        "slug": "foodsafe-level-1",
+        "name": "FOODSAFE Level 1",
+        "locale": "en",
+        "questionCount": 30,
+        "description": "Prepare with 30 original English practice questions and explanations in the 2026-10 set. British Columbia, Canada: safe food handling, time and temperature control, hygiene, contamination prevention, sanitation, and worker safety. Uses BC temperature guidance. Independent study material, not an official examination."
+      }
+    },
+    {
+      "examId": "239",
+      "locale": "en",
+      "observedClicks": 1,
+      "previousQuestionCount": 30,
+      "addedQuestionCount": 20,
+      "questionCount": 50,
+      "previousQuestionsSha256": "31ca50924cb70d05277a2124641f26dce6bc777b24259ca5c36427cf2233c5ce",
+      "previousCatalogEntry": {
+        "id": "239",
+        "slug": "aws-certified-cloud-practitioner",
+        "name": "AWS Certified Cloud Practitioner",
+        "locale": "all",
+        "questionCount": 30,
+        "description": "Prepare with 30 original English practice questions and explanations in the 2026-10 set. CLF-C02 cloud concepts, security and compliance, AWS services, and billing and pricing. Independent study material, not an official examination."
+      }
+    },
+    {
+      "examId": "234",
+      "locale": "en",
+      "observedClicks": 1,
+      "previousQuestionCount": 40,
+      "addedQuestionCount": 20,
+      "questionCount": 60,
+      "previousQuestionsSha256": "a097ec60fa4dfa0b1327a9e7db85bce67dcf6ab189ae2ce0386de90bb57f778c",
+      "previousCatalogEntry": {
+        "id": "234",
+        "slug": "servsafe-food-handler",
+        "name": "ServSafe Food Handler",
+        "locale": "en",
+        "questionCount": 40,
+        "description": "Practice basic food safety, personal hygiene, cross-contamination and allergens, time and temperature, and cleaning and sanitation for U.S. food service. This 2026-10 set contains 40 original English practice questions with explanations. It is independent study material, not an official ServSafe exam."
+      }
+    }
+  ],
+  "contentNature": "Original single-best-answer questions with short explanations and HTTPS learning references; independent study material rather than an official October paper.",
+  "identityPolicy": "Append after all 117 preexisting topic groups, preserving every preexisting question payload, question/choice ID, catalog order and version identity.",
+  "sourceFiles": [
+    "popular-2026-10-28.txt",
+    "popular-english-2026-10-28.txt"
+  ],
+  "builderRepair": "Include the already-published korean-cooking-2026-10.txt after Azure depth and before this expansion; the previous builder omitted it even though its three groups existed in generated data."
+}

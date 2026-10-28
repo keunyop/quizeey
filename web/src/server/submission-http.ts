@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { findRoute, routesForExam } from "@/lib/contracts";
 import { inboxKind, submissionRequest } from "@/lib/submissions";
+import { isStudyGuidePath } from '@/lib/study-guides';
 import { boundedJson } from "./guest-policy";
 import { forumConfigured } from "./forum-database";
 import { forumAbuseHash, forumOriginAllowed } from "./forum-config";
@@ -25,8 +26,9 @@ export async function submissionPost(request: Request) {
     let path: string, examId: string | null = null, questionId: string | null = null;
     if (value.kind === "feedback") {
       const route = findRoute(value.path);
-      if (!route || route.locale !== value.locale) return response({ error: "Unknown page" }, 404);
-      path = value.path; examId = route.testId;
+      const guide = value.locale === 'en' && isStudyGuidePath(value.path);
+      if (!guide && (!route || route.locale !== value.locale)) return response({ error: "Unknown page" }, 404);
+      path = value.path; examId = route?.testId ?? null;
     } else {
       const route = routesForExam(value.examId, value.locale)[0];
       if (!route) return response({ error: "Unknown exam" }, 404);

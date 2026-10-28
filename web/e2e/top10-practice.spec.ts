@@ -29,6 +29,9 @@ test("set discovery and the full page of prompts work without JavaScript in both
     await page.locator(".practice-set-summary a").click();
     await expect(page).toHaveURL(`${path}?verNbr=202610`);
     await expect(page).toHaveTitle(/2026-10/);
+    await expect(page.locator('#version option[value="202610"]')).toHaveText(locale === "ko" ? "2026-10 기출문제" : "2026-10 practice questions");
+    await expect(page.locator(".question-version")).toHaveText(locale === "ko" ? "회차 · 2026-10 기출문제" : "Set · 2026-10 practice questions");
+    await expect(page.locator(".practice-set-summary")).not.toContainText(locale === "ko" ? "자체 제작" : "independent study material");
     await page.locator(".practice-outline summary").click();
     await expect(page.locator(".practice-outline li")).toHaveCount(20);
     await expect(page.locator(".practice-outline li").last()).toBeVisible();
