@@ -1,15 +1,17 @@
 import contract from "../../fixtures/legacy-contract.json" with { type: "json" };
 import catalog from "@/data/exam-catalog.json" with { type: "json" };
+import { practiceDisplayCopy } from "./practice-display-copy";
 
 export type Locale = "ko" | "en";
 export type LegacyRoute = Omit<(typeof contract.routes)[number],'testId'|'links'> & {testId:string|null;links:{href:string;label:string}[]};
 function authoredRoute(exam: (typeof catalog)[number], locale: Locale): LegacyRoute {
   const title = `${exam.name} ${locale === "ko" ? "연습문제" : "Practice Questions"}`;
+  const description = practiceDisplayCopy(exam.description) ?? "";
   return {
     path: `${locale === "en" ? "/en" : ""}/${exam.slug}`, locale, testId: exam.id,
     template: "authored-practice", templateExists: true,
-    title: `${exam.seoTitle ?? title} - Quizeey`, description: exam.description ?? "",
-    headings: [title, exam.description ?? ""], links: [],
+    title: `${exam.seoTitle ?? title} - Quizeey`, description,
+    headings: [title, description], links: [],
   };
 }
 // The source controller used the wrong exam; the verified catalog and DB agree on 141.

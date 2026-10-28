@@ -68,20 +68,33 @@ it('provides localized, page-specific search copy without unsupported pass guara
   expect(searchCopy(ko.path,new URLSearchParams('page=2'),ko).title).toContain('2페이지');
 });
 
+it('keeps the English AZ-900 search title on authored sets and leaves Korean titles unchanged', () => {
+  const en = findRoute('/en/az-900')!, ko = findRoute('/az-900')!;
+  const title = 'Free AZ-900 Practice Questions with Answers | Azure Fundamentals - Quizeey';
+  expect(searchCopy(en.path, new URLSearchParams(), en).title).toBe(title);
+  expect(searchCopy(en.path, new URLSearchParams('verNbr=202610&page=2'), en).title)
+    .toBe(title.replace(' - Quizeey', ' · Set 2026-10 · Page 2 - Quizeey'));
+  expect(searchCopy(ko.path, new URLSearchParams(), ko).title).toBe(ko.title);
+  expect(searchCopy(ko.path, new URLSearchParams('verNbr=202610'), ko).title)
+    .toBe('Microsoft Azure Fundamentals(AZ-900) 연습문제 · 2026-10 회차 - Quizeey');
+  expect(searchCopy(en.path, new URLSearchParams(), { ...en, testId: '1' }).title).toBe(en.title);
+});
+
 it('includes every authored set page without inventing archive pages or direct-question index entries',()=>{
   const origin='https://quizeey.com';
   const urls=publicSitemap(origin).map(entry=>entry.url);
   expect(urls).toContain(origin+'/sqlp-developer?verNbr=202610');
   expect(urls).toContain(origin+'/sqlp-developer?verNbr=202610&page=2');
-  expect(urls).not.toContain(origin+'/sqlp-developer?verNbr=202610&page=3');
+  expect(urls).toContain(origin+'/sqlp-developer?verNbr=202610&page=3');
+  expect(urls).not.toContain(origin+'/sqlp-developer?verNbr=202610&page=4');
   expect(urls).toContain(origin+'/en/comptia-sy0-501?verNbr=202610&page=3');
   expect(urls).not.toContain(origin+'/en/comptia-sy0-501?verNbr=202610&page=4');
   expect(urls.every(url=>!url.includes('questId=')&&!url.includes('verNbr=1'))).toBe(true);
   const exam=findRoute('/sqlp-developer')!;
   expect(searchCopy(exam.path,new URLSearchParams('verNbr=202610'),exam)).toMatchObject({
-    title:expect.stringContaining('2026-10'),description:expect.stringContaining('23개'),
+    title:expect.stringContaining('2026-10'),description:expect.stringContaining('43개'),
   });
-  expect(searchCopy(exam.path,new URLSearchParams('verNbr=202610'),exam).description).toContain('자체 제작');
+  expect(searchCopy(exam.path,new URLSearchParams('verNbr=202610'),exam).description).not.toContain('자체 제작');
   expect(searchCopy(exam.path,new URLSearchParams('verNbr=202610'),exam).title).toContain('연습문제');
   expect(pageStructuredData(exam.path,new URLSearchParams('verNbr=202610'),exam,origin)['@graph'][1]).toMatchObject({
     mainEntity:{'@type':['CreativeWork','LearningResource'],inLanguage:['ko'],isAccessibleForFree:true},

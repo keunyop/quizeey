@@ -3,6 +3,7 @@ import {NextRequest} from 'next/server';
 import {proxy} from './proxy';
 import robots from './app/robots';
 import sitemap from './app/sitemap';
+import { languagePreferenceCookie } from './lib/home-language';
 const env={VERCEL_ENV:'production',QUIZEEY_RELEASE_READY:'true',QUIZEEY_CONTENT_SOURCE:'supabase',QUIZEEY_ADS_VERIFIED:'true',QUIZEEY_GA4_MEASUREMENT_ID:'G-TESTONLY123',QUIZEEY_CMP_SCRIPT_URL:'https://fundingchoicesmessages.google.com/i/pub-8362228066874729?ers=1',QUIZEEY_PREVIEW_USER:'review',QUIZEEY_PREVIEW_PASSWORD:'x'.repeat(24),QUIZEEY_SUPABASE_URL:'https://tfkhnrbshvyfmrzxqfmq.supabase.co',QUIZEEY_SUPABASE_SECRET_KEY:'sb_secret_mock',QUIZEEY_CONTENT_DATASET_SHA256:'88ed4da320cf3bbd40d65f1aa6de7ba6b81a09f5aa6bbcef1e3860ca58ccb42f'};
 afterEach(()=>vi.unstubAllEnvs());
 it('permanently redirects verified page aliases without losing content or tracking identity',()=>{
@@ -84,4 +85,64 @@ it('protects every host and removes public search discovery during production re
   expect(robots()).toEqual({rules:{userAgent:'*',disallow:'/'}});expect(sitemap()).toEqual([]);
   vi.stubEnv('QUIZEEY_PRODUCTION_REVIEW','false');vi.stubEnv('QUIZEEY_RELEASE_READY','true');vi.stubEnv('QUIZEEY_ADS_VERIFIED','true');vi.stubEnv('QUIZEEY_CMP_SCRIPT_URL',env.QUIZEEY_CMP_SCRIPT_URL);
   expect(robots().sitemap).toBe('https://quizeey.com/sitemap.xml');expect(sitemap().length).toBeGreaterThan(180);
+});
+
+it('uses the country only for the root entry and never guesses country from browser language', () => {
+  for (const [key, value] of Object.entries(env)) vi.stubEnv(key, value);
+  for (const country of ['US', 'CA', 'GB', 'JP', 'KR', '', 'XX', 'ZZ', 'unknown']) {
+    const headers = { 'x-vercel-ip-country': country, 'accept-language': country === 'KR' ? 'en-US' : 'ko-KR' };
+    const response = proxy(new NextRequest('https://quizeey.com/?utm_source=entry', { headers }));
+    const english = ['US', 'CA', 'GB', 'JP'].includes(country);
+    expect(response.status, country).toBe(english ? 307 : 200);
+    expect(response.headers.get('location'), country).toBe(english ? 'https://quizeey.com/en?utm_source=entry' : null);
+    expect(response.headers.get('cache-control')).toBe('private, no-store');
+    expect(response.headers.get('vary')).toContain('X-Vercel-IP-Country');
+    expect(response.headers.get('vary')).toContain('Cookie');
+    expect(response.headers.get('set-cookie')).toBeNull();
+  }
+  const noCountry = proxy(new NextRequest('https://quizeey.com/', { headers: { 'accept-language': 'en-US' } }));
+  expect(noCountry.headers.get('location')).toBeNull();
+  for (const path of ['/en', '/sqlp-developer?verNbr=202610', '/en/az-900?questId=900000001', '/en/study-guides', '/admin', '/api/forum', '/sitemap.xml', '/robots.txt', '/img/letter-q.svg']) {
+    const response = proxy(new NextRequest('https://quizeey.com' + path, { headers: { 'x-vercel-ip-country': 'US', cookie: languagePreferenceCookie + '=en' } }));
+    expect(response.headers.get('location'), path).toBeNull();
+  }
+});
+
+it('saves explicit language choices and prevents country redirects from overriding them', () => {
+  for (const [key, value] of Object.entries(env)) vi.stubEnv(key, value);
+  const headers = { 'x-vercel-ip-country': 'US', cookie: languagePreferenceCookie + '=en' };
+  const korean = proxy(new NextRequest('https://quizeey.com/?lang=ko&utm_source=choice', { headers }));
+  expect(korean.status).toBe(307);
+  expect(korean.headers.get('location')).toBe('https://quizeey.com/?utm_source=choice');
+  expect(korean.cookies.get(languagePreferenceCookie)?.value).toBe('ko');
+  for (const attribute of ['HttpOnly', 'Secure', 'SameSite=lax', 'Path=/', 'Max-Age=31536000']) expect(korean.headers.get('set-cookie')).toContain(attribute);
+  const savedKorean = proxy(new NextRequest('https://quizeey.com/', { headers: { ...headers, cookie: languagePreferenceCookie + '=ko' } }));
+  expect(savedKorean.headers.get('location')).toBeNull();
+  const english = proxy(new NextRequest('https://quizeey.com/en?lang=en', { headers: { 'x-vercel-ip-country': 'KR' } }));
+  expect(english.status).toBe(307);
+  expect(english.headers.get('location')).toBe('https://quizeey.com/en');
+  expect(english.cookies.get(languagePreferenceCookie)?.value).toBe('en');
+  expect(proxy(new NextRequest('https://quizeey.com/', { headers: { 'x-vercel-ip-country': 'KR', cookie: languagePreferenceCookie + '=en' } })).headers.get('location')).toBe('https://quizeey.com/en');
+  expect(proxy(new NextRequest('https://quizeey.com/en', { headers: { cookie: languagePreferenceCookie + '=ko' } })).headers.get('location')).toBeNull();
+  for (const path of ['/?lang=fr', '/?lang=ko&lang=en', '/en/az-900?lang=ko']) expect(proxy(new NextRequest('https://quizeey.com' + path)).headers.get('set-cookie')).toBeNull();
+  expect(proxy(new NextRequest('https://quizeey.com/?lang=en', { method: 'POST' })).headers.get('location')).toBeNull();
+});
+
+it('keeps stable language entry URLs available to search crawlers and preserves protection before language routing', () => {
+  for (const [key, value] of Object.entries(env)) vi.stubEnv(key, value);
+  for (const userAgent of ['Googlebot/2.1', 'bingbot/2.0', 'Yeti/1.1', 'Google-InspectionTool/1.0']) {
+    const response = proxy(new NextRequest('https://quizeey.com/', { headers: { 'x-vercel-ip-country': 'US', 'user-agent': userAgent, cookie: languagePreferenceCookie + '=en' } }));
+    expect(response.status).toBe(200);
+    expect(response.headers.get('location')).toBeNull();
+    expect(response.headers.get('vary')).toContain('User-Agent');
+  }
+  const candidate = 'https://candidate.vercel.app/?lang=en';
+  expect(proxy(new NextRequest(candidate, { headers: { 'x-vercel-ip-country': 'US' } })).status).toBe(401);
+  const authorization = 'Basic ' + Buffer.from('review:' + env.QUIZEEY_PREVIEW_PASSWORD).toString('base64');
+  const protectedChoice = proxy(new NextRequest(candidate, { headers: { authorization, 'x-vercel-ip-country': 'US' } }));
+  expect(protectedChoice.status).toBe(307);
+  expect(protectedChoice.headers.get('location')).toBe('https://candidate.vercel.app/en');
+  expect(protectedChoice.headers.get('x-robots-tag')).toContain('noindex');
+  const loopback = proxy(new NextRequest('http://127.0.0.1:3114/', { headers: { host: 'quizeey.com', 'x-vercel-ip-country': 'CA', 'x-forwarded-host': 'evil.invalid' } }));
+  expect(loopback.headers.get('location')).toBe('https://quizeey.com/en');
 });

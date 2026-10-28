@@ -2,6 +2,7 @@ import { expect, test } from "@playwright/test";
 import manifest from "../content/north-america-2026-10.manifest.json" with { type: "json" };
 import content from "../src/data/practice-2026-10.json" with { type: "json" };
 import { authoredCatalog, authoredQuestions } from "../src/lib/authored-practice";
+import { practiceDisplayCopy } from "../src/lib/practice-display-copy";
 
 const exams = authoredCatalog.filter(exam => manifest.examIds.includes(exam.id));
 
@@ -54,7 +55,7 @@ test("new exam links, set summaries, all prompts and targeted metadata are serve
       await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", new RegExp(exam.description!.slice(0, 20)));
       await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
       await expect(page.locator(".practice-set-summary")).toContainText("30 practice questions with explanations");
-      await expect(page.locator(".practice-set-summary")).toContainText(exam.practiceScope!);
+      await expect(page.locator(".practice-set-summary")).toContainText(practiceDisplayCopy(exam.practiceScope)!);
       await page.locator(".practice-outline summary").click();
       const outline = page.locator(".practice-outline li a");
       await expect(outline).toHaveCount(pageNumber === 1 ? 20 : 10);

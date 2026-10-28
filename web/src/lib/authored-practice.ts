@@ -2,6 +2,7 @@ import content from "@/data/practice-2026-10.json" with { type: "json" };
 import catalog from "@/data/exam-catalog.json" with { type: "json" };
 import type { Locale } from "./contracts";
 import type { Question } from "./quiz";
+import { practiceDisplayCopy } from "./practice-display-copy";
 
 export const authoredVersion = 202610;
 export const authoredVersionName = "2026-10";
@@ -33,7 +34,7 @@ export function authoredSetSummary(examId: string, locale: Locale) {
   if (!items.length) return undefined;
   return {
     count: items.length, version: authoredVersion, name: authoredVersionName,
-    scope: exam.practiceScope,
+    scope: practiceDisplayCopy(exam.practiceScope),
     languages: [...new Set(items.map(item => /[\uac00-\ud7a3]/.test(item.prompt) ? "ko" as const : "en" as const))],
   };
 }

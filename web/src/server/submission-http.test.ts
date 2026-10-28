@@ -36,6 +36,22 @@ it("rejects mismatched question identities and records the actual question conte
   expect((await submissionPost(request(body))).status).toBe(201);
   expect(submitFeedback).toHaveBeenCalledWith(uuid, "a".repeat(64), { ...body, path: "/sqlp-developer" });
 });
+it('accepts feedback on published English guides and rejects unknown or mismatched guide paths', async () => {
+  vi.mocked(forumOriginAllowed).mockReturnValue(true);
+  const body = { kind: 'feedback', locale: 'en', path: '/en/study-guides/servsafe-foodsafe-practice', body: 'Please expand the food safety guide.' };
+  for (const value of [
+    { ...body, locale: 'ko' },
+    { ...body, path: '/en/study-guides/missing' },
+    { ...body, path: body.path + '/extra' },
+    { ...body, path: '/en/study-guides?untrusted=true' },
+  ]) expect((await submissionPost(request(value))).status).toBe(404);
+  expect(submitFeedback).not.toHaveBeenCalled();
+  vi.mocked(submitFeedback).mockResolvedValue({ status: 201 });
+  for (const path of ['/en/study-guides', body.path]) {
+    expect((await submissionPost(request({ ...body, path }))).status).toBe(201);
+    expect(submitFeedback).toHaveBeenLastCalledWith(uuid, 'a'.repeat(64), { ...body, path, examId: null, questionId: null });
+  }
+});
 it("requires an admin on every inbox read and resolution and derives the actor on the server", async () => {
   vi.mocked(requireAdmin).mockRejectedValue(new AdminAuthError(401));
   expect((await overviewGet(request())).status).toBe(401);

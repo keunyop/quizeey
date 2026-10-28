@@ -10,6 +10,7 @@ import { Forum } from "./Forum";
 import { useAnalytics } from './Monetization';
 import type { QuizPayload } from '@/lib/integrations';
 import { SubmissionDialog } from './SubmissionDialog';
+import { versionDisplayName } from '@/lib/version-label';
 
 function createProgressStore(key: string, previousKeys: string[], ids: string[], contentVersion: string, onError: (error: boolean) => void) {
     let fallback: string | null = null;
@@ -62,7 +63,7 @@ function QuestionCard({ question, locale, attempt, onGrade, onPrevious, onNext, 
   const answerLetters = question.choices.flatMap((choice, index) => choice.correct ? [String.fromCharCode(65 + index)] : []);
   const analytics=useAnalytics();
   return <section className="question-card" aria-label={locale === "ko" ? "문제" : "Question"}>
-    <p className="question-version">{locale === "ko" ? "회차" : "Set"} · {question.versionName || question.version}</p>
+    <p className="question-version">{locale === "ko" ? "회차" : "Set"} · {versionDisplayName(question.versionName, question.version, locale)}</p>
     <div id="question-content" lang={question.contentLocale ?? locale} tabIndex={-1} className="learning-content question-prompt" dangerouslySetInnerHTML={{ __html: question.text }} />
     <fieldset disabled={!!attempt}>
       <legend>{multiple ? m.multiple : m.single}</legend>

@@ -846,7 +846,8 @@
   {
     "id": "6",
     "slug": "engineer-information-processing",
-    "name": "정보처리기사"
+    "name": "정보처리기사",
+    "questionCount": 23
   },
   {
     "id": "27",
@@ -861,7 +862,8 @@
   {
     "id": "11",
     "slug": "computer-specialist-in-spreadsheet-and-database-level-2",
-    "name": "컴퓨터활용능력 2급"
+    "name": "컴퓨터활용능력 2급",
+    "questionCount": 23
   },
   {
     "id": "15",
@@ -877,13 +879,13 @@
     "id": "2",
     "slug": "sqlp-professional",
     "name": "SQLP - 국가공인 SQL전문가",
-    "questionCount": 23
+    "questionCount": 43
   },
   {
     "id": "5",
     "slug": "sqlp-developer",
     "name": "SQLD - 국가공인 SQL개발자",
-    "questionCount": 23
+    "questionCount": 43
   },
   {
     "id": "8",
@@ -900,7 +902,7 @@
     "id": "14",
     "slug": "craftsman-cook-korean-food",
     "name": "한식조리기능사",
-    "questionCount": 60
+    "questionCount": 80
   },
   {
     "id": "1",
@@ -938,8 +940,9 @@
     "slug": "servsafe-food-handler",
     "name": "ServSafe Food Handler",
     "locale": "en",
-    "questionCount": 40,
-    "description": "Practice basic food safety, personal hygiene, cross-contamination and allergens, time and temperature, and cleaning and sanitation for U.S. food service. This 2026-10 set contains 40 original English practice questions with explanations. It is independent study material, not an official ServSafe exam."
+    "questionCount": 60,
+    "description": "Practice basic food safety, personal hygiene, cross-contamination and allergens, time and temperature, and cleaning and sanitation for U.S. food service. This 2026-10 set contains 60 original English practice questions with explanations. It is independent study material, not an official ServSafe exam.",
+    "seoTitle": "Free ServSafe Food Handler Practice Questions with Answers"
   },
   {
     "id": "235",
@@ -980,16 +983,18 @@
     "slug": "aws-certified-cloud-practitioner",
     "name": "AWS Certified Cloud Practitioner",
     "locale": "all",
-    "questionCount": 30,
-    "description": "Prepare with 30 original English practice questions and explanations in the 2026-10 set. CLF-C02 cloud concepts, security and compliance, AWS services, and billing and pricing. Independent study material, not an official examination."
+    "questionCount": 50,
+    "description": "Prepare with 50 original English practice questions and explanations in the 2026-10 set. CLF-C02 cloud concepts, security and compliance, AWS services, and billing and pricing. Independent study material, not an official examination.",
+    "seoTitle": "Free AWS Cloud Practitioner Practice Questions with Answers"
   },
   {
     "id": "240",
     "slug": "foodsafe-level-1",
     "name": "FOODSAFE Level 1",
     "locale": "en",
-    "questionCount": 30,
-    "description": "Prepare with 30 original English practice questions and explanations in the 2026-10 set. British Columbia, Canada: safe food handling, time and temperature control, hygiene, contamination prevention, sanitation, and worker safety. Uses BC temperature guidance. Independent study material, not an official examination."
+    "questionCount": 50,
+    "description": "Prepare with 50 original English practice questions and explanations in the 2026-10 set. British Columbia, Canada: safe food handling, time and temperature control, hygiene, contamination prevention, sanitation, and worker safety. Uses BC temperature guidance. Independent study material, not an official examination.",
+    "seoTitle": "Free FOODSAFE Level 1 Practice Questions with Answers"
   },
   {
     "id": "241",

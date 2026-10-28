@@ -31,8 +31,8 @@ test("the English directory and all five Azure prompt pages are usable without J
     for (const number of [1, 2, 3, 4, 5]) {
       await page.goto(`${set}${number > 1 ? `&page=${number}` : ""}`);
       await expect(page.locator(".practice-set-summary")).toContainText("93 practice questions with explanations");
-      await expect(page.locator(".practice-set-summary")).toContainText("Original English AZ-900");
-      await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", /93 original practice questions/);
+      await expect(page.locator(".practice-set-summary")).toContainText("English AZ-900");
+      await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", /93 practice questions/);
       await page.locator(".practice-outline summary").click();
       const outline = page.locator(".practice-outline li a");
       await expect(outline).toHaveCount(number === 5 ? 13 : 20);

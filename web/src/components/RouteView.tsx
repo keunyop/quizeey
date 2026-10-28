@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { headers } from 'next/headers';
 import { ExamSearch } from "./ExamSearch";
+import { RelatedStudyGuide, StudyGuideCards } from './StudyGuides';
 import { ExamLink } from "./ExamLink";
 import { ExamHeading } from "./ExamHeading";
 import { SubmissionDialog } from "./SubmissionDialog";
@@ -17,6 +18,7 @@ import { learningHtml,staticPage } from "@/lib/content";
 import { environment } from "@/lib/environment";
 import { examName } from "@/lib/exam-catalog";
 import { authoredSetSummary, authoredVersion } from "@/lib/authored-practice";
+import { versionDisplayName } from "@/lib/version-label";
 import { Icon } from "./Icon";
 import { canonicalPath,searchMetadata,pageStructuredData,serializeStructuredData } from '@/lib/seo';
 import { Monetization,AdSlot } from './Monetization';
@@ -80,7 +82,7 @@ export async function RouteView({ path, query }: { path: string; query: Query })
           {versions.length > 0 && <form className="version-form" method="get">
             {path.endsWith("/test") && <input type="hidden" name="testId" value={exam.testId} />}
             <label htmlFor="version">{locale === "ko" ? "시험 회차" : "Exam set"}</label>
-            <select id="version" name="verNbr" defaultValue={input.verNbr}><option value="0">{m.all}</option>{versions.map(v => <option key={v.id} value={v.number}>{v.name}</option>)}</select>
+            <select id="version" name="verNbr" defaultValue={input.verNbr}><option value="0">{m.all}</option>{versions.map(v => <option key={v.id} value={v.number}>{versionDisplayName(v.name, v.number, locale)}</option>)}</select>
             <button type="submit">{locale === "ko" ? "적용" : "Apply"}</button>
           </form>}
           {publicBatch.length ? <Practice key={`${path}:${input.verNbr}:${input.page}:${input.questId ?? "all"}`} questions={publicBatch} locale={locale} testId={exam.testId} contentVersion={store.version} directId={input.questId} pageNumber={input.page} commentsEnabled={commentsEnabled} nextPage={pagination&&input.page<pagination.pages?pageLink(input.page+1):undefined} /> : <div className="empty-state" role="status"><div className="empty-icon"><Icon name="book" /></div><h2>{locale === "ko" ? "문제를 준비하고 있어요" : "Questions are not available yet"}</h2><p>{m.unavailable}</p><a className="button-link" href={home}>{m.home}<Icon name="arrow" /></a></div>}
@@ -91,9 +93,8 @@ export async function RouteView({ path, query }: { path: string; query: Query })
           </nav>}
           {authoredSet && <section className="practice-set-summary" aria-label={locale === "ko" ? "연습 회차 안내" : "Practice set information"}>
             <a data-google-vignette="false" href={`${examPath}?verNbr=${authoredSet.version}`}>
-              {locale === "ko" ? `${authoredSet.name} 회차 · 연습문제 ${authoredSet.count}개와 해설` : `${authoredSet.name} · ${authoredSet.count} practice questions with explanations`}
+              {locale === "ko" ? `${versionDisplayName(authoredSet.name, authoredSet.version, locale)} · 연습문제 ${authoredSet.count}개와 해설` : `${authoredSet.name} · ${authoredSet.count} practice questions with explanations`}
             </a>
-            <p>{locale === "ko" ? "공식 기출 회차와 구분되는 자체 제작 학습 자료입니다." : "Original, independent study material. This is not an official exam paper."}</p>
             {authoredSet.scope && <p lang="en">{authoredSet.scope}</p>}
           </section>}
           {input.verNbr === authoredVersion && !input.questId && publicBatch.length > 0 && <details className="practice-outline">
@@ -102,6 +103,7 @@ export async function RouteView({ path, query }: { path: string; query: Query })
               <a lang={question.contentLocale ?? locale} data-google-vignette="false" href={`${examPath}?questId=${question.id}&verNbr=${authoredVersion}`} dangerouslySetInnerHTML={{ __html: question.text }} />
             </li>)}</ol>
           </details>}
+          {locale === 'en' && <RelatedStudyGuide examPath={examPath} />}
           {publicBatch.length>0&&<AdSlot kind="display" locale={locale}/>}
         </>}
         {exam.links.length > 0 && <nav className="legacy-links" aria-label={locale === "ko" ? "관련 링크" : "Related links"}><ul>{exam.links.filter((l) => l.label).map((l, i) => <li key={i}><a href={l.href}>{l.label}</a></li>)}</ul></nav>}
@@ -112,7 +114,7 @@ export async function RouteView({ path, query }: { path: string; query: Query })
     <header className="site-header"><a className="brand" href={home} translate="no"><img src="/img/letter-q.svg" width="30" height="30" alt="" />Quizeey</a>
       <nav aria-label={locale === "ko" ? "메인 메뉴" : "Main navigation"}>
         <ThemeToggle locale={locale} />
-        <a className="language-link" href={locale === "en" ? "/" : "/en"} lang={locale === "en" ? "ko" : "en"}><Icon name="globe" />{locale === "en" ? "한국어" : "English"}</a>
+        <a className="language-link" href={locale === "en" ? "/?lang=ko" : "/en?lang=en"} lang={locale === "en" ? "ko" : "en"}><Icon name="globe" />{locale === "en" ? "한국어" : "English"}</a>
       </nav>
     </header>
     <main id="main" className={`container ${isHome ? "home-container" : exam.testId ? `study-container google-anno-skip${commentsEnabled ? " study-with-comments" : ""}` : ""}`}>
@@ -122,6 +124,7 @@ export async function RouteView({ path, query }: { path: string; query: Query })
         <a href="/sqlp-developer">한국어 샘플 연습</a>{' · '}<a href="/en/aws-certified-developer-associate">Try English samples</a>
       </aside>}
       {isHome ? <><ExamSearch routes={examRoutes} locale={locale} popularity={popularity} />
+        {locale === 'en' && <StudyGuideCards />}
         <details className="exam-directory"><summary>{locale==='ko'?'전체 자격증 시험 목록':'All practice exams'}</summary>
           <nav aria-label={locale==='ko'?'전체 시험 바로가기':'All exam links'}><ul>{examRoutes.map(r=><li key={r.path}><ExamLink href={r.path}>{examName(r)}</ExamLink></li>)}</ul></nav>
         </details></> : exam.testId && commentsEnabled ?

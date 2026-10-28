@@ -17749,6 +17749,1806 @@
           "source": "https://pubmed.ncbi.nlm.nih.gov/16819933/"
         }
       ]
+    },
+    {
+      "topic": "popular-ko-cooking-20261028",
+      "examIds": [
+        "14"
+      ],
+      "source": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=7910",
+      "questions": [
+        {
+          "prompt": "쇠고기의 결합조직에 많은 콜라겐을 부드럽게 하는 조리법으로 가장 적절한 것은?",
+          "choices": [
+            "수분을 이용하여 충분한 시간 동안 가열한다",
+            "겉면만 짧게 그을린다",
+            "소금을 뿌린 뒤 즉시 냉동한다",
+            "물 없이 잠깐 데운다"
+          ],
+          "explanation": "콜라겐이 많은 부위는 충분한 습열 조리로 젤라틴화가 진행되어 부드러워진다. 짧은 표면 가열만으로 같은 효과를 기대하기 어렵다.",
+          "source": "https://opentextbc.ca/meatcutting/chapter/introduction-to-cutting-and-processing-meats/"
+        },
+        {
+          "prompt": "설탕만을 가열하여 갈색과 특유의 향이 생기는 현상을 무엇이라 하는가?",
+          "choices": [
+            "캐러멜화",
+            "단백질 응고",
+            "전분 노화",
+            "지방 유화"
+          ],
+          "explanation": "캐러멜화는 당 자체가 열에 의해 변하는 갈변 현상이다. 환원당과 아미노기가 반응하는 마이야르 반응과 구별한다.",
+          "source": "https://opentextbc.ca/ingredients/chapter/the-application-of-sugar/"
+        },
+        {
+          "prompt": "구운 식품에서 환원당과 아미노기가 반응하여 갈색과 향을 형성하는 현상은?",
+          "choices": [
+            "마이야르 반응",
+            "삼투",
+            "동결",
+            "침전"
+          ],
+          "explanation": "마이야르 반응은 환원당과 아미노 화합물이 관여하는 비효소적 갈변이다. 단순히 설탕만 가열하는 캐러멜화와 반응 조건이 다르다.",
+          "source": "https://opentextbc.ca/ingredients/chapter/the-application-of-sugar/"
+        },
+        {
+          "prompt": "압력솥에서 물을 보통 냄비보다 높은 온도로 끓일 수 있는 직접적인 이유는?",
+          "choices": [
+            "솥 내부의 압력이 높아져 물의 끓는점이 올라가기 때문",
+            "물의 질량이 사라지기 때문",
+            "증기가 모두 얼음으로 바뀌기 때문",
+            "열 전달이 완전히 차단되기 때문"
+          ],
+          "explanation": "외부 압력이 높아지면 물의 끓는점이 높아진다. 압력솥은 이 성질을 이용하므로 안전장치와 사용 지침을 지켜야 한다.",
+          "source": "https://openstax.org/books/chemistry-2e/pages/10-3-phase-transitions"
+        },
+        {
+          "prompt": "육수 1 L를 졸여 500 mL로 만들었고 소금의 양은 그대로라면 소금 농도는 대략 어떻게 되는가?",
+          "choices": [
+            "처음의 2배가 된다",
+            "처음의 절반이 된다",
+            "항상 0이 된다",
+            "소금이 모두 증발한다"
+          ],
+          "explanation": "소금은 남고 물의 양이 절반으로 줄었다고 가정하면 단위 부피당 소금의 양은 두 배가 된다. 졸이는 음식은 마지막 간을 주의한다."
+        },
+        {
+          "prompt": "10% 소금물 200 g에 물 300 g을 더했을 때 질량 농도는?",
+          "choices": [
+            "4%",
+            "5%",
+            "10%",
+            "20%"
+          ],
+          "explanation": "처음 소금의 질량은 200×0.10=20 g이다. 전체 질량 500 g에 대한 비율은 20÷500×100=4%이다."
+        },
+        {
+          "prompt": "가식부 수율이 75%인 재료로 손질 후 900 g을 얻으려면 구입량은 얼마인가?",
+          "choices": [
+            "1200 g",
+            "675 g",
+            "975 g",
+            "1575 g"
+          ],
+          "explanation": "구입량×0.75=900 g이므로 구입량은 900÷0.75=1200 g이다. 수율을 곱해 가식량을 구하는 식을 거꾸로 적용한다."
+        },
+        {
+          "prompt": "3인분에 참기름 9 mL가 필요한 배합을 같은 비율로 8인분 만들려면 참기름은 얼마인가?",
+          "choices": [
+            "24 mL",
+            "18 mL",
+            "27 mL",
+            "72 mL"
+          ],
+          "explanation": "1인분은 9÷3=3 mL이므로 8인분은 3×8=24 mL이다. 다른 양념도 같은 배합비를 유지하려면 인분 비율을 적용한다."
+        },
+        {
+          "prompt": "식품 100 g에 단백질이 12 g 들어 있다. 같은 식품 250 g에 들어 있는 단백질은?",
+          "choices": [
+            "30 g",
+            "24 g",
+            "48 g",
+            "300 g"
+          ],
+          "explanation": "식품량이 100 g의 2.5배이므로 단백질도 12×2.5=30 g이다. 조리 중 성분 변화가 없다고 가정한 비례 계산이다."
+        },
+        {
+          "prompt": "가열 중인 전분 풀에 마른 전분을 한꺼번에 넣으면 덩어리가 생기기 쉽다. 개선 방법은?",
+          "choices": [
+            "전분을 소량의 찬물에 먼저 분산한 뒤 저으며 넣는다",
+            "물을 모두 제거하고 넣는다",
+            "풀의 표면에만 쌓아 둔다",
+            "저어 주는 작업을 금지한다"
+          ],
+          "explanation": "뜨거운 액체에서 전분 표면이 먼저 호화되면 내부에 마른 가루가 갇힐 수 있다. 찬물에 미리 분산하면 고르게 섞기 쉽다.",
+          "source": "https://www.ifst.org/lovefoodlovescience/resources/carbohydrates-gelatinisation"
+        },
+        {
+          "prompt": "불린 표고버섯을 채 썰기 전에 물기를 조절하는 실무상 이유로 적절한 것은?",
+          "choices": [
+            "조리 중 불필요하게 물이 나와 간과 질감이 달라지는 것을 줄이기 위해",
+            "버섯의 모든 영양소를 없애기 위해",
+            "버섯을 반드시 생으로 먹기 위해",
+            "물기를 제거하면 살균이 완료되기 때문에"
+          ],
+          "explanation": "불린 재료의 남은 물은 음식의 수분량과 양념 농도에 영향을 준다. 물기 제거는 수분 조절이며 세척이나 가열을 대신하지 않는다."
+        },
+        {
+          "prompt": "생고기를 결에 직각으로 썰었을 때 기대하는 효과는?",
+          "choices": [
+            "근섬유 길이가 짧아져 씹기 쉬워질 수 있다",
+            "모든 결합조직이 즉시 녹는다",
+            "단백질이 모두 탄수화물로 변한다",
+            "가열 없이도 살균된다"
+          ],
+          "explanation": "결을 끊어 썰면 한 조각 안의 근섬유 길이가 짧아진다. 다만 부위의 결합조직이나 조리 정도도 연도에 영향을 준다.",
+          "source": "https://opentextbc.ca/meatcutting/chapter/introduction-to-cutting-and-processing-meats/"
+        },
+        {
+          "prompt": "서로 다른 크기의 무 조각을 같은 냄비에서 같은 시간 끓일 때 생기기 쉬운 문제는?",
+          "choices": [
+            "작은 조각은 무르고 큰 조각은 덜 익는 등 익는 정도가 달라진다",
+            "모든 조각이 반드시 같은 순간에 익는다",
+            "소금이 모두 기체로 변한다",
+            "물의 끓는점이 조각 수에 비례해 무한히 오른다"
+          ],
+          "explanation": "크기가 다르면 중심까지 열이 전달되는 시간이 달라진다. 일정한 크기로 썰면 조리 시간을 맞추고 질감을 고르게 하기 쉽다."
+        },
+        {
+          "prompt": "찜 조리에서 냄비의 물이 모두 증발해 없어진 것을 발견했다. 적절한 대응은?",
+          "choices": [
+            "열원을 안전하게 조절하고 기구 지침에 따라 상태를 확인한다",
+            "빈 냄비를 계속 강불로 가열한다",
+            "뚜껑의 증기 구멍을 막는다",
+            "맨손으로 달아오른 냄비를 만진다"
+          ],
+          "explanation": "물이 없는 상태의 계속 가열은 과열과 기구 손상 위험이 있다. 열과 증기에 의한 화상을 피하면서 안전하게 조치한다."
+        },
+        {
+          "prompt": "굵은 줄기와 얇은 잎이 함께 있는 채소를 데칠 때 알맞은 방법은?",
+          "choices": [
+            "익는 시간이 긴 줄기를 먼저 넣고 잎을 뒤에 넣는다",
+            "얇은 잎만 오래 끓인 뒤 줄기를 생으로 둔다",
+            "채소의 부위와 무관하게 반드시 같은 순간에 꺼낸다",
+            "데치는 물을 사용하지 않는다"
+          ],
+          "explanation": "두꺼운 줄기는 얇은 잎보다 익는 데 시간이 더 걸릴 수 있다. 넣는 시점을 조절하면 부위별 질감을 맞추기 쉽다."
+        },
+        {
+          "prompt": "말린 식재료를 물에 불리면 무게가 늘어나는 주된 이유는?",
+          "choices": [
+            "재료가 물을 흡수하기 때문",
+            "지방이 공기에서 새로 생성되기 때문",
+            "물이 소금으로 전환되기 때문",
+            "재료의 모든 고형분이 증발하기 때문"
+          ],
+          "explanation": "건조 재료가 수분을 흡수하면서 질량과 부피가 늘어난다. 배합에서 건조 중량과 불린 중량을 구분해야 한다."
+        },
+        {
+          "prompt": "동일한 식품의 지방 5 g이 제공하는 에너지를 1 g당 9 kcal로 계산하면 얼마인가?",
+          "choices": [
+            "45 kcal",
+            "20 kcal",
+            "14 kcal",
+            "9 kcal"
+          ],
+          "explanation": "지방의 에너지 환산계수 9 kcal/g을 적용하면 5×9=45 kcal이다. 탄수화물이나 단백질의 4 kcal/g과 혼동하지 않는다.",
+          "source": "https://openstax.org/books/anatomy-and-physiology-2e/pages/24-7-nutrition-and-diet"
+        },
+        {
+          "prompt": "소금에 절인 배추에서 수분이 빠져나오는 것과 밀접한 현상은?",
+          "choices": [
+            "삼투",
+            "승화",
+            "전기분해",
+            "핵분열"
+          ],
+          "explanation": "배추 안팎의 용질 농도 차이에 따라 물이 이동한다. 소금에 절이기는 수분과 조직감에 영향을 주며 그 자체로 모든 미생물을 제거하지 않는다.",
+          "source": "https://openstax.org/books/biology-2e/pages/5-2-passive-transport"
+        },
+        {
+          "prompt": "밀폐 용기에 담긴 뜨거운 국을 대량으로 식힐 때 깊은 용기 하나보다 얕은 용기 여러 개가 유리한 까닭은?",
+          "choices": [
+            "열이 빠져나갈 표면적이 늘고 중심에서 표면까지의 거리가 줄기 때문",
+            "미생물이 무조건 즉시 사멸하기 때문",
+            "음식의 질량이 보존되지 않기 때문",
+            "소금이 전부 제거되기 때문"
+          ],
+          "explanation": "얕게 나누면 열이 빠져나가기 쉬워 냉각에 유리하다. 실제 냉각은 시간과 온도를 확인하며 위생적으로 관리해야 한다.",
+          "source": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/leftovers-and-food-safety"
+        },
+        {
+          "prompt": "조리 전 저울을 빈 그릇을 올린 상태에서 영점 조정하는 주된 목적은?",
+          "choices": [
+            "용기 무게를 제외한 재료의 순중량을 재기 위해",
+            "재료의 유통기한을 늘리기 위해",
+            "저울의 최대 용량을 무한대로 만들기 위해",
+            "소금 농도를 자동으로 측정하기 위해"
+          ],
+          "explanation": "영점 또는 용기 무게 빼기 기능은 용기의 질량을 제외한다. 조리 배합과 수율 계산에는 재료 자체의 질량을 사용한다."
+        }
+      ]
+    },
+    {
+      "topic": "popular-ko-sqld-20261028",
+      "examIds": [
+        "5"
+      ],
+      "source": "https://www.postgresql.org/docs/current/queries.html",
+      "questions": [
+        {
+          "prompt": "열 x에 2, 2, NULL, 5가 저장되어 있다. COUNT(DISTINCT x)의 결과는?",
+          "choices": [
+            "2",
+            "3",
+            "4",
+            "NULL"
+          ],
+          "explanation": "COUNT(DISTINCT x)는 NULL을 제외한 서로 다른 값을 센다. 이 데이터에서 남는 값은 2와 5 두 개다.",
+          "source": "https://www.postgresql.org/docs/current/sql-expressions.html#SYNTAX-AGGREGATES"
+        },
+        {
+          "prompt": "급여 값이 100, NULL, 300인 세 행에 AVG(salary)를 적용한 결과는?",
+          "choices": [
+            "200",
+            "약 133.33",
+            "400",
+            "NULL"
+          ],
+          "explanation": "AVG는 NULL을 평균 계산에서 제외한다. 따라서 (100+300)÷2=200이며 전체 행 수인 3으로 나누지 않는다.",
+          "source": "https://www.postgresql.org/docs/current/functions-aggregate.html"
+        },
+        {
+          "prompt": "조건 x=1 OR x IS NULL을 WHERE에 지정했다. x 값이 1, 2, NULL인 세 행 중 몇 행이 남는가?",
+          "choices": [
+            "2행",
+            "0행",
+            "1행",
+            "3행"
+          ],
+          "explanation": "x=1인 행과 x IS NULL인 행이 조건을 만족한다. WHERE는 조건이 TRUE인 행을 남긴다.",
+          "source": "https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-WHERE"
+        },
+        {
+          "prompt": "열 x가 NULL인 행에서 WHERE x <> 5의 판정은 어떻게 되는가?",
+          "choices": [
+            "UNKNOWN이므로 그 행은 선택되지 않는다",
+            "TRUE이므로 항상 선택된다",
+            "FALSE가 아닌 값은 모두 선택된다",
+            "NULL이 자동으로 0이 된다"
+          ],
+          "explanation": "NULL과의 일반 비교 결과는 UNKNOWN이다. WHERE는 TRUE만 통과시키므로 NULL 여부를 검사하려면 IS NULL 등을 사용한다.",
+          "source": "https://www.postgresql.org/docs/current/functions-comparison.html"
+        },
+        {
+          "prompt": "직원 E의 모든 행을 유지하면서 재직 중인 부서 D(status='A')만 연결하려 한다. 적절한 조인 조건은?",
+          "choices": [
+            "E LEFT JOIN D ON E.dept_id=D.id AND D.status='A'",
+            "E INNER JOIN D ON E.dept_id=D.id AND D.status='A'",
+            "E LEFT JOIN D ON E.dept_id=D.id WHERE D.status='A'",
+            "E CROSS JOIN D"
+          ],
+          "explanation": "보존할 왼쪽 행과 관계없는 오른쪽 조건은 ON에 두면 미일치 직원도 남는다. WHERE에 오른쪽 상태 조건을 두면 NULL 확장 행이 제거된다.",
+          "source": "https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-JOIN"
+        },
+        {
+          "prompt": "테이블 A의 키 7이 한 행, B의 키 7이 세 행 있다. 해당 키만 동등 INNER JOIN하면 결과는 몇 행인가?",
+          "choices": [
+            "3행",
+            "1행",
+            "4행",
+            "7행"
+          ],
+          "explanation": "조인은 조건을 만족하는 행의 조합을 만든다. A의 한 행과 B의 세 행이 각각 연결되어 세 행이 나온다.",
+          "source": "https://www.postgresql.org/docs/current/tutorial-join.html"
+        },
+        {
+          "prompt": "중복 제거가 필요 없는 두 결과 집합을 그대로 이어 붙이려면 어떤 집합 연산이 적절한가?",
+          "choices": [
+            "UNION ALL",
+            "INTERSECT",
+            "EXCEPT",
+            "UNION DISTINCT만 가능"
+          ],
+          "explanation": "UNION ALL은 중복 행을 유지하면서 결과를 합친다. UNION은 중복 제거 의미가 추가되므로 요구 사항에 맞게 선택한다.",
+          "source": "https://www.postgresql.org/docs/current/queries-union.html"
+        },
+        {
+          "prompt": "GROUP BY dept_id로 집계하면서 특정 부서의 행만 집계 대상에 넣으려 한다. 집계 전 필터는 어느 절에 쓰는가?",
+          "choices": [
+            "WHERE",
+            "HAVING만 가능",
+            "ORDER BY",
+            "FETCH"
+          ],
+          "explanation": "WHERE는 그룹을 만들기 전 개별 행을 거른다. HAVING은 집계 후 그룹에 조건을 적용할 때 사용한다.",
+          "source": "https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-GROUP"
+        },
+        {
+          "prompt": "GROUP BY dept_id 후 직원 수가 5명 이상인 부서만 조회하는 조건은?",
+          "choices": [
+            "HAVING COUNT(*) >= 5",
+            "WHERE COUNT(*) >= 5",
+            "ORDER BY COUNT(*) >= 5",
+            "GROUP BY COUNT(*) >= 5"
+          ],
+          "explanation": "직원 수는 그룹 집계 결과이므로 HAVING에 조건을 지정한다. WHERE에서 같은 단계의 집계 결과를 직접 필터링할 수 없다.",
+          "source": "https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-GROUP"
+        },
+        {
+          "prompt": "SELECT에서 CASE WHEN score >= 60 THEN '합격' ELSE '불합격' END를 계산한다. score가 NULL이면 결과는?",
+          "choices": [
+            "불합격",
+            "합격",
+            "항상 SQL 문법 오류",
+            "숫자 0"
+          ],
+          "explanation": "NULL >= 60은 TRUE가 아니므로 WHEN 분기를 선택하지 않는다. 다른 WHEN이 없으므로 ELSE의 불합격이 반환된다.",
+          "source": "https://www.postgresql.org/docs/current/functions-conditional.html"
+        },
+        {
+          "prompt": "COALESCE(NULL, NULL, 8, 9)의 반환값은?",
+          "choices": [
+            "8",
+            "9",
+            "NULL",
+            "17"
+          ],
+          "explanation": "COALESCE는 왼쪽부터 확인해 처음 NULL이 아닌 인수를 반환한다. 이 예에서는 세 번째 인수 8이 해당한다.",
+          "source": "https://www.postgresql.org/docs/current/functions-conditional.html"
+        },
+        {
+          "prompt": "NULLIF(10, 10)의 결과는?",
+          "choices": [
+            "NULL",
+            "0",
+            "10",
+            "TRUE"
+          ],
+          "explanation": "NULLIF는 두 인수가 같으면 NULL을 반환하고 다르면 첫 번째 인수를 반환한다. 같은 값인 10과 10이므로 NULL이다.",
+          "source": "https://www.postgresql.org/docs/current/functions-conditional.html"
+        },
+        {
+          "prompt": "가격 price의 NULL을 0으로 간주하여 합계를 계산하는 표현은?",
+          "choices": [
+            "SUM(COALESCE(price, 0))",
+            "COUNT(price)",
+            "MAX(price)",
+            "SUM(price IS NULL)"
+          ],
+          "explanation": "COALESCE로 각 행의 NULL을 0으로 치환한 뒤 합산한다. 행이 전혀 없는 경우의 SUM 결과까지 0으로 만들려면 바깥쪽 COALESCE도 별도로 검토한다.",
+          "source": "https://www.postgresql.org/docs/current/functions-conditional.html"
+        },
+        {
+          "prompt": "성명 열에서 중복된 이름을 한 번씩만 조회하려 한다. 적절한 SELECT 키워드는?",
+          "choices": [
+            "DISTINCT",
+            "DEFAULT",
+            "REFERENCES",
+            "COMMIT"
+          ],
+          "explanation": "SELECT DISTINCT는 선택한 열 조합의 중복을 제거한다. 다른 열도 함께 선택하면 그 열까지 포함한 조합을 기준으로 판단한다.",
+          "source": "https://www.postgresql.org/docs/current/queries-select-lists.html"
+        },
+        {
+          "prompt": "상품 테이블의 price 열에 모든 행에서 값이 반드시 있어야 한다. 가장 직접적인 제약조건은?",
+          "choices": [
+            "NOT NULL",
+            "FOREIGN KEY만 설정",
+            "DEFAULT NULL",
+            "ORDER BY"
+          ],
+          "explanation": "NOT NULL은 해당 열에 NULL을 저장하지 못하게 한다. 기본값이나 정렬 지정만으로 필수값 제약이 생기지는 않는다.",
+          "source": "https://www.postgresql.org/docs/current/ddl-constraints.html"
+        },
+        {
+          "prompt": "부모 행을 참조하는 외래 키가 있는 상태에서 참조되지 않는 자식 키 값을 넣으려 한다. 일반적으로 어떤 결과가 발생하는가?",
+          "choices": [
+            "참조 무결성 제약 위반이 발생한다",
+            "부모 행이 항상 자동 생성된다",
+            "자식 값이 항상 0으로 바뀐다",
+            "외래 키가 자동 삭제된다"
+          ],
+          "explanation": "외래 키는 NULL 허용 등 정해진 예외를 제외하고 참조 대상 키의 존재를 요구한다. 부모 행이 자동으로 생성되는 기능은 아니다.",
+          "source": "https://www.postgresql.org/docs/current/ddl-constraints.html"
+        },
+        {
+          "prompt": "여러 문장을 하나의 트랜잭션으로 처리하다 모두 성공했다. 변경을 확정하는 명령은?",
+          "choices": [
+            "COMMIT",
+            "ROLLBACK",
+            "SELECT",
+            "EXPLAIN"
+          ],
+          "explanation": "COMMIT은 트랜잭션의 변경을 확정한다. ROLLBACK은 아직 확정하지 않은 변경을 취소할 때 사용한다.",
+          "source": "https://www.postgresql.org/docs/current/tutorial-transactions.html"
+        },
+        {
+          "prompt": "한 테이블에 같은 이름의 별칭을 중복해서 써서 조인하려 한다. 자기 참조 조인에서 별칭을 구분해야 하는 이유는?",
+          "choices": [
+            "각 테이블 역할과 열 참조를 명확하게 식별하기 위해",
+            "별칭을 쓰면 테이블 데이터가 복제 저장되기 때문에",
+            "별칭마다 새로운 기본 키가 자동 생성되기 때문에",
+            "별칭은 외래 키를 무조건 제거하기 때문에"
+          ],
+          "explanation": "같은 테이블을 여러 역할로 사용할 때 서로 다른 별칭으로 열 참조를 구분한다. 별칭은 조회 표현이며 실제 행을 복제 저장하지 않는다.",
+          "source": "https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-TABLE-ALIASES"
+        },
+        {
+          "prompt": "한 주문에 여러 상품이 있고 같은 상품이 여러 주문에 포함된다. 주문-상품 연결 테이블에 보통 함께 두는 키는?",
+          "choices": [
+            "주문 식별자와 상품 식별자",
+            "상품명 문자열 하나만",
+            "현재 화면의 행 번호만",
+            "총 주문 수 상수만"
+          ],
+          "explanation": "연결 테이블에 양쪽 식별자를 두어 각 주문과 상품의 관계를 나타낸다. 수량 같은 관계 속성도 해당 연결에 함께 저장할 수 있다.",
+          "source": "https://www.postgresql.org/docs/current/ddl-constraints.html"
+        },
+        {
+          "prompt": "부서별 합계를 먼저 계산한 파생 테이블을 다른 테이블과 조인하려 한다. 파생 테이블의 적절한 위치는?",
+          "choices": [
+            "FROM 절의 괄호로 감싼 SELECT와 별칭",
+            "COMMIT 뒤의 문자열",
+            "PRIMARY KEY 안의 SELECT",
+            "ORDER BY의 테이블 이름 대신"
+          ],
+          "explanation": "FROM 절에는 서브쿼리의 결과를 테이블처럼 놓을 수 있다. 적절한 별칭과 열 이름을 사용하면 집계 결과를 다른 데이터와 연결할 수 있다.",
+          "source": "https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-SUBQUERIES"
+        }
+      ]
+    },
+    {
+      "topic": "popular-ko-sqlp-20261028",
+      "examIds": [
+        "2"
+      ],
+      "source": "https://www.postgresql.org/docs/current/performance-tips.html",
+      "questions": [
+        {
+          "prompt": "매일 발생한 주문을 날짜 범위로 조회한다. ordered_at에 일반 인덱스가 있을 때 검토할 조건은?",
+          "choices": [
+            "ordered_at >= 시작시각 AND ordered_at < 다음날시각",
+            "문자열로 바꾼 모든 ordered_at을 먼저 정렬하기",
+            "항상 ordered_at에 임의 함수를 적용하기",
+            "날짜 범위를 제거하고 모든 행 반환하기"
+          ],
+          "explanation": "반개방 범위는 날짜 경계를 명확히 하고 원래 열을 직접 비교한다. 인덱스 사용 여부는 통계와 범위 크기를 포함한 실행 계획으로 확인한다.",
+          "source": "https://www.postgresql.org/docs/current/indexes-types.html"
+        },
+        {
+          "prompt": "주문 1건에 상세 3행이 연결된다. 조인 후 주문 금액을 단순 SUM하면 생길 수 있는 문제는?",
+          "choices": [
+            "주문 금액이 상세 행 수만큼 반복 집계될 수 있다",
+            "주문 금액이 항상 자동 중복 제거된다",
+            "상세가 있어도 결과는 반드시 1행이다",
+            "모든 NULL이 기본 키로 변한다"
+          ],
+          "explanation": "일대다 조인은 부모 값을 여러 행에 반복시킬 수 있다. 집계 단위를 확인하고 상세 선집계나 적절한 별도 집계를 검토한다.",
+          "source": "https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-JOIN"
+        },
+        {
+          "prompt": "주문별 상세 존재 여부만 필요할 때, 조인으로 주문 중복을 만든 뒤 DISTINCT하는 대신 검토할 표현은?",
+          "choices": [
+            "상관 EXISTS 서브쿼리",
+            "조건 없는 CROSS JOIN",
+            "항상 전체 상세를 문자열로 합치기",
+            "ORDER BY만 추가"
+          ],
+          "explanation": "EXISTS는 조건에 맞는 행의 존재를 표현하므로 상세 개수 때문에 주문 행이 늘어나지 않는다. 실제 비용은 실행 계획과 데이터 분포로 비교한다.",
+          "source": "https://www.postgresql.org/docs/current/functions-subquery.html"
+        },
+        {
+          "prompt": "고객 C 중 주문 O가 전혀 없는 고객을 NULL 영향 없이 찾으려 한다. 적절한 방식은?",
+          "choices": [
+            "NOT EXISTS (SELECT 1 FROM O WHERE O.customer_id=C.id)",
+            "C.id NOT IN (NULL)",
+            "C.id = NULL",
+            "조건 없는 INNER JOIN"
+          ],
+          "explanation": "NOT EXISTS는 고객과 일치하는 주문 행이 없는지 검사한다. NOT IN의 결과 집합에 NULL이 있을 때 발생할 수 있는 UNKNOWN 문제를 피한다.",
+          "source": "https://www.postgresql.org/docs/current/functions-subquery.html"
+        },
+        {
+          "prompt": "급여가 100, 100, 80일 때 내림차순 DENSE_RANK()의 순위는?",
+          "choices": [
+            "1, 1, 2",
+            "1, 1, 3",
+            "1, 2, 3",
+            "0, 0, 1"
+          ],
+          "explanation": "DENSE_RANK는 동률을 같은 순위로 두고 다음 순위를 건너뛰지 않는다. RANK라면 같은 데이터에서 1, 1, 3이 된다.",
+          "source": "https://www.postgresql.org/docs/current/functions-window.html"
+        },
+        {
+          "prompt": "같은 급여의 직원도 서로 다른 일련번호가 필요하고 결과가 항상 같아야 한다. 적절한 창 함수 정렬은?",
+          "choices": [
+            "ROW_NUMBER() OVER (ORDER BY salary DESC, employee_id)",
+            "RANK() OVER (ORDER BY salary DESC)",
+            "DENSE_RANK() OVER ()",
+            "COUNT(*)만 반환"
+          ],
+          "explanation": "ROW_NUMBER는 행마다 다른 번호를 매긴다. 유일한 employee_id를 동률 해소 기준에 포함하면 같은 급여에서도 순서를 명확히 할 수 있다.",
+          "source": "https://www.postgresql.org/docs/current/functions-window.html"
+        },
+        {
+          "prompt": "고객별 이전 주문 금액과 현재 주문 금액을 비교하려 한다. 직전 행의 값을 조회하는 창 함수는?",
+          "choices": [
+            "LAG(amount) OVER (PARTITION BY customer_id ORDER BY ordered_at, order_id)",
+            "LEAD(amount)만 반드시 사용",
+            "SUM(amount) GROUP BY customer_id만 사용",
+            "MIN(customer_id)"
+          ],
+          "explanation": "LAG는 같은 파티션에서 앞선 행의 값을 가져온다. 주문 시각이 같을 수 있으므로 주문 ID 등으로 순서를 확정하는 것이 좋다.",
+          "source": "https://www.postgresql.org/docs/current/functions-window.html"
+        },
+        {
+          "prompt": "부서별 전체 급여 합계를 각 직원 행과 함께 표시하려 한다. 행 수를 유지하는 표현은?",
+          "choices": [
+            "SUM(salary) OVER (PARTITION BY dept_id)",
+            "SUM(salary) GROUP BY dept_id만 조회",
+            "SELECT DISTINCT dept_id만 조회",
+            "COUNT(DISTINCT dept_id)만 조회"
+          ],
+          "explanation": "창 함수는 그룹 전체의 값을 계산하면서 직원 행을 유지한다. GROUP BY만 사용하면 일반적으로 부서 단위로 행이 집약된다.",
+          "source": "https://www.postgresql.org/docs/current/tutorial-window.html"
+        },
+        {
+          "prompt": "누적합을 구하는 창 함수에서 ORDER BY의 키가 유일하지 않다. ROWS 프레임을 쓰더라도 무엇을 검토해야 하는가?",
+          "choices": [
+            "동률 행의 처리 순서를 정하는 추가 키",
+            "모든 인덱스의 삭제",
+            "WHERE의 완전 제거",
+            "항상 집계 결과를 0으로 치환"
+          ],
+          "explanation": "ROWS는 물리적인 행 위치를 기준으로 한다. 누적 결과를 행마다 재현하려면 동률을 해소하는 정렬 기준도 필요하다.",
+          "source": "https://www.postgresql.org/docs/current/sql-expressions.html#SYNTAX-WINDOW-FUNCTIONS"
+        },
+        {
+          "prompt": "대량 삭제 후에도 PostgreSQL 테이블의 불필요한 과거 행 버전이 남아 있다. 회수와 통계 관리를 위해 검토할 기능은?",
+          "choices": [
+            "VACUUM과 ANALYZE 및 autovacuum 상태",
+            "모든 외래 키의 무조건 삭제",
+            "데이터베이스 계정 공유",
+            "SELECT *만 반복 실행"
+          ],
+          "explanation": "VACUUM은 불필요한 행 버전 공간의 재사용 등을 관리하고 ANALYZE는 계획용 통계를 갱신한다. 운영에서는 autovacuum 상태와 작업 영향을 함께 확인한다.",
+          "source": "https://www.postgresql.org/docs/current/routine-vacuuming.html"
+        },
+        {
+          "prompt": "전체 행 수는 같지만 특정 상태 값에 데이터가 편중되었다. 같은 행 수라는 이유만으로 계획이 적절하다고 볼 수 없는 까닭은?",
+          "choices": [
+            "값의 분포와 조건별 예상 행 수가 달라질 수 있기 때문",
+            "통계에는 열 값 분포가 전혀 필요 없기 때문",
+            "인덱스는 항상 모든 조건에서 같은 비용이기 때문",
+            "행 수가 같으면 모든 조인 결과도 같기 때문"
+          ],
+          "explanation": "조건별 데이터 분포는 선택도와 예상 행 수에 영향을 준다. 전체 건수 외에 통계의 최신성, 편중과 실제 실행 결과를 확인해야 한다.",
+          "source": "https://www.postgresql.org/docs/current/planner-stats.html"
+        },
+        {
+          "prompt": "인덱스 (a,b,c)에서 a 동등 조건과 b 범위 조건을 자주 사용한다. 일반 B-tree 접근에서 특히 중요한 부분은?",
+          "choices": [
+            "선두 열 조건과 범위가 탐색 범위를 어떻게 줄이는지",
+            "열 이름의 글자 수",
+            "테이블 생성 문장의 들여쓰기",
+            "모든 열의 별칭을 같게 만드는 것"
+          ],
+          "explanation": "복합 B-tree는 선두 열부터의 조건이 탐색 범위를 줄이는 데 중요하다. 구체적인 스캔 범위와 최적화는 DBMS 버전 및 실행 계획으로 확인한다.",
+          "source": "https://www.postgresql.org/docs/current/indexes-multicolumn.html"
+        },
+        {
+          "prompt": "항상 deleted_at IS NULL인 행만 자주 조회하는 PostgreSQL 테이블에서 검토할 인덱스는?",
+          "choices": [
+            "해당 조건을 만족하는 행만 포함하는 부분 인덱스",
+            "모든 행을 삭제하는 인덱스",
+            "WHERE 조건을 무시하는 기본 키",
+            "열을 한 개도 지정하지 않는 인덱스"
+          ],
+          "explanation": "부분 인덱스는 일부 행에만 인덱스를 유지한다. 쿼리 조건이 인덱스 조건을 만족한다고 판단될 수 있어야 하며 갱신 비용도 비교해야 한다.",
+          "source": "https://www.postgresql.org/docs/current/indexes-partial.html"
+        },
+        {
+          "prompt": "자주 조회하는 열을 모두 인덱스에 포함했어도 PostgreSQL의 index-only scan이 힙을 확인할 수 있는 이유는?",
+          "choices": [
+            "행 가시성을 확인해야 하고 visibility map 상태가 영향을 주기 때문",
+            "인덱스에는 어떤 열 값도 저장되지 않기 때문",
+            "index-only scan은 항상 테이블 전체를 정렬하기 때문",
+            "기본 키는 NULL만 저장하기 때문"
+          ],
+          "explanation": "필요한 열이 인덱스에 있어도 MVCC 가시성 확인이 필요할 수 있다. visibility map과 테이블 갱신 상태에 따라 힙 접근이 발생한다.",
+          "source": "https://www.postgresql.org/docs/current/indexes-index-only-scans.html"
+        },
+        {
+          "prompt": "트랜잭션이 같은 잠금들을 서로 반대 순서로 획득해 교착 상태가 반복된다. 예방에 도움이 되는 설계는?",
+          "choices": [
+            "가능하면 자원 잠금 순서를 일관되게 맞춘다",
+            "모든 트랜잭션을 영구 대기시킨다",
+            "로그를 삭제해 대기를 숨긴다",
+            "잠금을 더 오래 보유하도록 불필요한 외부 호출을 넣는다"
+          ],
+          "explanation": "자원 획득 순서를 일관되게 하면 순환 대기 가능성을 줄일 수 있다. 트랜잭션을 짧게 유지하고 교착 오류에 대한 처리도 설계한다.",
+          "source": "https://www.postgresql.org/docs/current/explicit-locking.html"
+        },
+        {
+          "prompt": "읽은 잔액에 금액을 더한 뒤 별도 UPDATE하는 코드에서 갱신 유실이 우려된다. 적절한 검토는?",
+          "choices": [
+            "원자적 UPDATE 또는 적절한 잠금·격리 수준으로 동시성 제어",
+            "읽기와 쓰기 사이의 대기 시간만 늘리기",
+            "항상 같은 값을 무조건 덮어쓰기",
+            "오류를 기록하지 않기"
+          ],
+          "explanation": "동시에 읽은 과거 값을 덮어쓰면 다른 변경을 잃을 수 있다. balance=balance+금액 같은 원자적 갱신이나 적절한 잠금 전략을 검토한다.",
+          "source": "https://www.postgresql.org/docs/current/transaction-iso.html"
+        },
+        {
+          "prompt": "최신순 페이지 조회의 정렬 키가 (created_at DESC,id DESC)이다. 다음 페이지를 커서로 조회할 때 보존할 정보는?",
+          "choices": [
+            "마지막 행의 created_at과 id",
+            "전체 페이지 수 하나만",
+            "마지막 행의 화면 색상",
+            "현재 시각만 항상 사용"
+          ],
+          "explanation": "커서는 정렬 순서를 정확히 이어갈 수 있어야 한다. 같은 시각의 여러 행을 구분하려면 유일한 id도 함께 보존하고 일관된 비교 조건을 사용한다.",
+          "source": "https://www.postgresql.org/docs/current/queries-order.html"
+        },
+        {
+          "prompt": "LIMIT 20만 사용하고 ORDER BY가 없는 조회에서 페이지 결과의 안정성에 관한 설명은?",
+          "choices": [
+            "매번 같은 20행과 순서가 보장되지 않는다",
+            "기본 키 오름차순이 항상 보장된다",
+            "물리 저장 순서가 SQL 표준으로 고정된다",
+            "최근 수정한 행부터 반드시 나온다"
+          ],
+          "explanation": "명시적 ORDER BY가 없으면 반환 순서를 의존해서는 안 된다. 페이징에는 유일성을 포함한 일관된 정렬 조건을 지정한다.",
+          "source": "https://www.postgresql.org/docs/current/queries-limit.html"
+        },
+        {
+          "prompt": "JOIN 성능 개선 전후를 비교하는 올바른 방법은?",
+          "choices": [
+            "동일한 의미의 쿼리에서 결과 정확성과 대표 부하의 실제 계획·시간을 함께 비교",
+            "개발용 한 행으로만 속도를 측정",
+            "예상 비용 숫자만 보고 결과는 확인하지 않기",
+            "빠르면 누락된 행을 무시"
+          ],
+          "explanation": "성능 개선은 결과 의미를 보존해야 한다. 대표 데이터 분포와 실제 행 수, I/O, 실행 시간 및 쓰기 비용까지 요구에 맞게 비교한다.",
+          "source": "https://www.postgresql.org/docs/current/using-explain.html"
+        },
+        {
+          "prompt": "PostgreSQL에서 EXPLAIN (ANALYZE, BUFFERS) 결과의 BUFFERS가 제공하는 유용한 정보는?",
+          "choices": [
+            "공유 버퍼 등에서 읽거나 적중한 블록 관련 정보",
+            "사용자 화면의 글꼴 목록",
+            "모든 쿼리의 법적 정당성",
+            "인덱스가 절대로 필요 없다는 증명"
+          ],
+          "explanation": "BUFFERS는 캐시 적중과 읽기 등 블록 접근을 살피는 데 도움이 된다. ANALYZE는 실제 문장을 실행하므로 변경 문장에는 별도 주의가 필요하다.",
+          "source": "https://www.postgresql.org/docs/current/using-explain.html"
+        }
+      ]
+    },
+    {
+      "topic": "popular-ko-information-processing-20261028",
+      "examIds": [
+        "6"
+      ],
+      "source": "https://www.q-net.or.kr/crf005.do?id=crf00503&jmCd=1320",
+      "questions": [
+        {
+          "prompt": "큐의 기본 처리 순서인 FIFO의 뜻은?",
+          "choices": [
+            "먼저 넣은 항목을 먼저 꺼낸다",
+            "마지막에 넣은 항목을 먼저 꺼낸다",
+            "가장 큰 항목만 꺼낸다",
+            "모든 항목을 무작위로 삭제한다"
+          ],
+          "explanation": "큐는 일반적으로 삽입 순서대로 제거하는 선입선출 구조다. 스택의 후입선출과 구분하며 대기열 처리 등에 사용한다.",
+          "source": "https://docs.python.org/3/tutorial/datastructures.html"
+        },
+        {
+          "prompt": "인접 리스트로 표현한 그래프를 큐로 너비 우선 탐색할 때 방문 순서의 기본 특징은?",
+          "choices": [
+            "시작점에서 간선 수 기준으로 가까운 정점부터 탐색한다",
+            "항상 가중치 합이 최소인 정점부터 탐색한다",
+            "정점 이름의 사전순만 반드시 따른다",
+            "방문한 정점을 모두 무한 반복한다"
+          ],
+          "explanation": "BFS는 층별로 확장한다. 가중치가 같은 그래프의 최단 간선 수 탐색에 쓸 수 있지만 임의 가중치의 최소 비용을 그대로 보장하지 않는다.",
+          "source": "https://opendsa-server.cs.vt.edu/ODSA/Books/CS3/html/GraphTraversal.html"
+        },
+        {
+          "prompt": "오름차순 정렬된 배열에서 이진 탐색을 적용하기 위한 핵심 전제는?",
+          "choices": [
+            "비교 기준에 맞게 데이터가 정렬되어 있어야 한다",
+            "모든 값이 서로 같아야 한다",
+            "배열 길이가 반드시 소수여야 한다",
+            "데이터가 암호화되어 있어야 한다"
+          ],
+          "explanation": "이진 탐색은 중간값 비교로 탐색 구간의 절반을 버린다. 정렬이 보장되지 않으면 제외한 구간에 목표값이 남을 수 있다.",
+          "source": "https://docs.python.org/3/library/bisect.html"
+        },
+        {
+          "prompt": "정수 배열 10개를 한 번씩 순회해 합계를 구하는 알고리즘을 입력 n개로 일반화한 시간 복잡도는?",
+          "choices": [
+            "O(n)",
+            "O(1)",
+            "O(log n)",
+            "O(n!)"
+          ],
+          "explanation": "각 원소를 한 번씩 처리하므로 연산 수가 원소 수에 비례한다. 입력 크기와 무관한 고정 시간 O(1)과 다르다.",
+          "source": "https://opendsa-server.cs.vt.edu/ODSA/Books/CS3/html/AnalIntro.html"
+        },
+        {
+          "prompt": "객체지향 설계에서 외부에 필요한 연산만 공개하고 내부 상태의 직접 변경을 제한하는 원리는?",
+          "choices": [
+            "캡슐화",
+            "교착 상태",
+            "스와핑",
+            "역정규화"
+          ],
+          "explanation": "캡슐화는 상태와 동작을 묶고 접근 경계를 두는 설계 원리다. 내부 표현을 보호하면 변경의 영향을 줄이고 불변 조건을 유지하기 쉽다.",
+          "source": "https://docs.oracle.com/javase/tutorial/java/concepts/object.html"
+        },
+        {
+          "prompt": "상위 타입의 같은 연산 호출에 대해 객체의 실제 타입별로 다른 구현이 실행되는 성질은?",
+          "choices": [
+            "다형성",
+            "단편화",
+            "페이징",
+            "교착 상태"
+          ],
+          "explanation": "다형성은 공통 타입을 통해 다양한 구현을 사용하게 한다. 구체적 구현에 대한 의존을 줄이는 객체지향 설계에 활용된다.",
+          "source": "https://docs.oracle.com/javase/tutorial/java/IandI/polymorphism.html"
+        },
+        {
+          "prompt": "요구사항 명세가 무엇을 해야 하는지에 관한 기능 요구사항에 해당하는 것은?",
+          "choices": [
+            "사용자가 주문 내역을 조회할 수 있어야 한다",
+            "응답 시간이 1초 이하여야 한다",
+            "월 가용성이 99.9%여야 한다",
+            "비밀번호 해시 알고리즘의 구현 제약만 정한다"
+          ],
+          "explanation": "주문 내역 조회는 시스템이 제공할 기능을 나타낸다. 응답 시간과 가용성은 일반적으로 품질 또는 비기능 요구사항으로 분류한다.",
+          "source": "https://www.computer.org/education/bodies-of-knowledge/software-engineering"
+        },
+        {
+          "prompt": "여러 모듈이 서로의 내부 자료구조에 강하게 의존한다. 유지보수성을 높이는 개선 방향은?",
+          "choices": [
+            "결합도를 낮추고 명확한 인터페이스로 연결한다",
+            "각 모듈이 모든 전역 변수를 공유하게 한다",
+            "모든 내부 필드를 무조건 공개한다",
+            "같은 기능을 의도 없이 여러 곳에 복제한다"
+          ],
+          "explanation": "내부 표현에 대한 강한 의존은 한 곳의 변경을 다른 곳으로 전파한다. 역할을 나누고 안정적인 인터페이스로 연결하면 영향을 줄일 수 있다.",
+          "source": "https://www.computer.org/education/bodies-of-knowledge/software-engineering"
+        },
+        {
+          "prompt": "입력 나이를 18세 이상 65세 이하로 허용한다. 경계값 분석에 적절한 테스트 집합은?",
+          "choices": [
+            "17, 18, 19, 64, 65, 66",
+            "30만 반복",
+            "40, 41만 사용",
+            "음수만 사용"
+          ],
+          "explanation": "경계 바로 밖과 경계 및 그 안쪽 값을 확인하면 부등호나 범위 처리 오류를 찾기 좋다. 정상 범위 중앙값만으로는 이런 오류를 놓칠 수 있다.",
+          "source": "https://www.istqb.org/certifications/certified-tester-foundation-level"
+        },
+        {
+          "prompt": "서로 연결한 모듈 사이의 데이터 전달과 인터페이스 오류를 주로 확인하는 테스트 수준은?",
+          "choices": [
+            "통합 테스트",
+            "단위 테스트만",
+            "정적 코드 서식 검사만",
+            "철자 검사"
+          ],
+          "explanation": "통합 테스트는 구성요소 사이의 상호작용을 검증한다. 개별 함수 자체를 확인하는 단위 테스트와 목적을 구분한다.",
+          "source": "https://www.istqb.org/certifications/certified-tester-foundation-level"
+        },
+        {
+          "prompt": "오류 수정 후 기존에 정상 동작하던 기능에 부작용이 없는지 확인하는 테스트는?",
+          "choices": [
+            "회귀 테스트",
+            "요구사항 삭제",
+            "운영 로그 은폐",
+            "소스 파일 압축"
+          ],
+          "explanation": "회귀 테스트는 변경으로 기존 동작이 손상되지 않았는지 확인한다. 수정한 오류의 재현 확인과 함께 관련 기존 흐름도 점검한다.",
+          "source": "https://www.istqb.org/certifications/certified-tester-foundation-level"
+        },
+        {
+          "prompt": "HTTP 요청에서 리소스를 조회하는 안전한 메서드로 정의된 것은?",
+          "choices": [
+            "GET",
+            "POST",
+            "PATCH",
+            "DELETE"
+          ],
+          "explanation": "HTTP에서 GET은 리소스 표현을 조회하는 안전한 메서드다. 서버 구현도 조회 요청에서 의도하지 않은 상태 변경이 일어나지 않게 해야 한다.",
+          "source": "https://www.rfc-editor.org/rfc/rfc9110.html#name-get"
+        },
+        {
+          "prompt": "DNS가 수행하는 대표적인 역할은?",
+          "choices": [
+            "도메인 이름에 대한 IP 주소 등의 레코드를 조회한다",
+            "모든 파일을 암호화한다",
+            "CPU 명령어를 실행한다",
+            "메모리를 디스크로만 복사한다"
+          ],
+          "explanation": "DNS는 이름과 관련 레코드를 조회하는 분산 시스템이다. 웹 통신의 암호화나 프로세서 실행 기능 자체를 제공하는 것은 아니다.",
+          "source": "https://www.rfc-editor.org/rfc/rfc1034"
+        },
+        {
+          "prompt": "네트워크에서 TCP의 대표적인 특성은?",
+          "choices": [
+            "순서가 있는 신뢰성 있는 바이트 스트림을 제공한다",
+            "손실 검출이나 재전송이 전혀 없다",
+            "항상 데이터를 암호화한다",
+            "도메인 이름만 저장한다"
+          ],
+          "explanation": "TCP는 연결을 통해 순서와 재전송 등을 관리한다. 기밀성을 위한 암호화는 TLS 같은 별도 계층이 담당할 수 있다.",
+          "source": "https://www.rfc-editor.org/rfc/rfc9293"
+        },
+        {
+          "prompt": "비밀번호를 저장할 때 일반적으로 적절한 방법은?",
+          "choices": [
+            "사용자별 salt와 비밀번호 전용 단방향 해시를 사용한다",
+            "복호화 가능한 평문 그대로 저장한다",
+            "로그에 모든 비밀번호를 기록한다",
+            "모든 사용자의 비밀번호를 같은 고정값으로 바꾼다"
+          ],
+          "explanation": "비밀번호 검증에는 salt를 포함한 적절한 비용의 전용 해시 방식을 사용한다. 단순 암호화나 평문 저장은 유출 시 위험을 키운다.",
+          "source": "https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html"
+        },
+        {
+          "prompt": "SQL 문자열에 사용자 입력을 직접 이어 붙여 로그인 쿼리를 만든다. 우선 적용할 방어는?",
+          "choices": [
+            "매개변수화된 쿼리로 데이터와 SQL 구조를 분리한다",
+            "따옴표를 더 많이 붙이는 것만 믿는다",
+            "입력값을 오류 로그에 전부 공개한다",
+            "클라이언트 검증만 두고 서버 검증을 제거한다"
+          ],
+          "explanation": "매개변수화는 입력을 SQL 명령 구조로 해석하지 않도록 분리한다. 권한 최소화와 적절한 서버 검증도 함께 적용한다.",
+          "source": "https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html"
+        },
+        {
+          "prompt": "운영체제가 여러 프로세스 사이에서 CPU 실행 대상을 바꾸며 상태를 저장·복원하는 작업은?",
+          "choices": [
+            "문맥 교환",
+            "정규화",
+            "체크섬 계산만",
+            "소스 코드 컴파일"
+          ],
+          "explanation": "문맥 교환은 실행 중인 작업의 상태를 저장하고 다른 작업의 상태를 복원한다. 전환에도 비용이 들므로 횟수가 성능에 영향을 줄 수 있다.",
+          "source": "https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-mechanisms.pdf"
+        },
+        {
+          "prompt": "가상 메모리의 페이지가 현재 물리 메모리에 없어 접근 시 운영체제 처리가 필요한 사건은?",
+          "choices": [
+            "페이지 폴트",
+            "DNS 캐시 적중",
+            "정상적인 함수 인라인만",
+            "정렬 완료"
+          ],
+          "explanation": "페이지 폴트가 발생하면 운영체제가 매핑 상태와 접근 유효성을 확인한다. 유효한 비상주 페이지라면 필요에 따라 가져오지만 잘못된 접근은 오류로 처리된다.",
+          "source": "https://pages.cs.wisc.edu/~remzi/OSTEP/vm-beyondphys.pdf"
+        },
+        {
+          "prompt": "동시에 사용할 수 없는 공유 자원에 여러 스레드가 접근할 때 임계 구역을 보호하는 기본 수단은?",
+          "choices": [
+            "뮤텍스 등 적절한 동기화 수단",
+            "스레드 이름을 같게 만들기",
+            "실행 시간을 추측해 잠깐 기다리기만 하기",
+            "모든 오류 메시지를 숨기기"
+          ],
+          "explanation": "뮤텍스는 한 번에 하나의 실행 흐름이 보호 구역에 들어가도록 제어한다. 단순 시간 지연은 동시성 안전을 보장하지 않는다.",
+          "source": "https://docs.python.org/3/library/threading.html#lock-objects"
+        },
+        {
+          "prompt": "서버가 사용자 입력 HTML을 검증 없이 페이지에 삽입한다. 주로 우려되는 취약점은?",
+          "choices": [
+            "크로스 사이트 스크립팅(XSS)",
+            "디스크 조각 모음",
+            "CPU 캐시 미스",
+            "라우팅 최단경로 오류"
+          ],
+          "explanation": "신뢰하지 않는 HTML이나 스크립트가 실행되면 사용자 브라우저에서 공격이 일어날 수 있다. 출력 문맥에 맞는 인코딩과 필요한 경우 안전한 HTML 정화를 적용한다.",
+          "source": "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        }
+      ]
+    },
+    {
+      "topic": "popular-ko-spreadsheet-20261028",
+      "examIds": [
+        "11"
+      ],
+      "source": "https://support.microsoft.com/ko-kr/excel/excel-functions-by-category",
+      "questions": [
+        {
+          "prompt": "Excel에서 A1=10, A2=20, A3이 빈 셀일 때 =AVERAGE(A1:A3)의 결과는?",
+          "choices": [
+            "15",
+            "10",
+            "30",
+            "0"
+          ],
+          "explanation": "AVERAGE는 참조 범위의 빈 셀을 평균 계산에서 제외한다. 따라서 (10+20)÷2=15이며 3으로 나누지 않는다.",
+          "source": "https://support.microsoft.com/ko-kr/excel/functions/average-function"
+        },
+        {
+          "prompt": "Excel에서 =ROUND(12.345,2)의 결과는?",
+          "choices": [
+            "12.35",
+            "12.34",
+            "12.30",
+            "13"
+          ],
+          "explanation": "ROUND의 두 번째 인수가 2이면 소수 둘째 자리까지 반올림한다. 다음 자리인 셋째 자리가 5이므로 12.35가 된다.",
+          "source": "https://support.microsoft.com/ko-kr/excel/functions/round-function"
+        },
+        {
+          "prompt": "Excel에서 =IF(75>=60,\"합격\",\"불합격\")의 반환값은?",
+          "choices": [
+            "합격",
+            "불합격",
+            "75",
+            "60"
+          ],
+          "explanation": "IF는 조건이 참이면 두 번째 인수를 반환한다. 75>=60이 참이므로 문자열 합격이 표시된다.",
+          "source": "https://support.microsoft.com/ko-kr/excel/functions/if-function"
+        },
+        {
+          "prompt": "Excel에서 A1:A4가 5, 10, 15, 20일 때 =COUNTIF(A1:A4,\">=15\")의 결과는?",
+          "choices": [
+            "2",
+            "1",
+            "3",
+            "4"
+          ],
+          "explanation": "COUNTIF는 조건에 맞는 셀의 개수를 센다. 15 이상인 값은 15와 20 두 개다.",
+          "source": "https://support.microsoft.com/ko-kr/excel/excel-functions-by-category"
+        },
+        {
+          "prompt": "Excel에서 A열은 부서, B열은 금액이다. A2:A10이 \"영업\"인 행의 B2:B10만 합산하는 수식은?",
+          "choices": [
+            "=SUMIF(A2:A10,\"영업\",B2:B10)",
+            "=COUNTIF(A2:A10,\"영업\")",
+            "=SUM(B2:B10)",
+            "=MAX(A2:A10)"
+          ],
+          "explanation": "SUMIF는 조건 범위와 조건을 확인한 뒤 대응하는 합계 범위의 값을 더한다. COUNTIF는 금액 합계가 아니라 일치 셀 수를 반환한다.",
+          "source": "https://support.microsoft.com/ko-kr/excel/functions/sumif-function"
+        },
+        {
+          "prompt": "Excel에서 A1=3, A2=7, A3=5일 때 =MAX(A1:A3)-MIN(A1:A3)의 결과는?",
+          "choices": [
+            "4",
+            "2",
+            "5",
+            "7"
+          ],
+          "explanation": "가장 큰 값은 7, 가장 작은 값은 3이므로 차이는 4이다. MAX와 MIN을 함께 사용하면 값의 범위를 구할 수 있다.",
+          "source": "https://support.microsoft.com/ko-kr/excel/excel-functions-by-category"
+        },
+        {
+          "prompt": "Excel에서 B2 셀의 수식 =$A2*B$1을 C3으로 복사하면 참조는 어떻게 되는가?",
+          "choices": [
+            "=$A3*C$1",
+            "=$B3*C$2",
+            "=$A2*B$1",
+            "=A$3*$C1"
+          ],
+          "explanation": "한 열 오른쪽과 한 행 아래로 이동한다. $A는 열이 고정되고 행 2는 3이 되며, B는 C로 바뀌고 $1은 고정된다.",
+          "source": "https://support.microsoft.com/ko-kr/excel/get-started/overview-of-formulas-in-excel"
+        },
+        {
+          "prompt": "Excel에서 숫자 0.25에 백분율 표시 형식을 적용하면 일반적으로 어떻게 표시되는가?",
+          "choices": [
+            "25%",
+            "0.25%",
+            "250%",
+            "숫자값이 반드시 25로 변경된다"
+          ],
+          "explanation": "백분율 서식은 저장된 수에 100을 곱한 비율 형태로 표시한다. 표시 방식이 바뀌어도 저장된 수치 0.25 자체는 유지된다.",
+          "source": "https://support.microsoft.com/ko-kr/excel/format-numbers-as-percentages-in-excel"
+        },
+        {
+          "prompt": "Excel에서 =LEFT(\"QUIZEEY\",4)의 결과는?",
+          "choices": [
+            "QUIZ",
+            "ZEEY",
+            "QUIZE",
+            "4"
+          ],
+          "explanation": "LEFT는 텍스트 왼쪽에서 지정한 글자 수만큼 반환한다. QUIZEEY의 처음 네 글자는 QUIZ다.",
+          "source": "https://support.microsoft.com/ko-kr/excel/functions/left-function"
+        },
+        {
+          "prompt": "Excel에서 =LEN(\"ABC12\")의 결과는?",
+          "choices": [
+            "5",
+            "3",
+            "2",
+            "12"
+          ],
+          "explanation": "LEN은 텍스트의 문자 수를 센다. ABC 세 글자와 숫자 문자 1, 2 두 글자를 합쳐 5다.",
+          "source": "https://support.microsoft.com/ko-kr/excel/functions/len-function"
+        },
+        {
+          "prompt": "Excel에서 수식의 나눗수 셀이 0일 때 발생할 수 있는 오류는?",
+          "choices": [
+            "#DIV/0!",
+            "#NAME?",
+            "#N/A만 발생",
+            "오류 없이 항상 1"
+          ],
+          "explanation": "0으로 나누는 수식은 #DIV/0! 오류를 낼 수 있다. 입력값 검증이나 적절한 오류 처리로 원인을 확인해야 한다.",
+          "source": "https://support.microsoft.com/ko-kr/excel/how-to-correct-a-div-0-error"
+        },
+        {
+          "prompt": "Excel에서 행 제목을 스크롤 중에도 계속 보이게 하는 기능은?",
+          "choices": [
+            "틀 고정",
+            "찾기 및 바꾸기",
+            "맞춤법 검사",
+            "셀 내용 지우기"
+          ],
+          "explanation": "틀 고정은 선택한 행 또는 열을 화면에 유지한다. 정렬이나 필터와 달리 데이터 값 자체를 바꾸는 기능은 아니다.",
+          "source": "https://support.microsoft.com/ko-kr/excel/get-started/freeze-panes-to-lock-rows-and-columns"
+        },
+        {
+          "prompt": "Excel에서 여러 열을 포함한 표를 부서명 순으로 정렬할 때 적절한 방법은?",
+          "choices": [
+            "관련 열이 함께 이동하도록 전체 데이터 범위를 정렬한다",
+            "부서명 열의 셀 값만 따로 정렬한다",
+            "숫자 열을 무조건 삭제한다",
+            "머리글을 임의의 데이터 행으로 바꾼다"
+          ],
+          "explanation": "한 열만 따로 정렬하면 같은 행의 부서와 금액 등이 뒤섞일 수 있다. 표 전체를 선택하고 머리글 유무를 확인해 행의 대응을 유지한다.",
+          "source": "https://support.microsoft.com/ko-kr/excel/sort-data-in-a-range-or-table-in-excel"
+        },
+        {
+          "prompt": "Excel에서 부서별 금액 합계를 대화형으로 요약하고 열·행 배치를 바꾸어 분석하는 기능은?",
+          "choices": [
+            "피벗 테이블",
+            "워드아트",
+            "인쇄 영역만 지정",
+            "셀 메모"
+          ],
+          "explanation": "피벗 테이블은 행과 열 기준으로 데이터를 집계해 요약한다. 금액 필드가 합계인지 개수인지 등 집계 방식을 확인하는 것이 좋다.",
+          "source": "https://support.microsoft.com/ko-kr/excel/get-started/create-a-pivottable-to-analyze-worksheet-data"
+        },
+        {
+          "prompt": "Excel에서 판매량의 월별 변화 추세를 비교적 쉽게 보여 주는 차트는?",
+          "choices": [
+            "꺾은선형 차트",
+            "원형 차트의 한 조각만",
+            "조직도만",
+            "셀 메모만 표시"
+          ],
+          "explanation": "꺾은선형 차트는 시간 순서에 따른 변화를 표현하는 데 적합하다. 원형 차트는 보통 특정 시점의 전체 대비 구성 비율을 나타낼 때 사용한다.",
+          "source": "https://support.microsoft.com/ko-kr/excel/available-chart-types-in-office"
+        },
+        {
+          "prompt": "Excel에서 두 수치 변수 사이의 관계를 점의 위치로 표현하려 할 때 적합한 차트는?",
+          "choices": [
+            "분산형 차트",
+            "원형 차트",
+            "도넛형 차트",
+            "누적 원형 차트"
+          ],
+          "explanation": "분산형 차트는 두 축 모두 수치값을 사용해 변수 간 관계를 살피기 좋다. 차트상 관계만으로 인과관계가 증명되는 것은 아니다.",
+          "source": "https://support.microsoft.com/ko-kr/excel/available-chart-types-in-office"
+        },
+        {
+          "prompt": "Excel에서 =AND(8>5,3>10)의 결과는?",
+          "choices": [
+            "FALSE",
+            "TRUE",
+            "8",
+            "3"
+          ],
+          "explanation": "AND는 모든 조건이 참일 때만 TRUE를 반환한다. 첫 번째 조건은 참이지만 3>10은 거짓이므로 FALSE다.",
+          "source": "https://support.microsoft.com/ko-kr/excel/functions/and-function"
+        },
+        {
+          "prompt": "Excel에서 =OR(8>5,3>10)의 결과는?",
+          "choices": [
+            "TRUE",
+            "FALSE",
+            "10",
+            "0"
+          ],
+          "explanation": "OR는 조건 중 하나 이상이 참이면 TRUE를 반환한다. 8>5가 참이므로 두 번째 조건이 거짓이어도 결과는 TRUE다.",
+          "source": "https://support.microsoft.com/ko-kr/excel/functions/or-function"
+        },
+        {
+          "prompt": "Excel에서 참조 범위 A1:A3에 숫자 10, 텍스트 \"메모\", 숫자 20이 있다. =COUNT(A1:A3)의 결과는?",
+          "choices": [
+            "2",
+            "3",
+            "1",
+            "30"
+          ],
+          "explanation": "COUNT는 참조 범위에서 숫자가 들어 있는 셀 수를 센다. 텍스트 메모는 제외되므로 숫자 셀 두 개만 계산한다.",
+          "source": "https://support.microsoft.com/ko-kr/excel/functions/count-function"
+        },
+        {
+          "prompt": "Excel에서 셀에 입력할 수 있는 값을 \"완료, 진행, 대기\" 중 하나로 제한하는 데 적절한 기능은?",
+          "choices": [
+            "데이터 유효성 검사의 목록",
+            "모든 행 숨기기",
+            "눈금선 숨기기",
+            "글꼴 크기 확대"
+          ],
+          "explanation": "목록 형식의 데이터 유효성 검사는 허용값을 지정하고 선택 목록을 제공한다. 표기 흔들림과 잘못된 입력을 줄이는 데 도움이 된다.",
+          "source": "https://support.microsoft.com/ko-kr/excel/get-started/apply-data-validation-to-cells"
+        }
+      ]
+    },
+    {
+      "topic": "foodsafe-popular-oct28",
+      "examIds": [
+        "240"
+      ],
+      "source": "https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/11_210_99",
+      "questions": [
+        {
+          "prompt": "A customer returns an uncovered basket of untouched dinner rolls. What should a BC restaurant do with those rolls?",
+          "choices": [
+            "Keep them out of food served to another customer",
+            "Combine them with a fresh bread basket",
+            "Toast them and automatically serve them again",
+            "Let the next customer decide whether to eat them"
+          ],
+          "explanation": "Food exposed at a customer's table may be contaminated even when it appears untouched. It must not be served to another customer."
+        },
+        {
+          "prompt": "A clean single-use plastic fork was used once and returned to the kitchen. What is the appropriate action?",
+          "choices": [
+            "Discard it rather than wash it for another customer",
+            "Sanitize it and return it to the service drawer",
+            "Save it for customers ordering cold food",
+            "Rinse it only if it looks dirty"
+          ],
+          "explanation": "Utensils designed for single service are not intended to be cleaned and reused. Use a fresh utensil for the next customer."
+        },
+        {
+          "prompt": "An operator's food-safety plan identifies cooling as a critical control point. Which instruction is a critical limit rather than a monitoring record?",
+          "choices": [
+            "The maximum time and temperature allowed during cooling",
+            "The employee's initials beside yesterday's measurement",
+            "The model number of the refrigerator",
+            "The supplier's delivery telephone number"
+          ],
+          "explanation": "A critical limit defines the acceptable boundary for controlling a hazard. Monitoring records show whether the process stayed within that boundary."
+        },
+        {
+          "prompt": "A cooling log shows that a required limit was missed. Which action best follows an effective food-safety plan?",
+          "choices": [
+            "Notify the supervisor and follow the documented corrective action",
+            "Erase the measurement and enter the required temperature",
+            "Wait until the next inspection to mention it",
+            "Assume a later cold reading proves the earlier process was safe"
+          ],
+          "explanation": "A missed limit requires a response under the plan. Changing a record or relying only on a later reading does not address the failure."
+        },
+        {
+          "prompt": "Which item makes a written sanitation procedure usable during a shift?",
+          "choices": [
+            "The cleaning agent, its required concentration and how it is used",
+            "Only a photograph of the dining room",
+            "Only the supplier's advertising slogan",
+            "A statement that staff may choose any chemical strength"
+          ],
+          "explanation": "Staff need specific instructions for the cleaning and sanitizing agents used. Guessing the concentration can leave surfaces unsafe."
+        },
+        {
+          "prompt": "A worker finds that a cutting board has deep grooves that cannot be cleaned effectively. What should happen?",
+          "choices": [
+            "Remove it from use and arrange replacement or suitable repair",
+            "Cover the grooves with flour before use",
+            "Use it only for ready-to-eat food",
+            "Increase cutting speed so food spends less time on it"
+          ],
+          "explanation": "Food-contact equipment must remain cleanable and in good condition. Deep damage can retain food and microorganisms despite routine washing."
+        },
+        {
+          "prompt": "Clean plates are stored beneath a leaking drainpipe. What is the best action?",
+          "choices": [
+            "Move them to protected storage and address possible contamination",
+            "Leave them because the plates are already clean",
+            "Wipe only the top plate and keep the stack there",
+            "Put a serving napkin over the leak"
+          ],
+          "explanation": "Storage must protect clean equipment from contamination. A leak can contaminate plates after they have been cleaned and sanitized."
+        },
+        {
+          "prompt": "A container previously used for a toxic cleaning chemical is empty. Should it be used to hold drinking water?",
+          "choices": [
+            "No, use a container suitable for food or drinking water",
+            "Yes, if the water looks clear",
+            "Yes, if it is used only during busy periods",
+            "Yes, if the chemical label is peeled off"
+          ],
+          "explanation": "Chemical containers can retain harmful residues. Removing the label or briefly rinsing the container does not make it suitable for food use."
+        },
+        {
+          "prompt": "A refrigerator is tightly packed and its air vents are blocked by cartons. Which change best supports safe refrigeration?",
+          "choices": [
+            "Rearrange stock to allow cold air to circulate",
+            "Line every shelf with solid cardboard",
+            "Keep the door open during service",
+            "Turn off the fan to reduce drying"
+          ],
+          "explanation": "Cold air must circulate around food for effective cooling. Blocking vents or overcrowding can create warmer areas.",
+          "source": "https://www.bccdc.ca/resource-gallery/Documents/Guidelines%20and%20Forms/Guidelines%20and%20Manuals/EH/FPS/Food/FoodProtectionVitaltoBusiness_Mar2010.pdf"
+        },
+        {
+          "prompt": "A chilled display has a working thermometer, but food is piled above its designed fill level. What should the worker do?",
+          "choices": [
+            "Reduce the load to the equipment's intended capacity and check food temperatures",
+            "Assume the displayed air reading guarantees every portion is safe",
+            "Cover the thermometer so customers cannot see it",
+            "Add warm food on top to balance the temperature"
+          ],
+          "explanation": "Equipment must be used as intended. An acceptable air reading does not establish that overfilled food is being held safely.",
+          "source": "https://www.bccdc.ca/resource-gallery/Documents/Guidelines%20and%20Forms/Guidelines%20and%20Manuals/EH/FPS/Food/FoodProtectionVitaltoBusiness_Mar2010.pdf"
+        },
+        {
+          "prompt": "At a buffet, which arrangement best protects exposed ready-to-eat food from customers' coughs and sneezes?",
+          "choices": [
+            "Suitable protective guards or covers and appropriate serving utensils",
+            "Removing all covers so food can be seen more easily",
+            "Placing personal bags beside the serving pans",
+            "Asking customers to smell each dish before choosing"
+          ],
+          "explanation": "Protective barriers and appropriate utensils reduce opportunities for contamination during self-service.",
+          "source": "https://www.bccdc.ca/resource-gallery/Documents/Guidelines%20and%20Forms/Guidelines%20and%20Manuals/EH/FPS/Food/FoodProtectionVitaltoBusiness_Mar2010.pdf"
+        },
+        {
+          "prompt": "An unopened bag of rice is being moved into dry storage. Which location is most appropriate?",
+          "choices": [
+            "A clean dry shelf protected from pests and moisture",
+            "The damp floor beside a mop sink",
+            "Directly beneath an open chemical dispenser",
+            "An outdoor area where rain can reach it"
+          ],
+          "explanation": "Dry ingredients need protection from moisture, pests and chemicals. Appropriate shelving helps preserve that protection.",
+          "source": "https://www.bccdc.ca/resource-gallery/Documents/Guidelines%20and%20Forms/Guidelines%20and%20Manuals/EH/FPS/Food/FoodProtectionVitaltoBusiness_Mar2010.pdf"
+        },
+        {
+          "prompt": "A kitchen receives a food recall identifying a particular lot of sauce. What is the best immediate response?",
+          "choices": [
+            "Identify the affected lot, separate it from usable stock and follow recall instructions",
+            "Use the affected sauce first to clear storage space",
+            "Remove the lot label and transfer it to a fresh bottle",
+            "Serve it only after asking whether customers have allergies"
+          ],
+          "explanation": "Lot identification allows affected products to be removed accurately. Keep recalled food from service and follow the recall's directions.",
+          "source": "https://recalls-rappels.canada.ca/en"
+        },
+        {
+          "prompt": "A cook plans to peel a melon before cutting it. What should happen before peeling?",
+          "choices": [
+            "Wash the outside under running water and use clean equipment",
+            "Apply dishwashing detergent to the edible flesh",
+            "Assume the peel prevents all transfer during cutting",
+            "Soak the whole melon in a cleaning-chemical bucket"
+          ],
+          "explanation": "A knife can carry contamination from the rind to the inside. Cleaning the outside before cutting reduces that transfer.",
+          "source": "https://www.canada.ca/en/health-canada/services/food-safety-fruits-vegetables.html"
+        },
+        {
+          "prompt": "A worker removes bruised outer leaves from a head of lettuce. Does this step replace washing the remaining leaves?",
+          "choices": [
+            "No, the remaining leaves still need appropriate washing before preparation",
+            "Yes, removing one layer guarantees the rest is sterile",
+            "Yes, if the lettuce will be served with dressing",
+            "Yes, if the lettuce has no visible soil"
+          ],
+          "explanation": "Removing damaged leaves does not remove all microorganisms. Follow safe washing and handling practices for the remaining produce.",
+          "source": "https://www.canada.ca/en/health-canada/services/food-safety-fruits-vegetables.html"
+        },
+        {
+          "prompt": "Two trays of cooked food are being prepared for transport. What is the best way to prevent contamination during the trip?",
+          "choices": [
+            "Use clean suitable containers with covers that protect the food",
+            "Use uncovered trays on the vehicle floor",
+            "Reuse dirty delivery cartons as direct food containers",
+            "Place cleaning supplies on top of the food"
+          ],
+          "explanation": "Protection must continue during transport. Clean food-grade containers and suitable covers help keep the food from becoming contaminated."
+        },
+        {
+          "prompt": "A kitchen's only handwashing sink is filled with utensils waiting to be washed. What should the worker do?",
+          "choices": [
+            "Keep the sink available for handwashing and move utensils to the proper washing area",
+            "Wash hands in the standing utensil water",
+            "Use the same gloves for the rest of the shift",
+            "Skip handwashing until the sink becomes empty"
+          ],
+          "explanation": "Staff must be able to wash hands when needed. Using the handwashing sink for storage interferes with that essential control."
+        },
+        {
+          "prompt": "A food handler has been told that frozen food is automatically free of harmful microorganisms. Which correction is best?",
+          "choices": [
+            "Freezing limits growth but does not reliably eliminate all harmful microorganisms",
+            "Freezing replaces cooking whenever food feels hard",
+            "Frozen food can never contaminate another food",
+            "Thawing makes every previously frozen food safe to eat raw"
+          ],
+          "explanation": "Many microorganisms survive freezing. Safe thawing, handling and any required cooking remain necessary.",
+          "source": "https://www.bccdc.ca/health-info/prevention-public-health/food-safety"
+        },
+        {
+          "prompt": "A refrigerated food's safe storage history cannot be established after an equipment failure. Which information would be most useful to the supervisor?",
+          "choices": [
+            "Recorded food temperatures and the length of time temperature control was lost",
+            "Only the original purchase price",
+            "Only the colour of the storage container",
+            "The number of customers expected tomorrow"
+          ],
+          "explanation": "A safety decision needs evidence about time and temperature. Appearance, price and expected sales cannot establish that a food remained safe.",
+          "source": "https://www.bccdc.ca/health-info/prevention-public-health/food-safety"
+        },
+        {
+          "prompt": "A worker reports a new leaking cooler door seal before any unsafe food temperature is found. Why is prompt repair important?",
+          "choices": [
+            "It helps prevent loss of temperature control before food becomes unsafe",
+            "It removes the need for all future temperature checks",
+            "It makes every food safe for unlimited storage",
+            "It allows raw food to be mixed with ready-to-eat food"
+          ],
+          "explanation": "Maintaining refrigeration helps prevent a hazard from developing. Repair does not replace routine temperature monitoring.",
+          "source": "https://www.bccdc.ca/resource-gallery/Documents/Guidelines%20and%20Forms/Guidelines%20and%20Manuals/EH/FPS/Food/FoodProtectionVitaltoBusiness_Mar2010.pdf"
+        }
+      ]
+    },
+    {
+      "topic": "aws-cloud-practitioner-popular-oct28",
+      "examIds": [
+        "239"
+      ],
+      "source": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/",
+      "questions": [
+        {
+          "prompt": "A team wants the same group of AWS resources created repeatedly from a version-controlled template. Which service best fits?",
+          "choices": [
+            "AWS CloudFormation",
+            "Amazon CloudFront",
+            "Amazon GuardDuty",
+            "AWS Artifact"
+          ],
+          "explanation": "CloudFormation uses templates to provision related resources consistently. This is an infrastructure-as-code use case.",
+          "source": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/management-governance.html"
+        },
+        {
+          "prompt": "A company needs a logically isolated network in AWS with its own subnets and routing configuration. Which service provides it?",
+          "choices": [
+            "Amazon VPC",
+            "Amazon SNS",
+            "Amazon Athena",
+            "Amazon Rekognition"
+          ],
+          "explanation": "Amazon VPC provides a virtual network in which the customer controls networking configuration such as subnets and routes.",
+          "source": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/networking-services.html"
+        },
+        {
+          "prompt": "An enterprise wants a dedicated private network connection from its data centre to AWS. Which connectivity option best matches?",
+          "choices": [
+            "AWS Direct Connect",
+            "Amazon Route 53",
+            "AWS CloudTrail",
+            "Amazon S3"
+          ],
+          "explanation": "Direct Connect provides dedicated connectivity between a customer's location and AWS. DNS and audit services do not supply that connection.",
+          "source": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/networking-services.html"
+        },
+        {
+          "prompt": "An order event must be published once and delivered to several subscribed applications. Which service is designed for this publish-subscribe pattern?",
+          "choices": [
+            "Amazon SNS",
+            "Amazon EBS",
+            "Amazon RDS",
+            "AWS KMS"
+          ],
+          "explanation": "SNS topics deliver published messages to subscribed endpoints. This supports fanout to multiple consumers.",
+          "source": "https://docs.aws.amazon.com/sns/latest/dg/welcome.html"
+        },
+        {
+          "prompt": "Before launching a workload, a team wants to estimate costs using planned resource sizes and usage. Which tool should it choose?",
+          "choices": [
+            "AWS Pricing Calculator",
+            "AWS CloudTrail",
+            "Amazon Inspector",
+            "AWS IAM Identity Center"
+          ],
+          "explanation": "Pricing Calculator models expected charges from proposed configurations. An estimate supports planning and is not a guarantee of the final bill.",
+          "source": "https://docs.aws.amazon.com/pricing-calculator/latest/userguide/what-is-pricing-calculator.html"
+        },
+        {
+          "prompt": "A company has several AWS accounts and wants consolidated billing through a centrally managed organization. Which service best fits?",
+          "choices": [
+            "AWS Organizations",
+            "Amazon CloudWatch",
+            "Amazon EFS",
+            "Amazon Transcribe"
+          ],
+          "explanation": "Organizations helps centrally manage AWS accounts and supports consolidated billing. It preserves separate accounts while simplifying administration.",
+          "source": "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html"
+        },
+        {
+          "prompt": "A stable compute workload can commit to a consistent hourly spend for one or three years. Which pricing model can reduce eligible usage costs?",
+          "choices": [
+            "Savings Plans",
+            "Spot capacity with no commitment",
+            "An S3 bucket policy",
+            "An IAM password policy"
+          ],
+          "explanation": "Savings Plans exchange a usage-spend commitment for lower eligible rates. They differ from interruptible Spot capacity.",
+          "source": "https://docs.aws.amazon.com/savingsplans/latest/userguide/what-is-savings-plans.html"
+        },
+        {
+          "prompt": "An operations team wants to automate and centrally manage backup policies across supported AWS services. Which service is designed for this?",
+          "choices": [
+            "AWS Backup",
+            "Amazon Route 53",
+            "Amazon Rekognition",
+            "AWS WAF"
+          ],
+          "explanation": "AWS Backup centralizes backup management for supported resources. A backup plan defines the required protection schedule.",
+          "source": "https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html"
+        },
+        {
+          "prompt": "A migration project needs to move database data to AWS while minimizing interruption to the source application. Which service should the team evaluate?",
+          "choices": [
+            "AWS Database Migration Service",
+            "Amazon CloudFront",
+            "AWS Shield",
+            "Amazon SNS"
+          ],
+          "explanation": "AWS DMS supports database migration and replication. Keeping the source usable during migration can reduce application downtime.",
+          "source": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/migration-services.html"
+        },
+        {
+          "prompt": "Analysts want to run SQL queries against data stored in Amazon S3 without operating a query server. Which service best fits?",
+          "choices": [
+            "Amazon Athena",
+            "Amazon EBS",
+            "Amazon Route 53",
+            "AWS Secrets Manager"
+          ],
+          "explanation": "Athena provides serverless SQL querying for data in S3. It avoids running and maintaining a dedicated query cluster.",
+          "source": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/analytics.html"
+        },
+        {
+          "prompt": "A media application needs managed image analysis to identify objects in uploaded photographs. Which service is most appropriate?",
+          "choices": [
+            "Amazon Rekognition",
+            "Amazon Transcribe",
+            "Amazon Route 53",
+            "AWS CloudFormation"
+          ],
+          "explanation": "Rekognition provides image and video analysis. Transcribe handles speech rather than identifying objects in photographs.",
+          "source": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/machine-learning.html"
+        },
+        {
+          "prompt": "A contact centre wants to turn recorded customer calls into written transcripts. Which service is the best match?",
+          "choices": [
+            "Amazon Transcribe",
+            "Amazon Rekognition",
+            "Amazon VPC",
+            "AWS Config"
+          ],
+          "explanation": "Transcribe converts speech into text. Image recognition and network configuration services do not perform this task.",
+          "source": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/machine-learning.html"
+        },
+        {
+          "prompt": "A website needs rules that inspect HTTP requests and block common application-layer attacks. Which service best fits?",
+          "choices": [
+            "AWS WAF",
+            "Amazon EFS",
+            "AWS DMS",
+            "Amazon Athena"
+          ],
+          "explanation": "WAF filters web requests using configured rules. It addresses application-layer request controls rather than storage or analytics.",
+          "source": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/security-services.html"
+        },
+        {
+          "prompt": "A company is evaluating an AWS service focused on protection against distributed denial-of-service attacks. Which service matches this purpose?",
+          "choices": [
+            "AWS Shield",
+            "Amazon Transcribe",
+            "AWS Artifact",
+            "Amazon EBS"
+          ],
+          "explanation": "Shield provides DDoS protection. Compliance reports and storage volumes serve different purposes.",
+          "source": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/security-services.html"
+        },
+        {
+          "prompt": "Administrators want a central way to manage operating-system tasks, including patching supported managed nodes. Which service should they evaluate?",
+          "choices": [
+            "AWS Systems Manager",
+            "Amazon CloudFront",
+            "Amazon SNS",
+            "Amazon Athena"
+          ],
+          "explanation": "Systems Manager supports operational management of managed nodes, including patch management. It is suited to fleet administration.",
+          "source": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/management-governance.html"
+        },
+        {
+          "prompt": "A security team needs automated vulnerability findings for supported EC2 workloads and container images. Which service best fits?",
+          "choices": [
+            "Amazon Inspector",
+            "AWS Pricing Calculator",
+            "Amazon Route 53",
+            "Amazon Polly"
+          ],
+          "explanation": "Inspector assesses supported workloads for vulnerabilities and produces findings. Pricing and DNS tools do not perform vulnerability assessment.",
+          "source": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/security-services.html"
+        },
+        {
+          "prompt": "A company retains records for years, rarely retrieves them and accepts delayed access. Which S3 storage option should it evaluate?",
+          "choices": [
+            "S3 Glacier Deep Archive",
+            "S3 Standard for frequent immediate access",
+            "An EC2 instance's temporary memory",
+            "A Route 53 hosted zone"
+          ],
+          "explanation": "Glacier Deep Archive is intended for long-term, rarely accessed objects. Retrieval delay and minimum-duration charges need consideration.",
+          "source": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html"
+        },
+        {
+          "prompt": "An operations team wants information about AWS events that may affect resources in its own account. Which service should it use?",
+          "choices": [
+            "AWS Health",
+            "Amazon Athena",
+            "Amazon Rekognition",
+            "AWS CloudFormation"
+          ],
+          "explanation": "AWS Health provides visibility into relevant service events and affected resources. This complements the team's own application monitoring.",
+          "source": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/management-governance.html"
+        },
+        {
+          "prompt": "A team regularly removes unused resources and chooses appropriately sized services to reduce unnecessary spending. Which Well-Architected pillar is most directly involved?",
+          "choices": [
+            "Cost optimization",
+            "Reliability",
+            "Security",
+            "Operational excellence"
+          ],
+          "explanation": "Cost optimization focuses on delivering business value while avoiding unnecessary expense. Resource sizing and eliminating waste directly support it.",
+          "source": "https://docs.aws.amazon.com/wellarchitected/latest/framework/cost-optimization.html"
+        },
+        {
+          "prompt": "An application needs to retrieve a database password from a managed secret store and support password rotation. Which service best fits?",
+          "choices": [
+            "AWS Secrets Manager",
+            "Amazon Route 53",
+            "Amazon EFS",
+            "AWS Artifact"
+          ],
+          "explanation": "Secrets Manager stores and manages secrets and supports rotation. This avoids embedding long-lived passwords directly in application code.",
+          "source": "https://docs.aws.amazon.com/whitepapers/latest/aws-overview/security-services.html"
+        }
+      ]
+    },
+    {
+      "topic": "servsafe-food-handler-popular-oct28",
+      "examIds": [
+        "234"
+      ],
+      "source": "https://www.fda.gov/media/194741/download",
+      "questions": [
+        {
+          "prompt": "A cook tastes a sauce with a spoon and needs to taste it again. Which practice prevents contamination?",
+          "choices": [
+            "Use a new clean tasting utensil for the second taste",
+            "Dip the same spoon back into the sauce",
+            "Wipe the used spoon on an apron",
+            "Rinse the used spoon briefly in the sauce"
+          ],
+          "explanation": "A used tasting utensil can transfer microorganisms from the mouth to food. Use a clean utensil for each taste."
+        },
+        {
+          "prompt": "A server is setting a table with clean forks. How should the forks be handled?",
+          "choices": [
+            "Hold them by their handles",
+            "Grip the tines with bare fingers",
+            "Carry them in the pocket of a used apron",
+            "Rest the food-contact ends on a dirty tray"
+          ],
+          "explanation": "Holding handles protects the parts that will contact a customer's food and mouth."
+        },
+        {
+          "prompt": "A guest returns to a self-service buffet for more food. Which practice should staff encourage?",
+          "choices": [
+            "Use a clean plate for the next trip",
+            "Reuse the plate that still contains food scraps",
+            "Place a used fork in a communal serving pan",
+            "Mix leftovers from the plate into the buffet pan"
+          ],
+          "explanation": "A used plate can contaminate serving utensils and shared food. A clean plate reduces that risk."
+        },
+        {
+          "prompt": "A guest leaves half of a sandwich on a plate. May it be given to another guest?",
+          "choices": [
+            "No, it has already been served and exposed to the first guest",
+            "Yes, if the remaining half looks untouched",
+            "Yes, if the guest says it tastes good",
+            "Yes, if the next guest receives a discount"
+          ],
+          "explanation": "Returned food may have been contaminated. It must not be served to another customer."
+        },
+        {
+          "prompt": "A container of sugar has a scoop stored inside it. Which placement best protects the sugar?",
+          "choices": [
+            "Keep the handle above the sugar and out of contact with it",
+            "Bury the handle in the sugar",
+            "Use a drinking glass instead of a scoop",
+            "Leave the handle on the floor between uses"
+          ],
+          "explanation": "Hands touch the handle, so keeping it clear of the food helps prevent contamination."
+        },
+        {
+          "prompt": "A food handler washes hands correctly and then dries them on a soiled apron. What went wrong?",
+          "choices": [
+            "The dirty apron can contaminate the clean hands again",
+            "Handwashing becomes unnecessary after drying",
+            "Apron fabric automatically sanitizes the hands",
+            "Dry hands can no longer carry microorganisms"
+          ],
+          "explanation": "Drying is part of hygienic handwashing. Use a suitable clean drying method rather than contaminated clothing.",
+          "source": "https://www.cdc.gov/norovirus/communication-resources/facts-for-food-workers.html"
+        },
+        {
+          "prompt": "A food employee is ill with norovirus. Which statement about a small amount of contamination is correct?",
+          "choices": [
+            "Even a very small amount of virus can contaminate food and make people sick",
+            "Food is safe whenever contamination is too small to see",
+            "Only visibly dirty food can spread the virus",
+            "Refrigeration immediately removes every virus"
+          ],
+          "explanation": "Norovirus can spread from very small amounts of contamination. Visual inspection cannot establish that food is safe.",
+          "source": "https://www.cdc.gov/norovirus/communication-resources/facts-for-food-workers.html"
+        },
+        {
+          "prompt": "Someone vomits beside an exposed food preparation area. What should the food handler do first?",
+          "choices": [
+            "Notify the person in charge and keep people and food away while the cleanup procedure is followed",
+            "Continue preparation and spray a normal air freshener",
+            "Wipe the area with the same cloth used on dining tables",
+            "Move the visible material without addressing nearby surfaces"
+          ],
+          "explanation": "Vomiting can spread contamination to nearby surfaces and food. Follow the operation's specific cleanup and disinfection procedure.",
+          "source": "https://www.cdc.gov/norovirus/communication-resources/facts-for-food-workers.html"
+        },
+        {
+          "prompt": "A sanitizer has been sprayed on a cutting board that still has grease and food pieces on it. What must happen?",
+          "choices": [
+            "Clean and rinse the board before applying the sanitizer correctly",
+            "Assume the sanitizer removes every food particle",
+            "Add flour to absorb the grease and begin cutting",
+            "Use a dry towel without washing the board"
+          ],
+          "explanation": "Sanitizing follows cleaning and rinsing. Remaining soil can prevent the sanitizer from reaching the surface effectively.",
+          "source": "https://www.foodworkercard.wa.gov/en-us/manual"
+        },
+        {
+          "prompt": "A refrigerator contains ready-to-eat TCS food covered by a seven-day date-marking rule at 41 degrees F or below. It was prepared on Monday, counted as day one. What is day seven?",
+          "choices": [
+            "Sunday",
+            "The following Monday",
+            "Friday",
+            "The following Tuesday"
+          ],
+          "explanation": "Count the preparation day as the first day: Monday through Sunday is seven days. Follow any earlier product or local limit.",
+          "source": "https://www.foodworkercard.wa.gov/en-us/manual"
+        },
+        {
+          "prompt": "A food handler combines two refrigerated, date-marked batches of the same ready-to-eat TCS food. Which date governs the combined batch?",
+          "choices": [
+            "The earliest applicable discard date from either batch",
+            "The newest batch's date automatically",
+            "Seven days after mixing, regardless of either original date",
+            "No date because combining food resets its age"
+          ],
+          "explanation": "Combining food does not reset the older ingredient's storage time. Keep the earliest applicable discard date."
+        },
+        {
+          "prompt": "A prep station has an accessible handwashing sink. Where should a food handler wash hands?",
+          "choices": [
+            "At the designated handwashing sink",
+            "In a bowl used to rinse raw chicken",
+            "In the sanitizer compartment of a utensil sink",
+            "In a mop bucket containing warm water"
+          ],
+          "explanation": "A designated handwashing sink supports proper hand hygiene and keeps that activity separate from food and equipment washing."
+        },
+        {
+          "prompt": "Which condition of a delivery of raw shell eggs requires attention before acceptance?",
+          "choices": [
+            "Some shells are cracked and leaking",
+            "The outer case identifies the supplier",
+            "The case is carried on a clean trolley",
+            "The eggs arrive in protective packaging"
+          ],
+          "explanation": "Cracked and leaking shells compromise the product's protection. Reject affected eggs and notify the person responsible for receiving."
+        },
+        {
+          "prompt": "A worker sees a chemical spray bottle without a label. What should happen before anyone uses it?",
+          "choices": [
+            "Identify and label it correctly under the operation's chemical procedures",
+            "Assume it is water because the liquid is clear",
+            "Taste a drop to identify it",
+            "Spray it on a food-contact surface to test its smell"
+          ],
+          "explanation": "An unidentified chemical must not be guessed at. Correct identification and labeling help prevent misuse and contamination."
+        },
+        {
+          "prompt": "A sealed carton of food is included in a supplier's recall notice. It looks normal. What should a food handler do?",
+          "choices": [
+            "Separate the affected product, tell the manager and follow the recall directions",
+            "Serve it while waiting for a customer complaint",
+            "Remove the carton label and repackage it",
+            "Mix it with unaffected stock to dilute the risk"
+          ],
+          "explanation": "Recall instructions apply even when food appears normal. Segregating affected stock prevents accidental service.",
+          "source": "https://www.fda.gov/food/recalls-outbreaks-emergencies/recalls-foods-dietary-supplements"
+        },
+        {
+          "prompt": "A raw beef patty has just been thawed in a microwave. What should happen next?",
+          "choices": [
+            "Cook it immediately using the required cooking procedure",
+            "Leave it on a prep counter until the evening shift",
+            "Treat it as ready-to-eat because microwave thawing sterilizes it",
+            "Hold it without temperature control until it feels cool"
+          ],
+          "explanation": "Microwave thawing can leave parts of a food warm. Immediate cooking is required after thawing by this method.",
+          "source": "https://www.foodworkercard.wa.gov/en-us/manual"
+        },
+        {
+          "prompt": "A busy kitchen has no safe way to wash hands because the water supply has stopped. What should a food handler do?",
+          "choices": [
+            "Tell the person in charge immediately so safe operations can be assessed",
+            "Replace every handwashing step with a dry towel",
+            "Continue handling exposed food without telling anyone",
+            "Use drinking straws to apply sanitizer to the hands"
+          ],
+          "explanation": "Loss of water can make essential hygiene impossible. The person in charge must address the problem before unsafe work continues."
+        },
+        {
+          "prompt": "A handwashing sink runs out of soap during service. Which response is appropriate?",
+          "choices": [
+            "Report the shortage and replenish soap before the next handwashing",
+            "Use the sink without soap for the rest of the shift",
+            "Wash hands in the food sanitizer solution",
+            "Borrow soap only after the restaurant closes"
+          ],
+          "explanation": "Soap is needed for proper handwashing. Supplies must remain available throughout service.",
+          "source": "https://www.cdc.gov/norovirus/communication-resources/facts-for-food-workers.html"
+        },
+        {
+          "prompt": "A delivery contains bags of flour with gnawed holes and loose powder beneath them. What should the food handler do?",
+          "choices": [
+            "Reject the affected bags and inform the person in charge",
+            "Tape the holes and use the flour immediately",
+            "Sift the flour to remove all possible hazards",
+            "Mix the flour into an unopened bag"
+          ],
+          "explanation": "Gnawed packaging indicates possible pest contamination. Taping or sifting does not establish that the product is safe."
+        },
+        {
+          "prompt": "A pan of cooked rice is placed in a hot-holding unit that is still switched off. What must the food handler check?",
+          "choices": [
+            "That the unit is operating correctly and the food remains at the required holding temperature",
+            "Only that the lid matches the pan",
+            "Whether the pan looks full enough for service",
+            "Whether the rice has a pleasant smell"
+          ],
+          "explanation": "Hot-holding equipment must maintain the required food temperature. A suitable pan or normal smell does not prove safe holding.",
+          "source": "https://www.foodworkercard.wa.gov/en-us/manual"
+        }
+      ]
     }
   ]
 }
