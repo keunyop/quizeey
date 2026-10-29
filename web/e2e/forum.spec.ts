@@ -15,6 +15,13 @@ async function fixtureAdmin(query: string, values: unknown[] = []) {
   try { return await client.query(query, values); } finally { await client.end(); }
 }
 
+test.beforeAll(async () => {
+  // A reused local fixture must start with the same empty comment context.
+  await fixtureAdmin(`with retired as (
+    update public.quizeey_topics set visibility='deleted', approved_post_count=0
+    where exam_id='5' and locale='ko' returning id
+  ) update public.quizeey_posts set visibility='deleted' where topic_id in (select id from retired)`);
+});
 test.beforeEach(async () => { await fixtureAdmin("delete from quizeey_private.rate_windows"); });
 
 test("two guest browsers: immediate publication, optional name, ownership, edits, replies, reports and deletion", async ({ browser }) => {
@@ -142,6 +149,7 @@ test("exam comments and answer-area question comments have independent forms, au
   await page.getByRole('button', { name: '이전', exact: true }).click();
   await expect(problem.locator('.forum-comments')).toContainText('Only the first question');
   await page.reload();
+  await page.getByRole('button', { name: '이어서 풀기', exact: true }).click();
   await expect(problem.locator('.forum-comments')).toContainText('Only the first question');
   await expect(exam.locator('.forum-comments')).toContainText('Only an exam comment');
   await expect(exam.locator('.comment-composer')).not.toHaveAttribute('open');
@@ -210,6 +218,7 @@ for (const question of [false, true]) test(`${question ? 'question' : 'exam'} re
     };
     await assertOrder();
     await page.reload();
+    if (question) await page.getByRole('button', { name: '이어서 풀기', exact: true }).click();
     await assertOrder();
     await forum.screenshot({ path: test.info().outputPath(`${question ? 'question' : 'exam'}-reply-order.png`) });
     const pages = forum.getByRole('navigation', { name: '댓글 페이지' });
@@ -219,6 +228,7 @@ for (const question of [false, true]) test(`${question ? 'question' : 'exam'} re
     // Missing public parents must not expose hidden text or hide the replies.
     await fixtureAdmin("update public.quizeey_posts set visibility='hidden' where id=$1", [postId]);
     await page.reload();
+    if (question) await page.getByRole('button', { name: '이어서 풀기', exact: true }).click();
     await expect(forum.locator(`[data-post-id="${first}"]`)).toBeVisible();
     await expect(parent).toHaveCount(0);
     await expect(forum.locator(`[data-post-id="${first}"]`)).toHaveClass('forum-post');
@@ -237,7 +247,7 @@ test('comment pages include large threads and retain ownership past the newest t
     await fixtureAdmin("insert into public.quizeey_posts(topic_id,body,visibility,created_at) select $1,'Paged comment '||n,'approved','2099-01-01T03:04:05.123456Z'::timestamptz from generate_series(1,25) n", [topicId]);
     await fixtureAdmin('insert into quizeey_private.post_owners select id,(select capability_hash from quizeey_private.post_owners where post_id=$2) from public.quizeey_posts where topic_id=$1 and id<>$2', [topicId, postId]);
     await fixtureAdmin('update public.quizeey_topics set approved_post_count=26 where id=$1', [topicId]);
-    await page.goto('/sqlp-developer');
+    await page.goto('/sqlp-developer?verNbr=1');
     const forum = page.getByRole('region', { name: '시험 댓글', exact: true });
     const pages = forum.getByRole('navigation', { name: '댓글 페이지' });
     await expect(forum.locator('.forum-post')).toHaveCount(10);
@@ -282,7 +292,7 @@ test('mobile title opens a right-hand modal with focus containment, draft retent
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
   await page.setViewportSize({ width: 375, height: 812 });
-  await page.goto('/sqlp-developer');
+  await page.goto('/sqlp-developer?verNbr=1');
   const trigger = page.getByRole('button', { name: '댓글', exact: true });
   await expect(trigger).toBeVisible();
   await expect(page.locator('.exam-comments-panel')).toHaveCount(0);

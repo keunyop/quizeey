@@ -32,7 +32,7 @@ export function SubmissionDialog({ locale, question }: { locale: Locale; questio
   }
   return <>
     {report ? <button type="button" className="text-button question-report-trigger" aria-haspopup="dialog" onClick={open}>{title}</button>
-      : <a href="#feedback" aria-haspopup="dialog" onClick={event => { event.preventDefault(); open(); }}>Feedback</a>}
+      : <a href="#feedback" aria-haspopup="dialog" onClick={event => { event.preventDefault(); open(); }}>{title}</a>}
     <dialog ref={dialog} className="submission-dialog" aria-labelledby={`${id}-title`} onClick={event => {
       const bounds = event.currentTarget.getBoundingClientRect();
       if (event.target === event.currentTarget && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) event.currentTarget.close();

@@ -41,7 +41,7 @@ try{
     // bypasses CORS and omits Sec-Fetch-Mode, so check the browser's script
     // element: a crossorigin attribute would require the missing ACAO header.
     cmpCorsAttributes.push(await page.locator('#quizeey-cmp').getAttribute('crossorigin'));
-    counts.cmp++;return route.fulfill({contentType:'application/javascript',body:`window.__testConsent=undefined;window.__testUs=undefined;googlefc.getGoogleConsentModeValues=()=>window.__testConsent;googlefc.usstatesoptout.getInitialUsStatesOptOutStatus=()=>window.__testUs;window.__signal=()=>googlefc.callbackQueue.forEach(item=>Object.values(item).forEach(fn=>fn()));googlefc.showRevocationMessage=()=>{window.__revoked=true;};`});
+    counts.cmp++;return route.fulfill({contentType:'application/javascript',body:`window.__testConsent=undefined;window.__testUs=undefined;window.__testEu=false;window.__tcfapi=(command,version,callback)=>{if(command==='addEventListener')window.__tcfListener=callback;};googlefc.getGoogleConsentModeValues=()=>window.__testConsent;googlefc.usstatesoptout.getInitialUsStatesOptOutStatus=()=>window.__testUs;window.__signal=()=>{googlefc.callbackQueue.forEach(item=>Object.values(item).forEach(fn=>fn()));window.__tcfListener?.({gdprApplies:window.__testEu,listenerId:1},true);};googlefc.showRevocationMessage=()=>{window.__revoked=true;};`});
    }
    if(url.hostname==='www.googletagmanager.com'){counts.ga++;return route.fulfill({contentType:'application/javascript',body:'window.__testGaLoaded=true;'});}
    if(url.hostname==='pagead2.googlesyndication.com'){
@@ -58,6 +58,15 @@ try{
   assert.deepEqual(cmpCorsAttributes,[null],'CMP must load without requiring a CORS response header');
   await page.evaluate(()=>{window.__testUs=1;window.__testConsent={adStoragePurposeConsentStatus:2,adUserDataPurposeConsentStatus:2,adPersonalizationPurposeConsentStatus:2,analyticsStoragePurposeConsentStatus:2};window.__signal();});
   await expect(page.locator('.adsbygoogle')).toHaveCount(0);assert.equal(counts.ga,0);
+  await expect(page.locator('.privacy-controls')).toHaveCount(0);
+  await page.evaluate(()=>{window.__testEu=true;window.__signal();});
+  await page.getByRole('button',{name:'개인정보 설정',exact:true}).click();
+  assert.equal(await page.evaluate(()=>window.__revoked),true);
+  await page.evaluate(()=>{window.__testEu=false;window.__testUs=2;window.__signal();});
+  await expect(page.getByRole('button',{name:'개인정보 판매·공유 거부',exact:true})).toBeVisible();
+  await page.evaluate(()=>{window.__testUs=1;window.__signal();});
+  await expect(page.locator('.privacy-controls')).toHaveCount(0);
+
   if(catalog&&!scenario.path.includes('?short'))await page.getByRole('searchbox').fill('no-matching-exam');
   await page.evaluate(()=>{window.__testConsent={adStoragePurposeConsentStatus:1,adUserDataPurposeConsentStatus:1,adPersonalizationPurposeConsentStatus:1,analyticsStoragePurposeConsentStatus:1};window.__signal();});
   await page.waitForFunction(()=>window.__testGaLoaded===true);
@@ -152,6 +161,7 @@ try{
   assert.equal(counts.ads,1,'Regranting consent must not refresh a placement');
   if(mode==='filled'){
    await page.reload();
+   await page.getByRole('button',{name:'이어서 풀기',exact:true}).click();
    await page.waitForFunction(()=>typeof window.__signal==='function');
    await page.evaluate(()=>{window.__testUs=1;window.__testConsent={adStoragePurposeConsentStatus:1,adUserDataPurposeConsentStatus:1,adPersonalizationPurposeConsentStatus:1,analyticsStoragePurposeConsentStatus:1};window.__signal();});
    await page.waitForFunction(()=>window.__testGaLoaded===true);

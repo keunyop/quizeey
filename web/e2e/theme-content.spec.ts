@@ -78,7 +78,7 @@ test("an original practice set supports grading, explanations, refresh, completi
     await page.getByRole("button", { name: "정답 확인", exact: true }).click();
     await expect(page.getByText("정답입니다.", { exact: true })).toBeVisible();
     await expect(page.locator(".reference a")).toHaveAttribute("href", /^https:\/\//);
-    await page.reload();
+    await page.reload(); await page.getByRole("button", { name: "이어서 풀기", exact: true }).click();
     await expect(page.getByText("정답입니다.", { exact: true })).toBeVisible();
     await page.getByRole("button", { name: "다음", exact: true }).click();
   }

@@ -1,0 +1,38 @@
+{
+  "checkedAt": "2026-10-29",
+  "scope": "Local fixture regression only; no hosted regression, accessibility, crawling or screenshot tests.",
+  "typecheck": "passed",
+  "lint": "passed",
+  "unitTests": { "passed": 173, "files": 33 },
+  "build": "passed",
+  "browserTests": {
+    "distinctScenariosVerified": 88,
+    "fullRun": { "passed": 86, "failed": 2, "skipped": 0 },
+    "resolvedFailures": "Two forum scenarios expected an empty context but the reused local database retained earlier test comments. A local-only beforeAll now retires that context. All seven forum scenarios passed on recheck.",
+    "targetedRecheck": { "passed": 7, "failed": 0, "skipped": 0 },
+    "newPracticeScenarios": 6,
+    "responsiveScreenshotsReviewed": ["390px practice", "1440px practice", "home"],
+    "accessibility": "Korean and English, light and dark themes, mobile and desktop, resume dialog passed"
+  },
+  "database": {
+    "fixture": "isolated local PostgreSQL",
+    "auth": "isolated local Auth HTTP double; not a live Supabase account",
+    "skipped": false,
+    "sqlRegression": "passed including session sampling across four versions, deterministic restoration, count limits, role permissions and existing database/security/backup checks",
+    "migration": "20261029182526_practice_sessions.sql",
+    "productionMigration": "applied; service-role-only execute permissions and empty search_path verified",
+    "advisories": "No new function security finding. Existing private/content tables intentionally have RLS without browser policies. Supabase Auth leaked-password protection remains disabled.",
+    "existingAuthAdvisory": "https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection"
+  },
+  "monetization": { "mockScenariosPassed": 6, "realExternalRequests": 0 },
+  "commands": [
+    "python -X utf8 tools/modernization/test_database.py",
+    "npm run check:local (isolated DB/Auth enabled)",
+    "Targeted typecheck, forum lint and Playwright forum recheck using localEnvironment",
+    "node tools/modernization/test_monetization.mjs"
+  ],
+  "notes": [
+    "The full 2,130-question content audit retains every assertion and has a 15-second timeout for shared workstations.",
+    "Windows PowerShell can report exit 1 for redirected nonfatal Node stderr warnings; this was reproduced separately. Test assertion summaries and generated evidence show successful rechecks."
+  ]
+}

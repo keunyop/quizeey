@@ -9,16 +9,8 @@ export const searchMarkets = {
   en: { languages: ['en', 'en-US', 'en-CA'], openGraph: 'en_US', alternateOpenGraph: ['en_CA'] },
 } as const;
 
-export const homeSearchCopy = {
-  ko: {
-    title: 'Quizeey - 자격증 시험 기출문제 CBT 문제은행',
-    description: 'SQLD, 정보처리기사, 전기기사 등 한국 자격증 시험을 준비하세요. Quizeey에서 한국어 기출문제와 연습문제를 풀고, 정답 확인과 오답 복습으로 CBT 시험에 대비할 수 있습니다.',
-  },
-  en: {
-    title: 'Free Practice Tests & Exam Prep with Answers | Quizeey',
-    description: 'Free practice questions with answers and explanations for the United States and Canada. Prepare for SAT, GED, driving, Canadian citizenship and certification exams.',
-  },
-} as const;
+import { homeSearchCopy } from './home-copy';
+export { homeSearchCopy } from './home-copy';
 
 export function searchCopy(path: string, query: URLSearchParams, exam: LegacyRoute) {
   const locale = exam.locale as Locale;
@@ -87,7 +79,7 @@ export function seoAlternates(path:string,query:URLSearchParams,origin:string):M
     const a=findRoute(ko),b=findRoute('/en'+ko);
     // Shared exam identity and identical slug are required; titles are not translations.
     // Set, question and pagination identities are not verified across languages.
-    if(!suffix&&a?.testId&&a.testId===b?.testId){add('ko',origin+ko);add('en',origin+'/en'+ko);}
+    if(!suffix&&a&&b&&((a.testId&&a.testId===b.testId)||['/about','/privacy'].includes(ko))){add('ko',origin+ko);add('en',origin+'/en'+ko);}
   }
   return {canonical:origin+canonical,...(Object.keys(languages).length?{languages}:{})};
 }

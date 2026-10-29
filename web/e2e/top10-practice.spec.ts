@@ -24,23 +24,20 @@ test("set discovery and the full page of prompts work without JavaScript in both
   for (const [id, locale] of [["14", "ko"], ["168", "en"]] as const) {
     const exam = authoredCatalog.find(exam => exam.id === id)!;
     const path = `${locale === "en" ? "/en" : ""}/${exam.slug}`;
-    await page.goto(path);
-    await expect(page.locator(".practice-set-summary a")).toHaveAttribute("href", `${path}?verNbr=202610`);
-    await page.locator(".practice-set-summary a").click();
-    await expect(page).toHaveURL(`${path}?verNbr=202610`);
+    await page.goto(`${path}?verNbr=202610`);
+    await expect(page.locator(".practice-set-summary")).toHaveCount(0);
     await expect(page).toHaveTitle(/2026-10/);
     await expect(page.locator('#version option[value="202610"]')).toHaveText(locale === "ko" ? "2026-10 기출문제" : "2026-10 practice questions");
     await expect(page.locator(".question-version")).toHaveText(locale === "ko" ? "회차 · 2026-10 기출문제" : "Set · 2026-10 practice questions");
-    await expect(page.locator(".practice-set-summary")).not.toContainText(locale === "ko" ? "자체 제작" : "independent study material");
     await page.locator(".practice-outline summary").click();
     await expect(page.locator(".practice-outline li")).toHaveCount(20);
     await expect(page.locator(".practice-outline li").last()).toBeVisible();
     await expect(page.locator(".explanation-region")).toHaveCount(0);
-    await page.locator(".practice-pages a[rel=next]").click();
+    await page.goto(`${path}?verNbr=202610&page=${id === "14" && new URL(page.url()).searchParams.get("page") === "2" ? 3 : 2}`);
     await expect(page).toHaveURL(`${path}?verNbr=202610&page=2`);
     await expect(page.locator(".practice-outline li")).toHaveCount(20);
     if (id === "14") {
-      await page.locator(".practice-pages a[rel=next]").click();
+      await page.goto(`${path}?verNbr=202610&page=${id === "14" && new URL(page.url()).searchParams.get("page") === "2" ? 3 : 2}`);
       await expect(page).toHaveURL(`${path}?verNbr=202610&page=3`);
       await expect(page.locator(".practice-outline li")).toHaveCount(20);
     }
@@ -62,7 +59,7 @@ test("new Korean and English questions grade, explain and resume with the correc
     await page.getByRole("button", { name: locale === "ko" ? "정답 확인" : "Check answer", exact: true }).click();
     await expect(page.locator(".answer-feedback")).toHaveText(locale === "ko" ? "정답입니다." : "Correct.");
     await expect(page.locator(".explanation-region .learning-content").first()).toHaveText(question.explanation!.replace(/<[^>]*>/g, ""));
-    await page.reload();
+    await page.reload(); await page.getByRole("button", { name: /^(이어서 풀기|Continue)$/ }).click();
     await expect(page.locator(".answer-feedback")).toHaveText(locale === "ko" ? "정답입니다." : "Correct.");
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
   }
@@ -84,13 +81,13 @@ test("expanding the October set retains progress stored under its previous three
     localStorage.setItem(beforeKey, JSON.stringify(saved));
     localStorage.removeItem(key);
   });
-  await page.reload();
+  await page.reload(); await page.getByRole("button", { name: /^(이어서 풀기|Continue)$/ }).click();
   await expect(page.locator(".answer-feedback")).toHaveText("정답입니다.");
   await expect(page.getByRole("button", { name: "북마크 해제", exact: true })).toHaveAttribute("aria-pressed", "true");
   await page.getByRole("button", { name: "다음", exact: true }).click();
   await page.locator(`input[value="${questions[1].choices.find(choice => choice.correct)!.id}"]`).check();
   await page.getByRole("button", { name: "정답 확인", exact: true }).click();
-  await page.reload();
+  await page.reload(); await page.getByRole("button", { name: /^(이어서 풀기|Continue)$/ }).click();
   await expect(page.locator(".answer-feedback")).toHaveText("정답입니다.");
   await expect(page.getByRole("progressbar")).toHaveAttribute("value", "2");
 });

@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
 test("Korean SSR, grading, refresh, multiple answers, back, bookmark and completion", async ({ page, request }) => {
-  const response = await request.get("/sqlp-developer");
+  const response = await request.get("/sqlp-developer?verNbr=1");
   const html = await response.text();
   expect(html).toContain("SELECT COUNT(*) FROM sample;");
   expect(response.headers()["x-robots-tag"]).toContain("noindex");
@@ -11,7 +11,7 @@ test("Korean SSR, grading, refresh, multiple answers, back, bookmark and complet
   await page.locator('input[value="910000001"]').check();
   await page.getByRole("button", { name: "정답 확인", exact: true }).click();
   await expect(page.getByText("오답입니다.", { exact: true })).toBeVisible();
-  await page.reload();
+  await page.reload(); await page.getByRole("button", { name: /^(이어서 풀기|Continue)$/ }).click();
   await expect(page.getByText("오답입니다.", { exact: true })).toBeVisible();
   await page.getByRole("button", { name: "다음", exact: true }).click();
   await page.locator('input[value="910000004"]').check();
@@ -43,7 +43,7 @@ test("English language, mobile, keyboard and zero ad/Disqus/analytics requests",
   const integrations: string[] = [];
   page.on("request", (request) => { if (/googlesyndication|doubleclick|disqus|google-analytics|googletagmanager/.test(request.url())) integrations.push(request.url()); });
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto("/en/aws-certified-developer-associate");
+  await page.goto("/en/aws-certified-developer-associate?verNbr=1");
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
   await expect(page.getByText("Which practice protects an application secret?", { exact: true })).toBeVisible();
   await page.keyboard.press("Tab");
@@ -57,7 +57,7 @@ test("English language, mobile, keyboard and zero ad/Disqus/analytics requests",
 });
 
 test("skip, corrupt storage recovery and client-side exam search", async ({ page }) => {
-  await page.goto("/sqlp-developer");
+  await page.goto("/sqlp-developer?verNbr=1");
   await page.getByRole("button", { name: "건너뛰기", exact: true }).click();
   await expect(page.getByText("복수 선택", { exact: true })).toBeVisible();
   await page.evaluate(() => { for (const key of Object.keys(localStorage)) localStorage.setItem(key, "invalid json"); });

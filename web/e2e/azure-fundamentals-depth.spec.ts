@@ -30,8 +30,6 @@ test("the English directory and all five Azure prompt pages are usable without J
     await expect(page.locator(`.exam-directory a[href="${path}"]`)).toHaveCount(1);
     for (const number of [1, 2, 3, 4, 5]) {
       await page.goto(`${set}${number > 1 ? `&page=${number}` : ""}`);
-      await expect(page.locator(".practice-set-summary")).toContainText("93 practice questions with explanations");
-      await expect(page.locator(".practice-set-summary")).toContainText("English AZ-900");
       await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", /93 practice questions/);
       await page.locator(".practice-outline summary").click();
       const outline = page.locator(".practice-outline li a");
@@ -58,11 +56,10 @@ test("a returning learner retains the old three-question second page and can gra
     localStorage.setItem(beforeKey, JSON.stringify(saved));
     localStorage.removeItem(key);
   });
-  await page.reload();
+  await page.reload(); await page.getByRole("button", { name: /^(이어서 풀기|Continue)$/ }).click();
   await expect(page.locator(".answer-feedback")).toHaveText("Correct.");
   await expect(page.locator(".bookmark-button")).toHaveAttribute("aria-pressed", "true");
 
-  await page.locator(".question-map summary").click();
   await page.locator(".question-grid button").nth(3).click();
   const added = questions[23];
   await expect(page.locator(".question-prompt")).toHaveText(raw[23].prompt);
@@ -73,10 +70,11 @@ test("a returning learner retains the old three-question second page and can gra
   await expect(page.locator(".answer-feedback")).toContainText("Incorrect");
   await expect(page.locator(".explanation-region .learning-content").first()).toHaveText(raw[23].explanation);
   await expect(page.locator(".explanation-region a").first()).toHaveAttribute("href", /https:\/\/learn\.microsoft\.com/);
-  await page.reload();
+  await page.reload(); await page.getByRole("button", { name: /^(이어서 풀기|Continue)$/ }).click();
   await expect(page.locator(".answer-feedback")).toContainText("Incorrect");
   await expect(page.locator(".bookmark-button")).toHaveAttribute("aria-pressed", "true");
-  await page.locator(".question-map summary").click();
+  await page.locator(".question-grid button").last().click();
+  await page.getByRole("button", { name: "Skip", exact: true }).click();
   await page.getByRole("button", { name: /^Review mistakes/ }).click();
   await expect(page.locator(".question-prompt")).toHaveText(raw[23].prompt);
   await expect(page.locator(".answer-feedback")).toHaveCount(0);

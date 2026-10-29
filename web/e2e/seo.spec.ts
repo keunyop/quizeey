@@ -49,7 +49,7 @@ test('all exam links and localized introductions are available without JavaScrip
   for (const [path, locale] of [['/', 'ko'], ['/en', 'en']] as const) {
     await page.goto(path);
     await expect(page.locator('html')).toHaveAttribute('lang', locale);
-    await expect(page.locator('.catalog-description')).toContainText(locale === 'ko' ? '한국 자격증' : 'United States and Canada');
+    await expect(page.locator('.catalog-description')).toContainText(locale === 'ko' ? 'CBT 시험' : 'Canadian citizenship');
     const expected = legacy.routes.filter(r => r.testId && r.locale === locale && !r.path.startsWith('/kr/')).map(r => r.path);
     expect(await page.locator('.exam-directory a').evaluateAll(links => links.map(a => a.getAttribute('href')))).toEqual(expected);
     await page.locator('.exam-directory summary').click();

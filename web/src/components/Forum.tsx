@@ -113,7 +113,6 @@ export function Forum({ examId, questionId, locale }: { examId: string; question
   const heading = questionId ? en ? "Question comments" : "문제 댓글" : en ? "Exam comments" : "시험 댓글";
   return <section className={`forum${questionId ? " question-forum" : ""}`} aria-labelledby={`${id}-heading`}>
     <div className="forum-heading"><h2 id={`${id}-heading`}>{heading}</h2></div>
-    <p className="forum-intro">{questionId ? en ? "Share a question or explanation about this problem." : "이 문제에 대한 질문이나 풀이를 나눠보세요." : en ? "Share study tips and questions about this exam." : "이 시험의 공부 방법과 궁금한 점을 나눠보세요."}</p>
     <details className="comment-composer" ref={composer} open={(!loading && !loadError && data.posts.length === 0) || undefined}>
       <summary>{en ? "Write a comment" : "댓글 남기기"}</summary>
       <form className="forum-form" aria-label={heading} onSubmit={event => {
@@ -123,12 +122,13 @@ export function Forum({ examId, questionId, locale }: { examId: string; question
       void send(editing ? { action: "edit", postId: editing, ...base } : reply ? { action: "reply", ...reply, ...base } : { action: "create", examId, ...(questionId ? { questionId } : {}), locale, title: body.trim().replace(/\s+/g, " ").slice(0, 100), ...base });
     }}>
       {(editing || reply) && <p className="forum-context">{editing ? en ? "Editing your comment" : "내 댓글 수정 중" : en ? "Writing a reply" : "답글 작성 중"}</p>}
-      <label htmlFor={`${id}-name`}>{en ? "Name (optional)" : "작성자명 (선택)"}</label>
-      <input id={`${id}-name`} name="displayName" autoComplete="nickname" maxLength={80} value={name} disabled={busy} onChange={e => setName(e.target.value)} placeholder={en ? "Leave blank for Anonymous" : "비워두면 익명으로 등록됩니다"} />
-      <label htmlFor={`${id}-body`}>{editing ? en ? "Edit comment" : "댓글 수정" : reply ? en ? "Reply" : "답글" : en ? "Comment" : "댓글"}</label>
+      <label className="sr-only" htmlFor={`${id}-body`}>{editing ? en ? "Edit comment" : "댓글 수정" : reply ? en ? "Reply" : "답글" : en ? "Comment" : "댓글"}</label>
       <textarea id={`${id}-body`} ref={textarea} name="body" rows={3} required maxLength={4000} value={body} disabled={busy} onChange={e => setBody(e.target.value)} placeholder={en ? "Write a comment." : "댓글을 입력해 주세요."} />
+      <div className="comment-compose-footer"><label className="sr-only" htmlFor={`${id}-name`}>{en ? "Name (optional)" : "작성자명 (선택)"}</label>
+      <input id={`${id}-name`} name="displayName" autoComplete="nickname" maxLength={80} value={name} disabled={busy} onChange={e => setName(e.target.value)} placeholder={en ? "Name (optional)" : "이름 (선택)"} />
       <div className="actions"><button className="primary" type="submit" disabled={busy || !body.trim()}>{busy ? en ? "Saving…" : "등록 중…" : en ? "Post comment" : "댓글 등록"}</button>
         {(editing || reply) && <button type="button" disabled={busy} onClick={() => { setEditing(null); setReply(null); setBody(""); }}>{en ? "Cancel" : "취소"}</button>}</div>
+      </div>
       <p className="forum-notice" role="status" aria-live="polite">{notice}</p>
       </form>
     </details>

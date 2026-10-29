@@ -10,7 +10,7 @@ async function fixture(query: string, values: unknown[] = []) {
 }
 
 test("exam information starts collapsed beside the title and expands below it in both languages", async ({ page }) => {
-  for (const [path, label] of [["/sqlp-developer", "시험 기본정보"], ["/en/aws-certified-developer-associate", "About this exam"]]) {
+  for (const [path, label] of [["/sqlp-developer", "시험정보"], ["/en/aws-certified-developer-associate", "Exam info"]]) {
     for (const width of [320, 1440]) {
       await page.setViewportSize({ width, height: 900 }); await page.goto(path);
       const button = page.getByRole("button", { name: label, exact: true });
@@ -28,7 +28,7 @@ test("exam information starts collapsed beside the title and expands below it in
 
 test("feedback modal supports escape, keyboard focus, failure recovery and accessible forms", async ({ page }) => {
   await page.goto("/");
-  const trigger = page.getByRole("link", { name: "Feedback", exact: true }); await trigger.click();
+  const trigger = page.getByRole("link", { name: /^(피드백|Feedback)$/, exact: true }); await trigger.click();
   const dialog = page.getByRole("dialog", { name: "피드백", exact: true });
   await expect(dialog).toBeVisible(); await page.keyboard.press("Escape"); await expect(dialog).not.toBeVisible(); await expect(trigger).toBeFocused();
   await trigger.click(); await dialog.getByLabel("피드백 내용").fill("Retained feedback draft");
@@ -52,7 +52,7 @@ test.describe("visitor submissions and operator dashboard", () => {
   test.beforeEach(async () => { await cleanup(); await fixture("delete from quizeey_private.rate_windows"); });
   test.afterEach(cleanup);
   test("anonymous feedback and question reports reach admin/admin, preserve context and resolution history", async ({ page, browser }) => {
-    await page.goto("/sqlp-developer");
+    await page.goto("/sqlp-developer?verNbr=1");
     await page.getByRole("button", { name: "오답 신고", exact: true }).click();
     const report = page.getByRole("dialog", { name: "오답 신고", exact: true });
     await report.getByLabel("신고 유형", { exact: true }).selectOption({ label: "해설 오류" });
@@ -64,7 +64,7 @@ test.describe("visitor submissions and operator dashboard", () => {
     expect(payload).toMatchObject({ examId: "5", questionId: "900000001" });
     await expect(report).toContainText("접수했습니다");
     await report.getByRole("button", { name: "닫기", exact: true }).last().click();
-    await page.getByRole("link", { name: "Feedback", exact: true }).click();
+    await page.getByRole("link", { name: /^(피드백|Feedback)$/, exact: true }).click();
     const feedback = page.getByRole("dialog", { name: "피드백", exact: true });
     await feedback.getByLabel("피드백 내용").fill("Dashboard feedback fixture <script>alert(1)</script>");
     await feedback.getByRole("button", { name: "보내기", exact: true }).click(); await expect(feedback).toContainText("접수했습니다");

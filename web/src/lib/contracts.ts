@@ -1,6 +1,7 @@
 import contract from "../../fixtures/legacy-contract.json" with { type: "json" };
 import catalog from "@/data/exam-catalog.json" with { type: "json" };
 import { practiceDisplayCopy } from "./practice-display-copy";
+import { siteCopy } from './site-copy';
 
 export type Locale = "ko" | "en";
 export type LegacyRoute = Omit<(typeof contract.routes)[number],'testId'|'links'> & {testId:string|null;links:{href:string;label:string}[]};
@@ -15,8 +16,15 @@ function authoredRoute(exam: (typeof catalog)[number], locale: Locale): LegacyRo
   };
 }
 // The source controller used the wrong exam; the verified catalog and DB agree on 141.
-const existingRoutes = contract.routes.map((route): LegacyRoute =>
-  route.path === '/industrial-engineer-air-conditioning-and-refrigerating-machinery' ? { ...route, testId: '141' } : route);
+const existingRoutes = contract.routes.map((route): LegacyRoute => {
+  const copy = siteCopy[route.path as keyof typeof siteCopy];
+  if (copy) return { ...route, title: copy.title, description: copy.description, headings: [copy.heading] };
+  return route.path === '/industrial-engineer-air-conditioning-and-refrigerating-machinery' ? { ...route, testId: '141' } : route;
+});
+for (const path of ['/en/about', '/en/privacy'] as const) {
+  const copy = siteCopy[path];
+  existingRoutes.push({ ...existingRoutes.find(route => route.path === path.slice(3))!, path, locale: 'en', title: copy.title, description: copy.description, headings: [copy.heading] });
+}
 const existingPaths = new Set(existingRoutes.map(route => route.path));
 const authoredRoutes = catalog.flatMap(exam => {
   const locales: Locale[] = exam.locale === "all" ? ["ko", "en"] : exam.locale === "en" ? ["en"] : [];
@@ -43,7 +51,7 @@ export function identifier(input: string | undefined): string | undefined {
 }
 
 export function parseQuery(query: URLSearchParams, requiredTest = false) {
-  for (const key of ["testId", "questId", "verNbr", "page"]) {
+  for (const key of ["testId", "questId", "verNbr", "page", "count"]) {
     if (query.getAll(key).length > 1) throw new Error("Ambiguous legacy query");
   }
   const testId = identifier(query.has("testId") ? query.get("testId")! : undefined);
@@ -53,7 +61,9 @@ export function parseQuery(query: URLSearchParams, requiredTest = false) {
   if (requiredTest && !testId) throw new Error("testId required");
   const rawPage=query.get("page");
   if(rawPage!==null&&(!/^[1-9]\d{0,4}$/.test(rawPage)||Number(rawPage)>10000))throw new Error("Invalid practice page");
-  return { testId, questId, verNbr: rawVersion === null ? 0 : Number(rawVersion), page:rawPage===null?1:Number(rawPage) };
+  const rawCount=query.get('count');
+  if(rawCount!==null&&(!/^[1-9]\d{0,2}$/.test(rawCount)||Number(rawCount)>100))throw new Error('Invalid question count');
+  return { testId, questId, verNbr: rawVersion === null ? 0 : Number(rawVersion), page:rawPage===null?1:Number(rawPage), count:rawCount===null?undefined:Number(rawCount) };
 }
 
 export function routesForExam(testId: string, locale: Locale) {

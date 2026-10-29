@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { headers } from 'next/headers';
+import { headers, cookies } from 'next/headers';
+import { randomUUID } from 'node:crypto';
 import { ExamSearch } from "./ExamSearch";
 import { RelatedStudyGuide, StudyGuideCards } from './StudyGuides';
 import { ExamLink } from "./ExamLink";
@@ -8,6 +9,8 @@ import { ExamHeading } from "./ExamHeading";
 import { SubmissionDialog } from "./SubmissionDialog";
 import { examPopularity } from "@/server/exam-popularity";
 import { Practice } from "./Practice";
+import { PracticeSettings } from './PracticeSettings';
+import { readSessionSettings, sessionCookie, lastSetCookie, readLastSet } from '@/lib/practice-session';
 import { ExamComments } from "./ExamComments";
 import { ThemeToggle } from "./ThemeToggle";
 import { forumConfigured } from "@/server/forum-database";
@@ -17,8 +20,7 @@ import { loadLearningStore } from '@/server/learning-store';
 import { learningHtml,staticPage } from "@/lib/content";
 import { environment } from "@/lib/environment";
 import { examName } from "@/lib/exam-catalog";
-import { authoredSetSummary, authoredVersion } from "@/lib/authored-practice";
-import { versionDisplayName } from "@/lib/version-label";
+import { authoredVersion } from "@/lib/authored-practice";
 import { Icon } from "./Icon";
 import { canonicalPath,searchMetadata,pageStructuredData,serializeStructuredData } from '@/lib/seo';
 import { Monetization,AdSlot } from './Monetization';
@@ -54,23 +56,46 @@ export async function RouteView({ path, query }: { path: string; query: Query })
   const home = locale === "en" ? "/en" : "/";
   const isHome = ["/", "/kr", "/en", "/app"].includes(path);
   const examRoutes = legacy.routes.filter((r) => r.testId && r.locale === locale && !r.path.startsWith("/kr/"));
-  const [store, popularity] = await Promise.all([
-    loadLearningStore({examId:exam.testId??undefined,questionId:input.questId,version:input.verNbr,page:input.page}),
+  const cookieStore = exam.testId ? await cookies() : undefined;
+  const implicitSet = !!exam.testId && query.verNbr === undefined && !input.questId && input.page === 1;
+  if (implicitSet) input.verNbr = readLastSet(cookieStore?.get(lastSetCookie(locale, exam.testId!))?.value);
+  let cookieName = exam.testId ? sessionCookie(locale, exam.testId, input.verNbr) : '';
+  let savedSettings = cookieName ? readSessionSettings(cookieStore?.get(cookieName)?.value) : undefined;
+  let count = input.count ?? savedSettings?.count ?? 20;
+  let session = exam.testId && !input.questId && input.page === 1
+    ? { seed: savedSettings?.count === count ? savedSettings.seed : randomUUID(), count } : undefined;
+  const [initialStore, popularity, initialPreviousStore] = await Promise.all([
+    loadLearningStore({examId:exam.testId??undefined,questionId:input.questId,version:input.verNbr,page:input.page,session:session?.seed === 'legacy' ? undefined : session}),
     isHome ? examPopularity(examRoutes) : Promise.resolve({}),
+    session && !input.verNbr && !savedSettings && count === 20 ? loadLearningStore({examId:exam.testId!,page:1}) : Promise.resolve(undefined),
   ]);
+  let store = initialStore;
+  let previousStore = initialPreviousStore;
+  // A stale or edited preference must not turn a valid exam URL into a 404.
+  if (implicitSet && input.verNbr && !store.versions(exam.testId!, locale).some(version => version.number === input.verNbr)) {
+    input.verNbr = 0;
+    cookieName = sessionCookie(locale, exam.testId!, 0);
+    savedSettings = readSessionSettings(cookieStore?.get(cookieName)?.value);
+    count = input.count ?? savedSettings?.count ?? 20;
+    session = { seed: savedSettings?.count === count ? savedSettings.seed : randomUUID(), count };
+    store = await loadLearningStore({examId:exam.testId!,session:session.seed === 'legacy' ? undefined : session});
+    previousStore = undefined;
+  }
   const previewSamples=environment(process.env).stage==='preview'&&store.source==='fixture';
   // Direct IDs are resolved before the bounded practice batch is selected.
-  const batch = exam.testId ? store.questions(exam.testId,locale,input.verNbr,input.questId,input.page) : [];
+  const batch = exam.testId ? session && session.seed !== 'legacy' ? store.sessionQuestions(exam.testId,locale,input.verNbr,count,session.seed) : store.questions(exam.testId,locale,input.verNbr,input.questId,input.page) : [];
   const pagination=exam.testId&&!input.questId?store.pagination(exam.testId,locale,input.verNbr,input.page):undefined;
   if(pagination&&input.page>pagination.pages)notFound();
-  function pageLink(page:number){const params=new URLSearchParams();if(path.endsWith('/test'))params.set('testId',exam.testId!);if(input.verNbr)params.set('verNbr',String(input.verNbr));if(page>1)params.set('page',String(page));return `${path}${params.size?'?'+params:''}`;}
+  const nextPage = pagination && input.verNbr && count === 20 && input.page < pagination.pages
+    ? `${path}?${new URLSearchParams({ ...(path.endsWith('/test') ? { testId: exam.testId! } : {}), verNbr: String(input.verNbr), page: String(input.page + 1) })}` : undefined;
   if(input.questId&&!batch.length)notFound();
-  const publicBatch = batch.map((q) => ({ ...q, text: learningHtml(q.text), explanation:q.explanation===null?null:learningHtml(q.explanation),
+  const sanitizeQuestion = (q: (typeof batch)[number]) => ({ ...q, text: learningHtml(q.text), explanation:q.explanation===null?null:learningHtml(q.explanation),
     reference:q.reference?learningHtml(q.reference):q.reference,
-    choices: q.choices.map((c) => ({ ...c, text: learningHtml(c.text) })) }));
+    choices: q.choices.map((c) => ({ ...c, text: learningHtml(c.text) })) });
+  const publicBatch = batch.map(sanitizeQuestion);
+  const previousBatch = previousStore?.questions(exam.testId!,locale).map(sanitizeQuestion);
   const versions = exam.testId ? store.versions(exam.testId,locale) : [];
   if (exam.testId && input.verNbr && !versions.some(version => version.number === input.verNbr)) notFound();
-  const authoredSet = exam.testId ? authoredSetSummary(exam.testId, locale) : undefined;
   const examPath = exam.testId ? routesForExam(exam.testId, locale).find(route => !route.path.endsWith('/test'))?.path ?? path : path;
   const copy=staticPage(path);
   const env=environment(process.env);
@@ -79,24 +104,8 @@ export async function RouteView({ path, query }: { path: string; query: Query })
   const pageContent = <>
         {copy ? <article className="static-copy" lang={copy.lang} dangerouslySetInnerHTML={{__html:copy.html}}/> : !exam.testId && exam.headings.length > 1 && <details className="exam-intro"><summary>{locale === "ko" ? "시험 소개" : "About this exam"}</summary>{exam.headings.slice(1).map((copy, i) => <p key={i}>{copy}</p>)}</details>}
         {exam.testId && <>
-          {versions.length > 0 && <form className="version-form" method="get">
-            {path.endsWith("/test") && <input type="hidden" name="testId" value={exam.testId} />}
-            <label htmlFor="version">{locale === "ko" ? "시험 회차" : "Exam set"}</label>
-            <select id="version" name="verNbr" defaultValue={input.verNbr}><option value="0">{m.all}</option>{versions.map(v => <option key={v.id} value={v.number}>{versionDisplayName(v.name, v.number, locale)}</option>)}</select>
-            <button type="submit">{locale === "ko" ? "적용" : "Apply"}</button>
-          </form>}
-          {publicBatch.length ? <Practice key={`${path}:${input.verNbr}:${input.page}:${input.questId ?? "all"}`} questions={publicBatch} locale={locale} testId={exam.testId} contentVersion={store.version} directId={input.questId} pageNumber={input.page} commentsEnabled={commentsEnabled} nextPage={pagination&&input.page<pagination.pages?pageLink(input.page+1):undefined} /> : <div className="empty-state" role="status"><div className="empty-icon"><Icon name="book" /></div><h2>{locale === "ko" ? "문제를 준비하고 있어요" : "Questions are not available yet"}</h2><p>{m.unavailable}</p><a className="button-link" href={home}>{m.home}<Icon name="arrow" /></a></div>}
-          {pagination&&pagination.pages>1&&<nav className="practice-pages" aria-label={locale==='ko'?'문제 묶음':'Practice pages'}>
-            {input.page>1?<a href={pageLink(input.page-1)} rel="prev" data-google-vignette="false">{locale==='ko'?'이전 문제':'Previous questions'}</a>:<span/>}
-            <span>{input.page} / {pagination.pages}</span>
-            {input.page<pagination.pages?<a href={pageLink(input.page+1)} rel="next" data-google-vignette="false">{locale==='ko'?'다음 문제':'Next questions'}</a>:<span/>}
-          </nav>}
-          {authoredSet && <section className="practice-set-summary" aria-label={locale === "ko" ? "연습 회차 안내" : "Practice set information"}>
-            <a data-google-vignette="false" href={`${examPath}?verNbr=${authoredSet.version}`}>
-              {locale === "ko" ? `${versionDisplayName(authoredSet.name, authoredSet.version, locale)} · 연습문제 ${authoredSet.count}개와 해설` : `${authoredSet.name} · ${authoredSet.count} practice questions with explanations`}
-            </a>
-            {authoredSet.scope && <p lang="en">{authoredSet.scope}</p>}
-          </section>}
+          {versions.length > 0 && <PracticeSettings locale={locale} versions={versions} version={input.verNbr} testId={path.endsWith('/test') ? exam.testId : undefined} count={count} />}
+          {publicBatch.length ? <Practice key={`${path}:${input.verNbr}:${input.page}:${input.questId ?? "all"}:${session?.seed ?? ''}:${count}`} questions={publicBatch} previousQuestions={previousBatch} locale={locale} testId={exam.testId} contentVersion={store.version} directId={input.questId} pageNumber={input.page} nextPage={nextPage} commentsEnabled={commentsEnabled} session={session ? { ...session, cookieName, version: input.verNbr, total: pagination?.total ?? publicBatch.length } : undefined} /> : <div className="empty-state" role="status"><div className="empty-icon"><Icon name="book" /></div><h2>{locale === "ko" ? "문제를 준비하고 있어요" : "Questions are not available yet"}</h2><p>{m.unavailable}</p><a className="button-link" href={home}>{m.home}<Icon name="arrow" /></a></div>}
           {input.verNbr === authoredVersion && !input.questId && publicBatch.length > 0 && <details className="practice-outline">
             <summary>{locale === "ko" ? `이 페이지의 연습문제 ${publicBatch.length}개` : `${publicBatch.length} questions on this page`}</summary>
             <ol start={(input.page - 1) * 20 + 1}>{publicBatch.map(question => <li key={question.id}>
@@ -134,6 +143,6 @@ export async function RouteView({ path, query }: { path: string; query: Query })
         {pageContent}
       </>}
     </main>
-    <footer className="site-footer"><div><a className="brand footer-brand" href={home} translate="no"><img src="/img/letter-q.svg" width="22" height="22" alt="" />Quizeey</a><span className="footer-note">{locale === "ko" ? "한 문제씩, 더 가까이." : "One question closer."}</span></div><nav aria-label={locale === "ko" ? "사이트 정보" : "Site information"}><a href="/about">{locale === "ko" ? "소개" : "About"}</a><a href="/privacy">{locale === "ko" ? "개인정보처리방침" : "Privacy"}</a><SubmissionDialog locale={locale}/></nav></footer>
+    <footer className="site-footer"><div><a className="brand footer-brand" href={home} translate="no"><img src="/img/letter-q.svg" width="22" height="22" alt="" />Quizeey</a><span className="footer-note">{locale === "ko" ? "한 문제씩, 더 가까이." : "One question closer."}</span></div><nav aria-label={locale === "ko" ? "사이트 정보" : "Site information"}><a href={locale === "en" ? "/en/about" : "/about"}>{locale === "ko" ? "소개" : "About"}</a><a href={locale === "en" ? "/en/privacy" : "/privacy"}>{locale === "ko" ? "개인정보처리방침" : "Privacy"}</a><SubmissionDialog locale={locale}/></nav></footer>
   </Monetization>;
 }

@@ -45,6 +45,9 @@ export class StudyStore {
   defaultLocale(testId:string):Locale{return this.byExam.get(testId)?.[0]?.locale??'ko';}
   versions(testId:string,locale:Locale){return this.source!=='fixture'||this.available(testId,locale).length?this.examVersions.get(testId)??[]:[];}
   private available(testId:string,locale:Locale,version=0){return (this.byExam.get(testId)??[]).filter(q=>(!q.locale||q.locale===locale)&&(!version||q.version===version));}
+  sessionQuestions(testId:string,locale:Locale,version=0):Question[]{
+    return this.available(testId,locale,version).map(q=>({...q,locale}));
+  }
   pagination(testId:string,locale:Locale,version=0,page=1){
     const total=this.hostedPage?.total??this.available(testId,locale,version).length;
     return {page:this.hostedPage?.page??page,total,pages:Math.max(1,Math.ceil(total/20))};

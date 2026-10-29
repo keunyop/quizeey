@@ -37,7 +37,6 @@ test("Food Handler can be found, graded, resumed, completed across 60 questions,
   await expect(page.getByRole("heading", { name: "ServSafe Food Handler", exact: true })).toBeVisible();
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
   await page.getByLabel("Exam set", { exact: true }).selectOption("202610");
-  await page.getByRole("button", { name: "Apply", exact: true }).click();
   await expect(page).toHaveURL(`${path}?verNbr=202610`);
   for (let batch = 0; batch < 3; batch++) {
     for (const question of questions.slice(batch * 20, (batch + 1) * 20)) {
@@ -46,7 +45,7 @@ test("Food Handler can be found, graded, resumed, completed across 60 questions,
       await expect(page.getByText("Correct.", { exact: true })).toBeVisible();
       await expect(page.locator(".explanation-region .learning-content").first()).toHaveText(question.explanation!.replace(/<[^>]*>/g, ""));
       if ([1, 21, 41].includes(question.questionNumber ?? 0)) {
-        await page.reload();
+        await page.reload(); await page.getByRole("button", { name: /^(이어서 풀기|Continue)$/ }).click();
         await expect(page.getByText("Correct.", { exact: true })).toBeVisible();
       }
       await page.getByRole("button", { name: "Next", exact: true }).click();

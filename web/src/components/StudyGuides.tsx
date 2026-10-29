@@ -99,7 +99,7 @@ export async function StudyGuideView({ guide }: { guide?: StudyGuide }) {
       </article>
     </main>
     <footer className="site-footer"><div><a className="brand footer-brand" href="/en" translate="no">Quizeey</a><span className="footer-note">One question closer.</span></div>
-      <nav aria-label="Site information"><a href={studyGuidePath()}>Study guides</a><a href="/about">About</a><a href="/privacy">Privacy</a><SubmissionDialog locale="en" /></nav>
+      <nav aria-label="Site information"><a href={studyGuidePath()}>Study guides</a><a href="/en/about">About</a><a href="/en/privacy">Privacy</a><SubmissionDialog locale="en" /></nav>
     </footer>
   </Monetization>;
 }

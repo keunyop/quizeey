@@ -1,5 +1,6 @@
 import sanitizeHtml from "sanitize-html";
 import staticPages from '../../fixtures/legacy-pages.json' with { type: 'json' };
+import { siteCopy } from './site-copy';
 
 // Technical placeholders such as <AMI-ID>, <CTRL> and <T extends Number>
 // occur in the legacy archive. They must remain visible as text. This pass
@@ -41,7 +42,7 @@ export function learningHtml(input: string): string {
 }
 
 export function staticPage(path: string) {
-  const page=staticPages[path as keyof typeof staticPages];
+  const page=siteCopy[path as keyof typeof siteCopy] ?? staticPages[path as keyof typeof staticPages];
   if(!page)return undefined;
   return {lang:page.lang,html:sanitizeHtml(page.html,{
     allowedTags:['h2','h3','p','br','strong','em','b','i','ul','ol','li','blockquote','table','thead','tbody','tr','th','td','img','a','div','span'],

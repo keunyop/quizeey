@@ -5,6 +5,7 @@ import { categories, categoryNames, examCategory, examName, matchesExam, readFav
 import { Icon } from "./Icon";
 import { ExamLink } from "./ExamLink";
 import { AdSlot } from "./Monetization";
+import { homeSearchCopy } from '@/lib/home-copy';
 
 const favoriteKey = "quizeey:favorite-exams:v1";
 function subscribe(listener: () => void) {
@@ -46,15 +47,15 @@ export function ExamSearch({ routes, locale, popularity }: { routes: LegacyRoute
   });}
   return <>
     <section className="catalog-hero" aria-labelledby="catalog-heading">
-      <h1 id="catalog-heading">{en ? "Practice exams" : "자격증 기출문제"}</h1>
-      <p className="catalog-description">{en ? 'Free English practice tests for learners in the United States and Canada. Explore SAT, GED, driving, Canadian citizenship and certification exams with answers and explanations.' : 'SQLD, 정보처리기사, 전기기사 등 한국 자격증 기출문제와 연습문제를 풀어보세요. 정답 확인과 오답 복습으로 CBT 시험을 준비할 수 있습니다.'}</p>
+      <h1 id="catalog-heading">{homeSearchCopy[locale].heading}</h1>
+      <p className="catalog-description">{homeSearchCopy[locale].description}</p>
       <div className="search-field"><Icon name="search" /><label className="sr-only" htmlFor="exam-search">{en ? "Search exams" : "자격증 검색"}</label>
         <input id="exam-search" type="search" autoComplete="off" placeholder={en ? "Find your exam" : "어떤 자격증을 준비하세요?"} value={search} onChange={(e) => { setSearch(e.target.value); setLimit(18); }} />
         {search && <button className="icon-button" aria-label={en ? "Clear search" : "검색어 지우기"} onClick={() => { setSearch(""); setLimit(18); document.getElementById("exam-search")?.focus(); }}><Icon name="close" /></button>}
       </div>
     </section>
     <section className="catalog" aria-labelledby="exams-heading">
-      <div className="catalog-heading"><div><h2 id="exams-heading">{en ? "Explore exams" : "시험 둘러보기"}</h2><span className="count-badge">{routes.length}</span></div></div>
+      <h2 id="exams-heading" className="sr-only">{en ? 'Exams' : '시험 목록'}</h2>
       <div className="catalog-tabs" role="group" aria-label={en ? "Exam collection" : "시험 목록 선택"}>
         <button aria-pressed={!savedOnly} onClick={() => { setSavedOnly(false); setLimit(18); }}><Icon name="grid" />{en ? "All exams" : "전체 시험"}</button>
         <button aria-pressed={savedOnly} onClick={() => { setSavedOnly(true); setLimit(18); }}><Icon name="bookmark" />{en ? "Favorites" : "즐겨찾기"}<span>{savedCount}</span></button>

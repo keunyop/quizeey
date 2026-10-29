@@ -62,3 +62,21 @@ it('loads a later page via the bounded RPC and rejects missing or inconsistent p
     await expect(loadStudyStore({examId:'5',page:2},config)).rejects.toThrow('Study content unavailable');
   }
 });
+
+it('uses the seeded session RPC with bounded counts and rejects mismatched content', async () => {
+  const seed='b75d8c32-a053-4d50-9465-c84d430d6dd8';
+  const data={...payload(),pagination:{page:1,total:1}};
+  const fetcher=vi.fn().mockResolvedValue(json(data));vi.stubGlobal('fetch',fetcher);
+  const store=await loadStudyStore({examId:'5',session:{seed,count:100}},config);
+  expect(store.sessionQuestions('5','en')).toHaveLength(1);
+  expect(fetcher.mock.calls[0][0]).toContain('/rpc/quizeey_study_session');
+  expect(JSON.parse(fetcher.mock.calls[0][1].body)).toEqual({p_exam_id:'5',p_version:0,p_seed:seed,p_count:100});
+  for (const session of [{seed,count:101},{seed:'invalid',count:20}]) {
+    await expect(loadStudyStore({examId:'5',session},config)).rejects.toThrow('Study content unavailable');
+  }
+  expect(fetcher).toHaveBeenCalledTimes(1);
+  fetcher.mockResolvedValueOnce(json({...data,pagination:{page:1,total:100}}));
+  await expect(loadStudyStore({examId:'5',session:{seed,count:100}},config)).rejects.toThrow('Study content unavailable');
+  fetcher.mockResolvedValueOnce(json(data));
+  await expect(loadStudyStore({examId:'5',version:2,session:{seed,count:20}},config)).rejects.toThrow('Study content unavailable');
+});

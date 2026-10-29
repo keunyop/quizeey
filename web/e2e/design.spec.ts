@@ -45,44 +45,35 @@ test("favorites stay independent across legacy exam routes", async ({ page }) =>
 });
 
 test("question navigator, skipped counts and independent unanswered/bookmark/mistake review", async ({ page }) => {
-  await page.goto("/sqlp-developer");
-  await page.locator('input[value="910000001"]').check();
+  const questions = authoredQuestions("5", "ko").slice(0, 5);
+  await page.goto("/sqlp-developer?verNbr=202610&count=5");
+  await page.locator(`input[value="${questions[0].choices.find(c => !c.correct)!.id}"]`).check();
   await page.getByRole("button", { name: "정답 확인", exact: true }).click();
   await page.getByRole("button", { name: "다음", exact: true }).click();
   await page.getByRole("button", { name: "북마크", exact: true }).click();
-  await page.locator('input[value="910000004"]').check();
-  await page.locator('input[value="910000005"]').check();
+  await page.locator(`input[value="${questions[1].choices.find(c => c.correct)!.id}"]`).check();
   await page.getByRole("button", { name: "정답 확인", exact: true }).click();
+  await expect(page.locator(".map-accuracy")).toContainText("50%");
   await page.getByRole("button", { name: "다음", exact: true }).click();
   await expect(page.getByRole("progressbar")).toHaveAttribute("value", "2");
-  await expect(page.locator(".question-version")).toHaveText("회차 · SQL 조건");
-  await page.getByRole("button", { name: "건너뛰기", exact: true }).click();
-  for (let i = 0; i < 17; i++) await page.getByRole("button", { name: "건너뛰기", exact: true }).click();
-  await expect(page.locator(".result-stats strong")).toHaveText(["1", "1", "18"]);
+  for (let i = 0; i < 3; i++) await page.getByRole("button", { name: "건너뛰기", exact: true }).click();
+  await expect(page.locator(".result-stats strong")).toHaveText(["1", "1", "3"]);
   await page.getByRole("button", { name: /미응답 풀기/ }).click();
-  await page.locator('input[value="910000008"]').check();
-  await page.getByRole("button", { name: "정답 확인", exact: true }).click();
-  await page.reload(); await expect(page.getByText("정답입니다.", { exact: true })).toBeVisible();
-  await page.getByRole("button", { name: "다음", exact: true }).click();
-  // This journey verifies the first 20-question batch, including the archive.
-  const originalBatch = authoredQuestions("5", "ko").slice(0, 17);
-  for (const question of originalBatch) {
-    await page.locator(`input[value="${question.choices.find(choice => choice.correct)!.id}"]`).check();
+  for (const question of questions.slice(2)) {
+    await page.locator(`input[value="${question.choices.find(c => c.correct)!.id}"]`).check();
     await page.getByRole("button", { name: "정답 확인", exact: true }).click();
     await page.getByRole("button", { name: "다음", exact: true }).click();
   }
-  await expect(page.locator(".result-stats strong")).toHaveText([String(originalBatch.length + 1), "0", "0"]);
+  await expect(page.locator(".result-stats strong")).toHaveText(["3", "0", "0"]);
   await page.getByRole("button", { name: /북마크 복습/ }).click();
-  await expect(page.getByText("복수 선택", { exact: true })).toBeVisible();
-  await expect(page.getByRole("button", { name: "정답 확인", exact: true })).toBeVisible();
   await page.reload();
-  await expect(page.getByRole("button", { name: "정답 확인", exact: true })).toBeVisible();
-  await page.getByRole("button", { name: "전체 문제", exact: true }).click();
-  await page.locator(".question-map summary").click();
-  await page.getByRole("button", { name: "문제 1, 오답", exact: true }).click();
-  await expect(page.getByText("오답입니다.", { exact: true })).toBeVisible();
-  await page.locator(".question-map").getByRole("button", { name: /오답 복습/ }).click();
-  await page.locator('input[value="910000002"]').check();
+  await page.getByRole("button", { name: "이어서 풀기", exact: true }).click();
+  await page.locator(`input[value="${questions[1].choices.find(c => c.correct)!.id}"]`).check();
+  await page.getByRole("button", { name: "정답 확인", exact: true }).click();
+  await page.getByRole("button", { name: "다음", exact: true }).click();
+  await page.getByRole("button", { name: /오답 복습/ }).click();
+  await expect(page.locator(".question-map").getByRole("button", { name: /오답 복습|북마크 복습/ })).toHaveCount(0);
+  await page.locator(`input[value="${questions[0].choices.find(c => c.correct)!.id}"]`).check();
   await page.getByRole("button", { name: "정답 확인", exact: true }).click();
   await page.getByRole("button", { name: "다음", exact: true }).click();
   await expect(page.getByRole("button", { name: /오답 복습/ })).toBeDisabled();
@@ -116,7 +107,7 @@ test("keyboard and accessibility in both languages", async ({ page }) => {
     const result = await new AxeBuilder({ page }).analyze();
     expect(result.violations, path).toEqual([]);
   }
-  await page.goto("/sqlp-developer");
+  await page.goto("/sqlp-developer?verNbr=1");
   await page.getByRole("radio").first().focus();
   await page.keyboard.press("ArrowDown");
   await expect(page.getByRole("radio").nth(1)).toBeChecked();
@@ -133,7 +124,7 @@ test("unavailable local storage keeps practice and favorites usable", async ({ p
   await page.locator(".favorite-button").click();
   await expect(page.locator(".favorite-button")).toHaveAttribute("aria-pressed", "true");
   await expect(page.getByRole("status").filter({ hasText: "즐겨찾기를 저장할 수 없습니다" })).toBeVisible();
-  await page.goto("/sqlp-developer");
+  await page.goto("/sqlp-developer?verNbr=1");
   await page.locator('input[value="910000001"]').check();
   await page.getByRole("button", { name: "정답 확인", exact: true }).click();
   await expect(page.getByText("오답입니다.", { exact: true })).toBeVisible();

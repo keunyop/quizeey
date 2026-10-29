@@ -58,8 +58,8 @@ it('targets both North American markets without inventing translated question or
 
 it('provides localized, page-specific search copy without unsupported pass guarantees',()=>{
   const ko=findRoute('/sqlp-developer')!,en=findRoute('/en/aws-certified-developer-associate')!;
-  expect(searchCopy('/',new URLSearchParams(),findRoute('/')!).description).toContain('한국 자격증');
-  expect(searchCopy('/en',new URLSearchParams(),findRoute('/en')!)).toMatchObject({title:expect.stringContaining('Practice Tests'),description:expect.stringContaining('United States and Canada')});
+  expect(searchCopy('/',new URLSearchParams(),findRoute('/')!).description).toContain('CBT 시험');
+  expect(searchCopy('/en',new URLSearchParams(),findRoute('/en')!)).toMatchObject({title:expect.stringContaining('Practice Tests'),description:expect.stringContaining('Canadian citizenship')});
   expect(searchCopy(ko.path,new URLSearchParams(),ko).description).toContain('SQLD');
   expect(searchCopy(en.path,new URLSearchParams(),en).description).not.toMatch(/pass.*easily|exam dumps/i);
   const page=searchCopy(en.path,new URLSearchParams('page=2&verNbr=202610'),en);

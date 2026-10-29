@@ -2,7 +2,6 @@ import { expect, test } from "@playwright/test";
 import manifest from "../content/north-america-2026-10.manifest.json" with { type: "json" };
 import content from "../src/data/practice-2026-10.json" with { type: "json" };
 import { authoredCatalog, authoredQuestions } from "../src/lib/authored-practice";
-import { practiceDisplayCopy } from "../src/lib/practice-display-copy";
 
 const exams = authoredCatalog.filter(exam => manifest.examIds.includes(exam.id));
 
@@ -54,8 +53,6 @@ test("new exam links, set summaries, all prompts and targeted metadata are serve
       await expect(page).toHaveTitle(new RegExp(exam.seoTitle!.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
       await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", new RegExp(exam.description!.slice(0, 20)));
       await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
-      await expect(page.locator(".practice-set-summary")).toContainText("30 practice questions with explanations");
-      await expect(page.locator(".practice-set-summary")).toContainText(practiceDisplayCopy(exam.practiceScope)!);
       await page.locator(".practice-outline summary").click();
       const outline = page.locator(".practice-outline li a");
       await expect(outline).toHaveCount(pageNumber === 1 ? 20 : 10);
@@ -81,7 +78,7 @@ for (const exam of exams) test(`${exam.name}: grading, explanation, bookmark, re
   await expect(page.locator(".answer-feedback")).toContainText("Incorrect");
   await expect(page.locator(".explanation-region .learning-content").first()).toHaveText(original[20].explanation);
   await expect(page.locator(".explanation-region a").first()).toHaveAttribute("href", /https:\/\//);
-  await page.reload();
+  await page.reload(); await page.getByRole("button", { name: /^(이어서 풀기|Continue)$/ }).click();
   await expect(page.locator(".answer-feedback")).toContainText("Incorrect");
   await expect(page.locator(".bookmark-button")).toHaveAttribute("aria-pressed", "true");
   await page.getByRole("button", { name: "Next", exact: true }).click();

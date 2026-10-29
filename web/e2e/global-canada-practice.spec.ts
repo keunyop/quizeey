@@ -55,7 +55,7 @@ test("English questions support grading and resume in both interfaces and on the
       await page.getByRole("button", { name: locale === "ko" ? "정답 확인" : "Check answer", exact: true }).click();
       await expect(page.getByText(locale === "ko" ? "정답입니다." : "Correct.", { exact: true })).toBeVisible();
       await expect(page.locator(".explanation-region .learning-content").first()).toHaveText(question.explanation!.replace(/<[^>]*>/g, ""));
-      await page.reload();
+      await page.reload(); await page.getByRole("button", { name: /^(이어서 풀기|Continue)$/ }).click();
       await expect(page.getByText(locale === "ko" ? "정답입니다." : "Correct.", { exact: true })).toBeVisible();
       const last = authoredQuestions(id, locale as "ko" | "en").at(-1)!;
       await page.goto(`${path}?questId=${last.id}&verNbr=202610`);

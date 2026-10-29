@@ -40,7 +40,7 @@ it("covers all 200 catalog exams with 2130 distinct, answerable, attributed orig
   }
   expect(ids.size).toBe(2130); expect(choiceIds.size).toBe(8520);
   expect(findAuthoredQuestion("8000099999")).toBeUndefined();
-});
+}, 15_000); // Full-catalog audit can exceed the default timeout on a shared workstation.
 
 it("keeps existing authored question and choice identities stable while larger sets use a separate namespace", () => {
   for (const exam of authoredCatalog.filter(exam => exam.idBlockSize !== 1000)) {

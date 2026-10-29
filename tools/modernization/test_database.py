@@ -56,6 +56,8 @@ def main():
             run("psql", *common, "-d", "quizeey_fixture", "-f", migration)
         run("psql", *common, "-d", "quizeey_fixture", input="CREATE ROLE quizeey_server LOGIN; GRANT service_role,anon TO quizeey_server;")
         if not args.serve:
+            output=run('psql',*common,'-d','quizeey_fixture','-f',ROOT/'supabase/tests/practice_sessions.sql')
+            (directory/'practice-sessions-result.txt').write_text(output,encoding='utf-8')
             reader_sql=(ROOT/'supabase/tests/study_reader.sql').read_text(encoding='utf-8')
             output=run('psql',*common,'-d','quizeey_fixture',input='BEGIN;\n'+reader_sql+'\nROLLBACK;')
             (directory/'study-reader-result.txt').write_text(output,encoding='utf-8')

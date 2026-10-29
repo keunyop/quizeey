@@ -5,7 +5,7 @@ import {googleConsent,type GoogleConsentValues} from '@/lib/google-consent';
 import {analyticsLocation,analyticsReferrer} from '@/lib/google-analytics';
 
 type FundingChoices={callbackQueue:Record<string,()=>void>[];getGoogleConsentModeValues?:()=>GoogleConsentValues;showRevocationMessage?:()=>void;usstatesoptout?:{overrideDnsLink?:boolean;getInitialUsStatesOptOutStatus?:()=>number;openConfirmationDialog?:(callback:(optedOut:boolean)=>void)=>void}};
-declare global {interface Window{googlefc?:FundingChoices;dataLayer?:unknown[];gtag?:(...args:unknown[])=>void;adsbygoogle?:object[]}}
+declare global {interface Window{googlefc?:FundingChoices;dataLayer?:unknown[];gtag?:(...args:unknown[])=>void;adsbygoogle?:object[];__tcfapi?:(command:string,version:number,callback:(data:{gdprApplies?:boolean;listenerId?:number},success:boolean)=>void,parameter?:number)=>void}}
 const scripts=new Map<string,Promise<void>>();
 function loadScript(id:string,src:string,overlays?:'collapsed-bottom'){
   let promise=scripts.get(id);
@@ -26,6 +26,7 @@ const subscribe=()=>()=>{};
 export function Monetization({enabled,measurementId,cmpScriptUrl,pagePath,locale,children}:{enabled:boolean;measurementId?:string;cmpScriptUrl?:string;pagePath:string;locale:'ko'|'en';children:ReactNode}){
   const [consent,setConsent]=useState({ads:false,analytics:false});
   const [usApplicable,setUsApplicable]=useState(false);
+  const [euApplicable,setEuApplicable]=useState(false);
   const [tagReady,setTagReady]=useState(false);
   const allowed=useRef(consent);const configured=useRef(false);const pageViewed=useRef('');
   // One request per placement for this document, including filter/consent remounts.
@@ -44,6 +45,17 @@ export function Monetization({enabled,measurementId,cmpScriptUrl,pagePath,locale
     const fc=window.googlefc??={callbackQueue:[]};fc.callbackQueue??=[];
     fc.usstatesoptout??={};fc.usstatesoptout.overrideDnsLink=true;
     let usStatus:number|undefined;
+    let consentListener:number|undefined;
+    let consentSubscribed=false;
+    fc.callbackQueue.push({CONSENT_API_READY:()=>{
+      if(!active||consentSubscribed||!window.__tcfapi)return;
+      consentSubscribed=true;
+      window.__tcfapi('addEventListener',0,(data,success)=>{
+        if(!active)return;
+        consentListener=data?.listenerId;
+        if(success)setEuApplicable(data?.gdprApplies===true);
+      });
+    }});
     const update=()=>{
       if(!active)return;
       let next={ads:false,analytics:false};
@@ -54,7 +66,7 @@ export function Monetization({enabled,measurementId,cmpScriptUrl,pagePath,locale
     };
     fc.callbackQueue.push({CONSENT_MODE_DATA_READY:update},{CONSENT_DATA_READY:update},{INITIAL_US_STATES_OPT_OUT_DATA_READY:()=>{usStatus=fc.usstatesoptout?.getInitialUsStatesOptOutStatus?.();setUsApplicable(usStatus===2||usStatus===3);update();}});
     void loadScript('quizeey-cmp',cmpScriptUrl).catch(()=>{});
-    return()=>{active=false;allowed.current={ads:false,analytics:false};};
+    return()=>{active=false;allowed.current={ads:false,analytics:false};if(consentListener!==undefined)window.__tcfapi?.('removeEventListener',0,()=>{},consentListener);};
   },[live,measurementId,cmpScriptUrl]);
   useEffect(()=>{
     if(!live||!consent.analytics||!measurementId)return;
@@ -81,7 +93,7 @@ export function Monetization({enabled,measurementId,cmpScriptUrl,pagePath,locale
     else window.googlefc?.showRevocationMessage?.();
   }
   const value=useMemo(()=>({ads:live&&consent.ads,analytics:live&&consent.analytics&&tagReady,track,claimAd}),[live,consent,tagReady,track,claimAd]);
-  return <IntegrationContext value={value}>{children}{live&&<div className="privacy-controls"><button className="text-button" onClick={()=>privacy()}>{locale==='ko'?'개인정보 설정':'Privacy choices'}</button>{usApplicable&&<button className="text-button" onClick={()=>privacy(true)}>{locale==='ko'?'개인정보 판매·공유 거부':'Do not sell or share my personal information'}</button>}</div>}</IntegrationContext>;
+  return <IntegrationContext value={value}>{children}{live&&(euApplicable||usApplicable)&&<div className="privacy-controls">{euApplicable&&<button className="text-button" onClick={()=>privacy()}>{locale==='ko'?'개인정보 설정':'Privacy choices'}</button>}{usApplicable&&<button className="text-button" onClick={()=>privacy(true)}>{locale==='ko'?'개인정보 판매·공유 거부':'Do not sell or share my personal information'}</button>}</div>}</IntegrationContext>;
 }
 
 export function AdSlot({kind,locale,eligible=true}:{kind:AdKind;locale:'ko'|'en';eligible?:boolean}){

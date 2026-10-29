@@ -6,13 +6,13 @@ test("mobile practice prioritizes the question and one main action without losin
   await page.evaluate(() => document.fonts.ready);
   const question = page.locator(".question-card");
   expect((await question.boundingBox())!.y).toBeLessThan(260);
-  await expect(page.locator(".question-map")).not.toHaveAttribute("open");
-  await expect(page.getByRole("button", { name: "시험 기본정보", exact: true })).toHaveAttribute("aria-expanded", "false");
+  await expect(page.locator(".question-map")).toHaveAttribute("open");
+  await expect(page.getByRole("button", { name: "시험정보", exact: true })).toHaveAttribute("aria-expanded", "false");
   await expect(page.locator(".exam-info-description")).toBeHidden();
   await expect(page.getByLabel("시험 회차", { exact: true })).toBeVisible();
   expect((await page.locator(".version-form").boundingBox())!.y).toBeLessThan((await question.boundingBox())!.y);
   await expect(page.locator(".question-version")).toHaveText("회차 · SQL 기본");
-  await expect(page.getByRole("link", { name: "문제 링크", exact: true })).not.toBeVisible();
+  await expect(page.getByRole("link", { name: "문제 링크", exact: true })).toBeVisible();
   await expect(page.locator('.question-link')).toHaveAttribute('data-google-vignette', 'false');
   expect(await page.locator(".question-prompt").evaluate((node) => getComputedStyle(node).fontSize)).toBe("16px");
   expect(await page.locator(".choice").first().evaluate((node) => getComputedStyle(node).fontSize)).toBe("16px");
@@ -31,7 +31,7 @@ test("mobile practice prioritizes the question and one main action without losin
   expect(nextButton!.y + nextButton!.height).toBeLessThan(explanation!.y);
   await expect(page.getByRole("button", { name: "건너뛰기", exact: true })).toHaveCount(0);
   await expect(page.locator(".practice-controls .primary")).toHaveCount(1);
-  await page.reload();
+  await page.reload(); await page.getByRole("button", { name: /^(이어서 풀기|Continue)$/ }).click();
   await expect(page.locator('input[value="910000002"]')).toBeChecked();
   await expect(page.getByRole("button", { name: "북마크 해제", exact: true })).toHaveAttribute("aria-pressed", "true");
   await page.getByRole("button", { name: "다음", exact: true }).click();
@@ -46,11 +46,9 @@ test("visible set selection works after a generic URL redirects to its named exa
   await expect(page).toHaveURL(/\/sqlp-developer\?questId=900000001$/);
   await expect(page.locator('input[name="testId"]')).toHaveCount(0);
   await page.getByLabel("시험 회차", { exact: true }).selectOption("2");
-  await page.getByRole("button", { name: "적용", exact: true }).click();
   await expect(page).toHaveURL(/\/sqlp-developer\?verNbr=2$/);
   await expect(page.getByText("SQL에서 NULL을 검사하는 조건은 무엇인가요?", { exact: true })).toBeVisible();
   await expect(page.locator(".question-version")).toHaveText("회차 · SQL 조건");
-  await page.locator(".question-map summary").click();
   await expect(page.getByRole("link", { name: "문제 링크", exact: true })).toHaveAttribute("href", "?testId=5&questId=900000003&verNbr=2");
 });
 

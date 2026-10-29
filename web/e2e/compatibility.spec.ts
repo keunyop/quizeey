@@ -4,6 +4,7 @@ import staticPages from '../fixtures/legacy-pages.json' with {type:'json'};
 import { staticPage,learningHtml } from '../src/lib/content';
 import { findRoute } from '../src/lib/contracts';
 import { homeSearchCopy } from '../src/lib/seo';
+import { siteCopy } from '../src/lib/site-copy';
 
 test('verified catalog redirects retain question and set identities',async({request})=>{
   for(const [source,target]of [['/microsoft-az-500','/az-500'],['/@ccna-300-115','/ccnp-300-115']]){
@@ -37,23 +38,26 @@ test("all discovered controller entry routes render with localized home titles a
     const response = await request.get(url);
     expect(response.status(),url).toBe(200);
     const title=['/','/kr','/app','/en'].includes(route.path)?homeSearchCopy[route.locale as 'ko'|'en'].title:
-      route.path==='/en/az-900'?'Free AZ-900 Practice Questions with Answers | Azure Fundamentals - Quizeey':route.title;
+      route.path==='/en/az-900'?'Free AZ-900 Practice Questions with Answers | Azure Fundamentals - Quizeey':siteCopy[route.path as keyof typeof siteCopy]?.title ?? route.title;
     if (title && !route.path.endsWith('/test')) expect(await response.text(),url).toContain(`<title>${title.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;')}</title>`);
   }
 });
 
-test('static source copy, internal content and the existing local image survive server rendering',async({page,request})=>{
-  for(const path of Object.keys(staticPages)){
+test('localized about and privacy copy and internal exam links render on the server',async({page,request})=>{
+  for(const path of [...new Set([...Object.keys(staticPages), ...Object.keys(siteCopy)])]){
     const response=await request.get(path);expect(response.status()).toBe(200);
     expect(await response.text()).toContain(staticPage(path)!.html);
   }
   await page.goto('/privacy');
-  await expect(page.getByRole('heading',{name:'1. Owner and Data Controller',exact:true})).toBeVisible();
-  await expect(page.locator('.static-copy')).toContainText('Changes to this privacy policy');
+  await expect(page.getByRole('heading',{name:'개인정보처리방침',exact:true})).toBeVisible();
+  await expect(page.locator('.static-copy')).toContainText('학습 기록과 브라우저 저장');
   await expect(page.locator('.static-copy script, .static-copy ins, .static-copy form')).toHaveCount(0);
   await page.goto('/about');
-  const image=page.getByRole('img',{name:'AWS Certified Developer – Associate badge'});
-  await expect(image).toBeVisible();expect(await image.evaluate((img)=>(img as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+  await expect(page.locator('.static-copy')).toContainText('무료 학습 사이트');
+  await expect(page.locator('.static-copy a[href="/sqlp-developer"]')).toBeVisible();
+  await page.goto('/en/about');
+  await expect(page.locator('html')).toHaveAttribute('lang','en');
+  await expect(page.locator('.static-copy')).toContainText('independent of exam providers');
 });
 test("legacy POST read contracts keep boolean wire names and stable IDs", async ({ request }) => {
   const response = await request.post('/question',{data:{testId:5,verNbr:0,questId:900000002}});

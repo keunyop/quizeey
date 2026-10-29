@@ -11,6 +11,7 @@ import { useAnalytics } from './Monetization';
 import type { QuizPayload } from '@/lib/integrations';
 import { SubmissionDialog } from './SubmissionDialog';
 import { versionDisplayName } from '@/lib/version-label';
+import { saveSessionSettings, maxPracticeCount, type SessionSettings } from '@/lib/practice-session';
 
 function createProgressStore(key: string, previousKeys: string[], ids: string[], contentVersion: string, onError: (error: boolean) => void) {
     let fallback: string | null = null;
@@ -48,7 +49,20 @@ function useProgress(key: string, ids: string[], contentVersion: string, previou
   const store = useMemo(() => createProgressStore(key, previousKeys, ids, contentVersion, setStorageError), [key, previousKeys, ids, contentVersion]);
   const raw = useSyncExternalStore(store.subscribe, store.getSnapshot, () => null);
   const progress = useMemo(() => readProgress(raw, ids, contentVersion) ?? emptyProgress(ids, contentVersion), [raw, ids, contentVersion]);
-  return { progress, save: store.write, storageError };
+  const [accepted, setAccepted] = useState(false);
+  const hasSavedProgress = !!readProgress(raw, ids, contentVersion) && (progress.index > 0 || Object.keys(progress.attempts).length > 0 || progress.bookmarks.length > 0);
+  return { progress, save: (value: Progress) => { setAccepted(true); store.write(value); }, storageError, needsResume: !accepted && hasSavedProgress, accept: () => setAccepted(true) };
+}
+
+function ResumeDialog({ locale, answered, total, onResume, onRestart }: { locale: Locale; answered: number; total: number; onResume: () => void; onRestart: () => void }) {
+  const dialog = useRef<HTMLDialogElement>(null);
+  useEffect(() => { dialog.current?.showModal(); }, []);
+  const en = locale === 'en';
+  return <dialog ref={dialog} className="submission-dialog resume-dialog" aria-labelledby="resume-title" aria-describedby="resume-description" onCancel={event => { event.preventDefault(); onResume(); }}>
+    <h2 id="resume-title">{en ? 'Continue your practice?' : '이어서 풀까요?'}</h2>
+    <p id="resume-description">{en ? `${answered} of ${total} answered` : `${total}문제 중 ${answered}문제 완료`}</p>
+    <div className="actions"><button className="primary" onClick={onResume}>{en ? 'Continue' : '이어서 풀기'}</button><button onClick={onRestart}>{en ? 'Start fresh' : '새로 시작'}</button></div>
+  </dialog>;
 }
 
 function QuestionCard({ question, locale, attempt, onGrade, onPrevious, onNext, canPrevious, commentsEnabled }: {
@@ -62,6 +76,25 @@ function QuestionCard({ question, locale, attempt, onGrade, onPrevious, onNext, 
   const multiple = question.choices.filter((choice) => choice.correct).length > 1;
   const answerLetters = question.choices.flatMap((choice, index) => choice.correct ? [String.fromCharCode(65 + index)] : []);
   const analytics=useAnalytics();
+  useEffect(() => {
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.repeat || event.isComposing || event.altKey || event.ctrlKey || event.metaKey || document.querySelector('dialog[open]')) return;
+      const target = event.target as HTMLElement | null;
+      if (target?.closest('textarea,select,[contenteditable="true"],a,summary,button:not(.practice-primary),input:not([type="radio"]):not([type="checkbox"])')) return;
+      const index = /^[1-4]$/.test(event.key) ? Number(event.key) - 1 : -1;
+      const choice = question.choices[index];
+      if (choice && !attempt) {
+        event.preventDefault();
+        setDraft(current => multiple ? current.includes(choice.id) ? current.filter(id => id !== choice.id) : [...current, choice.id] : [choice.id]);
+      } else if (event.key === 'Enter') {
+        event.preventDefault();
+        if (attempt) onNext();
+        else if (selected.length) onGrade(selected);
+      }
+    }
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [attempt, multiple, onGrade, onNext, question.choices, selected]);
   return <section className="question-card" aria-label={locale === "ko" ? "문제" : "Question"}>
     <p className="question-version">{locale === "ko" ? "회차" : "Set"} · {versionDisplayName(question.versionName, question.version, locale)}</p>
     <div id="question-content" lang={question.contentLocale ?? locale} tabIndex={-1} className="learning-content question-prompt" dangerouslySetInnerHTML={{ __html: question.text }} />
@@ -92,6 +125,7 @@ function QuestionCard({ question, locale, attempt, onGrade, onPrevious, onNext, 
         {!attempt && <button className="text-button skip-button" onClick={onNext}>{m.skip}</button>}
       </div>
     </div>
+    <p className="keyboard-hint">{locale === 'ko' ? '1–4 선택 · Enter 정답 확인 / 다음' : '1–4 select · Enter check / next'}</p>
     <SubmissionDialog locale={locale} question={{ examId: question.testId, questionId: question.id }}/>
     {attempt && <div className="explanation-region">
       <details open onToggle={event=>{if(event.currentTarget.open)analytics.track('explanation_open',{test_id:question.testId,quest_id:question.id,locale});}}><summary>{m.explanation}</summary>
@@ -103,14 +137,14 @@ function QuestionCard({ question, locale, attempt, onGrade, onPrevious, onNext, 
   </section>;
 }
 
-function QuestionNavigator({ questions, question, locale, testId, progress, onNavigate, onReview }: {
+function QuestionNavigator({ questions, question, locale, testId, progress, onNavigate }: {
   questions: Question[]; question: Question; locale: Locale; testId: string; progress: Progress;
-  onNavigate: (index: number) => void; onReview: (mode: "mistakes" | "bookmarks") => void;
+  onNavigate: (index: number) => void;
 }) {
   const en = locale === "en";
-  const stats = practiceStats(progress, progress.ids);
-  return <details className="question-map">
-    <summary><span><Icon name="grid" />{en ? "Questions & review" : "문제 목록·복습"}</span></summary>
+  const stats = practiceStats(progress, questions.map(question => question.id));
+  return <details className="question-map" open>
+    <summary><span><Icon name="grid" />{en ? "Questions & review" : "문제 목록·복습"}</span><span className="map-accuracy">{en ? 'Accuracy' : '정답률'} <strong>{stats.answered ? `${Math.round(stats.correct / stats.answered * 100)}%` : '—'}</strong></span></summary>
     <div className="map-content">
       <div className="map-legend"><span><i className="dot-correct" />{en ? "Correct" : "정답"}</span><span><i className="dot-incorrect" />{en ? "Incorrect" : "오답"}</span><span><i />{en ? "Unanswered" : "미응답"}</span></div>
       <div className="question-grid">{questions.map((q, index) => {
@@ -122,28 +156,54 @@ function QuestionNavigator({ questions, question, locale, testId, progress, onNa
           aria-label={`${en ? "Question" : "문제"} ${index + 1}, ${status}${saved ? en ? ", Bookmarked" : ", 북마크" : ""}`}
           onClick={() => onNavigate(index)}>{index + 1}{saved && <Icon name="bookmark" />}</button>;
       })}</div>
-      <div className="map-review">
-        <button disabled={!stats.incorrect} onClick={() => onReview("mistakes")}>{messages[locale].mistakes}<span>{stats.incorrect}</span></button>
-        <button disabled={!progress.bookmarks.length} onClick={() => onReview("bookmarks")}>{en ? "Review bookmarks" : "북마크 복습"}<span>{progress.bookmarks.length}</span></button>
-      </div>
       <div className="question-meta"><a className="question-link" data-google-vignette="false" href={`?testId=${testId}&questId=${question.id}&verNbr=${question.version}`}><Icon name="link" />{en ? "Question link" : "문제 링크"}</a></div>
     </div>
   </details>;
 }
 
-export function Practice({ questions, locale, testId, contentVersion, directId, pageNumber=1, nextPage, commentsEnabled=false }: {
-  questions: Question[]; locale: Locale; testId: string; contentVersion: string; directId?: string;pageNumber?:number;nextPage?:string;commentsEnabled?:boolean;
-}) {
+type PracticeProps = {
+  questions: Question[]; locale: Locale; testId: string; contentVersion: string; directId?: string;pageNumber?:number;commentsEnabled?:boolean;nextPage?:string;
+  session?: SessionSettings & { cookieName: string; version: number; total: number };
+  previousQuestions?: Question[];
+};
+const subscribeLegacy = () => () => {};
+export function Practice(props: PracticeProps) {
+  // Offer the old sequential session before starting the new random format.
+  // Read only sanitized server-provided questions; stored HTML is never trusted.
+  const restoreLegacy = useSyncExternalStore(subscribeLegacy, () => {
+    const questions = props.previousQuestions;
+    if (!questions?.length || !props.session) return false;
+    const retained = questions.filter(question => !question.authored);
+    const versions = (retained.length ? retained : questions).map(question => question.version);
+    const ids = questions.map(question => question.id);
+    const prefix = `quizeey:progress:v1:${props.locale}:${props.testId}:${props.contentVersion}:`;
+    try {
+      for (let length = versions.length; length > 0; length--) {
+        const saved = readProgress(localStorage.getItem(prefix + versions.slice(0, length).join(',') + ':all'), ids, props.contentVersion);
+        if (saved && (saved.index > 0 || Object.keys(saved.attempts).length || saved.bookmarks.length)) return true;
+        if (retained.length) break;
+      }
+    } catch { /* Continue with the new session when storage is unavailable. */ }
+    return false;
+  }, () => false);
+  return <PracticeSession key={restoreLegacy ? 'legacy' : 'current'} {...props}
+    questions={restoreLegacy ? props.previousQuestions! : props.questions}
+    session={restoreLegacy ? { ...props.session!, seed: 'legacy' } : props.session} />;
+}
+
+function PracticeSession({ questions, locale, testId, contentVersion, directId, pageNumber=1, commentsEnabled=false, session, nextPage }: PracticeProps) {
   const m = messages[locale];
   const ids = useMemo(() => questions.map((q) => q.id), [questions]);
   const retained = questions.filter(question => !question.authored);
   const keyPrefix = `quizeey:progress:v1:${locale}:${testId}:${contentVersion}:`;
   const keySuffix = `:${directId ?? "all"}${pageNumber>1?`:page${pageNumber}`:''}`;
-  const key = keyPrefix + (retained.length ? retained : questions).map((q) => q.version).join(",") + keySuffix;
+  const key = session && session.seed !== 'legacy' && (!session.version || session.count !== 20)
+    ? `quizeey:progress:v2:${locale}:${testId}:${contentVersion}:${session.version}:${session.seed}:${session.count}`
+    : keyPrefix + (retained.length ? retained : questions).map((q) => q.version).join(",") + keySuffix;
   const previousKeys = useMemo(() => retained.length || directId ? [] : Array.from({ length: Math.max(0, questions.length - 1) }, (_, index) =>
     keyPrefix + questions.slice(0, questions.length - index - 1).map(question => question.version).join(",") + keySuffix),
   [retained.length, directId, questions, keyPrefix, keySuffix]);
-  const { progress, save, storageError } = useProgress(key, ids, contentVersion, previousKeys);
+  const { progress, save, storageError, needsResume, accept } = useProgress(key, ids, contentVersion, previousKeys);
   const activeQuestions = progress.reviewIds ? questions.filter((q) => progress.reviewIds!.includes(q.id)) : questions;
   const question = activeQuestions[progress.index];
   const attempt = question ? progress.attempts[question.id] : undefined;
@@ -153,9 +213,10 @@ export function Practice({ questions, locale, testId, contentVersion, directId, 
   const en = locale === "en";
   const analytics=useAnalytics();const viewed=useRef<string|null>(null);const started=useRef(false);
   const practiceMode=progress.reviewMode??(directId?'direct':'standard');
+  useEffect(() => { if (session) saveSessionSettings(session.cookieName, session); }, [session]);
   useEffect(()=>{
     const identity=`${practiceMode}:${question?.id??'result'}`;
-    if(!analytics.analytics||viewed.current===identity)return;
+    if(needsResume||!analytics.analytics||viewed.current===identity)return;
     const payload:QuizPayload={test_id:testId,locale,practice_mode:practiceMode,question_count:activeQuestions.length,answered_count:stats.answered};
     if(question){
       if(!started.current)started.current=analytics.track('practice_start',payload);
@@ -165,7 +226,7 @@ export function Practice({ questions, locale, testId, contentVersion, directId, 
       if(analytics.track('practice_result',payload))viewed.current=identity;
       if(started.current&&activeQuestions.length>0&&stats.unanswered===0)analytics.track('practice_complete',payload);
     }
-  },[question,locale,testId,analytics,practiceMode,activeQuestions.length,stats.answered,stats.unanswered]);
+  },[question,locale,testId,analytics,practiceMode,activeQuestions.length,stats.answered,stats.unanswered,needsResume]);
   const reviewLabel = progress.reviewMode === "bookmarks" ? en ? "Bookmarked questions" : "북마크 복습" : progress.reviewMode === "unanswered" ? en ? "Unanswered questions" : "미응답 풀기" : m.mistakes;
 
   function focusQuestion(hasQuestion = true) {
@@ -195,7 +256,18 @@ export function Practice({ questions, locale, testId, contentVersion, directId, 
     focusQuestion(!!target);
   }
 
+  function restart() {
+    started.current=false;viewed.current=null;
+    save({ ...emptyProgress(ids, contentVersion), bookmarks: progress.bookmarks });
+    if (session && !session.version) {
+      saveSessionSettings(session.cookieName, { ...session, seed: crypto.randomUUID() });
+      window.location.reload();
+    } else focusQuestion();
+  }
+  const resumeDialog = needsResume && <ResumeDialog locale={locale} answered={allStats.answered} total={ids.length} onResume={() => { accept(); focusQuestion(!!question); }} onRestart={restart} />;
+
   if (!question) return <section className="panel result-panel" id="practice-result" tabIndex={-1}>
+    {resumeDialog}
     <div className="result-icon"><Icon name={stats.unanswered ? "book" : "check"} /></div>
     {progress.reviewIds && <p className="eyebrow">{reviewLabel}</p>}
     <h2>{stats.unanswered ? en ? "Your practice results" : "학습 결과" : m.complete}</h2>
@@ -203,7 +275,8 @@ export function Practice({ questions, locale, testId, contentVersion, directId, 
     <p className="muted">{en ? "Correct answers" : "정답 문항"}</p>
     <div className="result-stats"><div><strong>{stats.correct}</strong><span>{en ? "Correct" : "정답"}</span></div><div><strong>{stats.incorrect}</strong><span>{en ? "Incorrect" : "오답"}</span></div><div><strong>{stats.unanswered}</strong><span>{en ? "Unanswered" : "미응답"}</span></div></div>
     <div className="actions">
-      {nextPage&&!progress.reviewIds&&<a className="button-link primary" data-google-vignette="false" href={nextPage}>{en?'Continue practice':'이어서 풀기'}<Icon name="arrow" /></a>}
+      {nextPage && !progress.reviewIds && <a className="button-link primary" data-google-vignette="false" href={nextPage}>{en ? 'Continue practice' : '이어서 풀기'}<Icon name="arrow" /></a>}
+      {session && !session.version && <button className="primary" onClick={restart}>{en ? 'Try a new set' : '새 문제 풀기'}<Icon name="arrow" /></button>}
       <button className="primary" disabled={!allStats.incorrect} onClick={() => review("mistakes")}><Icon name="refresh" />{m.mistakes}<span>{allStats.incorrect}</span></button>
       {allStats.unanswered > 0 && <button onClick={() => review("unanswered")}>{en ? "Answer remaining" : "미응답 풀기"}<span>{allStats.unanswered}</span></button>}
       <button disabled={!progress.bookmarks.length} onClick={() => review("bookmarks")}><Icon name="bookmark" />{en ? "Review bookmarks" : "북마크 복습"}<span>{progress.bookmarks.length}</span></button>
@@ -217,9 +290,14 @@ export function Practice({ questions, locale, testId, contentVersion, directId, 
   const displayed = order && order.length === question.choices.length && new Set(order).size === order.length && order.every((id) => question.choices.some((c) => c.id === id))
     ? { ...question, choices: order.map((id) => question.choices.find((c) => c.id === id)!) } : question;
   return <div className="practice">
+    {resumeDialog}
     {progress.reviewIds && <div className="review-banner"><span><Icon name="refresh" />{reviewLabel}</span><button className="text-button" onClick={exitReview}>{en ? "All questions" : "전체 문제"}<Icon name="close" /></button></div>}
     <div className="practice-toolbar">
-      <span className="question-counter"><span>{en ? "Question" : "문제"}</span><strong>{progress.index + 1}</strong><span> / {activeQuestions.length}</span></span>
+      <div className="question-counter"><span>{en ? "Question" : "문제"}</span><strong>{progress.index + 1}</strong><span> / {activeQuestions.length}</span>
+        {session && !progress.reviewIds && <><label className="sr-only" htmlFor="question-count">{en ? 'Number of questions' : '풀 문제 수'}</label><select id="question-count" value={Math.min(session.count, session.total)} onChange={event => {
+          const url = new URL(window.location.href); url.searchParams.set('count', event.target.value); url.searchParams.delete('page'); url.searchParams.delete('questId'); window.location.assign(url);
+        }}>{[...new Set([5, 10, 20, 40, 60, 100, Math.min(session.count, session.total), Math.min(session.total, maxPracticeCount)])].filter(count => count > 0 && count <= session.total).sort((a,b) => a-b).map(count => <option key={count} value={count}>{en ? `${count} questions` : `${count}문제`}</option>)}</select></>}
+      </div>
       <button className="icon-button bookmark-button" aria-label={progress.bookmarks.includes(question.id) ? m.bookmarked : m.bookmark}
         title={progress.bookmarks.includes(question.id) ? m.bookmarked : m.bookmark}
         aria-pressed={progress.bookmarks.includes(question.id)} onClick={() => {if(!progress.bookmarks.includes(question.id))analytics.track('bookmark_add',{test_id:testId,quest_id:question.id,locale});save({ ...progress,
@@ -233,7 +311,7 @@ export function Practice({ questions, locale, testId, contentVersion, directId, 
       onGrade={(selected) => {const correct=grade(question,selected);analytics.track('answer_submit',{test_id:testId,quest_id:question.id,locale,correct});save({ ...progress,
       attempts: { ...progress.attempts, [question.id]: { selected, correct } },
     });}} />
-    <QuestionNavigator questions={activeQuestions} question={question} locale={locale} testId={testId} progress={progress} onNavigate={navigate} onReview={review} />
+    <QuestionNavigator questions={activeQuestions} question={question} locale={locale} testId={testId} progress={progress} onNavigate={navigate} />
     {storageError && <p role="status" className="error">{m.storageError}</p>}
   </div>;
 }

@@ -3,6 +3,7 @@ import { legacy } from "@/lib/contracts";
 import { authoredCatalog, authoredDefaultLocale, authoredQuestions, authoredVersion, authoredVersionId, authoredVersionName, findAuthoredQuestion } from "@/lib/authored-practice";
 import type { StudyStore } from "./study-store";
 import { loadStudyStore, type StudyContext } from "./study-loader";
+import { sampleQuestions } from './sample-questions';
 
 /** Append the public original set without modifying archived IDs, content or counters.
  * Hosted archive pages stay bounded to the same 20-item RPC. Original questions
@@ -38,6 +39,13 @@ export class LearningStore {
     const additional = !version || version === authoredVersion ? authoredQuestions(id, locale).length : 0;
     const total = (version === authoredVersion ? 0 : this.base.pagination(id, locale, version, page).total) + additional;
     return { page, total, pages: Math.max(1, Math.ceil(total / 20)) };
+  }
+  sessionQuestions(id: string, locale: Locale, version: number, count: number, seed: string) {
+    const archived = version === authoredVersion ? [] : this.base.sessionQuestions(id, locale, version);
+    const authored = !version || version === authoredVersion ? authoredQuestions(id, locale) : [];
+    const pool = [...archived, ...authored];
+    // Specific sets retain their source order; "All" samples across every set.
+    return version ? pool.slice(0, count) : sampleQuestions(pool, count, seed);
   }
   questions(id: string, locale: Locale, version = 0, directId?: string, page = 1) {
     const extra = authoredQuestions(id, locale);
