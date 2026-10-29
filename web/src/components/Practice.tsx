@@ -125,7 +125,6 @@ function QuestionCard({ question, locale, attempt, onGrade, onPrevious, onNext, 
         {!attempt && <button className="text-button skip-button" onClick={onNext}>{m.skip}</button>}
       </div>
     </div>
-    <p className="keyboard-hint">{locale === 'ko' ? '1–4 선택 · Enter 정답 확인 / 다음' : '1–4 select · Enter check / next'}</p>
     <SubmissionDialog locale={locale} question={{ examId: question.testId, questionId: question.id }}/>
     {attempt && <div className="explanation-region">
       <details open onToggle={event=>{if(event.currentTarget.open)analytics.track('explanation_open',{test_id:question.testId,quest_id:question.id,locale});}}><summary>{m.explanation}</summary>

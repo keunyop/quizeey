@@ -8,7 +8,7 @@ export function ExamHeading({ title, locale, description, children }: { title: s
   return <div className="page-heading study-heading">
     <div className="exam-title-line"><h1>{title}</h1>
       {description.some(Boolean) && <button type="button" className="text-button exam-info-trigger" aria-expanded={open} aria-controls={id} onClick={() => setOpen(value => !value)}>
-        <span>{locale === "ko" ? '시험정보' : 'Exam info'}</span><span aria-hidden="true">{open ? "⌃" : "⌄"}</span>
+        {locale === "ko" ? '시험정보' : 'Exam info'}
       </button>}{children}
     </div>
     <div id={id} hidden={!open} className="exam-info-description">{description.filter(Boolean).map((text, index) => <p className="exam-description" key={index}>{text}</p>)}</div>

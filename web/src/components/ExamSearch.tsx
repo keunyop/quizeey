@@ -48,7 +48,7 @@ export function ExamSearch({ routes, locale, popularity }: { routes: LegacyRoute
   return <>
     <section className="catalog-hero" aria-labelledby="catalog-heading">
       <h1 id="catalog-heading">{homeSearchCopy[locale].heading}</h1>
-      <p className="catalog-description">{homeSearchCopy[locale].description}</p>
+      <p className="catalog-description">{homeSearchCopy[locale].intro}</p>
       <div className="search-field"><Icon name="search" /><label className="sr-only" htmlFor="exam-search">{en ? "Search exams" : "자격증 검색"}</label>
         <input id="exam-search" type="search" autoComplete="off" placeholder={en ? "Find your exam" : "어떤 자격증을 준비하세요?"} value={search} onChange={(e) => { setSearch(e.target.value); setLimit(18); }} />
         {search && <button className="icon-button" aria-label={en ? "Clear search" : "검색어 지우기"} onClick={() => { setSearch(""); setLimit(18); document.getElementById("exam-search")?.focus(); }}><Icon name="close" /></button>}
