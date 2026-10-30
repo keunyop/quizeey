@@ -18,8 +18,8 @@ function archive(count: number) {
   }, pendingExplanationCounts: {} }, "unchanged-archive");
 }
 
-it("covers all 200 catalog exams with 2130 distinct, answerable, attributed original questions", () => {
-  expect(authoredCatalog).toHaveLength(200);
+it("covers all 207 catalog exams with 2214 distinct, answerable, attributed original questions", () => {
+  expect(authoredCatalog).toHaveLength(207);
   const ids = new Set<string>(); const choiceIds = new Set<string>();
   for (const exam of authoredCatalog) {
     const locale = authoredDefaultLocale(exam.id);
@@ -38,7 +38,7 @@ it("covers all 200 catalog exams with 2130 distinct, answerable, attributed orig
       for (const choice of q.choices) { expect(choiceIds.has(choice.id)).toBe(false); choiceIds.add(choice.id); }
     }
   }
-  expect(ids.size).toBe(2130); expect(choiceIds.size).toBe(8520);
+  expect(ids.size).toBe(2214); expect(choiceIds.size).toBe(8856);
   expect(findAuthoredQuestion("8000099999")).toBeUndefined();
 }, 15_000); // Full-catalog audit can exceed the default timeout on a shared workstation.
 

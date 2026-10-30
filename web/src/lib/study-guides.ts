@@ -13,6 +13,46 @@ export type StudyGuide = {
 
 export const studyGuides: StudyGuide[] = [
   {
+    slug: 'current-certification-exam-versions',
+    title: 'Current Certification Versions: Security+, Network+, A+ and Azure',
+    description: 'Move from retired SY0-501, AZ-103 and other old exam codes to separate current-version practice with worked explanations and official objectives.',
+    introduction: 'Choose the exam code before choosing a practice set. Old questions can still explain useful concepts, but a newer publication date does not make an old exam blueprint current. These original English drills have separate identities so your archived questions and saved progress remain available.',
+    exams: [
+      { path: '/en/comptia-sy0-701', focus: 'Security+ SY0-701: 12 scenarios on identity, threats, architecture, operations and risk.' },
+      { path: '/en/comptia-n10-009', focus: 'Network+ N10-009: 12 scenarios with subnet calculations and practical troubleshooting.' },
+      { path: '/en/comptia-220-1201', focus: 'A+ Core 1 220-1201: 12 scenarios on hardware, connectivity, devices and support. The matching Core 2 exam is also required for A+.' },
+      { path: '/en/az-104', focus: 'Azure Administrator AZ-104: 12 scenarios on identity, storage, governance, compute and networking.' },
+      { path: '/en/az-305', focus: 'Azure Infrastructure Solutions AZ-305: 12 design decisions involving identity, data, continuity and infrastructure.' },
+      { path: '/en/dp-900', focus: 'Azure Data Fundamentals DP-900: 12 scenarios on data models, transactions, analytics and reporting.' },
+      { path: '/en/sc-900', focus: 'Security, Compliance and Identity Fundamentals SC-900: 12 scenarios on Microsoft identity, security and compliance services.' },
+    ],
+    sections: [
+      { heading: 'Keep the exam code separate from the practice date', paragraphs: [
+        'SY0-501, N10-007 and 220-1001 are retired exam codes. Use the separate SY0-701, N10-009 and 220-1201 drills linked above for those newer versions. AZ-103 was replaced by AZ-104. The Azure architect path changed through intermediate versions; AZ-305 is the infrastructure design exam, and the certification has additional prerequisites.',
+        'AZ-500 retired on August 31, 2026. Its successor path is SC-500; SC-900 here covers related fundamentals and is not a replacement engineering exam. Likewise, a related networking or cloud link does not mean an old Windows Server or VMware credential has a direct equivalent.',
+        'Reviewed October 30, 2026. Check the provider before booking, since versions and retirement schedules change. These 12-question topic drills sample the objectives; they do not cover every objective or reproduce performance-based tasks.',
+      ] },
+      { heading: 'Worked example: permissions are not all the same', paragraphs: [
+        'Suppose an application can view an Azure storage account but receives an authorization error when reading a blob. A management-plane Reader role lets it inspect the resource configuration. Blob contents require a suitable data-plane role, such as Storage Blob Data Reader. Adding another management Reader assignment does not close that gap.',
+        'Write down the operation being attempted, the identity performing it and the scope of its permissions. Then separate an authorization failure from a connectivity failure: a private endpoint whose hostname resolves incorrectly needs DNS investigation, not simply a broader role. The AZ-104 questions walk through both situations.',
+      ] },
+      { heading: 'Worked example: find the subnet before troubleshooting', paragraphs: [
+        'For 192.0.2.70/26, six bits remain for host addresses, so each block contains 64 addresses. The last-octet blocks start at 0, 64, 128 and 192. Address 70 belongs to 192.0.2.64/26; the conventional usable range is .65 through .126, and .127 is the broadcast address.',
+        'After checking addressing, use the symptom to choose the next test. If a server responds by IP but fails by hostname, examine DNS resolution first. If the link itself is down, inspect cables, transceivers and signal levels before modifying routing. Read why each distractor addresses the wrong layer.',
+      ] },
+      { heading: 'Use each explanation as a review task', paragraphs: [
+        'Answer a short set without revealing the solution, then explain why the correct action meets the requirement and why each alternative is weaker. Follow the related question links to apply the idea in a different context. Keep difficult questions bookmarked and revisit them after reviewing the official objectives.',
+        'For administration and networking exams, add hands-on labs. For architecture exams, write down the availability, recovery and access requirements before choosing a service. These original exercises are independent study material, not official exam questions or a prediction of your exam score.',
+      ] },
+    ],
+    resources: [
+      { title: 'CompTIA Security+ SY0-701 objectives', url: 'https://www.comptia.jp/pdf/CompTIA%20Security%2B%20SY0-701%20Exam%20Objectives.pdf' },
+      { title: 'CompTIA Network+ N10-009 objectives', url: 'https://www.comptia.jp/pdf/CompTIANetwork%2BN10-009_ExamObjectives%284.0%29.pdf' },
+      { title: 'CompTIA A+ Core 1 220-1201 objectives', url: 'https://lecbyo.files.cmp.optimizely.com/download/34be017cb73211ef8985a6f347fbf652' },
+      ...['az-104', 'az-305', 'dp-900', 'sc-900', 'az-500'].map(code => ({ title: `Microsoft ${code.toUpperCase()} study guide`, url: `https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/${code}` })),
+    ],
+  },
+  {
     slug: 'aws-azure-certification-practice',
     title: 'AWS and Azure Certification Practice: A Study Plan for Beginners',
     description: 'Choose AWS Cloud Practitioner or Azure AZ-900 practice, review cloud concepts, and turn wrong answers into a focused study plan with worked explanations.',
@@ -122,7 +162,7 @@ export const studyGuides: StudyGuide[] = [
 
 export const studyGuideIndex = {
   title: 'Free Exam Practice and Study Guides in English',
-  description: 'Choose an English study guide for AWS and Azure certifications, SAT and GED subjects, or ServSafe and BC FOODSAFE. Practice with answers and explanations.',
+  description: 'Choose English study guides for CompTIA, AWS and Azure certifications, SAT and GED, or ServSafe and BC FOODSAFE. Practice with answers and explanations.',
 };
 export const studyGuidePath = (slug?: string) => '/en/study-guides' + (slug ? '/' + slug : '');
 export const findStudyGuide = (slug: string) => studyGuides.find(guide => guide.slug === slug);

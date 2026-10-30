@@ -14,11 +14,11 @@ const hash = (value: unknown) => createHash("sha256").update(JSON.stringify(valu
 
 it("preserves every old group and identity while adding exactly 100 Korean and 60 English explained questions", () => {
   expect(hash(content.groups.slice(0, manifest.previousGroups.count))).toBe(manifest.previousGroups.sha256);
-  const restored = authoredCatalog.map(exam => manifest.exams.find(item => item.examId === exam.id)?.previousCatalogEntry ?? exam);
+  const restored = authoredCatalog.slice(0, manifest.previousCatalog.count).map(exam => manifest.exams.find(item => item.examId === exam.id)?.previousCatalogEntry ?? exam);
   expect(hash(restored)).toBe(manifest.previousCatalog.sha256);
-  expect(authoredCatalog).toHaveLength(manifest.previousCatalog.count);
+  expect(restored).toHaveLength(manifest.previousCatalog.count);
   const oldPrompts = new Set(content.groups.slice(0, manifest.previousGroups.count).flatMap(group => group.questions.map(question => question.prompt)));
-  const newGroups = content.groups.slice(manifest.previousGroups.count);
+  const newGroups = content.groups.slice(manifest.previousGroups.count, manifest.previousGroups.count + 8);
   expect(newGroups).toHaveLength(8);
   const newPrompts = newGroups.flatMap(group => group.questions.map(question => question.prompt));
   expect(newPrompts).toHaveLength(manifest.addedQuestionCount);
@@ -44,7 +44,7 @@ it("preserves every old group and identity while adding exactly 100 Korean and 6
     }
   }
   expect(addedByLocale).toEqual({ ko: manifest.koreanQuestions, en: manifest.englishQuestions });
-  const allQuestions = authoredCatalog.flatMap(exam => authoredQuestions(exam.id, authoredDefaultLocale(exam.id)));
+  const allQuestions = authoredCatalog.slice(0, manifest.previousCatalog.count).flatMap(exam => authoredQuestions(exam.id, authoredDefaultLocale(exam.id)));
   expect(new Set(allQuestions.map(question => question.id)).size).toBe(manifest.previousQuestionCount + manifest.addedQuestionCount);
   expect(new Set(allQuestions.flatMap(question => question.choices.map(choice => choice.id))).size).toBe(allQuestions.length * 4);
 });

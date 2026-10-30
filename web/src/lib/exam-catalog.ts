@@ -1,11 +1,12 @@
 import type { LegacyRoute, Locale } from "./contracts";
 import catalog from "@/data/exam-catalog.json" with { type: "json" };
+import { certificationCategories } from './certifications';
 
-export const categories = ["all", "it", "electrical", "safety", "engineering", "service", "academic", "driving", "citizenship", "other"] as const;
+export const categories = ["all", "cloud", "security", "networking", "data", "it-support", "business", "it", "electrical", "safety", "engineering", "service", "academic", "driving", "citizenship", "other"] as const;
 export type Category = typeof categories[number];
 export const categoryNames: Record<Locale, Record<Category, string>> = {
-  ko: { all: "전체", it: "IT·데이터", electrical: "전기·전자", safety: "안전·환경", engineering: "건설·기계", service: "생활·서비스", academic: "진학·학력", driving: "운전", citizenship: "시민권", other: "기타" },
-  en: { all: "All", it: "IT & data", electrical: "Electrical", safety: "Safety & environment", engineering: "Engineering", service: "Life & services", academic: "School & equivalency", driving: "Driving", citizenship: "Citizenship", other: "Other" },
+  ko: { all: "전체", cloud: "클라우드", security: "보안", networking: "네트워크", data: "데이터", 'it-support': "IT 지원", business: "프로젝트·서비스 관리", it: "IT·데이터", electrical: "전기·전자", safety: "안전·환경", engineering: "건설·기계", service: "생활·서비스", academic: "진학·학력", driving: "운전", citizenship: "시민권", other: "기타" },
+  en: { all: "All", cloud: "Cloud", security: "Cybersecurity", networking: "Networking", data: "Data & databases", 'it-support': "IT support", business: "Project & service management", it: "IT & data", electrical: "Electrical", safety: "Safety & environment", engineering: "Engineering", service: "Life & services", academic: "School & equivalency", driving: "Driving", citizenship: "Citizenship", other: "Other" },
 };
 export function examName(route: LegacyRoute) {
   return (route.headings[0] || route.title || "Quizeey").replace(/\s*(기출문제|연습문제|Practice Questions)\s*$/i, "").trim();
@@ -25,6 +26,8 @@ export function sortExams(routes: LegacyRoute[], locale: Locale, sort: ExamSort,
   });
 }
 export function examCategory(route: LegacyRoute): Exclude<Category, "all"> {
+  const certificationCategory = route.locale === 'en' && route.testId ? certificationCategories[route.testId] : undefined;
+  if (certificationCategory) return certificationCategory;
   const name = route.path + " " + examName(route);
   if (/\/(sat-|ged-)/i.test(route.path)) return "academic";
   if (/\/(california-dmv-permit|ontario-g1|bc-class-7-knowledge)$/.test(route.path)) return "driving";

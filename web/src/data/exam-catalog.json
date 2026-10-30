@@ -1121,5 +1121,75 @@
     "searchTerms": ["Canada citizenship", "Discover Canada", "IRCC citizenship test", "Canadian citizen test"],
     "description": "Free Canadian citizenship practice: 30 questions with answers and explanations, set 2026-10. Review Discover Canada topics: rights, government, history and geography.",
     "practiceScope": "Original English study questions covering Discover Canada topics. Use IRCC's official guide as your primary resource. This set does not cover every topic or changing names of officeholders; check those separately. Independent material, not an official IRCC examination."
+  },
+  {
+    "id": "253",
+    "slug": "comptia-sy0-701",
+    "name": "CompTIA Security+ SY0-701",
+    "locale": "en",
+    "questionCount": 12,
+    "seoTitle": "Free CompTIA Security+ SY0-701 Practice Questions with Explanations",
+    "description": "Practice CompTIA Security+ SY0-701 with 12 original English questions, detailed explanations and related question links. Review security concepts, threats, architecture, operations and risk.",
+    "practiceScope": "Original topic drills for CompTIA Security+ SY0-701: security concepts, threats, architecture, operations and risk. A focused 12-question study set, not full objective coverage, official exam questions or a score predictor."
+  },
+  {
+    "id": "254",
+    "slug": "az-104",
+    "name": "Microsoft Azure Administrator AZ-104",
+    "locale": "en",
+    "questionCount": 12,
+    "seoTitle": "Free Microsoft Azure Administrator AZ-104 Practice Questions with Explanations",
+    "description": "Practice Microsoft Azure Administrator AZ-104 with 12 original English questions, detailed explanations and related question links. Review identity, governance, storage, compute, networking and monitoring.",
+    "practiceScope": "Original topic drills for Microsoft Azure Administrator AZ-104: identity, governance, storage, compute, networking and monitoring. A focused 12-question study set, not full objective coverage, official exam questions or a score predictor."
+  },
+  {
+    "id": "255",
+    "slug": "comptia-n10-009",
+    "name": "CompTIA Network+ N10-009",
+    "locale": "en",
+    "questionCount": 12,
+    "seoTitle": "Free CompTIA Network+ N10-009 Practice Questions with Explanations",
+    "description": "Practice CompTIA Network+ N10-009 with 12 original English questions, detailed explanations and related question links. Review connectivity, implementation, operations, security and troubleshooting.",
+    "practiceScope": "Original topic drills for CompTIA Network+ N10-009: connectivity, implementation, operations, security and troubleshooting. A focused 12-question study set, not full objective coverage, official exam questions or a score predictor."
+  },
+  {
+    "id": "256",
+    "slug": "comptia-220-1201",
+    "name": "CompTIA A+ Core 1 220-1201",
+    "locale": "en",
+    "questionCount": 12,
+    "seoTitle": "Free CompTIA A+ Core 1 220-1201 Practice Questions with Explanations",
+    "description": "Practice CompTIA A+ Core 1 220-1201 with 12 original English questions, detailed explanations and related question links. Review mobile devices, networking, hardware, virtualization and troubleshooting.",
+    "practiceScope": "Original topic drills for CompTIA A+ Core 1 220-1201: mobile devices, networking, hardware, virtualization and troubleshooting. A focused 12-question study set, not full objective coverage, official exam questions or a score predictor."
+  },
+  {
+    "id": "257",
+    "slug": "az-305",
+    "name": "Microsoft Azure Infrastructure Solutions AZ-305",
+    "locale": "en",
+    "questionCount": 12,
+    "seoTitle": "Free Microsoft Azure Infrastructure Solutions AZ-305 Practice Questions with Explanations",
+    "description": "Practice Microsoft Azure Infrastructure Solutions AZ-305 with 12 original English questions, detailed explanations and related question links. Review identity, storage, continuity and infrastructure design.",
+    "practiceScope": "Original topic drills for Microsoft Azure Infrastructure Solutions AZ-305: identity, storage, continuity and infrastructure design. A focused 12-question study set, not full objective coverage, official exam questions or a score predictor."
+  },
+  {
+    "id": "258",
+    "slug": "dp-900",
+    "name": "Microsoft Azure Data Fundamentals DP-900",
+    "locale": "en",
+    "questionCount": 12,
+    "seoTitle": "Free Microsoft Azure Data Fundamentals DP-900 Practice Questions with Explanations",
+    "description": "Practice Microsoft Azure Data Fundamentals DP-900 with 12 original English questions, detailed explanations and related question links. Review relational data, non-relational data and analytics.",
+    "practiceScope": "Original topic drills for Microsoft Azure Data Fundamentals DP-900: relational data, non-relational data and analytics. A focused 12-question study set, not full objective coverage, official exam questions or a score predictor."
+  },
+  {
+    "id": "259",
+    "slug": "sc-900",
+    "name": "Microsoft Security, Compliance and Identity Fundamentals SC-900",
+    "locale": "en",
+    "questionCount": 12,
+    "seoTitle": "Free Microsoft Security, Compliance and Identity Fundamentals SC-900 Practice Questions with Explanations",
+    "description": "Practice Microsoft Security, Compliance and Identity Fundamentals SC-900 with 12 original English questions, detailed explanations and related question links. Review identity, cloud security and compliance.",
+    "practiceScope": "Original topic drills for Microsoft Security, Compliance and Identity Fundamentals SC-900: identity, cloud security and compliance. A focused 12-question study set, not full objective coverage, official exam questions or a score predictor."
   }
 ]

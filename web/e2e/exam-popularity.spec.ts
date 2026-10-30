@@ -2,6 +2,7 @@ import { expect, test } from "@playwright/test";
 import pg from "pg";
 import { legacy, type Locale } from "../src/lib/contracts";
 import { examName } from "../src/lib/exam-catalog";
+import { isRetiredExam } from '../src/lib/certifications';
 
 const origin = "http://127.0.0.1:3100";
 const database = "postgresql://quizeey_server@127.0.0.1:55432/quizeey_fixture";
@@ -23,7 +24,7 @@ for (const locale of ["ko", "en"] as Locale[]) {
     await expect(sort).toHaveValue("popular");
     await sort.selectOption("name");
     const collator = new Intl.Collator(locale, { sensitivity: "base", numeric: true });
-    const routes = legacy.routes.filter(r => r.testId && r.locale === locale && !r.path.startsWith("/kr/"));
+    const routes = legacy.routes.filter(r => r.testId && r.locale === locale && !r.path.startsWith("/kr/") && (locale !== 'en' || !isRetiredExam(r.testId)));
     const names = routes.map(examName).sort(collator.compare);
     await expect(page.locator(".exam-card h3")).toHaveText(names.slice(0, 18));
     if (routes.length > 18) {
@@ -37,7 +38,7 @@ for (const locale of ["ko", "en"] as Locale[]) {
     await page.getByRole("button", { name: locale === "ko" ? /^즐겨찾기/ : /^Favorites/ }).first().click();
     await expect(page.locator(".exam-card")).toHaveCount(1);
     await expect(sort).toHaveValue("name");
-    await page.getByRole("button", { name: locale === "ko" ? "IT·데이터" : "IT & data", exact: true }).click();
+    await page.getByRole("button", { name: locale === "ko" ? "IT·데이터" : "Cloud", exact: true }).click();
     await expect(sort).toHaveValue("name");
     await page.getByRole("button", { name: locale === "ko" ? "필터 초기화" : "Reset filters", exact: true }).click();
     await expect(page.locator(".exam-card h3")).toHaveText(names.slice(0, 18));

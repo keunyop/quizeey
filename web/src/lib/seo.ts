@@ -3,6 +3,7 @@ import { findRoute,legacy,parseQuery,routesForExam,type LegacyRoute,type Locale 
 import { examName } from './exam-catalog';
 import { authoredSetSummary, authoredVersion, authoredVersionName } from './authored-practice';
 import { studyGuideSitemap } from './study-guides';
+import { certificationFor } from './certifications';
 
 export const searchMarkets = {
   ko: { languages: ['ko', 'ko-KR'], openGraph: 'ko_KR', alternateOpenGraph: [] },
@@ -35,6 +36,11 @@ export function searchCopy(path: string, query: URLSearchParams, exam: LegacyRou
     }
     if (locale === 'en' && exam.testId === '170' && base === '/en/az-900') {
       title = 'Free AZ-900 Practice Questions with Answers | Azure Fundamentals - Quizeey';
+    }
+    const certification = certificationFor(exam.testId);
+    if (locale === 'en' && certification?.status === 'retired') {
+      title = `${name} — Retired Exam Archive - Quizeey`;
+      description = certification.note;
     }
     const versionLabel = input.verNbr === authoredVersion ? authoredVersionName : String(input.verNbr);
     const qualifiers = locale === 'ko'

@@ -6,6 +6,8 @@ import { ExamSearch } from "./ExamSearch";
 import { RelatedStudyGuide, StudyGuideCards } from './StudyGuides';
 import { ExamLink } from "./ExamLink";
 import { ExamHeading } from "./ExamHeading";
+import { CertificationNotice, CertificationPracticeLinks } from './CertificationContext';
+import { isRetiredExam } from '@/lib/certifications';
 import { SubmissionDialog } from "./SubmissionDialog";
 import { examPopularity } from "@/server/exam-popularity";
 import { Practice } from "./Practice";
@@ -104,6 +106,7 @@ export async function RouteView({ path, query }: { path: string; query: Query })
   const pageContent = <>
         {copy ? <article className="static-copy" lang={copy.lang} dangerouslySetInnerHTML={{__html:copy.html}}/> : !exam.testId && exam.headings.length > 1 && <details className="exam-intro"><summary>{locale === "ko" ? "시험 소개" : "About this exam"}</summary>{exam.headings.slice(1).map((copy, i) => <p key={i}>{copy}</p>)}</details>}
         {exam.testId && <>
+          {locale === 'en' && <CertificationNotice examId={exam.testId} />}
           {versions.length > 0 && <PracticeSettings locale={locale} versions={versions} version={input.verNbr} testId={path.endsWith('/test') ? exam.testId : undefined} count={count} />}
           {publicBatch.length ? <Practice key={`${path}:${input.verNbr}:${input.page}:${input.questId ?? "all"}:${session?.seed ?? ''}:${count}`} questions={publicBatch} previousQuestions={previousBatch} locale={locale} testId={exam.testId} contentVersion={store.version} directId={input.questId} pageNumber={input.page} nextPage={nextPage} commentsEnabled={commentsEnabled} session={session ? { ...session, cookieName, version: input.verNbr, total: pagination?.total ?? publicBatch.length } : undefined} /> : <div className="empty-state" role="status"><div className="empty-icon"><Icon name="book" /></div><h2>{locale === "ko" ? "문제를 준비하고 있어요" : "Questions are not available yet"}</h2><p>{m.unavailable}</p><a className="button-link" href={home}>{m.home}<Icon name="arrow" /></a></div>}
           {input.verNbr === authoredVersion && !input.questId && publicBatch.length > 0 && <details className="practice-outline">
@@ -113,6 +116,7 @@ export async function RouteView({ path, query }: { path: string; query: Query })
             </li>)}</ol>
           </details>}
           {locale === 'en' && <RelatedStudyGuide examPath={examPath} />}
+          {locale === 'en' && <CertificationPracticeLinks examId={exam.testId} directId={input.questId} />}
           {publicBatch.length>0&&<AdSlot kind="display" locale={locale}/>}
         </>}
         {exam.links.length > 0 && <nav className="legacy-links" aria-label={locale === "ko" ? "관련 링크" : "Related links"}><ul>{exam.links.filter((l) => l.label).map((l, i) => <li key={i}><a href={l.href}>{l.label}</a></li>)}</ul></nav>}
@@ -135,8 +139,10 @@ export async function RouteView({ path, query }: { path: string; query: Query })
       {isHome ? <><ExamSearch routes={examRoutes} locale={locale} popularity={popularity} />
         {locale === 'en' && <StudyGuideCards />}
         <details className="exam-directory"><summary>{locale==='ko'?'전체 자격증 시험 목록':'All practice exams'}</summary>
-          <nav aria-label={locale==='ko'?'전체 시험 바로가기':'All exam links'}><ul>{examRoutes.map(r=><li key={r.path}><ExamLink href={r.path}>{examName(r)}</ExamLink></li>)}</ul></nav>
-        </details></> : exam.testId && commentsEnabled ?
+          <nav aria-label={locale==='ko'?'전체 시험 바로가기':'All exam links'}><ul>{examRoutes.filter(r => locale !== 'en' || !isRetiredExam(r.testId)).map(r=><li key={r.path}><ExamLink href={r.path}>{examName(r)}</ExamLink></li>)}</ul></nav>
+        </details>
+        {locale === 'en' && <details className="exam-directory retired-directory"><summary>Retired exam archives</summary><p>Original URLs and questions remain available. Open an archive for retirement information and related study paths.</p><nav aria-label="Retired exam links"><ul>{examRoutes.filter(r => isRetiredExam(r.testId)).map(r => <li key={r.path}><ExamLink href={r.path}>{examName(r)} — Retired</ExamLink></li>)}</ul></nav></details>}
+        </> : exam.testId && commentsEnabled ?
         <ExamComments key={`${exam.testId}:${locale}`} examId={exam.testId} locale={locale} title={examName(exam)} description={exam.headings.slice(1)}>{pageContent}</ExamComments> : <>
         {!exam.testId && <a className="back-link" href={home}><Icon name="back" />{m.home}</a>}
         {exam.testId ? <ExamHeading title={examName(exam)} locale={locale} description={exam.headings.slice(1)} /> : <div className="page-heading"><h1>{exam.headings[0] || exam.title || "Quizeey"}</h1></div>}

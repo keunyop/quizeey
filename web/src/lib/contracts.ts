@@ -2,6 +2,7 @@ import contract from "../../fixtures/legacy-contract.json" with { type: "json" }
 import catalog from "@/data/exam-catalog.json" with { type: "json" };
 import { practiceDisplayCopy } from "./practice-display-copy";
 import { siteCopy } from './site-copy';
+import { certificationFor } from './certifications';
 
 export type Locale = "ko" | "en";
 export type LegacyRoute = Omit<(typeof contract.routes)[number],'testId'|'links'> & {testId:string|null;links:{href:string;label:string}[]};
@@ -19,6 +20,11 @@ function authoredRoute(exam: (typeof catalog)[number], locale: Locale): LegacyRo
 const existingRoutes = contract.routes.map((route): LegacyRoute => {
   const copy = siteCopy[route.path as keyof typeof siteCopy];
   if (copy) return { ...route, title: copy.title, description: copy.description, headings: [copy.heading] };
+  const certification = certificationFor(route.testId);
+  if (route.locale === 'en' && certification?.status === 'retired') return {
+    ...route, title: `${certification.code} Retired Exam Archive & Next Steps - Quizeey`,
+    description: certification.note, headings: [route.headings[0], certification.note],
+  };
   return route.path === '/industrial-engineer-air-conditioning-and-refrigerating-machinery' ? { ...route, testId: '141' } : route;
 });
 for (const path of ['/en/about', '/en/privacy'] as const) {

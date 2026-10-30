@@ -1,0 +1,155 @@
+{
+  "reviewDate": "2026-10-30",
+  "scope": "English certification discovery, retired exam notices, original current-version practice, study guidance and related question links",
+  "release": "Local changes only. No commit, push, hosted regression or deployment requested or performed.",
+  "preservation": {
+    "existingCatalogEntries": 200,
+    "existingQuestions": 2130,
+    "policy": "Append seven exams and seven question groups. Preserve every existing catalog entry, question payload, URL, exam identity, choice identity and saved-progress namespace. Verify prior content using the SHA-256 snapshots in web/content/certifications-2026-10.manifest.json.",
+    "seo": "Retired pages keep their canonical URLs and sitemap entries, with explicit retired-archive titles and descriptions. New exam sets and the study guide enter the sitemap. No redirect from an old question to a different exam."
+  },
+  "discovery": {
+    "retiredExamCodes": [
+      "200-125",
+      "SY0-501",
+      "AZ-103",
+      "AZ-300",
+      "300-115",
+      "300-101",
+      "220-1001",
+      "N10-007",
+      "70-740",
+      "AZ-301",
+      "MS-100",
+      "2V0-21.19",
+      "70-741",
+      "AZ-500",
+      "CAS-003"
+    ],
+    "behavior": "Exclude retired exams from default English cards; offer an explicit archive checkbox and a separate server-rendered archive directory. Preserve archived favorites. Show retirement context above practice settings, including generic /en/test routes.",
+    "englishCategories": [
+      "Cloud",
+      "Cybersecurity",
+      "Networking",
+      "Data & databases",
+      "IT support",
+      "Project & service management"
+    ],
+    "koreanCategories": "Unchanged"
+  },
+  "content": {
+    "newExamCodes": [
+      "SY0-701",
+      "AZ-104",
+      "N10-009",
+      "220-1201",
+      "AZ-305",
+      "DP-900",
+      "SC-900"
+    ],
+    "questionsPerExam": 12,
+    "totalAddedQuestions": 84,
+    "format": "Original English single-best-answer scenarios with rationale, distractor explanations and official objective references. Focused topic drills, not complete exam coverage, performance-based simulations or score predictions.",
+    "guide": "/en/study-guides/current-certification-exam-versions",
+    "popularPageLinks": "AWS Developer, AWS Solutions Architect, AZ-900, CCNA 200-301, ENCOR, A+ Core 2 and Cloud Practitioner gain related study/question links. Retired popular pages gain replacement or explicitly related paths without relabeling their questions."
+  },
+  "officialEvidence": [
+    {
+      "url": "https://www.cisco.com/site/us/en/learn/training-certifications/exams/retired.html",
+      "finding": "200-125, 300-101 and 300-115 last day to test: February 23, 2020. Cisco lists 200-301 for CCNA; it does not list ENCOR as a one-for-one replacement for ROUTE or SWITCH."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/posts/updates-to-several-azure-and-data-ai-certifications-are-coming-soon",
+      "finding": "Microsoft's published transitions include AZ-103 to AZ-104, AZ-300 to AZ-303 and AZ-301 to AZ-304."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-500",
+      "finding": "AZ-500 retired August 31, 2026. Related SC-900 practice is explicitly not its SC-500 replacement."
+    },
+    {
+      "url": "https://partner.microsoft.com/ar-sa/blog/article/whats-new-for-partners-q2-fy2027",
+      "finding": "Microsoft's October 2026 partner update identifies SC-500 as the successor to AZ-500."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/credentials/support/retired-certification-exams",
+      "finding": "MS-102 scheduled retirement: November 30, 2026. Do not expand it as a long-lived replacement for MS-100 without further review."
+    },
+    {
+      "url": "https://techcommunity.microsoft.com/blog/skills-hub-blog/evolving-microsoft-365-certifications-help-keep-you-in-sync-with-the-new-era-of-/3719265",
+      "finding": "MS-100 and MS-101 transitioned to MS-102; the announcement updated their retirement timing to September 30, 2023."
+    },
+    {
+      "url": "https://techcommunity.microsoft.com/blog/skills-hub-blog/mcsa-mcsd-mcse-certifications-retire-with-continued-investment-to-role-based-cer/1489670",
+      "finding": "Remaining MCSA/MCSD/MCSE exams retired January 31, 2021; the indexed official notice includes 70-740."
+    },
+    {
+      "url": "https://docs.broadcom.com/doc/vmware-retired-exams-certifications-and-badges",
+      "finding": "Official retired-exam PDF lists Professional VMware vSphere 6.7 (2V0-21.19), June 30, 2021."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-104",
+      "finding": "Administrator objectives dated April 17, 2026."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-305",
+      "finding": "Current infrastructure design objectives; certification prerequisites remain separate."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/dp-900",
+      "finding": "Data fundamentals objectives dated July 21, 2026."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/sc-900",
+      "finding": "Security, compliance and identity fundamentals objectives dated October 21, 2026."
+    },
+    {
+      "url": "https://www.comptia.jp/pdf/CompTIA%20Security%2B%20SY0-701%20Exam%20Objectives.pdf",
+      "finding": "Official English SY0-701 objectives document available from CompTIA Japan."
+    },
+    {
+      "url": "https://www.comptia.jp/pdf/CompTIANetwork%2BN10-009_ExamObjectives%284.0%29.pdf",
+      "finding": "Official English N10-009 objectives document available from CompTIA Japan."
+    },
+    {
+      "url": "https://lecbyo.files.cmp.optimizely.com/download/34be017cb73211ef8985a6f347fbf652",
+      "finding": "CompTIA-authored A+ Core 1 220-1201 V15 objectives, document version 4.0. Confirms Core 1 220-1201 and Core 2 220-1202 pairing and the five content domains. The document was readable on the provider content CDN; the certification detail page was not readable through the browsing tool."
+    }
+  ],
+  "researchLimits": "The browsing tool could not retrieve CompTIA's main certification detail pages or its historical retirement support page. Links remain the provider destinations; exact retirement dates for old CompTIA versions and future retirement estimates are deliberately not published. SY0-701 and N10-009 objectives were readable on the official Japan host. Do not infer announced SY0-801 availability from unofficial predictions.",
+  "validation": {
+    "status": "Completed; no unresolved application test failures",
+    "commands": [
+      "npm.cmd run check:local (web)",
+      "Resume remaining browser checks with localEnvironment(process.env): playwright test --timeout=60000 compatibility.spec.ts global-canada-practice.spec.ts certifications.spec.ts study-guides.spec.ts",
+      "node ../tools/modernization/test_monetization.mjs with the same isolated local environment"
+    ],
+    "typecheck": "Passed on final source",
+    "lint": "Passed on final source",
+    "unitTests": {
+      "files": 34,
+      "passed": 176
+    },
+    "fixtureBuild": "Passed on final source",
+    "fullBrowserRun": {
+      "passed": 77,
+      "failed": 2,
+      "skipped": 12,
+      "failureReason": "Prior assertions expected original retired exam titles and default discovery of retired exams. Updated assertions to the intended archive behavior."
+    },
+    "finalTargetedBrowserRun": {
+      "passed": 14,
+      "failed": 0,
+      "coverage": "Both corrected cases, all legacy controller routes, new certification discovery and version notices, all 84 added question APIs, grading/explanations/direct links, bilingual existing sets and all study guides."
+    },
+    "finalUniqueBrowserScenariosPassed": 79,
+    "monetizationScenarios": {
+      "passed": 6,
+      "realNetworkRequests": 0
+    },
+    "executionNote": "The first browser run completed all tests but its Windows test server remained alive during teardown. A final check:local rerun passed typecheck, lint, unit tests and build, then refused to reuse occupied port 3100. Stopped only the identified owned fixture server and resumed the affected browser suites and remaining monetization checks against the final build. The final targeted browser run also required stopping its identified owned server after all tests passed to finish teardown.",
+    "databaseFixture": "Absent; DB-backed browser tests skipped",
+    "authFixture": "Absent; Auth-backed browser tests skipped",
+    "hostedTests": "None",
+    "generatedArtifacts": "Restored next-env.d.ts and unrelated prior monetization evidence after recording this run here."
+  }
+}

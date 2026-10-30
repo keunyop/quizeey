@@ -483,3 +483,16 @@ input::placeholder,textarea::placeholder { color:var(--muted); opacity:1; }
 .guide-practice-links p { margin:8px 0 0; }
 .guide-question-count { font-size:14px; }
 @media(max-width:760px) { .study-guide-cards { grid-template-columns:1fr; } .study-guide-discovery { padding:18px; } }
+.archive-filter { display:flex; align-items:center; gap:10px; margin:18px 0; font-size:14px; cursor:pointer; }
+.archive-filter input { width:18px; height:18px; accent-color:var(--blue); }
+.archive-hint,.exam-status { color:var(--muted); font-size:13px; }
+.exam-status { display:block; margin-top:8px; }
+.certification-notice { margin:20px 0; padding:18px; border:1px solid var(--line); border-left:4px solid var(--blue); border-radius:8px; background:var(--surface-soft); }
+.certification-notice.retired { border-left-color:var(--ink); }
+.certification-notice h2,.certification-practice-links h2 { margin:0 0 10px; font-size:18px; }
+.certification-notice p { margin:8px 0 0; }
+.certification-review { font-size:13px; color:var(--muted); }
+.certification-practice-links { margin:28px 0; padding:20px; border:1px solid var(--line); border-radius:10px; background:var(--surface); }
+.certification-practice-links h3 { font-size:16px; }
+.certification-practice-links li { margin:10px 0; }
+.certification-practice-links a,.certification-notice a { overflow-wrap:anywhere; }

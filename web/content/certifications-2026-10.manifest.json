@@ -1,0 +1,23 @@
+{
+  "reviewDate": "2026-10-30",
+  "previousCatalog": {
+    "count": 200,
+    "sha256": "e45fbfd0d6b8c48d7a9c20a13740f61edca935d4ce1d7719f02815b1066a2d33"
+  },
+  "previousGroups": {
+    "count": 125,
+    "sha256": "ec4a0c17afe80581805ad96a7c3f357b113e747d2a250658731d8ac193ff6125"
+  },
+  "examIds": [
+    "253",
+    "254",
+    "255",
+    "256",
+    "257",
+    "258",
+    "259"
+  ],
+  "addedQuestionCount": 84,
+  "questionCountPerExam": 12,
+  "identityPolicy": "Append only. Preserve every existing URL, exam ID, question ID, choice ID, and question text. Retired exam content remains under its original identity."
+}

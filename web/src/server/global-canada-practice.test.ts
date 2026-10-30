@@ -48,7 +48,7 @@ it("shares global exams across both catalogs without duplicate routes and keeps 
     const english = findRoute(`/en/${exam.slug}`)!;
     expect(english).toMatchObject({ testId: id, locale: "en" });
     expect(matchesExam(english, exam.name)).toBe(true);
-    expect(examCategory(english)).toBe(["240", "241", "242"].includes(id) ? "service" : "it");
+    expect(examCategory(english)).toBe(["240", "241", "242"].includes(id) ? "service" : id === "239" ? "cloud" : id === "168" ? "security" : "it-support");
     expect(sitemap.has(`https://example.test/en/${exam.slug}`)).toBe(true);
     expect(authoredDefaultLocale(id)).toBe("en");
     expect(learning.defaultLocale(id)).toBe("en");

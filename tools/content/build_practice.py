@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[2]
 def build():
     catalog = json.loads((ROOT / 'web/src/data/exam-catalog.json').read_text(encoding='utf-8'))
     groups, assigned, current = [], set(), None
-    files = ['practice-2026-10.txt', 'global-canada-2026-10.txt', 'top10-2026-10.txt', 'north-america-2026-10.txt', 'azure-fundamentals-depth-2026-10.txt', 'korean-cooking-2026-10.txt', 'popular-2026-10-28.txt', 'popular-english-2026-10-28.txt']
+    files = ['practice-2026-10.txt', 'global-canada-2026-10.txt', 'top10-2026-10.txt', 'north-america-2026-10.txt', 'azure-fundamentals-depth-2026-10.txt', 'korean-cooking-2026-10.txt', 'popular-2026-10-28.txt', 'popular-english-2026-10-28.txt', 'certifications-2026-10.txt']
     lines = []
     for name in files:
         lines.extend((ROOT / 'web/content' / name).read_text(encoding='utf-8').splitlines())

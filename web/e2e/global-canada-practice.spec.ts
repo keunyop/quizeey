@@ -31,6 +31,7 @@ test("global and Canadian exams have the requested catalog visibility and resolv
 test("new exams are searchable in the correct home catalogs", async ({ page }) => {
   for (const locale of ["ko", "en"]) {
     await page.goto(locale === "en" ? "/en" : "/");
+    if (locale === 'en') await page.getByLabel('Include retired exam archives').check();
     for (const id of ids) {
       const exam = authoredCatalog.find(exam => exam.id === id)!;
       await page.getByRole("searchbox").fill(exam.name);

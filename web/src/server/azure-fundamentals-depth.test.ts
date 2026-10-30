@@ -18,7 +18,7 @@ it("preserves all prior content, Azure identities and other catalog entries whil
   expect(hash(content.groups.slice(0, manifest.previousGroups.count))).toBe(manifest.previousGroups.sha256);
   const entry = authoredCatalog.find(exam => exam.id === manifest.examId)!;
   // Restore later catalog expansions when checking the historical Azure snapshot.
-  const previousCatalog = authoredCatalog
+  const previousCatalog = authoredCatalog.slice(0, manifest.previousCatalog.count)
     .map(exam => popularExpansion.exams.find(item => item.examId === exam.id)?.previousCatalogEntry ?? exam)
     .map(exam => exam.id === manifest.examId ? manifest.previousCatalogEntry :
     exam.id === "14" ? { ...exam, questionCount: 23 } : exam);
