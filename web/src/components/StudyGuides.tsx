@@ -1,3 +1,4 @@
+import { SubnetDiscovery } from './Blog';
 import { headers } from 'next/headers';
 import { authoredSetSummary } from '@/lib/authored-practice';
 import { findRoute } from '@/lib/contracts';
@@ -81,6 +82,7 @@ export async function StudyGuideView({ guide }: { guide?: StudyGuide }) {
         <p className="guide-introduction">{guide?.introduction ?? 'Choose a subject below to find practice questions, a review method and official resources. Each guide connects a study goal to the English question sets available on Quizeey.'}</p>
         {guide ? <>
           <GuidePracticeLinks guide={guide} />
+          {guide.slug === 'current-certification-exam-versions' && <SubnetDiscovery />}
           {guide.sections.map(section => <section key={section.heading}>
             <h2>{section.heading}</h2>
             {section.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}

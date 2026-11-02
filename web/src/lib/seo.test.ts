@@ -31,8 +31,14 @@ it('publishes only verified equivalents and unique canonical sitemap URLs',()=>{
   expect(map.length).toBeGreaterThan(180);
   expect(new Set(map.map(r=>r.url)).size).toBe(map.length);
   expect(map.every(r=>!r.url.includes('/kr')&&!r.url.endsWith('/test')&&!r.url.endsWith('/app'))).toBe(true);
-  expect(map.filter(r=>!new URL(r.url).pathname.startsWith('/blog')).every(r=>!r.lastModified)).toBe(true);
+  const isBlog = (url: string) => /^\/(?:en\/)?blog(?:\/|$)/.test(new URL(url).pathname);
+  expect(map.filter(r=>!isBlog(r.url)).every(r=>!r.lastModified)).toBe(true);
   for(const entry of map){
+    if (isBlog(entry.url)) {
+      expect(entry.lastModified).toBeDefined();
+      expect(entry.alternates).toBeUndefined();
+      continue;
+    }
     const languages=entry.alternates?.languages;
     expect(languages).toBeDefined();
     expect(Object.values(languages!)).toContain(entry.url);

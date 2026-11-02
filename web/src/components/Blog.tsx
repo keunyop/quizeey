@@ -1,5 +1,7 @@
 import { headers } from 'next/headers';
-import { blogIndex, blogPath, blogPost, blogPostPath, blogStructuredData } from '@/lib/blog';
+import { blogIndexCopy, blogIndexPath, blogPosts, blogPost, blogPostPath, subnetPost, blogStructuredData, type BlogPost } from '@/lib/blog';
+import type { Locale } from '@/lib/contracts';
+import { SubnetArticle } from './SubnetArticle';
 import { environment } from '@/lib/environment';
 import { ExamLink } from './ExamLink';
 import { Monetization } from './Monetization';
@@ -12,6 +14,14 @@ export function BlogDiscovery() {
     <p className={styles.eyebrow}>개념을 이해하고, 문제로 확인하세요</p>
     <h2><a href={blogPostPath}>{blogPost.title}</a></h2>
     <p>문제풀이 → 해설 확인 → 오답 복습. COUNT와 NULL 예제로 복습 방법을 익혀 보세요.</p>
+  </aside>;
+}
+
+export function SubnetDiscovery() {
+  return <aside className={styles.discovery} aria-label="Subnetting guide">
+    <p className={styles.eyebrow}>WORK THROUGH THE CALCULATION</p>
+    <h2><a href={subnetPost.path}>{subnetPost.title}</a></h2>
+    <p>Find the network boundary, check the host range and try three short exercises.</p>
   </aside>;
 }
 
@@ -63,28 +73,34 @@ function CountArticle() {
       <h2 id="count-sources">공식 문서로 확인하기</h2>
       <p><a href="https://www.postgresql.org/docs/18/functions-aggregate.html">PostgreSQL 공식 문서: COUNT 집계 함수</a> · <a href="https://www.postgresql.org/docs/18/sql-expressions.html#SYNTAX-AGGREGATES">DISTINCT 집계 표현식</a></p>
       <p>이 글의 예제는 개념 학습용으로 작성했으며 실제 출제 문항이 아닙니다.</p>
+      <p>네트워크도 공부한다면: <a href={subnetPost.path} lang="en">IPv4 subnetting worked examples (English)</a>.</p>
     </section>
   </>;
 }
 
-export async function BlogView({ article = false }: { article?: boolean }) {
+export async function BlogView({ post, locale = 'ko' }: { post?: BlogPost; locale?: Locale }) {
+  locale = post?.locale ?? locale;
+  const en = locale === 'en';
+  const home = en ? '/en' : '/';
+  const indexPath = blogIndexPath(locale);
+  const index = blogIndexCopy(locale);
   const env = environment(process.env);
-  const path = article ? blogPostPath : blogPath;
+  const path = post?.path ?? indexPath;
   const enabled = env.adsEnabled && env.analyticsEnabled && (await headers()).get('host') === new URL(env.origin).host;
-  return <Monetization enabled={enabled} measurementId={env.ga4MeasurementId} cmpScriptUrl={env.cmpScriptUrl} locale="ko" pagePath={path}>
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogStructuredData(env.origin, article)).replace(/</g, '\\u003c') }} />
-    <a className="skip-link" href="#main">본문으로 건너뛰기</a>
-    <header className="site-header"><a className="brand" href="/" translate="no">Quizeey</a><nav aria-label="주 메뉴"><ThemeToggle locale="ko" /><a href="/">자격증 문제풀이</a></nav></header>
+  return <Monetization enabled={enabled} measurementId={env.ga4MeasurementId} cmpScriptUrl={env.cmpScriptUrl} locale={locale} pagePath={path}>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogStructuredData(env.origin, post, locale)).replace(/</g, '\\u003c') }} />
+    <a className="skip-link" href="#main">{en ? 'Skip to main content' : '본문으로 건너뛰기'}</a>
+    <header className="site-header"><a className="brand" href={home} translate="no">Quizeey</a><nav aria-label={en ? 'Main navigation' : '주 메뉴'}><ThemeToggle locale={locale} /><a href={home}>{en ? 'Practice exams' : '자격증 문제풀이'}</a></nav></header>
     <main id="main" className={`container ${styles.container}`}>
-      <nav className={styles.breadcrumb} aria-label="현재 위치"><a href="/">홈</a><span aria-hidden="true"> / </span>{article ? <><a href={blogPath}>블로그</a><span aria-hidden="true"> / </span><span aria-current="page">SQLD CBT 공부법</span></> : <span aria-current="page">블로그</span>}</nav>
-      {article ? <article className={styles.article}>
-        <header><p className={styles.eyebrow}>{blogPost.category}</p><h1>{blogPost.title}</h1><p className={styles.byline}><a href="/about">Quizeey</a> · <time dateTime={blogPost.date}>2026년 11월 2일</time> · 3분 읽기</p></header>
-        <CountArticle />
+      <nav className={styles.breadcrumb} aria-label={en ? 'Breadcrumb' : '현재 위치'}><a href={home}>{en ? 'Home' : '홈'}</a><span aria-hidden="true"> / </span>{post ? <><a href={indexPath}>{en ? 'Blog' : '블로그'}</a><span aria-hidden="true"> / </span><span aria-current="page">{post.category}</span></> : <span aria-current="page">{en ? 'Blog' : '블로그'}</span>}</nav>
+      {post ? <article className={styles.article}>
+        <header><p className={styles.eyebrow}>{post.category}</p><h1>{post.title}</h1><p className={styles.byline}><a href={en ? '/en/about' : '/about'}>Quizeey</a> · <time dateTime={post.date}>{post.date}</time></p></header>
+        {post.slug === subnetPost.slug ? <SubnetArticle /> : <CountArticle />}
       </article> : <>
-        <header className={styles.indexHeader}><p className={styles.eyebrow}>QUIZEEY BLOG</p><h1>작은 개념 하나가,<br />다음 정답으로.</h1><p>{blogIndex.description}</p></header>
-        <article className={styles.postCard}><p className={styles.eyebrow}>{blogPost.category} · 3분 읽기</p><h2><a href={blogPostPath}>{blogPost.title}</a></h2><p>{blogPost.description}</p><time dateTime={blogPost.date}>2026년 11월 2일</time></article>
+        <header className={styles.indexHeader}><p className={styles.eyebrow}>QUIZEEY BLOG</p><h1>{en ? 'A small concept. A clearer answer.' : <>작은 개념 하나가,<br />다음 정답으로.</>}</h1><p>{index.description}</p></header>
+        {blogPosts.filter(item => !en || item.locale === 'en').map(item => <article key={item.path} lang={item.locale} className={styles.postCard}><p className={styles.eyebrow}>{item.category}</p><h2><a href={item.path}>{item.title}</a></h2><p>{item.description}</p><time dateTime={item.date}>{item.date}</time></article>)}
       </>}
     </main>
-    <footer className="site-footer"><a className="brand" href="/" translate="no">Quizeey</a><nav aria-label="사이트 정보"><a href={blogPath}>블로그</a><a href="/about">소개</a><a href="/privacy">개인정보처리방침</a><SubmissionDialog locale="ko" /></nav></footer>
+    <footer className="site-footer"><a className="brand" href={home} translate="no">Quizeey</a><nav aria-label={en ? 'Site information' : '사이트 정보'}><a href={indexPath}>{en ? 'Blog' : '블로그'}</a><a href={en ? '/blog' : '/en/blog'} lang={en ? 'ko' : 'en'}>{en ? '한국어 글' : 'English articles'}</a><a href={en ? '/en/about' : '/about'}>{en ? 'About' : '소개'}</a><a href={en ? '/en/privacy' : '/privacy'}>{en ? 'Privacy' : '개인정보처리방침'}</a><SubmissionDialog locale={locale} /></nav></footer>
   </Monetization>;
 }

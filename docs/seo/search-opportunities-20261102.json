@@ -1,0 +1,7432 @@
+{
+  "researched_on": "2026-11-02",
+  "period": [
+    "2026-08-01",
+    "2026-10-31"
+  ],
+  "search_type": "Web",
+  "totals": {
+    "clicks": 3501,
+    "impressions": 25239,
+    "ctr_percent": 13.87,
+    "approximate_impression_weighted_position": 7.91
+  },
+  "windows": [
+    {
+      "start": "2026-10-04",
+      "end": "2026-10-31",
+      "clicks": 1022,
+      "impressions": 6529,
+      "ctr_percent": 15.65,
+      "approximate_impression_weighted_position": 7.41
+    },
+    {
+      "start": "2026-09-06",
+      "end": "2026-10-03",
+      "clicks": 950,
+      "impressions": 6921,
+      "ctr_percent": 13.73,
+      "approximate_impression_weighted_position": 7.51
+    }
+  ],
+  "strict_brand_matching": "quizeey",
+  "strict_brand_observed": {
+    "clicks": 35,
+    "impressions": 51,
+    "ctr_percent": 68.63,
+    "approximate_impression_weighted_position": 1.1
+  },
+  "strict_brand_queries": [
+    {
+      "label": "quizeey",
+      "clicks": 35,
+      "impressions": 51,
+      "ctr_percent": 68.63,
+      "position": 1.1
+    }
+  ],
+  "new_topic_observed_queries": [],
+  "dimensions": {
+    "검색 노출": [],
+    "검색어 수": [
+      {
+        "label": "양식조리기능사 필기 기출문제",
+        "clicks": 279,
+        "impressions": 524,
+        "ctr_percent": 53.24,
+        "position": 2.06
+      },
+      {
+        "label": "양식조리기능사 필기",
+        "clicks": 231,
+        "impressions": 1278,
+        "ctr_percent": 18.08,
+        "position": 4.38
+      },
+      {
+        "label": "양식조리기능사 필기 기출문제 pdf",
+        "clicks": 99,
+        "impressions": 307,
+        "ctr_percent": 32.25,
+        "position": 2.38
+      },
+      {
+        "label": "한식조리기능사 필기 기출문제",
+        "clicks": 93,
+        "impressions": 881,
+        "ctr_percent": 10.56,
+        "position": 6.4
+      },
+      {
+        "label": "일식조리기능사 필기 기출문제",
+        "clicks": 84,
+        "impressions": 168,
+        "ctr_percent": 50.0,
+        "position": 1.76
+      },
+      {
+        "label": "sqlp 기출문제",
+        "clicks": 58,
+        "impressions": 310,
+        "ctr_percent": 18.71,
+        "position": 3.65
+      },
+      {
+        "label": "중식조리기능사 필기",
+        "clicks": 54,
+        "impressions": 217,
+        "ctr_percent": 24.88,
+        "position": 2.87
+      },
+      {
+        "label": "양식 필기 기출문제",
+        "clicks": 53,
+        "impressions": 105,
+        "ctr_percent": 50.48,
+        "position": 1.27
+      },
+      {
+        "label": "양식조리기능사 필기 문제",
+        "clicks": 51,
+        "impressions": 134,
+        "ctr_percent": 38.06,
+        "position": 1.87
+      },
+      {
+        "label": "일식조리기능사 필기",
+        "clicks": 49,
+        "impressions": 313,
+        "ctr_percent": 15.65,
+        "position": 3.37
+      },
+      {
+        "label": "양식조리기능사 필기 cbt",
+        "clicks": 45,
+        "impressions": 141,
+        "ctr_percent": 31.91,
+        "position": 3.58
+      },
+      {
+        "label": "양식조리기능사 cbt",
+        "clicks": 42,
+        "impressions": 101,
+        "ctr_percent": 41.58,
+        "position": 2.83
+      },
+      {
+        "label": "중식조리기능사 필기 기출문제",
+        "clicks": 41,
+        "impressions": 74,
+        "ctr_percent": 55.41,
+        "position": 1.2
+      },
+      {
+        "label": "바리스타 2급 필기 기출문제",
+        "clicks": 40,
+        "impressions": 238,
+        "ctr_percent": 16.81,
+        "position": 4.08
+      },
+      {
+        "label": "양식조리기능사 기출문제",
+        "clicks": 36,
+        "impressions": 81,
+        "ctr_percent": 44.44,
+        "position": 1.51
+      },
+      {
+        "label": "quizeey",
+        "clicks": 35,
+        "impressions": 51,
+        "ctr_percent": 68.63,
+        "position": 1.1
+      },
+      {
+        "label": "3d프린터운용기능사 cbt",
+        "clicks": 32,
+        "impressions": 279,
+        "ctr_percent": 11.47,
+        "position": 6.3
+      },
+      {
+        "label": "3d프린터운용기능사 필기 cbt",
+        "clicks": 27,
+        "impressions": 314,
+        "ctr_percent": 8.6,
+        "position": 7.11
+      },
+      {
+        "label": "양식 조리기능사 필기 기출문제",
+        "clicks": 27,
+        "impressions": 55,
+        "ctr_percent": 49.09,
+        "position": 1.87
+      },
+      {
+        "label": "sqlp 기출",
+        "clicks": 25,
+        "impressions": 189,
+        "ctr_percent": 13.23,
+        "position": 4.53
+      },
+      {
+        "label": "sqld 기출문제 cbt",
+        "clicks": 24,
+        "impressions": 1215,
+        "ctr_percent": 1.98,
+        "position": 7.72
+      },
+      {
+        "label": "양식필기 기출문제",
+        "clicks": 24,
+        "impressions": 48,
+        "ctr_percent": 50.0,
+        "position": 1.15
+      },
+      {
+        "label": "일식조리기능사 필기 기출문제 pdf",
+        "clicks": 21,
+        "impressions": 102,
+        "ctr_percent": 20.59,
+        "position": 4.47
+      },
+      {
+        "label": "3d프린터운용기능사 필기",
+        "clicks": 20,
+        "impressions": 292,
+        "ctr_percent": 6.85,
+        "position": 8.71
+      },
+      {
+        "label": "중식조리기능사 필기 기출문제 pdf",
+        "clicks": 20,
+        "impressions": 78,
+        "ctr_percent": 25.64,
+        "position": 3.44
+      },
+      {
+        "label": "양식조리기능사 필기 시험",
+        "clicks": 20,
+        "impressions": 63,
+        "ctr_percent": 31.75,
+        "position": 4.16
+      },
+      {
+        "label": "양식조리기능사 필기 모의고사",
+        "clicks": 18,
+        "impressions": 65,
+        "ctr_percent": 27.69,
+        "position": 2.45
+      },
+      {
+        "label": "3d프린터운용기능사 기출문제",
+        "clicks": 17,
+        "impressions": 237,
+        "ctr_percent": 7.17,
+        "position": 7.23
+      },
+      {
+        "label": "3d프린터운용기능사 필기 기출문제",
+        "clicks": 17,
+        "impressions": 173,
+        "ctr_percent": 9.83,
+        "position": 7.87
+      },
+      {
+        "label": "ccna 기출문제",
+        "clicks": 17,
+        "impressions": 78,
+        "ctr_percent": 21.79,
+        "position": 2.21
+      },
+      {
+        "label": "한식조리기능사 필기 문제",
+        "clicks": 15,
+        "impressions": 92,
+        "ctr_percent": 16.3,
+        "position": 5.93
+      },
+      {
+        "label": "3d프린터운용기능사 필기 기출문제 cbt",
+        "clicks": 14,
+        "impressions": 145,
+        "ctr_percent": 9.66,
+        "position": 7.49
+      },
+      {
+        "label": "복어조리기능사 필기 기출문제",
+        "clicks": 13,
+        "impressions": 44,
+        "ctr_percent": 29.55,
+        "position": 3.66
+      },
+      {
+        "label": "조리기능사 필기 기출문제",
+        "clicks": 12,
+        "impressions": 191,
+        "ctr_percent": 6.28,
+        "position": 6.2
+      },
+      {
+        "label": "한식조리기능사 기출문제",
+        "clicks": 11,
+        "impressions": 115,
+        "ctr_percent": 9.57,
+        "position": 7.24
+      },
+      {
+        "label": "양식 조리기능사 필기",
+        "clicks": 11,
+        "impressions": 98,
+        "ctr_percent": 11.22,
+        "position": 4.58
+      },
+      {
+        "label": "한식 필기 기출문제",
+        "clicks": 11,
+        "impressions": 95,
+        "ctr_percent": 11.58,
+        "position": 6.35
+      },
+      {
+        "label": "sqld cbt",
+        "clicks": 10,
+        "impressions": 578,
+        "ctr_percent": 1.73,
+        "position": 10.0
+      },
+      {
+        "label": "sqld 기출문제 사이트",
+        "clicks": 10,
+        "impressions": 300,
+        "ctr_percent": 3.33,
+        "position": 6.7
+      },
+      {
+        "label": "한식필기 기출문제",
+        "clicks": 10,
+        "impressions": 107,
+        "ctr_percent": 9.35,
+        "position": 6.76
+      },
+      {
+        "label": "바리스타2급 필기 기출문제",
+        "clicks": 10,
+        "impressions": 88,
+        "ctr_percent": 11.36,
+        "position": 4.12
+      },
+      {
+        "label": "양식기능사 필기",
+        "clicks": 10,
+        "impressions": 43,
+        "ctr_percent": 23.26,
+        "position": 4.77
+      },
+      {
+        "label": "ccna 문제",
+        "clicks": 9,
+        "impressions": 129,
+        "ctr_percent": 6.98,
+        "position": 3.5
+      },
+      {
+        "label": "sqlp 문제",
+        "clicks": 8,
+        "impressions": 213,
+        "ctr_percent": 3.76,
+        "position": 6.14
+      },
+      {
+        "label": "바리 스타 2급 필기 기출문제",
+        "clicks": 8,
+        "impressions": 94,
+        "ctr_percent": 8.51,
+        "position": 4.12
+      },
+      {
+        "label": "한식조리기능사 필기 시험 문제",
+        "clicks": 8,
+        "impressions": 74,
+        "ctr_percent": 10.81,
+        "position": 7.28
+      },
+      {
+        "label": "3d프린터운용기능사 필기 기출문제 pdf",
+        "clicks": 8,
+        "impressions": 69,
+        "ctr_percent": 11.59,
+        "position": 8.51
+      },
+      {
+        "label": "양식 필기",
+        "clicks": 8,
+        "impressions": 45,
+        "ctr_percent": 17.78,
+        "position": 2.91
+      },
+      {
+        "label": "복어조리기능사 필기",
+        "clicks": 7,
+        "impressions": 106,
+        "ctr_percent": 6.6,
+        "position": 5.22
+      },
+      {
+        "label": "한식조리기능사 필기 기출",
+        "clicks": 7,
+        "impressions": 72,
+        "ctr_percent": 9.72,
+        "position": 6.39
+      },
+      {
+        "label": "3d 프린터 운용기능사 필기 cbt",
+        "clicks": 7,
+        "impressions": 40,
+        "ctr_percent": 17.5,
+        "position": 7.55
+      },
+      {
+        "label": "sqld 기출문제",
+        "clicks": 6,
+        "impressions": 118,
+        "ctr_percent": 5.08,
+        "position": 15.42
+      },
+      {
+        "label": "sqlp 문제은행",
+        "clicks": 6,
+        "impressions": 29,
+        "ctr_percent": 20.69,
+        "position": 3.0
+      },
+      {
+        "label": "바리스타 필기 기출문제",
+        "clicks": 5,
+        "impressions": 60,
+        "ctr_percent": 8.33,
+        "position": 5.37
+      },
+      {
+        "label": "한식조리기능사 필기",
+        "clicks": 5,
+        "impressions": 57,
+        "ctr_percent": 8.77,
+        "position": 9.79
+      },
+      {
+        "label": "3d프린터 운용기능사 필기 기출문제",
+        "clicks": 5,
+        "impressions": 47,
+        "ctr_percent": 10.64,
+        "position": 7.66
+      },
+      {
+        "label": "일식조리기능사 필기 cbt",
+        "clicks": 5,
+        "impressions": 33,
+        "ctr_percent": 15.15,
+        "position": 2.36
+      },
+      {
+        "label": "sqld 문제은행",
+        "clicks": 4,
+        "impressions": 190,
+        "ctr_percent": 2.11,
+        "position": 8.86
+      },
+      {
+        "label": "한식조리기능사 필기 기출문제 pdf",
+        "clicks": 4,
+        "impressions": 85,
+        "ctr_percent": 4.71,
+        "position": 6.91
+      },
+      {
+        "label": "한식조리기능사 필기 모의고사",
+        "clicks": 4,
+        "impressions": 73,
+        "ctr_percent": 5.48,
+        "position": 7.9
+      },
+      {
+        "label": "양식조리사 필기",
+        "clicks": 4,
+        "impressions": 48,
+        "ctr_percent": 8.33,
+        "position": 4.46
+      },
+      {
+        "label": "3d 프린터 기능사 필기",
+        "clicks": 4,
+        "impressions": 30,
+        "ctr_percent": 13.33,
+        "position": 8.57
+      },
+      {
+        "label": "한식조리기능사 필기 기출문제 2026",
+        "clicks": 4,
+        "impressions": 14,
+        "ctr_percent": 28.57,
+        "position": 11.43
+      },
+      {
+        "label": "한식조리사 필기 기출문제",
+        "clicks": 3,
+        "impressions": 102,
+        "ctr_percent": 2.94,
+        "position": 8.53
+      },
+      {
+        "label": "한국커피협회 바리 스타 2급 기출문제",
+        "clicks": 3,
+        "impressions": 76,
+        "ctr_percent": 3.95,
+        "position": 7.22
+      },
+      {
+        "label": "한식 조리사 필기 기출문제",
+        "clicks": 3,
+        "impressions": 23,
+        "ctr_percent": 13.04,
+        "position": 8.83
+      },
+      {
+        "label": "양식 조리 기능사 필기",
+        "clicks": 3,
+        "impressions": 20,
+        "ctr_percent": 15.0,
+        "position": 6.35
+      },
+      {
+        "label": "한식 조리기능사 필기 기출문제",
+        "clicks": 3,
+        "impressions": 5,
+        "ctr_percent": 60.0,
+        "position": 5.6
+      },
+      {
+        "label": "양식조리기능사 필기 기출",
+        "clicks": 3,
+        "impressions": 4,
+        "ctr_percent": 75.0,
+        "position": 1.75
+      },
+      {
+        "label": "sqld cbt 사이트",
+        "clicks": 2,
+        "impressions": 88,
+        "ctr_percent": 2.27,
+        "position": 7.93
+      },
+      {
+        "label": "3d 프린터운용기능사 필기 기출문제",
+        "clicks": 2,
+        "impressions": 66,
+        "ctr_percent": 3.03,
+        "position": 7.89
+      },
+      {
+        "label": "3d 프린터 운용기능사 필기",
+        "clicks": 2,
+        "impressions": 60,
+        "ctr_percent": 3.33,
+        "position": 7.93
+      },
+      {
+        "label": "cbt 3d프린터운용기능사",
+        "clicks": 2,
+        "impressions": 37,
+        "ctr_percent": 5.41,
+        "position": 6.81
+      },
+      {
+        "label": "한식조리기능사 필기 기출문제 다운로드",
+        "clicks": 2,
+        "impressions": 27,
+        "ctr_percent": 7.41,
+        "position": 10.26
+      },
+      {
+        "label": "sqlp 기출문제 pdf",
+        "clicks": 2,
+        "impressions": 26,
+        "ctr_percent": 7.69,
+        "position": 3.73
+      },
+      {
+        "label": "3d 프린터 운용 기능사 필기",
+        "clicks": 2,
+        "impressions": 24,
+        "ctr_percent": 8.33,
+        "position": 8.88
+      },
+      {
+        "label": "sqld 문제",
+        "clicks": 2,
+        "impressions": 24,
+        "ctr_percent": 8.33,
+        "position": 14.21
+      },
+      {
+        "label": "메이크업 필기 기출문제",
+        "clicks": 2,
+        "impressions": 21,
+        "ctr_percent": 9.52,
+        "position": 8.71
+      },
+      {
+        "label": "sqld 모의고사",
+        "clicks": 2,
+        "impressions": 17,
+        "ctr_percent": 11.76,
+        "position": 13.0
+      },
+      {
+        "label": "3d프린터운용기능사 필기 기출문제 다운",
+        "clicks": 2,
+        "impressions": 16,
+        "ctr_percent": 12.5,
+        "position": 8.25
+      },
+      {
+        "label": "3d프린터운용기능사 필기 문제",
+        "clicks": 2,
+        "impressions": 14,
+        "ctr_percent": 14.29,
+        "position": 8.21
+      },
+      {
+        "label": "임상심리사 1급 실기 기출문제 pdf",
+        "clicks": 2,
+        "impressions": 13,
+        "ctr_percent": 15.38,
+        "position": 44.15
+      },
+      {
+        "label": "sqlp",
+        "clicks": 1,
+        "impressions": 52,
+        "ctr_percent": 1.92,
+        "position": 20.19
+      },
+      {
+        "label": "sqld",
+        "clicks": 1,
+        "impressions": 24,
+        "ctr_percent": 4.17,
+        "position": 31.33
+      },
+      {
+        "label": "한식기능사 필기 기출문제",
+        "clicks": 1,
+        "impressions": 22,
+        "ctr_percent": 4.55,
+        "position": 7.0
+      },
+      {
+        "label": "3d프린터운용기능사",
+        "clicks": 1,
+        "impressions": 16,
+        "ctr_percent": 6.25,
+        "position": 20.69
+      },
+      {
+        "label": "복어조리기능사",
+        "clicks": 1,
+        "impressions": 9,
+        "ctr_percent": 11.11,
+        "position": 7.22
+      },
+      {
+        "label": "중식기능사 필기",
+        "clicks": 1,
+        "impressions": 8,
+        "ctr_percent": 12.5,
+        "position": 3.12
+      },
+      {
+        "label": "중식 조리기능사 필기 cbt",
+        "clicks": 1,
+        "impressions": 7,
+        "ctr_percent": 14.29,
+        "position": 4.0
+      },
+      {
+        "label": "바리스타 기출문제",
+        "clicks": 1,
+        "impressions": 7,
+        "ctr_percent": 14.29,
+        "position": 4.57
+      },
+      {
+        "label": "sqlp 시험문제",
+        "clicks": 1,
+        "impressions": 7,
+        "ctr_percent": 14.29,
+        "position": 6.29
+      },
+      {
+        "label": "바리 스타 2급 필기 기출문제 pdf",
+        "clicks": 1,
+        "impressions": 7,
+        "ctr_percent": 14.29,
+        "position": 12.14
+      },
+      {
+        "label": "sqld 시험 문제",
+        "clicks": 1,
+        "impressions": 7,
+        "ctr_percent": 14.29,
+        "position": 16.0
+      },
+      {
+        "label": "임상심리사 1급 기출문제",
+        "clicks": 1,
+        "impressions": 7,
+        "ctr_percent": 14.29,
+        "position": 22.43
+      },
+      {
+        "label": "자격증 기출문제 사이트",
+        "clicks": 1,
+        "impressions": 7,
+        "ctr_percent": 14.29,
+        "position": 32.71
+      },
+      {
+        "label": "임상심리사 1급 필기 기출문제",
+        "clicks": 1,
+        "impressions": 5,
+        "ctr_percent": 20.0,
+        "position": 24.6
+      },
+      {
+        "label": "양식기능사",
+        "clicks": 1,
+        "impressions": 4,
+        "ctr_percent": 25.0,
+        "position": 9.5
+      },
+      {
+        "label": "sqld 기출문제 다운로드",
+        "clicks": 1,
+        "impressions": 4,
+        "ctr_percent": 25.0,
+        "position": 15.25
+      },
+      {
+        "label": "직업상담사 1급 기출문제",
+        "clicks": 1,
+        "impressions": 3,
+        "ctr_percent": 33.33,
+        "position": 22.33
+      },
+      {
+        "label": "측량기능사 필기 기출문제",
+        "clicks": 1,
+        "impressions": 3,
+        "ctr_percent": 33.33,
+        "position": 33.33
+      },
+      {
+        "label": "liron shapira net worth",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr_percent": 50.0,
+        "position": 1.0
+      },
+      {
+        "label": "식물보호기사 필기 기출문제 pdf",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr_percent": 50.0,
+        "position": 39.5
+      },
+      {
+        "label": "네",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr_percent": 100.0,
+        "position": 1.0
+      },
+      {
+        "label": "3d운용기능사 필기",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr_percent": 100.0,
+        "position": 10.0
+      },
+      {
+        "label": "sqld 60회 기출문제 pdf",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr_percent": 100.0,
+        "position": 11.0
+      },
+      {
+        "label": "사진기능사 필기 기출문제",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr_percent": 100.0,
+        "position": 28.0
+      },
+      {
+        "label": "sqld 기출",
+        "clicks": 0,
+        "impressions": 81,
+        "ctr_percent": 0.0,
+        "position": 17.15
+      },
+      {
+        "label": "sqld 기출 cbt",
+        "clicks": 0,
+        "impressions": 39,
+        "ctr_percent": 0.0,
+        "position": 8.59
+      },
+      {
+        "label": "sql cbt",
+        "clicks": 0,
+        "impressions": 34,
+        "ctr_percent": 0.0,
+        "position": 8.91
+      },
+      {
+        "label": "문제은행",
+        "clicks": 0,
+        "impressions": 30,
+        "ctr_percent": 0.0,
+        "position": 22.47
+      },
+      {
+        "label": "3d프린터 운용기능사 필기",
+        "clicks": 0,
+        "impressions": 28,
+        "ctr_percent": 0.0,
+        "position": 9.39
+      },
+      {
+        "label": "양식조리기능사",
+        "clicks": 0,
+        "impressions": 20,
+        "ctr_percent": 0.0,
+        "position": 13.7
+      },
+      {
+        "label": "sql 문제",
+        "clicks": 0,
+        "impressions": 20,
+        "ctr_percent": 0.0,
+        "position": 50.0
+      },
+      {
+        "label": "sql 문제은행",
+        "clicks": 0,
+        "impressions": 19,
+        "ctr_percent": 0.0,
+        "position": 9.0
+      },
+      {
+        "label": "70 740 installation storage and compute with windows server 2016",
+        "clicks": 0,
+        "impressions": 15,
+        "ctr_percent": 0.0,
+        "position": 48.07
+      },
+      {
+        "label": "sqld 문제 사이트",
+        "clicks": 0,
+        "impressions": 14,
+        "ctr_percent": 0.0,
+        "position": 8.36
+      },
+      {
+        "label": "sql d",
+        "clicks": 0,
+        "impressions": 14,
+        "ctr_percent": 0.0,
+        "position": 18.0
+      },
+      {
+        "label": "exam 70 741",
+        "clicks": 0,
+        "impressions": 14,
+        "ctr_percent": 0.0,
+        "position": 57.29
+      },
+      {
+        "label": "sqld 모의고사 사이트",
+        "clicks": 0,
+        "impressions": 13,
+        "ctr_percent": 0.0,
+        "position": 6.92
+      },
+      {
+        "label": "cbt sqld",
+        "clicks": 0,
+        "impressions": 13,
+        "ctr_percent": 0.0,
+        "position": 10.38
+      },
+      {
+        "label": "양식조리기능사 필기 pdf",
+        "clicks": 0,
+        "impressions": 13,
+        "ctr_percent": 0.0,
+        "position": 11.31
+      },
+      {
+        "label": "az301",
+        "clicks": 0,
+        "impressions": 13,
+        "ctr_percent": 0.0,
+        "position": 40.0
+      },
+      {
+        "label": "microsoft 70 741",
+        "clicks": 0,
+        "impressions": 13,
+        "ctr_percent": 0.0,
+        "position": 53.46
+      },
+      {
+        "label": "자격증 문제은행",
+        "clicks": 0,
+        "impressions": 12,
+        "ctr_percent": 0.0,
+        "position": 15.0
+      },
+      {
+        "label": "sqld 기출문제 pdf",
+        "clicks": 0,
+        "impressions": 11,
+        "ctr_percent": 0.0,
+        "position": 33.18
+      },
+      {
+        "label": "한식조리기능사 필기 시험",
+        "clicks": 0,
+        "impressions": 10,
+        "ctr_percent": 0.0,
+        "position": 9.6
+      },
+      {
+        "label": "70 741",
+        "clicks": 0,
+        "impressions": 10,
+        "ctr_percent": 0.0,
+        "position": 49.8
+      },
+      {
+        "label": "qey",
+        "clicks": 0,
+        "impressions": 10,
+        "ctr_percent": 0.0,
+        "position": 55.9
+      },
+      {
+        "label": "sqld문제은행",
+        "clicks": 0,
+        "impressions": 9,
+        "ctr_percent": 0.0,
+        "position": 7.78
+      },
+      {
+        "label": "sqld 시험 cbt",
+        "clicks": 0,
+        "impressions": 9,
+        "ctr_percent": 0.0,
+        "position": 9.78
+      },
+      {
+        "label": "sqld 문제 은행",
+        "clicks": 0,
+        "impressions": 9,
+        "ctr_percent": 0.0,
+        "position": 10.22
+      },
+      {
+        "label": "70-741",
+        "clicks": 0,
+        "impressions": 9,
+        "ctr_percent": 0.0,
+        "position": 46.44
+      },
+      {
+        "label": "what should be done first in the following situation a restaurant receives \na delivery",
+        "clicks": 0,
+        "impressions": 9,
+        "ctr_percent": 0.0,
+        "position": 54.78
+      },
+      {
+        "label": "양식조리기능사 필기 기출문제 다운로드",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr_percent": 0.0,
+        "position": 5.25
+      },
+      {
+        "label": "한식조리사 필기",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr_percent": 0.0,
+        "position": 12.62
+      },
+      {
+        "label": "pmp 기출문제 pdf",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr_percent": 0.0,
+        "position": 16.38
+      },
+      {
+        "label": "중식조리기능사",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr_percent": 0.0,
+        "position": 17.12
+      },
+      {
+        "label": "sqld 기출 문제",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr_percent": 0.0,
+        "position": 19.0
+      },
+      {
+        "label": "3d프린터운용기능사 필기 문제은행",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr_percent": 0.0,
+        "position": 9.29
+      },
+      {
+        "label": "조리기능사 필기",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr_percent": 0.0,
+        "position": 15.43
+      },
+      {
+        "label": "sqld 기출 pdf",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr_percent": 0.0,
+        "position": 26.29
+      },
+      {
+        "label": "comptia advanced security practitioner pdf",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr_percent": 0.0,
+        "position": 43.0
+      },
+      {
+        "label": "quiz",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr_percent": 0.0,
+        "position": 6.67
+      },
+      {
+        "label": "3d 프린터운용기능사 필기",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr_percent": 0.0,
+        "position": 7.0
+      },
+      {
+        "label": "quesyi",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr_percent": 0.0,
+        "position": 8.67
+      },
+      {
+        "label": "sqlp 실기 문제",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr_percent": 0.0,
+        "position": 10.5
+      },
+      {
+        "label": "한식필기",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr_percent": 0.0,
+        "position": 11.33
+      },
+      {
+        "label": "일식조리기능사",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr_percent": 0.0,
+        "position": 21.17
+      },
+      {
+        "label": "300-101 dumps",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr_percent": 0.0,
+        "position": 26.5
+      },
+      {
+        "label": "임상심리사 1급 필기 기출문제 pdf",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr_percent": 0.0,
+        "position": 30.33
+      },
+      {
+        "label": "3d cbt",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr_percent": 0.0,
+        "position": 8.6
+      },
+      {
+        "label": "3d프린터 기능사 필기",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr_percent": 0.0,
+        "position": 8.6
+      },
+      {
+        "label": "한식 조리기능사 필기",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr_percent": 0.0,
+        "position": 8.6
+      },
+      {
+        "label": "바리 스타 2급 자격시험 예상문제집 pdf",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr_percent": 0.0,
+        "position": 11.0
+      },
+      {
+        "label": "한식기능사 필기",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr_percent": 0.0,
+        "position": 11.2
+      },
+      {
+        "label": "3d프린터운용기능사 필기 pdf",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr_percent": 0.0,
+        "position": 15.6
+      },
+      {
+        "label": "메이크업 국가자격증 필기 기출문제",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr_percent": 0.0,
+        "position": 16.6
+      },
+      {
+        "label": "한식조리기능사 필기 pdf",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr_percent": 0.0,
+        "position": 17.0
+      },
+      {
+        "label": "바리스타 2급 필기",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr_percent": 0.0,
+        "position": 18.6
+      },
+      {
+        "label": "cbt 기출문제 사이트",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr_percent": 0.0,
+        "position": 25.0
+      },
+      {
+        "label": "sqld 기출 문제 pdf",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr_percent": 0.0,
+        "position": 32.6
+      },
+      {
+        "label": "az-301",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr_percent": 0.0,
+        "position": 52.6
+      },
+      {
+        "label": "바리스타 문제",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 3.5
+      },
+      {
+        "label": "sqld 기출 사이트",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 5.5
+      },
+      {
+        "label": "cisco 300 101",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 8.25
+      },
+      {
+        "label": "az 103",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 8.75
+      },
+      {
+        "label": "컬러리스트 산업기사 필기 기출문제",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 8.75
+      },
+      {
+        "label": "sqld 예제",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 12.0
+      },
+      {
+        "label": "sqld기출",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 14.0
+      },
+      {
+        "label": "sqld 시험문제",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 16.25
+      },
+      {
+        "label": "cbt 문제은행 사이트",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 19.25
+      },
+      {
+        "label": "sqld 양파",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 22.75
+      },
+      {
+        "label": "일식 조리 기능사",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 27.25
+      },
+      {
+        "label": "자동화설비기능사 필기 pdf",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 33.75
+      },
+      {
+        "label": "산림기능사 필기 기출문제",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 49.5
+      },
+      {
+        "label": "스포츠경영관리사 필기 기출문제",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 50.5
+      },
+      {
+        "label": "az 301",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 50.75
+      },
+      {
+        "label": "70 740",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 58.25
+      },
+      {
+        "label": "microsoft 70-741 exam",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 62.0
+      },
+      {
+        "label": "70-741 microsoft",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 70.25
+      },
+      {
+        "label": "quesy",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 75.25
+      },
+      {
+        "label": "icbc road test class 7",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 90.5
+      },
+      {
+        "label": "qyes",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 94.25
+      },
+      {
+        "label": "sqld 문제은행 사이트",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 4.67
+      },
+      {
+        "label": "sqld 츗",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 9.0
+      },
+      {
+        "label": "sqld 기출 문제 사이트",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 9.67
+      },
+      {
+        "label": "한식자격증 필기",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 14.67
+      },
+      {
+        "label": "sql 기출문제",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 16.0
+      },
+      {
+        "label": "화학분석기능사 필기 기출문제",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 16.0
+      },
+      {
+        "label": "한식 조리사 필기",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 17.0
+      },
+      {
+        "label": "문제 은행",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 18.67
+      },
+      {
+        "label": "pc정비사 2급 쓸모",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 19.0
+      },
+      {
+        "label": "한식조리기능사 cbt",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 19.67
+      },
+      {
+        "label": "에너지관리기사 기출문제",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 21.33
+      },
+      {
+        "label": "폐기물처리기사 실기 기출문제 pdf",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 21.67
+      },
+      {
+        "label": "sqld 기출문제 모음",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 22.0
+      },
+      {
+        "label": "양식 조리 기능사",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 22.33
+      },
+      {
+        "label": "자동화설비기능사 필기 기출문제",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 23.0
+      },
+      {
+        "label": "3d 프린터 운용 기능사",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 25.67
+      },
+      {
+        "label": "멀티미디어콘텐츠제작전문가 필기 pdf",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 33.67
+      },
+      {
+        "label": "문제은행 사이트",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 36.67
+      },
+      {
+        "label": "ceuey",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 41.67
+      },
+      {
+        "label": "300-115 pdf",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 46.67
+      },
+      {
+        "label": "azure 301",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 47.0
+      },
+      {
+        "label": "전자계산기기사",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 53.67
+      },
+      {
+        "label": "exam ref ms 100 microsoft 365 identity and services",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 57.67
+      },
+      {
+        "label": "바리스타2급 기출문제",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 3.5
+      },
+      {
+        "label": "일식 조리 기능사 필기",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 3.5
+      },
+      {
+        "label": "ccna 문제 예시",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 4.0
+      },
+      {
+        "label": "조리기능사 필기 문제",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 4.5
+      },
+      {
+        "label": "qyez",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 6.0
+      },
+      {
+        "label": "is life insurance regulated differently in texas?",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 8.5
+      },
+      {
+        "label": "3d 프린터 운용 기능사 필기 기출 문제",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 10.0
+      },
+      {
+        "label": "3d기능사 필기",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 10.0
+      },
+      {
+        "label": "제빵 필기 기출문제",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 10.0
+      },
+      {
+        "label": "중식기능사",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 10.0
+      },
+      {
+        "label": "일식조리기능사 자격증",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 10.5
+      },
+      {
+        "label": "한식조리기능사필기",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 10.5
+      },
+      {
+        "label": "a field technician is setting up a new company-issued android smartphone. \nthe technician wants to ensure they can download apps from the google play \nstore, access their corporate email, and synchronize their contacts and \ncalendars across their laptop and smartphone. which of the following steps \nshould the technician take to achieve this? answer a use the corporate \nemail account credentials to sign in to the device. b skip account setup \nduring the initial device configuration and manually add accounts later. c \ncreate a samsung account and configure it as the primary account on the \ndevice. d set up a google account and use it to sign in to the device.",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 12.0
+      },
+      {
+        "label": "조주기능사 기출문제",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 13.0
+      },
+      {
+        "label": "sqld기출문제",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 13.5
+      },
+      {
+        "label": "바리스타 필기",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 16.0
+      },
+      {
+        "label": "sqld 시험지",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 17.0
+      },
+      {
+        "label": "tlqlxl",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 18.5
+      },
+      {
+        "label": "자동화설비기능사 기출문제",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 19.0
+      },
+      {
+        "label": "정보기기운용기능사 기출문제",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 19.0
+      },
+      {
+        "label": "메이크업 필기 기출문제 pdf",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 19.5
+      },
+      {
+        "label": "양식 조리사 자격증",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 20.0
+      },
+      {
+        "label": "중식 조리 기능사",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 20.0
+      },
+      {
+        "label": "커피바리스타 2급",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 20.5
+      },
+      {
+        "label": "문제 은행 사이트",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 21.5
+      },
+      {
+        "label": "중식 자격증",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 21.5
+      },
+      {
+        "label": "조리 기능사 필기",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 22.0
+      },
+      {
+        "label": "세탁 기능사",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 23.5
+      },
+      {
+        "label": "전산회계 1급 기출",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 23.5
+      },
+      {
+        "label": "중식자격증",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 23.5
+      },
+      {
+        "label": "3d 프린터운용기능사",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 24.0
+      },
+      {
+        "label": "위험물기능장 필기 기출문제",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 24.5
+      },
+      {
+        "label": "자동차정비기능사 기출문제",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 25.0
+      },
+      {
+        "label": "전산회계 1급 기출문제",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 25.0
+      },
+      {
+        "label": "전자 계산기 조직 응용 기사",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 25.0
+      },
+      {
+        "label": "3d 프린터 기능사",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 25.5
+      },
+      {
+        "label": "sqld 1과목 기출",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 26.5
+      },
+      {
+        "label": "양식 조리사",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 26.5
+      },
+      {
+        "label": "공무원 9급 영어 기출",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 27.0
+      },
+      {
+        "label": "한식조리기능사 필기 cbt",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 27.0
+      },
+      {
+        "label": "공유압 기능사",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 28.0
+      },
+      {
+        "label": "전산회계1급 기출문제",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 28.5
+      },
+      {
+        "label": "리눅스마스터 1급 기출",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 29.0
+      },
+      {
+        "label": "ÿéÿàÿø ÿæÿµÿö ÿ™ÿ¨ÿøÿäÿø ÿ¥ÿáÿßÿøÿ© pmp",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 29.5
+      },
+      {
+        "label": "바리스타 2급",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 32.5
+      },
+      {
+        "label": "위험물기능장 기출문제",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 33.0
+      },
+      {
+        "label": "2v0 21.19 pse",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 33.5
+      },
+      {
+        "label": "측량기능사 기출문제",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 34.0
+      },
+      {
+        "label": "화학분석기능사 필기 기출문제 pdf",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 35.0
+      },
+      {
+        "label": "화약류 관리기사",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 36.5
+      },
+      {
+        "label": "공무원 영어 기출",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 39.5
+      },
+      {
+        "label": "산림기능사 기출문제",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 41.5
+      },
+      {
+        "label": "피부미용 필기 기출문제",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 41.5
+      },
+      {
+        "label": "컨벤션기획사 2급 필기 pdf",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 42.0
+      },
+      {
+        "label": "식물보호기사 필기 pdf",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 42.5
+      },
+      {
+        "label": "임상심리사 2급 실기 기출문제",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 42.5
+      },
+      {
+        "label": "how is soho subscriber internet access primarily facilitated",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 43.5
+      },
+      {
+        "label": "산림기능사 필기 기출문제 pdf",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 46.5
+      },
+      {
+        "label": "sqld 문제집",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 47.0
+      },
+      {
+        "label": "임상심리사 1급 실기 기출문제",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 47.5
+      },
+      {
+        "label": "ㄴ삥",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 52.0
+      },
+      {
+        "label": "sql 문제 사이트",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 52.5
+      },
+      {
+        "label": "유기농업기능사 필기 기출문제 pdf",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 52.5
+      },
+      {
+        "label": "qiey",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 60.5
+      },
+      {
+        "label": "cpzey",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 62.0
+      },
+      {
+        "label": "도타비 문제은행 cbt",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 64.5
+      },
+      {
+        "label": "cgeey",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 67.5
+      },
+      {
+        "label": "quixey",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 69.0
+      },
+      {
+        "label": "foodsafe level 1 practice test",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 74.0
+      },
+      {
+        "label": "cbcey",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 80.5
+      },
+      {
+        "label": "추가로 추천해줘",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 2.0
+      },
+      {
+        "label": "sqld 사이트",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 3.0
+      },
+      {
+        "label": "기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 3.0
+      },
+      {
+        "label": "기출문제 사이트",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 3.0
+      },
+      {
+        "label": "웅",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 3.0
+      },
+      {
+        "label": "ccna 200-125",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 4.0
+      },
+      {
+        "label": "웅 찾아줘",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 4.0
+      },
+      {
+        "label": "200-125",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 5.0
+      },
+      {
+        "label": "sqld 요점 정리 pdf",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 5.0
+      },
+      {
+        "label": "양식 조리 기능사 필기 기출 문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 5.0
+      },
+      {
+        "label": "200-301 ccna",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 6.0
+      },
+      {
+        "label": "200-301 cisco",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 6.0
+      },
+      {
+        "label": "ccna 한글 시험",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 6.0
+      },
+      {
+        "label": "quizey",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 6.0
+      },
+      {
+        "label": "az-103",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 7.0
+      },
+      {
+        "label": "quieys",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 7.0
+      },
+      {
+        "label": "sqld 준비기간",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 7.0
+      },
+      {
+        "label": "한식조리기능사 필기시험",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 7.0
+      },
+      {
+        "label": "3d 프린터 운용 기능사 기출 문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 8.0
+      },
+      {
+        "label": "class 7 learners practice test",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 8.0
+      },
+      {
+        "label": "quizzes",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 8.0
+      },
+      {
+        "label": "바리스타 자격증 2급 필기",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 8.0
+      },
+      {
+        "label": "필기시험",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 8.0
+      },
+      {
+        "label": "화학분석기능사 기출",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 8.0
+      },
+      {
+        "label": "200×125",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 9.0
+      },
+      {
+        "label": "since january 1, 2007, sellers can choose between the traditional 3.33% \nwithholding method or a gain-based method that calculates tax on actual \ngain using california's maximum tax rate of 9.55% for individuals.",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 9.0
+      },
+      {
+        "label": "수질환경기사 기출",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 9.0
+      },
+      {
+        "label": "엔클렉스 문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 9.0
+      },
+      {
+        "label": "3d 프린터 운용기능사 필기 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 10.0
+      },
+      {
+        "label": "3d프린터 운용기능사",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 10.0
+      },
+      {
+        "label": "complete the event driven core of a notification system the controller \nservices repositories entities dtos exceptions and the three custom event \nclasses userregistrationevent userloginevent documentuploadedevent are \nprovided implement",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 10.0
+      },
+      {
+        "label": "sqld 기출딸",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 10.0
+      },
+      {
+        "label": "sqlp 시험",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 10.0
+      },
+      {
+        "label": "technician test",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 10.0
+      },
+      {
+        "label": "버섯종균기능사",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 10.0
+      },
+      {
+        "label": "생산자동화기능사",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 10.0
+      },
+      {
+        "label": "승강기기능사 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 10.0
+      },
+      {
+        "label": "중식조리기능사 필기 요약 pdf",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 10.0
+      },
+      {
+        "label": "sqld 연습문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 11.0
+      },
+      {
+        "label": "you are authoring a custom code that will process http requests to perform \nbasic calculations on geographic coordinates. requests will be infrequent. \nyou need to recommend a compute solution to host the custom code. your \nsolution must minimize the implementation effort and compute cost. which \ncompute solution should you recommend? select only one answer. azure api \nmanagement azure batch azure logic apps azure functions",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 11.0
+      },
+      {
+        "label": "바리스타2급 필기",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 11.0
+      },
+      {
+        "label": "computer-aided manufacturing",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 12.0
+      },
+      {
+        "label": "sqlp 실기 기출",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 15.0
+      },
+      {
+        "label": "양식조리기능사 자격증",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 15.0
+      },
+      {
+        "label": "sqld 문제은행 디시",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 16.0
+      },
+      {
+        "label": "한식 자격증 필기",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 16.0
+      },
+      {
+        "label": "도비타 문제은행",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 17.0
+      },
+      {
+        "label": "바리 스타 필기 기출문제 pdf",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 17.0
+      },
+      {
+        "label": "양파 sqld",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 17.0
+      },
+      {
+        "label": "sqld 문제 예시",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 18.0
+      },
+      {
+        "label": "메이크업 필기 cbt",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 18.0
+      },
+      {
+        "label": "생산자동화기능사 필기",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 18.0
+      },
+      {
+        "label": "한식조리기능사 필기 정리",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 18.0
+      },
+      {
+        "label": "pc정비사 2급 필기 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 19.0
+      },
+      {
+        "label": "전자 계산기 기능사",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 19.0
+      },
+      {
+        "label": "sqld 기출 디시",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 20.0
+      },
+      {
+        "label": "sqld 시험 기출",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 20.0
+      },
+      {
+        "label": "sqld 족보",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 20.0
+      },
+      {
+        "label": "바리 스타 2급 난이도",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 20.0
+      },
+      {
+        "label": "식물보호기사",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 20.0
+      },
+      {
+        "label": "임상심리사1급 필기 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 20.0
+      },
+      {
+        "label": "한식 조리 기능사 필기",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 20.0
+      },
+      {
+        "label": "sqld 예상문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 21.0
+      },
+      {
+        "label": "공유압기능사",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 21.0
+      },
+      {
+        "label": "식물 보호 기사",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 21.0
+      },
+      {
+        "label": "양식 기능사",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 21.0
+      },
+      {
+        "label": "전기기능장 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 21.0
+      },
+      {
+        "label": "한식 필기",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 21.0
+      },
+      {
+        "label": "열관리 기능사",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 22.0
+      },
+      {
+        "label": "열관리기사",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 22.0
+      },
+      {
+        "label": "3d 운용기능사",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 23.0
+      },
+      {
+        "label": "diat 정보통신상식",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 23.0
+      },
+      {
+        "label": "sqld 가채점",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 23.0
+      },
+      {
+        "label": "바리스타 자격증 필기",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 23.0
+      },
+      {
+        "label": "세탁기능사",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 23.0
+      },
+      {
+        "label": "정보처리기사 기출",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 23.0
+      },
+      {
+        "label": "sqld sqlp",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 24.0
+      },
+      {
+        "label": "미용사 메이크업 필기 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 24.0
+      },
+      {
+        "label": "전자계산기 조직응용기사",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 24.0
+      },
+      {
+        "label": "정보기기운용기능사 필기 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 24.0
+      },
+      {
+        "label": "화약류 관리 기사",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 24.0
+      },
+      {
+        "label": "리눅스 마스터 2급 1차 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 25.0
+      },
+      {
+        "label": "수질환경기사 실기 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 25.0
+      },
+      {
+        "label": "에너지관리산업기사 필기 기출문제 pdf",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 25.0
+      },
+      {
+        "label": "임상심리사 1급 필기 요약 pdf",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 25.0
+      },
+      {
+        "label": "전자계산기조직응용기사",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 25.0
+      },
+      {
+        "label": "sqld 52회 기출문제 pdf",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 26.0
+      },
+      {
+        "label": "what does llqp stand for",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 26.0
+      },
+      {
+        "label": "바리스타자격증 2급",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 26.0
+      },
+      {
+        "label": "양식조리사",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 26.0
+      },
+      {
+        "label": "에너지관리기사 필기 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 26.0
+      },
+      {
+        "label": "환경기능사 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 26.0
+      },
+      {
+        "label": "바리 스타 자격증 2급",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 27.0
+      },
+      {
+        "label": "300 101",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 28.0
+      },
+      {
+        "label": "위험물기능장 필기 기출문제 pdf",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 28.0
+      },
+      {
+        "label": "전산회계 1급 문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 28.0
+      },
+      {
+        "label": "전산회계 기출문제 pdf",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 28.0
+      },
+      {
+        "label": "폐기물처리기사 필기 기출문제 pdf",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 28.0
+      },
+      {
+        "label": "식물보호기사 쓸모",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 29.0
+      },
+      {
+        "label": "공조냉동기계기능사 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 30.0
+      },
+      {
+        "label": "리눅스 마스터 2급 1차 기출문제 pdf",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 30.0
+      },
+      {
+        "label": "바리스타 2급 자격증",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 30.0
+      },
+      {
+        "label": "스포츠경영관리사 실기 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 30.0
+      },
+      {
+        "label": "식물보호기능사",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 30.0
+      },
+      {
+        "label": "공조냉동기계기능사 필기 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 31.0
+      },
+      {
+        "label": "에너지관리기능사 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 31.0
+      },
+      {
+        "label": "전산회계 1급 기출문제 pdf",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 31.0
+      },
+      {
+        "label": "전자캐드기능사 실기 공개문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 31.0
+      },
+      {
+        "label": "3d 프린팅 기능사",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 32.0
+      },
+      {
+        "label": "quizee",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 32.0
+      },
+      {
+        "label": "quizeii",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 32.0
+      },
+      {
+        "label": "실내건축기능사 필기 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 32.0
+      },
+      {
+        "label": "전산세무 1급 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 32.0
+      },
+      {
+        "label": "전산회계1급 기출문제 pdf",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 32.0
+      },
+      {
+        "label": "측량기능사 필기",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 33.0
+      },
+      {
+        "label": "ccna 덤프",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 34.0
+      },
+      {
+        "label": "ccnp 300 115",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 34.0
+      },
+      {
+        "label": "llqp meaning",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 34.0
+      },
+      {
+        "label": "sqld 시험장",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 34.0
+      },
+      {
+        "label": "유기농업기능사 실기 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 34.0
+      },
+      {
+        "label": "전산회계 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 34.0
+      },
+      {
+        "label": "한식조리기사",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 34.0
+      },
+      {
+        "label": "9급 공무원 영어 기출문제 pdf",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 35.0
+      },
+      {
+        "label": "pc정비사 2급 실기",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 35.0
+      },
+      {
+        "label": "국가직 영어",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 35.0
+      },
+      {
+        "label": "제빵기능사 필기 기출문제 pdf",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 35.0
+      },
+      {
+        "label": "프로그래밍기능사 cbt",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 35.0
+      },
+      {
+        "label": "3d 프린터 운용기능사",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 36.0
+      },
+      {
+        "label": "ccnp route 300 101 pdf",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 36.0
+      },
+      {
+        "label": "도타비 문제은행",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 36.0
+      },
+      {
+        "label": "바리스타 2급 실기",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 36.0
+      },
+      {
+        "label": "생산자동화기사",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 36.0
+      },
+      {
+        "label": "실내건축기능사 실기 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 36.0
+      },
+      {
+        "label": "화공기사 문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 36.0
+      },
+      {
+        "label": "3d프린터 기능사",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 37.0
+      },
+      {
+        "label": "cas 003",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 37.0
+      },
+      {
+        "label": "ccna 덤프 최신",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 37.0
+      },
+      {
+        "label": "국가직 9급 영어",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 37.0
+      },
+      {
+        "label": "사회복지사 1급 시험 문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 37.0
+      },
+      {
+        "label": "생산 자동화",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 37.0
+      },
+      {
+        "label": "임상심리사 2급 필기 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 37.0
+      },
+      {
+        "label": "전산세무1급 기출",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 37.0
+      },
+      {
+        "label": "전산세무1급 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 37.0
+      },
+      {
+        "label": "품질경영기사 실기 기출문제 pdf",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 37.0
+      },
+      {
+        "label": "300 115",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 38.0
+      },
+      {
+        "label": "sqld 기출문제 pdf 2025",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 38.0
+      },
+      {
+        "label": "멀티미디어콘텐츠제작전문가 필기 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 38.0
+      },
+      {
+        "label": "전산회계운용사 3급 실기 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 38.0
+      },
+      {
+        "label": "공무원 9급 영어",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 39.0
+      },
+      {
+        "label": "도타 비 문제은행",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 39.0
+      },
+      {
+        "label": "메이크업 필기 pdf",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 39.0
+      },
+      {
+        "label": "사회복지사 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 39.0
+      },
+      {
+        "label": "양식조리기능사 필기 요약 pdf",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 39.0
+      },
+      {
+        "label": "용접기능사 필기 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 39.0
+      },
+      {
+        "label": "종자 기능사 실기 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 39.0
+      },
+      {
+        "label": "9급 영어 기출",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 40.0
+      },
+      {
+        "label": "9급공무원 영어 기출",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 40.0
+      },
+      {
+        "label": "공무원 영어 시험 문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 40.0
+      },
+      {
+        "label": "리눅스마스터 2급 2차 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 40.0
+      },
+      {
+        "label": "미용사 필기 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 40.0
+      },
+      {
+        "label": "에너지관리기능사 필기 기출문제 pdf",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 40.0
+      },
+      {
+        "label": "엘리베이터 기사",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 40.0
+      },
+      {
+        "label": "위험물기능장 실기 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 40.0
+      },
+      {
+        "label": "전산응용건축제도기능사 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 40.0
+      },
+      {
+        "label": "공무원 영어 문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 41.0
+      },
+      {
+        "label": "식물보호산업기사 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 41.0
+      },
+      {
+        "label": "식물보호산업기사 필기 기출문제 pdf",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 41.0
+      },
+      {
+        "label": "전산회계3급",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 41.0
+      },
+      {
+        "label": "굴삭기 필기시험 문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 42.0
+      },
+      {
+        "label": "리눅스 마스터 2급 1차 기출",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 42.0
+      },
+      {
+        "label": "웹디자인기능사 실기 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 42.0
+      },
+      {
+        "label": "임상심리사2급 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 42.0
+      },
+      {
+        "label": "전산회계 3급",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 42.0
+      },
+      {
+        "label": "전자계산기 기사",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 42.0
+      },
+      {
+        "label": "중식 기능장",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 42.0
+      },
+      {
+        "label": "임상심리사1급 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 43.0
+      },
+      {
+        "label": "전산회계운용사 2급 필기 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 43.0
+      },
+      {
+        "label": "조주기능사 필기 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 43.0
+      },
+      {
+        "label": "리눅스 마스터 2급 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 44.0
+      },
+      {
+        "label": "컴퓨터그래픽스운용기능사 실기 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 44.0
+      },
+      {
+        "label": "pc정비사 2급 필기",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 45.0
+      },
+      {
+        "label": "리눅스마스터 2급 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 45.0
+      },
+      {
+        "label": "사진기능사 필기 pdf",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 45.0
+      },
+      {
+        "label": "임상심리사 2급 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 45.0
+      },
+      {
+        "label": "텔레 마케팅 관리사 실기 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 45.0
+      },
+      {
+        "label": "텔레마케팅관리사 실기 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 45.0
+      },
+      {
+        "label": "az500",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 46.0
+      },
+      {
+        "label": "evaluate the cybersecurity company thinscale on byod",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 46.0
+      },
+      {
+        "label": "네트워크관리사 1급",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 46.0
+      },
+      {
+        "label": "식물보호기사 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 46.0
+      },
+      {
+        "label": "전산세무1급 기출문제 pdf",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 46.0
+      },
+      {
+        "label": "ccnp route 300 101",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 47.0
+      },
+      {
+        "label": "스포츠경영관리사 필기 pdf",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 47.0
+      },
+      {
+        "label": "전기기능장 필기 기출문제 pdf",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 47.0
+      },
+      {
+        "label": "전산회계 문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 47.0
+      },
+      {
+        "label": "a facility's food storage rooms are arranged around its receiving door",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 48.0
+      },
+      {
+        "label": "리눅스마스터 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 48.0
+      },
+      {
+        "label": "조경기능사 기출문제 pdf",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 48.0
+      },
+      {
+        "label": "중식조리기능사 실기",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 49.0
+      },
+      {
+        "label": "텔레 마케팅 관리사 필기 pdf",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 49.0
+      },
+      {
+        "label": "sqld 발행처",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 50.0
+      },
+      {
+        "label": "리눅스 마스터 1급 기출",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 50.0
+      },
+      {
+        "label": "웹디자인기능사 필기 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 51.0
+      },
+      {
+        "label": "조경기능사 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 51.0
+      },
+      {
+        "label": "화학분석기능사 필기 정리 pdf",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 51.0
+      },
+      {
+        "label": "cyey",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 52.0
+      },
+      {
+        "label": "siceey",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 52.0
+      },
+      {
+        "label": "무선설비기사 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 52.0
+      },
+      {
+        "label": "임상심리사 1급 필기",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 53.0
+      },
+      {
+        "label": "exam 70 740",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 54.0
+      },
+      {
+        "label": "리눅스 마스터 1급 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 54.0
+      },
+      {
+        "label": "리눅스 마스터 1급 필기 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 55.0
+      },
+      {
+        "label": "리눅스 마스터 2급 2차 기출문제 pdf",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 55.0
+      },
+      {
+        "label": "리눅스마스터 1급 필기 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 55.0
+      },
+      {
+        "label": "sqld rlcnf",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 56.0
+      },
+      {
+        "label": "직업상담사 1급 필기 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 57.0
+      },
+      {
+        "label": "스포츠경영관리사 cbt",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 58.0
+      },
+      {
+        "label": "배관기능사 필기 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 59.0
+      },
+      {
+        "label": "sqld 모의고사 pdf",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 60.0
+      },
+      {
+        "label": "에너지관리기능사 필기 pdf",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 60.0
+      },
+      {
+        "label": "faxey",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 61.0
+      },
+      {
+        "label": "seueiy",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 62.0
+      },
+      {
+        "label": "간호조무사 기출",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 62.0
+      },
+      {
+        "label": "보일러 기능사",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 62.0
+      },
+      {
+        "label": "70 740 microsoft",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 63.0
+      },
+      {
+        "label": "texas health insurance faq",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 63.0
+      },
+      {
+        "label": "스포츠경영관리사 pdf",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 64.0
+      },
+      {
+        "label": "70-740",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 65.0
+      },
+      {
+        "label": "70-741 training",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 69.0
+      },
+      {
+        "label": "quizegg",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 69.0
+      },
+      {
+        "label": "리눅스마스터 2급 1차 기출",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 69.0
+      },
+      {
+        "label": "g1 mock test free",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 71.0
+      },
+      {
+        "label": "중식 조리 기능사 실기 메뉴",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 74.0
+      },
+      {
+        "label": "coexy",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 81.0
+      },
+      {
+        "label": "what is comptia security+ sy0 501",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 82.0
+      },
+      {
+        "label": "sqy business",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 84.0
+      },
+      {
+        "label": "llqp",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 89.0
+      },
+      {
+        "label": "임상심리사 1급 실기",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 91.0
+      },
+      {
+        "label": "컴퓨터그래픽스운용기능사 필기 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 94.0
+      },
+      {
+        "label": "cby",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 96.0
+      },
+      {
+        "label": "네트워크관리사 2급 필기 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 96.0
+      },
+      {
+        "label": "유기농업기능사 기출문제",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 100.0
+      },
+      {
+        "label": "free canadian citizenship test practice",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 183.0
+      }
+    ],
+    "국가": [
+      {
+        "label": "한국",
+        "clicks": 3465,
+        "impressions": 24101,
+        "ctr_percent": 14.38,
+        "position": 7.15
+      },
+      {
+        "label": "일본",
+        "clicks": 9,
+        "impressions": 58,
+        "ctr_percent": 15.52,
+        "position": 7.16
+      },
+      {
+        "label": "캐나다",
+        "clicks": 6,
+        "impressions": 68,
+        "ctr_percent": 8.82,
+        "position": 30.69
+      },
+      {
+        "label": "미국",
+        "clicks": 3,
+        "impressions": 452,
+        "ctr_percent": 0.66,
+        "position": 17.79
+      },
+      {
+        "label": "인도네시아",
+        "clicks": 2,
+        "impressions": 23,
+        "ctr_percent": 8.7,
+        "position": 45.35
+      },
+      {
+        "label": "호주",
+        "clicks": 2,
+        "impressions": 20,
+        "ctr_percent": 10.0,
+        "position": 13.45
+      },
+      {
+        "label": "싱가포르",
+        "clicks": 2,
+        "impressions": 9,
+        "ctr_percent": 22.22,
+        "position": 7.22
+      },
+      {
+        "label": "프랑스",
+        "clicks": 2,
+        "impressions": 8,
+        "ctr_percent": 25.0,
+        "position": 19.5
+      },
+      {
+        "label": "베트남",
+        "clicks": 1,
+        "impressions": 35,
+        "ctr_percent": 2.86,
+        "position": 31.03
+      },
+      {
+        "label": "인도",
+        "clicks": 1,
+        "impressions": 28,
+        "ctr_percent": 3.57,
+        "position": 29.61
+      },
+      {
+        "label": "멕시코",
+        "clicks": 1,
+        "impressions": 23,
+        "ctr_percent": 4.35,
+        "position": 13.39
+      },
+      {
+        "label": "태국",
+        "clicks": 1,
+        "impressions": 13,
+        "ctr_percent": 7.69,
+        "position": 26.08
+      },
+      {
+        "label": "터키",
+        "clicks": 1,
+        "impressions": 11,
+        "ctr_percent": 9.09,
+        "position": 45.73
+      },
+      {
+        "label": "파키스탄",
+        "clicks": 1,
+        "impressions": 9,
+        "ctr_percent": 11.11,
+        "position": 42.56
+      },
+      {
+        "label": "홍콩",
+        "clicks": 1,
+        "impressions": 8,
+        "ctr_percent": 12.5,
+        "position": 12.5
+      },
+      {
+        "label": "몽골",
+        "clicks": 1,
+        "impressions": 4,
+        "ctr_percent": 25.0,
+        "position": 3.25
+      },
+      {
+        "label": "대만",
+        "clicks": 1,
+        "impressions": 4,
+        "ctr_percent": 25.0,
+        "position": 6.0
+      },
+      {
+        "label": "핀란드",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr_percent": 50.0,
+        "position": 1.5
+      },
+      {
+        "label": "영국",
+        "clicks": 0,
+        "impressions": 64,
+        "ctr_percent": 0.0,
+        "position": 45.08
+      },
+      {
+        "label": "브라질",
+        "clicks": 0,
+        "impressions": 32,
+        "ctr_percent": 0.0,
+        "position": 29.78
+      },
+      {
+        "label": "덴마크",
+        "clicks": 0,
+        "impressions": 29,
+        "ctr_percent": 0.0,
+        "position": 46.1
+      },
+      {
+        "label": "러시아",
+        "clicks": 0,
+        "impressions": 25,
+        "ctr_percent": 0.0,
+        "position": 40.36
+      },
+      {
+        "label": "필리핀",
+        "clicks": 0,
+        "impressions": 24,
+        "ctr_percent": 0.0,
+        "position": 42.04
+      },
+      {
+        "label": "방글라데시",
+        "clicks": 0,
+        "impressions": 21,
+        "ctr_percent": 0.0,
+        "position": 42.43
+      },
+      {
+        "label": "네덜란드",
+        "clicks": 0,
+        "impressions": 11,
+        "ctr_percent": 0.0,
+        "position": 7.36
+      },
+      {
+        "label": "아르헨티나",
+        "clicks": 0,
+        "impressions": 11,
+        "ctr_percent": 0.0,
+        "position": 39.55
+      },
+      {
+        "label": "말레이시아",
+        "clicks": 0,
+        "impressions": 10,
+        "ctr_percent": 0.0,
+        "position": 34.2
+      },
+      {
+        "label": "모로코",
+        "clicks": 0,
+        "impressions": 9,
+        "ctr_percent": 0.0,
+        "position": 43.22
+      },
+      {
+        "label": "요르단",
+        "clicks": 0,
+        "impressions": 9,
+        "ctr_percent": 0.0,
+        "position": 51.0
+      },
+      {
+        "label": "중국",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr_percent": 0.0,
+        "position": 11.62
+      },
+      {
+        "label": "스페인",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr_percent": 0.0,
+        "position": 15.38
+      },
+      {
+        "label": "아랍에미리트 연합",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr_percent": 0.0,
+        "position": 16.75
+      },
+      {
+        "label": "벨기에",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr_percent": 0.0,
+        "position": 8.8
+      },
+      {
+        "label": "알제리",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr_percent": 0.0,
+        "position": 31.0
+      },
+      {
+        "label": "독일",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr_percent": 0.0,
+        "position": 45.2
+      },
+      {
+        "label": "남아프리카",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 11.5
+      },
+      {
+        "label": "우크라이나",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 28.75
+      },
+      {
+        "label": "그리스",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 3.67
+      },
+      {
+        "label": "오스트리아",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 6.33
+      },
+      {
+        "label": "카자흐스탄",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 7.33
+      },
+      {
+        "label": "이라크",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 9.67
+      },
+      {
+        "label": "콜롬비아",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 21.67
+      },
+      {
+        "label": "베네주엘라",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 25.33
+      },
+      {
+        "label": "이스라엘",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 41.67
+      },
+      {
+        "label": "아이슬란드",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 1.0
+      },
+      {
+        "label": "북한",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 5.0
+      },
+      {
+        "label": "나이지리아",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 6.0
+      },
+      {
+        "label": "가나",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 10.5
+      },
+      {
+        "label": "스리랑카",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 16.5
+      },
+      {
+        "label": "알바니아",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 28.0
+      },
+      {
+        "label": "이란",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 37.0
+      },
+      {
+        "label": "루마니아",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 48.0
+      },
+      {
+        "label": "에스토니아",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 1.0
+      },
+      {
+        "label": "미얀마(버마)",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 1.0
+      },
+      {
+        "label": "포르투갈",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 1.0
+      },
+      {
+        "label": "헝가리",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 2.0
+      },
+      {
+        "label": "아프가니스탄",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 3.0
+      },
+      {
+        "label": "노르웨이",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 4.0
+      },
+      {
+        "label": "카타르",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 4.0
+      },
+      {
+        "label": "아제르바이잔",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 5.0
+      },
+      {
+        "label": "스위스",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 5.0
+      },
+      {
+        "label": "아일랜드",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 5.0
+      },
+      {
+        "label": "잠비아",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 5.0
+      },
+      {
+        "label": "카메룬",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 6.0
+      },
+      {
+        "label": "코스타리카",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 6.0
+      },
+      {
+        "label": "뉴질랜드",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 6.0
+      },
+      {
+        "label": "바레인",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 7.0
+      },
+      {
+        "label": "파나마",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 7.0
+      },
+      {
+        "label": "세르비아",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 7.0
+      },
+      {
+        "label": "키르기스",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 8.0
+      },
+      {
+        "label": "타지크스탄",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 8.0
+      },
+      {
+        "label": "베닌",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 9.0
+      },
+      {
+        "label": "콩고-브라자빌",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 9.0
+      },
+      {
+        "label": "네팔",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 9.0
+      },
+      {
+        "label": "튀니지",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 9.0
+      },
+      {
+        "label": "에콰도르",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 10.0
+      },
+      {
+        "label": "이디오피아",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 10.0
+      },
+      {
+        "label": "이탈리아",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 10.0
+      },
+      {
+        "label": "마케도니아",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 18.0
+      },
+      {
+        "label": "이집트",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 19.0
+      },
+      {
+        "label": "토고",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 23.0
+      },
+      {
+        "label": "아르메니아",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 42.0
+      },
+      {
+        "label": "캄보디아",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 47.0
+      },
+      {
+        "label": "케냐",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 52.0
+      },
+      {
+        "label": "폴란드",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 68.0
+      },
+      {
+        "label": "나미비아",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 72.0
+      }
+    ],
+    "기기": [
+      {
+        "label": "데스크톱",
+        "clicks": 1888,
+        "impressions": 14241,
+        "ctr_percent": 13.26,
+        "position": 9.28
+      },
+      {
+        "label": "모바일",
+        "clicks": 1352,
+        "impressions": 9688,
+        "ctr_percent": 13.96,
+        "position": 6.18
+      },
+      {
+        "label": "태블릿",
+        "clicks": 261,
+        "impressions": 1310,
+        "ctr_percent": 19.92,
+        "position": 5.94
+      }
+    ],
+    "차트": [
+      {
+        "label": "2026-08-01",
+        "clicks": 22,
+        "impressions": 224,
+        "ctr_percent": 9.82,
+        "position": 9.0
+      },
+      {
+        "label": "2026-08-02",
+        "clicks": 49,
+        "impressions": 307,
+        "ctr_percent": 15.96,
+        "position": 7.7
+      },
+      {
+        "label": "2026-08-03",
+        "clicks": 62,
+        "impressions": 393,
+        "ctr_percent": 15.78,
+        "position": 8.6
+      },
+      {
+        "label": "2026-08-04",
+        "clicks": 44,
+        "impressions": 319,
+        "ctr_percent": 13.79,
+        "position": 7.2
+      },
+      {
+        "label": "2026-08-05",
+        "clicks": 46,
+        "impressions": 296,
+        "ctr_percent": 15.54,
+        "position": 7.4
+      },
+      {
+        "label": "2026-08-06",
+        "clicks": 45,
+        "impressions": 261,
+        "ctr_percent": 17.24,
+        "position": 7.2
+      },
+      {
+        "label": "2026-08-07",
+        "clicks": 32,
+        "impressions": 204,
+        "ctr_percent": 15.69,
+        "position": 7.9
+      },
+      {
+        "label": "2026-08-08",
+        "clicks": 36,
+        "impressions": 218,
+        "ctr_percent": 16.51,
+        "position": 8.9
+      },
+      {
+        "label": "2026-08-09",
+        "clicks": 59,
+        "impressions": 408,
+        "ctr_percent": 14.46,
+        "position": 7.2
+      },
+      {
+        "label": "2026-08-10",
+        "clicks": 61,
+        "impressions": 441,
+        "ctr_percent": 13.83,
+        "position": 6.6
+      },
+      {
+        "label": "2026-08-11",
+        "clicks": 55,
+        "impressions": 429,
+        "ctr_percent": 12.82,
+        "position": 8.0
+      },
+      {
+        "label": "2026-08-12",
+        "clicks": 56,
+        "impressions": 369,
+        "ctr_percent": 15.18,
+        "position": 8.7
+      },
+      {
+        "label": "2026-08-13",
+        "clicks": 31,
+        "impressions": 357,
+        "ctr_percent": 8.68,
+        "position": 7.9
+      },
+      {
+        "label": "2026-08-14",
+        "clicks": 25,
+        "impressions": 266,
+        "ctr_percent": 9.4,
+        "position": 10.2
+      },
+      {
+        "label": "2026-08-15",
+        "clicks": 27,
+        "impressions": 275,
+        "ctr_percent": 9.82,
+        "position": 11.5
+      },
+      {
+        "label": "2026-08-16",
+        "clicks": 36,
+        "impressions": 308,
+        "ctr_percent": 11.69,
+        "position": 10.3
+      },
+      {
+        "label": "2026-08-17",
+        "clicks": 63,
+        "impressions": 565,
+        "ctr_percent": 11.15,
+        "position": 9.9
+      },
+      {
+        "label": "2026-08-18",
+        "clicks": 45,
+        "impressions": 526,
+        "ctr_percent": 8.56,
+        "position": 8.3
+      },
+      {
+        "label": "2026-08-19",
+        "clicks": 60,
+        "impressions": 477,
+        "ctr_percent": 12.58,
+        "position": 7.9
+      },
+      {
+        "label": "2026-08-20",
+        "clicks": 55,
+        "impressions": 482,
+        "ctr_percent": 11.41,
+        "position": 8.1
+      },
+      {
+        "label": "2026-08-21",
+        "clicks": 27,
+        "impressions": 448,
+        "ctr_percent": 6.03,
+        "position": 9.0
+      },
+      {
+        "label": "2026-08-22",
+        "clicks": 12,
+        "impressions": 138,
+        "ctr_percent": 8.7,
+        "position": 10.9
+      },
+      {
+        "label": "2026-08-23",
+        "clicks": 36,
+        "impressions": 259,
+        "ctr_percent": 13.9,
+        "position": 7.5
+      },
+      {
+        "label": "2026-08-24",
+        "clicks": 39,
+        "impressions": 309,
+        "ctr_percent": 12.62,
+        "position": 8.6
+      },
+      {
+        "label": "2026-08-25",
+        "clicks": 48,
+        "impressions": 336,
+        "ctr_percent": 14.29,
+        "position": 7.8
+      },
+      {
+        "label": "2026-08-26",
+        "clicks": 45,
+        "impressions": 307,
+        "ctr_percent": 14.66,
+        "position": 10.3
+      },
+      {
+        "label": "2026-08-27",
+        "clicks": 35,
+        "impressions": 288,
+        "ctr_percent": 12.15,
+        "position": 8.7
+      },
+      {
+        "label": "2026-08-28",
+        "clicks": 23,
+        "impressions": 179,
+        "ctr_percent": 12.85,
+        "position": 11.0
+      },
+      {
+        "label": "2026-08-29",
+        "clicks": 23,
+        "impressions": 189,
+        "ctr_percent": 12.17,
+        "position": 12.6
+      },
+      {
+        "label": "2026-08-30",
+        "clicks": 50,
+        "impressions": 293,
+        "ctr_percent": 17.06,
+        "position": 7.9
+      },
+      {
+        "label": "2026-08-31",
+        "clicks": 61,
+        "impressions": 389,
+        "ctr_percent": 15.68,
+        "position": 9.3
+      },
+      {
+        "label": "2026-09-01",
+        "clicks": 71,
+        "impressions": 414,
+        "ctr_percent": 17.15,
+        "position": 6.2
+      },
+      {
+        "label": "2026-09-02",
+        "clicks": 56,
+        "impressions": 373,
+        "ctr_percent": 15.01,
+        "position": 6.8
+      },
+      {
+        "label": "2026-09-03",
+        "clicks": 61,
+        "impressions": 347,
+        "ctr_percent": 17.58,
+        "position": 7.6
+      },
+      {
+        "label": "2026-09-04",
+        "clicks": 18,
+        "impressions": 211,
+        "ctr_percent": 8.53,
+        "position": 6.9
+      },
+      {
+        "label": "2026-09-05",
+        "clicks": 15,
+        "impressions": 184,
+        "ctr_percent": 8.15,
+        "position": 9.7
+      },
+      {
+        "label": "2026-09-06",
+        "clicks": 34,
+        "impressions": 277,
+        "ctr_percent": 12.27,
+        "position": 7.3
+      },
+      {
+        "label": "2026-09-07",
+        "clicks": 57,
+        "impressions": 350,
+        "ctr_percent": 16.29,
+        "position": 7.6
+      },
+      {
+        "label": "2026-09-08",
+        "clicks": 65,
+        "impressions": 363,
+        "ctr_percent": 17.91,
+        "position": 7.3
+      },
+      {
+        "label": "2026-09-09",
+        "clicks": 49,
+        "impressions": 314,
+        "ctr_percent": 15.61,
+        "position": 7.7
+      },
+      {
+        "label": "2026-09-10",
+        "clicks": 39,
+        "impressions": 280,
+        "ctr_percent": 13.93,
+        "position": 6.6
+      },
+      {
+        "label": "2026-09-11",
+        "clicks": 20,
+        "impressions": 184,
+        "ctr_percent": 10.87,
+        "position": 7.3
+      },
+      {
+        "label": "2026-09-12",
+        "clicks": 18,
+        "impressions": 206,
+        "ctr_percent": 8.74,
+        "position": 9.2
+      },
+      {
+        "label": "2026-09-13",
+        "clicks": 54,
+        "impressions": 348,
+        "ctr_percent": 15.52,
+        "position": 7.6
+      },
+      {
+        "label": "2026-09-14",
+        "clicks": 63,
+        "impressions": 464,
+        "ctr_percent": 13.58,
+        "position": 7.6
+      },
+      {
+        "label": "2026-09-15",
+        "clicks": 56,
+        "impressions": 500,
+        "ctr_percent": 11.2,
+        "position": 7.2
+      },
+      {
+        "label": "2026-09-16",
+        "clicks": 48,
+        "impressions": 464,
+        "ctr_percent": 10.34,
+        "position": 7.8
+      },
+      {
+        "label": "2026-09-17",
+        "clicks": 51,
+        "impressions": 384,
+        "ctr_percent": 13.28,
+        "position": 7.3
+      },
+      {
+        "label": "2026-09-18",
+        "clicks": 28,
+        "impressions": 231,
+        "ctr_percent": 12.12,
+        "position": 8.0
+      },
+      {
+        "label": "2026-09-19",
+        "clicks": 71,
+        "impressions": 596,
+        "ctr_percent": 11.91,
+        "position": 7.6
+      },
+      {
+        "label": "2026-09-20",
+        "clicks": 31,
+        "impressions": 253,
+        "ctr_percent": 12.25,
+        "position": 7.8
+      },
+      {
+        "label": "2026-09-21",
+        "clicks": 23,
+        "impressions": 171,
+        "ctr_percent": 13.45,
+        "position": 6.6
+      },
+      {
+        "label": "2026-09-22",
+        "clicks": 24,
+        "impressions": 182,
+        "ctr_percent": 13.19,
+        "position": 7.4
+      },
+      {
+        "label": "2026-09-23",
+        "clicks": 11,
+        "impressions": 84,
+        "ctr_percent": 13.1,
+        "position": 8.9
+      },
+      {
+        "label": "2026-09-24",
+        "clicks": 9,
+        "impressions": 76,
+        "ctr_percent": 11.84,
+        "position": 9.5
+      },
+      {
+        "label": "2026-09-25",
+        "clicks": 7,
+        "impressions": 46,
+        "ctr_percent": 15.22,
+        "position": 7.8
+      },
+      {
+        "label": "2026-09-26",
+        "clicks": 20,
+        "impressions": 79,
+        "ctr_percent": 25.32,
+        "position": 7.1
+      },
+      {
+        "label": "2026-09-27",
+        "clicks": 23,
+        "impressions": 128,
+        "ctr_percent": 17.97,
+        "position": 8.3
+      },
+      {
+        "label": "2026-09-28",
+        "clicks": 26,
+        "impressions": 188,
+        "ctr_percent": 13.83,
+        "position": 8.3
+      },
+      {
+        "label": "2026-09-29",
+        "clicks": 36,
+        "impressions": 175,
+        "ctr_percent": 20.57,
+        "position": 5.6
+      },
+      {
+        "label": "2026-09-30",
+        "clicks": 29,
+        "impressions": 186,
+        "ctr_percent": 15.59,
+        "position": 7.0
+      },
+      {
+        "label": "2026-10-01",
+        "clicks": 29,
+        "impressions": 185,
+        "ctr_percent": 15.68,
+        "position": 6.6
+      },
+      {
+        "label": "2026-10-02",
+        "clicks": 18,
+        "impressions": 105,
+        "ctr_percent": 17.14,
+        "position": 7.9
+      },
+      {
+        "label": "2026-10-03",
+        "clicks": 11,
+        "impressions": 102,
+        "ctr_percent": 10.78,
+        "position": 7.3
+      },
+      {
+        "label": "2026-10-04",
+        "clicks": 20,
+        "impressions": 126,
+        "ctr_percent": 15.87,
+        "position": 5.6
+      },
+      {
+        "label": "2026-10-05",
+        "clicks": 70,
+        "impressions": 313,
+        "ctr_percent": 22.36,
+        "position": 5.5
+      },
+      {
+        "label": "2026-10-06",
+        "clicks": 67,
+        "impressions": 342,
+        "ctr_percent": 19.59,
+        "position": 6.5
+      },
+      {
+        "label": "2026-10-07",
+        "clicks": 61,
+        "impressions": 279,
+        "ctr_percent": 21.86,
+        "position": 5.4
+      },
+      {
+        "label": "2026-10-08",
+        "clicks": 35,
+        "impressions": 171,
+        "ctr_percent": 20.47,
+        "position": 5.6
+      },
+      {
+        "label": "2026-10-09",
+        "clicks": 22,
+        "impressions": 121,
+        "ctr_percent": 18.18,
+        "position": 6.6
+      },
+      {
+        "label": "2026-10-10",
+        "clicks": 18,
+        "impressions": 141,
+        "ctr_percent": 12.77,
+        "position": 8.1
+      },
+      {
+        "label": "2026-10-11",
+        "clicks": 38,
+        "impressions": 241,
+        "ctr_percent": 15.77,
+        "position": 6.9
+      },
+      {
+        "label": "2026-10-12",
+        "clicks": 52,
+        "impressions": 254,
+        "ctr_percent": 20.47,
+        "position": 5.7
+      },
+      {
+        "label": "2026-10-13",
+        "clicks": 39,
+        "impressions": 231,
+        "ctr_percent": 16.88,
+        "position": 6.1
+      },
+      {
+        "label": "2026-10-14",
+        "clicks": 30,
+        "impressions": 228,
+        "ctr_percent": 13.16,
+        "position": 7.4
+      },
+      {
+        "label": "2026-10-15",
+        "clicks": 31,
+        "impressions": 226,
+        "ctr_percent": 13.72,
+        "position": 7.4
+      },
+      {
+        "label": "2026-10-16",
+        "clicks": 10,
+        "impressions": 131,
+        "ctr_percent": 7.63,
+        "position": 11.4
+      },
+      {
+        "label": "2026-10-17",
+        "clicks": 21,
+        "impressions": 157,
+        "ctr_percent": 13.38,
+        "position": 8.2
+      },
+      {
+        "label": "2026-10-18",
+        "clicks": 30,
+        "impressions": 193,
+        "ctr_percent": 15.54,
+        "position": 6.7
+      },
+      {
+        "label": "2026-10-19",
+        "clicks": 48,
+        "impressions": 265,
+        "ctr_percent": 18.11,
+        "position": 7.1
+      },
+      {
+        "label": "2026-10-20",
+        "clicks": 39,
+        "impressions": 241,
+        "ctr_percent": 16.18,
+        "position": 7.6
+      },
+      {
+        "label": "2026-10-21",
+        "clicks": 48,
+        "impressions": 271,
+        "ctr_percent": 17.71,
+        "position": 6.2
+      },
+      {
+        "label": "2026-10-22",
+        "clicks": 29,
+        "impressions": 268,
+        "ctr_percent": 10.82,
+        "position": 6.8
+      },
+      {
+        "label": "2026-10-23",
+        "clicks": 20,
+        "impressions": 220,
+        "ctr_percent": 9.09,
+        "position": 8.5
+      },
+      {
+        "label": "2026-10-24",
+        "clicks": 17,
+        "impressions": 184,
+        "ctr_percent": 9.24,
+        "position": 8.5
+      },
+      {
+        "label": "2026-10-25",
+        "clicks": 64,
+        "impressions": 319,
+        "ctr_percent": 20.06,
+        "position": 8.5
+      },
+      {
+        "label": "2026-10-26",
+        "clicks": 47,
+        "impressions": 370,
+        "ctr_percent": 12.7,
+        "position": 9.7
+      },
+      {
+        "label": "2026-10-27",
+        "clicks": 62,
+        "impressions": 383,
+        "ctr_percent": 16.19,
+        "position": 7.4
+      },
+      {
+        "label": "2026-10-28",
+        "clicks": 39,
+        "impressions": 306,
+        "ctr_percent": 12.75,
+        "position": 8.1
+      },
+      {
+        "label": "2026-10-29",
+        "clicks": 32,
+        "impressions": 239,
+        "ctr_percent": 13.39,
+        "position": 9.1
+      },
+      {
+        "label": "2026-10-30",
+        "clicks": 19,
+        "impressions": 174,
+        "ctr_percent": 10.92,
+        "position": 8.0
+      },
+      {
+        "label": "2026-10-31",
+        "clicks": 14,
+        "impressions": 135,
+        "ctr_percent": 10.37,
+        "position": 11.4
+      }
+    ],
+    "페이지": [
+      {
+        "label": "https://quizeey.com/craftsman-cook-western-food",
+        "clicks": 1486,
+        "impressions": 5179,
+        "ctr_percent": 28.69,
+        "position": 3.91
+      },
+      {
+        "label": "https://quizeey.com/craftsman-cook-japanese-food",
+        "clicks": 336,
+        "impressions": 1355,
+        "ctr_percent": 24.8,
+        "position": 5.27
+      },
+      {
+        "label": "https://quizeey.com/craftsman-cook-chinese-food",
+        "clicks": 333,
+        "impressions": 1228,
+        "ctr_percent": 27.12,
+        "position": 4.1
+      },
+      {
+        "label": "https://quizeey.com/craftsman-cook-korean-food",
+        "clicks": 304,
+        "impressions": 3513,
+        "ctr_percent": 8.65,
+        "position": 7.21
+      },
+      {
+        "label": "https://quizeey.com/craftsman-3D-printer-operation",
+        "clicks": 303,
+        "impressions": 3627,
+        "ctr_percent": 8.35,
+        "position": 7.65
+      },
+      {
+        "label": "https://quizeey.com/sqlp-professional",
+        "clicks": 169,
+        "impressions": 1339,
+        "ctr_percent": 12.62,
+        "position": 5.76
+      },
+      {
+        "label": "https://quizeey.com/barista-2",
+        "clicks": 160,
+        "impressions": 1669,
+        "ctr_percent": 9.59,
+        "position": 6.03
+      },
+      {
+        "label": "https://quizeey.com/",
+        "clicks": 90,
+        "impressions": 2592,
+        "ctr_percent": 3.47,
+        "position": 8.97
+      },
+      {
+        "label": "https://quizeey.com/ccna-200-301",
+        "clicks": 81,
+        "impressions": 610,
+        "ctr_percent": 13.28,
+        "position": 4.14
+      },
+      {
+        "label": "https://quizeey.com/craftsman-cook-blowfish",
+        "clicks": 79,
+        "impressions": 367,
+        "ctr_percent": 21.53,
+        "position": 4.89
+      },
+      {
+        "label": "https://quizeey.com/sqlp-developer",
+        "clicks": 43,
+        "impressions": 1401,
+        "ctr_percent": 3.07,
+        "position": 12.13
+      },
+      {
+        "label": "https://quizeey.com/ccnp-300-115",
+        "clicks": 11,
+        "impressions": 67,
+        "ctr_percent": 16.42,
+        "position": 13.39
+      },
+      {
+        "label": "https://quizeey.com/make-up-artist",
+        "clicks": 8,
+        "impressions": 102,
+        "ctr_percent": 7.84,
+        "position": 17.74
+      },
+      {
+        "label": "https://quizeey.com/en",
+        "clicks": 7,
+        "impressions": 173,
+        "ctr_percent": 4.05,
+        "position": 31.57
+      },
+      {
+        "label": "https://quizeey.com/craftsman-production-automatic-operation",
+        "clicks": 7,
+        "impressions": 70,
+        "ctr_percent": 10.0,
+        "position": 14.13
+      },
+      {
+        "label": "https://quizeey.com/clinical-psychologist",
+        "clicks": 7,
+        "impressions": 60,
+        "ctr_percent": 11.67,
+        "position": 37.57
+      },
+      {
+        "label": "https://quizeey.com/1st-grade-social-worker-1",
+        "clicks": 5,
+        "impressions": 21,
+        "ctr_percent": 23.81,
+        "position": 19.95
+      },
+      {
+        "label": "https://quizeey.com/vocational-counselor-senior",
+        "clicks": 5,
+        "impressions": 19,
+        "ctr_percent": 26.32,
+        "position": 29.68
+      },
+      {
+        "label": "https://quizeey.com/pmi-pmp",
+        "clicks": 4,
+        "impressions": 57,
+        "ctr_percent": 7.02,
+        "position": 12.84
+      },
+      {
+        "label": "https://quizeey.com/cissp",
+        "clicks": 3,
+        "impressions": 59,
+        "ctr_percent": 5.08,
+        "position": 6.46
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-energy-management",
+        "clicks": 3,
+        "impressions": 47,
+        "ctr_percent": 6.38,
+        "position": 15.64
+      },
+      {
+        "label": "https://quizeey.com/engineer-broadcasting-communication",
+        "clicks": 3,
+        "impressions": 19,
+        "ctr_percent": 15.79,
+        "position": 18.89
+      },
+      {
+        "label": "https://quizeey.com/ccnp-300-101",
+        "clicks": 2,
+        "impressions": 62,
+        "ctr_percent": 3.23,
+        "position": 13.31
+      },
+      {
+        "label": "https://quizeey.com/engineer-explosives-handling",
+        "clicks": 2,
+        "impressions": 46,
+        "ctr_percent": 4.35,
+        "position": 20.8
+      },
+      {
+        "label": "https://quizeey.com/engineer-wastes-treatment",
+        "clicks": 2,
+        "impressions": 30,
+        "ctr_percent": 6.67,
+        "position": 12.97
+      },
+      {
+        "label": "https://quizeey.com/comptia-sy0-501",
+        "clicks": 2,
+        "impressions": 27,
+        "ctr_percent": 7.41,
+        "position": 21.85
+      },
+      {
+        "label": "https://quizeey.com/network-manager-1",
+        "clicks": 2,
+        "impressions": 18,
+        "ctr_percent": 11.11,
+        "position": 13.89
+      },
+      {
+        "label": "https://quizeey.com/craftsman-laundry",
+        "clicks": 2,
+        "impressions": 15,
+        "ctr_percent": 13.33,
+        "position": 18.2
+      },
+      {
+        "label": "https://quizeey.com/itilfnd-v4",
+        "clicks": 2,
+        "impressions": 13,
+        "ctr_percent": 15.38,
+        "position": 4.85
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-colorist",
+        "clicks": 1,
+        "impressions": 49,
+        "ctr_percent": 2.04,
+        "position": 10.8
+      },
+      {
+        "label": "https://quizeey.com/computer-accounting-1",
+        "clicks": 1,
+        "impressions": 32,
+        "ctr_percent": 3.12,
+        "position": 29.69
+      },
+      {
+        "label": "https://quizeey.com/pc-mechanic-2",
+        "clicks": 1,
+        "impressions": 29,
+        "ctr_percent": 3.45,
+        "position": 28.1
+      },
+      {
+        "label": "https://quizeey.com/craftsman-fork-lift-truck-operator",
+        "clicks": 1,
+        "impressions": 27,
+        "ctr_percent": 3.7,
+        "position": 5.7
+      },
+      {
+        "label": "https://quizeey.com/az-900",
+        "clicks": 1,
+        "impressions": 23,
+        "ctr_percent": 4.35,
+        "position": 9.3
+      },
+      {
+        "label": "https://quizeey.com/master-craftsman-hazardous-material",
+        "clicks": 1,
+        "impressions": 22,
+        "ctr_percent": 4.55,
+        "position": 23.95
+      },
+      {
+        "label": "https://quizeey.com/engineer-plant-protection",
+        "clicks": 1,
+        "impressions": 21,
+        "ctr_percent": 4.76,
+        "position": 24.76
+      },
+      {
+        "label": "https://quizeey.com/craftsman-elevator",
+        "clicks": 1,
+        "impressions": 19,
+        "ctr_percent": 5.26,
+        "position": 10.42
+      },
+      {
+        "label": "https://quizeey.com/craftsman-plumbing",
+        "clicks": 1,
+        "impressions": 19,
+        "ctr_percent": 5.26,
+        "position": 14.21
+      },
+      {
+        "label": "https://quizeey.com/nursing-assistant",
+        "clicks": 1,
+        "impressions": 18,
+        "ctr_percent": 5.56,
+        "position": 25.83
+      },
+      {
+        "label": "https://quizeey.com/craftsman-motor-vehicles-maintenance",
+        "clicks": 1,
+        "impressions": 17,
+        "ctr_percent": 5.88,
+        "position": 20.29
+      },
+      {
+        "label": "https://quizeey.com/engineer-energy-management",
+        "clicks": 1,
+        "impressions": 16,
+        "ctr_percent": 6.25,
+        "position": 9.69
+      },
+      {
+        "label": "https://quizeey.com/diat",
+        "clicks": 1,
+        "impressions": 16,
+        "ctr_percent": 6.25,
+        "position": 11.38
+      },
+      {
+        "label": "https://quizeey.com/engineer-forest",
+        "clicks": 1,
+        "impressions": 16,
+        "ctr_percent": 6.25,
+        "position": 12.25
+      },
+      {
+        "label": "https://quizeey.com/craftsman-photography",
+        "clicks": 1,
+        "impressions": 16,
+        "ctr_percent": 6.25,
+        "position": 22.06
+      },
+      {
+        "label": "https://quizeey.com/craftsman-computer-graphics-operation",
+        "clicks": 1,
+        "impressions": 16,
+        "ctr_percent": 6.25,
+        "position": 29.25
+      },
+      {
+        "label": "https://quizeey.com/clinical-psychology-practitioner",
+        "clicks": 1,
+        "impressions": 16,
+        "ctr_percent": 6.25,
+        "position": 37.0
+      },
+      {
+        "label": "https://quizeey.com/craftsman-hazardous-material",
+        "clicks": 1,
+        "impressions": 15,
+        "ctr_percent": 6.67,
+        "position": 9.73
+      },
+      {
+        "label": "https://quizeey.com/cisco-350-401",
+        "clicks": 1,
+        "impressions": 14,
+        "ctr_percent": 7.14,
+        "position": 7.93
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-electricity",
+        "clicks": 1,
+        "impressions": 13,
+        "ctr_percent": 7.69,
+        "position": 6.46
+      },
+      {
+        "label": "https://quizeey.com/esthetician",
+        "clicks": 1,
+        "impressions": 13,
+        "ctr_percent": 7.69,
+        "position": 18.85
+      },
+      {
+        "label": "https://quizeey.com/craftsman-surveying",
+        "clicks": 1,
+        "impressions": 13,
+        "ctr_percent": 7.69,
+        "position": 23.15
+      },
+      {
+        "label": "https://quizeey.com/craftsman-electronic-apparatus",
+        "clicks": 1,
+        "impressions": 10,
+        "ctr_percent": 10.0,
+        "position": 6.5
+      },
+      {
+        "label": "https://quizeey.com/comptia-220-1001",
+        "clicks": 1,
+        "impressions": 10,
+        "ctr_percent": 10.0,
+        "position": 26.7
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-air-conditioning-and-refrigerating-machinery",
+        "clicks": 1,
+        "impressions": 9,
+        "ctr_percent": 11.11,
+        "position": 10.22
+      },
+      {
+        "label": "https://quizeey.com/engineer-building-facilities",
+        "clicks": 1,
+        "impressions": 8,
+        "ctr_percent": 12.5,
+        "position": 10.62
+      },
+      {
+        "label": "https://quizeey.com/engineer-transportation",
+        "clicks": 1,
+        "impressions": 8,
+        "ctr_percent": 12.5,
+        "position": 10.75
+      },
+      {
+        "label": "https://quizeey.com/engineer-information-security",
+        "clicks": 1,
+        "impressions": 8,
+        "ctr_percent": 12.5,
+        "position": 19.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-fire-protection-system-mechanical",
+        "clicks": 1,
+        "impressions": 7,
+        "ctr_percent": 14.29,
+        "position": 7.43
+      },
+      {
+        "label": "http://quizeey.com/kr/sqlp-professional",
+        "clicks": 1,
+        "impressions": 7,
+        "ctr_percent": 14.29,
+        "position": 9.43
+      },
+      {
+        "label": "https://quizeey.com/engineer-electronics",
+        "clicks": 1,
+        "impressions": 6,
+        "ctr_percent": 16.67,
+        "position": 1.83
+      },
+      {
+        "label": "https://quizeey.com/engineer-metal",
+        "clicks": 1,
+        "impressions": 6,
+        "ctr_percent": 16.67,
+        "position": 6.83
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-machinery-design",
+        "clicks": 1,
+        "impressions": 6,
+        "ctr_percent": 16.67,
+        "position": 10.0
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-computer-aided-manufacturing",
+        "clicks": 1,
+        "impressions": 6,
+        "ctr_percent": 16.67,
+        "position": 18.67
+      },
+      {
+        "label": "https://quizeey.com/craftsman-landscape-architecture",
+        "clicks": 1,
+        "impressions": 6,
+        "ctr_percent": 16.67,
+        "position": 22.83
+      },
+      {
+        "label": "https://quizeey.com/engineer-air-pollution-environmental",
+        "clicks": 1,
+        "impressions": 5,
+        "ctr_percent": 20.0,
+        "position": 7.2
+      },
+      {
+        "label": "https://quizeey.com/pc-mechanic-1",
+        "clicks": 1,
+        "impressions": 5,
+        "ctr_percent": 20.0,
+        "position": 22.8
+      },
+      {
+        "label": "http://quizeey.com/",
+        "clicks": 1,
+        "impressions": 4,
+        "ctr_percent": 25.0,
+        "position": 3.25
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-office-automation?verNbr=202610",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr_percent": 50.0,
+        "position": 5.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-urban-planning?page=5",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr_percent": 50.0,
+        "position": 6.5
+      },
+      {
+        "label": "https://quizeey.com/craftsman-production-automatic-operation?verNbr=202610",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr_percent": 50.0,
+        "position": 10.5
+      },
+      {
+        "label": "https://quizeey.com/engineer-interior-architecture",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr_percent": 50.0,
+        "position": 11.5
+      },
+      {
+        "label": "https://quizeey.com/engineer-surveying-geo-spatial-information",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr_percent": 50.0,
+        "position": 26.5
+      },
+      {
+        "label": "https://quizeey.com/vocational-counselor?page=3",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr_percent": 100.0,
+        "position": 13.0
+      },
+      {
+        "label": "https://quizeey.com/microsoft-70-741",
+        "clicks": 0,
+        "impressions": 72,
+        "ctr_percent": 0.0,
+        "position": 52.72
+      },
+      {
+        "label": "https://quizeey.com/craftsman-chemical-analysis",
+        "clicks": 0,
+        "impressions": 34,
+        "ctr_percent": 0.0,
+        "position": 19.76
+      },
+      {
+        "label": "https://quizeey.com/level9-national-officials-english",
+        "clicks": 0,
+        "impressions": 31,
+        "ctr_percent": 0.0,
+        "position": 33.68
+      },
+      {
+        "label": "https://quizeey.com/craftsman-breads-making",
+        "clicks": 0,
+        "impressions": 30,
+        "ctr_percent": 0.0,
+        "position": 14.0
+      },
+      {
+        "label": "https://quizeey.com/linux-master-2",
+        "clicks": 0,
+        "impressions": 30,
+        "ctr_percent": 0.0,
+        "position": 39.73
+      },
+      {
+        "label": "https://quizeey.com/az-301",
+        "clicks": 0,
+        "impressions": 30,
+        "ctr_percent": 0.0,
+        "position": 42.6
+      },
+      {
+        "label": "https://quizeey.com/about",
+        "clicks": 0,
+        "impressions": 27,
+        "ctr_percent": 0.0,
+        "position": 6.89
+      },
+      {
+        "label": "https://quizeey.com/engineer-computer-system-application",
+        "clicks": 0,
+        "impressions": 26,
+        "ctr_percent": 0.0,
+        "position": 32.69
+      },
+      {
+        "label": "https://quizeey.com/craftsman-confectionary-making",
+        "clicks": 0,
+        "impressions": 25,
+        "ctr_percent": 0.0,
+        "position": 5.48
+      },
+      {
+        "label": "https://quizeey.com/microsoft-70-740",
+        "clicks": 0,
+        "impressions": 25,
+        "ctr_percent": 0.0,
+        "position": 52.56
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-manufacturing-automatization",
+        "clicks": 0,
+        "impressions": 24,
+        "ctr_percent": 0.0,
+        "position": 13.75
+      },
+      {
+        "label": "https://quizeey.com/computer-science",
+        "clicks": 0,
+        "impressions": 23,
+        "ctr_percent": 0.0,
+        "position": 1.26
+      },
+      {
+        "label": "https://quizeey.com/en/ccnp-300-101",
+        "clicks": 0,
+        "impressions": 22,
+        "ctr_percent": 0.0,
+        "position": 33.73
+      },
+      {
+        "label": "https://quizeey.com/craftsman-energy-management",
+        "clicks": 0,
+        "impressions": 20,
+        "ctr_percent": 0.0,
+        "position": 24.15
+      },
+      {
+        "label": "https://quizeey.com/cas-003",
+        "clicks": 0,
+        "impressions": 20,
+        "ctr_percent": 0.0,
+        "position": 34.0
+      },
+      {
+        "label": "https://quizeey.com/sport-business-manager",
+        "clicks": 0,
+        "impressions": 20,
+        "ctr_percent": 0.0,
+        "position": 46.2
+      },
+      {
+        "label": "https://quizeey.com/linux-master-1",
+        "clicks": 0,
+        "impressions": 19,
+        "ctr_percent": 0.0,
+        "position": 48.0
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-office-automation",
+        "clicks": 0,
+        "impressions": 18,
+        "ctr_percent": 0.0,
+        "position": 10.28
+      },
+      {
+        "label": "https://quizeey.com/en/foodsafe-level-1",
+        "clicks": 0,
+        "impressions": 18,
+        "ctr_percent": 0.0,
+        "position": 48.33
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-motor-vehicles-maintenance",
+        "clicks": 0,
+        "impressions": 17,
+        "ctr_percent": 0.0,
+        "position": 9.29
+      },
+      {
+        "label": "https://quizeey.com/en/ontario-g1",
+        "clicks": 0,
+        "impressions": 17,
+        "ctr_percent": 0.0,
+        "position": 33.0
+      },
+      {
+        "label": "https://quizeey.com/hairdresser",
+        "clicks": 0,
+        "impressions": 16,
+        "ctr_percent": 0.0,
+        "position": 5.94
+      },
+      {
+        "label": "https://quizeey.com/aws-certified-developer-associate",
+        "clicks": 0,
+        "impressions": 16,
+        "ctr_percent": 0.0,
+        "position": 6.75
+      },
+      {
+        "label": "https://quizeey.com/craftsman-environmental",
+        "clicks": 0,
+        "impressions": 16,
+        "ctr_percent": 0.0,
+        "position": 9.25
+      },
+      {
+        "label": "https://quizeey.com/telemarketing-administrator",
+        "clicks": 0,
+        "impressions": 16,
+        "ctr_percent": 0.0,
+        "position": 30.0
+      },
+      {
+        "label": "https://quizeey.com/craftsman-computer-aided-lath",
+        "clicks": 0,
+        "impressions": 15,
+        "ctr_percent": 0.0,
+        "position": 19.27
+      },
+      {
+        "label": "https://quizeey.com/en/bc-class-7-knowledge",
+        "clicks": 0,
+        "impressions": 15,
+        "ctr_percent": 0.0,
+        "position": 78.67
+      },
+      {
+        "label": "https://quizeey.com/engineer-civil-engineering",
+        "clicks": 0,
+        "impressions": 14,
+        "ctr_percent": 0.0,
+        "position": 8.79
+      },
+      {
+        "label": "https://quizeey.com/craftsman-bartender",
+        "clicks": 0,
+        "impressions": 14,
+        "ctr_percent": 0.0,
+        "position": 12.64
+      },
+      {
+        "label": "https://quizeey.com/en/servsafe-food-handler?page=2",
+        "clicks": 0,
+        "impressions": 13,
+        "ctr_percent": 0.0,
+        "position": 7.08
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-aircraft-maintenance",
+        "clicks": 0,
+        "impressions": 13,
+        "ctr_percent": 0.0,
+        "position": 11.54
+      },
+      {
+        "label": "https://quizeey.com/craftsman-mushroom-seeds",
+        "clicks": 0,
+        "impressions": 13,
+        "ctr_percent": 0.0,
+        "position": 20.15
+      },
+      {
+        "label": "https://quizeey.com/ms-100",
+        "clicks": 0,
+        "impressions": 13,
+        "ctr_percent": 0.0,
+        "position": 51.15
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-hazardous-material",
+        "clicks": 0,
+        "impressions": 12,
+        "ctr_percent": 0.0,
+        "position": 9.08
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-industrial-safety",
+        "clicks": 0,
+        "impressions": 12,
+        "ctr_percent": 0.0,
+        "position": 9.58
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-water-pollution-environmental",
+        "clicks": 0,
+        "impressions": 12,
+        "ctr_percent": 0.0,
+        "position": 10.0
+      },
+      {
+        "label": "https://quizeey.com/contact",
+        "clicks": 0,
+        "impressions": 12,
+        "ctr_percent": 0.0,
+        "position": 11.33
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-electric-work",
+        "clicks": 0,
+        "impressions": 12,
+        "ctr_percent": 0.0,
+        "position": 11.58
+      },
+      {
+        "label": "https://quizeey.com/craftsman-welding",
+        "clicks": 0,
+        "impressions": 12,
+        "ctr_percent": 0.0,
+        "position": 15.08
+      },
+      {
+        "label": "https://quizeey.com/convention-meeting-planner2",
+        "clicks": 0,
+        "impressions": 12,
+        "ctr_percent": 0.0,
+        "position": 20.67
+      },
+      {
+        "label": "https://quizeey.com/craftsman-information-equipment-operation",
+        "clicks": 0,
+        "impressions": 12,
+        "ctr_percent": 0.0,
+        "position": 22.0
+      },
+      {
+        "label": "https://quizeey.com/specialist-multimedia-contents-producing",
+        "clicks": 0,
+        "impressions": 12,
+        "ctr_percent": 0.0,
+        "position": 26.83
+      },
+      {
+        "label": "https://quizeey.com/en/comptia-220-1001",
+        "clicks": 0,
+        "impressions": 12,
+        "ctr_percent": 0.0,
+        "position": 42.0
+      },
+      {
+        "label": "https://quizeey.com/craftsman-forest",
+        "clicks": 0,
+        "impressions": 12,
+        "ctr_percent": 0.0,
+        "position": 44.92
+      },
+      {
+        "label": "https://quizeey.com/craftsman-electricity",
+        "clicks": 0,
+        "impressions": 11,
+        "ctr_percent": 0.0,
+        "position": 7.64
+      },
+      {
+        "label": "https://quizeey.com/engineer-general-machinery",
+        "clicks": 0,
+        "impressions": 11,
+        "ctr_percent": 0.0,
+        "position": 13.18
+      },
+      {
+        "label": "https://quizeey.com/en/bc-class-7-knowledge?page=2",
+        "clicks": 0,
+        "impressions": 11,
+        "ctr_percent": 0.0,
+        "position": 91.09
+      },
+      {
+        "label": "https://quizeey.com/computer-specialist-in-spreadsheet-and-database-level-2?page=3",
+        "clicks": 0,
+        "impressions": 10,
+        "ctr_percent": 0.0,
+        "position": 7.9
+      },
+      {
+        "label": "https://quizeey.com/computer-specialist-in-spreadsheet-and-database-level-2",
+        "clicks": 0,
+        "impressions": 10,
+        "ctr_percent": 0.0,
+        "position": 14.1
+      },
+      {
+        "label": "https://quizeey.com/craftsman-computer",
+        "clicks": 0,
+        "impressions": 9,
+        "ctr_percent": 0.0,
+        "position": 9.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-construction-equipment",
+        "clicks": 0,
+        "impressions": 9,
+        "ctr_percent": 0.0,
+        "position": 17.56
+      },
+      {
+        "label": "https://quizeey.com/engineer-quality-management",
+        "clicks": 0,
+        "impressions": 9,
+        "ctr_percent": 0.0,
+        "position": 17.67
+      },
+      {
+        "label": "https://quizeey.com/en/ontario-g1?verNbr=202610",
+        "clicks": 0,
+        "impressions": 9,
+        "ctr_percent": 0.0,
+        "position": 19.0
+      },
+      {
+        "label": "https://quizeey.com/craftsman-organic-agriculture",
+        "clicks": 0,
+        "impressions": 9,
+        "ctr_percent": 0.0,
+        "position": 38.56
+      },
+      {
+        "label": "https://quizeey.com/1st-grade-social-worker-3",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr_percent": 0.0,
+        "position": 6.88
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-information-processing",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr_percent": 0.0,
+        "position": 8.25
+      },
+      {
+        "label": "https://quizeey.com/craftsman-gas",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr_percent": 0.0,
+        "position": 8.5
+      },
+      {
+        "label": "https://quizeey.com/computer-specialist-in-spreadsheet-and-database-level-1?page=2",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr_percent": 0.0,
+        "position": 8.88
+      },
+      {
+        "label": "https://quizeey.com/engineer-chemical-analysis",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr_percent": 0.0,
+        "position": 13.62
+      },
+      {
+        "label": "https://quizeey.com/engineer-electricity",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr_percent": 0.0,
+        "position": 15.0
+      },
+      {
+        "label": "https://quizeey.com/request",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr_percent": 0.0,
+        "position": 15.5
+      },
+      {
+        "label": "https://quizeey.com/craftsman-electronic-cad",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr_percent": 0.0,
+        "position": 18.62
+      },
+      {
+        "label": "https://quizeey.com/1st-grade-social-worker-2",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr_percent": 0.0,
+        "position": 20.12
+      },
+      {
+        "label": "https://quizeey.com/engineer-water-pollution-environmental",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr_percent": 0.0,
+        "position": 20.12
+      },
+      {
+        "label": "https://quizeey.com/craftsman-hydro-pneumatic",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr_percent": 0.0,
+        "position": 23.62
+      },
+      {
+        "label": "https://quizeey.com/computerized-accounting-specialist-3",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr_percent": 0.0,
+        "position": 27.0
+      },
+      {
+        "label": "https://quizeey.com/craftsman-seeds",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr_percent": 0.0,
+        "position": 29.5
+      },
+      {
+        "label": "https://quizeey.com/en/servsafe-food-handler?verNbr=202610&page=2",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr_percent": 0.0,
+        "position": 7.43
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-gas",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr_percent": 0.0,
+        "position": 8.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-elevator",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr_percent": 0.0,
+        "position": 16.14
+      },
+      {
+        "label": "https://quizeey.com/computerized-accounting-specialist-2",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr_percent": 0.0,
+        "position": 16.43
+      },
+      {
+        "label": "https://quizeey.com/master-craftsman-electricity",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr_percent": 0.0,
+        "position": 19.71
+      },
+      {
+        "label": "https://quizeey.com/craftsman-air-conditioning-and-refrigerating-machinery",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr_percent": 0.0,
+        "position": 21.71
+      },
+      {
+        "label": "https://quizeey.com/computer-tax-1",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr_percent": 0.0,
+        "position": 32.57
+      },
+      {
+        "label": "https://quizeey.com/az-500",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr_percent": 0.0,
+        "position": 42.71
+      },
+      {
+        "label": "https://quizeey.com/craftsman-web-design",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr_percent": 0.0,
+        "position": 42.86
+      },
+      {
+        "label": "https://quizeey.com/engineer-information-communication",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr_percent": 0.0,
+        "position": 7.5
+      },
+      {
+        "label": "https://quizeey.com/en/servsafe-food-protection-manager?verNbr=202610&page=3",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr_percent": 0.0,
+        "position": 8.5
+      },
+      {
+        "label": "https://quizeey.com/craftsman-computer-aided-mechanical-drawing",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr_percent": 0.0,
+        "position": 9.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-electric-work",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr_percent": 0.0,
+        "position": 10.67
+      },
+      {
+        "label": "https://quizeey.com/engineer-in-nature-environment-and-ecological-restoration",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr_percent": 0.0,
+        "position": 19.5
+      },
+      {
+        "label": "https://quizeey.com/engineer-chemical-industry",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr_percent": 0.0,
+        "position": 22.67
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-information-communication",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr_percent": 0.0,
+        "position": 36.5
+      },
+      {
+        "label": "https://quizeey.com/en/llqp",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr_percent": 0.0,
+        "position": 53.67
+      },
+      {
+        "label": "https://quizeey.com/en/bc-class-7-knowledge?verNbr=202610",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr_percent": 0.0,
+        "position": 88.5
+      },
+      {
+        "label": "https://quizeey.com/engineer-information-processing",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr_percent": 0.0,
+        "position": 4.2
+      },
+      {
+        "label": "https://quizeey.com/linux-master-2?verNbr=202610",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr_percent": 0.0,
+        "position": 5.2
+      },
+      {
+        "label": "https://quizeey.com/computer-specialist-in-spreadsheet-and-database-level-1?page=3",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr_percent": 0.0,
+        "position": 6.0
+      },
+      {
+        "label": "https://quizeey.com/az-103",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr_percent": 0.0,
+        "position": 8.4
+      },
+      {
+        "label": "https://quizeey.com/computer-specialist-in-spreadsheet-and-database-level-1",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr_percent": 0.0,
+        "position": 8.6
+      },
+      {
+        "label": "https://quizeey.com/engineer-landscape-architecture",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr_percent": 0.0,
+        "position": 9.6
+      },
+      {
+        "label": "https://quizeey.com/en/cas-003?page=2",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr_percent": 0.0,
+        "position": 13.2
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-interior-architecture",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr_percent": 0.0,
+        "position": 14.4
+      },
+      {
+        "label": "https://quizeey.com/sqlp-professional?page=2",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr_percent": 0.0,
+        "position": 27.8
+      },
+      {
+        "label": "https://quizeey.com/craftsman-computer-aided-architectural-drawing",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr_percent": 0.0,
+        "position": 28.6
+      },
+      {
+        "label": "https://quizeey.com/craftsman-interior-architecture",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr_percent": 0.0,
+        "position": 30.0
+      },
+      {
+        "label": "https://quizeey.com/computerized-accounting-specialist-1",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr_percent": 0.0,
+        "position": 31.6
+      },
+      {
+        "label": "http://www.quizeey.com/test?testId=1",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 1.0
+      },
+      {
+        "label": "https://quizeey.com/en/aws-certified-solution-architect-associate?page=5",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 2.5
+      },
+      {
+        "label": "https://quizeey.com/diat?verNbr=202610",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 6.75
+      },
+      {
+        "label": "https://quizeey.com/ccna-200-125",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 7.0
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-electronics",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 7.25
+      },
+      {
+        "label": "https://quizeey.com/en/servsafe-food-protection-manager?page=3",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 8.25
+      },
+      {
+        "label": "https://quizeey.com/engineer-industrial-safety",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 8.75
+      },
+      {
+        "label": "https://quizeey.com/engineer-industrial-safety?page=6",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 8.75
+      },
+      {
+        "label": "https://quizeey.com/computer-specialist-in-spreadsheet-and-database-level-1?page=4",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 9.0
+      },
+      {
+        "label": "https://quizeey.com/en/comptia-220-1001?page=2",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 10.25
+      },
+      {
+        "label": "https://quizeey.com/craftsman-computer-aided-milling",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 12.75
+      },
+      {
+        "label": "https://quizeey.com/privacy",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 14.0
+      },
+      {
+        "label": "https://quizeey.com/craftsman-floral-design",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 18.0
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-industrial-hygiene-management",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 18.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-biomedical",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 24.75
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-quality-management",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 29.0
+      },
+      {
+        "label": "https://quizeey.com/en/ontario-g1?page=2",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 32.75
+      },
+      {
+        "label": "https://quizeey.com/craftsman-desktop-publishing",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 36.0
+      },
+      {
+        "label": "https://quizeey.com/az-300",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr_percent": 0.0,
+        "position": 75.0
+      },
+      {
+        "label": "https://quizeey.com/en/aws-certified-solution-architect-associate?page=22",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 2.33
+      },
+      {
+        "label": "http://quizeey.com/kr/aws-certified-developer-associate",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 3.67
+      },
+      {
+        "label": "https://quizeey.com/en/aws-certified-solution-architect-associate?page=17",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 5.67
+      },
+      {
+        "label": "https://quizeey.com/word-processor",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 7.33
+      },
+      {
+        "label": "https://quizeey.com/engineer-colorist",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 9.67
+      },
+      {
+        "label": "https://quizeey.com/engineer-architecture",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 10.33
+      },
+      {
+        "label": "https://quizeey.com/nclex-rn",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 11.33
+      },
+      {
+        "label": "https://quizeey.com/engineer-food-processing",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 17.33
+      },
+      {
+        "label": "https://quizeey.com/craftsman-excavating-machine-operator",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 18.33
+      },
+      {
+        "label": "https://quizeey.com/engineer-fire-protection-system-electrical",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 18.67
+      },
+      {
+        "label": "https://quizeey.com/engineer-radio-telecommunication-equipment",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 20.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-plant-maintenance",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 21.0
+      },
+      {
+        "label": "https://quizeey.com/en/comptia-sy0-501?verNbr=202610",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 23.33
+      },
+      {
+        "label": "https://quizeey.com/2V0-21.19",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 24.0
+      },
+      {
+        "label": "https://quizeey.com/comptia-n10-007",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 32.0
+      },
+      {
+        "label": "https://quizeey.com/en/servsafe-food-handler",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 47.67
+      },
+      {
+        "label": "https://quizeey.com/en/bc-class-7-knowledge?verNbr=202610&page=2",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 89.0
+      },
+      {
+        "label": "https://quizeey.com/en/canadian-citizenship",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr_percent": 0.0,
+        "position": 97.0
+      },
+      {
+        "label": "https://quizeey.com/internet-information-administrator",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 1.0
+      },
+      {
+        "label": "https://quizeey.com/en/ged-math?verNbr=202610",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 1.5
+      },
+      {
+        "label": "https://quizeey.com/word-processor?page=3",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 3.5
+      },
+      {
+        "label": "https://quizeey.com/en/nclex-rn",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 5.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-surveying-geo-spatial-information?page=3",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 5.0
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-machinery-maintenance",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 5.5
+      },
+      {
+        "label": "https://quizeey.com/craftsman-fork-lift-truck-operator?page=2",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 6.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-seeds",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 6.0
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-electric-work?page=3",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 6.0
+      },
+      {
+        "label": "https://quizeey.com/computer-specialist-in-spreadsheet-and-database-level-2?page=2",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 6.5
+      },
+      {
+        "label": "https://quizeey.com/craftsman-laundry?verNbr=202610",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 6.5
+      },
+      {
+        "label": "https://quizeey.com/en/servsafe-food-handler?verNbr=202610",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 6.5
+      },
+      {
+        "label": "https://quizeey.com/craftsman-cook-chinese-food?page=4",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 7.0
+      },
+      {
+        "label": "https://quizeey.com/en/aws-certified-developer-associate?page=6",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 7.0
+      },
+      {
+        "label": "https://quizeey.com/en/pmi-pmp?page=14",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 7.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-electric-work?page=5",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 7.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-industrial-hygiene-management",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 7.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-seeds?page=5",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 7.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-urban-planning",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 7.5
+      },
+      {
+        "label": "https://quizeey.com/engineer-fire-protection-system-electrical?page=4",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 8.0
+      },
+      {
+        "label": "https://quizeey.com/network-manager-2?page=5",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 8.0
+      },
+      {
+        "label": "https://quizeey.com/en/texas-life-and-health-insurance?page=6",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 8.5
+      },
+      {
+        "label": "https://quizeey.com/craftsman-production-automatic-operation?page=2",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 9.0
+      },
+      {
+        "label": "https://quizeey.com/en/aws-certified-developer-associate?page=34",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 9.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-air-conditioning-refrigerating-machinery",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 9.0
+      },
+      {
+        "label": "https://quizeey.com/craftsman-plant-maintenance",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 9.5
+      },
+      {
+        "label": "https://quizeey.com/en/servsafe-food-protection-manager?page=2",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 9.5
+      },
+      {
+        "label": "https://quizeey.com/pc-mechanic-2?page=3",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 9.5
+      },
+      {
+        "label": "https://quizeey.com/ccna-200-301?verNbr=202610&page=2",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 10.0
+      },
+      {
+        "label": "https://quizeey.com/craftsman-inert-gas-arc-welding",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 10.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-gas",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 10.5
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-architecture",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 12.0
+      },
+      {
+        "label": "https://quizeey.com/aws-certified-developer-associate?page=35",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 14.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-motor-vehicles-maintenance",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 15.5
+      },
+      {
+        "label": "https://quizeey.com/vocational-counselor",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 15.5
+      },
+      {
+        "label": "https://quizeey.com/engineer-construction-safety",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 26.5
+      },
+      {
+        "label": "https://quizeey.com/pmi-pmp?page=2",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 26.5
+      },
+      {
+        "label": "https://quizeey.com/en/cissp?page=8",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 27.5
+      },
+      {
+        "label": "https://quizeey.com/en/servsafe-food-protection-manager?verNbr=202610&page=4",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 28.5
+      },
+      {
+        "label": "https://quizeey.com/en/pmi-pmp?page=2",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 31.0
+      },
+      {
+        "label": "https://quizeey.com/en/pmi-pmp?page=11",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 46.0
+      },
+      {
+        "label": "https://quizeey.com/en/california-dmv-permit",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr_percent": 0.0,
+        "position": 66.0
+      },
+      {
+        "label": "https://quizeey.com/aws-certified-developer-associate?page=3",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 1.0
+      },
+      {
+        "label": "https://quizeey.com/aws-certified-developer-associate?page=31",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 1.0
+      },
+      {
+        "label": "https://quizeey.com/craftsman-cook-western-food?verNbr=202610",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 1.0
+      },
+      {
+        "label": "https://quizeey.com/craftsman-cook-western-food?verNbr=202610&page=2",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 1.0
+      },
+      {
+        "label": "https://quizeey.com/en/ged-science?page=2",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 1.0
+      },
+      {
+        "label": "https://quizeey.com/en/ged-social-studies?verNbr=202610",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 1.0
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-aircraft-maintenance?page=2",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 1.0
+      },
+      {
+        "label": "https://quizeey.com/en/aws-certified-developer-associate?page=9",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 2.0
+      },
+      {
+        "label": "https://quizeey.com/en/comptia-220-1001?verNbr=202610",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 2.0
+      },
+      {
+        "label": "https://quizeey.com/clinical-psychology-practitioner?page=2",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 3.0
+      },
+      {
+        "label": "https://quizeey.com/en/aws-certified-solution-architect-associate?page=13",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 3.0
+      },
+      {
+        "label": "https://quizeey.com/en/az-301?page=4",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 3.0
+      },
+      {
+        "label": "https://quizeey.com/en/california-real-estate-salesperson?page=5",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 3.0
+      },
+      {
+        "label": "https://quizeey.com/en/computer-science",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 3.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-radio-telecommunication-equipment?page=3",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 3.0
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-motor-vehicles-maintenance?page=3",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 3.0
+      },
+      {
+        "label": "https://quizeey.com/craftsman-information-processing",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 4.0
+      },
+      {
+        "label": "https://quizeey.com/en/az-900?page=2",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 4.0
+      },
+      {
+        "label": "https://quizeey.com/en/cissp?page=16",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 4.0
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-computer-aided-manufacturing?verNbr=202610",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 4.0
+      },
+      {
+        "label": "https://quizeey.com/network-manager-2?page=2",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 4.0
+      },
+      {
+        "label": "https://quizeey.com/community",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 5.0
+      },
+      {
+        "label": "https://quizeey.com/computerized-accounting-specialist-3?page=2",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 5.0
+      },
+      {
+        "label": "https://quizeey.com/en/ged-language-arts",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 5.0
+      },
+      {
+        "label": "https://quizeey.com/en/ms-100",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 5.0
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-gas?page=3",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 5.0
+      },
+      {
+        "label": "https://quizeey.com/specialist-multimedia-contents-producing?verNbr=202610",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 5.0
+      },
+      {
+        "label": "https://quizeey.com/1st-grade-social-worker-3?verNbr=202610",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 6.0
+      },
+      {
+        "label": "https://quizeey.com/en/servsafe-food-protection-manager",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 6.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-broadcasting-communication?page=8",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 6.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-energy-management?page=3",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 6.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-food-processing?page=2",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 6.0
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-industrial-safety?page=2",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 6.0
+      },
+      {
+        "label": "https://quizeey.com/clinical-psychology-practitioner?verNbr=202610",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 7.0
+      },
+      {
+        "label": "https://quizeey.com/craftsman-bartender?verNbr=202610",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 7.0
+      },
+      {
+        "label": "https://quizeey.com/craftsman-cook-blowfish?verNbr=202610",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 7.0
+      },
+      {
+        "label": "https://quizeey.com/craftsman-cook-japanese-food?verNbr=202610",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 7.0
+      },
+      {
+        "label": "https://quizeey.com/en/aws-certified-developer-associate?page=27",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 7.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-electric-work?page=8",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 7.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-ergonomics",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 7.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-fire-protection-system-electrical?page=3",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 7.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-motor-vehicles-maintenance?page=3",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 7.0
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-industrial-hygiene-management?page=2",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 7.0
+      },
+      {
+        "label": "https://quizeey.com/linux-master-1?page=2",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 7.0
+      },
+      {
+        "label": "https://quizeey.com/sport-business-manager?page=3",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 7.0
+      },
+      {
+        "label": "https://quizeey.com/agriculture-insurance-claim-adjuster",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 8.0
+      },
+      {
+        "label": "https://quizeey.com/aws-certified-solution-architect-associate",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 8.0
+      },
+      {
+        "label": "https://quizeey.com/ccna-200-125?page=2",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 8.0
+      },
+      {
+        "label": "https://quizeey.com/craftsman-computer-aided-milling?verNbr=202610",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 8.0
+      },
+      {
+        "label": "https://quizeey.com/craftsman-cook-japanese-food?page=7",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 8.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-broadcasting-communication?page=4",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 8.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-chemical-industry?page=3",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 8.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-computer",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 8.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-industrial-safety?page=5",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 8.0
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-gas?page=2",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 8.0
+      },
+      {
+        "label": "https://quizeey.com/ccnp-300-101?page=3",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 9.0
+      },
+      {
+        "label": "https://quizeey.com/craftsman-welding?page=2",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 9.0
+      },
+      {
+        "label": "https://quizeey.com/en/aws-certified-developer-associate?page=24",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 9.0
+      },
+      {
+        "label": "https://quizeey.com/en/california-real-estate-salesperson?verNbr=202610&page=5",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 9.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-industrial-hygiene-management?page=4",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 9.0
+      },
+      {
+        "label": "https://quizeey.com/nail-technician",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 9.0
+      },
+      {
+        "label": "https://quizeey.com/survey-analyst-junior",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 9.0
+      },
+      {
+        "label": "https://quizeey.com/aws-certified-developer-associate?page=12",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 10.0
+      },
+      {
+        "label": "https://quizeey.com/cisco-350-401?page=2",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 10.0
+      },
+      {
+        "label": "https://quizeey.com/computerized-accounting-specialist-1?page=4",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 10.0
+      },
+      {
+        "label": "https://quizeey.com/craftsman-floral-design?page=6",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 10.0
+      },
+      {
+        "label": "https://quizeey.com/craftsman-interior-architecture?verNbr=202610",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 10.0
+      },
+      {
+        "label": "https://quizeey.com/en/aws-certified-solution-architect-associate?page=21",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 10.0
+      },
+      {
+        "label": "https://quizeey.com/en/microsoft-70-741?page=3",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 10.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-surveying-geo-spatial-information?page=2",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 10.0
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-electric-work?page=10",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 10.0
+      },
+      {
+        "label": "https://quizeey.com/survey-analyst-junior?page=2",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 10.0
+      },
+      {
+        "label": "https://quizeey.com/craftsman-cook-blowfish?page=4",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 11.0
+      },
+      {
+        "label": "https://quizeey.com/en/microsoft-70-740?page=5",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 11.0
+      },
+      {
+        "label": "https://quizeey.com/en/servsafe-food-protection-manager?verNbr=202610",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 11.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-transportation?page=3",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 11.0
+      },
+      {
+        "label": "https://quizeey.com/telemarketing-administrator?page=2",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 11.0
+      },
+      {
+        "label": "https://quizeey.com/industrial-engineer-construction-safety",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 16.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-in-nature-environment-and-ecological-restoration?page=3",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 18.0
+      },
+      {
+        "label": "https://quizeey.com/craftsman-electronic-cad?page=3",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 20.0
+      },
+      {
+        "label": "https://quizeey.com/engineer-information-security?verNbr=202610",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 23.0
+      },
+      {
+        "label": "https://quizeey.com/aws-certified-cloud-practitioner",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 27.0
+      },
+      {
+        "label": "https://quizeey.com/en/pmi-pmp?page=9",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 27.0
+      },
+      {
+        "label": "https://quizeey.com/en/pmi-pmp?page=6",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 29.0
+      },
+      {
+        "label": "https://quizeey.com/en/pmi-pmp?page=4",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 33.0
+      },
+      {
+        "label": "https://quizeey.com/en/pmi-pmp?page=3",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 34.0
+      },
+      {
+        "label": "https://quizeey.com/en/pmi-pmp?page=7",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 35.0
+      },
+      {
+        "label": "https://quizeey.com/en/aws-certified-developer-associate?page=17",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 36.0
+      },
+      {
+        "label": "https://quizeey.com/en/pmi-pmp?page=12",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 36.0
+      },
+      {
+        "label": "https://quizeey.com/en/ged-math",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 37.0
+      },
+      {
+        "label": "https://quizeey.com/en/pmi-pmp?page=5",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 37.0
+      },
+      {
+        "label": "https://quizeey.com/en/pmi-pmp?page=10",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 38.0
+      },
+      {
+        "label": "https://quizeey.com/en/pmi-pmp?verNbr=202610",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 39.0
+      },
+      {
+        "label": "https://quizeey.com/en/cas-003?page=4",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 46.0
+      },
+      {
+        "label": "https://quizeey.com/en/servsafe-food-protection-manager?verNbr=202610&page=5",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 46.0
+      },
+      {
+        "label": "https://quizeey.com/en/ms-100?page=11",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 47.0
+      },
+      {
+        "label": "https://quizeey.com/en/az-500?page=3",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 48.0
+      },
+      {
+        "label": "https://quizeey.com/en/aws-certified-solution-architect-associate?page=25",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 51.0
+      },
+      {
+        "label": "https://quizeey.com/en/aws-certified-developer-associate?page=18",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 54.0
+      },
+      {
+        "label": "https://quizeey.com/en/texas-life-and-health-insurance",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 63.0
+      },
+      {
+        "label": "https://quizeey.com/en/az-301?page=6",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 69.0
+      },
+      {
+        "label": "https://quizeey.com/en/california-real-estate-salesperson?page=7",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 72.0
+      },
+      {
+        "label": "https://quizeey.com/network-manager-2",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr_percent": 0.0,
+        "position": 96.0
+      }
+    ]
+  },
+  "limits": [
+    "Independent aggregate tables; never joined by row or inferred country-query associations.",
+    "Daily-position weighting is approximate because exported positions are rounded.",
+    "Query export excludes anonymized searches; absence does not establish zero demand.",
+    "Ambiguous rubric checker terms are not classified as branded. No conversion or keyword-volume data."
+  ]
+}
