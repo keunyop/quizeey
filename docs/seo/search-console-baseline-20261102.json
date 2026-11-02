@@ -1,0 +1,347 @@
+{
+  "quizeey": {
+    "period": [
+      "2026-08-01",
+      "2026-10-31"
+    ],
+    "search_type": "Web",
+    "clicks": 3501,
+    "impressions": 25239,
+    "ctr_percent": 13.87,
+    "countries": [
+      {
+        "label": "한국",
+        "clicks": 3465,
+        "impressions": 24101,
+        "ctr_percent": 14.38,
+        "average_position": 7.15,
+        "share_of_clicks_percent": 98.97
+      },
+      {
+        "label": "일본",
+        "clicks": 9,
+        "impressions": 58,
+        "ctr_percent": 15.52,
+        "average_position": 7.16,
+        "share_of_clicks_percent": 0.26
+      },
+      {
+        "label": "캐나다",
+        "clicks": 6,
+        "impressions": 68,
+        "ctr_percent": 8.82,
+        "average_position": 30.69,
+        "share_of_clicks_percent": 0.17
+      },
+      {
+        "label": "미국",
+        "clicks": 3,
+        "impressions": 452,
+        "ctr_percent": 0.66,
+        "average_position": 17.79,
+        "share_of_clicks_percent": 0.09
+      },
+      {
+        "label": "인도네시아",
+        "clicks": 2,
+        "impressions": 23,
+        "ctr_percent": 8.7,
+        "average_position": 45.35,
+        "share_of_clicks_percent": 0.06
+      }
+    ],
+    "selected_queries": [
+      {
+        "label": "sqld 기출문제 cbt",
+        "clicks": 24,
+        "impressions": 1215,
+        "ctr_percent": 1.98,
+        "average_position": 7.72
+      },
+      {
+        "label": "sqld cbt",
+        "clicks": 10,
+        "impressions": 578,
+        "ctr_percent": 1.73,
+        "average_position": 10.0
+      },
+      {
+        "label": "sqld 기출문제 사이트",
+        "clicks": 10,
+        "impressions": 300,
+        "ctr_percent": 3.33,
+        "average_position": 6.7
+      },
+      {
+        "label": "sqld 문제은행",
+        "clicks": 4,
+        "impressions": 190,
+        "ctr_percent": 2.11,
+        "average_position": 8.86
+      }
+    ],
+    "pages": [
+      {
+        "label": "https://quizeey.com/craftsman-cook-western-food",
+        "clicks": 1486,
+        "impressions": 5179,
+        "ctr_percent": 28.69,
+        "average_position": 3.91
+      },
+      {
+        "label": "https://quizeey.com/craftsman-cook-japanese-food",
+        "clicks": 336,
+        "impressions": 1355,
+        "ctr_percent": 24.8,
+        "average_position": 5.27
+      },
+      {
+        "label": "https://quizeey.com/craftsman-cook-chinese-food",
+        "clicks": 333,
+        "impressions": 1228,
+        "ctr_percent": 27.12,
+        "average_position": 4.1
+      },
+      {
+        "label": "https://quizeey.com/craftsman-cook-korean-food",
+        "clicks": 304,
+        "impressions": 3513,
+        "ctr_percent": 8.65,
+        "average_position": 7.21
+      },
+      {
+        "label": "https://quizeey.com/craftsman-3D-printer-operation",
+        "clicks": 303,
+        "impressions": 3627,
+        "ctr_percent": 8.35,
+        "average_position": 7.65
+      },
+      {
+        "label": "https://quizeey.com/sqlp-professional",
+        "clicks": 169,
+        "impressions": 1339,
+        "ctr_percent": 12.62,
+        "average_position": 5.76
+      },
+      {
+        "label": "https://quizeey.com/barista-2",
+        "clicks": 160,
+        "impressions": 1669,
+        "ctr_percent": 9.59,
+        "average_position": 6.03
+      },
+      {
+        "label": "https://quizeey.com/",
+        "clicks": 90,
+        "impressions": 2592,
+        "ctr_percent": 3.47,
+        "average_position": 8.97
+      },
+      {
+        "label": "https://quizeey.com/ccna-200-301",
+        "clicks": 81,
+        "impressions": 610,
+        "ctr_percent": 13.28,
+        "average_position": 4.14
+      },
+      {
+        "label": "https://quizeey.com/craftsman-cook-blowfish",
+        "clicks": 79,
+        "impressions": 367,
+        "ctr_percent": 21.53,
+        "average_position": 4.89
+      },
+      {
+        "label": "https://quizeey.com/sqlp-developer",
+        "clicks": 43,
+        "impressions": 1401,
+        "ctr_percent": 3.07,
+        "average_position": 12.13
+      },
+      {
+        "label": "https://quizeey.com/ccnp-300-115",
+        "clicks": 11,
+        "impressions": 67,
+        "ctr_percent": 16.42,
+        "average_position": 13.39
+      }
+    ],
+    "limits": "Query, page, country and device CSVs are separate aggregates, not joinable query-by-country observations. Queries may omit anonymized searches. No conversion data supplied."
+  },
+  "rubricheck": {
+    "period": [
+      "2026-08-01",
+      "2026-10-31"
+    ],
+    "search_type": "Web",
+    "clicks": 2051,
+    "impressions": 13440,
+    "ctr_percent": 15.26,
+    "countries": [
+      {
+        "label": "말레이시아",
+        "clicks": 1040,
+        "impressions": 2176,
+        "ctr_percent": 47.79,
+        "average_position": 1.78,
+        "share_of_clicks_percent": 50.71
+      },
+      {
+        "label": "미국",
+        "clicks": 561,
+        "impressions": 5364,
+        "ctr_percent": 10.46,
+        "average_position": 6.38,
+        "share_of_clicks_percent": 27.35
+      },
+      {
+        "label": "호주",
+        "clicks": 125,
+        "impressions": 1129,
+        "ctr_percent": 11.07,
+        "average_position": 10.22,
+        "share_of_clicks_percent": 6.09
+      },
+      {
+        "label": "캐나다",
+        "clicks": 84,
+        "impressions": 607,
+        "ctr_percent": 13.84,
+        "average_position": 3.91,
+        "share_of_clicks_percent": 4.1
+      },
+      {
+        "label": "영국",
+        "clicks": 36,
+        "impressions": 297,
+        "ctr_percent": 12.12,
+        "average_position": 5.47,
+        "share_of_clicks_percent": 1.76
+      }
+    ],
+    "selected_queries": [
+      {
+        "label": "check assignment against rubric",
+        "clicks": 2,
+        "impressions": 67,
+        "ctr_percent": 2.99,
+        "average_position": 7.43
+      },
+      {
+        "label": "assignment criteria checker",
+        "clicks": 0,
+        "impressions": 54,
+        "ctr_percent": 0.0,
+        "average_position": 8.44
+      },
+      {
+        "label": "assignment instructions checker",
+        "clicks": 0,
+        "impressions": 46,
+        "ctr_percent": 0.0,
+        "average_position": 11.39
+      },
+      {
+        "label": "assignment requirements checker",
+        "clicks": 0,
+        "impressions": 44,
+        "ctr_percent": 0.0,
+        "average_position": 5.48
+      },
+      {
+        "label": "rubric feedback",
+        "clicks": 0,
+        "impressions": 39,
+        "ctr_percent": 0.0,
+        "average_position": 9.38
+      }
+    ],
+    "pages": [
+      {
+        "label": "https://rubricheck.com/",
+        "clicks": 1916,
+        "impressions": 10446,
+        "ctr_percent": 18.34,
+        "average_position": 5.55
+      },
+      {
+        "label": "https://rubricheck.com/assignment-rubric-checker",
+        "clicks": 71,
+        "impressions": 2774,
+        "ctr_percent": 2.56,
+        "average_position": 4.11
+      },
+      {
+        "label": "https://rubricheck.com/ai-rubric-grader",
+        "clicks": 29,
+        "impressions": 1604,
+        "ctr_percent": 1.81,
+        "average_position": 8.72
+      },
+      {
+        "label": "https://rubricheck.com/rubric-checker",
+        "clicks": 16,
+        "impressions": 1687,
+        "ctr_percent": 0.95,
+        "average_position": 4.51
+      },
+      {
+        "label": "https://rubricheck.com/essay-rubric-checker",
+        "clicks": 13,
+        "impressions": 830,
+        "ctr_percent": 1.57,
+        "average_position": 4.22
+      },
+      {
+        "label": "https://rubricheck.com/ms",
+        "clicks": 12,
+        "impressions": 52,
+        "ctr_percent": 23.08,
+        "average_position": 2.73
+      },
+      {
+        "label": "https://rubricheck.com/how-to-use-a-rubric-to-check-an-assignment",
+        "clicks": 5,
+        "impressions": 700,
+        "ctr_percent": 0.71,
+        "average_position": 6.45
+      },
+      {
+        "label": "https://rubricheck.com/ko",
+        "clicks": 5,
+        "impressions": 29,
+        "ctr_percent": 17.24,
+        "average_position": 4.9
+      },
+      {
+        "label": "https://rubricheck.com/ko/ai-rubric-grader",
+        "clicks": 3,
+        "impressions": 88,
+        "ctr_percent": 3.41,
+        "average_position": 6.24
+      },
+      {
+        "label": "https://rubricheck.com/ms/how-to-use-a-rubric-to-check-an-assignment",
+        "clicks": 3,
+        "impressions": 74,
+        "ctr_percent": 4.05,
+        "average_position": 6.49
+      },
+      {
+        "label": "https://rubricheck.com/rubric-feedback-tool",
+        "clicks": 2,
+        "impressions": 991,
+        "ctr_percent": 0.2,
+        "average_position": 7.33
+      },
+      {
+        "label": "https://rubricheck.com/ko/rubric-checker",
+        "clicks": 1,
+        "impressions": 17,
+        "ctr_percent": 5.88,
+        "average_position": 5.71
+      }
+    ],
+    "limits": "Query, page, country and device CSVs are separate aggregates, not joinable query-by-country observations. Queries may omit anonymized searches. No conversion data supplied."
+  }
+}

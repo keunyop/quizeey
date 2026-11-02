@@ -30,7 +30,8 @@ it('publishes only verified equivalents and unique canonical sitemap URLs',()=>{
   const map=publicSitemap(origin);
   expect(map.length).toBeGreaterThan(180);
   expect(new Set(map.map(r=>r.url)).size).toBe(map.length);
-  expect(map.every(r=>!r.url.includes('/kr')&&!r.url.endsWith('/test')&&!r.url.endsWith('/app')&&!r.lastModified)).toBe(true);
+  expect(map.every(r=>!r.url.includes('/kr')&&!r.url.endsWith('/test')&&!r.url.endsWith('/app'))).toBe(true);
+  expect(map.filter(r=>!new URL(r.url).pathname.startsWith('/blog')).every(r=>!r.lastModified)).toBe(true);
   for(const entry of map){
     const languages=entry.alternates?.languages;
     expect(languages).toBeDefined();
@@ -61,6 +62,7 @@ it('provides localized, page-specific search copy without unsupported pass guara
   expect(searchCopy('/',new URLSearchParams(),findRoute('/')!).description).toContain('CBT 시험');
   expect(searchCopy('/en',new URLSearchParams(),findRoute('/en')!)).toMatchObject({title:expect.stringContaining('Practice Tests'),description:expect.stringContaining('Canadian citizenship')});
   expect(searchCopy(ko.path,new URLSearchParams(),ko).description).toContain('SQLD');
+  expect(searchCopy(ko.path,new URLSearchParams(),ko).title).toBe('SQLD 기출문제 CBT | 무료 문제풀이·해설·오답 복습 - Quizeey');
   expect(searchCopy(en.path,new URLSearchParams(),en).description).not.toMatch(/pass.*easily|exam dumps/i);
   const page=searchCopy(en.path,new URLSearchParams('page=2&verNbr=202610'),en);
   expect(page.title).toContain('Set 2026-10 · Page 2');

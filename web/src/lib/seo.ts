@@ -3,6 +3,7 @@ import { findRoute,legacy,parseQuery,routesForExam,type LegacyRoute,type Locale 
 import { examName } from './exam-catalog';
 import { authoredSetSummary, authoredVersion, authoredVersionName } from './authored-practice';
 import { studyGuideSitemap } from './study-guides';
+import { blogSitemap } from './blog';
 import { certificationFor } from './certifications';
 
 export const searchMarkets = {
@@ -27,6 +28,10 @@ export function searchCopy(path: string, query: URLSearchParams, exam: LegacyRou
       : `Prepare for ${name} with free English practice questions on Quizeey. Check your answers, review mistakes and build your exam knowledge at your own pace.`;
     if (exam.template === 'authored-practice' && exam.description) description = exam.description;
     const authored = authoredSetSummary(exam.testId, locale);
+    if (locale === 'ko' && exam.testId === '5' && base === '/sqlp-developer') {
+      title = 'SQLD 기출문제 CBT | 무료 문제풀이·해설·오답 복습 - Quizeey';
+      description = 'SQLD 기출문제와 연습문제를 무료 CBT로 풀어보세요. 회차와 문제 수를 선택하고 정답·해설 확인, 오답 복습, 북마크로 헷갈리는 개념을 다시 학습할 수 있습니다.';
+    }
     if (input.verNbr === authoredVersion && authored) {
       if (exam.template !== 'authored-practice') title = `${name} ${locale === 'ko' ? '연습문제' : 'Practice Questions'} - Quizeey`;
       description = exam.template === 'authored-practice' && exam.description ? exam.description : locale === 'ko'
@@ -161,5 +166,5 @@ export function publicSitemap(origin:string):MetadataRoute.Sitemap{
       url: origin + canonicalPath(route.path, query),
       alternates: { languages: seoAlternates(route.path, query, origin)?.languages as Record<string,string> | undefined },
     }));
-  }), ...studyGuideSitemap(origin)];
+  }), ...studyGuideSitemap(origin), ...blogSitemap(origin)];
 }

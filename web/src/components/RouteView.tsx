@@ -4,6 +4,7 @@ import { headers, cookies } from 'next/headers';
 import { randomUUID } from 'node:crypto';
 import { ExamSearch } from "./ExamSearch";
 import { RelatedStudyGuide, StudyGuideCards } from './StudyGuides';
+import { BlogDiscovery } from './Blog';
 import { ExamLink } from "./ExamLink";
 import { ExamHeading } from "./ExamHeading";
 import { CertificationNotice, CertificationPracticeLinks } from './CertificationContext';
@@ -116,6 +117,7 @@ export async function RouteView({ path, query }: { path: string; query: Query })
             </li>)}</ol>
           </details>}
           {locale === 'en' && <RelatedStudyGuide examPath={examPath} />}
+          {locale === 'ko' && examPath === '/sqlp-developer' && <BlogDiscovery />}
           {locale === 'en' && <CertificationPracticeLinks examId={exam.testId} directId={input.questId} />}
           {publicBatch.length>0&&<AdSlot kind="display" locale={locale}/>}
         </>}
@@ -138,6 +140,7 @@ export async function RouteView({ path, query }: { path: string; query: Query })
       </aside>}
       {isHome ? <><ExamSearch routes={examRoutes} locale={locale} popularity={popularity} />
         {locale === 'en' && <StudyGuideCards />}
+        {locale === 'ko' && <BlogDiscovery />}
         <details className="exam-directory"><summary>{locale==='ko'?'전체 자격증 시험 목록':'All practice exams'}</summary>
           <nav aria-label={locale==='ko'?'전체 시험 바로가기':'All exam links'}><ul>{examRoutes.filter(r => locale !== 'en' || !isRetiredExam(r.testId)).map(r=><li key={r.path}><ExamLink href={r.path}>{examName(r)}</ExamLink></li>)}</ul></nav>
         </details>
@@ -149,6 +152,6 @@ export async function RouteView({ path, query }: { path: string; query: Query })
         {pageContent}
       </>}
     </main>
-    <footer className="site-footer"><div><a className="brand footer-brand" href={home} translate="no"><img src="/img/letter-q.svg" width="22" height="22" alt="" />Quizeey</a><span className="footer-note">{locale === "ko" ? "한 문제씩, 더 가까이." : "One question closer."}</span></div><nav aria-label={locale === "ko" ? "사이트 정보" : "Site information"}><a href={locale === "en" ? "/en/about" : "/about"}>{locale === "ko" ? "소개" : "About"}</a><a href={locale === "en" ? "/en/privacy" : "/privacy"}>{locale === "ko" ? "개인정보처리방침" : "Privacy"}</a><SubmissionDialog locale={locale}/></nav></footer>
+    <footer className="site-footer"><div><a className="brand footer-brand" href={home} translate="no"><img src="/img/letter-q.svg" width="22" height="22" alt="" />Quizeey</a><span className="footer-note">{locale === "ko" ? "한 문제씩, 더 가까이." : "One question closer."}</span></div><nav aria-label={locale === "ko" ? "사이트 정보" : "Site information"}>{locale === 'ko' && <a href="/blog">블로그</a>}<a href={locale === "en" ? "/en/about" : "/about"}>{locale === "ko" ? "소개" : "About"}</a><a href={locale === "en" ? "/en/privacy" : "/privacy"}>{locale === "ko" ? "개인정보처리방침" : "Privacy"}</a><SubmissionDialog locale={locale}/></nav></footer>
   </Monetization>;
 }

@@ -1,0 +1,61 @@
+{
+  "reviewDate": "2026-11-02",
+  "projectId": "tfkhnrbshvyfmrzxqfmq",
+  "questionId": 27005,
+  "examId": 14,
+  "version": "2014-01-26",
+  "questionNumber": 13,
+  "status": "applied_and_verified",
+  "decision": "Existing answer 2 (choice_id 108801, 즉석판매제조·가공업) is correct. Retain the original prompt and all choices. Other choices require permission under Article 23; choice 2 requires notification under Article 25(1)(2).",
+  "sources": [
+    "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1026749125",
+    "https://law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1026749079",
+    "https://www.law.go.kr/LSW/lbook/lbFileDownload.do?flExt=pdf&lbookConflSeq=36284&lbookSeq=44103#page=93"
+  ],
+  "scope": {
+    "explanation": true,
+    "reference": true,
+    "operatorComment": true,
+    "resolveSubmission": "21f2f2ee-07d5-43c4-9be7-de59c03d7624",
+    "questionBody": false,
+    "choices": false,
+    "schema": false,
+    "deployment": false
+  },
+  "operatorCommentId": "780c3845-d438-48d7-96c6-c7b29233bbfe",
+  "verification": {
+    "localPostgresApply": true,
+    "idempotency": true,
+    "localServiceStudyReader": true,
+    "localAnonymousForumReader": true,
+    "htmlSanitizer": true,
+    "question": true,
+    "choices": true,
+    "counter": true,
+    "existingPosts": true,
+    "explanation": true,
+    "reference": true,
+    "comment": true,
+    "state": true,
+    "allReportsResolved": true,
+    "approvedPostCount": 6,
+    "auditCount": 1,
+    "openQuestionReports": 0,
+    "liveQuestionPage": {
+      "httpStatus": 200,
+      "explanationPresent": true,
+      "referencePresent": true
+    },
+    "liveCommentApi": {
+      "httpStatus": 200,
+      "operatorCommentPresent": true
+    },
+    "hostedReadOnlyRequests": 2,
+    "fullLocalCheck": "Not run: content-only maintenance; targeted isolated PostgreSQL and production sanitizer checks passed.",
+    "dbTestsSkipped": 0,
+    "authTests": "Not run: no login/session/auth changes; this review does not verify Supabase Auth flows.",
+    "hostedWebTool": "Could not fetch the two exact URLs; the two-request Node read-only smoke check subsequently passed without retries."
+  },
+  "audit": "Resolved through the existing operator actor and public resolution function, with one deterministic audit request.",
+  "privateArtifacts": ".modernization/report-review-27005"
+}

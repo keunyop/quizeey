@@ -65,7 +65,7 @@ test('localized metadata and structured data reach the browser while fixture pag
     await expect(page.locator('meta[property="og:locale"]')).toHaveAttribute('content', locale === 'ko' ? 'ko_KR' : 'en_US');
     if (locale === 'en') await expect(page.locator('meta[property="og:locale:alternate"]')).toHaveAttribute('content', 'en_CA');
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/);
-    await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', locale === 'ko' ? /한국어 CBT/ : /free English practice questions/);
+    await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', locale === 'ko' ? /SQLD 기출문제.*무료 CBT/ : /free English practice questions/);
     await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute('content', 'summary');
     const data = JSON.parse(await page.locator('script[type="application/ld+json"]').innerText());
     expect(data['@graph'][1]).toMatchObject({ '@type': 'WebPage', url: 'https://quizeey.com' + path });

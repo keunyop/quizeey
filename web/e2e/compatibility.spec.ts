@@ -40,6 +40,7 @@ test("all discovered controller entry routes render with localized home titles a
     const response = await request.get(url);
     expect(response.status(),url).toBe(200);
     const title=['/','/kr','/app','/en'].includes(route.path)?homeSearchCopy[route.locale as 'ko'|'en'].title:
+      route.locale === 'ko' && route.testId === '5' ? 'SQLD 기출문제 CBT | 무료 문제풀이·해설·오답 복습 - Quizeey' :
       route.locale === 'en' && isRetiredExam(route.testId) ? `${examName(route)} — Retired Exam Archive - Quizeey` :
       route.path==='/en/az-900'?'Free AZ-900 Practice Questions with Answers | Azure Fundamentals - Quizeey':siteCopy[route.path as keyof typeof siteCopy]?.title ?? route.title;
     if (title && !route.path.endsWith('/test')) expect(await response.text(),url).toContain(`<title>${title.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;')}</title>`);
