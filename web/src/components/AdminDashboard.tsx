@@ -5,7 +5,7 @@ import { examName, matchesExam, sortExams } from "@/lib/exam-catalog";
 import type { AdminOverview, InboxItem, InboxKind } from "@/lib/submissions";
 
 const routes = legacy.routes.filter(route => route.testId && !route.path.startsWith("/kr/"));
-export function AdminDashboard({ locale, revision, onExpired }: { locale: Locale; revision: number; onExpired: () => void }) {
+export function AdminDashboard({ locale, revision, onExpired, onCommentReports }: { locale: Locale; revision: number; onExpired: () => void; onCommentReports: () => void }) {
   const en = locale === "en";
   const [tab, setTab] = useState<"exams" | "activity" | InboxKind>("exams");
   const [state, setState] = useState<"all" | "open" | "resolved">("all");
@@ -61,7 +61,8 @@ export function AdminDashboard({ locale, revision, onExpired }: { locale: Locale
   const commentStates: Record<string, string> = en ? { pending: "Pending review", approved: "Published", hidden: "Hidden" } : { pending: "검토 대기", approved: "공개", hidden: "숨김" };
   return <section className="admin-dashboard" aria-label={en ? "Site management" : "사이트 관리"}>
     {overview && <dl className="admin-stats">
-      {[ [en ? "Total exam clicks" : "전체 시험 클릭 수", total.toLocaleString(locale)], [en ? "Comments" : "전체 댓글", overview.comments], [en ? "Open feedback" : "미처리 피드백", overview.feedback_open], [en ? "Open question reports" : "미처리 오답 신고", overview.question_reports_open], [en ? "Open comment reports" : "미처리 댓글 신고", overview.comment_reports_open] ].map(([label, count]) => <div key={label}><dt>{label}</dt><dd>{count}</dd></div>)}
+      {[ [en ? "Total exam clicks" : "전체 시험 클릭 수", total.toLocaleString(locale)], [en ? "Comments" : "전체 댓글", overview.comments], [en ? "Open feedback" : "미처리 피드백", overview.feedback_open], [en ? "Open question reports" : "미처리 오답 신고", overview.question_reports_open] ].map(([label, count]) => <div key={label}><dt>{label}</dt><dd>{count}</dd></div>)}
+      <div><dt><a href="#comment-moderation" onClick={onCommentReports}>{en ? "Open comment reports" : "미처리 댓글 신고"}</a></dt><dd>{overview.comment_reports_open}</dd></div>
     </dl>}
     <div className="actions admin-tabs" role="group" aria-label={en ? "Management views" : "관리 항목"}>{(Object.keys(labels) as (keyof typeof labels)[]).map(key => <button key={key} aria-pressed={tab === key} disabled={busy} onClick={() => { setTab(key); setItems([]); setCursor(null); setState("all"); setError(""); }}>{labels[key]}</button>)}</div>
     <h2>{labels[tab]}</h2>

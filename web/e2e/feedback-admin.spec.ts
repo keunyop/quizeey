@@ -98,6 +98,52 @@ test.describe("visitor submissions and operator dashboard", () => {
     } finally { await operator.close(); }
   });
 
+  test("comment report summary reveals the reported reply and its question in Korean", async ({ browser, request }) => {
+    const reportsBefore = (await fixture("select count(*)::int as count from quizeey_private.forum_reports where state='open'")).rows[0].count;
+    const send = (data: Record<string, unknown>) => request.post("/api/forum", { headers: { Origin: origin, "Idempotency-Key": crypto.randomUUID() }, data });
+    const created = await send({ action: "create", examId: "5", questionId: "900000001", locale: "ko", title: "Latest comments fixture", body: "Parent comment fixture" });
+    expect(created.status()).toBe(202);
+    const { postId: parentId, topicId } = await created.json();
+    const body = "Reported reply fixture <script>alert(1)</script>\nSecond line";
+    const replied = await send({ action: "reply", topicId, parentId, body, displayName: "신고 댓글 작성자" });
+    expect(replied.status()).toBe(202);
+    const { postId } = await replied.json();
+    expect((await send({ action: "report", postId, reason: "답글 신고 확인 fixture" })).status()).toBe(202);
+    const operator = await browser.newContext();
+    try {
+      const admin = await operator.newPage(); await admin.goto("/admin");
+      await admin.getByLabel("아이디 또는 이메일", { exact: true }).fill("admin");
+      await admin.getByLabel("비밀번호", { exact: true }).fill("admin");
+      await admin.getByRole("button", { name: "로그인", exact: true }).click();
+      const summary = admin.locator(".admin-stats > div").filter({ hasText: "미처리 댓글 신고" });
+      await expect(summary.locator("dd")).toHaveText(String(reportsBefore + 1));
+      await summary.getByRole("link", { name: "미처리 댓글 신고", exact: true }).click();
+      await expect(admin.getByRole("button", { name: "신고", exact: true })).toHaveAttribute("aria-pressed", "true");
+      const entry = admin.locator(".review-item").filter({ hasText: "답글 신고 확인 fixture" });
+      await expect(entry.getByRole("heading", { name: "신고 사유", exact: true })).toBeVisible();
+      await expect(entry.getByRole("heading", { name: "신고된 댓글", exact: true })).toBeVisible();
+      await expect(entry).toContainText(body);
+      await expect(entry).not.toContainText("Parent comment fixture");
+      await expect(entry).toContainText("작성자: 신고 댓글 작성자");
+      await expect(entry).toContainText("댓글 상태: 공개");
+      await expect(entry).toContainText("문제 900000001");
+      await expect(entry.getByRole("link")).toHaveAttribute("href", "/sqlp-developer?questId=900000001");
+      const source = await operator.newPage();
+      await source.goto((await entry.getByRole("link").getAttribute("href"))!);
+      await source.getByRole("radio").first().check();
+      await source.getByRole("button", { name: "정답 확인", exact: true }).click();
+      await expect(source.locator(`[data-post-id="${postId}"]`)).toContainText(body);
+      await source.close();
+      await admin.setViewportSize({ width: 320, height: 800 });
+      expect(await admin.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+      expect((await new AxeBuilder({ page: admin }).analyze()).violations).toEqual([]);
+      await admin.screenshot({ path: test.info().outputPath("comment-report-details.png"), fullPage: true });
+      await entry.getByRole("button", { name: "신고 처리", exact: true }).click();
+      await expect(entry).toHaveCount(0);
+      await expect(summary.locator("dd")).toHaveText(String(reportsBefore));
+    } finally { await operator.close(); }
+  });
+
   test("inbox pages are latest-first and retry receipts do not duplicate feedback", async ({ browser, request }) => {
     const key = crypto.randomUUID(), data = { kind: "feedback", locale: "ko", path: "/", body: "Idempotent feedback fixture" };
     for (let n = 0; n < 2; n++) expect((await request.post("/api/feedback", { headers: { Origin: origin, "Idempotency-Key": key }, data })).status()).toBe(201);

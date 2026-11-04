@@ -1,0 +1,44 @@
+{
+  "releaseDate": "2026-11-02",
+  "deploymentMechanism": "One production Git push after local verification; no CLI/API deployment or prebuilt upload.",
+  "postReleaseScope": "Exactly one read-only GET of the new article per site; no hosted browser, accessibility, regression, crawl, screenshot or load test.",
+  "recordStorage": "Saved locally after release. Not pushed, to avoid triggering another production deployment.",
+  "site": "Quizeey",
+  "articleUrl": "https://quizeey.com/en/blog/ipv4-subnetting-practice",
+  "deployment": {
+    "id": "dpl_7K8bHTSUFWvjNXsi5BVzW7RsTjVe",
+    "state": "READY",
+    "target": "production",
+    "source": "git",
+    "branch": "master",
+    "commit": "3dc2c4cbee8fde50da9197888e86b74716429085",
+    "productionDomains": [
+      "quizeey.com"
+    ],
+    "readyAt": "2026-11-02T22:55:53.579Z"
+  },
+  "localVerification": {
+    "command": "npm run check:local",
+    "exitCode": 0,
+    "unitTestsPassed": 179,
+    "browserTestsPassed": 84,
+    "dbAuthTestsSkipped": 12,
+    "monetizationMockScenariosPassed": 6,
+    "excluded": [
+      "Production DB/Auth",
+      "Production analytics ingestion"
+    ],
+    "report": "blog-expansion-20261102.md"
+  },
+  "smoke": {
+    "checkedAt": "2026-11-02T23:56:14.723Z",
+    "status": 200,
+    "titlePresent": true,
+    "bodyPresent": true,
+    "actionPresent": true,
+    "canonicalPresent": true,
+    "articleSchemaPresent": true,
+    "noindex": false
+  }
+}
+

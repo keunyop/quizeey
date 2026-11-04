@@ -1,9 +1,12 @@
 'use client';
 import { useCallback,useEffect,useState } from 'react';
-import type { Locale } from '@/lib/contracts';
+import { legacy, type Locale } from '@/lib/contracts';
+import { examName } from '@/lib/exam-catalog';
 import { adminMessages } from '@/lib/admin-messages';
 import type { ModerationAction,QueueItem,QueueKind,QueueState } from '@/server/admin-database';
 import { AdminDashboard } from './AdminDashboard';
+
+const routes=legacy.routes.filter(route=>route.testId&&!route.path.startsWith('/kr/'));
 
 export function AdminConsole({locale}:{locale:Locale}) {
   const m=adminMessages[locale];
@@ -13,6 +16,9 @@ export function AdminConsole({locale}:{locale:Locale}) {
   const [items,setItems]=useState<QueueItem[]>([]);const [cursor,setCursor]=useState<string|null>(null);
   const [busy,setBusy]=useState(false);const [notice,setNotice]=useState('');const [revision,refresh]=useState(0);
   const expire=useCallback(()=>{setSession('signed-out');setItems([]);setCursor(null);},[]);
+  function openReports() {
+    setKind('reports');setItems([]);setCursor(null);setNotice('');refresh(value=>value+1);
+  }
   useEffect(()=>{
     let active=true;
     fetch('/api/admin/session',{cache:'no-store'}).then((r)=>{if(active)setSession(r.ok?'signed-in':r.status===503?'unavailable':'signed-out');}).catch(()=>{if(active)setSession('unavailable');});
@@ -68,14 +74,25 @@ export function AdminConsole({locale}:{locale:Locale}) {
         <button disabled={busy} onClick={logout}>{m.signOut}</button>
         <button onClick={()=>refresh((v)=>v+1)}>{m.refresh}</button>
       </div>
-      <AdminDashboard locale={locale} revision={revision} onExpired={expire}/>
-      <h2>{locale==='ko'?'댓글 관리':'Comment moderation'}</h2>
+      <AdminDashboard locale={locale} revision={revision} onExpired={expire} onCommentReports={openReports}/>
+      <h2 id='comment-moderation' tabIndex={-1}>{locale==='ko'?'댓글 관리':'Comment moderation'}</h2>
       <div className='actions' aria-label={locale==='en'?'Review queues':'검토 목록'}>{(['posts','revisions','reports'] as const).map((k)=><button key={k} aria-pressed={kind===k} onClick={()=>{setKind(k);setItems([]);setCursor(null);}}>{m[k]}</button>)}</div>
       {kind==='posts'&&<div className='actions'>{(['pending','approved','hidden'] as const).map((s)=><button key={s} aria-pressed={state===s} onClick={()=>{setState(s);setItems([]);setCursor(null);}}>{m[s]}</button>)}</div>}
       {!items.length&&<p>{m.empty}</p>}
-      {items.map((item)=><article className='review-item panel' key={item.id}>
-        <h2>{item.title}</h2><p className='small muted'>{item.display_name||m.anonymous}</p>
+      {items.map((item)=>{
+        const route=routes.find(route=>route.testId===item.exam_id&&route.locale===item.locale);
+        const context=<>{route?examName(route):`${m.exam} ${item.exam_id}`}{item.question_id&&` · ${m.question} ${item.question_id}`}</>;
+        return <article className='review-item panel' key={item.id}>
+        <h2>{item.title}</h2>
+        {kind==='reports'&&<>
+          <p className='small'>{route?<a href={route.path+(item.question_id?'?'+new URLSearchParams({questId:item.question_id}):'')}>{context}</a>:context}</p>
+          <p className='small muted'>{m.reportedAt}: <time dateTime={item.created_at}>{new Date(item.created_at).toLocaleString(locale==='en'?'en-US':'ko-KR')}</time></p>
+          <p className='small muted'>{m.commentStatus}: {item.visibility==='approved'?m.approved:item.visibility==='hidden'?m.hidden:item.visibility==='pending'?m.pending:item.visibility==='deleted'?m.deleted:item.visibility}</p>
+          <h3>{m.reportReason}</h3>
+        </>}
         {item.reason&&<p className='forum-body'>{item.reason}</p>}
+        {kind==='reports'&&<h3>{m.reportedComment}</h3>}
+        <p className='small muted'>{kind==='reports'&&`${m.author}: `}{item.display_name||m.anonymous}</p>
         {item.published_body&&<details><summary>{m.published}</summary><p className='forum-body'>{item.published_body}</p></details>}
         <p className='forum-body'>{item.body}</p>
         <div className='actions'>
@@ -88,7 +105,7 @@ export function AdminConsole({locale}:{locale:Locale}) {
           {kind==='revisions'&&<><button disabled={busy} onClick={()=>act('approve_revision',item.id)}>{m.approve_revision}</button><button disabled={busy} onClick={()=>act('reject_revision',item.id)}>{m.reject_revision}</button></>}
           {kind==='reports'&&<><button disabled={busy} onClick={()=>act('hide',item.post_id!)}>{m.hide}</button><button disabled={busy} onClick={()=>act('resolve_report',item.id)}>{m.resolve_report}</button></>}
         </div>
-      </article>)}
+      </article>;})}
       {cursor&&<button disabled={busy} onClick={more}>{m.more}</button>}
     </>}
     <p role='status'>{notice}</p>
