@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { blogPost, blogPostPath, subnetPost } from '../src/lib/blog';
+import { blogPost, blogPostPath, subnetPost, cloudPost } from '../src/lib/blog';
 
 test('read the Korean blog and reach SQLD practice without JavaScript', async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false, baseURL: 'http://127.0.0.1:3100' });
@@ -24,7 +24,7 @@ test('read the Korean blog and reach SQLD practice without JavaScript', async ({
 
 test('blog remains accessible on mobile in light and dark themes', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  for (const path of ['/blog', blogPostPath, '/en/blog', subnetPost.path]) {
+  for (const path of ['/blog', blogPostPath, '/en/blog', subnetPost.path, cloudPost.path]) {
     await page.goto(path);
     for (const theme of ['light', 'dark']) {
       await page.evaluate(theme => { document.documentElement.dataset.theme = theme; }, theme);
@@ -73,4 +73,38 @@ test('article discovery leads to an answered Network+ question', async ({ page }
   await page.getByRole('button', { name: 'Check answer', exact: true }).click();
   await expect(page.locator('.answer-feedback')).toBeVisible();
   expect(errors).toEqual([]);
+});
+
+test('cloud article leads from the guide to an answered Azure question', async ({ page, browser, request }) => {
+  const errors: string[] = [];
+  page.on('pageerror', error => errors.push(error.message));
+  const html = await (await request.get(cloudPost.path)).text();
+  expect(html).toContain('The migrated booking server');
+  expect(html).toContain('BlogPosting');
+  expect(html).toContain('2026-11-04');
+  await page.goto('/en/study-guides/aws-azure-certification-practice');
+  await page.getByRole('link', { name: cloudPost.title, exact: true }).click();
+  await expect(page.locator('h1')).toHaveText(cloudPost.title);
+  await expect(page.locator('link[hreflang]')).toHaveCount(0);
+  for (const width of [390, 1280]) {
+    await page.setViewportSize({ width, height: 900 });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await page.screenshot({ path: `../docs/seo/previews/cloud-responsibility-${width}.png`, fullPage: true });
+  }
+  await page.getByRole('link', { name: 'Practise AZ-900 questions →', exact: true }).click();
+  await page.locator('input[type="radio"]').first().check();
+  await page.getByRole('button', { name: 'Check answer', exact: true }).click();
+  await expect(page.locator('.answer-feedback')).toBeVisible();
+  await expect(page.getByRole('link', { name: cloudPost.title, exact: true })).toHaveAttribute('href', cloudPost.path);
+  expect(errors).toEqual([]);
+  const context = await browser.newContext({ javaScriptEnabled: false, baseURL: 'http://127.0.0.1:3100' });
+  const staticPage = await context.newPage();
+  await staticPage.goto('/en/blog');
+  await staticPage.getByRole('link', { name: cloudPost.title, exact: true }).click();
+  await staticPage.getByText('Show cloud answer 1', { exact: true }).click();
+  await expect(staticPage.getByText('The company.', { exact: true })).toBeVisible();
+  await staticPage.getByRole('link', { name: 'Practise AZ-900 questions →', exact: true }).click();
+  await expect(staticPage.locator('.question-prompt')).toBeVisible();
+  await context.close();
+  expect((await request.get('/blog/' + cloudPost.slug)).status()).toBe(404);
 });

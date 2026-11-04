@@ -62,7 +62,7 @@ test('all sets includes every source; resume keeps order and start fresh clears 
   await page.keyboard.press('2'); await page.keyboard.press('Enter');
   // Enter on the focused Continue button resumes; it must not grade or advance.
   await expect(dialog).toHaveCount(0);
-  await expect(page.locator('.question-prompt')).toHaveText(question);
+  await expect(page.locator('.question-prompt')).toHaveText(question, { useInnerText: true });
   await expect(page.locator(`input[value="${selected}"]`)).toBeChecked();
   const before = (await context.cookies()).find(cookie => cookie.name === 'quizeey_session_ko_5_0')!.value;
   await page.reload();

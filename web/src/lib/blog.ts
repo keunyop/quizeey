@@ -22,7 +22,13 @@ export const subnetPost: BlogPost = {
   description: 'Solve /26, /27 and /20 subnetting examples step by step. Check your network address, broadcast and usable hosts, then practise with Network+ questions.',
   date: '2026-11-02', modified: '2026-11-02', category: 'Networking · Worked examples', practicePath: '/en/comptia-n10-009',
 };
-export const blogPosts = [subnetPost, blogPost];
+export const cloudPost: BlogPost = {
+  slug: 'iaas-paas-saas-shared-responsibility', path: '/en/blog/iaas-paas-saas-shared-responsibility', locale: 'en',
+  title: 'IaaS vs PaaS vs SaaS: Shared Responsibility Practice',
+  description: 'Who patches the OS, fixes the code or manages user access? Work through three cloud responsibility scenarios, then practise with AZ-900 questions and explanations.',
+  date: '2026-11-04', modified: '2026-11-04', category: 'Cloud fundamentals · Worked examples', practicePath: '/en/az-900',
+};
+export const blogPosts = [cloudPost, subnetPost, blogPost];
 const englishIndex = { title: 'Quizeey Blog: Certification Concepts with Worked Examples', description: 'Understand a concept, work through an example and check your reasoning with practice questions.' };
 export function blogIndexPath(locale: Locale) { return locale === 'en' ? '/en/blog' : blogPath; }
 export function blogIndexCopy(locale: Locale) { return locale === 'en' ? englishIndex : blogIndex; }
@@ -36,7 +42,7 @@ export function blogMetadata(origin: string, publicProduction: boolean, post?: B
     title: { absolute: post ? `${copy.title} | Quizeey` : copy.title }, description: copy.description,
     robots: { index: publicProduction, follow: publicProduction },
     ...(publicProduction ? { alternates: { canonical: url } } : {}),
-    openGraph: { title: copy.title, description: copy.description, siteName: 'Quizeey', locale: locale === 'en' ? 'en_CA' : 'ko_KR',
+    openGraph: { title: copy.title, description: copy.description, siteName: 'Quizeey', locale: locale === 'en' ? (post?.slug === cloudPost.slug ? 'en_US' : 'en_CA') : 'ko_KR',
       ...(publicProduction ? { url } : {}),
       ...(post ? { type: 'article', publishedTime: post.date, modifiedTime: post.modified } : { type: 'website' }),
     },

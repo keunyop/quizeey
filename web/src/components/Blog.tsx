@@ -1,7 +1,8 @@
 import { headers } from 'next/headers';
-import { blogIndexCopy, blogIndexPath, blogPosts, blogPost, blogPostPath, subnetPost, blogStructuredData, type BlogPost } from '@/lib/blog';
+import { blogIndexCopy, blogIndexPath, blogPosts, blogPost, blogPostPath, subnetPost, cloudPost, blogStructuredData, type BlogPost } from '@/lib/blog';
 import type { Locale } from '@/lib/contracts';
 import { SubnetArticle } from './SubnetArticle';
+import { CloudResponsibilityArticle } from './CloudResponsibilityArticle';
 import { environment } from '@/lib/environment';
 import { ExamLink } from './ExamLink';
 import { Monetization } from './Monetization';
@@ -22,6 +23,14 @@ export function SubnetDiscovery() {
     <p className={styles.eyebrow}>WORK THROUGH THE CALCULATION</p>
     <h2><a href={subnetPost.path}>{subnetPost.title}</a></h2>
     <p>Find the network boundary, check the host range and try three short exercises.</p>
+  </aside>;
+}
+
+export function CloudDiscovery() {
+  return <aside className={styles.discovery} aria-label="Cloud responsibility guide">
+    <p className={styles.eyebrow}>WHO HANDLES THIS TASK?</p>
+    <h2><a href={cloudPost.path}>{cloudPost.title}</a></h2>
+    <p>Compare three service models, explain the responsibility boundary and try a short scenario.</p>
   </aside>;
 }
 
@@ -95,7 +104,7 @@ export async function BlogView({ post, locale = 'ko' }: { post?: BlogPost; local
       <nav className={styles.breadcrumb} aria-label={en ? 'Breadcrumb' : '현재 위치'}><a href={home}>{en ? 'Home' : '홈'}</a><span aria-hidden="true"> / </span>{post ? <><a href={indexPath}>{en ? 'Blog' : '블로그'}</a><span aria-hidden="true"> / </span><span aria-current="page">{post.category}</span></> : <span aria-current="page">{en ? 'Blog' : '블로그'}</span>}</nav>
       {post ? <article className={styles.article}>
         <header><p className={styles.eyebrow}>{post.category}</p><h1>{post.title}</h1><p className={styles.byline}><a href={en ? '/en/about' : '/about'}>Quizeey</a> · <time dateTime={post.date}>{post.date}</time></p></header>
-        {post.slug === subnetPost.slug ? <SubnetArticle /> : <CountArticle />}
+        {post.slug === cloudPost.slug ? <CloudResponsibilityArticle /> : post.slug === subnetPost.slug ? <SubnetArticle /> : <CountArticle />}
       </article> : <>
         <header className={styles.indexHeader}><p className={styles.eyebrow}>QUIZEEY BLOG</p><h1>{en ? 'A small concept. A clearer answer.' : <>작은 개념 하나가,<br />다음 정답으로.</>}</h1><p>{index.description}</p></header>
         {blogPosts.filter(item => !en || item.locale === 'en').map(item => <article key={item.path} lang={item.locale} className={styles.postCard}><p className={styles.eyebrow}>{item.category}</p><h2><a href={item.path}>{item.title}</a></h2><p>{item.description}</p><time dateTime={item.date}>{item.date}</time></article>)}

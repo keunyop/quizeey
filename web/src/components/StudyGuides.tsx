@@ -1,4 +1,4 @@
-import { SubnetDiscovery } from './Blog';
+import { SubnetDiscovery, CloudDiscovery } from './Blog';
 import { headers } from 'next/headers';
 import { authoredSetSummary } from '@/lib/authored-practice';
 import { findRoute } from '@/lib/contracts';
@@ -83,6 +83,7 @@ export async function StudyGuideView({ guide }: { guide?: StudyGuide }) {
         {guide ? <>
           <GuidePracticeLinks guide={guide} />
           {guide.slug === 'current-certification-exam-versions' && <SubnetDiscovery />}
+          {guide.slug === 'aws-azure-certification-practice' && <CloudDiscovery />}
           {guide.sections.map(section => <section key={section.heading}>
             <h2>{section.heading}</h2>
             {section.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}

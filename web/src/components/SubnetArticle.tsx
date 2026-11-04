@@ -1,4 +1,4 @@
-import { blogPost, subnetPost } from '@/lib/blog';
+import { blogPost, subnetPost, cloudPost } from '@/lib/blog';
 import { ExamLink } from './ExamLink';
 import styles from './blog.module.css';
 
@@ -46,6 +46,7 @@ export function SubnetArticle() {
     <section className={styles.sources} aria-labelledby="subnet-sources"><h2 id="subnet-sources">Check the underlying rules</h2>
       <p><a href="https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html">Cisco: IPv4 addressing, subnetting and special subnets</a> · <a href="https://www.rfc-editor.org/rfc/rfc3021.html">RFC 3021: /31 point-to-point links</a> · <a href="https://assets.ctfassets.net/82ripq7fjls2/113XqW3JHT7AlIU33M63I0/af42da2af7383a38f318bad10aa9afbd/Network_Plus_N10-009_Exam_Objectives.pdf">CompTIA Network+ N10-009 objectives</a></p>
       <p>The 192.0.2.0/24, 198.51.100.0/24 and 203.0.113.0/24 examples use <a href="https://datatracker.ietf.org/doc/html/rfc5737">documentation address ranges</a>. The /20 example uses private address space.</p>
+      <p>Moving on to cloud concepts? Try <a href={cloudPost.path}>shared responsibility practice</a>.</p>
       <p>Also studying SQL in Korean? Read our <a href={blogPost.path} lang="ko">SQLD CBT 공부법</a> for a worked review exercise.</p>
     </section>
   </>;
