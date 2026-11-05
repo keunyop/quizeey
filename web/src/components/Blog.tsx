@@ -1,8 +1,9 @@
 import { headers } from 'next/headers';
-import { blogIndexCopy, blogIndexPath, blogPosts, blogPost, blogPostPath, subnetPost, cloudPost, blogStructuredData, type BlogPost } from '@/lib/blog';
+import { blogIndexCopy, blogIndexPath, blogPosts, blogPost, blogPostPath, subnetPost, cloudPost, printingPost, blogStructuredData, type BlogPost } from '@/lib/blog';
 import type { Locale } from '@/lib/contracts';
 import { SubnetArticle } from './SubnetArticle';
 import { CloudResponsibilityArticle } from './CloudResponsibilityArticle';
+import { PrintingArticle } from './PrintingArticle';
 import { environment } from '@/lib/environment';
 import { ExamLink } from './ExamLink';
 import { Monetization } from './Monetization';
@@ -31,6 +32,14 @@ export function CloudDiscovery() {
     <p className={styles.eyebrow}>WHO HANDLES THIS TASK?</p>
     <h2><a href={cloudPost.path}>{cloudPost.title}</a></h2>
     <p>Compare three service models, explain the responsibility boundary and try a short scenario.</p>
+  </aside>;
+}
+
+export function PrintingDiscovery() {
+  return <aside className={styles.discovery} aria-label="3D프린터운용기능사 필기 개념 연습">
+    <p className={styles.eyebrow}>설정을 계산하고, 문제로 확인하세요</p>
+    <h2><a href={printingPost.path}>{printingPost.title}</a></h2>
+    <p>레이어 수를 계산하고 서포트·인필의 역할을 구분한 뒤 5문제를 풀어 보세요.</p>
   </aside>;
 }
 
@@ -82,6 +91,7 @@ function CountArticle() {
       <h2 id="count-sources">공식 문서로 확인하기</h2>
       <p><a href="https://www.postgresql.org/docs/18/functions-aggregate.html">PostgreSQL 공식 문서: COUNT 집계 함수</a> · <a href="https://www.postgresql.org/docs/18/sql-expressions.html#SYNTAX-AGGREGATES">DISTINCT 집계 표현식</a></p>
       <p>이 글의 예제는 개념 학습용으로 작성했으며 실제 출제 문항이 아닙니다.</p>
+      <p>3D프린터 자격증도 준비한다면: <a href={printingPost.path}>레이어 높이·서포트·인필 5문제</a>.</p>
       <p>네트워크도 공부한다면: <a href={subnetPost.path} lang="en">IPv4 subnetting worked examples (English)</a>.</p>
     </section>
   </>;
@@ -104,7 +114,7 @@ export async function BlogView({ post, locale = 'ko' }: { post?: BlogPost; local
       <nav className={styles.breadcrumb} aria-label={en ? 'Breadcrumb' : '현재 위치'}><a href={home}>{en ? 'Home' : '홈'}</a><span aria-hidden="true"> / </span>{post ? <><a href={indexPath}>{en ? 'Blog' : '블로그'}</a><span aria-hidden="true"> / </span><span aria-current="page">{post.category}</span></> : <span aria-current="page">{en ? 'Blog' : '블로그'}</span>}</nav>
       {post ? <article className={styles.article}>
         <header><p className={styles.eyebrow}>{post.category}</p><h1>{post.title}</h1><p className={styles.byline}><a href={en ? '/en/about' : '/about'}>Quizeey</a> · <time dateTime={post.date}>{post.date}</time></p></header>
-        {post.slug === cloudPost.slug ? <CloudResponsibilityArticle /> : post.slug === subnetPost.slug ? <SubnetArticle /> : <CountArticle />}
+        {post.slug === printingPost.slug ? <PrintingArticle /> : post.slug === cloudPost.slug ? <CloudResponsibilityArticle /> : post.slug === subnetPost.slug ? <SubnetArticle /> : <CountArticle />}
       </article> : <>
         <header className={styles.indexHeader}><p className={styles.eyebrow}>QUIZEEY BLOG</p><h1>{en ? 'A small concept. A clearer answer.' : <>작은 개념 하나가,<br />다음 정답으로.</>}</h1><p>{index.description}</p></header>
         {blogPosts.filter(item => !en || item.locale === 'en').map(item => <article key={item.path} lang={item.locale} className={styles.postCard}><p className={styles.eyebrow}>{item.category}</p><h2><a href={item.path}>{item.title}</a></h2><p>{item.description}</p><time dateTime={item.date}>{item.date}</time></article>)}

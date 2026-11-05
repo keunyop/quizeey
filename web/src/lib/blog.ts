@@ -14,7 +14,14 @@ export const blogPost: BlogPost = {
 };
 export const blogPath = '/blog';
 export const blogPostPath = `${blogPath}/${blogPost.slug}`;
-export const blogIndex = { title: 'Quizeey 블로그: 예제로 배우는 자격증 공부', description: '헷갈리는 자격증 개념을 짧은 예제와 확인 문제로 정리하세요. 이해한 개념은 Quizeey 문제풀이로 바로 연습할 수 있습니다.' };
+export const blogIndex = { title: 'Quizeey 블로그: 예제로 배우는 자격증 공부', description: 'SQLD와 3D프린터운용기능사 등 헷갈리는 자격증 개념을 짧은 예제와 확인 문제로 정리하고 Quizeey 문제풀이로 연습하세요.' };
+
+export const printingPost: BlogPost = {
+  slug: '3d-printer-operation-written-test', path: '/blog/3d-printer-operation-written-test', locale: 'ko',
+  title: '3D프린터운용기능사 필기: 레이어 높이·서포트·인필 5문제',
+  description: '3D프린터운용기능사 필기의 레이어 수 계산, 서포트 판단, 인필 설정을 5문제로 연습하세요. 핵심 원리를 익힌 뒤 무료 문제풀이로 확인할 수 있습니다.',
+  date: '2026-11-05', modified: '2026-11-05', category: '3D프린터운용기능사 · 개념 연습', practicePath: '/craftsman-3D-printer-operation',
+};
 
 export const subnetPost: BlogPost = {
   slug: 'ipv4-subnetting-practice', path: '/en/blog/ipv4-subnetting-practice', locale: 'en',
@@ -28,7 +35,7 @@ export const cloudPost: BlogPost = {
   description: 'Who patches the OS, fixes the code or manages user access? Work through three cloud responsibility scenarios, then practise with AZ-900 questions and explanations.',
   date: '2026-11-04', modified: '2026-11-04', category: 'Cloud fundamentals · Worked examples', practicePath: '/en/az-900',
 };
-export const blogPosts = [cloudPost, subnetPost, blogPost];
+export const blogPosts = [printingPost, cloudPost, subnetPost, blogPost];
 const englishIndex = { title: 'Quizeey Blog: Certification Concepts with Worked Examples', description: 'Understand a concept, work through an example and check your reasoning with practice questions.' };
 export function blogIndexPath(locale: Locale) { return locale === 'en' ? '/en/blog' : blogPath; }
 export function blogIndexCopy(locale: Locale) { return locale === 'en' ? englishIndex : blogIndex; }
@@ -51,8 +58,11 @@ export function blogMetadata(origin: string, publicProduction: boolean, post?: B
 }
 
 export function blogSitemap(origin: string): MetadataRoute.Sitemap {
-  const latest = blogPosts.map(post => post.modified).sort().at(-1)!;
-  return [...['/blog', '/en/blog'].map(path => ({ url: origin + path, lastModified: latest })),
+  const indexEntries = (['ko', 'en'] as const).map(locale => ({
+    url: origin + blogIndexPath(locale),
+    lastModified: blogPosts.filter(post => post.locale === locale).map(post => post.modified).sort().at(-1)!,
+  }));
+  return [...indexEntries,
     ...blogPosts.map(post => ({ url: origin + post.path, lastModified: post.modified }))];
 }
 
