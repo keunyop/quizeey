@@ -16,7 +16,7 @@ test("global and Canadian exams have the requested catalog visibility and resolv
   }
   for (const id of ids) {
     const versions = await request.post("/versions", { data: { testId: id } });
-    expect(await versions.json()).toEqual([{ verId: 8_100_000_000 + Number(id), verNm: "2026-10", verNbr: 202610 }]);
+    expect((await versions.json()).filter((set: { verNbr: number }) => set.verNbr === 202610)).toEqual([{ verId: 8_100_000_000 + Number(id), verNm: "2026-10", verNbr: 202610 }]);
     const questions = authoredQuestions(id, "en");
     for (const index of [3, 19, 20, questions.length - 1]) {
       const question = questions[index];

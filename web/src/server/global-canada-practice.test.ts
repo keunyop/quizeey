@@ -73,7 +73,7 @@ it("serves every 2026-10 question across all pages, direct links, and correct ex
   const learning = store();
   for (const id of ids) {
     const questions = authoredQuestions(id, "en");
-    expect(learning.versions(id, "en")).toEqual([{ id: String(8_100_000_000 + Number(id)), number: 202610, name: "2026-10" }]);
+    expect(learning.versions(id, "en").filter(set => set.number === 202610)).toEqual([{ id: String(8_100_000_000 + Number(id)), number: 202610, name: "2026-10" }]);
     const pages = Math.ceil(questions.length / 20);
     expect(learning.pagination(id, "en", 202610)).toEqual({ page: 1, total: questions.length, pages });
     expect(Array.from({ length: pages }, (_, index) => learning.questions(id, "en", 202610, undefined, index + 1)).flat()).toEqual(questions);

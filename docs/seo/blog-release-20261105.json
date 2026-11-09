@@ -1,0 +1,61 @@
+{
+  "releaseDate": "2026-11-05",
+  "site": "Quizeey",
+  "articleUrl": "https://quizeey.com/blog/3d-printer-operation-written-test",
+  "deployment": {
+    "id": "dpl_BwjTxn4N8pVqYxBuU9jueNRrBsz2",
+    "url": "https://quizeey-nzhf2fyuv-kevins-projects-e2dcc34c.vercel.app",
+    "state": "READY",
+    "target": "production",
+    "source": "git",
+    "branch": "master",
+    "commit": "572e9d34ffa4bca6bca01457478ea27cf9b8beb1",
+    "framework": "nextjs",
+    "buildDurationMs": 75281,
+    "productionDomain": "quizeey.com",
+    "aliasError": null
+  },
+  "localVerification": {
+    "requiredCommand": "npm run check:local",
+    "windowsCommand": "npm.cmd run check:local",
+    "typecheck": "passed",
+    "lint": "passed",
+    "unitTestsPassed": 180,
+    "unitFilesPassed": 35,
+    "build": "passed",
+    "browserRun": {
+      "passed": 86,
+      "skipped": 13,
+      "failed": 0
+    },
+    "fullSuiteRerunAfterFix": true,
+    "testRepair": "JSON-LD script assertions now read textContent because script elements have no rendered innerText.",
+    "portIsolation": "An unrelated RubriCheck process already owned 127.0.0.1:3100. The full local workflow ran on a temporary 3110-only mechanical substitution, then every local port reference was restored to 3100 before commit.",
+    "monetizationScenariosPassed": 6,
+    "monetizationRealNetworkRequests": 0,
+    "newBlogAxeViolations": 0,
+    "newBlogRuntimeErrors": 0,
+    "excluded": [
+      "real DB/Auth (13 dependent tests skipped because isolated fixtures were absent)",
+      "production analytics ingestion"
+    ]
+  },
+  "smoke": {
+    "checkedAt": "2026-11-05T22:18:30.4003668Z",
+    "articleStatus": 200,
+    "blogIndexStatus": 200,
+    "practiceStatus": 200,
+    "titlePresent": true,
+    "h1Present": true,
+    "bodyPresent": true,
+    "canonicalPresent": true,
+    "robots": "index, follow",
+    "articleSchemaPresent": true,
+    "blogIndexArticleLinkPresent": true,
+    "practiceArticleLinkPresent": true,
+    "articlePracticeLinkPresent": true,
+    "articleSqldLinkPresent": true,
+    "runtimeErrorOrFatalLogs": 0
+  },
+  "recordStorage": "Saved locally after release; not pushed to avoid a second production deployment. The pre-existing untracked blog-release-20261104.json remains preserved."
+}

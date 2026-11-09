@@ -8,6 +8,7 @@ export type Certification = {
   source: string;
   replacement?: string;
   related: string[];
+  reviewDate?: string;
 };
 const microsoft = 'https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/';
 const cisco = 'https://www.cisco.com/site/us/en/learn/training-certifications/exams/retired.html';
@@ -16,6 +17,7 @@ const msUpdates = 'https://learn.microsoft.com/en-us/credentials/certifications/
 const serverRetirement = 'https://techcommunity.microsoft.com/blog/skills-hub-blog/mcsa-mcsd-mcse-certifications-retire-with-continued-investment-to-role-based-cer/1489670';
 
 export const certifications: Record<string, Certification> = {
+  '261': { code: 'AIF-C01', status: 'current', reviewDate: '2026-11-08', note: 'Practice across AI/ML, generative AI, foundation models, responsible AI and security. Twenty topic drills are not a full exam simulation.', source: 'https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.html', related: ['239', '253'] },
   '166': { code: '200-125', status: 'retired', note: 'CCNA 200-125 retired on February 23, 2020. Continue with CCNA 200-301; the old questions remain available for reference.', source: cisco, replacement: '204', related: ['255'] },
   '168': { code: 'SY0-501', status: 'retired', note: 'SY0-501 is a retired Security+ exam. This archive and its supplemental questions are not a SY0-701 practice set.', source: comptia + 'security/', replacement: '253', related: ['259'] },
   '169': { code: 'AZ-103', status: 'retired', note: 'AZ-103 was replaced by AZ-104. Keep this archive for earlier Azure concepts and use the separate AZ-104 set for administrator practice.', source: msUpdates, replacement: '254', related: ['170'] },
@@ -45,6 +47,7 @@ export const isRetiredExam = (id: string | null | undefined) => certificationFor
 
 // Explicit English taxonomy keeps unrelated Korean categories unchanged.
 export const certificationCategories: Record<string, 'cloud' | 'security' | 'networking' | 'data' | 'it-support' | 'business'> = {
+  '261': 'cloud',
   '1': 'cloud', '143': 'cloud', '169': 'cloud', '170': 'cloud', '172': 'cloud', '187': 'cloud', '194': 'cloud', '239': 'cloud', '254': 'cloud', '257': 'cloud',
   '168': 'security', '177': 'security', '198': 'security', '205': 'security', '253': 'security', '259': 'security',
   '166': 'networking', '174': 'networking', '180': 'networking', '182': 'networking', '195': 'networking', '204': 'networking', '208': 'networking', '255': 'networking',

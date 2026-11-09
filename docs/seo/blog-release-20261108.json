@@ -1,0 +1,71 @@
+﻿{
+  "releaseDate": "2026-11-08",
+  "site": "Quizeey",
+  "articleUrl": "https://quizeey.com/en/blog/ontario-g1-road-signs-shapes-colours",
+  "deployment": {
+    "id": "dpl_5kBH5eA9Git3epmgjM8fFwA4cd6o",
+    "state": "READY",
+    "target": "production",
+    "source": "git",
+    "branch": "master",
+    "commit": "d9aac421d3a261da9a998b04970e3906fedd6fe4",
+    "team": "team_VSzA796D92aso5IuzUIiOdnb",
+    "project": "prj_0SVBqfgurtvZErmpMJl01BJkUKOd",
+    "url": "https://quizeey-61nsviqou-kevins-projects-e2dcc34c.vercel.app",
+    "productionDomain": "quizeey.com"
+  },
+  "localVerification": {
+    "requiredCommand": "npm run check:local",
+    "windowsCommand": "npm.cmd run check:local",
+    "exitCode": 0,
+    "typecheck": "passed",
+    "lint": "passed",
+    "unitTestsPassed": 180,
+    "unitFilesPassed": 35,
+    "build": "passed",
+    "browser": {
+      "passed": 87,
+      "skipped": 13,
+      "failed": 0
+    },
+    "monetizationScenariosPassed": 6,
+    "realNetworkRequests": 0,
+    "newArticleAxeViolations": 0,
+    "newArticlePageErrors": 0,
+    "temporaryOverridesRestoredBeforeCommit": true,
+    "localPortDuringIsolatedRun": 3110,
+    "originalPort": 3100,
+    "excluded": [
+      "DB/Auth: isolated fixtures absent, 13 dependent tests skipped",
+      "production analytics ingestion"
+    ],
+    "notes": [
+      "Initial shared-directory run was not used as final evidence because concurrent November content edits appeared.",
+      "The isolated run included all required checks. The temporary loopback-port assertion was aligned before this final run.",
+      "Existing 90-question Manager journey now has a 120-second limit, matching other long journeys; it passed in approximately 44 seconds.",
+      "After all browser assertions finished, only the fixture server process belonging to this run was terminated to resolve Windows teardown waiting. The workflow then reported 87 passes and ran all six monetization scenarios, exiting 0."
+    ]
+  },
+  "smoke": {
+    "checkedLocalDate": "2026-11-08",
+    "articleStatus": 200,
+    "canonical": "https://quizeey.com/en/blog/ontario-g1-road-signs-shapes-colours",
+    "robots": "index, follow",
+    "bodyPresent": true,
+    "schemaPresent": true,
+    "publishedDate": "2026-11-08",
+    "practiceLink": "/en/ontario-g1",
+    "practiceStatus": 200,
+    "practiceQuestionPresent": true,
+    "practiceArticleLinkPresent": true,
+    "method": "Two affected public pages read only; no hosted regression, accessibility, screenshot, crawling or load tests."
+  },
+  "preservation": {
+    "originalWorkspaceBranch": "content/blog-20261108",
+    "releaseWorktreeBranch": "content/ontario-signs-20261108",
+    "masterAvailableForOtherWork": true,
+    "concurrentNovemberFeatureEdits": "Preserved in original workspace; excluded from this release.",
+    "preExistingUntrackedFiles": "Preserved, including earlier release records and question-review files."
+  },
+  "recordStorage": "Saved locally after release without another push. Final research notes and new previews also copied to the original workspace; no source files from concurrent work were overwritten."
+}

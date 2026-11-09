@@ -23,7 +23,7 @@ import { loadLearningStore } from '@/server/learning-store';
 import { learningHtml,staticPage } from "@/lib/content";
 import { environment } from "@/lib/environment";
 import { examName } from "@/lib/exam-catalog";
-import { authoredVersion } from "@/lib/authored-practice";
+import { isAuthoredVersion, authoredSetSummaries } from "@/lib/authored-practice";
 import { Icon } from "./Icon";
 import { canonicalPath,searchMetadata,pageStructuredData,serializeStructuredData } from '@/lib/seo';
 import { Monetization,AdSlot } from './Monetization';
@@ -110,12 +110,17 @@ export async function RouteView({ path, query }: { path: string; query: Query })
           {locale === 'en' && <CertificationNotice examId={exam.testId} />}
           {versions.length > 0 && <PracticeSettings locale={locale} versions={versions} version={input.verNbr} testId={path.endsWith('/test') ? exam.testId : undefined} count={count} />}
           {publicBatch.length ? <Practice key={`${path}:${input.verNbr}:${input.page}:${input.questId ?? "all"}:${session?.seed ?? ''}:${count}`} questions={publicBatch} previousQuestions={previousBatch} locale={locale} testId={exam.testId} contentVersion={store.version} directId={input.questId} pageNumber={input.page} nextPage={nextPage} commentsEnabled={commentsEnabled} session={session ? { ...session, cookieName, version: input.verNbr, total: pagination?.total ?? publicBatch.length } : undefined} /> : <div className="empty-state" role="status"><div className="empty-icon"><Icon name="book" /></div><h2>{locale === "ko" ? "문제를 준비하고 있어요" : "Questions are not available yet"}</h2><p>{m.unavailable}</p><a className="button-link" href={home}>{m.home}<Icon name="arrow" /></a></div>}
-          {input.verNbr === authoredVersion && !input.questId && publicBatch.length > 0 && <details className="practice-outline">
+          {isAuthoredVersion(input.verNbr) && !input.questId && publicBatch.length > 0 && <details className="practice-outline">
             <summary>{locale === "ko" ? `이 페이지의 연습문제 ${publicBatch.length}개` : `${publicBatch.length} questions on this page`}</summary>
             <ol start={(input.page - 1) * 20 + 1}>{publicBatch.map(question => <li key={question.id}>
-              <a lang={question.contentLocale ?? locale} data-google-vignette="false" href={`${examPath}?questId=${question.id}&verNbr=${authoredVersion}`} dangerouslySetInnerHTML={{ __html: question.text }} />
+              <a lang={question.contentLocale ?? locale} data-google-vignette="false" href={`${examPath}?questId=${question.id}&verNbr=${question.version}`} dangerouslySetInnerHTML={{ __html: question.text }} />
             </li>)}</ol>
           </details>}
+          <nav className="legacy-links" aria-label={locale === 'ko' ? '월별 연습문제' : 'Monthly practice sets'}>
+            <ul>{authoredSetSummaries(exam.testId!, locale).map(set => <li key={set.version}>
+              <a href={`${examPath}?verNbr=${set.version}`}>{locale === 'ko' ? `${set.name} 연습문제 ${set.count}개` : `${set.name}: ${set.count} practice questions`}</a>
+            </li>)}</ul>
+          </nav>
           {locale === 'en' && <RelatedStudyGuide examPath={examPath} />}
           {locale === 'en' && examPath === '/en/comptia-n10-009' && <SubnetDiscovery />}
           {locale === 'en' && examPath === '/en/az-900' && <CloudDiscovery />}
@@ -143,6 +148,12 @@ export async function RouteView({ path, query }: { path: string; query: Query })
         <a href="/sqlp-developer">한국어 샘플 연습</a>{' · '}<a href="/en/aws-certified-developer-associate">Try English samples</a>
       </aside>}
       {isHome ? <><ExamSearch routes={examRoutes} locale={locale} popularity={popularity} />
+        <nav className="legacy-links" aria-label={locale === 'ko' ? '2026-11 새 연습문제' : 'New November 2026 practice'}>
+          <h2>{locale === 'ko' ? '2026-11 새 연습문제' : 'New November 2026 practice'}</h2>
+          <ul>{examRoutes.filter(r => authoredSetSummaries(r.testId!, locale).some(set => set.version === 202611)).map(r => <li key={r.path}>
+            <ExamLink href={`${r.path}?verNbr=202611`}>{examName(r)} · {authoredSetSummaries(r.testId!, locale).find(set => set.version === 202611)!.count}{locale === 'ko' ? '문항' : ' questions'}</ExamLink>
+          </li>)}</ul>
+        </nav>
         {locale === 'en' && <><StudyGuideCards /><RoadSignsDiscovery /><CloudDiscovery /><SubnetDiscovery /></>}
         {locale === 'ko' && <><PrintingDiscovery /><BlogDiscovery /></>}
         <details className="exam-directory"><summary>{locale==='ko'?'전체 자격증 시험 목록':'All practice exams'}</summary>

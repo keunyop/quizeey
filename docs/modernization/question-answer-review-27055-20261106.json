@@ -1,0 +1,63 @@
+{
+  "reviewDate": "2026-11-06",
+  "projectId": "tfkhnrbshvyfmrzxqfmq",
+  "questionId": 27055,
+  "examId": 14,
+  "version": "2014-04-06",
+  "questionNumber": 3,
+  "status": "applied_and_verified",
+  "decision": "Existing answer 1 (choice_id 109000, 아플라톡신-신경독) is correct because aflatoxins primarily damage the liver and are associated with liver cancer, not a primary neurotoxic effect. The prompt and all choices remain unchanged. The explanation notes that kidney toxicity is the characteristic modern description for ochratoxin A, while liver effects can also occur.",
+  "sources": [
+    "https://www.who.int/news-room/fact-sheets/detail/mycotoxins",
+    "https://www.efsa.europa.eu/sites/default/files/2026-01/4.1_Emerging%20mycotoxin%20remediation%20methods_34th_StaDG-ER.pdf",
+    "https://apps.who.int/food-additives-contaminants-jecfa-database/Home/Chemical/6458",
+    "https://hanhap.com/s/%EA%B8%B0%EB%8A%A5%EC%82%AC/%ED%95%9C%EC%8B%9D%EC%A1%B0%EB%A6%AC%EA%B8%B0%EB%8A%A5%EC%82%AC/2014-04-06"
+  ],
+  "scope": {
+    "explanation": true,
+    "reference": true,
+    "operatorComment": true,
+    "resolveSubmission": "74dcd1c4-530d-4407-8169-407def08e8b2",
+    "questionBody": false,
+    "choices": false,
+    "correctChoice": false,
+    "schema": false,
+    "deployment": false
+  },
+  "operatorCommentId": "b9f518ec-b093-4b43-8456-b56d3ddfbbec",
+  "verification": {
+    "localPostgresApply": true,
+    "idempotency": true,
+    "localServiceStudyReader": true,
+    "localAnonymousForumReader": true,
+    "question": true,
+    "choicesUnchanged": true,
+    "correctChoiceIds": [109000],
+    "counterUnchanged": true,
+    "explanation": true,
+    "reference": true,
+    "comment": true,
+    "reportState": "resolved",
+    "approvedPostCount": 6,
+    "auditCount": 1,
+    "openQuestionReports": 0,
+    "liveQuestionPage": {
+      "httpStatus": 200,
+      "explanationPresent": true,
+      "referencePresent": true,
+      "answerPresent": true
+    },
+    "liveCommentApi": {
+      "httpStatus": 200,
+      "operatorCommentPresent": true,
+      "returnedPostCount": 6
+    },
+    "hostedReadOnlyRequests": 2,
+    "fullLocalCheck": "Not run: content-only maintenance; targeted isolated PostgreSQL and two-request production smoke checks passed.",
+    "dbTestsSkipped": 0,
+    "authTests": "Not run: no login, session, authorization or Supabase Auth changes; this review does not verify Auth flows."
+  },
+  "audit": "Resolved through the existing operator actor and public resolution function with one deterministic audit request.",
+  "correctionScript": "../../tools/content/review_reported_question_27055.sql",
+  "privateArtifacts": ".modernization/report-review-27055"
+}

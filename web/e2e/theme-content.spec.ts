@@ -57,14 +57,16 @@ test("both themes remain accessible at mobile and desktop sizes", async ({ page 
 
 test("all catalog exams offer the new set and native question identities through legacy APIs", async ({ request }) => {
   for (const exam of authoredCatalog) {
+    const version = exam.firstVersion ?? 202610;
+    const name = version === 202611 ? '2026-11' : '2026-10';
     const versions = await request.post("/versions", { data: { testId: exam.id } });
     expect(versions.status(), exam.slug).toBe(200);
-    expect(await versions.json(), exam.slug).toEqual(expect.arrayContaining([expect.objectContaining({ verNm: "2026-10", verNbr: 202610 })]));
-    const question = authoredQuestions(exam.id, authoredDefaultLocale(exam.id))[0];
-    const response = await request.post("/question", { data: { testId: exam.id, questId: question.id, verNbr: 202610 } });
+    expect(await versions.json(), exam.slug).toEqual(expect.arrayContaining([expect.objectContaining({ verNm: name, verNbr: version })]));
+    const question = authoredQuestions(exam.id, authoredDefaultLocale(exam.id), version)[0];
+    const response = await request.post("/question", { data: { testId: exam.id, questId: question.id, verNbr: version } });
     expect(response.status(), exam.slug).toBe(200);
     const value = await response.json();
-    expect(value).toMatchObject({ questId: Number(question.id), testId: Number(exam.id), verName: "2026-10" });
+    expect(value).toMatchObject({ questId: Number(question.id), testId: Number(exam.id), verName: name });
     expect(value.examples.filter((choice: { answer: boolean }) => choice.answer)).toHaveLength(1);
   }
 });

@@ -73,7 +73,7 @@ test("legacy POST read contracts keep boolean wire names and stable IDs", async 
   expect((await request.post('/question',{data:{testId:5,questId:'wrong'}})).status()).toBe(400);
   expect((await request.post('/question',{data:{testId:'5',verNbr:'',questId:'900000002'}})).status()).toBe(200);
   expect((await request.post('/question',{data:{testId:'5',verNbr:'1',questId:'900000002'}})).status()).toBe(200);
-  expect((await (await request.post('/versions',{data:{testId:5}})).json()).map((v:{verNbr:number})=>v.verNbr).sort()).toEqual([1,2,202610]);
+  expect((await (await request.post('/versions',{data:{testId:5}})).json()).map((v:{verNbr:number})=>v.verNbr).sort()).toEqual([1,2,202610,202611]);
   const english = await (await request.post('/tests',{data:{languageCd:'en'}})).json();
   expect(english.every((exam:{url:string;testId:number})=>!exam.url.startsWith('/')&&findRoute('/en/'+exam.url)?.testId===String(exam.testId))).toBe(true);
   const korean=await (await request.post('/tests',{data:{languageCd:'kr'}})).json();
