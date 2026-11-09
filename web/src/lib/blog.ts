@@ -35,7 +35,13 @@ export const cloudPost: BlogPost = {
   description: 'Who patches the OS, fixes the code or manages user access? Work through three cloud responsibility scenarios, then practise with AZ-900 questions and explanations.',
   date: '2026-11-04', modified: '2026-11-04', category: 'Cloud fundamentals · Worked examples', practicePath: '/en/az-900',
 };
-export const blogPosts = [printingPost, cloudPost, subnetPost, blogPost];
+export const roadSignsPost: BlogPost = {
+  slug: 'ontario-g1-road-signs-shapes-colours', path: '/en/blog/ontario-g1-road-signs-shapes-colours', locale: 'en',
+  title: 'Ontario G1 Road Signs: Shapes, Colours and 5 Practice Questions',
+  description: 'Learn Ontario road sign shapes and colours, separate stop from yield, and try five explained questions before practising with the G1 study set.',
+  date: '2026-11-08', modified: '2026-11-08', category: 'Ontario G1 · Road sign practice', practicePath: '/en/ontario-g1',
+};
+export const blogPosts = [roadSignsPost, printingPost, cloudPost, subnetPost, blogPost];
 const englishIndex = { title: 'Quizeey Blog: Certification Concepts with Worked Examples', description: 'Understand a concept, work through an example and check your reasoning with practice questions.' };
 export function blogIndexPath(locale: Locale) { return locale === 'en' ? '/en/blog' : blogPath; }
 export function blogIndexCopy(locale: Locale) { return locale === 'en' ? englishIndex : blogIndex; }
@@ -60,7 +66,7 @@ export function blogMetadata(origin: string, publicProduction: boolean, post?: B
 export function blogSitemap(origin: string): MetadataRoute.Sitemap {
   const indexEntries = (['ko', 'en'] as const).map(locale => ({
     url: origin + blogIndexPath(locale),
-    lastModified: blogPosts.filter(post => post.locale === locale).map(post => post.modified).sort().at(-1)!,
+    lastModified: blogPosts.filter(post => locale === 'ko' || post.locale === locale).map(post => post.modified).sort().at(-1)!,
   }));
   return [...indexEntries,
     ...blogPosts.map(post => ({ url: origin + post.path, lastModified: post.modified }))];

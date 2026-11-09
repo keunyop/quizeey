@@ -15,6 +15,10 @@
 .table thead { background: var(--surface-soft); }
 .figure { margin: 28px 0; }
 .figure figcaption { color: var(--muted); font-size: 13px; margin-top: 12px; }
+.signGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.signGrid > div { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; padding: 20px 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface-soft); }
+.signGrid svg { width: 100px; height: 100px; max-width: 100%; }
+.signGrid span { color: var(--muted); font-size: 13px; }
 .comparison { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
 .countCard { display: flex; align-items: center; flex-direction: column; gap: 10px; border: 1px solid var(--line); border-radius: 12px; background: var(--blue-soft); padding: 20px 8px; text-align: center; }
 .countCard code { font-size: 12px; min-height: 38px; overflow-wrap: anywhere; }

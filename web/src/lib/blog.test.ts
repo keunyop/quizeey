@@ -20,8 +20,8 @@ describe('blog search publishing', () => {
     expect(metadata.robots).toEqual({ index: true, follow: true });
     expect(publicSitemap(origin)).toEqual(expect.arrayContaining(blogSitemap(origin)));
     for (const post of blogPosts) expect(blogSitemap(origin)).toContainEqual({ url: origin + post.path, lastModified: post.modified });
-    expect(blogSitemap(origin).find(entry => entry.url === origin + '/blog')?.lastModified).toBe('2026-11-05');
-    expect(blogSitemap(origin).find(entry => entry.url === origin + '/en/blog')?.lastModified).toBe('2026-11-04');
+    expect(blogSitemap(origin).find(entry => entry.url === origin + '/blog')?.lastModified).toBe('2026-11-08');
+    expect(blogSitemap(origin).find(entry => entry.url === origin + '/en/blog')?.lastModified).toBe('2026-11-08');
     expect(findBlogPost(printingPost.slug, 'ko')).toBe(printingPost);
     expect(findBlogPost(printingPost.slug, 'en')).toBeUndefined();
     const data = blogStructuredData(origin, blogPost)['@graph'];
@@ -31,7 +31,7 @@ describe('blog search publishing', () => {
   it('publishes the 3D printer article with complete production search metadata', () => {
     const origin = 'https://quizeey.com';
     const metadata = blogMetadata(origin, true, printingPost);
-    expect(blogPosts[0]).toBe(printingPost);
+    expect(blogPosts).toContain(printingPost);
     expect(metadata).toMatchObject({
       title: { absolute: `${printingPost.title} | Quizeey` },
       description: printingPost.description,

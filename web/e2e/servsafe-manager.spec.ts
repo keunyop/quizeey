@@ -30,6 +30,8 @@ test("Manager is a separate English exam and every page boundary resolves throug
 });
 
 test("Manager supports discovery, English grading, saved progress, all 90 questions, and a direct link to question 90", async ({ page }) => {
+  // Like the other complete multi-page exam journeys, allow time for every answer.
+  test.setTimeout(120_000);
   const errors: string[] = [];
   page.on("pageerror", error => errors.push(error.message));
   await page.goto("/en");

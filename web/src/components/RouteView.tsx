@@ -4,7 +4,7 @@ import { headers, cookies } from 'next/headers';
 import { randomUUID } from 'node:crypto';
 import { ExamSearch } from "./ExamSearch";
 import { RelatedStudyGuide, StudyGuideCards } from './StudyGuides';
-import { BlogDiscovery, SubnetDiscovery, CloudDiscovery, PrintingDiscovery } from './Blog';
+import { BlogDiscovery, SubnetDiscovery, CloudDiscovery, PrintingDiscovery, RoadSignsDiscovery } from './Blog';
 import { ExamLink } from "./ExamLink";
 import { ExamHeading } from "./ExamHeading";
 import { CertificationNotice, CertificationPracticeLinks } from './CertificationContext';
@@ -119,6 +119,7 @@ export async function RouteView({ path, query }: { path: string; query: Query })
           {locale === 'en' && <RelatedStudyGuide examPath={examPath} />}
           {locale === 'en' && examPath === '/en/comptia-n10-009' && <SubnetDiscovery />}
           {locale === 'en' && examPath === '/en/az-900' && <CloudDiscovery />}
+          {locale === 'en' && examPath === '/en/ontario-g1' && <RoadSignsDiscovery />}
           {locale === 'ko' && examPath === '/sqlp-developer' && <BlogDiscovery />}
           {locale === 'ko' && examPath === '/craftsman-3D-printer-operation' && <PrintingDiscovery />}
           {locale === 'en' && <CertificationPracticeLinks examId={exam.testId} directId={input.questId} />}
@@ -142,7 +143,7 @@ export async function RouteView({ path, query }: { path: string; query: Query })
         <a href="/sqlp-developer">한국어 샘플 연습</a>{' · '}<a href="/en/aws-certified-developer-associate">Try English samples</a>
       </aside>}
       {isHome ? <><ExamSearch routes={examRoutes} locale={locale} popularity={popularity} />
-        {locale === 'en' && <><StudyGuideCards /><CloudDiscovery /><SubnetDiscovery /></>}
+        {locale === 'en' && <><StudyGuideCards /><RoadSignsDiscovery /><CloudDiscovery /><SubnetDiscovery /></>}
         {locale === 'ko' && <><PrintingDiscovery /><BlogDiscovery /></>}
         <details className="exam-directory"><summary>{locale==='ko'?'전체 자격증 시험 목록':'All practice exams'}</summary>
           <nav aria-label={locale==='ko'?'전체 시험 바로가기':'All exam links'}><ul>{examRoutes.filter(r => locale !== 'en' || !isRetiredExam(r.testId)).map(r=><li key={r.path}><ExamLink href={r.path}>{examName(r)}</ExamLink></li>)}</ul></nav>
