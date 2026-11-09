@@ -2,7 +2,7 @@ import { expect, it, vi } from "vitest";
 vi.mock("server-only", () => ({}));
 import { LearningStore } from "./learning-store";
 import { coreStudyStore } from "./study-store";
-import { authoredCatalog, authoredDefaultLocale, authoredQuestions, authoredQuestionId, findAuthoredQuestion } from "@/lib/authored-practice";
+import { authoredCatalog, allAuthoredQuestions, authoredDefaultLocale, authoredQuestions, authoredQuestionId, findAuthoredQuestion } from "@/lib/authored-practice";
 import { grade } from "@/lib/quiz";
 import { emptyProgress, readProgress } from "@/lib/progress";
 import { findRoute } from "@/lib/contracts";
@@ -19,9 +19,9 @@ function archive(count: number) {
 }
 
 it("covers all 207 catalog exams with 2214 distinct, answerable, attributed original questions", () => {
-  expect(authoredCatalog).toHaveLength(207);
+  expect(authoredCatalog.filter(exam => !exam.firstVersion)).toHaveLength(207);
   const ids = new Set<string>(); const choiceIds = new Set<string>();
-  for (const exam of authoredCatalog) {
+  for (const exam of authoredCatalog.filter(exam => !exam.firstVersion)) {
     const locale = authoredDefaultLocale(exam.id);
     expect(findRoute((locale === "en" ? "/en/" : "/") + exam.slug)?.testId).toBe(exam.id);
     const questions = authoredQuestions(exam.id, locale);
@@ -193,13 +193,13 @@ it("keeps all 90 English Manager questions distinct from Food Handler and reacha
 it.each([0, 1, 17, 18, 19, 20, 21, 37, 38, 39, 40, 41])("appends originals to %i archived questions without gaps or pagination overlap", count => {
   const store = new LearningStore(archive(count));
   const { total, pages } = store.pagination("5", "ko");
-  expect(total).toBe(count + authoredQuestions("5", "ko").length);
+  expect(total).toBe(count + allAuthoredQuestions("5", "ko").length);
   const ids: string[] = [];
   for (let page = 1; page <= pages; page++) {
     const batch = store.questions("5", "ko", 0, undefined, page);
     expect(batch.length).toBeLessThanOrEqual(20); ids.push(...batch.map(q => q.id));
   }
-  expect(ids).toEqual([...Array.from({ length: count }, (_, i) => String(1000 + i)), ...authoredQuestions("5", "ko").map(q => q.id)]);
+  expect(ids).toEqual([...Array.from({ length: count }, (_, i) => String(1000 + i)), ...allAuthoredQuestions("5", "ko").map(q => q.id)]);
   expect(new Set(ids).size).toBe(total);
   expect(store.questions("5", "ko", 1).every(q => !q.authored)).toBe(true);
   expect(store.questions("5", "ko", 202610)).toHaveLength(20);

@@ -1191,5 +1191,40 @@
     "seoTitle": "Free Microsoft Security, Compliance and Identity Fundamentals SC-900 Practice Questions with Explanations",
     "description": "Practice Microsoft Security, Compliance and Identity Fundamentals SC-900 with 12 original English questions, detailed explanations and related question links. Review identity, cloud security and compliance.",
     "practiceScope": "Original topic drills for Microsoft Security, Compliance and Identity Fundamentals SC-900: identity, cloud security and compliance. A focused 12-question study set, not full objective coverage, official exam questions or a score predictor."
+  },
+  {
+    "id": "260",
+    "slug": "adsp",
+    "name": "ADsP 데이터분석 준전문가",
+    "locale": "ko",
+    "firstVersion": 202611,
+    "questionCount": 20,
+    "seoTitle": "ADsP 연습문제 CBT | 데이터분석 준전문가 무료 문제풀이·해설",
+    "searchTerms": [
+      "ADsP",
+      "데이터분석 준전문가",
+      "데이터분석준전문가",
+      "ADSP 기출",
+      "데이터 자격증"
+    ],
+    "description": "ADsP 데이터분석 준전문가 2026-11 연습문제 20개를 무료로 풀어보세요. 데이터 이해, 분석 기획, 통계·데이터마이닝을 정답·해설과 오답 복습으로 학습합니다.",
+    "practiceScope": "데이터 이해·분석 기획·통계·데이터마이닝 개념을 점검하는 20문항입니다. 전체 출제 범위를 다루는 실전 모의고사는 아닙니다."
+  },
+  {
+    "id": "261",
+    "slug": "aws-ai-practitioner-aif-c01",
+    "name": "AWS Certified AI Practitioner AIF-C01",
+    "locale": "en",
+    "firstVersion": 202611,
+    "questionCount": 20,
+    "seoTitle": "Free AWS AI Practitioner AIF-C01 Practice Questions with Answers",
+    "searchTerms": [
+      "AIF-C01",
+      "AWS AI Practitioner",
+      "AWS AI certification",
+      "generative AI certification"
+    ],
+    "description": "Prepare for AWS Certified AI Practitioner AIF-C01 with 20 free November 2026 practice questions, answers and explanations. Review AI, generative AI, RAG, responsible AI and security.",
+    "practiceScope": "Twenty topic drills across AI/ML, generative AI, foundation models, responsible AI and security. A focused study set, not full exam coverage or a score predictor."
   }
 ]

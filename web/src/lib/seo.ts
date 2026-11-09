@@ -1,7 +1,7 @@
 import type { Metadata, MetadataRoute } from 'next';
 import { findRoute,legacy,parseQuery,routesForExam,type LegacyRoute,type Locale } from './contracts';
 import { examName } from './exam-catalog';
-import { authoredSetSummary, authoredVersion, authoredVersionName } from './authored-practice';
+import { authoredSetSummary, authoredSetSummaries, isAuthoredVersion, authoredVersionLabel } from './authored-practice';
 import { studyGuideSitemap } from './study-guides';
 import { blogSitemap } from './blog';
 import { certificationFor } from './certifications';
@@ -27,16 +27,16 @@ export function searchCopy(path: string, query: URLSearchParams, exam: LegacyRou
       ? `${name} 기출문제와 연습문제를 Quizeey에서 풀어보세요. 한국어 CBT 문제 풀이, 정답 확인, 오답 복습으로 ${name} 시험을 준비할 수 있습니다.`
       : `Prepare for ${name} with free English practice questions on Quizeey. Check your answers, review mistakes and build your exam knowledge at your own pace.`;
     if (exam.template === 'authored-practice' && exam.description) description = exam.description;
-    const authored = authoredSetSummary(exam.testId, locale);
+    const authored = authoredSetSummary(exam.testId, locale, input.verNbr);
     if (locale === 'ko' && exam.testId === '5' && base === '/sqlp-developer') {
       title = 'SQLD 기출문제 CBT | 무료 문제풀이·해설·오답 복습 - Quizeey';
       description = 'SQLD 기출문제와 연습문제를 무료 CBT로 풀어보세요. 회차와 문제 수를 선택하고 정답·해설 확인, 오답 복습, 북마크로 헷갈리는 개념을 다시 학습할 수 있습니다.';
     }
-    if (input.verNbr === authoredVersion && authored) {
+    if (isAuthoredVersion(input.verNbr) && authored) {
       if (exam.template !== 'authored-practice') title = `${name} ${locale === 'ko' ? '연습문제' : 'Practice Questions'} - Quizeey`;
-      description = exam.template === 'authored-practice' && exam.description ? exam.description : locale === 'ko'
-        ? `${name} ${authoredVersionName} 회차: 정답과 해설이 있는 연습문제 ${authored.count}개.`
-        : `${name}, ${authoredVersionName}: ${authored.count} practice questions with answers and explanations.`;
+      description = input.verNbr === 202610 && exam.template === 'authored-practice' && exam.description ? exam.description : locale === 'ko'
+        ? `${name} ${authored.name} 회차: 정답과 해설이 있는 연습문제 ${authored.count}개.`
+        : `${name}, ${authored.name}: ${authored.count} practice questions with answers and explanations.`;
       if (authored.scope && exam.template !== 'authored-practice') description += ` ${authored.scope}`;
     }
     if (locale === 'en' && exam.testId === '170' && base === '/en/az-900') {
@@ -47,7 +47,7 @@ export function searchCopy(path: string, query: URLSearchParams, exam: LegacyRou
       title = `${name} — Retired Exam Archive - Quizeey`;
       description = certification.note;
     }
-    const versionLabel = input.verNbr === authoredVersion ? authoredVersionName : String(input.verNbr);
+    const versionLabel = isAuthoredVersion(input.verNbr) ? authoredVersionLabel(input.verNbr) : String(input.verNbr);
     const qualifiers = locale === 'ko'
       ? [input.verNbr ? `${versionLabel} 회차` : '', input.page > 1 ? `${input.page}페이지` : '']
       : [input.verNbr ? `Set ${versionLabel}` : '', input.page > 1 ? `Page ${input.page}` : ''];
@@ -120,7 +120,7 @@ export function pageStructuredData(path: string, query: URLSearchParams, exam: L
   const isHome = canonicalPath(path, query).split('?')[0] === home;
   const copy = searchCopy(path, query, exam);
   const input = parseQuery(query, path.endsWith('/test'));
-  const authored = exam.testId && input.verNbr === authoredVersion && !input.questId ? authoredSetSummary(exam.testId, locale) : undefined;
+  const authored = exam.testId && isAuthoredVersion(input.verNbr) && !input.questId ? authoredSetSummary(exam.testId, locale, input.verNbr) : undefined;
   const website = {
     '@type': 'WebSite', '@id': origin + '/#website', url: origin + '/', name: 'Quizeey',
     inLanguage: ['ko-KR', 'en-US', 'en-CA'],
@@ -156,8 +156,8 @@ export function publicSitemap(origin:string):MetadataRoute.Sitemap{
   const routes = legacy.routes.filter(r=>!['/kr','/app'].includes(r.path)&&!r.path.startsWith('/kr/')&&!r.path.endsWith('/test'));
   return [...routes.flatMap(route => {
     const queries = [new URLSearchParams()];
-    const set = route.testId ? authoredSetSummary(route.testId, route.locale as Locale) : undefined;
-    if (set) {
+    const sets = route.testId ? authoredSetSummaries(route.testId, route.locale as Locale) : [];
+    for (const set of sets) {
       for (let page = 1; page <= Math.ceil(set.count / 20); page++) {
         queries.push(new URLSearchParams({ verNbr: String(set.version), ...(page > 1 ? { page: String(page) } : {}) }));
       }

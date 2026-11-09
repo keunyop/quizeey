@@ -1,0 +1,99 @@
+{
+  "date": "2026-11-08",
+  "releaseStatus": "Local implementation verified; no commit, push or deployment performed",
+  "content": {
+    "total": 320,
+    "korean": 220,
+    "english": 100,
+    "newExams": [
+      "260",
+      "261"
+    ],
+    "examIdentities": 13,
+    "topicGroups": 16,
+    "month": "2026-11",
+    "nature": "Original topic drills; not verified past papers. No AI authorship notice added.",
+    "sharedCookingIdentity": "Korean, Western, Japanese and Chinese cooking routes already share exam ID 14. Added 80 common cooking, nutrition and hygiene questions once, available from all four routes; no invented exam split or duplicated IDs.",
+    "manifest": "../web/content/practice-2026-11.manifest.json"
+  },
+  "search": {
+    "historicalWindow": [
+      "2026-08-01",
+      "2026-10-31"
+    ],
+    "evidence": "../web/content/practice-2026-11.manifest.json",
+    "limitations": "Historical GSC export reviewed; no live November Search Console, Naver keyword volume or keyword-planner export. New exams are keyword-intent experiments, not verified volume leaders. No traffic-gain claim.",
+    "changes": [
+      "New localized exam routes and aliases",
+      "November links on both homepages",
+      "Per-exam monthly set links",
+      "Set-specific metadata, structured data and sitemap pagination",
+      "Preserved October question, choice and set identities"
+    ]
+  },
+  "validation": {
+    "status": "passed after targeted browser rerun",
+    "command": "npm.cmd run check:local",
+    "arithmeticChecksPassed": 15,
+    "sqlChecksPassed": 8,
+    "sqlRuntime": "In-memory SQLite for portable SQL semantics, not PostgreSQL",
+    "spreadsheetEngineExecuted": false,
+    "october": "Identical to HEAD after line-ending normalization; parsed payload and catalog hashes pinned in tests",
+    "novemberGenerator": "Deterministic",
+    "databaseFixture": "Not started; DB-dependent browser tests skip",
+    "authFixture": "Not started; Auth-dependent browser tests skip",
+    "hostedTests": 0,
+    "deployments": 0,
+    "typecheck": "passed",
+    "lint": "passed",
+    "unitTests": {
+      "passed": 183,
+      "files": 36
+    },
+    "build": "passed",
+    "browserTests": {
+      "total": 104,
+      "fullRunPassed": 87,
+      "fullRunFailed": 4,
+      "skipped": 13,
+      "targetedRerunPassed": 4,
+      "remainingFailures": 0,
+      "distinctPassed": 91
+    },
+    "originalSearchCsv": "Top eleven page records cross-checked against the original export",
+    "fullCheckExitCode": 1,
+    "targetedRerun": {
+      "files": [
+        "compatibility.spec.ts",
+        "global-canada-practice.spec.ts",
+        "november-practice.spec.ts",
+        "theme-content.spec.ts"
+      ],
+      "grep": "legacy POST|global and Canadian|en new exam|all catalog exams",
+      "environment": "localEnvironment(process.env), fixture content, loopback 3100",
+      "rebuildNeeded": false,
+      "reason": "Only test expectations/selectors changed after the full build",
+      "exitCode": 0
+    },
+    "correctedTests": [
+      "SQLD versions include November",
+      "Canadian/global October versions remain available alongside November",
+      "English resume button is Continue",
+      "New exams start in November and have no October set"
+    ],
+    "skippedDbAuthTests": 13,
+    "skippedGroups": {
+      "admin": 1,
+      "examPopularityDatabase": 2,
+      "feedbackAdmin": 3,
+      "forum": 7
+    },
+    "newQuestionApiChecks": 320,
+    "monetization": {
+      "passed": 6,
+      "realNetworkRequests": 0
+    },
+    "teardown": "All test workers finished; verified leftover Next servers were stopped to complete Windows teardown. No hosted test or deployment."
+  },
+  "followup": "After a separately requested release, compare query/page impressions, clicks and CTR against the historical baseline. Do not infer query-country or query-page relationships from independent CSV dimensions."
+}

@@ -1,0 +1,52 @@
+{
+  "releaseDate": "2026-11-04",
+  "site": "Quizeey",
+  "articleUrl": "https://quizeey.com/en/blog/iaas-paas-saas-shared-responsibility",
+  "deployment": {
+    "id": "dpl_CLgqnGdRvfqxVPLLsxjB271qySfd",
+    "state": "READY",
+    "target": "production",
+    "source": "git",
+    "branch": "master",
+    "commit": "492cefb902d6ad269c46ccf6011537000488e5da",
+    "productionDomain": "quizeey.com"
+  },
+  "localVerification": {
+    "requiredCommand": "npm run check:local",
+    "typecheck": "passed",
+    "lint": "passed, including follow-up lint on repaired test",
+    "unitTestsPassed": 179,
+    "unitFilesPassed": 35,
+    "build": "passed",
+    "initialBrowserRun": {
+      "passed": 84,
+      "failed": 1,
+      "skipped": 13
+    },
+    "failure": "Existing session test compared innerText with textContent; fixed with useInnerText true. Product logic unchanged.",
+    "targetedFollowupCommand": "npm run test:e2e:local -- e2e/practice-session.spec.ts",
+    "targetedFollowupPassed": 6,
+    "uniqueRunnableBrowserTestsVerified": 85,
+    "fullSuiteRerunAfterFix": false,
+    "monetizationScenariosPassed": 6,
+    "monetizationRealNetworkRequests": 0,
+    "newBlogAxeViolations": 0,
+    "newBlogRuntimeErrors": 0,
+    "excluded": [
+      "real DB/Auth (13 dependent tests skipped)",
+      "production analytics ingestion"
+    ]
+  },
+  "smoke": {
+    "checkedAt": "2026-11-04T23:01:42.862Z",
+    "url": "https://quizeey.com/en/blog/iaas-paas-saas-shared-responsibility",
+    "status": 200,
+    "titlePresent": true,
+    "bodyPresent": true,
+    "actionPresent": true,
+    "canonicalPresent": true,
+    "articleSchemaPresent": true,
+    "noindex": false
+  },
+  "recordStorage": "Saved locally after release; not pushed to avoid a second production deployment."
+}

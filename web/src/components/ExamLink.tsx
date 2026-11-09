@@ -9,7 +9,7 @@ export function ExamLink({ href, children }: { href: string; children: ReactNode
     void fetch("/api/exams/click", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ path: href }),
+      body: JSON.stringify({ path: href.split(/[?#]/, 1)[0] }),
       keepalive: true,
       credentials: "same-origin",
     }).catch(() => { /* A recording failure must not interrupt practice. */ });

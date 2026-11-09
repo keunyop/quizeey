@@ -43,7 +43,7 @@ export function ExamSearch({ routes, locale, popularity }: { routes: LegacyRoute
   function cards(items:LegacyRoute[]){return items.map((r)=>{
     const c=examCategory(r),name=examName(r),saved=favorites.includes(r.path);
     return <li key={r.path} className={`exam-card category-${c}`}>
-      <ExamLink href={r.path}><span className="exam-category">{names[c]}</span><h3>{name}</h3>{en && isRetiredExam(r.testId) && <span className="exam-status">Retired exam · Archive</span>}<span className="exam-card-bottom">{en?'Practice questions':'기출문제 풀기'}<Icon name="arrow"/></span></ExamLink>
+      <ExamLink href={r.path}><span className="exam-category">{names[c]}</span><h3>{name}</h3>{en && isRetiredExam(r.testId) && <span className="exam-status">Retired exam · Archive</span>}<span className="exam-card-bottom">{en?'Practice questions':r.template === 'authored-practice' ? '연습문제 풀기' : '기출문제 풀기'}<Icon name="arrow"/></span></ExamLink>
       <button className="icon-button favorite-button" aria-label={`${name} ${saved?en?'Remove favorite':'즐겨찾기 해제':en?'Add favorite':'즐겨찾기'}`} aria-pressed={saved} onClick={()=>toggleFavorite(r.path)}><Icon name="bookmark"/></button>
     </li>;
   });}

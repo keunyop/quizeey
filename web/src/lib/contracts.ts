@@ -33,7 +33,7 @@ for (const path of ['/en/about', '/en/privacy'] as const) {
 }
 const existingPaths = new Set(existingRoutes.map(route => route.path));
 const authoredRoutes = catalog.flatMap(exam => {
-  const locales: Locale[] = exam.locale === "all" ? ["ko", "en"] : exam.locale === "en" ? ["en"] : [];
+  const locales: Locale[] = exam.locale === "all" ? ["ko", "en"] : exam.locale === "en" ? ["en"] : exam.locale === "ko" ? ["ko"] : [];
   return locales.map(locale => authoredRoute(exam, locale)).filter(route => !existingPaths.has(route.path));
 });
 export const legacy = { ...contract, routes: [...existingRoutes, ...authoredRoutes] };

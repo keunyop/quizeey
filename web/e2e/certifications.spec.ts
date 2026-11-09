@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { authoredQuestions } from '../src/lib/authored-practice';
+import { authoredQuestions, authoredSetSummaries } from '../src/lib/authored-practice';
 import { certifications } from '../src/lib/certifications';
 import { routesForExam } from '../src/lib/contracts';
 
@@ -29,16 +29,16 @@ test('archive notices and replacement paths work without JavaScript', async ({ b
     await page.goto('/en');
     await expect(page.locator('.retired-directory a[href="/en/comptia-sy0-501"]')).toHaveCount(1);
     await expect(page.locator('.exam-directory:not(.retired-directory) a[href="/en/comptia-sy0-501"]')).toHaveCount(0);
-    for (const [old, next, code] of [['comptia-sy0-501', 'comptia-sy0-701', 'SY0-501'], ['az-103', 'az-104', 'AZ-103']]) {
+    for (const [old, next, code, version, count] of [['comptia-sy0-501', 'comptia-sy0-701', 'SY0-501', 202611, 20], ['az-103', 'az-104', 'AZ-103', 202610, 12]] as const) {
       await page.goto(`/en/${old}?verNbr=202610`);
       await expect(page.getByRole('heading', { name: `Retired exam: ${code}`, exact: true })).toBeVisible();
       await expect(page).toHaveTitle(/Retired Exam Archive/);
-      const link = page.locator(`.certification-notice a[href="/en/${next}?verNbr=202610"]`);
+      const link = page.locator(`.certification-notice a[href="/en/${next}?verNbr=${version}"]`);
       await link.click();
       await expect(page.locator('.certification-notice')).toContainText('Exam version:');
       await expect(page.locator('.question-prompt')).toBeVisible();
       await page.locator('.practice-outline summary').click();
-      await expect(page.locator('.practice-outline li')).toHaveCount(12);
+      await expect(page.locator('.practice-outline li')).toHaveCount(count);
     }
   } finally { await context.close(); }
 });
@@ -46,13 +46,14 @@ test('archive notices and replacement paths work without JavaScript', async ({ b
 test('new certification questions can be fetched, graded and followed through related question links', async ({ page, request }) => {
   for (const [id, info] of Object.entries(certifications).filter(([, info]) => info.status === 'current')) {
     const route = routesForExam(id, 'en')[0];
-    const questions = authoredQuestions(id, 'en');
+    const version = authoredSetSummaries(id, 'en')[0].version;
+    const questions = authoredQuestions(id, 'en', version);
     for (const question of questions) {
-      const response = await request.post('/question', { data: { testId: id, questId: question.id, verNbr: 202610 } });
+      const response = await request.post('/question', { data: { testId: id, questId: question.id, verNbr: version } });
       expect(response.status()).toBe(200);
       expect(await response.json()).toMatchObject({ questId: Number(question.id), explanation: question.explanation, reference: question.reference });
     }
-    await page.goto(`${route.path}?verNbr=202610`);
+    await page.goto(`${route.path}?verNbr=${version}`);
     await expect(page.locator('.certification-notice')).toContainText(info.code);
     const first = questions[0];
     await page.locator(`input[value="${first.choices.find(c => c.correct)!.id}"]`).check();

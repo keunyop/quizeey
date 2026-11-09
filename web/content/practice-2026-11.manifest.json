@@ -1,0 +1,301 @@
+{
+  "reviewDate": "2026-11-08",
+  "version": 202611,
+  "addedQuestionCount": 320,
+  "koreanQuestions": 220,
+  "englishQuestions": 100,
+  "nature": "Original topic drills; not verified past papers. No AI authorship notice added.",
+  "previousGroupsSha256": "8118ee97e8cbb942d9c255e30acb9d4e27801afa60275d6eb52d451b92f18b3f",
+  "previousCatalogSha256": "f048d6e759b0920d19b11aba3e80c7d7387267ae05a759debd29455f97de6811",
+  "previousCatalogCount": 207,
+  "exams": [
+    {
+      "examId": "5",
+      "locale": "ko",
+      "count": 20
+    },
+    {
+      "examId": "14",
+      "locale": "ko",
+      "count": 80
+    },
+    {
+      "examId": "11",
+      "locale": "ko",
+      "count": 20
+    },
+    {
+      "examId": "6",
+      "locale": "ko",
+      "count": 20
+    },
+    {
+      "examId": "260",
+      "locale": "ko",
+      "count": 20
+    },
+    {
+      "examId": "239",
+      "locale": "en",
+      "count": 20
+    },
+    {
+      "examId": "240",
+      "locale": "en",
+      "count": 20
+    },
+    {
+      "examId": "253",
+      "locale": "en",
+      "count": 20
+    },
+    {
+      "examId": "170",
+      "locale": "en",
+      "count": 20
+    },
+    {
+      "examId": "261",
+      "locale": "en",
+      "count": 20
+    },
+    {
+      "examId": "2",
+      "locale": "ko",
+      "count": 20
+    },
+    {
+      "examId": "122",
+      "locale": "ko",
+      "count": 20
+    },
+    {
+      "examId": "125",
+      "locale": "ko",
+      "count": 20
+    }
+  ],
+  "newExams": [
+    "260",
+    "261"
+  ],
+  "selection": {
+    "existing": "Prior October 28 click observations for Korean cooking, SQLD, information processing, spreadsheet level 2 and FOODSAFE; Cloud Practitioner, AZ-900 and current Security+ selected editorially for English coverage. Not a current top-eight ranking. Historical August-October GSC export additionally supports cooking, 3D printing, SQLP and barista; 120 extra questions added for those topics.",
+    "new": "ADsP: recent exam venue expansion and training interest; AIF-C01: recent study and exam discussions plus active official blueprint. Keyword-intent candidates, not verified search-volume leaders.",
+    "keywords": [
+      "ADsP practice",
+      "ADSP CBT",
+      "SQLD CBT",
+      "AIF-C01 practice questions",
+      "AWS AI Practitioner practice test",
+      "Security+ SY0-701 practice",
+      "AZ-900 practice questions"
+    ],
+    "limits": "Historical GSC export reviewed; no live November Search Console, Naver keyword volume or keyword-planner export. New exams are keyword-intent experiments, not verified volume leaders. No traffic-gain claim.",
+    "sources": [
+      "https://pass.hackers.com/?c=certification&g_id=59&r=pass",
+      "https://www.inflearn.com/pages/202610-get-certificate",
+      "https://www.reddit.com/r/AWSCertifications/comments/1x7xvv4/passed_aws_ai_practitioner_after_a_month_heres/",
+      "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.html",
+      "https://www.dataq.or.kr/www/sub/a_06.do",
+      "https://ie.hongik.ac.kr/ie/0104.do"
+    ],
+    "sourceLimit": "DataQ direct fetch failed; ADsP scope cross-checked against university and training descriptions linking to DataQ.",
+    "historicalSearchEvidence": {
+      "file": "../../docs/seo/blog-research-20261108.json",
+      "originalExport": "../../docs/report/google_search_console_report_20261102/",
+      "period": [
+        "2026-08-01",
+        "2026-10-31"
+      ],
+      "topPages": [
+        {
+          "인기 페이지": "https://quizeey.com/craftsman-cook-western-food",
+          "클릭수": "1486",
+          "노출": "5179",
+          "CTR": "28.69%",
+          "게재 순위": "3.91"
+        },
+        {
+          "인기 페이지": "https://quizeey.com/craftsman-cook-japanese-food",
+          "클릭수": "336",
+          "노출": "1355",
+          "CTR": "24.8%",
+          "게재 순위": "5.27"
+        },
+        {
+          "인기 페이지": "https://quizeey.com/craftsman-cook-chinese-food",
+          "클릭수": "333",
+          "노출": "1228",
+          "CTR": "27.12%",
+          "게재 순위": "4.1"
+        },
+        {
+          "인기 페이지": "https://quizeey.com/craftsman-cook-korean-food",
+          "클릭수": "304",
+          "노출": "3513",
+          "CTR": "8.65%",
+          "게재 순위": "7.21"
+        },
+        {
+          "인기 페이지": "https://quizeey.com/craftsman-3D-printer-operation",
+          "클릭수": "303",
+          "노출": "3627",
+          "CTR": "8.35%",
+          "게재 순위": "7.65"
+        },
+        {
+          "인기 페이지": "https://quizeey.com/sqlp-professional",
+          "클릭수": "169",
+          "노출": "1339",
+          "CTR": "12.62%",
+          "게재 순위": "5.76"
+        },
+        {
+          "인기 페이지": "https://quizeey.com/barista-2",
+          "클릭수": "160",
+          "노출": "1669",
+          "CTR": "9.59%",
+          "게재 순위": "6.03"
+        },
+        {
+          "인기 페이지": "https://quizeey.com/",
+          "클릭수": "90",
+          "노출": "2592",
+          "CTR": "3.47%",
+          "게재 순위": "8.97"
+        },
+        {
+          "인기 페이지": "https://quizeey.com/ccna-200-301",
+          "클릭수": "81",
+          "노출": "610",
+          "CTR": "13.28%",
+          "게재 순위": "4.14"
+        },
+        {
+          "인기 페이지": "https://quizeey.com/craftsman-cook-blowfish",
+          "클릭수": "79",
+          "노출": "367",
+          "CTR": "21.53%",
+          "게재 순위": "4.89"
+        },
+        {
+          "인기 페이지": "https://quizeey.com/sqlp-developer",
+          "클릭수": "43",
+          "노출": "1401",
+          "CTR": "3.07%",
+          "게재 순위": "12.13"
+        }
+      ],
+      "topQueries": [
+        {
+          "인기 검색어": "양식조리기능사 필기 기출문제",
+          "클릭수": "279",
+          "노출": "524",
+          "CTR": "53.24%",
+          "게재 순위": "2.06"
+        },
+        {
+          "인기 검색어": "양식조리기능사 필기",
+          "클릭수": "231",
+          "노출": "1278",
+          "CTR": "18.08%",
+          "게재 순위": "4.38"
+        },
+        {
+          "인기 검색어": "양식조리기능사 필기 기출문제 pdf",
+          "클릭수": "99",
+          "노출": "307",
+          "CTR": "32.25%",
+          "게재 순위": "2.38"
+        },
+        {
+          "인기 검색어": "한식조리기능사 필기 기출문제",
+          "클릭수": "93",
+          "노출": "881",
+          "CTR": "10.56%",
+          "게재 순위": "6.4"
+        },
+        {
+          "인기 검색어": "일식조리기능사 필기 기출문제",
+          "클릭수": "84",
+          "노출": "168",
+          "CTR": "50%",
+          "게재 순위": "1.76"
+        },
+        {
+          "인기 검색어": "sqlp 기출문제",
+          "클릭수": "58",
+          "노출": "310",
+          "CTR": "18.71%",
+          "게재 순위": "3.65"
+        },
+        {
+          "인기 검색어": "중식조리기능사 필기",
+          "클릭수": "54",
+          "노출": "217",
+          "CTR": "24.88%",
+          "게재 순위": "2.87"
+        },
+        {
+          "인기 검색어": "양식 필기 기출문제",
+          "클릭수": "53",
+          "노출": "105",
+          "CTR": "50.48%",
+          "게재 순위": "1.27"
+        },
+        {
+          "인기 검색어": "양식조리기능사 필기 문제",
+          "클릭수": "51",
+          "노출": "134",
+          "CTR": "38.06%",
+          "게재 순위": "1.87"
+        },
+        {
+          "인기 검색어": "일식조리기능사 필기",
+          "클릭수": "49",
+          "노출": "313",
+          "CTR": "15.65%",
+          "게재 순위": "3.37"
+        },
+        {
+          "인기 검색어": "양식조리기능사 필기 cbt",
+          "클릭수": "45",
+          "노출": "141",
+          "CTR": "31.91%",
+          "게재 순위": "3.58"
+        },
+        {
+          "인기 검색어": "양식조리기능사 cbt",
+          "클릭수": "42",
+          "노출": "101",
+          "CTR": "41.58%",
+          "게재 순위": "2.83"
+        },
+        {
+          "인기 검색어": "중식조리기능사 필기 기출문제",
+          "클릭수": "41",
+          "노출": "74",
+          "CTR": "55.41%",
+          "게재 순위": "1.2"
+        },
+        {
+          "인기 검색어": "바리스타 2급 필기 기출문제",
+          "클릭수": "40",
+          "노출": "238",
+          "CTR": "16.81%",
+          "게재 순위": "4.08"
+        },
+        {
+          "인기 검색어": "양식조리기능사 기출문제",
+          "클릭수": "36",
+          "노출": "81",
+          "CTR": "44.44%",
+          "게재 순위": "1.51"
+        }
+      ]
+    }
+  },
+  "identity": "October payloads and namespaces preserved. November uses separate question, choice and version namespaces.",
+  "sharedCookingIdentity": "Korean, Western, Japanese and Chinese cooking routes already share exam ID 14. Added 80 common cooking, nutrition and hygiene questions once, available from all four routes; no invented exam split or duplicated IDs."
+}

@@ -30,7 +30,7 @@ def build():
             if len(parts) == 7:
                 item['source'] = parts[6]
             current['questions'].append(item)
-    expected = {exam['id']: exam.get('questionCount', 3) for exam in catalog}
+    expected = {exam['id']: exam.get('questionCount', 3) for exam in catalog if exam.get('firstVersion', 202610) == 202610}
     blocks = {exam['id']: exam.get('idBlockSize', 100) for exam in catalog}
     if any(block not in (100, 1000) for block in blocks.values()):
         raise ValueError('Unsupported authored identity block size')
