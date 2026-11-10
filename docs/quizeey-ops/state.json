@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "run_id": "2026-11-09-daily-report-intake",
+  "run_id": "2026-11-09-daily-report-replacements",
   "mode": "daily",
-  "status": "partial_report_intake_release_blocked",
-  "last_report": "reports/2026-11-09-daily.md",
+  "status": "three_sources_partially_measured_public_docs_release_pending",
+  "last_report": "reports/2026-11-09-daily-replacements.md",
   "private_state": ".modernization/quizeey-ops/state.json",
-  "branch": "ops/quizeey-po-foundation",
+  "branch": "master",
   "preferred_branch": "master_for_routine_low_risk_work",
-  "release": "authorized_but_blocked_until_required_checks_pass",
+  "release": "local_checks_passed_live_readback_pending",
   "schedule": "not_registered",
   "active_items": ["OPS-01", "OPS-02", "OPS-03", "OPS-04", "OPS-05"],
   "last_journal": "journal/2026-11-09.md",
@@ -20,11 +20,11 @@
     "path": "docs/report",
     "mode": "owner_upload",
     "cadence": "weekly_core_monthly_financial",
-    "status": "one_ga4_event_report_processed_two_exports_blocked"
+    "status": "ga4_events_gsc_web_adsense_daily_processed_finality_unverified"
   },
-  "next": "Re-export GSC queries with readable labels and correct dates and AdSense with Date dimension; obtain GA4 daily and landing pages; resume OPS-01 isolated DB verification and prior foundation release checks",
-  "manual_skill_check": "daily inbox scan completed; GA4 event counts validated and private baseline/manifest read back; GSC and AdSense uploads blocked for re-export",
-  "automated_skill_validation": "not_run_this_daily_intake; prior foundation release checks incomplete",
+  "next": "Inspect an existing western-cooking question against official evidence; obtain GA4 daily and landing pages; establish source finality before complete 28-day comparison; resume OPS-01 isolated DB verification",
+  "manual_skill_check": "replacement GSC CSV members and AdSense Date rows validated; private baseline/manifest/state read back; earlier Windows console encoding misdiagnosis corrected",
+  "automated_skill_validation": "skill_frontmatter_manual_pass; web_check_local_exit0_with_db_auth_skips",
   "write_receipts": [],
   "note": "Source cursors and business metrics are private. Do not treat missing private state as no pending work."
 }

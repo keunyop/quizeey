@@ -4,9 +4,9 @@
 
 | 지표 | 정의/원천 | 확인 상태·한계 |
 | --- | --- | --- |
-| 검색 클릭/노출/CTR/순위 | GSC 원천; CTR=clicks/impressions; 집계 순위는 원천 정의 유지 | 기존92일 export, 최신10/31. 사용가능28일10/4~31 vs9/6~10/3. 최신7일 운영판정 불가. query/page/country/device 독립 합계를 임의 결합 금지 |
+| 검색 클릭/노출/CTR/순위 | GSC 원천; CTR=clicks/impressions; 집계 순위는 원천 정의 유지 | 새 웹 검색 export의 일별 차트는 8/9~11/8 관측. 파일명 시작일과 차트가 달라 차트를 기준으로 사용. 최신 날짜의 확정 여부 미확인; query/page/country/device 독립 합계를 임의 결합 금지 |
 | 사용자/페이지 | GA4 active/new users, page views | 9/26~10/23 snapshot. 새 학습 event export는 전체 사용자/페이지 일별 보고서를 대신하지 않음. 속성시간대/통화/최신집계 지연 미확인 |
-| 예상수익/Page RPM | AdSense 원천; Page RPM=estimated earnings/AdSense PV×1000 | 일별 표시반올림 수익 합으로 재계산한 RPM은 근사. 확정수익과 구분. GA4 PV로 대체 금지 |
+| 예상수익/Page RPM | AdSense 원천; Page RPM=estimated earnings/AdSense PV×1000 | 새 Date export의 8/11~11/8 관측. 일별 표시반올림 수익 합으로 재계산한 RPM은 근사. 최신 날짜 잠정 가능·확정수익과 구분. GA4 PV로 대체 금지 |
 | 확정수익/비용 | AdSense 정산, 공급자 청구서/usage | 미측정. 공통 구독 배분액과 Quizeey 증분비용을 분리 |
 | 시험조회 | GA4 page_view와 서버 exam_clicks 별도 | click_count 누적은 기간/고유사용자/학습시작 아님. 여러 조리경로가 같은 시험ID를 공유 |
 | 학습시작 | practice_start | 새 GA4 event export에 관측됨. 실행 ID가 없고 관측일이 제한되어 실행별 시작/완료율은 미측정 |
