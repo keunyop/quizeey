@@ -133,6 +133,17 @@ period,provider,category,currency,amount,allocation_method,note
 - AdSense Country, Platform, Ad format
 - 광고 정책센터 경고 또는 제한 상태의 개인정보 없는 export
 
+## 국가·시험 유입 분석용 추가 패키지
+
+2026-11-10부터 국가별 합계와 시험별 합계를 연결하려면 다음 교차 보고서를 사용한다. 이미 업로드한 보고서를 다시 만들 필요는 없고 다음 export에 추가한다.
+
+- GA4 Explore: 같은 최근 90일의 `Country` + `Landing page`(가능하면 query string 제외) + `Session default channel group`, 지표 `Sessions`, `Active users`, `New users`. Date를 추가해 행 제한이 생기면 기간을 나누거나 일별 표를 별도로 내보낸다.
+- 학습: `Date` + `Country` + `Event name` + 실제 등록·수신 확인된 `test_id` 맞춤차원, `Event count`. 코드 payload 이름은 `test_id`다. 공유 ID를 쓰는 조리시험은 사용 가능한 페이지 경로 차원도 함께 확인한다. 시험 차원이 미등록이면 등록/수신 여부부터 확인하며, 과거 데이터에 소급 적용됐다고 가정하지 않는다.
+- GSC: 미국·캐나다·한국 각각 Country 필터를 적용한 Pages 및 Queries. 동일 기간, Web 검색유형, 국가 필터를 기록한다. 별도 국가 합계와 페이지 합계를 조합해 국가×시험 표를 만들지 않는다.
+- 공통 메모: 정확한 포함 날짜·시간대·필터·행 제한·sampling/thresholding 표시·전체 총계·최신 집계 확정 여부. 표시 총계와 행 합계가 다르면 원인을 확인할 수 있게 보존한다.
+
+국가 위치는 국적·선호언어·응시국가가 아니다. 사용자 수는 경로·시험별로 더해 고유 사용자 총계를 만들지 않는다. `practice_complete / practice_start` 이벤트 총수 비율은 실행별 완료율이 아니다.
+
 ## 파일명 규칙
 
 ```text

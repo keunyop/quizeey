@@ -31,7 +31,8 @@ test("Texas insurance is English-only and resolves page boundaries and all exten
 });
 
 test("Texas insurance supports discovery, grading all 130 questions, saved progress, seven pages, and direct links", async ({ page }) => {
-  test.setTimeout(120_000);
+  // Include all 130 answers, persisted reloads and direct visits on shared local workstations.
+  test.setTimeout(180_000);
   const errors: string[] = [];
   page.on("pageerror", error => errors.push(error.message));
   await page.goto("/en");

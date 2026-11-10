@@ -55,6 +55,9 @@ export function ExamSearch({ routes, locale, popularity }: { routes: LegacyRoute
         <input id="exam-search" type="search" autoComplete="off" placeholder={en ? "Find your exam" : "어떤 자격증을 준비하세요?"} value={search} onChange={(e) => { setSearch(e.target.value); setLimit(18); }} />
         {search && <button className="icon-button" aria-label={en ? "Clear search" : "검색어 지우기"} onClick={() => { setSearch(""); setLimit(18); document.getElementById("exam-search")?.focus(); }}><Icon name="close" /></button>}
       </div>
+      <nav className="catalog-study-links" aria-label={en ? 'Study paths' : '시험별 학습 경로'}>
+        <ul>{homeSearchCopy[locale].studyLinks.map(link => <li key={link.href}><a href={link.href}>{link.label}</a></li>)}</ul>
+      </nav>
     </section>
     <section className="catalog" aria-labelledby="exams-heading">
       <h2 id="exams-heading" className="sr-only">{en ? 'Exams' : '시험 목록'}</h2>

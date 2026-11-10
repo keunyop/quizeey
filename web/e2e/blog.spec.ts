@@ -22,9 +22,9 @@ test('read the Korean blog and reach SQLD practice without JavaScript', async ({
   await context.close();
 });
 
-test('blog remains accessible on mobile in light and dark themes', async ({ page }) => {
-  await page.setViewportSize({ width: 390, height: 844 });
-  for (const path of ['/blog', blogPostPath, printingPost.path, '/en/blog', subnetPost.path, cloudPost.path, roadSignsPost.path]) {
+for (const path of ['/blog', blogPostPath, printingPost.path, '/en/blog', subnetPost.path, cloudPost.path, roadSignsPost.path]) {
+  test(`blog remains accessible on mobile in light and dark themes: ${path}`, async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(path);
     for (const theme of ['light', 'dark']) {
       await page.evaluate(theme => { document.documentElement.dataset.theme = theme; }, theme);
@@ -32,8 +32,8 @@ test('blog remains accessible on mobile in light and dark themes', async ({ page
       const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
       expect(results.violations).toEqual([]);
     }
-  }
-});
+  });
+}
 
 test('unknown blog articles return 404', async ({ request }) => {
   expect((await request.get('/blog/not-a-post')).status()).toBe(404);

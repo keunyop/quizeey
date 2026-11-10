@@ -1,15 +1,21 @@
 {
   "schema_version": 1,
-  "run_id": "2026-11-10-daily-ga4-overviews",
+  "run_id": "2026-11-10-country-exam-growth",
   "mode": "daily",
-  "status": "ga4_overviews_processed_descriptive_only_local_checks_passed_docs_release_pending",
-  "last_report": "reports/2026-11-10-daily.md",
+  "status": "growth_local_checks_passed_git_release_pending",
+  "last_report": "reports/2026-11-10-growth.md",
   "private_state": ".modernization/quizeey-ops/state.json",
   "branch": "master",
   "preferred_branch": "master_for_routine_low_risk_work",
-  "release": "current_docs_git_release_pending_previous_9dfda5f_verified",
+  "release": "growth_git_release_pending_previous_documentation_e0b572c_verified_live",
   "schedule": "not_registered",
-  "active_items": ["OPS-01", "OPS-02", "OPS-03", "OPS-04", "OPS-05"],
+  "active_items": [
+    "OPS-01",
+    "OPS-02",
+    "OPS-03",
+    "OPS-04",
+    "OPS-05"
+  ],
   "last_journal": "journal/2026-11-10.md",
   "google_connection": {
     "ga4": "public_tag_present_api_unverified",
@@ -20,11 +26,19 @@
     "path": "docs/report",
     "mode": "owner_upload",
     "cadence": "weekly_core_monthly_financial",
-    "status": "gsc_web_adsense_daily_ga4_events_and_overviews_processed_finality_unverified"
+    "status": "ga4_daily_landing_processed_limited_totals_unreconciled_country_exam_unmeasured"
   },
-  "next": "Obtain GA4 explicit Date daily users/sessions and landing sessions; establish source finality before complete 28-day comparison; inspect an existing western-cooking question against official evidence; resume OPS-01 isolated DB verification",
-  "manual_skill_check": "six GA4 overview CSVs validated; totals cross-checked; private baseline/manifest/state read back; daily index, mismatched segment sums and finality limitations recorded",
-  "automated_skill_validation": "2026-11-10 web_check_local_exit0_unit183_browser91_db_auth13_skipped",
-  "write_receipts": [],
+  "next": "Perform one routine master Git release and small affected-path read-only smoke; obtain country x landing x channel and country-filtered GSC; improve one domestic and one English exam intent",
+  "manual_skill_check": "new GA4 daily/landing periods and grand totals cross-checked; row sums unreconciled and retained as limited descriptive data; private baseline/manifest/report read back; independent navigation review approved; all eight local destinations, mobile width, no-JS and keyboard checks passed",
+  "automated_skill_validation": "check_local_exit0_typecheck_lint_unit183_build_browser97_monetization_passed_db_auth13_skipped",
+  "write_receipts": [
+    {
+      "kind": "git_documentation_release",
+      "commit": "e0b572c4fc7cb46de287850c98901c310818b190",
+      "state": "READY",
+      "remote_readback": "same_sha",
+      "github_report_readback": true
+    }
+  ],
   "note": "Source cursors and business metrics are private. Do not treat missing private state as no pending work."
 }

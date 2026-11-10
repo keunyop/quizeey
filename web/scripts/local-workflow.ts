@@ -50,7 +50,8 @@ async function main() {
   const build = [['scripts/preflight-production.ts'], [next, 'build']];
   // Multi-tab journeys share a developer workstation with other applications.
   const browser = ['node_modules/@playwright/test/cli.js', 'test', '--timeout=60000', ...extra];
-  const unit = ['node_modules/vitest/vitest.mjs', 'run'];
+  // Keep the all-question fixture checks within their normal per-test budget on shared workstations.
+  const unit = ['node_modules/vitest/vitest.mjs', 'run', '--maxWorkers=2'];
   const plans: Record<string, string[][]> = {
     dev: [[next, 'dev', '--hostname', '127.0.0.1']], build, test: [unit],
     e2e: [...build, browser],
