@@ -8,7 +8,7 @@
 
 ## 재개와 문서
 
-[상태](state.json), 최신 [일지](journal/2026-11-09.md), 마지막 보고서부터 읽고 [현황](inventory.md), [접근](access.md), [지표](metrics.md), [우선순위/30일 방향](backlog.md), [변경 이력](changes.md)을 필요한 만큼 갱신한다. [.agents Skill](../../.agents/skills/quizeey-po/SKILL.md)을 `$quizeey-po daily`처럼 호출한다. 이는 Skill의 자연어 입력 규약이며 Codex 내장 명령 옵션이 아니다. Owner가 오늘 할 일을 지정할 필요는 없다. Skill이 미완료·신규 신고·오류·지표·backlog를 대조해 오늘 가능한 최우선 작업을 고르고 일지에 근거와 완료조건을 먼저 기록한 뒤 실행한다.
+[상태](state.json), 최신 [일지](journal/2026-11-10.md), 마지막 보고서부터 읽고 [현황](inventory.md), [접근](access.md), [지표](metrics.md), [우선순위/30일 방향](backlog.md), [변경 이력](changes.md)을 필요한 만큼 갱신한다. [.agents Skill](../../.agents/skills/quizeey-po/SKILL.md)을 `$quizeey-po daily`처럼 호출한다. 이는 Skill의 자연어 입력 규약이며 Codex 내장 명령 옵션이 아니다. Owner가 오늘 할 일을 지정할 필요는 없다. Skill이 미완료·신규 신고·오류·지표·backlog를 대조해 오늘 가능한 최우선 작업을 고르고 일지에 근거와 완료조건을 먼저 기록한 뒤 실행한다.
 
 공식 [Codex Skills](https://developers.openai.com/codex/skills/) 문서의 name/description frontmatter와 저장소 `.agents/skills/` 위치를 적용했다. 자동검색에 보이지 않으면 직접 파일을 읽도록 요청하거나 새 세션에서 확인한다.
 

@@ -6,7 +6,7 @@
 | --- | --- | --- | --- | --- |
 | 1 OPS-01 | 만료 open 댓글신고가 목록에서 숨겨지고 cleanup 삭제 가능. 코드 및 운영 queue 함수 읽기 확인; 현재 피해 확인 아님 | Engineering 작성, Trust 별도검수 | open 만료 보존/조회/처리, resolved 만료삭제·권한 fixture 통과, 승인된 적용 후 재조회 | SQL 후보·독립 정적검토 완료; DB실행/버전migration/운영적용 대기 |
 | 2 OPS-02 | public 저장소에 기존 사용자 신고원문/비공개 지표가 tracked | PO/Engineering/Trust | 노출범위 분류, 새 유출 방지, 소유자와 비공개 이관/현재파일 정리 결정. history 변경은 별도승인 | 조사; 새 기록은 sanitized/private 분리 |
-| 3 OPS-03 | Google export 범위 부족, 실행ID/모드 공백으로 최신 완료·재방문·수익 판단 불가 | Data/Engineering | 최신 완결56일·7일 확보, 시간대/분모/수신 확인, 필요한 최소계측 fixture검증 | GSC 검색·AdSense 일별 및 GA4 학습 event 반영; GA4 일별·landing page와 원천 확정일·실행별 퍼널 미확인 |
+| 3 OPS-03 | Google export 범위 부족, 실행ID/모드 공백으로 최신 완료·재방문·수익 판단 불가 | Data/Engineering | 최신 완결56일·7일 확보, 시간대/분모/수신 확인, 필요한 최소계측 fixture검증 | GSC 검색·AdSense 일별, GA4 학습 event·90일 개요 반영; 명시적 날짜의 GA4 일별·landing 세션과 원천 확정일·실행별 퍼널 미확인 |
 | 4 OPS-04 | 과거 유입이 조리시험에 집중, 개별문항 독립검수 증거 부족 | Content/Trust | 양식조리 우선 소규모 공식근거 검수; 오류/해설/저장점수 영향 확인; GitHub 요구와 기존기능 대조 | 후보선정; 정답오류 확정 없음 |
 | 5 OPS-05 | 최근 SEO 글/해외시험 확장 평가 전, 광고/비용/백업 근거 부족 | Growth/Data/Engineering | 기존글→시작 성과, 신규시험 후보비교, 실제비용·보관/복원 확인 후 작은 실험 결정 | 데이터 대기; 추가발행/광고변경 없음 |
 

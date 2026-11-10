@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
-  "run_id": "2026-11-09-daily-report-replacements",
+  "run_id": "2026-11-10-daily-ga4-overviews",
   "mode": "daily",
-  "status": "three_sources_partially_measured_public_docs_release_pending",
-  "last_report": "reports/2026-11-09-daily-replacements.md",
+  "status": "ga4_overviews_processed_descriptive_only_local_checks_passed_docs_release_pending",
+  "last_report": "reports/2026-11-10-daily.md",
   "private_state": ".modernization/quizeey-ops/state.json",
   "branch": "master",
   "preferred_branch": "master_for_routine_low_risk_work",
-  "release": "local_checks_passed_live_readback_pending",
+  "release": "current_docs_git_release_pending_previous_9dfda5f_verified",
   "schedule": "not_registered",
   "active_items": ["OPS-01", "OPS-02", "OPS-03", "OPS-04", "OPS-05"],
-  "last_journal": "journal/2026-11-09.md",
+  "last_journal": "journal/2026-11-10.md",
   "google_connection": {
     "ga4": "public_tag_present_api_unverified",
     "gsc": "public_domain_verification_present_api_unverified",
@@ -20,11 +20,11 @@
     "path": "docs/report",
     "mode": "owner_upload",
     "cadence": "weekly_core_monthly_financial",
-    "status": "ga4_events_gsc_web_adsense_daily_processed_finality_unverified"
+    "status": "gsc_web_adsense_daily_ga4_events_and_overviews_processed_finality_unverified"
   },
-  "next": "Inspect an existing western-cooking question against official evidence; obtain GA4 daily and landing pages; establish source finality before complete 28-day comparison; resume OPS-01 isolated DB verification",
-  "manual_skill_check": "replacement GSC CSV members and AdSense Date rows validated; private baseline/manifest/state read back; earlier Windows console encoding misdiagnosis corrected",
-  "automated_skill_validation": "skill_frontmatter_manual_pass; web_check_local_exit0_with_db_auth_skips",
+  "next": "Obtain GA4 explicit Date daily users/sessions and landing sessions; establish source finality before complete 28-day comparison; inspect an existing western-cooking question against official evidence; resume OPS-01 isolated DB verification",
+  "manual_skill_check": "six GA4 overview CSVs validated; totals cross-checked; private baseline/manifest/state read back; daily index, mismatched segment sums and finality limitations recorded",
+  "automated_skill_validation": "2026-11-10 web_check_local_exit0_unit183_browser91_db_auth13_skipped",
   "write_receipts": [],
   "note": "Source cursors and business metrics are private. Do not treat missing private state as no pending work."
 }

@@ -32,3 +32,7 @@ GSC와 AdSense의 일별 관측 범위가 확보됐다. 데이터 수집 완료�
 ## 내 조치 필요
 
 GSC·AdSense 재내보내기는 더 이상 필요하지 않다. 가능하면 GA4 일별 개요와 landing page를 같은 기간으로 추가하고, 각 원천에서 최신 날짜가 확정됐는지 확인해 준다. 인증정보는 입력함에 넣지 않는다.
+
+## 릴리스 확인
+
+공개 운영 문서와 Skill 변경을 commit `9dfda5f`로 master에 한 번 push했다. 원격 commit, Vercel production READY와 운영 도메인 alias, GitHub 보고서 readback을 확인했다. 제품 기능 경로는 바꾸지 않았으며 사용자·수익 지표 효과는 측정 대기다.

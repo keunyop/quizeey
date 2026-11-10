@@ -5,7 +5,7 @@
 | 지표 | 정의/원천 | 확인 상태·한계 |
 | --- | --- | --- |
 | 검색 클릭/노출/CTR/순위 | GSC 원천; CTR=clicks/impressions; 집계 순위는 원천 정의 유지 | 새 웹 검색 export의 일별 차트는 8/9~11/8 관측. 파일명 시작일과 차트가 달라 차트를 기준으로 사용. 최신 날짜의 확정 여부 미확인; query/page/country/device 독립 합계를 임의 결합 금지 |
-| 사용자/페이지 | GA4 active/new users, page views | 9/26~10/23 snapshot. 새 학습 event export는 전체 사용자/페이지 일별 보고서를 대신하지 않음. 속성시간대/통화/최신집계 지연 미확인 |
+| 사용자/페이지 | GA4 active/new users, page views | 새 8/11~11/8 개요 6종의 전체기간 신규 사용자·이벤트·조회 합계는 독립 표와 대조됨. `Nth day` 차트에는 명시적 Date 열이 없고, 유입·랜딩 세션의 일별 보고서를 대신하지 않음. 속성시간대/통화는 Owner 제공값이며 원천 표기·최신집계 확정은 미확인 |
 | 예상수익/Page RPM | AdSense 원천; Page RPM=estimated earnings/AdSense PV×1000 | 새 Date export의 8/11~11/8 관측. 일별 표시반올림 수익 합으로 재계산한 RPM은 근사. 최신 날짜 잠정 가능·확정수익과 구분. GA4 PV로 대체 금지 |
 | 확정수익/비용 | AdSense 정산, 공급자 청구서/usage | 미측정. 공통 구독 배분액과 Quizeey 증분비용을 분리 |
 | 시험조회 | GA4 page_view와 서버 exam_clicks 별도 | click_count 누적은 기간/고유사용자/학습시작 아님. 여러 조리경로가 같은 시험ID를 공유 |
@@ -14,7 +14,7 @@
 | 결과/완료 | practice_result / practice_complete | 새 GA4 event export에 관측됨. 완료는 시작계측+미응답0+결과도달. 저장 결과 다시열기 제외. 실행ID 없어서 이벤트 총수 비율을 실행 완료율로 부를 수 없음 |
 | 해설 | explanation_open | details 자동표시·재펼치기 포함 가능, 읽음/이해가 아님 |
 | 복습/북마크 | practice_mode / bookmark_add | 새 GA4 export에서 bookmark_add는 관측, practice_mode는 미측정. 답제출·해설·북마크 payload에 mode 없음. 모드별 전체 퍼널 미측정 |
-| 재방문 | 같은 정의의 7일 코호트 재방문/유지율 | 현재 snapshot으로 미측정. day0 학습자 중 day1~7 재학습 비율 후보, 계정 지표와 맞춘 후 확정 |
+| 재방문 | 같은 정의의 7일 코호트 재방문/유지율 | 새 개요의 주별 returning users는 확인. 코호트 두 표가 같은 열 이름에 다른 단위를 사용해 신뢰할 수 있는 재방문율은 미측정. day0 학습자 중 day1~7 재학습 비율 후보는 정의·기간 확인 후 확정 |
 | 품질 | open 신고 수, 확인된 오류 수, 접수→live검증 시간 | DB 조회 시점과 GitHub 별도 표시. resolved DB값만으로 답 정확성 재검수 완료 주장 금지 |
 | 사용성 | 실패율/CWV/광고가림/모바일 완료 | 로컬 회귀와 실제 사용자 지표 구분; 운영 성능은 미측정 |
 
