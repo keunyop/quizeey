@@ -2,12 +2,12 @@
   "schema_version": 1,
   "run_id": "2026-11-10-country-exam-growth",
   "mode": "daily",
-  "status": "growth_local_checks_passed_git_release_pending",
-  "last_report": "reports/2026-11-10-growth.md",
+  "status": "growth_live_observation_and_content_pilot_queued",
+  "last_report": "reports/2026-11-10-country-exam-followup.md",
   "private_state": ".modernization/quizeey-ops/state.json",
   "branch": "master",
   "preferred_branch": "master_for_routine_low_risk_work",
-  "release": "growth_git_release_pending_previous_documentation_e0b572c_verified_live",
+  "release": "growth_git_production_ready_smoke_passed",
   "schedule": "not_registered",
   "active_items": [
     "OPS-01",
@@ -26,10 +26,10 @@
     "path": "docs/report",
     "mode": "owner_upload",
     "cadence": "weekly_core_monthly_financial",
-    "status": "ga4_daily_landing_processed_limited_totals_unreconciled_country_exam_unmeasured"
+    "status": "ga4_country_landing_channel_and_country_gsc_processed_limited_totals_unreconciled"
   },
-  "next": "Perform one routine master Git release and small affected-path read-only smoke; obtain country x landing x channel and country-filtered GSC; improve one domestic and one English exam intent",
-  "manual_skill_check": "new GA4 daily/landing periods and grand totals cross-checked; row sums unreconciled and retained as limited descriptive data; private baseline/manifest/report read back; independent navigation review approved; all eight local destinations, mobile width, no-JS and keyboard checks passed",
+  "next": "Draft and independently review Korean CCNA IPv4 subnetting guide by Nov 13 for Nov 16 publish target; draft five original CCNA questions for Nov 20 pilot; re-evaluate US/Canada English exam evidence and Japan/Australia CCNA search-language evidence Nov 23; observe GROWTH-01 through Dec 8",
+  "manual_skill_check": "new GA4 country x landing x channel and three GSC country reports validated and private baseline/manifest read back; GA4 displayed total versus row sum gap retained unresolved; one owner-authorized forum reply read back as visible exactly once; prior independent navigation review and eight local destinations, mobile width, no-JS and keyboard checks passed",
   "automated_skill_validation": "check_local_exit0_typecheck_lint_unit183_build_browser97_monetization_passed_db_auth13_skipped",
   "write_receipts": [
     {
@@ -38,6 +38,21 @@
       "state": "READY",
       "remote_readback": "same_sha",
       "github_report_readback": true
+    },
+    {
+      "kind": "git_growth_release",
+      "commit": "f7718a61473ad16a423796aa591cb0a1c0ae12de",
+      "branch": "master",
+      "remote_readback": "same_sha",
+      "state": "READY",
+      "affected_path_smoke": "ko_and_en_home_http200_expected_links_present",
+      "observed_at": "2026-11-10T11:50:37.752327-08:00"
+    },
+    {
+      "kind": "forum_reply",
+      "state": "visible_verified_once",
+      "target": "craftsman-cook-korean-food",
+      "private_receipt": ".modernization/quizeey-ops/korean-food-reply-receipt.json"
     }
   ],
   "note": "Source cursors and business metrics are private. Do not treat missing private state as no pending work."
