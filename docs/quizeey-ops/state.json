@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "run_id": "2026-11-09-daily-report-intake",
+  "mode": "daily",
+  "status": "partial_report_intake_release_blocked",
+  "last_report": "reports/2026-11-09-daily.md",
+  "private_state": ".modernization/quizeey-ops/state.json",
+  "branch": "ops/quizeey-po-foundation",
+  "preferred_branch": "master_for_routine_low_risk_work",
+  "release": "authorized_but_blocked_until_required_checks_pass",
+  "schedule": "not_registered",
+  "active_items": ["OPS-01", "OPS-02", "OPS-03", "OPS-04", "OPS-05"],
+  "last_journal": "journal/2026-11-09.md",
+  "google_connection": {
+    "ga4": "public_tag_present_api_unverified",
+    "gsc": "public_domain_verification_present_api_unverified",
+    "adsense": "public_publisher_configuration_present_api_unverified"
+  },
+  "report_inbox": {
+    "path": "docs/report",
+    "mode": "owner_upload",
+    "cadence": "weekly_core_monthly_financial",
+    "status": "one_ga4_event_report_processed_two_exports_blocked"
+  },
+  "next": "Re-export GSC queries with readable labels and correct dates and AdSense with Date dimension; obtain GA4 daily and landing pages; resume OPS-01 isolated DB verification and prior foundation release checks",
+  "manual_skill_check": "daily inbox scan completed; GA4 event counts validated and private baseline/manifest read back; GSC and AdSense uploads blocked for re-export",
+  "automated_skill_validation": "not_run_this_daily_intake; prior foundation release checks incomplete",
+  "write_receipts": [],
+  "note": "Source cursors and business metrics are private. Do not treat missing private state as no pending work."
+}

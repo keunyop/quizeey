@@ -1,0 +1,4 @@
+interface:
+  display_name: "Quizeey Product Owner"
+  short_description: "Quizeey 품질·학습·검색·수익 운영을 근거와 검수로 이어갑니다"
+  default_prompt: "$quizeey-po daily — 최신 일지와 상태를 읽고 오늘의 최우선 작업을 스스로 골라 실행·검증·기록하세요."
