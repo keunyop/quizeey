@@ -11,11 +11,12 @@ import { publicSitemap, searchCopy, pageStructuredData } from '@/lib/seo';
 import { grade } from '@/lib/quiz';
 import { versionDisplayName } from '@/lib/version-label';
 import { loadLearningStore } from './learning-store';
+import { historicalOctoberGroups } from './historical-content';
 
 const hash = (value: unknown) => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 
 it('preserves the complete October catalog and payloads while isolating November identities', () => {
-  expect(hash(october.groups)).toBe(manifest.previousGroupsSha256);
+  expect(hash(historicalOctoberGroups(october.groups.length))).toBe(manifest.previousGroupsSha256);
   expect(hash(authoredCatalog.slice(0, manifest.previousCatalogCount))).toBe(manifest.previousCatalogSha256);
   const questions = authoredCatalog.flatMap(exam => allAuthoredQuestions(exam.id, authoredDefaultLocale(exam.id)));
   expect(questions).toHaveLength(2534);

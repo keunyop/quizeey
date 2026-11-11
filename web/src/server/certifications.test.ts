@@ -12,12 +12,13 @@ import { grade } from '@/lib/quiz';
 import { publicSitemap, searchMetadata } from '@/lib/seo';
 import { LearningStore } from './learning-store';
 import { coreStudyStore } from './study-store';
+import { historicalOctoberGroups } from './historical-content';
 
 const hash = (value: unknown) => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 
 it('preserves all existing catalog, question payloads, route identities and direct-query URLs', () => {
   expect(hash(authoredCatalog.slice(0, manifest.previousCatalog.count))).toBe(manifest.previousCatalog.sha256);
-  expect(hash(content.groups.slice(0, manifest.previousGroups.count))).toBe(manifest.previousGroups.sha256);
+  expect(hash(historicalOctoberGroups(manifest.previousGroups.count))).toBe(manifest.previousGroups.sha256);
   for (const previous of originalRoutes.routes.filter(route => route.locale === 'en' && route.testId)) {
     expect(findRoute(previous.path)?.testId).toBe(previous.testId);
     expect(legacyPageRedirect(previous.path, new URLSearchParams('questId=123&verNbr=1&page=2'))).toBeUndefined();

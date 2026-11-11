@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "corrections": [
+    {
+      "questionId": "8000001407",
+      "examId": "14",
+      "topic": "top10-ko-cooking",
+      "questionIndex": 3,
+      "checkedAt": "2026-11-11",
+      "reason": "Clarify the wording and explanation while keeping the supported answer and saved response IDs stable.",
+      "previous": {
+        "prompt": "손에 눈에 보이는 오염이 묻은 조리원이 식품 취급 전에 할 일은?",
+        "explanation": "눈에 보이는 오염은 먼저 씻어 제거해야 한다. 장갑 착용은 손 씻기를 대신하지 못한다."
+      },
+      "current": {
+        "prompt": "손에 음식물 등 눈에 보이는 오염이 묻은 조리원이 식품을 취급하기 전에 해야 할 일은?",
+        "explanation": "식품을 취급하기 전에는 비누와 물로 손을 충분히 씻고 헹군다. 앞치마에 닦거나 장갑을 겹쳐 끼는 것은 손 씻기를 대신하지 못한다.",
+        "source": "https://www.foodsafety.gov/keep-food-safe/4-steps-to-food-safety"
+      }
+    }
+  ]
+}

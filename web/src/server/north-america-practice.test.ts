@@ -12,6 +12,7 @@ import { grade } from "@/lib/quiz";
 import { publicSitemap, searchMetadata, pageStructuredData } from "@/lib/seo";
 import { LearningStore } from "./learning-store";
 import { coreStudyStore } from "./study-store";
+import { historicalOctoberGroups } from "./historical-content";
 
 const exams = authoredCatalog.filter(exam => manifest.examIds.includes(exam.id));
 const learning = new LearningStore(coreStudyStore({ schema: 1, tables: {
@@ -21,7 +22,7 @@ const learning = new LearningStore(coreStudyStore({ schema: 1, tables: {
 it("appends 300 explained English questions without changing earlier content or catalog entries", () => {
   expect(exams).toHaveLength(10);
   const hash = (value: unknown) => createHash("sha256").update(JSON.stringify(value)).digest("hex");
-  expect(hash(content.groups.slice(0, manifest.previousGroups.count))).toBe(manifest.previousGroups.sha256);
+  expect(hash(historicalOctoberGroups(manifest.previousGroups.count))).toBe(manifest.previousGroups.sha256);
   // Restore later expansions when checking this earlier release's catalog baseline.
   const previousCatalog = authoredCatalog.slice(0, manifest.previousCatalog.count)
     .map(exam => popularExpansion.exams.find(item => item.examId === exam.id)?.previousCatalogEntry ?? exam)

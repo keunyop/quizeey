@@ -9,11 +9,12 @@ import { grade } from "@/lib/quiz";
 import { publicSitemap } from "@/lib/seo";
 import { LearningStore } from "./learning-store";
 import { coreStudyStore } from "./study-store";
+import { historicalOctoberGroups } from "./historical-content";
 
 const hash = (value: unknown) => createHash("sha256").update(JSON.stringify(value)).digest("hex");
 
 it("preserves every old group and identity while adding exactly 100 Korean and 60 English explained questions", () => {
-  expect(hash(content.groups.slice(0, manifest.previousGroups.count))).toBe(manifest.previousGroups.sha256);
+  expect(hash(historicalOctoberGroups(manifest.previousGroups.count))).toBe(manifest.previousGroups.sha256);
   const restored = authoredCatalog.slice(0, manifest.previousCatalog.count).map(exam => manifest.exams.find(item => item.examId === exam.id)?.previousCatalogEntry ?? exam);
   expect(hash(restored)).toBe(manifest.previousCatalog.sha256);
   expect(restored).toHaveLength(manifest.previousCatalog.count);
@@ -25,10 +26,12 @@ it("preserves every old group and identity while adding exactly 100 Korean and 6
   expect(new Set(newPrompts).size).toBe(manifest.addedQuestionCount);
   for (const prompt of newPrompts) expect(oldPrompts.has(prompt)).toBe(false);
   const addedByLocale = { ko: 0, en: 0 };
+  const historicalGroups = historicalOctoberGroups(content.groups.length);
   for (const entry of manifest.exams) {
     const locale = entry.locale as Locale;
     const raw = content.groups.filter(group => group.examIds.includes(entry.examId)).flatMap(group => group.questions);
-    expect(hash(raw.slice(0, entry.previousQuestionCount))).toBe(entry.previousQuestionsSha256);
+    const historicalRaw = historicalGroups.filter(group => group.examIds.includes(entry.examId)).flatMap(group => group.questions);
+    expect(hash(historicalRaw.slice(0, entry.previousQuestionCount))).toBe(entry.previousQuestionsSha256);
     expect(raw).toHaveLength(entry.questionCount);
     const questions = authoredQuestions(entry.examId, locale);
     expect(questions).toHaveLength(entry.questionCount);

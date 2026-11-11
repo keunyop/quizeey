@@ -10,12 +10,13 @@ import { grade } from "@/lib/quiz";
 import { pageStructuredData, publicSitemap, searchMetadata } from "@/lib/seo";
 import { LearningStore } from "./learning-store";
 import { coreStudyStore } from "./study-store";
+import { historicalOctoberGroups } from "./historical-content";
 
 const questions = authoredQuestions(manifest.examId, "en");
 const hash = (value: unknown) => createHash("sha256").update(JSON.stringify(value)).digest("hex");
 
 it("preserves all prior content, Azure identities and other catalog entries while appending seventy English scenarios", () => {
-  expect(hash(content.groups.slice(0, manifest.previousGroups.count))).toBe(manifest.previousGroups.sha256);
+  expect(hash(historicalOctoberGroups(manifest.previousGroups.count))).toBe(manifest.previousGroups.sha256);
   const entry = authoredCatalog.find(exam => exam.id === manifest.examId)!;
   // Restore later catalog expansions when checking the historical Azure snapshot.
   const previousCatalog = authoredCatalog.slice(0, manifest.previousCatalog.count)
