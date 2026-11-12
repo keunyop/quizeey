@@ -2,12 +2,12 @@
   "schema_version": 1,
   "run_id": "2026-11-11-ccna-ko-publication",
   "mode": "daily",
-  "status": "ccna_ko_reviewed_local_verified_release_pending_report_resolved",
+  "status": "ccna_ko_production_ready_smoke_passed_report_resolved",
   "last_report": "reports/2026-11-11-ccna-ko-publication.md",
   "private_state": ".modernization/quizeey-ops/state.json",
   "branch": "master",
   "preferred_branch": "master_for_routine_low_risk_work",
-  "release": "ccna_ko_pending_git_release",
+  "release": "ccna_ko_production_ready_smoke_passed",
   "schedule": "not_registered",
   "active_items": [
     "OPS-01",
@@ -28,7 +28,7 @@
     "cadence": "weekly_core_monthly_financial",
     "status": "ga4_country_landing_channel_and_country_gsc_processed_limited_totals_unreconciled"
   },
-  "next": "Release the locally verified Korean CCNA article by one master Git push and read back affected path; draft five original CCNA questions for separate review; re-evaluate country evidence Nov 23; observe GROWTH-01 through Dec 8",
+  "next": "Draft five original CCNA questions for independent review before any release; continue OPS-01 isolated DB/Auth validation and OPS-02 privacy scope; re-evaluate country evidence Nov 23; observe GROWTH-01 through Dec 8",
   "manual_skill_check": "Nov 11 report inbox checksums unchanged; DB and GitHub inboxes rechecked; one open question report remains open; independent CCNA publication review checked math, Cisco sources, metadata, navigation and corrected practice-link wording",
   "automated_skill_validation": "2026-11-11_ccna_check_local_exit0_typecheck_lint_unit183_build_browser99_monetization_passed_db_auth13_skipped",
   "write_receipts": [
@@ -62,6 +62,19 @@
       "state": "READY",
       "affected_path_smoke": "one_read_only_get_http200_updated_prompt_correct_choice_official_reference",
       "source_report_state": "open_after_release"
+    },
+    {
+      "kind": "git_ccna_ko_release",
+      "commit": "5506e011f90216eef12afa4498e8bae23c2f3366",
+      "branch": "master",
+      "remote_readback": "same_sha",
+      "state": "READY",
+      "affected_path_smoke": "article_blog_index_ccna_exam_http200_expected_content_and_links"
+    },
+    {
+      "kind": "question_report_resolution",
+      "state": "resolved_readback_confirmed",
+      "audit": "submission_resolved_matching_target"
     }
   ],
   "note": "Source cursors and business metrics are private. Do not treat missing private state as no pending work."
