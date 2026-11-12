@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { blogMetadata, blogPost, blogPostPath, blogPosts, findBlogPost, blogSitemap, blogStructuredData, printingPost } from './blog';
+import { blogMetadata, blogPost, blogPostPath, blogPosts, findBlogPost, blogSitemap, blogStructuredData, printingPost, ccnaPost } from './blog';
 import { publicSitemap } from './seo';
 
 describe('blog search publishing', () => {
@@ -20,10 +20,13 @@ describe('blog search publishing', () => {
     expect(metadata.robots).toEqual({ index: true, follow: true });
     expect(publicSitemap(origin)).toEqual(expect.arrayContaining(blogSitemap(origin)));
     for (const post of blogPosts) expect(blogSitemap(origin)).toContainEqual({ url: origin + post.path, lastModified: post.modified });
-    expect(blogSitemap(origin).find(entry => entry.url === origin + '/blog')?.lastModified).toBe('2026-11-08');
+    expect(blogSitemap(origin).find(entry => entry.url === origin + '/blog')?.lastModified).toBe('2026-11-11');
     expect(blogSitemap(origin).find(entry => entry.url === origin + '/en/blog')?.lastModified).toBe('2026-11-08');
     expect(findBlogPost(printingPost.slug, 'ko')).toBe(printingPost);
     expect(findBlogPost(printingPost.slug, 'en')).toBeUndefined();
+    expect(findBlogPost(ccnaPost.slug, 'ko')).toBe(ccnaPost);
+    expect(findBlogPost(ccnaPost.slug, 'en')).toBeUndefined();
+    expect(ccnaPost.practicePath).toBe('/ccna-200-301?verNbr=202610');
     const data = blogStructuredData(origin, blogPost)['@graph'];
     expect(data[0]).toMatchObject({ '@type': 'BlogPosting', headline: blogPost.title, inLanguage: 'ko-KR', mainEntityOfPage: origin + blogPostPath });
     expect(data[1]).toMatchObject({ itemListElement: [expect.anything(), expect.anything(), { '@type': 'ListItem', position: 3, name: blogPost.title, item: origin + blogPostPath }] });

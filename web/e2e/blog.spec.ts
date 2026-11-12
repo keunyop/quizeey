@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { blogPost, blogPostPath, subnetPost, cloudPost, printingPost, roadSignsPost } from '../src/lib/blog';
+import { blogPost, blogPostPath, subnetPost, cloudPost, printingPost, roadSignsPost, ccnaPost } from '../src/lib/blog';
 
 test('read the Korean blog and reach SQLD practice without JavaScript', async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false, baseURL: 'http://127.0.0.1:3100' });
@@ -22,7 +22,7 @@ test('read the Korean blog and reach SQLD practice without JavaScript', async ({
   await context.close();
 });
 
-for (const path of ['/blog', blogPostPath, printingPost.path, '/en/blog', subnetPost.path, cloudPost.path, roadSignsPost.path]) {
+for (const path of ['/blog', blogPostPath, printingPost.path, ccnaPost.path, '/en/blog', subnetPost.path, cloudPost.path, roadSignsPost.path]) {
   test(`blog remains accessible on mobile in light and dark themes: ${path}`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(path);
@@ -42,6 +42,30 @@ test('unknown blog articles return 404', async ({ request }) => {
   expect((await request.get('/en/blog/sqld-cbt-study-guide')).status()).toBe(404);
   expect((await request.get('/en/blog/' + printingPost.slug)).status()).toBe(404);
   expect((await request.get('/blog/' + roadSignsPost.slug)).status()).toBe(404);
+  expect((await request.get('/en/blog/' + ccnaPost.slug)).status()).toBe(404);
+});
+
+test('Korean CCNA guide is readable without JavaScript and opens the named practice set', async ({ browser, request }) => {
+  const response = await request.get(ccnaPost.path);
+  expect(response.status()).toBe(200);
+  const html = await response.text();
+  expect(html).toContain('10.20.34.0/23');
+  expect(html).toContain('BlogPosting');
+  expect(html).toContain('2026-11-11');
+  const context = await browser.newContext({ javaScriptEnabled: false, baseURL: 'http://127.0.0.1:3100' });
+  const page = await context.newPage();
+  await page.goto(ccnaPost.practicePath);
+  await page.getByRole('link', { name: ccnaPost.title, exact: true }).click();
+  await expect(page.locator('html')).toHaveAttribute('lang', 'ko');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(ccnaPost.title);
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', ccnaPost.description);
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/);
+  await page.getByText('정답과 해설 보기', { exact: true }).click();
+  await expect(page.getByText('198.51.100.160/28', { exact: false })).toBeVisible();
+  await page.getByRole('link', { name: 'CCNA 2026-10 연습문제 풀기 →', exact: true }).click();
+  await expect(page).toHaveURL(/verNbr=202610/);
+  await expect(page.locator('.question-prompt')).toBeVisible();
+  await context.close();
 });
 
 test('Ontario signs article is readable without JS and leads to a submitted G1 answer', async ({ page, browser, request }) => {

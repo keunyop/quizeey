@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "run_id": "2026-11-11-question-review",
+  "run_id": "2026-11-11-ccna-ko-publication",
   "mode": "daily",
-  "status": "question_correction_production_ready_smoke_passed_source_open",
-  "last_report": "reports/2026-11-11-question-review-and-content-draft.md",
+  "status": "ccna_ko_reviewed_local_verified_release_pending_report_resolved",
+  "last_report": "reports/2026-11-11-ccna-ko-publication.md",
   "private_state": ".modernization/quizeey-ops/state.json",
   "branch": "master",
   "preferred_branch": "master_for_routine_low_risk_work",
-  "release": "question_correction_production_ready_smoke_passed",
+  "release": "ccna_ko_pending_git_release",
   "schedule": "not_registered",
   "active_items": [
     "OPS-01",
@@ -28,9 +28,9 @@
     "cadence": "weekly_core_monthly_financial",
     "status": "ga4_country_landing_channel_and_country_gsc_processed_limited_totals_unreconciled"
   },
-  "next": "Keep the source report open pending authorized handling; integrate the independently reviewed Korean CCNA draft by Nov 13 for Nov 16 publish target and draft five original questions for Nov 20; re-evaluate country evidence Nov 23; observe GROWTH-01 through Dec 8",
-  "manual_skill_check": "Nov 11 report inbox checksums unchanged; DB and GitHub inboxes rechecked; one new open question report verified against source, grader and official food-safety guidance; independent correction and CCNA draft reviews completed; local affected paths read back",
-  "automated_skill_validation": "2026-11-11_check_local_exit0_typecheck_lint_unit183_build_browser97_monetization_passed_db_auth13_skipped",
+  "next": "Release the locally verified Korean CCNA article by one master Git push and read back affected path; draft five original CCNA questions for separate review; re-evaluate country evidence Nov 23; observe GROWTH-01 through Dec 8",
+  "manual_skill_check": "Nov 11 report inbox checksums unchanged; DB and GitHub inboxes rechecked; one open question report remains open; independent CCNA publication review checked math, Cisco sources, metadata, navigation and corrected practice-link wording",
+  "automated_skill_validation": "2026-11-11_ccna_check_local_exit0_typecheck_lint_unit183_build_browser99_monetization_passed_db_auth13_skipped",
   "write_receipts": [
     {
       "kind": "git_documentation_release",

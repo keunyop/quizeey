@@ -14,7 +14,15 @@ export const blogPost: BlogPost = {
 };
 export const blogPath = '/blog';
 export const blogPostPath = `${blogPath}/${blogPost.slug}`;
-export const blogIndex = { title: 'Quizeey 블로그: 예제로 배우는 자격증 공부', description: 'SQLD와 3D프린터운용기능사 등 헷갈리는 자격증 개념을 짧은 예제와 확인 문제로 정리하고 Quizeey 문제풀이로 연습하세요.' };
+export const blogIndex = { title: 'Quizeey 블로그: 예제로 배우는 자격증 공부', description: 'CCNA 서브넷 계산, SQLD, 3D프린터운용기능사 등 헷갈리는 자격증 개념을 예제와 확인 문제로 정리하고 Quizeey 문제풀이로 연습하세요.' };
+
+export const ccnaPost: BlogPost = {
+  slug: 'ccna-ipv4-subnetting-gateway', path: '/blog/ccna-ipv4-subnetting-gateway', locale: 'ko',
+  title: 'CCNA IPv4 서브넷 계산: 주소 범위로 게이트웨이 설정 점검하기',
+  description: 'CCNA 200-301 IPv4 서브네팅을 /26·/23·/28 예제로 계산하세요. 네트워크·브로드캐스트·호스트 범위를 찾고 게이트웨이 주소와 마스크를 점검합니다.',
+  date: '2026-11-11', modified: '2026-11-11', category: 'CCNA 200-301 · IPv4 서브네팅',
+  practicePath: '/ccna-200-301?verNbr=202610',
+};
 
 export const printingPost: BlogPost = {
   slug: '3d-printer-operation-written-test', path: '/blog/3d-printer-operation-written-test', locale: 'ko',
@@ -41,7 +49,7 @@ export const roadSignsPost: BlogPost = {
   description: 'Learn Ontario road sign shapes and colours, separate stop from yield, and try five explained questions before practising with the G1 study set.',
   date: '2026-11-08', modified: '2026-11-08', category: 'Ontario G1 · Road sign practice', practicePath: '/en/ontario-g1',
 };
-export const blogPosts = [roadSignsPost, printingPost, cloudPost, subnetPost, blogPost];
+export const blogPosts = [ccnaPost, roadSignsPost, printingPost, cloudPost, subnetPost, blogPost];
 const englishIndex = { title: 'Quizeey Blog: Certification Concepts with Worked Examples', description: 'Understand a concept, work through an example and check your reasoning with practice questions.' };
 export function blogIndexPath(locale: Locale) { return locale === 'en' ? '/en/blog' : blogPath; }
 export function blogIndexCopy(locale: Locale) { return locale === 'en' ? englishIndex : blogIndex; }
