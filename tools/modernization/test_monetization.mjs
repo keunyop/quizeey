@@ -88,9 +88,10 @@ try{
     await page.getByRole('button',{name:/^즐겨찾기/}).click();
     await expect(page.locator('.ad-placement')).toHaveCount(0);
     await page.getByRole('button',{name:'전체 시험',exact:true}).click();
-    await page.locator('.category-filters button').nth(1).click();
+    // This harness uses a 390px viewport, where categories use the native picker.
+    await page.getByRole('combobox',{name:'시험 분야',exact:true}).selectOption({index:1});
     await expect(page.locator('.ad-placement')).toHaveCount(0);
-    await page.locator('.category-filters button').first().click();
+    await page.getByRole('combobox',{name:'시험 분야',exact:true}).selectOption('all');
     await page.locator('.ad-placement').scrollIntoViewIfNeeded();
     await expect.poll(()=>counts.ads).toBe(1);
     if(mode!=='delayed')await page.waitForFunction(()=>window.__adInitializations===1);

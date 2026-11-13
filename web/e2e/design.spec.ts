@@ -3,6 +3,63 @@ import AxeBuilder from "@axe-core/playwright";
 import { createHash } from "node:crypto";
 import { authoredQuestions } from "../src/lib/authored-practice";
 
+test("mobile catalog keeps exam discovery within reach and resets collection filters", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  for (const path of ["/", "/en"]) {
+    await page.goto(path);
+    await page.evaluate(() => document.fonts.ready);
+    // Both languages should show an entire exam in the initial viewport.
+    const firstExam = await page.locator(".exam-card").first().boundingBox();
+    expect(firstExam!.y + firstExam!.height, path).toBeLessThan(844);
+    for (const selector of [".favorite-button", ".category-picker select"]) {
+      const target = await page.locator(selector).first().boundingBox();
+      expect(target!.width).toBeGreaterThanOrEqual(44);
+      expect(target!.height).toBeGreaterThanOrEqual(44);
+    }
+    const category = path === "/" ? "it" : "cloud";
+    await page.locator("#exam-category").selectOption(category);
+    await expect(page.locator(".exam-card").first()).toHaveClass(new RegExp(`category-${category}`));
+    await page.setViewportSize({ width: 768, height: 900 });
+    await expect(page.locator(`.category-filters button[aria-pressed="true"]`)).toHaveText(path === "/" ? "IT·데이터" : "Cloud");
+    await page.setViewportSize({ width: 390, height: 844 });
+    await expect(page.locator("#exam-category")).toHaveValue(category);
+  }
+  await page.goto("/");
+  await page.getByRole("searchbox").fill("SQLD");
+  await page.locator(".favorite-button").click();
+  await page.getByRole("button", { name: "검색어 지우기" }).click();
+  await expect(page.getByRole("searchbox")).toBeFocused();
+  await page.getByRole("button", { name: /^즐겨찾기/ }).first().click();
+  await expect(page.locator(".exam-list a")).toHaveCount(1);
+  await page.getByRole("button", { name: "필터 초기화" }).click();
+  await expect(page.getByRole("button", { name: "전체 시험", exact: true })).toHaveAttribute("aria-pressed", "true");
+  await expect(page.locator(".exam-list a")).toHaveCount(18);
+
+  await page.goto("/en");
+  await page.getByRole("checkbox", { name: "Include retired exam archives" }).check();
+  await page.getByRole("button", { name: "Reset filters" }).click();
+  await expect(page.getByRole("checkbox", { name: "Include retired exam archives" })).not.toBeChecked();
+});
+
+test("study guides can be disclosed with the keyboard without JavaScript", async ({ browser }) => {
+  const context = await browser.newContext({ javaScriptEnabled: false, baseURL: "http://127.0.0.1:3100" });
+  const page = await context.newPage();
+  for (const [path, guidePath] of [["/", "/blog"], ["/en", "/en/study-guides"]]) {
+    await page.goto(path);
+    const disclosure = page.locator(".catalog-guides");
+    await expect(disclosure).not.toHaveAttribute("open");
+    await disclosure.locator("summary").focus();
+    await page.keyboard.press("Enter");
+    await expect(disclosure).toHaveAttribute("open");
+    const link = disclosure.getByRole("link").first();
+    await expect(link).toHaveAttribute("href", guidePath);
+    await link.click();
+    await expect(page).toHaveURL(`http://127.0.0.1:3100${guidePath}`);
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+  }
+  await context.close();
+});
+
 test("catalog filters, initials, pagination, favorites, cross-tab sync and recovery", async ({ page, context }) => {
   const errors: string[] = []; page.on("pageerror", (error) => errors.push(error.message));
   await page.goto("/");

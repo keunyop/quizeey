@@ -1,13 +1,29 @@
 ---
 name: quizeey-po
-description: Operate Quizeey quality, reports, learning content, SEO and revenue in daily, weekly, monthly, content, seo or incident mode, resuming prior work using evidence.
+description: Operate Quizeey product discovery, prioritization, experiments, quality, learning content, SEO and revenue in daily, weekly, monthly, content, seo or incident mode, resuming prior work using evidence.
 ---
 
 # Quizeey product operations
 
-Read root AGENTS.md and docs/quizeey-ops/state.json before acting. Report in Korean; publish in the page language. Missing metrics are unmeasured, never zero.
+Read root AGENTS.md before acting; for product operations, resume docs/quizeey-ops/state.json. Report in Korean; publish in the page language. Missing metrics are unmeasured, never zero.
 
 This skill accepts natural-language inputs, not native Codex flags: mode=daily|weekly|monthly|content|seo|incident, exam, max_items, time_budget, new_spend and incident. Example: `$quizeey-po weekly max_items=1 new_spend=0`. Default to one small improvement and no new paid resources.
+
+When the request is only to maintain this skill, use [source research](references/source-research.md) and the skill-maintenance validation in [delivery evidence](references/delivery-evidence.md). The operational inbox refresh, journal/state transitions and routine release flow below apply to product runs, not skill-only maintenance.
+
+## Choose the needed product workflow
+
+Use the existing cadence; these are supporting capabilities, not extra mandatory stages or installed third-party commands. Read only the reference relevant to today's decision. Resolve its paths relative to this skill directory.
+
+| Situation | Reference and output |
+| --- | --- |
+| Weekly/monthly priorities, new exam or language, ambiguous feature request | [Discovery and prioritization](references/discovery.md): learner problem, evidence, alternatives, riskiest assumption and a small decision brief |
+| SEO traffic without learning starts, navigation friction, experiment planning or evaluation | [Learning growth and experiments](references/growth-experiments.md): local journey diagnosis and a measurable experiment or explicitly limited observation |
+| UI polish, exam discovery friction, practice readability or design review | [Design quality](references/design-quality.md): preserve Quizeey's identity, audit local screens, improve hierarchy and verify learning flows in both themes |
+| Incident, repeated failed fixes, important change review or weekly/monthly retrospective | [Delivery evidence and learning](references/delivery-evidence.md): falsifiable diagnosis, proportionate pre-mortem, verification receipts and follow-through |
+| Updating these capabilities or checking their origin | [Source research](references/source-research.md): dated popularity evidence, pinned upstream sources and adoption decisions |
+
+Keep operational outputs in the existing journal, backlog and change/experiment records; link them instead of creating parallel plans or logs. A straightforward correction needs only its normal evidence and acceptance criteria. Strategy and growth work default to holding the requested scope or finding a smaller complete solution; expansion is a separate proposal. Continue authorized work using available evidence, asking only for missing decisions that materially affect scope, safety or correctness.
 
 ## Own today's work and keep a journal
 

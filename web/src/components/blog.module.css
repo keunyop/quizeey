@@ -2,13 +2,13 @@
 .container a, .discovery a { text-decoration: underline; text-underline-offset: 4px; }
 .breadcrumb, .byline, .sources, .postCard time { color: var(--muted); font-size: 13px; }
 .breadcrumb { margin-bottom: 32px; }
-.article, .postCard { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: clamp(20px, 5vw, 48px); }
+.article, .postCard { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: clamp(20px, 5vw, 48px); }
 .article h1 { font-size: clamp(27px, 4vw, 38px); line-height: 1.4; word-break: keep-all; }
-.article h2 { font-size: 22px; font-weight: 650; margin: 0 0 16px; }
+.article h2 { font-size: 22px; font-weight: 600; margin: 0 0 16px; }
 .article p { margin: 12px 0; }
 .article section, .article aside { margin-top: 36px; }
 .article .lead { font-size: 18px; line-height: 1.9; padding: 24px 0; border-bottom: 1px solid var(--line); }
-.eyebrow { color: var(--blue-dark); font-size: 12px; font-weight: 650; letter-spacing: .06em; margin: 0 0 10px; }
+.eyebrow { color: var(--blue-dark); font-size: 12px; font-weight: 500; letter-spacing: 0; margin: 0 0 12px; }
 .table { width: 100%; border-collapse: collapse; margin: 22px 0; text-align: left; }
 .table caption { text-align: left; color: var(--muted); font-size: 13px; padding-bottom: 8px; }
 .table th, .table td { border-bottom: 1px solid var(--line); padding: 10px 16px; }
@@ -38,12 +38,12 @@
 .sources h2 { font-size: 16px; }
 .indexHeader { padding: 32px 0 42px; max-width: 620px; }
 .indexHeader h1 { font-size: clamp(32px, 5vw, 48px); }
-.postCard h2 { font-size: 24px; font-weight: 650; margin: 12px 0; }
+.postCard h2 { font-size: 24px; font-weight: 500; margin: 12px 0; }
 .postCard + .postCard { margin-top: 20px; }
 .tableWrap { overflow-x: auto; }
 .tableWrap:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
 .postCard p { margin: 12px 0 24px; }
-.discovery { margin: 28px 0; padding: 24px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
-.discovery h2 { margin: 8px 0; font-size: 19px; font-weight: 650; }
+.discovery { margin: 32px 0; padding: 24px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.discovery h2 { margin: 8px 0; font-size: 20px; font-weight: 500; }
 .discovery > p:last-child { color: var(--muted); margin: 8px 0 0; }
 @media (max-width: 520px) { .comparison { grid-template-columns: 1fr; } .countCard { padding: 20px; } .countCard code { min-height: 0; } .container { padding-inline: 16px; } .cta > a { width: 100%; } }

@@ -2,12 +2,12 @@
   "schema_version": 1,
   "run_id": "2026-11-13-daily-sqlp-question-report",
   "mode": "daily",
-  "status": "daily_sqlp_and_blog_button_ready_question_explanation_live_report_open",
+  "status": "daily_sqlp_blog_button_and_question_answer3_live_report_open",
   "last_report": "reports/2026-11-13-daily.md",
   "private_state": ".modernization/quizeey-ops/state.json",
   "branch": "master",
   "preferred_branch": "master_for_routine_low_risk_work",
-  "release": "daily_sqlp_and_blog_button_production_ready_smoke_passed",
+  "release": "daily_sqlp_blog_button_and_question_regrade_production_ready_answer3_db_readback_passed",
   "schedule": "not_registered",
   "active_items": [
     "OPS-01",
@@ -29,9 +29,9 @@
     "cadence": "weekly_core_monthly_financial",
     "status": "ga4_country_landing_channel_and_country_gsc_processed_limited_totals_unreconciled"
   },
-  "next": "Keep the corrected question report open for ambiguity and score-policy decision; prepare OPS-06 route/SEO fix; scope OPS-02; review five CCNA questions Nov 17-19; re-evaluate US Network+ English article evidence Nov 23; observe GROWTH-01 through Dec 8",
-  "manual_skill_check": "Nov 13 owner-approved question explanation/source applied and independently read back, answer key unchanged and report open for ambiguity; US Network+ English article candidate evaluated against country search and live local practice route; blog CTA independently reviewed across eight articles",
-  "automated_skill_validation": "2026-11-13_followup_check_local_exit0_typecheck_lint_unit183_build_browser117_monetization_passed_db_auth_included_fresh_fixture",
+  "next": "Keep the answer-3 question report open for wording ambiguity and historical-key policy; prepare OPS-06 route/SEO fix; scope OPS-02; review five CCNA questions Nov 17-19; re-evaluate US Network+ English article evidence Nov 23; observe GROWTH-01 through Dec 8",
+  "manual_skill_check": "Nov 13 owner-specified answer 3 and explanation applied after independent review; production row and choice flags read back, report open for remaining ambiguity; blog CTA independently reviewed across eight articles",
+  "automated_skill_validation": "2026-11-13_question_answer3_check_local_exit0_typecheck_lint_unit184_build_browser117_monetization_passed_db_auth_included_fresh_fixture_sql_guard_fixture_passed",
   "write_receipts": [
     {
       "kind": "git_documentation_release",
@@ -123,6 +123,25 @@
       "state": "READY",
       "domain_alias_present": true,
       "affected_path_smoke": "korean_sqlp_and_english_network_blog_http200_expected_practice_links"
+    },
+    {
+      "kind": "git_saved_score_regrade_release",
+      "commit": "946badfd7a6ae871f700ee2bf803ee9beb25dab2",
+      "branch": "master",
+      "remote_readback": "same_sha",
+      "deployment_id": "dpl_CVmoG2coTBYPQESnCRvpC7hSzVBk",
+      "target": "production",
+      "state": "READY",
+      "domain_alias_present": true,
+      "affected_path_smoke": "question_direct_path_read_only_reload_expected_exam_and_choices"
+    },
+    {
+      "kind": "question_answer3_and_explanation_correction",
+      "state": "production_db_readback_confirmed",
+      "answer_key": "choice_3_only",
+      "historical_archive_key": "choice_4",
+      "source_report_state": "open_for_wording_ambiguity",
+      "private_receipt": ".modernization/quizeey-ops/2026-11-13-question-report-review.md"
     }
   ],
   "note": "Source cursors and business metrics are private. Do not treat missing private state as no pending work."
