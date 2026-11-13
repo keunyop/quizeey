@@ -1,7 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { findRoute, legacy } from "./contracts";
 import { examCategory, examName, matchesExam, readFavorites } from "./exam-catalog";
-import { emptyProgress, practiceStats, readProgress, reviewProgress } from "./progress";
+import { emptyProgress, practiceStats, readProgress, regradeProgress, reviewProgress } from "./progress";
+import type { Question } from "./quiz";
 
 describe("exam discovery", () => {
   it("finds Korean initials, aliases, spacing and English names", () => {
@@ -28,6 +29,28 @@ describe("review sessions and honest results", () => {
   }
   it("counts skipped questions separately from answered questions", () => {
     expect(practiceStats(fixture(), ["1", "2", "3"])).toEqual({ correct: 1, incorrect: 1, unanswered: 1, answered: 2 });
+  });
+  it("regrades saved attempts against the current answer key without losing selections", () => {
+    const question: Question = { id: "1", testId: "14", locale: "ko", version: 6, versionName: "6", text: "Question", explanation: null, preserveOrder: true, choices: [
+      { id: "11", text: "Old answer", correct: false, position: 1 },
+      { id: "12", text: "New answer", correct: true, position: 2 },
+    ] };
+    const correctedChoice: Question = { ...question, id: "2", choices: [
+      { id: "21", text: "Old answer", correct: false, position: 1 },
+      { id: "22", text: "New answer", correct: true, position: 2 },
+    ] };
+    const saved = { ...emptyProgress(["1", "2", "3"], "v1"), attempts: {
+      "1": { selected: ["11"], correct: true },
+      "2": { selected: ["22"], correct: false },
+      "3": { selected: ["31"], correct: false },
+    } };
+    const updated = regradeProgress(saved, [question, correctedChoice]);
+    expect(updated.attempts["1"]).toEqual({ selected: ["11"], correct: false });
+    expect(updated.attempts["2"]).toEqual({ selected: ["22"], correct: true });
+    expect(updated.attempts["3"]).toBe(saved.attempts["3"]);
+    expect(practiceStats(updated, ["1", "2", "3"])).toEqual({ correct: 1, incorrect: 2, unanswered: 0, answered: 3 });
+    expect(saved.attempts["1"].correct).toBe(true);
+    expect(regradeProgress(updated, [question, correctedChoice])).toBe(updated);
   });
   it.each(["mistakes", "bookmarks", "unanswered"] as const)("starts %s review, preserves unrelated answers and restores after refresh", (mode) => {
     const original = fixture(); const next = reviewProgress(original, mode);

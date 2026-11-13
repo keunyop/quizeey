@@ -3,7 +3,7 @@
 import { useEffect,useMemo,useRef, useState, useSyncExternalStore } from "react";
 import { messages } from "@/lib/i18n";
 import type { Locale } from "@/lib/contracts";
-import { emptyProgress, practiceStats, readProgress, reviewProgress, type Progress } from "@/lib/progress";
+import { emptyProgress, practiceStats, readProgress, regradeProgress, reviewProgress, type Progress } from "@/lib/progress";
 import { grade, shuffleChoices, type Question } from "@/lib/quiz";
 import { Icon } from "./Icon";
 import { Forum } from "./Forum";
@@ -202,7 +202,8 @@ function PracticeSession({ questions, locale, testId, contentVersion, directId, 
   const previousKeys = useMemo(() => retained.length || directId ? [] : Array.from({ length: Math.max(0, questions.length - 1) }, (_, index) =>
     keyPrefix + questions.slice(0, questions.length - index - 1).map(question => question.version).join(",") + keySuffix),
   [retained.length, directId, questions, keyPrefix, keySuffix]);
-  const { progress, save, storageError, needsResume, accept } = useProgress(key, ids, contentVersion, previousKeys);
+  const { progress: storedProgress, save, storageError, needsResume, accept } = useProgress(key, ids, contentVersion, previousKeys);
+  const progress = useMemo(() => regradeProgress(storedProgress, questions), [storedProgress, questions]);
   const activeQuestions = progress.reviewIds ? questions.filter((q) => progress.reviewIds!.includes(q.id)) : questions;
   const question = activeQuestions[progress.index];
   const attempt = question ? progress.attempts[question.id] : undefined;

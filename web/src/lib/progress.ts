@@ -1,3 +1,5 @@
+import { grade, type Question } from "./quiz";
+
 export type Attempt = { selected: string[]; correct: boolean };
 export type Progress = {
   schema: 1; contentVersion: string; ids: string[]; index: number;
@@ -30,6 +32,17 @@ export function practiceStats(progress: Progress, ids: string[]) {
   const correct = ids.filter((id) => progress.attempts[id]?.correct === true).length;
   const incorrect = ids.filter((id) => progress.attempts[id]?.correct === false).length;
   return { correct, incorrect, unanswered: ids.length - correct - incorrect, answered: correct + incorrect };
+}
+export function regradeProgress(progress: Progress, questions: Question[]): Progress {
+  const byId = new Map(questions.map(question => [question.id, question]));
+  let changed = false;
+  const attempts = Object.fromEntries(Object.entries(progress.attempts).map(([id, attempt]) => {
+    const question = byId.get(id);
+    const correct = question ? grade(question, attempt.selected) : attempt.correct;
+    if (correct !== attempt.correct) changed = true;
+    return [id, correct === attempt.correct ? attempt : { ...attempt, correct }];
+  }));
+  return changed ? { ...progress, attempts } : progress;
 }
 export function reviewProgress(progress: Progress, mode: NonNullable<Progress["reviewMode"]>): Progress {
   const reviewIds = progress.ids.filter((id) => mode === "bookmarks" ? progress.bookmarks.includes(id) : mode === "mistakes" ? progress.attempts[id]?.correct === false : !progress.attempts[id]);
