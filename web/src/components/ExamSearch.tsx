@@ -52,12 +52,15 @@ export function ExamSearch({ routes, locale, popularity }: { routes: LegacyRoute
       <h1 id="catalog-heading">{homeSearchCopy[locale].heading}</h1>
       <p className="catalog-description">{homeSearchCopy[locale].intro}</p>
       <div className="search-field"><Icon name="search" /><label className="sr-only" htmlFor="exam-search">{en ? "Search exams" : "자격증 검색"}</label>
-        <input id="exam-search" type="search" autoComplete="off" placeholder={en ? "Find your exam" : "어떤 자격증을 준비하세요?"} value={search} onChange={(e) => { setSearch(e.target.value); setLimit(18); }} />
+        <input id="exam-search" type="search" autoComplete="off" placeholder={en ? "Search by exam name" : "시험 이름 또는 초성 검색"} value={search} onChange={(e) => { setSearch(e.target.value); setLimit(18); }} />
         {search && <button className="icon-button" aria-label={en ? "Clear search" : "검색어 지우기"} onClick={() => { setSearch(""); setLimit(18); document.getElementById("exam-search")?.focus(); }}><Icon name="close" /></button>}
       </div>
-      <nav className="catalog-study-links" aria-label={en ? 'Study paths' : '시험별 학습 경로'}>
+      <details className="catalog-guides">
+        <summary>{en ? 'Find a study guide' : '시험별 학습 가이드'}<Icon name="arrow" /></summary>
+        <nav className="catalog-study-links" aria-label={en ? 'Study paths' : '시험별 학습 경로'}>
         <ul>{homeSearchCopy[locale].studyLinks.map(link => <li key={link.href}><a href={link.href}>{link.label}</a></li>)}</ul>
-      </nav>
+        </nav>
+      </details>
     </section>
     <section className="catalog" aria-labelledby="exams-heading">
       <h2 id="exams-heading" className="sr-only">{en ? 'Exams' : '시험 목록'}</h2>
@@ -66,10 +69,16 @@ export function ExamSearch({ routes, locale, popularity }: { routes: LegacyRoute
         <button aria-pressed={savedOnly} onClick={() => { setSavedOnly(true); setLimit(18); }}><Icon name="bookmark" />{en ? "Favorites" : "즐겨찾기"}<span>{savedCount}</span></button>
       </div>
       <div className="category-filters" role="group" aria-label={en ? "Exam category" : "시험 분야"}>{visibleCategories.map((c) => <button key={c} aria-pressed={category === c} onClick={() => { setCategory(c); setLimit(18); }}>{names[c]}</button>)}</div>
+      <div className="category-picker">
+        <label htmlFor="exam-category">{en ? "Exam category" : "시험 분야"}</label>
+        <select id="exam-category" value={category} onChange={event => { setCategory(event.target.value as Category); setLimit(18); }}>
+          {visibleCategories.map(c => <option key={c} value={c}>{names[c]}</option>)}
+        </select>
+      </div>
       {en && <label className="archive-filter"><input type="checkbox" checked={includeRetired} onChange={event => { setIncludeRetired(event.target.checked); setLimit(18); }} /> Include retired exam archives</label>}
       {en && !includeRetired && !savedOnly && search && routes.some(r => isRetiredExam(r.testId) && matchesExam(r, search)) && <p className="archive-hint">Retired exams match this search. Select “Include retired exam archives” to find their original pages and updated study paths.</p>}
       <div className="results-line"><p role="status">{en ? `${filtered.length} exams` : `${filtered.length}개의 시험`}{search && <span> · “{search}”</span>}</p><div className="catalog-controls">
-        {(search || category !== "all") && <button className="text-button" onClick={reset}>{en ? "Reset filters" : "필터 초기화"}<Icon name="refresh" /></button>}
+        {(search || category !== "all" || savedOnly || includeRetired) && <button className="text-button" onClick={reset}>{en ? "Reset filters" : "필터 초기화"}<Icon name="refresh" /></button>}
         <label className="sr-only" htmlFor="exam-sort">{en ? "Sort exams" : "시험 정렬"}</label>
         <select id="exam-sort" value={sort} onChange={(event) => { setSort(event.target.value as ExamSort); setLimit(18); }}>
           <option value="popular">{en ? "Most popular" : "인기도순"}</option>
