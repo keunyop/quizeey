@@ -33,7 +33,8 @@
 .quiz { border-top: 2px solid var(--blue); padding-top: 24px; }
 .quiz summary { cursor: pointer; color: var(--blue-dark); min-height: 44px; padding: 10px 0; font-weight: 600; }
 .cta { border-radius: 12px; padding: 24px; background: var(--blue-soft); }
-.cta > a { display: inline-flex; min-height: 44px; align-items: center; font-weight: 650; }
+.cta > a { display: inline-flex; min-height: 48px; max-width: 100%; align-items: center; justify-content: center; border: 1px solid var(--blue); border-radius: 10px; padding: 10px 20px; background: var(--blue); color: var(--on-accent); font-weight: 650; text-align: center; text-decoration: none; }
+.cta > a:hover { border-color: var(--blue-dark); background: var(--blue-dark); color: var(--on-accent); text-decoration: none; }
 .sources h2 { font-size: 16px; }
 .indexHeader { padding: 32px 0 42px; max-width: 620px; }
 .indexHeader h1 { font-size: clamp(32px, 5vw, 48px); }
@@ -45,4 +46,4 @@
 .discovery { margin: 28px 0; padding: 24px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
 .discovery h2 { margin: 8px 0; font-size: 19px; font-weight: 650; }
 .discovery > p:last-child { color: var(--muted); margin: 8px 0 0; }
-@media (max-width: 520px) { .comparison { grid-template-columns: 1fr; } .countCard { padding: 20px; } .countCard code { min-height: 0; } .container { padding-inline: 16px; } }
+@media (max-width: 520px) { .comparison { grid-template-columns: 1fr; } .countCard { padding: 20px; } .countCard code { min-height: 0; } .container { padding-inline: 16px; } .cta > a { width: 100%; } }

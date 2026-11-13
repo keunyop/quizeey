@@ -2,10 +2,10 @@
   "schema_version": 1,
   "run_id": "2026-11-13-daily-sqlp-question-report",
   "mode": "daily",
-  "status": "daily_sqlp_production_ready_smoke_passed_question_report_open",
+  "status": "daily_sqlp_ready_question_explanation_live_blog_button_awaiting_release_report_open",
   "last_report": "reports/2026-11-13-daily.md",
   "private_state": ".modernization/quizeey-ops/state.json",
-  "branch": "master",
+  "branch": "feat/blog-practice-cta-20261113",
   "preferred_branch": "master_for_routine_low_risk_work",
   "release": "daily_sqlp_production_ready_smoke_passed",
   "schedule": "not_registered",
@@ -29,9 +29,9 @@
     "cadence": "weekly_core_monthly_financial",
     "status": "ga4_country_landing_channel_and_country_gsc_processed_limited_totals_unreconciled"
   },
-  "next": "Seek specific approval for the new question explanation-only production DB correction; prepare separate OPS-06 route/SEO fix; check next daily inbox and write one evidence-selected original article; scope OPS-02; review five CCNA questions Nov 17-19; re-evaluate country evidence Nov 23; observe GROWTH-01 through Dec 8",
-  "manual_skill_check": "Nov 13 report inbox checksums unchanged and DB/GitHub inboxes reconciled; independent question review supports answer 4 and explanation-only proposal; SQLP article independently reviewed against official sources and live local practice route; OPS-06 source-ID and URL impact investigated",
-  "automated_skill_validation": "2026-11-13_final_check_local_exit0_typecheck_lint_unit183_build_browser116_monetization_passed_db_auth_included_fresh_fixture",
+  "next": "Release verified blog practice CTA once via master Git push and affected-path smoke; keep the corrected question report open for ambiguity and score-policy decision; prepare OPS-06 route/SEO fix; scope OPS-02; review five CCNA questions Nov 17-19; re-evaluate US Network+ English article evidence Nov 23; observe GROWTH-01 through Dec 8",
+  "manual_skill_check": "Nov 13 owner-approved question explanation/source applied and independently read back, answer key unchanged and report open for ambiguity; US Network+ English article candidate evaluated against country search and live local practice route; blog CTA independently reviewed across eight articles",
+  "automated_skill_validation": "2026-11-13_followup_check_local_exit0_typecheck_lint_unit183_build_browser117_monetization_passed_db_auth_included_fresh_fixture",
   "write_receipts": [
     {
       "kind": "git_documentation_release",
@@ -105,6 +105,13 @@
       "domain_alias_present": true,
       "affected_path_smoke": "sqlp_article_blog_index_sqlp_november_practice_http200_expected_content",
       "observed_at": "2026-11-13T18:52:15Z"
+    },
+    {
+      "kind": "question_explanation_correction",
+      "state": "applied_and_readback_confirmed",
+      "answer_key": "unchanged",
+      "source_report_state": "open_for_ambiguity_review",
+      "private_receipt": ".modernization/quizeey-ops/2026-11-13-question-report-review.md"
     }
   ],
   "note": "Source cursors and business metrics are private. Do not treat missing private state as no pending work."

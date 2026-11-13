@@ -35,6 +35,28 @@ for (const path of ['/blog', blogPostPath, printingPost.path, ccnaPost.path, kor
   });
 }
 
+test('Korean and English practice links are prominent mobile buttons in both themes', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  for (const post of [blogPost, subnetPost]) {
+    await page.goto(post.path);
+    const link = page.locator(`aside a[href="${post.practicePath}"]`);
+    await expect(link).toHaveCount(1);
+    for (const theme of ['light', 'dark']) {
+      await page.evaluate(value => { document.documentElement.dataset.theme = value; }, theme);
+      const dimensions = await link.evaluate(element => {
+        const rect = element.getBoundingClientRect();
+        const aside = element.closest('aside')!.getBoundingClientRect();
+        const style = getComputedStyle(element);
+        return { height: rect.height, width: rect.width, available: aside.width - 48, background: style.backgroundColor, asideBackground: getComputedStyle(element.closest('aside')!).backgroundColor, decoration: style.textDecorationLine };
+      });
+      expect(dimensions.height).toBeGreaterThanOrEqual(44);
+      expect(dimensions.width).toBeGreaterThanOrEqual(dimensions.available - 2);
+      expect(dimensions.background).not.toBe(dimensions.asideBackground);
+      expect(dimensions.decoration).toBe('none');
+    }
+  }
+});
+
 test('unknown blog articles return 404', async ({ request }) => {
   expect((await request.get('/blog/not-a-post')).status()).toBe(404);
   expect((await request.get('/en/blog/not-a-post')).status()).toBe(404);
