@@ -96,6 +96,8 @@ def main():
         (directory / "security-result.txt").write_text(output, encoding="utf-8")
         output = run('psql',*common,'-d','quizeey_fixture','-f',ROOT/'supabase/tests/admin_security.sql')
         (directory/'admin-security-result.txt').write_text(output,encoding='utf-8')
+        output = run('psql', *common, '-d', 'quizeey_fixture', '-f', ROOT / 'supabase/tests/forum_report_retention.sql')
+        (directory / 'forum-report-retention-result.txt').write_text(output, encoding='utf-8')
         output = run('psql', *common, '-d', 'quizeey_fixture', '-f', ROOT / 'supabase/tests/forum_paging.sql')
         (directory / 'forum-paging-result.txt').write_text(output, encoding='utf-8')
         output = run('psql', *common, '-d', 'quizeey_fixture', '-f', ROOT / 'supabase/tests/exam_popularity.sql')

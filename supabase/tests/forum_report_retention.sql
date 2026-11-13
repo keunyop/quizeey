@@ -20,6 +20,7 @@ set role anon;
 do $$ begin
   begin perform public.quizeey_forum_cleanup(); raise exception 'anon cleanup exposed'; exception when insufficient_privilege then null; end;
   begin perform quizeey_private.quizeey_forum_cleanup(); raise exception 'anon private cleanup exposed'; exception when insufficient_privilege then null; end;
+  begin perform quizeey_private.quizeey_admin_queue('reports'); raise exception 'anon private queue exposed'; exception when insufficient_privilege then null; end;
   begin perform public.quizeey_admin_queue('reports'); raise exception 'anon report queue exposed'; exception when insufficient_privilege then null; end;
 end $$;
 reset role;
@@ -27,6 +28,7 @@ set role authenticated;
 do $$ begin
   begin perform public.quizeey_forum_cleanup(); raise exception 'authenticated cleanup exposed'; exception when insufficient_privilege then null; end;
   begin perform quizeey_private.quizeey_forum_cleanup(); raise exception 'authenticated private cleanup exposed'; exception when insufficient_privilege then null; end;
+  begin perform quizeey_private.quizeey_admin_queue('reports'); raise exception 'authenticated private queue exposed'; exception when insufficient_privilege then null; end;
   begin perform public.quizeey_admin_queue('reports'); raise exception 'authenticated report queue exposed'; exception when insufficient_privilege then null; end;
 end $$;
 reset role;

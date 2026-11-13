@@ -20,7 +20,7 @@ describe('blog search publishing', () => {
     expect(metadata.robots).toEqual({ index: true, follow: true });
     expect(publicSitemap(origin)).toEqual(expect.arrayContaining(blogSitemap(origin)));
     for (const post of blogPosts) expect(blogSitemap(origin)).toContainEqual({ url: origin + post.path, lastModified: post.modified });
-    expect(blogSitemap(origin).find(entry => entry.url === origin + '/blog')?.lastModified).toBe('2026-11-11');
+    expect(blogSitemap(origin).find(entry => entry.url === origin + '/blog')?.lastModified).toBe('2026-11-12');
     expect(blogSitemap(origin).find(entry => entry.url === origin + '/en/blog')?.lastModified).toBe('2026-11-08');
     expect(findBlogPost(printingPost.slug, 'ko')).toBe(printingPost);
     expect(findBlogPost(printingPost.slug, 'en')).toBeUndefined();

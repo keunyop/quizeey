@@ -1,5 +1,17 @@
 # 변경과 실험 이력
 
+## 2026-11-12 OPS-01 운영 적용과 일일 글
+
+- 소유자가 미처리 댓글 신고의 해결 시점까지 보존과 운영 DB 적용을 승인했다. 운영 Supabase migration 버전 `20261112232605`를 한 번 적용하고 함수 정의·권한·migration 목록을 읽기 확인했다. 실제 장기 미처리 신고의 동작은 관찰 대기다.
+- [PO 스킬](../../.agents/skills/quizeey-po/SKILL.md)에 하루 한 편의 원본 글, 중복 방지, 검색·공식 근거, 실제 시험 문제 경로 검증, 게시 전 로컬 검사를 추가했다. [한식 식품위생 글](../../web/src/components/KoreanCookingArticle.tsx)은 독립 콘텐츠 검수와 최종 로컬 전체 검사(단위 183개·브라우저 114개 포함)를 통과했다. 최종 게시 상태는 [오늘 일지](journal/2026-11-12.md)를 따른다.
+- 기존 양식조리 URL이 한식조리 시험 ID 14와 문제를 보여 주는 결함을 로컬에서 재현했다. 자료 정합성을 확인하기 전까지 양식 글과 문제 링크를 게시하지 않는다.
+
+## 2026-11-12 OPS-01 로컬 검증과 성장 조사
+
+- [신고 보존 migration](../../supabase/migrations/20261112232605_preserve_open_forum_reports.sql)을 공식 CLI로 생성해 기존 후보 SQL을 담았다. 격리 DB에서 보존·정리·권한 검사를 통과했고, 빈 새 클러스터에 전체 migration을 적용한 후에도 동일 회귀가 통과했다. [DB 검사](../../tools/modernization/test_database.py)와 [CI](../../.github/workflows/modernization.yml)에 [회귀 SQL](../../supabase/tests/forum_report_retention.sql)을 연결했다.
+- 독립 검수에서 기능·권한 차단 결함은 발견하지 못했다. 최초 `check:local`은 DB/Auth fixture 포함 브라우저 112개까지 통과했다. 이 항목은 승인 이전의 로컬 검증 이력이며 위의 운영 적용 기록이 최신 상태다.
+- [성장 계획](growth-plan.md)에 기존 검색 유입을 학습 시작으로 연결하는 방안, 기존 페이지 의도 개선, 재방문 여정, 근거가 확인된 해외 기존 경로 파일럿을 우선순위와 측정 조건으로 기록했다. 자세한 결과는 [오늘 보고서](reports/2026-11-12-ops01-growth.md)에 있다.
+
 ## 2026-11-11 CCNA 한국어 글 게시 준비
 
 - 소유자의 조기 게시 요청에 따라 검수된 IPv4 서브네팅 초안을 한국어 블로그 글에 통합하고 목록·사이트맵·CCNA 시험 페이지에 연결했다. [게시 보고서](reports/2026-11-11-ccna-ko-publication.md)에 범위와 검수 내용을 기록했다.

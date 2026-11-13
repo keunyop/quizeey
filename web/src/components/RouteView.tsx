@@ -4,7 +4,7 @@ import { headers, cookies } from 'next/headers';
 import { randomUUID } from 'node:crypto';
 import { ExamSearch } from "./ExamSearch";
 import { RelatedStudyGuide, StudyGuideCards } from './StudyGuides';
-import { BlogDiscovery, SubnetDiscovery, CloudDiscovery, PrintingDiscovery, RoadSignsDiscovery, CcnaDiscovery } from './Blog';
+import { BlogDiscovery, SubnetDiscovery, CloudDiscovery, PrintingDiscovery, RoadSignsDiscovery, CcnaDiscovery, KoreanCookingDiscovery } from './Blog';
 import { ExamLink } from "./ExamLink";
 import { ExamHeading } from "./ExamHeading";
 import { CertificationNotice, CertificationPracticeLinks } from './CertificationContext';
@@ -127,6 +127,7 @@ export async function RouteView({ path, query }: { path: string; query: Query })
           {locale === 'en' && examPath === '/en/ontario-g1' && <RoadSignsDiscovery />}
           {locale === 'ko' && examPath === '/sqlp-developer' && <BlogDiscovery />}
           {locale === 'ko' && examPath === '/craftsman-3D-printer-operation' && <PrintingDiscovery />}
+          {locale === 'ko' && path === '/craftsman-cook-korean-food' && <KoreanCookingDiscovery />}
           {locale === 'ko' && examPath === '/ccna-200-301' && <CcnaDiscovery />}
           {locale === 'en' && <CertificationPracticeLinks examId={exam.testId} directId={input.questId} />}
           {publicBatch.length>0&&<AdSlot kind="display" locale={locale}/>}

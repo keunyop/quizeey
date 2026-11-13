@@ -14,7 +14,15 @@ export const blogPost: BlogPost = {
 };
 export const blogPath = '/blog';
 export const blogPostPath = `${blogPath}/${blogPost.slug}`;
-export const blogIndex = { title: 'Quizeey 블로그: 예제로 배우는 자격증 공부', description: 'CCNA 서브넷 계산, SQLD, 3D프린터운용기능사 등 헷갈리는 자격증 개념을 예제와 확인 문제로 정리하고 Quizeey 문제풀이로 연습하세요.' };
+export const blogIndex = { title: 'Quizeey 블로그: 예제로 배우는 자격증 공부', description: '한식조리기능사 위생 판단, CCNA 서브넷 계산, SQLD 등 헷갈리는 자격증 개념을 예제로 정리하고 Quizeey 문제풀이로 연습하세요.' };
+
+export const koreanCookingPost: BlogPost = {
+  slug: 'korean-cooking-food-safety-cross-contamination', path: '/blog/korean-cooking-food-safety-cross-contamination', locale: 'ko',
+  title: '한식조리기능사 필기: 교차오염·보관온도 사례로 익히기',
+  description: '한식조리기능사 필기 식품위생을 생닭·오이무침 조리 사례로 익히세요. 교차오염, 손씻기, 냉장 보관 판단을 원본 확인 문제로 연습합니다.',
+  date: '2026-11-12', modified: '2026-11-12', category: '한식조리기능사 · 식품위생',
+  practicePath: '/craftsman-cook-korean-food',
+};
 
 export const ccnaPost: BlogPost = {
   slug: 'ccna-ipv4-subnetting-gateway', path: '/blog/ccna-ipv4-subnetting-gateway', locale: 'ko',
@@ -49,7 +57,7 @@ export const roadSignsPost: BlogPost = {
   description: 'Learn Ontario road sign shapes and colours, separate stop from yield, and try five explained questions before practising with the G1 study set.',
   date: '2026-11-08', modified: '2026-11-08', category: 'Ontario G1 · Road sign practice', practicePath: '/en/ontario-g1',
 };
-export const blogPosts = [ccnaPost, roadSignsPost, printingPost, cloudPost, subnetPost, blogPost];
+export const blogPosts = [koreanCookingPost, ccnaPost, roadSignsPost, printingPost, cloudPost, subnetPost, blogPost];
 const englishIndex = { title: 'Quizeey Blog: Certification Concepts with Worked Examples', description: 'Understand a concept, work through an example and check your reasoning with practice questions.' };
 export function blogIndexPath(locale: Locale) { return locale === 'en' ? '/en/blog' : blogPath; }
 export function blogIndexCopy(locale: Locale) { return locale === 'en' ? englishIndex : blogIndex; }

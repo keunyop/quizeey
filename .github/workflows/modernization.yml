@@ -47,6 +47,7 @@ jobs:
           done
           psql -X -h 127.0.0.1 -p 55432 -U quizeey_fixture -d quizeey_fixture -v ON_ERROR_STOP=1 -f supabase/tests/forum_security.sql
           psql -X -h 127.0.0.1 -p 55432 -U quizeey_fixture -d quizeey_fixture -v ON_ERROR_STOP=1 -f supabase/tests/admin_security.sql
+          psql -X -h 127.0.0.1 -p 55432 -U quizeey_fixture -d quizeey_fixture -v ON_ERROR_STOP=1 -f supabase/tests/forum_report_retention.sql
       - run: npm run check
       - run: npx playwright install --with-deps chromium
       - name: Consent, ads and analytics browser regression
