@@ -2,12 +2,12 @@
   "schema_version": 1,
   "run_id": "2026-11-13-daily-sqlp-question-report",
   "mode": "daily",
-  "status": "daily_sqlp_local_verified_git_release_pending_question_report_open",
+  "status": "daily_sqlp_production_ready_smoke_passed_question_report_open",
   "last_report": "reports/2026-11-13-daily.md",
   "private_state": ".modernization/quizeey-ops/state.json",
   "branch": "master",
   "preferred_branch": "master_for_routine_low_risk_work",
-  "release": "daily_sqlp_git_release_pending",
+  "release": "daily_sqlp_production_ready_smoke_passed",
   "schedule": "not_registered",
   "active_items": [
     "OPS-01",
@@ -29,7 +29,7 @@
     "cadence": "weekly_core_monthly_financial",
     "status": "ga4_country_landing_channel_and_country_gsc_processed_limited_totals_unreconciled"
   },
-  "next": "After SQLP Git release, seek specific approval for the new question explanation-only production DB correction; prepare separate OPS-06 route/SEO fix; check next daily inbox and write one evidence-selected original article; scope OPS-02; review five CCNA questions Nov 17-19; re-evaluate country evidence Nov 23; observe GROWTH-01 through Dec 8",
+  "next": "Seek specific approval for the new question explanation-only production DB correction; prepare separate OPS-06 route/SEO fix; check next daily inbox and write one evidence-selected original article; scope OPS-02; review five CCNA questions Nov 17-19; re-evaluate country evidence Nov 23; observe GROWTH-01 through Dec 8",
   "manual_skill_check": "Nov 13 report inbox checksums unchanged and DB/GitHub inboxes reconciled; independent question review supports answer 4 and explanation-only proposal; SQLP article independently reviewed against official sources and live local practice route; OPS-06 source-ID and URL impact investigated",
   "automated_skill_validation": "2026-11-13_final_check_local_exit0_typecheck_lint_unit183_build_browser116_monetization_passed_db_auth_included_fresh_fixture",
   "write_receipts": [
@@ -93,6 +93,18 @@
       "state": "READY",
       "domain_alias_present": true,
       "affected_path_smoke": "article_blog_index_korean_exam_ko_en_privacy_http200_expected_content"
+    },
+    {
+      "kind": "git_daily_sqlp_release",
+      "commit": "6201e126a1c5dbbd2f4f158deaace91ebcc81f52",
+      "branch": "master",
+      "remote_readback": "same_sha",
+      "deployment_id": "dpl_EgzttCcg7LFDAi3hZBsPsrThhp4M",
+      "target": "production",
+      "state": "READY",
+      "domain_alias_present": true,
+      "affected_path_smoke": "sqlp_article_blog_index_sqlp_november_practice_http200_expected_content",
+      "observed_at": "2026-11-13T18:52:15Z"
     }
   ],
   "note": "Source cursors and business metrics are private. Do not treat missing private state as no pending work."
