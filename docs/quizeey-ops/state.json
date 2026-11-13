@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "run_id": "2026-11-12-ops01-approved-db-daily-blog-growth",
+  "run_id": "2026-11-13-daily-sqlp-question-report",
   "mode": "daily",
-  "status": "ops01_production_db_applied_daily_blog_production_ready_smoke_passed",
-  "last_report": "reports/2026-11-12-ops01-growth.md",
+  "status": "daily_sqlp_local_verified_git_release_pending_question_report_open",
+  "last_report": "reports/2026-11-13-daily.md",
   "private_state": ".modernization/quizeey-ops/state.json",
   "branch": "master",
   "preferred_branch": "master_for_routine_low_risk_work",
-  "release": "daily_korean_cooking_production_ready_smoke_passed",
+  "release": "daily_sqlp_git_release_pending",
   "schedule": "not_registered",
   "active_items": [
     "OPS-01",
@@ -17,7 +17,7 @@
     "OPS-05",
     "OPS-06"
   ],
-  "last_journal": "journal/2026-11-12.md",
+  "last_journal": "journal/2026-11-13.md",
   "google_connection": {
     "ga4": "public_tag_present_api_unverified",
     "gsc": "public_domain_verification_present_api_unverified",
@@ -29,9 +29,9 @@
     "cadence": "weekly_core_monthly_financial",
     "status": "ga4_country_landing_channel_and_country_gsc_processed_limited_totals_unreconciled"
   },
-  "next": "Investigate OPS-06 western route identity; check next daily inbox and write one evidence-selected original blog article; scope OPS-02 privacy cleanup; draft/review five CCNA questions Nov 17-19; re-evaluate country evidence Nov 23; observe GROWTH-01 through Dec 8",
-  "manual_skill_check": "Nov 12 report inbox checksums unchanged; production DB OPS-01 migration applied with function and permission readback; independent SQL and article review found no blocking defect; western route mismatch recorded as OPS-06",
-  "automated_skill_validation": "2026-11-12_final_check_local_exit0_typecheck_lint_unit183_build_browser114_monetization_passed_db_auth13_included_fresh_db_migration_retention_passed",
+  "next": "After SQLP Git release, seek specific approval for the new question explanation-only production DB correction; prepare separate OPS-06 route/SEO fix; check next daily inbox and write one evidence-selected original article; scope OPS-02; review five CCNA questions Nov 17-19; re-evaluate country evidence Nov 23; observe GROWTH-01 through Dec 8",
+  "manual_skill_check": "Nov 13 report inbox checksums unchanged and DB/GitHub inboxes reconciled; independent question review supports answer 4 and explanation-only proposal; SQLP article independently reviewed against official sources and live local practice route; OPS-06 source-ID and URL impact investigated",
+  "automated_skill_validation": "2026-11-13_final_check_local_exit0_typecheck_lint_unit183_build_browser116_monetization_passed_db_auth_included_fresh_fixture",
   "write_receipts": [
     {
       "kind": "git_documentation_release",

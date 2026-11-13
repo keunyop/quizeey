@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { blogPost, blogPostPath, subnetPost, cloudPost, printingPost, roadSignsPost, ccnaPost, koreanCookingPost } from '../src/lib/blog';
+import { blogPost, blogPostPath, subnetPost, cloudPost, printingPost, roadSignsPost, ccnaPost, koreanCookingPost, sqlpPlanPost } from '../src/lib/blog';
 
 test('read the Korean blog and reach SQLD practice without JavaScript', async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false, baseURL: 'http://127.0.0.1:3100' });
@@ -22,7 +22,7 @@ test('read the Korean blog and reach SQLD practice without JavaScript', async ({
   await context.close();
 });
 
-for (const path of ['/blog', blogPostPath, printingPost.path, ccnaPost.path, koreanCookingPost.path, '/en/blog', subnetPost.path, cloudPost.path, roadSignsPost.path]) {
+for (const path of ['/blog', blogPostPath, printingPost.path, ccnaPost.path, koreanCookingPost.path, sqlpPlanPost.path, '/en/blog', subnetPost.path, cloudPost.path, roadSignsPost.path]) {
   test(`blog remains accessible on mobile in light and dark themes: ${path}`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(path);
@@ -43,6 +43,28 @@ test('unknown blog articles return 404', async ({ request }) => {
   expect((await request.get('/en/blog/' + printingPost.slug)).status()).toBe(404);
   expect((await request.get('/blog/' + roadSignsPost.slug)).status()).toBe(404);
   expect((await request.get('/en/blog/' + ccnaPost.slug)).status()).toBe(404);
+  expect((await request.get('/en/blog/' + sqlpPlanPost.slug)).status()).toBe(404);
+});
+
+test('SQLP plan guide reaches the actual November SQLP questions without JavaScript', async ({ browser, request }) => {
+  const response = await request.get(sqlpPlanPost.path);
+  expect(response.status()).toBe(200);
+  const html = await response.text();
+  expect(html).toContain('BlogPosting');
+  expect(html).toContain('2026-11-13');
+  const context = await browser.newContext({ javaScriptEnabled: false, baseURL: 'http://127.0.0.1:3100' });
+  const page = await context.newPage();
+  await page.goto('/blog');
+  await page.getByRole('link', { name: sqlpPlanPost.title, exact: true }).click();
+  await expect(page.locator('h1')).toHaveText(sqlpPlanPost.title);
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', sqlpPlanPost.description);
+  await page.getByText('정답과 선택지별 이유 보기', { exact: true }).click();
+  await expect(page.getByText('정답은 2번입니다.', { exact: false })).toBeVisible();
+  await page.getByRole('link', { name: 'SQLP 11월 문제 풀기 →', exact: true }).click();
+  await expect(page).toHaveURL(/sqlp-professional\?verNbr=202611/);
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('SQLP - 국가공인 SQL전문가');
+  await expect(page.locator('.question-prompt').first()).toContainText('B-tree');
+  await context.close();
 });
 
 test('Korean cooking guide is original, readable without JavaScript and leads to practice', async ({ browser, request }) => {

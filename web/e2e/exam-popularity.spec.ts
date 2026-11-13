@@ -90,12 +90,20 @@ test.describe("shared database click counts", () => {
     await page.locator('.exam-directory a[href="/sqlp-developer"]').click();
     await expect(page).toHaveURL(origin + "/sqlp-developer");
     await expect.poll(() => count("5")).toBe(initial + 4);
+    // Other journeys in this suite may have already raised another exam's count.
+    // Give this fixture exam a known lead before asserting cross-browser ordering.
+    const maximum = await fixture("select coalesce(max(click_count),0)::text as count from quizeey_private.exam_clicks");
+    const leadingCount = Number(maximum.rows[0].count) + 1;
+    await fixture("update quizeey_private.exam_clicks set click_count=$2 where exam_id=$1", ["5", leadingCount]);
     const otherBrowser = await context.browser()!.newContext();
     try {
       const otherPage = await otherBrowser.newPage();
       await otherPage.goto(origin);
       await expect(otherPage.locator(".exam-card a").first()).toHaveAttribute("href", "/sqlp-developer");
-    } finally { await otherBrowser.close(); }
+    } finally {
+      await otherBrowser.close();
+      await fixture("update quizeey_private.exam_clicks set click_count=$2 where exam_id=$1", ["5", initial + 4]);
+    }
   });
 
   test("popularity is the default and name sorting can override higher counts", async ({ page }) => {

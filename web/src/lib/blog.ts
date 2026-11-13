@@ -16,6 +16,14 @@ export const blogPath = '/blog';
 export const blogPostPath = `${blogPath}/${blogPost.slug}`;
 export const blogIndex = { title: 'Quizeey 블로그: 예제로 배우는 자격증 공부', description: '한식조리기능사 위생 판단, CCNA 서브넷 계산, SQLD 등 헷갈리는 자격증 개념을 예제로 정리하고 Quizeey 문제풀이로 연습하세요.' };
 
+export const sqlpPlanPost: BlogPost = {
+  slug: 'sqlp-explain-index-seq-scan', path: '/blog/sqlp-explain-index-seq-scan', locale: 'ko',
+  title: 'SQLP 실행계획 읽기: 인덱스가 있어도 Seq Scan이 나오는 이유',
+  description: 'SQLP 학습을 위한 원본 PostgreSQL 실행계획 사례. 전체 조회, lower() 검색, 다중 열 인덱스의 앞 열 조건을 점검하고 11월 SQLP 문제로 이어가세요.',
+  date: '2026-11-13', modified: '2026-11-13', category: 'SQLP · 실행계획과 인덱스',
+  practicePath: '/sqlp-professional?verNbr=202611',
+};
+
 export const koreanCookingPost: BlogPost = {
   slug: 'korean-cooking-food-safety-cross-contamination', path: '/blog/korean-cooking-food-safety-cross-contamination', locale: 'ko',
   title: '한식조리기능사 필기: 교차오염·보관온도 사례로 익히기',
@@ -57,7 +65,7 @@ export const roadSignsPost: BlogPost = {
   description: 'Learn Ontario road sign shapes and colours, separate stop from yield, and try five explained questions before practising with the G1 study set.',
   date: '2026-11-08', modified: '2026-11-08', category: 'Ontario G1 · Road sign practice', practicePath: '/en/ontario-g1',
 };
-export const blogPosts = [koreanCookingPost, ccnaPost, roadSignsPost, printingPost, cloudPost, subnetPost, blogPost];
+export const blogPosts = [sqlpPlanPost, koreanCookingPost, ccnaPost, roadSignsPost, printingPost, cloudPost, subnetPost, blogPost];
 const englishIndex = { title: 'Quizeey Blog: Certification Concepts with Worked Examples', description: 'Understand a concept, work through an example and check your reasoning with practice questions.' };
 export function blogIndexPath(locale: Locale) { return locale === 'en' ? '/en/blog' : blogPath; }
 export function blogIndexCopy(locale: Locale) { return locale === 'en' ? englishIndex : blogIndex; }
