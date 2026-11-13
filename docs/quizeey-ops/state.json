@@ -2,12 +2,12 @@
   "schema_version": 1,
   "run_id": "2026-11-12-ops01-approved-db-daily-blog-growth",
   "mode": "daily",
-  "status": "ops01_production_db_applied_daily_blog_verified_awaiting_git_release",
+  "status": "ops01_production_db_applied_daily_blog_production_ready_smoke_passed",
   "last_report": "reports/2026-11-12-ops01-growth.md",
   "private_state": ".modernization/quizeey-ops/state.json",
-  "branch": "fix/ops01-open-report-retention-20261112",
+  "branch": "master",
   "preferred_branch": "master_for_routine_low_risk_work",
-  "release": "ops01_db_applied_blog_git_release_pending",
+  "release": "daily_korean_cooking_production_ready_smoke_passed",
   "schedule": "not_registered",
   "active_items": [
     "OPS-01",
@@ -29,7 +29,7 @@
     "cadence": "weekly_core_monthly_financial",
     "status": "ga4_country_landing_channel_and_country_gsc_processed_limited_totals_unreconciled"
   },
-  "next": "Release verified daily Korean cooking article and privacy notice by one master Git push; investigate OPS-06 western route identity; scope OPS-02 privacy cleanup; draft/review five CCNA questions Nov 17-19; re-evaluate country evidence Nov 23; observe GROWTH-01 through Dec 8",
+  "next": "Investigate OPS-06 western route identity; check next daily inbox and write one evidence-selected original blog article; scope OPS-02 privacy cleanup; draft/review five CCNA questions Nov 17-19; re-evaluate country evidence Nov 23; observe GROWTH-01 through Dec 8",
   "manual_skill_check": "Nov 12 report inbox checksums unchanged; production DB OPS-01 migration applied with function and permission readback; independent SQL and article review found no blocking defect; western route mismatch recorded as OPS-06",
   "automated_skill_validation": "2026-11-12_final_check_local_exit0_typecheck_lint_unit183_build_browser114_monetization_passed_db_auth13_included_fresh_db_migration_retention_passed",
   "write_receipts": [
@@ -82,6 +82,17 @@
       "version": "20261112232605",
       "state": "applied_function_and_grants_readback_confirmed",
       "observed_limit": "no_existing_open_report_to_test_age_boundary"
+    },
+    {
+      "kind": "git_daily_korean_cooking_release",
+      "commit": "739c3b9a28c3410207b7d8570337b45437083ec2",
+      "branch": "master",
+      "remote_readback": "same_sha",
+      "deployment_id": "dpl_z4XMSEJivw5wELWB1v84pW6UXxVG",
+      "target": "production",
+      "state": "READY",
+      "domain_alias_present": true,
+      "affected_path_smoke": "article_blog_index_korean_exam_ko_en_privacy_http200_expected_content"
     }
   ],
   "note": "Source cursors and business metrics are private. Do not treat missing private state as no pending work."
