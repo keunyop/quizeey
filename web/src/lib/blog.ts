@@ -16,6 +16,14 @@ export const blogPath = '/blog';
 export const blogPostPath = `${blogPath}/${blogPost.slug}`;
 export const blogIndex = { title: 'Quizeey 블로그: 예제로 배우는 자격증 공부', description: '한식조리기능사 위생 판단, CCNA 서브넷 계산, SQLD 등 헷갈리는 자격증 개념을 예제로 정리하고 Quizeey 문제풀이로 연습하세요.' };
 
+export const baristaExtractionPost: BlogPost = {
+  slug: 'barista-2-espresso-ratio-grind', path: '/blog/barista-2-espresso-ratio-grind', locale: 'ko',
+  title: '바리스타 2급 필기: 에스프레소 추출 비율 1:2와 분쇄도 판단',
+  description: '원두 18 g에 음료 36 g이면 왜 1:2일까요? 추출 비율 계산과 분쇄도·채널링을 구분하는 원본 예제를 익히고 바리스타 2급 연습문제로 확인하세요.',
+  date: '2026-11-14', modified: '2026-11-14', category: '바리스타 2급 · 추출 개념',
+  practicePath: '/barista-2?verNbr=202611',
+};
+
 export const sqlpPlanPost: BlogPost = {
   slug: 'sqlp-explain-index-seq-scan', path: '/blog/sqlp-explain-index-seq-scan', locale: 'ko',
   title: 'SQLP 실행계획 읽기: 인덱스가 있어도 Seq Scan이 나오는 이유',
@@ -65,7 +73,7 @@ export const roadSignsPost: BlogPost = {
   description: 'Learn Ontario road sign shapes and colours, separate stop from yield, and try five explained questions before practising with the G1 study set.',
   date: '2026-11-08', modified: '2026-11-08', category: 'Ontario G1 · Road sign practice', practicePath: '/en/ontario-g1',
 };
-export const blogPosts = [sqlpPlanPost, koreanCookingPost, ccnaPost, roadSignsPost, printingPost, cloudPost, subnetPost, blogPost];
+export const blogPosts = [baristaExtractionPost, sqlpPlanPost, koreanCookingPost, ccnaPost, roadSignsPost, printingPost, cloudPost, subnetPost, blogPost];
 const englishIndex = { title: 'Quizeey Blog: Certification Concepts with Worked Examples', description: 'Understand a concept, work through an example and check your reasoning with practice questions.' };
 export function blogIndexPath(locale: Locale) { return locale === 'en' ? '/en/blog' : blogPath; }
 export function blogIndexCopy(locale: Locale) { return locale === 'en' ? englishIndex : blogIndex; }

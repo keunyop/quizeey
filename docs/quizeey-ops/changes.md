@@ -1,5 +1,11 @@
 # 변경과 실험 이력
 
+## 2026-11-14 1,000 DAU 목표와 바리스타 학습 경로
+
+- [성장 계획](growth-plan.md)에 2027-11-14까지 완결 28일 평균 DAU 1,000명이라는 관리 목표와 단계별 판단·계측 조건을 기록했다. GA4 잠정 기준선의 원값과 source 정보는 비공개 상태에만 두며, 효과나 달성 예측을 주장하지 않는다.
+- GSC 검색 의도와 실제 바리스타 2급 11월 문제 세트를 대조해 [추출 비율 원본 글](../../web/src/components/BaristaExtractionArticle.tsx)을 작성했다. 계산·오답 이유·네 공식 출처·연습 링크는 별도 검토를 거쳤다. SCA 설문 수치를 평균 응답으로 정정했다.
+- 최종 전체 로컬 `check:local` 종료 코드 0: 단위 184개, 빌드, 브라우저 108개, 광고 검사 통과. DB/Auth fixture 전용 브라우저 13개는 skip. Git release 후보이며 push 이후 운영 상태는 비공개 영수증에서 확인한다. [오늘 보고서](reports/2026-11-14-daily.md)와 [일지](journal/2026-11-14.md)에 우선순위와 관측 조건을 기록한다.
+
 ## 2026-11-13 SQLP 일일 학습 글과 문항 신고 검토
 
 - 한국 SQLP 검색 의도와 실제 11월 SQLP 세트를 대조해 [실행계획 원본 글](../../web/src/components/SqlpPlanArticle.tsx)을 작성·독립 검수했다. PostgreSQL 공식 근거, 자체 확인 문제, 실제 연습 경로를 연결했다. PostgreSQL/Auth 격리 fixture를 포함한 `check:local`에서 단위 183개·브라우저 116개와 나머지 필수 검사가 통과했다.

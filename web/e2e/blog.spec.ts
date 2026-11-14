@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { blogPost, blogPostPath, subnetPost, cloudPost, printingPost, roadSignsPost, ccnaPost, koreanCookingPost, sqlpPlanPost } from '../src/lib/blog';
+import { blogPost, blogPostPath, subnetPost, cloudPost, printingPost, roadSignsPost, ccnaPost, koreanCookingPost, sqlpPlanPost, baristaExtractionPost } from '../src/lib/blog';
 
 test('read the Korean blog and reach SQLD practice without JavaScript', async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false, baseURL: 'http://127.0.0.1:3100' });
@@ -22,7 +22,7 @@ test('read the Korean blog and reach SQLD practice without JavaScript', async ({
   await context.close();
 });
 
-for (const path of ['/blog', blogPostPath, printingPost.path, ccnaPost.path, koreanCookingPost.path, sqlpPlanPost.path, '/en/blog', subnetPost.path, cloudPost.path, roadSignsPost.path]) {
+for (const path of ['/blog', blogPostPath, printingPost.path, ccnaPost.path, koreanCookingPost.path, sqlpPlanPost.path, baristaExtractionPost.path, '/en/blog', subnetPost.path, cloudPost.path, roadSignsPost.path]) {
   test(`blog remains accessible on mobile in light and dark themes: ${path}`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(path);
@@ -34,6 +34,25 @@ for (const path of ['/blog', blogPostPath, printingPost.path, ccnaPost.path, kor
     }
   });
 }
+
+test('barista extraction guide reaches the November practice set without JavaScript', async ({ browser, request }) => {
+  const response = await request.get(baristaExtractionPost.path);
+  expect(response.status()).toBe(200);
+  expect(await response.text()).toContain('BlogPosting');
+  const context = await browser.newContext({ javaScriptEnabled: false, baseURL: 'http://127.0.0.1:3100' });
+  const page = await context.newPage();
+  await page.goto('/blog');
+  await page.getByRole('link', { name: baristaExtractionPost.title, exact: true }).click();
+  await expect(page.locator('h1')).toHaveText(baristaExtractionPost.title);
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', baristaExtractionPost.description);
+  await page.getByText('정답과 선택지별 이유 보기', { exact: true }).click();
+  await expect(page.getByText('정답은 3번, 1:2.5입니다.', { exact: false })).toBeVisible();
+  await page.getByRole('link', { name: '바리스타 2급 연습문제 풀기 →', exact: true }).click();
+  await expect(page).toHaveURL(/barista-2\?verNbr=202611/);
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('바리스타 2급');
+  await expect(page.locator('.question-prompt').first()).toBeVisible();
+  await context.close();
+});
 
 test('Korean and English practice links are prominent mobile buttons in both themes', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });

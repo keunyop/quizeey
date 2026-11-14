@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "run_id": "2026-11-13-daily-sqlp-question-report",
+  "run_id": "2026-11-14-daily-barista-growth-target",
   "mode": "daily",
-  "status": "daily_sqlp_blog_button_and_question_answer3_live_report_open",
-  "last_report": "reports/2026-11-13-daily.md",
+  "status": "daily_barista_growth_plan_reviewed_local_checks_passed_git_release_candidate",
+  "last_report": "reports/2026-11-14-daily.md",
   "private_state": ".modernization/quizeey-ops/state.json",
   "branch": "master",
   "preferred_branch": "master_for_routine_low_risk_work",
-  "release": "daily_sqlp_blog_button_and_question_regrade_production_ready_answer3_db_readback_passed",
+  "release": "barista_article_and_growth_plan_local_verified_master_git_release_candidate_live_readback_in_private_state_after_push",
   "schedule": "not_registered",
   "active_items": [
     "OPS-01",
@@ -17,7 +17,7 @@
     "OPS-05",
     "OPS-06"
   ],
-  "last_journal": "journal/2026-11-13.md",
+  "last_journal": "journal/2026-11-14.md",
   "google_connection": {
     "ga4": "public_tag_present_api_unverified",
     "gsc": "public_domain_verification_present_api_unverified",
@@ -29,9 +29,9 @@
     "cadence": "weekly_core_monthly_financial",
     "status": "ga4_country_landing_channel_and_country_gsc_processed_limited_totals_unreconciled"
   },
-  "next": "Keep the answer-3 question report open for wording ambiguity and historical-key policy; prepare OPS-06 route/SEO fix; scope OPS-02; review five CCNA questions Nov 17-19; re-evaluate US Network+ English article evidence Nov 23; observe GROWTH-01 through Dec 8",
-  "manual_skill_check": "Nov 13 owner-specified answer 3 and explanation applied after independent review; production row and choice flags read back, report open for remaining ambiguity; blog CTA independently reviewed across eight articles",
-  "automated_skill_validation": "2026-11-13_question_answer3_check_local_exit0_typecheck_lint_unit184_build_browser117_monetization_passed_db_auth_included_fresh_fixture_sql_guard_fixture_passed",
+  "next": "Prepare OPS-06 route/SEO correction in a separate branch; verify GA4 property/timezone/finality and test_id receipt; review five CCNA questions Nov 17-19; scope OPS-02; re-evaluate US Network+ evidence Nov 23 and observe GROWTH-01 through Dec 8",
+  "manual_skill_check": "Nov 14 barista article calculation, options, official links, exam ID, November practice set, accessibility structure and SEO registration independently reviewed; SCA survey wording corrected; unresolved prior question ambiguity retained after report resolved externally",
+  "automated_skill_validation": "2026-11-14_check_local_exit0_typecheck_lint_unit184_build_browser108_monetization_passed_db_auth_browser13_skipped_fixture_absent",
   "write_receipts": [
     {
       "kind": "git_documentation_release",
