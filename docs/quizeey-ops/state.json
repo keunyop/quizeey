@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "run_id": "2026-11-14-daily-barista-growth-target",
+  "run_id": "2026-11-15-daily-cooking-routes",
   "mode": "daily",
-  "status": "daily_barista_growth_plan_reviewed_local_checks_passed_git_release_candidate",
-  "last_report": "reports/2026-11-14-daily.md",
+  "status": "verified_cooking_routes_and_makeup_article_git_release_candidate",
+  "last_report": "reports/2026-11-15-daily.md",
   "private_state": ".modernization/quizeey-ops/state.json",
-  "branch": "master",
+  "branch": "fix/ops-06-cooking-routes-20261115",
   "preferred_branch": "master_for_routine_low_risk_work",
-  "release": "barista_article_and_growth_plan_local_verified_master_git_release_candidate_live_readback_in_private_state_after_push",
+  "release": "nov15_verified_candidate_see_private_2026_11_15_release_readback_after_push",
   "schedule": "not_registered",
   "active_items": [
     "OPS-01",
@@ -17,7 +17,7 @@
     "OPS-05",
     "OPS-06"
   ],
-  "last_journal": "journal/2026-11-14.md",
+  "last_journal": "journal/2026-11-15.md",
   "google_connection": {
     "ga4": "public_tag_present_api_unverified",
     "gsc": "public_domain_verification_present_api_unverified",
@@ -29,9 +29,9 @@
     "cadence": "weekly_core_monthly_financial",
     "status": "ga4_country_landing_channel_and_country_gsc_processed_limited_totals_unreconciled"
   },
-  "next": "Prepare OPS-06 route/SEO correction in a separate branch; verify GA4 property/timezone/finality and test_id receipt; review five CCNA questions Nov 17-19; scope OPS-02; re-evaluate US Network+ evidence Nov 23 and observe GROWTH-01 through Dec 8",
-  "manual_skill_check": "Nov 14 barista article calculation, options, official links, exam ID, November practice set, accessibility structure and SEO registration independently reviewed; SCA survey wording corrected; unresolved prior question ambiguity retained after report resolved externally",
-  "automated_skill_validation": "2026-11-14_check_local_exit0_typecheck_lint_unit184_build_browser108_monetization_passed_db_auth_browser13_skipped_fixture_absent",
+  "next": "Read Nov15 private release receipt and reconcile OPS-06; observe article and corrected routes for 28 days; verify GA4 finality and test_id; review CCNA questions Nov17-19; scope OPS-02",
+  "manual_skill_check": "OPS-06 raw source and v2 saved progress restoration independently reviewed; makeup FDA/CDC sources, original questions, actual practice scope and links independently reviewed; GSC values authored evidence only",
+  "automated_skill_validation": "2026-11-15_check_local_final_exit0_typecheck_lint_unit186_build_browser131_monetization6_passed_DB_Auth_enabled_skip0",
   "write_receipts": [
     {
       "kind": "git_documentation_release",
@@ -142,6 +142,16 @@
       "historical_archive_key": "choice_4",
       "source_report_state": "open_for_wording_ambiguity",
       "private_receipt": ".modernization/quizeey-ops/2026-11-13-question-report-review.md"
+    },
+    {
+      "kind": "git_daily_barista_release",
+      "commit": "724892dd6f424dda948bcefa499b731628240133",
+      "branch": "master",
+      "state": "READY",
+      "remote_readback": "same_sha",
+      "affected_path_smoke": "article_blog_index_barista_practice_http200_expected_content",
+      "private_receipt": ".modernization/quizeey-ops/2026-11-14-release-readback.md",
+      "reconciled_at": "2026-11-15"
     }
   ],
   "note": "Source cursors and business metrics are private. Do not treat missing private state as no pending work."
