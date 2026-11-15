@@ -3,6 +3,7 @@ import catalog from "@/data/exam-catalog.json" with { type: "json" };
 import { practiceDisplayCopy } from "./practice-display-copy";
 import { siteCopy } from './site-copy';
 import { certificationFor } from './certifications';
+import { cookingAvailabilityDescription, unavailableCookingExam } from './cooking-availability';
 
 export type Locale = "ko" | "en";
 export type LegacyRoute = Omit<(typeof contract.routes)[number],'testId'|'links'> & {testId:string|null;links:{href:string;label:string}[]};
@@ -17,7 +18,13 @@ function authoredRoute(exam: (typeof catalog)[number], locale: Locale): LegacyRo
   };
 }
 // The source controller used the wrong exam; the verified catalog and DB agree on 141.
-const existingRoutes = contract.routes.map((route): LegacyRoute => {
+const existingRoutes = contract.routes.map((source): LegacyRoute => {
+  const route = { ...source, links: source.links.filter(link => !unavailableCookingExam(link.href.split('?')[0])) };
+  const unavailable = unavailableCookingExam(route.path);
+  if (unavailable) return {
+    ...route, testId: null, title: `${unavailable} 문제 제공 안내 - Quizeey`,
+    description: cookingAvailabilityDescription(unavailable), headings: [`${unavailable} 문제 제공 안내`], links: [],
+  };
   const copy = siteCopy[route.path as keyof typeof siteCopy];
   if (copy) return { ...route, title: copy.title, description: copy.description, headings: [copy.heading] };
   const certification = certificationFor(route.testId);

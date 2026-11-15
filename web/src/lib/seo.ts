@@ -5,6 +5,7 @@ import { authoredSetSummary, authoredSetSummaries, isAuthoredVersion, authoredVe
 import { studyGuideSitemap } from './study-guides';
 import { blogSitemap } from './blog';
 import { certificationFor } from './certifications';
+import { unavailableCookingExam } from './cooking-availability';
 
 export const searchMarkets = {
   ko: { languages: ['ko', 'ko-KR'], openGraph: 'ko_KR', alternateOpenGraph: [] },
@@ -102,7 +103,7 @@ export function searchMetadata(path: string, query: URLSearchParams, exam: Legac
   return {
     title: { absolute: title }, description,
     // Direct questions remain excluded until their publication policy is verified.
-    robots: { index: publicProduction && !input.questId, follow: publicProduction },
+    robots: { index: publicProduction && !input.questId && !unavailableCookingExam(path), follow: publicProduction },
     ...(publicProduction ? { alternates: seoAlternates(path, query, origin) } : {}),
     openGraph: {
       title, description, locale: market.openGraph, alternateLocale: [...market.alternateOpenGraph],
@@ -153,7 +154,7 @@ export function serializeStructuredData(data: ReturnType<typeof pageStructuredDa
   return JSON.stringify(data).replace(/</g, '\\u003c');
 }
 export function publicSitemap(origin:string):MetadataRoute.Sitemap{
-  const routes = legacy.routes.filter(r=>!['/kr','/app'].includes(r.path)&&!r.path.startsWith('/kr/')&&!r.path.endsWith('/test'));
+  const routes = legacy.routes.filter(r=>!unavailableCookingExam(r.path)&&!['/kr','/app'].includes(r.path)&&!r.path.startsWith('/kr/')&&!r.path.endsWith('/test'));
   return [...routes.flatMap(route => {
     const queries = [new URLSearchParams()];
     const sets = route.testId ? authoredSetSummaries(route.testId, route.locale as Locale) : [];

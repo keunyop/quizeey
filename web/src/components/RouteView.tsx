@@ -27,6 +27,7 @@ import { isAuthoredVersion, authoredSetSummaries } from "@/lib/authored-practice
 import { Icon } from "./Icon";
 import { canonicalPath,searchMetadata,pageStructuredData,serializeStructuredData } from '@/lib/seo';
 import { Monetization,AdSlot } from './Monetization';
+import { cookingAvailabilityDescription, koreanCookingPath, unavailableCookingExam } from '@/lib/cooking-availability';
 
 export type Query = Record<string, string | string[] | undefined>;
 export function queryParams(query: Query) {
@@ -54,6 +55,35 @@ export function routeMetadata(path: string, query: Query): Metadata {
 
 export async function RouteView({ path, query }: { path: string; query: Query }) {
   const { route, exam, input } = resolve(path, query);
+  const unavailable = unavailableCookingExam(path);
+  const cookingQuery = new URLSearchParams();
+  if (unavailable) {
+    if (input.questId) cookingQuery.set('questId', input.questId);
+    if (query.verNbr !== undefined) cookingQuery.set('verNbr', String(input.verNbr));
+    if (input.page > 1) cookingQuery.set('page', String(input.page));
+    if (input.count) cookingQuery.set('count', String(input.count));
+  }
+  // Stop before loading questions or mounting any practice/session persistence.
+  // Old question, set, page and testId queries must show the same accurate notice.
+  if (unavailable) return <>
+    <a className="skip-link" href="#main">본문 바로가기</a>
+    <header className="site-header">
+      <a className="brand" href="/" translate="no"><img src="/img/letter-q.svg" width="30" height="30" alt="" />Quizeey</a>
+      <nav aria-label="메인 메뉴"><ThemeToggle locale="ko" /><a href="/">시험 목록</a></nav>
+    </header>
+    <main id="main" className="container">
+      <a className="back-link" href="/"><Icon name="back" />시험 목록</a>
+      <article className="static-copy">
+        <h1>{unavailable} 문제 제공 안내</h1>
+        <p>{cookingAvailabilityDescription(unavailable)}</p>
+        <p>한식 문제는 {unavailable} 시험 대비용 문제로 제공하지 않습니다.</p>
+        <p>이전에 이 주소에서 푼 한식 문제의 답안과 북마크는 삭제하지 않았습니다. 기록은 같은 브라우저의 한식조리기능사 학습에 남아 있으며, 이전 회차·문제 수·페이지 또는 개별 문제 조건에서 확인할 수 있습니다.</p>
+        <a className="button-link" href={koreanCookingPath}>한식조리기능사 문제풀기로 이동<Icon name="arrow" /></a>
+        {cookingQuery.size > 0 && <p><a href={`${koreanCookingPath}?${cookingQuery}`}>이전 주소의 회차·문제 조건으로 한식 문제 열기</a></p>}
+      </article>
+    </main>
+    <footer className="site-footer"><nav aria-label="사이트 정보"><a href="/about">소개</a><a href="/privacy">개인정보처리방침</a></nav></footer>
+  </>;
   const locale = route.locale as Locale;
   const m = messages[locale];
   const home = locale === "en" ? "/en" : "/";
