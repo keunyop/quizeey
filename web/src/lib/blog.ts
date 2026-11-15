@@ -16,6 +16,14 @@ export const blogPath = '/blog';
 export const blogPostPath = `${blogPath}/${blogPost.slug}`;
 export const blogIndex = { title: 'Quizeey 블로그: 예제로 배우는 자격증 공부', description: '한식조리기능사 위생 판단, CCNA 서브넷 계산, SQLD 등 헷갈리는 자격증 개념을 예제로 정리하고 Quizeey 문제풀이로 연습하세요.' };
 
+export const makeupHygienePost: BlogPost = {
+  slug: 'makeup-eye-cosmetics-hygiene', path: '/blog/makeup-eye-cosmetics-hygiene', locale: 'ko',
+  title: '메이크업 필기 위생: 마스카라·테스터·손씻기 판단 연습',
+  description: '마른 마스카라에 물을 넣어도 될까요? 눈 화장품 테스터와 손씻기 사례로 손·도구·제품의 위생을 구분하고 미용사(메이크업) 기초 3문제로 확인하세요.',
+  date: '2026-11-15', modified: '2026-11-15', category: '미용사(메이크업) · 위생 기초',
+  practicePath: '/make-up-artist?verNbr=202610',
+};
+
 export const baristaExtractionPost: BlogPost = {
   slug: 'barista-2-espresso-ratio-grind', path: '/blog/barista-2-espresso-ratio-grind', locale: 'ko',
   title: '바리스타 2급 필기: 에스프레소 추출 비율 1:2와 분쇄도 판단',
@@ -73,7 +81,7 @@ export const roadSignsPost: BlogPost = {
   description: 'Learn Ontario road sign shapes and colours, separate stop from yield, and try five explained questions before practising with the G1 study set.',
   date: '2026-11-08', modified: '2026-11-08', category: 'Ontario G1 · Road sign practice', practicePath: '/en/ontario-g1',
 };
-export const blogPosts = [baristaExtractionPost, sqlpPlanPost, koreanCookingPost, ccnaPost, roadSignsPost, printingPost, cloudPost, subnetPost, blogPost];
+export const blogPosts = [makeupHygienePost, baristaExtractionPost, sqlpPlanPost, koreanCookingPost, ccnaPost, roadSignsPost, printingPost, cloudPost, subnetPost, blogPost];
 const englishIndex = { title: 'Quizeey Blog: Certification Concepts with Worked Examples', description: 'Understand a concept, work through an example and check your reasoning with practice questions.' };
 export function blogIndexPath(locale: Locale) { return locale === 'en' ? '/en/blog' : blogPath; }
 export function blogIndexCopy(locale: Locale) { return locale === 'en' ? englishIndex : blogIndex; }
