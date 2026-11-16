@@ -1,5 +1,5 @@
 import { headers } from 'next/headers';
-import { blogIndexCopy, blogIndexPath, blogPosts, blogPost, blogPostPath, subnetPost, cloudPost, printingPost, roadSignsPost, ccnaPost, koreanCookingPost, sqlpPlanPost, baristaExtractionPost, blogStructuredData, type BlogPost } from '@/lib/blog';
+import { blogIndexCopy, blogIndexPath, blogPosts, blogPost, blogPostPath, subnetPost, cloudPost, printingPost, roadSignsPost, ccnaPost, koreanCookingPost, sqlpPlanPost, baristaExtractionPost, sqldHavingPost, blogStructuredData, type BlogPost } from '@/lib/blog';
 import type { Locale } from '@/lib/contracts';
 import { SubnetArticle } from './SubnetArticle';
 import { CloudResponsibilityArticle } from './CloudResponsibilityArticle';
@@ -10,6 +10,7 @@ import { KoreanCookingArticle } from './KoreanCookingArticle';
 import { SqlpPlanArticle } from './SqlpPlanArticle';
 import { BaristaExtractionArticle } from './BaristaExtractionArticle';
 import { MakeupHygieneArticle } from './MakeupHygieneArticle';
+import { SqldHavingArticle } from './SqldHavingArticle';
 import { makeupHygienePost } from '@/lib/blog';
 import { environment } from '@/lib/environment';
 import { ExamLink } from './ExamLink';
@@ -77,6 +78,10 @@ export function KoreanCookingDiscovery() {
 function CountArticle() {
   return <>
     <p className={styles.lead}>SQLD 기출문제 CBT는 <strong>답을 보지 않고 풀기 → 정답의 근거 확인하기 → 틀린 문제 다시 풀기</strong> 순서로 활용하세요. 맞혔어도 이유를 설명하지 못한 문제는 복습 대상으로 남깁니다.</p>
+    <aside className={styles.cta} aria-label="SQLD 연습문제 바로 시작">
+      <p>바로 풀어 보려면 2026년 11월 SQLD 원본 연습문제로 이동하세요. 먼저 개념을 살펴보려면 아래 COUNT 예제를 따라가면 됩니다.</p>
+      <ExamLink href={sqldHavingPost.practicePath}>SQLD 11월 연습문제 시작 →</ExamLink>
+    </aside>
     <section aria-labelledby="study-method"><h2 id="study-method">한 번의 문제풀이를 3단계로</h2>
       <ol className={styles.studySteps}>
         <li><strong>01 · 먼저 풀기</strong><p>Quizeey에서 SQLD를 선택하고 원하는 회차·문제 수로 시작하세요. 정답을 보기 전에 선택 이유를 한 문장으로 생각합니다.</p></li>
@@ -145,7 +150,7 @@ export async function BlogView({ post, locale = 'ko' }: { post?: BlogPost; local
       <nav className={styles.breadcrumb} aria-label={en ? 'Breadcrumb' : '현재 위치'}><a href={home}>{en ? 'Home' : '홈'}</a><span aria-hidden="true"> / </span>{post ? <><a href={indexPath}>{en ? 'Blog' : '블로그'}</a><span aria-hidden="true"> / </span><span aria-current="page">{post.category}</span></> : <span aria-current="page">{en ? 'Blog' : '블로그'}</span>}</nav>
       {post ? <article className={styles.article}>
         <header><p className={styles.eyebrow}>{post.category}</p><h1>{post.title}</h1><p className={styles.byline}><a href={en ? '/en/about' : '/about'}>Quizeey</a> · <time dateTime={post.date}>{post.date}</time></p></header>
-        {post.slug === makeupHygienePost.slug ? <MakeupHygieneArticle /> : post.slug === baristaExtractionPost.slug ? <BaristaExtractionArticle /> : post.slug === sqlpPlanPost.slug ? <SqlpPlanArticle /> : post.slug === koreanCookingPost.slug ? <KoreanCookingArticle /> : post.slug === ccnaPost.slug ? <CcnaSubnetArticle /> : post.slug === roadSignsPost.slug ? <RoadSignsArticle /> : post.slug === printingPost.slug ? <PrintingArticle /> : post.slug === cloudPost.slug ? <CloudResponsibilityArticle /> : post.slug === subnetPost.slug ? <SubnetArticle /> : <CountArticle />}
+        {post.slug === sqldHavingPost.slug ? <SqldHavingArticle /> : post.slug === makeupHygienePost.slug ? <MakeupHygieneArticle /> : post.slug === baristaExtractionPost.slug ? <BaristaExtractionArticle /> : post.slug === sqlpPlanPost.slug ? <SqlpPlanArticle /> : post.slug === koreanCookingPost.slug ? <KoreanCookingArticle /> : post.slug === ccnaPost.slug ? <CcnaSubnetArticle /> : post.slug === roadSignsPost.slug ? <RoadSignsArticle /> : post.slug === printingPost.slug ? <PrintingArticle /> : post.slug === cloudPost.slug ? <CloudResponsibilityArticle /> : post.slug === subnetPost.slug ? <SubnetArticle /> : <CountArticle />}
       </article> : <>
         <header className={styles.indexHeader}><p className={styles.eyebrow}>QUIZEEY BLOG</p><h1>{en ? 'A small concept. A clearer answer.' : <>작은 개념 하나가,<br />다음 정답으로.</>}</h1><p>{index.description}</p></header>
         {blogPosts.filter(item => !en || item.locale === 'en').map(item => <article key={item.path} lang={item.locale} className={styles.postCard}><p className={styles.eyebrow}>{item.category}</p><h2><a href={item.path}>{item.title}</a></h2><p>{item.description}</p><time dateTime={item.date}>{item.date}</time></article>)}

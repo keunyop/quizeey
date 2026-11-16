@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "run_id": "2026-11-15-daily-cooking-routes",
+  "run_id": "2026-11-16-daily-sqld-learning-flow",
   "mode": "daily",
-  "status": "verified_cooking_routes_and_makeup_article_git_release_candidate",
-  "last_report": "reports/2026-11-15-daily.md",
+  "status": "sqld_learning_flow_local_verified_release_candidate",
+  "last_report": "reports/2026-11-16-daily.md",
   "private_state": ".modernization/quizeey-ops/state.json",
-  "branch": "fix/ops-06-cooking-routes-20261115",
+  "branch": "feat/20261116-sqld-learning-flow",
   "preferred_branch": "master_for_routine_low_risk_work",
-  "release": "nov15_verified_candidate_see_private_2026_11_15_release_readback_after_push",
+  "release": "sqld_learning_flow_local_verified_git_release_pending",
   "schedule": "not_registered",
   "active_items": [
     "OPS-01",
@@ -17,7 +17,7 @@
     "OPS-05",
     "OPS-06"
   ],
-  "last_journal": "journal/2026-11-15.md",
+  "last_journal": "journal/2026-11-16.md",
   "google_connection": {
     "ga4": "public_tag_present_api_unverified",
     "gsc": "public_domain_verification_present_api_unverified",
@@ -27,11 +27,11 @@
     "path": "docs/report",
     "mode": "owner_upload",
     "cadence": "weekly_core_monthly_financial",
-    "status": "ga4_country_landing_channel_and_country_gsc_processed_limited_totals_unreconciled"
+    "status": "nov15_ga4_daily_events_and_gsc_processed_limited_finality_test_id_and_totals_unverified"
   },
-  "next": "Read Nov15 private release receipt and reconcile OPS-06; observe article and corrected routes for 28 days; verify GA4 finality and test_id; review CCNA questions Nov17-19; scope OPS-02",
-  "manual_skill_check": "OPS-06 raw source and v2 saved progress restoration independently reviewed; makeup FDA/CDC sources, original questions, actual practice scope and links independently reviewed; GSC values authored evidence only",
-  "automated_skill_validation": "2026-11-15_check_local_final_exit0_typecheck_lint_unit186_build_browser131_monetization6_passed_DB_Auth_enabled_skip0",
+  "next": "Release locally verified SQLD learning flow via one master Git push and read-only smoke; verify GA4 test_id receipt and source finality; review CCNA questions Nov17-19; scope OPS-02; observe SQLD pages for 28 complete days",
+  "manual_skill_check": "SQLD article PostgreSQL 18 sources, original arithmetic and answer rationale, actual November SQLD practice route, SEO metadata and links independently reviewed; GSC query and page observations are separate dimensions",
+  "automated_skill_validation": "2026-11-16_check_local_final_exit0_typecheck_lint_unit186_build_browser120_skip13_DB_Auth_fixtures_absent_monetization6_passed",
   "write_receipts": [
     {
       "kind": "git_documentation_release",
@@ -151,6 +151,16 @@
       "remote_readback": "same_sha",
       "affected_path_smoke": "article_blog_index_barista_practice_http200_expected_content",
       "private_receipt": ".modernization/quizeey-ops/2026-11-14-release-readback.md",
+      "reconciled_at": "2026-11-15"
+    },
+    {
+      "kind": "git_cooking_routes_and_makeup_article_release",
+      "commit": "c3368878c95a81e5e764aeed0bdd02051262db76",
+      "branch": "master",
+      "state": "READY",
+      "remote_readback": "same_sha",
+      "affected_path_smoke": "eight_read_only_GETs_HTTP200_expected_markers",
+      "private_receipt": ".modernization/quizeey-ops/2026-11-15-release-readback.md",
       "reconciled_at": "2026-11-15"
     }
   ],

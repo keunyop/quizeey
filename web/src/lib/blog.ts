@@ -5,7 +5,7 @@ import type { Locale } from './contracts';
 export type BlogPost = { slug: string; path: string; title: string; description: string; date: string; modified: string; category: string; practicePath: string; locale: Locale };
 
 export const blogPost: BlogPost = {
-  slug: 'sqld-cbt-study-guide', path: '/blog/sqld-cbt-study-guide', locale: 'ko', modified: '2026-11-02',
+  slug: 'sqld-cbt-study-guide', path: '/blog/sqld-cbt-study-guide', locale: 'ko', modified: '2026-11-16',
   title: 'SQLD 기출문제 CBT 공부법: 풀이·해설·오답 복습 3단계',
   description: 'SQLD 기출문제 CBT를 풀 때 답만 외우지 않는 3단계 복습법. COUNT와 NULL 예제로 정답의 근거를 확인하고, 무료 SQLD 문제풀이로 바로 연습하세요.',
   date: '2026-11-02',
@@ -15,6 +15,13 @@ export const blogPost: BlogPost = {
 export const blogPath = '/blog';
 export const blogPostPath = `${blogPath}/${blogPost.slug}`;
 export const blogIndex = { title: 'Quizeey 블로그: 예제로 배우는 자격증 공부', description: '한식조리기능사 위생 판단, CCNA 서브넷 계산, SQLD 등 헷갈리는 자격증 개념을 예제로 정리하고 Quizeey 문제풀이로 연습하세요.' };
+export const sqldHavingPost: BlogPost = {
+  slug: 'sqld-where-having-group-by', path: '/blog/sqld-where-having-group-by', locale: 'ko',
+  title: 'SQLD WHERE와 HAVING 차이: 집계 전 행과 집계 후 그룹 구분하기',
+  description: '결제 완료 주문만 모아 팀별 합계를 구할 때 WHERE와 HAVING을 어디에 써야 할까요? 원본 표와 SQL 예제로 결과 차이를 계산하고 SQLD 연습문제로 확인하세요.',
+  date: '2026-11-16', modified: '2026-11-16', category: 'SQLD · GROUP BY와 HAVING',
+  practicePath: '/sqlp-developer?verNbr=202611',
+};
 
 export const makeupHygienePost: BlogPost = {
   slug: 'makeup-eye-cosmetics-hygiene', path: '/blog/makeup-eye-cosmetics-hygiene', locale: 'ko',
@@ -81,7 +88,7 @@ export const roadSignsPost: BlogPost = {
   description: 'Learn Ontario road sign shapes and colours, separate stop from yield, and try five explained questions before practising with the G1 study set.',
   date: '2026-11-08', modified: '2026-11-08', category: 'Ontario G1 · Road sign practice', practicePath: '/en/ontario-g1',
 };
-export const blogPosts = [makeupHygienePost, baristaExtractionPost, sqlpPlanPost, koreanCookingPost, ccnaPost, roadSignsPost, printingPost, cloudPost, subnetPost, blogPost];
+export const blogPosts = [sqldHavingPost, makeupHygienePost, baristaExtractionPost, sqlpPlanPost, koreanCookingPost, ccnaPost, roadSignsPost, printingPost, cloudPost, subnetPost, blogPost];
 const englishIndex = { title: 'Quizeey Blog: Certification Concepts with Worked Examples', description: 'Understand a concept, work through an example and check your reasoning with practice questions.' };
 export function blogIndexPath(locale: Locale) { return locale === 'en' ? '/en/blog' : blogPath; }
 export function blogIndexCopy(locale: Locale) { return locale === 'en' ? englishIndex : blogIndex; }
