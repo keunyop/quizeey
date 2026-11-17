@@ -2,12 +2,12 @@
   "schema_version": 1,
   "run_id": "2026-11-17-daily-sqld-left-join",
   "mode": "daily",
-  "status": "sqld_left_join_verified_locally_release_candidate",
+  "status": "sqld_left_join_git_pushed_production_build_failed_lockfile_repair_locally_verified_approval_pending",
   "last_report": "reports/2026-11-17-daily.md",
   "private_state": ".modernization/quizeey-ops/state.json",
-  "branch": "feat/20261117-sqld-left-join-security",
+  "branch": "fix/20261117-npm-ci-lockfile",
   "preferred_branch": "master_for_routine_low_risk_work",
-  "release": "2026-11-17_sqld_left_join_next_16_4_6_local_verified_awaiting_git_release",
+  "release": "2026-11-17_master_1c4a4b4_pushed_vercel_ERROR_npm_ci_lockfile_missing_optional_dependencies_previous_READY_domain_remains_repair_locally_verified_approval_pending",
   "schedule": "not_registered",
   "active_items": [
     "OPS-01",
@@ -29,9 +29,9 @@
     "cadence": "weekly_core_monthly_financial",
     "status": "nov15_ga4_daily_events_and_gsc_processed_limited_finality_test_id_and_totals_unverified"
   },
-  "next": "Release verified SQLD LEFT JOIN article and Next.js patch, then read-only affected-path smoke; verify GA4 test_id and source finality; validate CCNA question registration and grading before publication; scope OPS-02; observe SQLD pages for 28 complete days",
+  "next": "Await explicit approval for one Git master push of locally verified npm lockfile repair after failed deployment; then inspect production READY and run small read-only affected-path smoke if release succeeds; verify GA4 test_id and source finality; validate CCNA question registration and grading before publication; scope OPS-02; observe SQLD pages for 28 complete days",
   "manual_skill_check": "SQLD LEFT JOIN article PostgreSQL 18 sources, 3-vs-1 row reasoning, distractors, actual November SQLD route, metadata and links independently reviewed; CCNA five-question draft math and overlap checked, not product-published",
-  "automated_skill_validation": "2026-11-17_check_local_final_exit0_typecheck_lint_unit186_build_browser122_skip13_DB_Auth_fixtures_absent_monetization6_passed_next16_4_6_prod_audit0",
+  "automated_skill_validation": "2026-11-17_after_clean_npm_ci_check_local_exit0_typecheck_lint_unit186_build_browser122_skip13_DB_Auth_fixtures_absent_monetization6_passed_next16_4_6_prod_audit0_windows_npm_ci_passed_linux_x64_glibc_dry_run_passed",
   "write_receipts": [
     {
       "kind": "git_documentation_release",
@@ -172,6 +172,17 @@
       "affected_path_smoke": "four_read_only_GETs_HTTP200_expected_markers",
       "private_receipt": ".modernization/quizeey-ops/2026-11-16-release-readback.md",
       "reconciled_at": "2026-11-16"
+    },
+    {
+      "kind": "git_daily_sqld_left_join_attempt",
+      "commit": "1c4a4b4c81ea5fd408b19580819cd5b2e28d6385",
+      "branch": "master",
+      "remote_readback": "same_sha",
+      "deployment_state": "ERROR_npm_ci_lockfile_missing_optional_dependencies",
+      "domain_alias_state": "previous_READY_deployment",
+      "repair_branch": "fix/20261117-npm-ci-lockfile",
+      "repair_state": "local_check_passed_approval_pending",
+      "private_receipt": ".modernization/quizeey-ops/2026-11-17-release-readback.md"
     }
   ],
   "note": "Source cursors and business metrics are private. Do not treat missing private state as no pending work."
