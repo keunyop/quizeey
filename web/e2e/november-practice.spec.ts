@@ -32,6 +32,7 @@ for (const [path, id, locale] of [['/adsp', '260', 'ko'], ['/en/aws-ai-practitio
     await expect(page.getByRole('navigation', { name: locale === 'en' ? 'Monthly practice sets' : '월별 연습문제' }).getByRole('link')).toHaveAttribute('href', `${path}?verNbr=202611`);
     const first = authoredQuestions(id, locale, 202611)[0];
     await page.locator(`input[value="${first.choices.find(choice => choice.correct)!.id}"]`).check();
+    await expect(page.getByRole('button', { name: locale === 'en' ? 'Check answer' : '정답 확인' })).toBeEnabled();
     await page.locator('#question-content').focus();
     await page.keyboard.press('Enter');
     await expect(page.locator('.answer-feedback')).toContainText(locale === 'en' ? 'Correct' : '정답');

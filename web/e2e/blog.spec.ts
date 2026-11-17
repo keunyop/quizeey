@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { blogPost, blogPostPath, subnetPost, cloudPost, printingPost, roadSignsPost, ccnaPost, koreanCookingPost, sqlpPlanPost, baristaExtractionPost, sqldHavingPost } from '../src/lib/blog';
+import { blogPost, blogPostPath, subnetPost, cloudPost, printingPost, roadSignsPost, ccnaPost, koreanCookingPost, sqlpPlanPost, baristaExtractionPost, sqldHavingPost, sqldLeftJoinPost } from '../src/lib/blog';
 
 test('read the Korean blog and reach SQLD practice without JavaScript', async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false, baseURL: 'http://127.0.0.1:3100' });
@@ -22,7 +22,7 @@ test('read the Korean blog and reach SQLD practice without JavaScript', async ({
   await context.close();
 });
 
-for (const path of ['/blog', blogPostPath, sqldHavingPost.path, printingPost.path, ccnaPost.path, koreanCookingPost.path, sqlpPlanPost.path, baristaExtractionPost.path, '/en/blog', subnetPost.path, cloudPost.path, roadSignsPost.path]) {
+for (const path of ['/blog', blogPostPath, sqldLeftJoinPost.path, sqldHavingPost.path, printingPost.path, ccnaPost.path, koreanCookingPost.path, sqlpPlanPost.path, baristaExtractionPost.path, '/en/blog', subnetPost.path, cloudPost.path, roadSignsPost.path]) {
   test(`blog remains accessible on mobile in light and dark themes: ${path}`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(path);
@@ -53,6 +53,22 @@ test('SQLD article and early guide link reach the actual November practice set',
   await page.goto(blogPost.path);
   await page.getByRole('link', { name: 'SQLD 11월 연습문제 시작 →', exact: true }).click();
   await expect(page).toHaveURL(/sqlp-developer\?verNbr=202611/);
+  await context.close();
+});
+
+test('LEFT JOIN article explains unmatched rows and reaches SQLD practice without JavaScript', async ({ browser }) => {
+  const context = await browser.newContext({ javaScriptEnabled: false, baseURL: 'http://127.0.0.1:3100' });
+  const page = await context.newPage();
+  await page.goto('/blog');
+  await page.getByRole('link', { name: sqldLeftJoinPost.title, exact: true }).click();
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', sqldLeftJoinPost.description);
+  await expect(page.getByText('ON에 주문 상태 조건을 둔 결과: 3행')).toBeVisible();
+  await page.getByText('정답과 오답 이유 보기', { exact: true }).click();
+  await expect(page.getByText('정답은 1번입니다.', { exact: false })).toBeVisible();
+  await page.getByRole('link', { name: 'SQLD 11월 연습문제 풀기 →', exact: true }).click();
+  await expect(page).toHaveURL(/sqlp-developer\?verNbr=202611/);
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('SQLD - 국가공인 SQL개발자');
+  await expect(page.locator('.question-prompt').first()).toContainText('LEFT JOIN');
   await context.close();
 });
 

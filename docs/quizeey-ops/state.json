@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "run_id": "2026-11-16-daily-sqld-learning-flow",
+  "run_id": "2026-11-17-daily-sqld-left-join",
   "mode": "daily",
-  "status": "sqld_learning_flow_local_verified_release_candidate",
-  "last_report": "reports/2026-11-16-daily.md",
+  "status": "sqld_left_join_verified_locally_release_candidate",
+  "last_report": "reports/2026-11-17-daily.md",
   "private_state": ".modernization/quizeey-ops/state.json",
-  "branch": "feat/20261116-sqld-learning-flow",
+  "branch": "feat/20261117-sqld-left-join-security",
   "preferred_branch": "master_for_routine_low_risk_work",
-  "release": "sqld_learning_flow_local_verified_git_release_pending",
+  "release": "2026-11-17_sqld_left_join_next_16_4_6_local_verified_awaiting_git_release",
   "schedule": "not_registered",
   "active_items": [
     "OPS-01",
@@ -17,7 +17,7 @@
     "OPS-05",
     "OPS-06"
   ],
-  "last_journal": "journal/2026-11-16.md",
+  "last_journal": "journal/2026-11-17.md",
   "google_connection": {
     "ga4": "public_tag_present_api_unverified",
     "gsc": "public_domain_verification_present_api_unverified",
@@ -29,9 +29,9 @@
     "cadence": "weekly_core_monthly_financial",
     "status": "nov15_ga4_daily_events_and_gsc_processed_limited_finality_test_id_and_totals_unverified"
   },
-  "next": "Release locally verified SQLD learning flow via one master Git push and read-only smoke; verify GA4 test_id receipt and source finality; review CCNA questions Nov17-19; scope OPS-02; observe SQLD pages for 28 complete days",
-  "manual_skill_check": "SQLD article PostgreSQL 18 sources, original arithmetic and answer rationale, actual November SQLD practice route, SEO metadata and links independently reviewed; GSC query and page observations are separate dimensions",
-  "automated_skill_validation": "2026-11-16_check_local_final_exit0_typecheck_lint_unit186_build_browser120_skip13_DB_Auth_fixtures_absent_monetization6_passed",
+  "next": "Release verified SQLD LEFT JOIN article and Next.js patch, then read-only affected-path smoke; verify GA4 test_id and source finality; validate CCNA question registration and grading before publication; scope OPS-02; observe SQLD pages for 28 complete days",
+  "manual_skill_check": "SQLD LEFT JOIN article PostgreSQL 18 sources, 3-vs-1 row reasoning, distractors, actual November SQLD route, metadata and links independently reviewed; CCNA five-question draft math and overlap checked, not product-published",
+  "automated_skill_validation": "2026-11-17_check_local_final_exit0_typecheck_lint_unit186_build_browser122_skip13_DB_Auth_fixtures_absent_monetization6_passed_next16_4_6_prod_audit0",
   "write_receipts": [
     {
       "kind": "git_documentation_release",
@@ -162,6 +162,16 @@
       "affected_path_smoke": "eight_read_only_GETs_HTTP200_expected_markers",
       "private_receipt": ".modernization/quizeey-ops/2026-11-15-release-readback.md",
       "reconciled_at": "2026-11-15"
+    },
+    {
+      "kind": "git_daily_sqld_learning_flow_release",
+      "commit": "bb3965a53b2472abd918f0f555789faa9eaa9c73",
+      "branch": "master",
+      "state": "READY",
+      "remote_readback": "same_sha",
+      "affected_path_smoke": "four_read_only_GETs_HTTP200_expected_markers",
+      "private_receipt": ".modernization/quizeey-ops/2026-11-16-release-readback.md",
+      "reconciled_at": "2026-11-16"
     }
   ],
   "note": "Source cursors and business metrics are private. Do not treat missing private state as no pending work."

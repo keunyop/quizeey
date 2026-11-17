@@ -23,6 +23,14 @@ export const sqldHavingPost: BlogPost = {
   practicePath: '/sqlp-developer?verNbr=202611',
 };
 
+export const sqldLeftJoinPost: BlogPost = {
+  slug: 'sqld-left-join-on-where', path: '/blog/sqld-left-join-on-where', locale: 'ko',
+  title: 'SQLD LEFT JOIN: ON과 WHERE에 조건을 두면 결과가 달라지는 이유',
+  description: '회원과 주문 예제로 LEFT JOIN의 ON과 WHERE 조건 차이를 3행과 1행 결과로 비교합니다. 미매칭 NULL 행과 결제 완료 주문을 구분한 뒤 SQLD 11월 원본 연습문제를 풀어 보세요.',
+  date: '2026-11-17', modified: '2026-11-17', category: 'SQLD · LEFT JOIN 조건',
+  practicePath: '/sqlp-developer?verNbr=202611',
+};
+
 export const makeupHygienePost: BlogPost = {
   slug: 'makeup-eye-cosmetics-hygiene', path: '/blog/makeup-eye-cosmetics-hygiene', locale: 'ko',
   title: '메이크업 필기 위생: 마스카라·테스터·손씻기 판단 연습',
@@ -88,7 +96,7 @@ export const roadSignsPost: BlogPost = {
   description: 'Learn Ontario road sign shapes and colours, separate stop from yield, and try five explained questions before practising with the G1 study set.',
   date: '2026-11-08', modified: '2026-11-08', category: 'Ontario G1 · Road sign practice', practicePath: '/en/ontario-g1',
 };
-export const blogPosts = [sqldHavingPost, makeupHygienePost, baristaExtractionPost, sqlpPlanPost, koreanCookingPost, ccnaPost, roadSignsPost, printingPost, cloudPost, subnetPost, blogPost];
+export const blogPosts = [sqldLeftJoinPost, sqldHavingPost, makeupHygienePost, baristaExtractionPost, sqlpPlanPost, koreanCookingPost, ccnaPost, roadSignsPost, printingPost, cloudPost, subnetPost, blogPost];
 const englishIndex = { title: 'Quizeey Blog: Certification Concepts with Worked Examples', description: 'Understand a concept, work through an example and check your reasoning with practice questions.' };
 export function blogIndexPath(locale: Locale) { return locale === 'en' ? '/en/blog' : blogPath; }
 export function blogIndexCopy(locale: Locale) { return locale === 'en' ? englishIndex : blogIndex; }
