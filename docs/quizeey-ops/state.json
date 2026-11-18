@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "run_id": "2026-11-17-daily-sqld-left-join",
+  "run_id": "2026-11-18-daily-cooking-infection",
   "mode": "daily",
-  "status": "sqld_left_join_production_READY_affected_paths_verified_observation_pending",
-  "last_report": "reports/2026-11-17-daily.md",
+  "status": "article_reviewed_full_local_check_passed_awaiting_Git_release_question_DB_approval_pending",
+  "last_report": "reports/2026-11-18-daily.md",
   "private_state": ".modernization/quizeey-ops/state.json",
-  "branch": "docs/20261117-release-readback",
+  "branch": "content/20261118-cooking-infection",
   "preferred_branch": "master_for_routine_low_risk_work",
-  "release": "2026-11-17_master_e949fa1_production_READY_domain_alias_updated_three_read_only_GETs_passed",
+  "release": "nov18_verified_local_candidate_not_pushed",
   "schedule": "not_registered",
   "active_items": [
     "OPS-01",
@@ -17,7 +17,7 @@
     "OPS-05",
     "OPS-06"
   ],
-  "last_journal": "journal/2026-11-17.md",
+  "last_journal": "journal/2026-11-18.md",
   "google_connection": {
     "ga4": "public_tag_present_api_unverified",
     "gsc": "public_domain_verification_present_api_unverified",
@@ -29,9 +29,9 @@
     "cadence": "weekly_core_monthly_financial",
     "status": "nov15_ga4_daily_events_and_gsc_processed_limited_finality_test_id_and_totals_unverified"
   },
-  "next": "Reconcile this local-only release readback into public master during the next routine verified release without a second deployment now; verify GA4 test_id and source finality; validate CCNA question registration and grading before publication; scope OPS-02; observe SQLD pages for 28 complete days",
-  "manual_skill_check": "SQLD LEFT JOIN article PostgreSQL 18 sources, 3-vs-1 row reasoning, distractors, actual November SQLD route, metadata and links independently reviewed; CCNA five-question draft math and overlap checked, not product-published",
-  "automated_skill_validation": "2026-11-17_after_clean_npm_ci_check_local_exit0_typecheck_lint_unit186_build_browser122_skip13_DB_Auth_fixtures_absent_monetization6_passed_next16_4_6_prod_audit0_windows_npm_ci_passed_linux_x64_glibc_dry_run_passed",
+  "next": "Release independently reviewed daily article once via master Git; verify exact deployment READY and three affected paths; owner decision on explanation-only DB patch; CCNA registration/grading; OPS-02 archive scope; GA4 receipt/finality.",
+  "manual_skill_check": "Nov18 original cooking infection article CDC/WHO sources, three answers and distractors, actual October Korean cooking route, metadata and accessibility independently reviewed; reported question keeps current key, explanation-only SQL and rollback independently reviewed with nine isolated checks; OPS-02 current/history scope prepared privately",
+  "automated_skill_validation": "2026-11-18_check_local_exit0_typecheck_lint_unit186_build_browser137_DB_Auth_included_skip0_monetization6_passed",
   "write_receipts": [
     {
       "kind": "git_documentation_release",
@@ -195,5 +195,12 @@
       "private_receipt": ".modernization/quizeey-ops/2026-11-17-release-readback.md"
     }
   ],
-  "note": "Source cursors and business metrics are private. Do not treat missing private state as no pending work."
+  "note": "Source cursors and business metrics are private. Do not treat missing private state as no pending work.",
+  "question_review": {
+    "status": "reviewed_explanation_prepared_awaiting_production_DB_approval",
+    "answer_key": "unchanged",
+    "official_original_answer_sheet": "unavailable",
+    "report_state": "open",
+    "local_sql_rehearsal": "apply_positive6_rejections_rollback_roundtrip_and_newer_edit_refusal_passed"
+  }
 }

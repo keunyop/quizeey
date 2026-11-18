@@ -13,6 +13,13 @@ export const blogPost: BlogPost = {
   practicePath: '/sqlp-developer',
 };
 export const blogPath = '/blog';
+export const cookingInfectionPost: BlogPost = {
+  slug: 'korean-cooking-infection-routes', path: '/blog/korean-cooking-infection-routes', locale: 'ko',
+  title: '한식조리기능사 감염병: 경구 감염과 침·비말 전파 구분하기',
+  description: '장티푸스·세균성이질·폴리오와 유행성이하선염의 전파 경로를 비교하고, 직접 만든 세 문제로 분변-경구 감염과 침·비말의 단서를 구분해 보세요.',
+  date: '2026-11-18', modified: '2026-11-18', category: '한식조리기능사 · 감염병 전파 경로',
+  practicePath: '/craftsman-cook-korean-food?verNbr=202610',
+};
 export const blogPostPath = `${blogPath}/${blogPost.slug}`;
 export const blogIndex = { title: 'Quizeey 블로그: 예제로 배우는 자격증 공부', description: '한식조리기능사 위생 판단, CCNA 서브넷 계산, SQLD 등 헷갈리는 자격증 개념을 예제로 정리하고 Quizeey 문제풀이로 연습하세요.' };
 export const sqldHavingPost: BlogPost = {
@@ -96,7 +103,7 @@ export const roadSignsPost: BlogPost = {
   description: 'Learn Ontario road sign shapes and colours, separate stop from yield, and try five explained questions before practising with the G1 study set.',
   date: '2026-11-08', modified: '2026-11-08', category: 'Ontario G1 · Road sign practice', practicePath: '/en/ontario-g1',
 };
-export const blogPosts = [sqldLeftJoinPost, sqldHavingPost, makeupHygienePost, baristaExtractionPost, sqlpPlanPost, koreanCookingPost, ccnaPost, roadSignsPost, printingPost, cloudPost, subnetPost, blogPost];
+export const blogPosts = [cookingInfectionPost, sqldLeftJoinPost, sqldHavingPost, makeupHygienePost, baristaExtractionPost, sqlpPlanPost, koreanCookingPost, ccnaPost, roadSignsPost, printingPost, cloudPost, subnetPost, blogPost];
 const englishIndex = { title: 'Quizeey Blog: Certification Concepts with Worked Examples', description: 'Understand a concept, work through an example and check your reasoning with practice questions.' };
 export function blogIndexPath(locale: Locale) { return locale === 'en' ? '/en/blog' : blogPath; }
 export function blogIndexCopy(locale: Locale) { return locale === 'en' ? englishIndex : blogIndex; }
