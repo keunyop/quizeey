@@ -2,7 +2,7 @@
   "schema_version": 1,
   "run_id": "2026-11-19-daily-ccna-ipv4",
   "mode": "daily",
-  "status": "ccna_korean_practice_article_verified_live_observation_pending_question_explanation_DB_approval_pending",
+  "status": "ccna_verified_live_question_explanation_verified_live_observation_pending",
   "last_report": "reports/2026-11-19-daily.md",
   "private_state": ".modernization/quizeey-ops/state.json",
   "branch": "docs/20261119-release-readback",
@@ -29,7 +29,7 @@
     "cadence": "weekly_core_monthly_financial",
     "status": "nov15_ga4_daily_events_and_gsc_processed_limited_finality_test_id_and_totals_unverified"
   },
-  "next": "Observe CCNA Korean set and guide Nov20-Dec17 separately in GSC and GA4; owner decision on existing explanation-only DB patch; OPS-02 private archive/cleanup scope; GA4 test_id/property/finality; existing moderate alert when supported access is available. Reconcile local-only Nov19 readback docs at next routine verified release without a second deployment.",
+  "next": "Routine verified production changes including DB corrections are standing-authorized without reapproval. Retain independent review, applicable local checks, exact revision guards, rollback and readback. Report closure/moderation remains separate; next OPS-02 scope, GA4 test_id/property/finality, Nov20-Dec17 CCNA observation, existing moderate alert details.",
   "manual_skill_check": "CCNA five original Korean questions and new asymmetric-mask worked guide independently reviewed against current official Cisco sources, source calculations, real local routes, final code and tests; first exact-heading test expectation corrected and independently reviewed; full gate rerun passed.",
   "automated_skill_validation": "2026-11-19_check_local_exit0_typecheck_lint_unit190_build_browser141_DB_Auth_included_skip0_monetization6_passed",
   "write_receipts": [
@@ -213,14 +213,36 @@
       "domain_alias_present": true,
       "affected_path_smoke": "four_read_only_GETs_HTTP200_expected_markers",
       "private_receipt": ".modernization/quizeey-ops/2026-11-19-release-readback.md"
+    },
+    {
+      "kind": "question_explanation_reference_correction",
+      "state": "production_DB_and_served_readback_confirmed",
+      "answer_key": "unchanged",
+      "report_state": "open",
+      "authorization": "explicit_current_patch_and_standing_future_verified_production_changes_2026-11-19",
+      "private_receipt": ".modernization/quizeey-ops/2026-11-19-question-applied-readback.json"
     }
   ],
   "note": "Source cursors and business metrics are private. Do not treat missing private state as no pending work.",
   "question_review": {
-    "status": "reviewed_explanation_prepared_awaiting_production_DB_approval",
+    "status": "explanation_reference_applied_verified_live",
     "answer_key": "unchanged",
     "official_original_answer_sheet": "unavailable",
     "report_state": "open",
-    "local_sql_rehearsal": "apply_positive6_rejections_rollback_roundtrip_and_newer_edit_refusal_passed"
+    "local_sql_rehearsal": "apply_positive6_rejections_rollback_roundtrip_and_newer_edit_refusal_passed",
+    "local_wrapper_rehearsal": "exact_commit_readback_and_report_version_guard_rejections_3_passed"
+  },
+  "production_authorization": {
+    "granted": "2026-11-19",
+    "scope": "verified_routine_app_content_and_production_DB_changes_without_reapproval",
+    "verification": "independent_review_applicable_local_checks_current_revision_rollback_and_readback",
+    "separate_boundaries": [
+      "report_closure_moderation",
+      "destructive_changes",
+      "new_spending",
+      "external_messages",
+      "permanent_bans",
+      "large_public_changes"
+    ]
   }
 }
