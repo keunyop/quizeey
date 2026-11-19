@@ -2,12 +2,12 @@
   "schema_version": 1,
   "run_id": "2026-11-19-daily-ccna-ipv4",
   "mode": "daily",
-  "status": "ccna_practice_article_reviewed_local_check_passed_awaiting_git_release",
+  "status": "ccna_korean_practice_article_verified_live_observation_pending_question_explanation_DB_approval_pending",
   "last_report": "reports/2026-11-19-daily.md",
   "private_state": ".modernization/quizeey-ops/state.json",
-  "branch": "feat/20261119-ccna-practice",
+  "branch": "docs/20261119-release-readback",
   "preferred_branch": "master_for_routine_low_risk_work",
-  "release": "2026-11-19_full_local_gate_passed_awaiting_one_master_Git_release",
+  "release": "2026-11-19_master_f47550e_production_READY_domain_alias_four_read_only_GETs_passed",
   "schedule": "not_registered",
   "active_items": [
     "OPS-01",
@@ -29,7 +29,7 @@
     "cadence": "weekly_core_monthly_financial",
     "status": "nov15_ga4_daily_events_and_gsc_processed_limited_finality_test_id_and_totals_unverified"
   },
-  "next": "One routine verified master Git release, exact SHA READY/domain and four small affected-path readbacks; then 28-day separate GSC/GA4 observation. Existing explanation-only production DB approval remains pending.",
+  "next": "Observe CCNA Korean set and guide Nov20-Dec17 separately in GSC and GA4; owner decision on existing explanation-only DB patch; OPS-02 private archive/cleanup scope; GA4 test_id/property/finality; existing moderate alert when supported access is available. Reconcile local-only Nov19 readback docs at next routine verified release without a second deployment.",
   "manual_skill_check": "CCNA five original Korean questions and new asymmetric-mask worked guide independently reviewed against current official Cisco sources, source calculations, real local routes, final code and tests; first exact-heading test expectation corrected and independently reviewed; full gate rerun passed.",
   "automated_skill_validation": "2026-11-19_check_local_exit0_typecheck_lint_unit190_build_browser141_DB_Auth_included_skip0_monetization6_passed",
   "write_receipts": [
@@ -203,6 +203,16 @@
       "domain_alias_present": true,
       "affected_path_smoke": "three_read_only_GETs_HTTP200_expected_markers",
       "private_receipt": ".modernization/quizeey-ops/2026-11-18-release-readback.md"
+    },
+    {
+      "kind": "git_ccna_korean_practice_and_troubleshooting_release",
+      "commit": "f47550e2f445d54f35667d0dde0e4592d0c386f3",
+      "branch": "master",
+      "remote_readback": "same_sha",
+      "state": "READY",
+      "domain_alias_present": true,
+      "affected_path_smoke": "four_read_only_GETs_HTTP200_expected_markers",
+      "private_receipt": ".modernization/quizeey-ops/2026-11-19-release-readback.md"
     }
   ],
   "note": "Source cursors and business metrics are private. Do not treat missing private state as no pending work.",
