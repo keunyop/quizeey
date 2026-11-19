@@ -19,10 +19,11 @@ it('preserves the complete October catalog and payloads while isolating November
   expect(hash(historicalOctoberGroups(october.groups.length))).toBe(manifest.previousGroupsSha256);
   expect(hash(authoredCatalog.slice(0, manifest.previousCatalogCount))).toBe(manifest.previousCatalogSha256);
   const questions = authoredCatalog.flatMap(exam => allAuthoredQuestions(exam.id, authoredDefaultLocale(exam.id)));
-  expect(questions).toHaveLength(2534);
+  expect(questions).toHaveLength(2539);
   expect(new Set(questions.map(q => q.id)).size).toBe(questions.length);
   expect(new Set(questions.flatMap(q => q.choices.map(c => c.id))).size).toBe(questions.length * 4);
-  expect(november.groups.flatMap(group => group.questions)).toHaveLength(320);
+  // The separately reviewed CCNA addition has its own locale and regression contract.
+  expect(november.groups.filter(group => group.topic !== 'november-ko-ccna-ipv4-troubleshooting').flatMap(group => group.questions)).toHaveLength(320);
 });
 
 it('serves, grades and resolves all 320 November questions without cross-set or cross-exam leakage', async () => {

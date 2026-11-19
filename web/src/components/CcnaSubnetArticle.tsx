@@ -1,4 +1,4 @@
-import { ccnaPost, subnetPost } from '@/lib/blog';
+import { ccnaPost, ccnaTroubleshootingPost, subnetPost } from '@/lib/blog';
 import { ExamLink } from './ExamLink';
 import styles from './blog.module.css';
 
@@ -7,7 +7,7 @@ export function CcnaSubnetArticle() {
     <p className={styles.lead}>IPv4 주소와 프리픽스로 같은 네트워크인지 판단할 수 있으면 게이트웨이 주소나 마스크를 잘못 입력한 경우도 찾기 쉽습니다. <strong>주소 블록 찾기 → 네트워크·브로드캐스트 표시 → 호스트와 게이트웨이 범위 대조</strong> 순서로 연습해 보세요. 예제는 직접 만든 학습 자료이며 Cisco의 실제 시험 문항이 아닙니다.</p>
     <section aria-labelledby="ccna-version"><h2 id="ccna-version">먼저 응시할 시험 버전을 확인하세요</h2>
       <p>Cisco의 <a href="https://learningcontent.cisco.com/documents/marketing/exam-topics/200-301-CCNA-v1.1.pdf">200-301 CCNA v1.1 공식 범위</a>에는 <strong>1.6 IPv4 주소 지정과 서브네팅 설정·검증</strong>이 포함됩니다. <a href="https://blogs.cisco.com/learning/stay-on-track-get-certified-before-the-ccna-refresh">Cisco의 시험 일정 안내</a>에 따르면 v1.1의 마지막 응시일은 <strong>2027년 2월 2일</strong>, v2.0의 첫 응시일은 <strong>2027년 2월 3일</strong>입니다. <a href="https://learningcontent.cisco.com/documents/marketing/exam-topics/200-301_CCNA_v2.0_Exam_Topics_PDF.pdf">v2.0 공식 범위</a>는 <strong>1.3 IPv4 주소 설정·할당·서브네팅 문제 해결(공인·사설 주소)</strong>을 포함합니다.</p>
-      <p>아래 계산은 두 버전의 IPv4 학습에 쓸 수 있습니다. 실제 응시 버전의 전체 범위는 공식 자료에서 다시 확인하세요. 한국어는 이 글의 설명 언어이며, <a href="https://www.cisco.com/site/us/en/learn/training-certifications/exams/ccna.html" target="_blank" rel="noopener noreferrer">Cisco가 안내하는 시험 언어</a>는 영어와 일본어입니다.</p>
+      <p>아래 계산은 두 버전의 IPv4 학습에 쓸 수 있습니다. 실제 응시 버전의 전체 범위는 공식 자료에서 다시 확인하세요. 한국어는 이 글의 설명 언어입니다. 2026년 11월 19일 확인 시 <a href="https://www.cisco.com/site/us/en/learn/training-certifications/exams/ccna.html">Cisco 시험 안내</a>는 영어·일본어를, <a href="https://www.cisco.com/site/us/en/learn/training-certifications/certifications/enterprise/ccna/index.html">버전별 안내</a>는 v1.1 영어와 v2.0 영어·일본어를 표기합니다. 실제 응시 언어는 예약할 버전의 공식 안내에서 다시 확인하세요.</p>
     </section>
     <section aria-labelledby="ccna-26"><h2 id="ccna-26">예제 1: 203.0.113.142/26의 주소 블록</h2>
       <p><code>/26</code>은 32비트 IPv4 주소에서 네트워크에 26비트, 호스트에 6비트를 씁니다. 마스크는 <code>255.255.255.192</code>입니다. 마지막 옥텟의 블록 크기는 <code>256 − 192 = 64</code>이므로 시작점은 <code>0, 64, 128, 192</code>입니다. <code>142</code>는 <code>128~191</code> 블록에 있습니다.</p>
@@ -27,7 +27,7 @@ export function CcnaSubnetArticle() {
     <section aria-labelledby="ccna-23"><h2 id="ccna-23">예제 2: /23은 마지막 옥텟만 보면 틀립니다</h2>
       <p>사설 주소 <code>10.20.35.10/23</code>의 마스크는 <code>255.255.254.0</code>입니다. 블록은 마지막이 아닌 <strong>세 번째 옥텟</strong>에서 바뀝니다. <code>256 − 254 = 2</code>이므로 블록은 <code>… 32~33, 34~35, 36~37 …</code>입니다. <code>35</code>는 <code>34~35</code> 블록에 들어갑니다.</p>
       <ul><li>네트워크: <code>10.20.34.0/23</code></li><li>브로드캐스트: <code>10.20.35.255</code></li><li>일반적인 사용 가능 호스트: <code>10.20.34.1</code>~<code>10.20.35.254</code></li><li>호스트 비트 9개 → 전체 <code>2^9 = 512</code>개, 일반적으로 사용 가능 510개</li></ul>
-      <p><code>10.20.34.200</code>과 <code>10.20.35.10</code>은 이 <code>/23</code>에서 같은 네트워크입니다. 한쪽 장비의 마스크가 <code>/24</code>라면 같은 주소 쌍을 서로 다르게 판단할 수 있습니다. 연결 문제에서는 <strong>두 장비의 IP와 마스크를 각각</strong> 확인하세요.</p>
+      <p><code>10.20.34.200</code>과 <code>10.20.35.10</code>은 이 <code>/23</code>에서 같은 네트워크입니다. 한쪽 장비의 마스크가 <code>/24</code>라면 같은 주소 쌍을 서로 다르게 판단할 수 있습니다. 연결 문제에서는 <strong>두 장비의 IP와 마스크를 각각</strong> 확인하세요. <a href={ccnaTroubleshootingPost.path}>서로 다른 마스크의 IPv4 설정 점검 사례</a>에서 양쪽 판단과 실제 통신 결과를 구분해 볼 수 있습니다.</p>
     </section>
     <section className={styles.quiz} aria-labelledby="ccna-check"><h2 id="ccna-check">답을 펼치기 전에 직접 풀어 보세요</h2>
       <ol><li><code>198.51.100.173/28</code>의 네트워크 주소, 브로드캐스트 주소, 일반적인 사용 가능 호스트 범위는 무엇인가요?</li><li>같은 호스트의 기본 게이트웨이가 <code>198.51.100.177</code>이라면 같은 <code>/28</code> 블록에 있나요?</li></ol>

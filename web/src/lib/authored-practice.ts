@@ -16,14 +16,14 @@ export function authoredDefaultLocale(examId: string): Locale {
   const locale = catalogById.get(examId)?.locale;
   return locale === "en" || locale === "all" ? "en" : "ko";
 }
-type AuthoredItem = (typeof content.groups)[number]["questions"][number] & { source: string };
+type AuthoredItem = (typeof content.groups)[number]["questions"][number] & { source: string; locale?: string };
 const bySet = new Map<number, Map<string, AuthoredItem[]>>();
 for (const [version, data] of [[202610, content], [202611, november]] as const) {
   const byExam = new Map<string, AuthoredItem[]>();
   bySet.set(version, byExam);
   for (const group of data.groups) {
     for (const id of group.examIds) {
-      byExam.set(id, [...(byExam.get(id) ?? []), ...group.questions.map(item => ({ ...item, source: "source" in item ? item.source ?? group.source : group.source }))]);
+      byExam.set(id, [...(byExam.get(id) ?? []), ...group.questions.map(item => ({ ...item, source: "source" in item ? item.source ?? group.source : group.source, locale: "locale" in group ? group.locale : undefined }))]);
     }
   }
 }
@@ -39,7 +39,7 @@ export function authoredVersionId(examId: string, version = authoredVersion) { r
 export function authoredSetSummary(examId: string, locale: Locale, version = authoredVersion) {
   const exam = catalogById.get(examId);
   if (!exam || (exam.locale && exam.locale !== "all" && exam.locale !== locale)) return undefined;
-  const items = bySet.get(version)?.get(examId) ?? [];
+  const items = (bySet.get(version)?.get(examId) ?? []).filter(item => !item.locale || item.locale === locale);
   if (!items.length) return undefined;
   return {
     count: items.length, version, name: authoredVersionLabel(version),
@@ -63,9 +63,11 @@ export function authoredQuestions(examId: string, locale: Locale, version = auth
   const group = bySet.get(version)?.get(examId);
   const supportedLocale = catalogById.get(examId)?.locale;
   if (!group || (supportedLocale && supportedLocale !== "all" && supportedLocale !== locale)) return [];
-  return group.map((item, index) => {
+  // Keep the source index for IDs and rotation even when a group restricts its UI language.
+  return group.flatMap((item, index): Question[] => {
+    if (item.locale && item.locale !== locale) return [];
     const rotation = (Number(examId) + index) % 4;
-    return {
+    return [{
       id: authoredQuestionId(examId, index, version), testId: examId, locale, version,
       versionName: authoredVersionLabel(version), questionNumber: index + 1, authored: true,
       contentLocale: /[\uac00-\ud7a3]/.test(item.prompt) ? "ko" : "en",
@@ -77,7 +79,7 @@ export function authoredQuestions(examId: string, locale: Locale, version = auth
         const choiceBase = version === 202611 ? 9_200_000_000 + Number(examId) * 10_000 : extendedIds(examId) ? 9_100_000_000 + Number(examId) * 10_000 : 9_000_000_000 + Number(examId) * 1000;
         return { id: String(choiceBase + index * 10 + original), position: position + 1, text: escape(item.choices[original]), correct: original === 0 };
       }),
-    };
+    }];
   });
 }
 

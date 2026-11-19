@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "run_id": "2026-11-18-daily-cooking-infection",
+  "run_id": "2026-11-19-daily-ccna-ipv4",
   "mode": "daily",
-  "status": "cooking_infection_article_verified_live_observation_pending_question_explanation_DB_approval_pending",
-  "last_report": "reports/2026-11-18-daily.md",
+  "status": "ccna_practice_article_reviewed_local_check_passed_awaiting_git_release",
+  "last_report": "reports/2026-11-19-daily.md",
   "private_state": ".modernization/quizeey-ops/state.json",
-  "branch": "docs/20261118-release-readback",
+  "branch": "feat/20261119-ccna-practice",
   "preferred_branch": "master_for_routine_low_risk_work",
-  "release": "2026-11-18_master_b237270_production_READY_domain_alias_updated_three_read_only_GETs_passed",
+  "release": "2026-11-19_full_local_gate_passed_awaiting_one_master_Git_release",
   "schedule": "not_registered",
   "active_items": [
     "OPS-01",
@@ -17,7 +17,7 @@
     "OPS-05",
     "OPS-06"
   ],
-  "last_journal": "journal/2026-11-18.md",
+  "last_journal": "journal/2026-11-19.md",
   "google_connection": {
     "ga4": "public_tag_present_api_unverified",
     "gsc": "public_domain_verification_present_api_unverified",
@@ -29,9 +29,9 @@
     "cadence": "weekly_core_monthly_financial",
     "status": "nov15_ga4_daily_events_and_gsc_processed_limited_finality_test_id_and_totals_unverified"
   },
-  "next": "Reconcile local-only Nov18 release readback at next routine verified release without a second deployment; owner decision on explanation-only DB patch; CCNA five-question registration/grading; OPS-02 private archive/cleanup scope; GA4 test_id/finality; inspect existing moderate security alert when supported access is available.",
-  "manual_skill_check": "Nov18 original cooking infection article CDC/WHO sources, three answers and distractors, actual October Korean cooking route, metadata and accessibility independently reviewed; reported question keeps current key, explanation-only SQL and rollback independently reviewed with nine isolated checks; OPS-02 current/history scope prepared privately",
-  "automated_skill_validation": "2026-11-18_check_local_exit0_typecheck_lint_unit186_build_browser137_DB_Auth_included_skip0_monetization6_passed",
+  "next": "One routine verified master Git release, exact SHA READY/domain and four small affected-path readbacks; then 28-day separate GSC/GA4 observation. Existing explanation-only production DB approval remains pending.",
+  "manual_skill_check": "CCNA five original Korean questions and new asymmetric-mask worked guide independently reviewed against current official Cisco sources, source calculations, real local routes, final code and tests; first exact-heading test expectation corrected and independently reviewed; full gate rerun passed.",
+  "automated_skill_validation": "2026-11-19_check_local_exit0_typecheck_lint_unit190_build_browser141_DB_Auth_included_skip0_monetization6_passed",
   "write_receipts": [
     {
       "kind": "git_documentation_release",

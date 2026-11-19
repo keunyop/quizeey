@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { blogMetadata, blogPost, blogPostPath, blogPosts, findBlogPost, blogSitemap, blogStructuredData, printingPost, ccnaPost, sqldHavingPost, sqldLeftJoinPost, cookingInfectionPost } from './blog';
+import { blogMetadata, blogPost, blogPostPath, blogPosts, findBlogPost, blogSitemap, blogStructuredData, printingPost, ccnaPost, sqldHavingPost, sqldLeftJoinPost, cookingInfectionPost, ccnaTroubleshootingPost } from './blog';
 import { publicSitemap } from './seo';
 
 describe('blog search publishing', () => {
@@ -20,13 +20,14 @@ describe('blog search publishing', () => {
     expect(metadata.robots).toEqual({ index: true, follow: true });
     expect(publicSitemap(origin)).toEqual(expect.arrayContaining(blogSitemap(origin)));
     for (const post of blogPosts) expect(blogSitemap(origin)).toContainEqual({ url: origin + post.path, lastModified: post.modified });
-    expect(blogSitemap(origin).find(entry => entry.url === origin + '/blog')?.lastModified).toBe('2026-11-18');
+    expect(blogSitemap(origin).find(entry => entry.url === origin + '/blog')?.lastModified).toBe('2026-11-19');
     expect(blogSitemap(origin).find(entry => entry.url === origin + '/en/blog')?.lastModified).toBe('2026-11-08');
     expect(findBlogPost(printingPost.slug, 'ko')).toBe(printingPost);
     expect(findBlogPost(printingPost.slug, 'en')).toBeUndefined();
     expect(findBlogPost(ccnaPost.slug, 'ko')).toBe(ccnaPost);
     expect(findBlogPost(ccnaPost.slug, 'en')).toBeUndefined();
     expect(ccnaPost.practicePath).toBe('/ccna-200-301?verNbr=202610');
+    expect(ccnaTroubleshootingPost.practicePath).toBe('/ccna-200-301?verNbr=202611');
     expect(sqldHavingPost.practicePath).toBe('/sqlp-developer?verNbr=202611');
     expect(sqldLeftJoinPost.practicePath).toBe('/sqlp-developer?verNbr=202611');
     expect(cookingInfectionPost.practicePath).toBe('/craftsman-cook-korean-food?verNbr=202610');

@@ -13,6 +13,13 @@ export const blogPost: BlogPost = {
   practicePath: '/sqlp-developer',
 };
 export const blogPath = '/blog';
+export const ccnaTroubleshootingPost: BlogPost = {
+  slug: 'ccna-ipv4-mask-troubleshooting', path: '/blog/ccna-ipv4-mask-troubleshooting', locale: 'ko',
+  title: 'CCNA 서브넷 마스크가 다르면? IPv4 설정 점검 순서',
+  description: '서로 다른 /26·/24 마스크를 쓰는 두 장비의 판단을 양쪽에서 계산합니다. 주소 범위와 실제 통신을 구분하고 IPv4 설정·경로를 점검한 뒤 한국어 원본 5문제로 연습하세요.',
+  date: '2026-11-19', modified: '2026-11-19', category: 'CCNA 200-301 · IPv4 설정 점검',
+  practicePath: '/ccna-200-301?verNbr=202611',
+};
 export const cookingInfectionPost: BlogPost = {
   slug: 'korean-cooking-infection-routes', path: '/blog/korean-cooking-infection-routes', locale: 'ko',
   title: '한식조리기능사 감염병: 경구 감염과 침·비말 전파 구분하기',
@@ -74,7 +81,7 @@ export const ccnaPost: BlogPost = {
   slug: 'ccna-ipv4-subnetting-gateway', path: '/blog/ccna-ipv4-subnetting-gateway', locale: 'ko',
   title: 'CCNA IPv4 서브넷 계산: 주소 범위로 게이트웨이 설정 점검하기',
   description: 'CCNA 200-301 IPv4 서브네팅을 /26·/23·/28 예제로 계산하세요. 네트워크·브로드캐스트·호스트 범위를 찾고 게이트웨이 주소와 마스크를 점검합니다.',
-  date: '2026-11-11', modified: '2026-11-11', category: 'CCNA 200-301 · IPv4 서브네팅',
+  date: '2026-11-11', modified: '2026-11-19', category: 'CCNA 200-301 · IPv4 서브네팅',
   practicePath: '/ccna-200-301?verNbr=202610',
 };
 
@@ -103,7 +110,7 @@ export const roadSignsPost: BlogPost = {
   description: 'Learn Ontario road sign shapes and colours, separate stop from yield, and try five explained questions before practising with the G1 study set.',
   date: '2026-11-08', modified: '2026-11-08', category: 'Ontario G1 · Road sign practice', practicePath: '/en/ontario-g1',
 };
-export const blogPosts = [cookingInfectionPost, sqldLeftJoinPost, sqldHavingPost, makeupHygienePost, baristaExtractionPost, sqlpPlanPost, koreanCookingPost, ccnaPost, roadSignsPost, printingPost, cloudPost, subnetPost, blogPost];
+export const blogPosts = [ccnaTroubleshootingPost, cookingInfectionPost, sqldLeftJoinPost, sqldHavingPost, makeupHygienePost, baristaExtractionPost, sqlpPlanPost, koreanCookingPost, ccnaPost, roadSignsPost, printingPost, cloudPost, subnetPost, blogPost];
 const englishIndex = { title: 'Quizeey Blog: Certification Concepts with Worked Examples', description: 'Understand a concept, work through an example and check your reasoning with practice questions.' };
 export function blogIndexPath(locale: Locale) { return locale === 'en' ? '/en/blog' : blogPath; }
 export function blogIndexCopy(locale: Locale) { return locale === 'en' ? englishIndex : blogIndex; }
