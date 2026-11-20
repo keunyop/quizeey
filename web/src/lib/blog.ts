@@ -13,6 +13,13 @@ export const blogPost: BlogPost = {
   practicePath: '/sqlp-developer',
 };
 export const blogPath = '/blog';
+export const printingFirstLayerPost: BlogPost = {
+  slug: '3d-printer-first-layer-warping', path: '/blog/3d-printer-first-layer-warping', locale: 'ko',
+  title: '3D프린터 첫 층이 안 붙을 때: 노즐 간격·워핑·브림 구분하기',
+  description: '첫 선부터 안 붙는 현상과 출력 중 모서리 들뜸을 구분해 보세요. 노즐 간격·워핑·브림의 역할을 원본 세 문제로 확인하고 3D프린터운용기능사 11월 연습으로 이어갑니다.',
+  date: '2026-11-20', modified: '2026-11-20', category: '3D프린터운용기능사 · 첫 층과 워핑',
+  practicePath: '/craftsman-3D-printer-operation?verNbr=202611',
+};
 export const ccnaTroubleshootingPost: BlogPost = {
   slug: 'ccna-ipv4-mask-troubleshooting', path: '/blog/ccna-ipv4-mask-troubleshooting', locale: 'ko',
   title: 'CCNA 서브넷 마스크가 다르면? IPv4 설정 점검 순서',
@@ -110,7 +117,7 @@ export const roadSignsPost: BlogPost = {
   description: 'Learn Ontario road sign shapes and colours, separate stop from yield, and try five explained questions before practising with the G1 study set.',
   date: '2026-11-08', modified: '2026-11-08', category: 'Ontario G1 · Road sign practice', practicePath: '/en/ontario-g1',
 };
-export const blogPosts = [ccnaTroubleshootingPost, cookingInfectionPost, sqldLeftJoinPost, sqldHavingPost, makeupHygienePost, baristaExtractionPost, sqlpPlanPost, koreanCookingPost, ccnaPost, roadSignsPost, printingPost, cloudPost, subnetPost, blogPost];
+export const blogPosts = [printingFirstLayerPost, ccnaTroubleshootingPost, cookingInfectionPost, sqldLeftJoinPost, sqldHavingPost, makeupHygienePost, baristaExtractionPost, sqlpPlanPost, koreanCookingPost, ccnaPost, roadSignsPost, printingPost, cloudPost, subnetPost, blogPost];
 const englishIndex = { title: 'Quizeey Blog: Certification Concepts with Worked Examples', description: 'Understand a concept, work through an example and check your reasoning with practice questions.' };
 export function blogIndexPath(locale: Locale) { return locale === 'en' ? '/en/blog' : blogPath; }
 export function blogIndexCopy(locale: Locale) { return locale === 'en' ? englishIndex : blogIndex; }

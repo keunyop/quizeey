@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "run_id": "2026-11-19-daily-ccna-ipv4",
+  "run_id": "2026-11-20-daily-printing-first-layer",
   "mode": "daily",
-  "status": "ccna_verified_live_question_explanation_verified_live_observation_pending",
-  "last_report": "reports/2026-11-19-daily.md",
+  "status": "printing_first_layer_reviewed_local_verified_awaiting_git_release",
+  "last_report": "reports/2026-11-20-daily.md",
   "private_state": ".modernization/quizeey-ops/state.json",
-  "branch": "docs/20261119-release-readback",
+  "branch": "content/20261120-printing-first-layer",
   "preferred_branch": "master_for_routine_low_risk_work",
   "release": "2026-11-19_master_f47550e_production_READY_domain_alias_four_read_only_GETs_passed",
   "schedule": "not_registered",
@@ -17,7 +17,7 @@
     "OPS-05",
     "OPS-06"
   ],
-  "last_journal": "journal/2026-11-19.md",
+  "last_journal": "journal/2026-11-20.md",
   "google_connection": {
     "ga4": "public_tag_present_api_unverified",
     "gsc": "public_domain_verification_present_api_unverified",
@@ -29,9 +29,9 @@
     "cadence": "weekly_core_monthly_financial",
     "status": "nov15_ga4_daily_events_and_gsc_processed_limited_finality_test_id_and_totals_unverified"
   },
-  "next": "Routine verified production changes including DB corrections are standing-authorized without reapproval. Retain independent review, applicable local checks, exact revision guards, rollback and readback. Report closure/moderation remains separate; next OPS-02 scope, GA4 test_id/property/finality, Nov20-Dec17 CCNA observation, existing moderate alert details.",
-  "manual_skill_check": "CCNA five original Korean questions and new asymmetric-mask worked guide independently reviewed against current official Cisco sources, source calculations, real local routes, final code and tests; first exact-heading test expectation corrected and independently reviewed; full gate rerun passed.",
-  "automated_skill_validation": "2026-11-19_check_local_exit0_typecheck_lint_unit190_build_browser141_DB_Auth_included_skip0_monetization6_passed",
+  "next": "One standing-authorized master Git release after exact revision/staged scope check, then SHA READY alias and three bounded read-only GETs. No retry deployment. Keep OPS-02 and GA4 gaps open.",
+  "manual_skill_check": "Independent official source/question/distractor/code/docs review passed and all five reviewed file hashes match final local gate. Full local route/article/practice grading/accessibility passed.",
+  "automated_skill_validation": "2026-11-20_check_local_exit0_typecheck_lint_unit190_build_browser143_DB_Auth_included_skip0_monetization6_passed",
   "write_receipts": [
     {
       "kind": "git_documentation_release",
