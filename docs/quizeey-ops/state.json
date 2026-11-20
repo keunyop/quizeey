@@ -2,12 +2,12 @@
   "schema_version": 1,
   "run_id": "2026-11-20-daily-printing-first-layer",
   "mode": "daily",
-  "status": "printing_first_layer_reviewed_local_verified_awaiting_git_release",
+  "status": "printing_first_layer_verified_live_observation_pending",
   "last_report": "reports/2026-11-20-daily.md",
   "private_state": ".modernization/quizeey-ops/state.json",
-  "branch": "content/20261120-printing-first-layer",
+  "branch": "docs/20261120-release-readback",
   "preferred_branch": "master_for_routine_low_risk_work",
-  "release": "2026-11-19_master_f47550e_production_READY_domain_alias_four_read_only_GETs_passed",
+  "release": "2026-11-20_master_3f1831a_production_READY_domain_alias_three_read_only_GETs_passed",
   "schedule": "not_registered",
   "active_items": [
     "OPS-01",
@@ -29,7 +29,7 @@
     "cadence": "weekly_core_monthly_financial",
     "status": "nov15_ga4_daily_events_and_gsc_processed_limited_finality_test_id_and_totals_unverified"
   },
-  "next": "One standing-authorized master Git release after exact revision/staged scope check, then SHA READY alias and three bounded read-only GETs. No retry deployment. Keep OPS-02 and GA4 gaps open.",
+  "next": "OPS-02 private archive/current-tree cleanup scope; GA4 property/test_id/finality; published guides observation including Nov21-Dec18 printing; existing moderate GitHub alert details. Routine verified production changes remain standing-authorized; preserve independent review/local gates/revision/rollback/readback.",
   "manual_skill_check": "Independent official source/question/distractor/code/docs review passed and all five reviewed file hashes match final local gate. Full local route/article/practice grading/accessibility passed.",
   "automated_skill_validation": "2026-11-20_check_local_exit0_typecheck_lint_unit190_build_browser143_DB_Auth_included_skip0_monetization6_passed",
   "write_receipts": [
@@ -221,6 +221,16 @@
       "report_state": "open",
       "authorization": "explicit_current_patch_and_standing_future_verified_production_changes_2026-11-19",
       "private_receipt": ".modernization/quizeey-ops/2026-11-19-question-applied-readback.json"
+    },
+    {
+      "kind": "git_daily_printing_first_layer_release",
+      "commit": "3f1831a67b562b97374a5f9e0450d0de2701d8f7",
+      "branch": "master",
+      "remote_readback": "same_sha",
+      "state": "READY",
+      "domain_alias_present": true,
+      "affected_path_smoke": "three_read_only_GETs_HTTP200_expected_markers",
+      "private_receipt": ".modernization/quizeey-ops/2026-11-20-release-readback.md"
     }
   ],
   "note": "Source cursors and business metrics are private. Do not treat missing private state as no pending work.",
@@ -244,5 +254,11 @@
       "permanent_bans",
       "large_public_changes"
     ]
+  },
+  "content_observation": {
+    "article": "/blog/3d-printer-first-layer-warping",
+    "window": "2026-11-21..2026-12-18",
+    "status": "unmeasured_waiting_complete_window_and_source_validation",
+    "signals": "Separate GSC page/query and GA4 exam practice_start; property/test_id/finality unverified"
   }
 }
