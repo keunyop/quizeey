@@ -13,6 +13,13 @@ export const blogPost: BlogPost = {
   practicePath: '/sqlp-developer',
 };
 export const blogPath = '/blog';
+export const sqldUnionPost: BlogPost = {
+  slug: 'sqld-union-all-duplicate-null', path: '/blog/sqld-union-all-duplicate-null', locale: 'ko',
+  title: 'SQLD UNION과 UNION ALL 차이: 중복 행·NULL로 결과 세기',
+  description: '같은 여섯 입력 행이 UNION ALL에서는 6행, UNION에서는 3행이 되는 이유를 계산합니다. 선택한 열과 NULL 중복 판정을 세 원본 문제로 확인하고 SQLD 11월 연습으로 이어가세요.',
+  date: '2026-11-21', modified: '2026-11-21', category: 'SQLD · UNION과 NULL',
+  practicePath: '/sqlp-developer?verNbr=202611',
+};
 export const printingFirstLayerPost: BlogPost = {
   slug: '3d-printer-first-layer-warping', path: '/blog/3d-printer-first-layer-warping', locale: 'ko',
   title: '3D프린터 첫 층이 안 붙을 때: 노즐 간격·워핑·브림 구분하기',
@@ -117,7 +124,7 @@ export const roadSignsPost: BlogPost = {
   description: 'Learn Ontario road sign shapes and colours, separate stop from yield, and try five explained questions before practising with the G1 study set.',
   date: '2026-11-08', modified: '2026-11-08', category: 'Ontario G1 · Road sign practice', practicePath: '/en/ontario-g1',
 };
-export const blogPosts = [printingFirstLayerPost, ccnaTroubleshootingPost, cookingInfectionPost, sqldLeftJoinPost, sqldHavingPost, makeupHygienePost, baristaExtractionPost, sqlpPlanPost, koreanCookingPost, ccnaPost, roadSignsPost, printingPost, cloudPost, subnetPost, blogPost];
+export const blogPosts = [sqldUnionPost, printingFirstLayerPost, ccnaTroubleshootingPost, cookingInfectionPost, sqldLeftJoinPost, sqldHavingPost, makeupHygienePost, baristaExtractionPost, sqlpPlanPost, koreanCookingPost, ccnaPost, roadSignsPost, printingPost, cloudPost, subnetPost, blogPost];
 const englishIndex = { title: 'Quizeey Blog: Certification Concepts with Worked Examples', description: 'Understand a concept, work through an example and check your reasoning with practice questions.' };
 export function blogIndexPath(locale: Locale) { return locale === 'en' ? '/en/blog' : blogPath; }
 export function blogIndexCopy(locale: Locale) { return locale === 'en' ? englishIndex : blogIndex; }
