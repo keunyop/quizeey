@@ -2,12 +2,12 @@
   "schema_version": 1,
   "run_id": "2026-11-21-daily-sqld-union",
   "mode": "daily",
-  "status": "sqld_union_local_verified_awaiting_git_release",
+  "status": "sqld_union_verified_live_observation_pending",
   "last_report": "reports/2026-11-21-daily.md",
   "private_state": ".modernization/quizeey-ops/state.json",
-  "branch": "content/20261121-daily-learning",
+  "branch": "docs/20261121-release-readback",
   "preferred_branch": "master_for_routine_low_risk_work",
-  "release": "2026-11-20_master_3f1831a_production_READY_domain_alias_three_read_only_GETs_passed",
+  "release": "2026-11-21_master_9766ccd_production_READY_three_read_only_GETs_passed",
   "schedule": "not_registered",
   "active_items": [
     "OPS-01",
@@ -29,7 +29,7 @@
     "cadence": "weekly_core_monthly_financial",
     "status": "nov15_ga4_daily_events_and_gsc_processed_limited_finality_test_id_and_totals_unverified"
   },
-  "next": "One reviewed master Git release after exact preconditions; confirm same SHA READY alias and three read-only GETs. Keep measurement/access/security gaps open.",
+  "next": "OPS-02 private archive/current-tree cleanup scope; GA4 property/test_id/finality; complete published-guide observation windows, including SQLD Nov22-Dec19; existing moderate alert details. Routine verified production changes remain standing-authorized with independent review/local gates/revision/rollback/readback.",
   "manual_skill_check": "Independent official sources/three questions/distractors/code/docs review and five final hashes match. Seven exact article SQL assertions and actual local article-to-practice grading/accessibility passed.",
   "automated_skill_validation": "2026-11-21_check_local_exit0_typecheck_lint_unit190_build_browser145_DB_Auth_included_skip0_monetization6_passed",
   "write_receipts": [
@@ -231,6 +231,16 @@
       "domain_alias_present": true,
       "affected_path_smoke": "three_read_only_GETs_HTTP200_expected_markers",
       "private_receipt": ".modernization/quizeey-ops/2026-11-20-release-readback.md"
+    },
+    {
+      "kind": "git_daily_sqld_union_release",
+      "commit": "9766ccdda82d39c9717c75fade72067281c07a2b",
+      "branch": "master",
+      "remote_readback": "same_sha",
+      "state": "READY",
+      "domain_alias_present": true,
+      "affected_path_smoke": "three_read_only_GETs_HTTP200_expected_markers",
+      "private_receipt": ".modernization/quizeey-ops/2026-11-21-release-readback.json"
     }
   ],
   "note": "Source cursors and business metrics are private. Do not treat missing private state as no pending work.",
@@ -256,9 +266,9 @@
     ]
   },
   "content_observation": {
-    "article": "/blog/3d-printer-first-layer-warping",
-    "window": "2026-11-21..2026-12-18",
+    "article": "/blog/sqld-union-all-duplicate-null",
+    "window": "2026-11-22..2026-12-19",
     "status": "unmeasured_waiting_complete_window_and_source_validation",
-    "signals": "Separate GSC page/query and GA4 exam practice_start; property/test_id/finality unverified"
+    "signals": "Separate GSC page/query and GA4 SQLD practice_start; property/test_id/finality unverified"
   }
 }
