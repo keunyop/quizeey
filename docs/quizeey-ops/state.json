@@ -2,12 +2,12 @@
   "schema_version": 1,
   "run_id": "2026-11-23-daily-cooking-yield",
   "mode": "daily",
-  "status": "cooking_yield_verified_local_release_pending",
+  "status": "cooking_yield_verified_live_observation_pending",
   "last_report": "reports/2026-11-23-daily.md",
   "private_state": ".modernization/quizeey-ops/state.json",
-  "branch": "content/20261123-cooking-yield",
+  "branch": "docs/20261123-release-readback",
   "preferred_branch": "master_for_routine_low_risk_work",
-  "release": "2026-11-23_verified_local_not_released",
+  "release": "2026-11-23_master_0bca477_production_READY_four_read_only_GETs_passed",
   "schedule": "not_registered",
   "active_items": [
     "OPS-01",
@@ -251,6 +251,19 @@
       "domain_alias_present": true,
       "affected_path_smoke": "three_read_only_GETs_HTTP200_expected_markers",
       "private_receipt": ".modernization/quizeey-ops/2026-11-22-release-readback.json"
+    },
+    {
+      "kind": "git_daily_cooking_yield_and_input_readiness_release",
+      "commit": "0bca477b8665730c3b09cf645d294ec53163dd6c",
+      "state": "READY",
+      "remote_readback": "same_sha",
+      "target": "production",
+      "domain_alias_present": true,
+      "affected_path_smoke": "four_read_only_GETs_HTTP200_expected_markers",
+      "observed_at": "2026-11-23T21:23:44.955727+00:00",
+      "rollback": "Revert reviewed guide/registration, input readiness guard, related regressions and local unit serialization; verify locally; one authorized Git master push. Do not automatically redeploy.",
+      "branch": "master",
+      "private_receipt": ".modernization/quizeey-ops/2026-11-23-release-readback.json"
     }
   ],
   "note": "Source cursors and business metrics are private. Do not treat missing private state as no pending work.",
@@ -277,7 +290,7 @@
   },
   "content_observation": {
     "article": "/blog/korean-cooking-edible-yield-purchase-weight",
-    "window": "first_complete_day_after_live_readback_for_28_days",
+    "window": "2026-11-24..2026-12-21",
     "status": "unmeasured_waiting_complete_window_and_source_validation",
     "signals": "Separate GSC page/query and GA4 Korean cooking practice_start; property/test_id/finality unverified"
   },
