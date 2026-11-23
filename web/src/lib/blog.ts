@@ -13,6 +13,13 @@ export const blogPost: BlogPost = {
   practicePath: '/sqlp-developer',
 };
 export const blogPath = '/blog';
+export const baristaStoragePost: BlogPost = {
+  slug: 'barista-2-coffee-storage-freshness', path: '/blog/barista-2-coffee-storage-freshness', locale: 'ko',
+  title: '바리스타 2급 원두 보관: 밀폐·차광·분쇄 시점 판단하기',
+  description: '같은 원두를 둔 세 장소를 비교하며 밀폐·차광·보관 위치를 함께 판단합니다. 분쇄 시점과 디개싱·산화를 원본 세 문제로 구분하고 바리스타 2급 11월 연습으로 이어가세요.',
+  date: '2026-11-22', modified: '2026-11-22', category: '바리스타 2급 · 원두 보관과 분쇄',
+  practicePath: '/barista-2?verNbr=202611',
+};
 export const sqldUnionPost: BlogPost = {
   slug: 'sqld-union-all-duplicate-null', path: '/blog/sqld-union-all-duplicate-null', locale: 'ko',
   title: 'SQLD UNION과 UNION ALL 차이: 중복 행·NULL로 결과 세기',
@@ -124,7 +131,7 @@ export const roadSignsPost: BlogPost = {
   description: 'Learn Ontario road sign shapes and colours, separate stop from yield, and try five explained questions before practising with the G1 study set.',
   date: '2026-11-08', modified: '2026-11-08', category: 'Ontario G1 · Road sign practice', practicePath: '/en/ontario-g1',
 };
-export const blogPosts = [sqldUnionPost, printingFirstLayerPost, ccnaTroubleshootingPost, cookingInfectionPost, sqldLeftJoinPost, sqldHavingPost, makeupHygienePost, baristaExtractionPost, sqlpPlanPost, koreanCookingPost, ccnaPost, roadSignsPost, printingPost, cloudPost, subnetPost, blogPost];
+export const blogPosts = [baristaStoragePost, sqldUnionPost, printingFirstLayerPost, ccnaTroubleshootingPost, cookingInfectionPost, sqldLeftJoinPost, sqldHavingPost, makeupHygienePost, baristaExtractionPost, sqlpPlanPost, koreanCookingPost, ccnaPost, roadSignsPost, printingPost, cloudPost, subnetPost, blogPost];
 const englishIndex = { title: 'Quizeey Blog: Certification Concepts with Worked Examples', description: 'Understand a concept, work through an example and check your reasoning with practice questions.' };
 export function blogIndexPath(locale: Locale) { return locale === 'en' ? '/en/blog' : blogPath; }
 export function blogIndexCopy(locale: Locale) { return locale === 'en' ? englishIndex : blogIndex; }

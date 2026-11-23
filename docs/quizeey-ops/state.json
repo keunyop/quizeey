@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "run_id": "2026-11-21-daily-sqld-union",
+  "run_id": "2026-11-22-daily-barista-storage",
   "mode": "daily",
-  "status": "sqld_union_verified_live_observation_pending",
-  "last_report": "reports/2026-11-21-daily.md",
+  "status": "barista_storage_security_local_verified_awaiting_git_release",
+  "last_report": "reports/2026-11-22-daily.md",
   "private_state": ".modernization/quizeey-ops/state.json",
-  "branch": "docs/20261121-release-readback",
+  "branch": "content/20261122-daily-learning",
   "preferred_branch": "master_for_routine_low_risk_work",
   "release": "2026-11-21_master_9766ccd_production_READY_three_read_only_GETs_passed",
   "schedule": "not_registered",
@@ -17,7 +17,7 @@
     "OPS-05",
     "OPS-06"
   ],
-  "last_journal": "journal/2026-11-21.md",
+  "last_journal": "journal/2026-11-22.md",
   "google_connection": {
     "ga4": "public_tag_present_api_unverified",
     "gsc": "public_domain_verification_present_api_unverified",
@@ -29,9 +29,9 @@
     "cadence": "weekly_core_monthly_financial",
     "status": "nov15_ga4_daily_events_and_gsc_processed_limited_finality_test_id_and_totals_unverified"
   },
-  "next": "OPS-02 private archive/current-tree cleanup scope; GA4 property/test_id/finality; complete published-guide observation windows, including SQLD Nov22-Dec19; existing moderate alert details. Routine verified production changes remain standing-authorized with independent review/local gates/revision/rollback/readback.",
-  "manual_skill_check": "Independent official sources/three questions/distractors/code/docs review and five final hashes match. Seven exact article SQL assertions and actual local article-to-practice grading/accessibility passed.",
-  "automated_skill_validation": "2026-11-21_check_local_exit0_typecheck_lint_unit190_build_browser145_DB_Auth_included_skip0_monetization6_passed",
+  "next": "One authorized master Git release after exact preconditions, same SHA READY/alias and three GETs. Keep privacy/access and remote alert status gaps open.",
+  "manual_skill_check": "Independent official content/question/distractor/code/security dependency review; seven final hashes and optional lock preservation; local SSR/mobile both themes/accessibility/practice grading flow passed.",
+  "automated_skill_validation": "2026-11-22_final_check_local_exit0_typecheck_lint_unit190_build_browser147_DB_Auth_included_skip0_monetization6_passed_clean_ci_and_Bulk_HTTP200_no_known_advisories_returned",
   "write_receipts": [
     {
       "kind": "git_documentation_release",
@@ -270,5 +270,11 @@
     "window": "2026-11-22..2026-12-19",
     "status": "unmeasured_waiting_complete_window_and_source_validation",
     "signals": "Separate GSC page/query and GA4 SQLD practice_start; property/test_id/finality unverified"
+  },
+  "security_remediation": {
+    "status": "verified_locally_awaiting_git_release",
+    "advisory": "GHSA-g3hv-75wg-m249",
+    "minimatch": "11.0.9",
+    "scope": "Supported same-major eslint/typescript-eslint dev updates; final known advisory Bulk response empty, not no-vulnerability guarantee; existing GitHub alert mapping/status unverified"
   }
 }
