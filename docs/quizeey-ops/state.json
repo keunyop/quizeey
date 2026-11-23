@@ -2,12 +2,12 @@
   "schema_version": 1,
   "run_id": "2026-11-22-daily-barista-storage",
   "mode": "daily",
-  "status": "barista_storage_security_local_verified_awaiting_git_release",
+  "status": "barista_storage_verified_live_observation_pending",
   "last_report": "reports/2026-11-22-daily.md",
   "private_state": ".modernization/quizeey-ops/state.json",
-  "branch": "content/20261122-daily-learning",
+  "branch": "docs/20261122-release-readback",
   "preferred_branch": "master_for_routine_low_risk_work",
-  "release": "2026-11-21_master_9766ccd_production_READY_three_read_only_GETs_passed",
+  "release": "2026-11-22_master_1c058bf_production_READY_three_read_only_GETs_passed",
   "schedule": "not_registered",
   "active_items": [
     "OPS-01",
@@ -29,7 +29,7 @@
     "cadence": "weekly_core_monthly_financial",
     "status": "nov15_ga4_daily_events_and_gsc_processed_limited_finality_test_id_and_totals_unverified"
   },
-  "next": "One authorized master Git release after exact preconditions, same SHA READY/alias and three GETs. Keep privacy/access and remote alert status gaps open.",
+  "next": "Existing GitHub alert mapping/status readback; OPS-02 private archive/current-tree cleanup scope; GA4 property/test_id/finality; complete published-guide windows including barista Nov23-Dec20. Routine verified release remains standing-authorized.",
   "manual_skill_check": "Independent official content/question/distractor/code/security dependency review; seven final hashes and optional lock preservation; local SSR/mobile both themes/accessibility/practice grading flow passed.",
   "automated_skill_validation": "2026-11-22_final_check_local_exit0_typecheck_lint_unit190_build_browser147_DB_Auth_included_skip0_monetization6_passed_clean_ci_and_Bulk_HTTP200_no_known_advisories_returned",
   "write_receipts": [
@@ -241,6 +241,16 @@
       "domain_alias_present": true,
       "affected_path_smoke": "three_read_only_GETs_HTTP200_expected_markers",
       "private_receipt": ".modernization/quizeey-ops/2026-11-21-release-readback.json"
+    },
+    {
+      "kind": "git_daily_barista_storage_release",
+      "commit": "1c058bf8d8324c61db453ba422ebe40216542337",
+      "branch": "master",
+      "remote_readback": "same_sha",
+      "state": "READY",
+      "domain_alias_present": true,
+      "affected_path_smoke": "three_read_only_GETs_HTTP200_expected_markers",
+      "private_receipt": ".modernization/quizeey-ops/2026-11-22-release-readback.json"
     }
   ],
   "note": "Source cursors and business metrics are private. Do not treat missing private state as no pending work.",
@@ -266,13 +276,13 @@
     ]
   },
   "content_observation": {
-    "article": "/blog/sqld-union-all-duplicate-null",
-    "window": "2026-11-22..2026-12-19",
+    "article": "/blog/barista-2-coffee-storage-freshness",
+    "window": "2026-11-23..2026-12-20",
     "status": "unmeasured_waiting_complete_window_and_source_validation",
-    "signals": "Separate GSC page/query and GA4 SQLD practice_start; property/test_id/finality unverified"
+    "signals": "Separate GSC page/query and GA4 barista practice_start; property/test_id/finality unverified"
   },
   "security_remediation": {
-    "status": "verified_locally_awaiting_git_release",
+    "status": "verified_git_release_READY",
     "advisory": "GHSA-g3hv-75wg-m249",
     "minimatch": "11.0.9",
     "scope": "Supported same-major eslint/typescript-eslint dev updates; final known advisory Bulk response empty, not no-vulnerability guarantee; existing GitHub alert mapping/status unverified"
