@@ -13,6 +13,13 @@ export const blogPost: BlogPost = {
   practicePath: '/sqlp-developer',
 };
 export const blogPath = '/blog';
+export const cookingYieldPost: BlogPost = {
+  slug: 'korean-cooking-edible-yield-purchase-weight', path: '/blog/korean-cooking-edible-yield-purchase-weight', locale: 'ko',
+  title: '한식조리기능사 가식부 수율: 구입량을 곱할 때와 나눌 때',
+  description: '구입량과 손질 후 가식부량을 구분하고 30인분에 필요한 구입량을 역산합니다. 수율·손실률·인분 계산을 원본 세 문제로 확인하고 한식조리 11월 연습으로 이어가세요.',
+  date: '2026-11-23', modified: '2026-11-23', category: '한식조리기능사 · 가식부 수율 계산',
+  practicePath: '/craftsman-cook-korean-food?verNbr=202611',
+};
 export const baristaStoragePost: BlogPost = {
   slug: 'barista-2-coffee-storage-freshness', path: '/blog/barista-2-coffee-storage-freshness', locale: 'ko',
   title: '바리스타 2급 원두 보관: 밀폐·차광·분쇄 시점 판단하기',
@@ -131,7 +138,7 @@ export const roadSignsPost: BlogPost = {
   description: 'Learn Ontario road sign shapes and colours, separate stop from yield, and try five explained questions before practising with the G1 study set.',
   date: '2026-11-08', modified: '2026-11-08', category: 'Ontario G1 · Road sign practice', practicePath: '/en/ontario-g1',
 };
-export const blogPosts = [baristaStoragePost, sqldUnionPost, printingFirstLayerPost, ccnaTroubleshootingPost, cookingInfectionPost, sqldLeftJoinPost, sqldHavingPost, makeupHygienePost, baristaExtractionPost, sqlpPlanPost, koreanCookingPost, ccnaPost, roadSignsPost, printingPost, cloudPost, subnetPost, blogPost];
+export const blogPosts = [cookingYieldPost, baristaStoragePost, sqldUnionPost, printingFirstLayerPost, ccnaTroubleshootingPost, cookingInfectionPost, sqldLeftJoinPost, sqldHavingPost, makeupHygienePost, baristaExtractionPost, sqlpPlanPost, koreanCookingPost, ccnaPost, roadSignsPost, printingPost, cloudPost, subnetPost, blogPost];
 const englishIndex = { title: 'Quizeey Blog: Certification Concepts with Worked Examples', description: 'Understand a concept, work through an example and check your reasoning with practice questions.' };
 export function blogIndexPath(locale: Locale) { return locale === 'en' ? '/en/blog' : blogPath; }
 export function blogIndexCopy(locale: Locale) { return locale === 'en' ? englishIndex : blogIndex; }

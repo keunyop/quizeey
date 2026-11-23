@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "run_id": "2026-11-22-daily-barista-storage",
+  "run_id": "2026-11-23-daily-cooking-yield",
   "mode": "daily",
-  "status": "barista_storage_verified_live_observation_pending",
-  "last_report": "reports/2026-11-22-daily.md",
+  "status": "cooking_yield_verified_local_release_pending",
+  "last_report": "reports/2026-11-23-daily.md",
   "private_state": ".modernization/quizeey-ops/state.json",
-  "branch": "docs/20261122-release-readback",
+  "branch": "content/20261123-cooking-yield",
   "preferred_branch": "master_for_routine_low_risk_work",
-  "release": "2026-11-22_master_1c058bf_production_READY_three_read_only_GETs_passed",
+  "release": "2026-11-23_verified_local_not_released",
   "schedule": "not_registered",
   "active_items": [
     "OPS-01",
@@ -17,7 +17,7 @@
     "OPS-05",
     "OPS-06"
   ],
-  "last_journal": "journal/2026-11-22.md",
+  "last_journal": "journal/2026-11-23.md",
   "google_connection": {
     "ga4": "public_tag_present_api_unverified",
     "gsc": "public_domain_verification_present_api_unverified",
@@ -29,9 +29,9 @@
     "cadence": "weekly_core_monthly_financial",
     "status": "nov15_ga4_daily_events_and_gsc_processed_limited_finality_test_id_and_totals_unverified"
   },
-  "next": "Existing GitHub alert mapping/status readback; OPS-02 private archive/current-tree cleanup scope; GA4 property/test_id/finality; complete published-guide windows including barista Nov23-Dec20. Routine verified release remains standing-authorized.",
-  "manual_skill_check": "Independent official content/question/distractor/code/security dependency review; seven final hashes and optional lock preservation; local SSR/mobile both themes/accessibility/practice grading flow passed.",
-  "automated_skill_validation": "2026-11-22_final_check_local_exit0_typecheck_lint_unit190_build_browser147_DB_Auth_included_skip0_monetization6_passed_clean_ci_and_Bulk_HTTP200_no_known_advisories_returned",
+  "next": "OPS-02 private archive/current-tree cleanup scope; authenticated GitHub alert status; GA4 property/test_id/finality; complete published-guide observation windows.",
+  "manual_skill_check": "Independent raw GSC/USDA PDF, arithmetic, answers/distractors, hydration trace and controlled diagnosis, nine final file hashes; final full-check review approved",
+  "automated_skill_validation": "2026-11-23_final_check_local_exit0_typecheck_lint_unit190_build_browser151_DB_Auth_included_skip0_monetization6_passed",
   "write_receipts": [
     {
       "kind": "git_documentation_release",
@@ -276,10 +276,10 @@
     ]
   },
   "content_observation": {
-    "article": "/blog/barista-2-coffee-storage-freshness",
-    "window": "2026-11-23..2026-12-20",
+    "article": "/blog/korean-cooking-edible-yield-purchase-weight",
+    "window": "first_complete_day_after_live_readback_for_28_days",
     "status": "unmeasured_waiting_complete_window_and_source_validation",
-    "signals": "Separate GSC page/query and GA4 barista practice_start; property/test_id/finality unverified"
+    "signals": "Separate GSC page/query and GA4 Korean cooking practice_start; property/test_id/finality unverified"
   },
   "security_remediation": {
     "status": "verified_git_release_READY",

@@ -13,6 +13,11 @@ import { SubmissionDialog } from './SubmissionDialog';
 import { versionDisplayName } from '@/lib/version-label';
 import { saveSessionSettings, maxPracticeCount, type SessionSettings } from '@/lib/practice-session';
 
+// SSR controls must wait until React can retain the user's first selection.
+const subscribeReadiness = () => () => {};
+const clientReady = () => true;
+const serverReady = () => false;
+
 function createProgressStore(key: string, previousKeys: string[], ids: string[], contentVersion: string, onError: (error: boolean) => void) {
     let fallback: string | null = null;
     let useFallback = false;
@@ -71,12 +76,14 @@ function QuestionCard({ question, locale, attempt, onGrade, onPrevious, onNext, 
   onPrevious: () => void; onNext: () => void; canPrevious: boolean; commentsEnabled: boolean;
 }) {
   const m = messages[locale];
+  const interactive = useSyncExternalStore(subscribeReadiness, clientReady, serverReady);
   const [draft, setDraft] = useState<string[]>([]);
   const selected = attempt?.selected ?? draft;
   const multiple = question.choices.filter((choice) => choice.correct).length > 1;
   const answerLetters = question.choices.flatMap((choice, index) => choice.correct ? [String.fromCharCode(65 + index)] : []);
   const analytics=useAnalytics();
   useEffect(() => {
+    if (!interactive) return;
     function onKeyDown(event: KeyboardEvent) {
       if (event.repeat || event.isComposing || event.altKey || event.ctrlKey || event.metaKey || document.querySelector('dialog[open]')) return;
       const target = event.target as HTMLElement | null;
@@ -94,11 +101,11 @@ function QuestionCard({ question, locale, attempt, onGrade, onPrevious, onNext, 
     }
     document.addEventListener('keydown', onKeyDown);
     return () => document.removeEventListener('keydown', onKeyDown);
-  }, [attempt, multiple, onGrade, onNext, question.choices, selected]);
+  }, [interactive, attempt, multiple, onGrade, onNext, question.choices, selected]);
   return <section className="question-card" aria-label={locale === "ko" ? "문제" : "Question"}>
     <p className="question-version">{locale === "ko" ? "회차" : "Set"} · {versionDisplayName(question.versionName, question.version, locale)}</p>
     <div id="question-content" lang={question.contentLocale ?? locale} tabIndex={-1} className="learning-content question-prompt" dangerouslySetInnerHTML={{ __html: question.text }} />
-    <fieldset disabled={!!attempt}>
+    <fieldset disabled={!interactive || !!attempt}>
       <legend>{multiple ? m.multiple : m.single}</legend>
       {question.choices.map((choice, index) => <label className={`choice ${attempt ? choice.correct ? "choice-correct" : attempt.selected.includes(choice.id) ? "choice-incorrect" : "" : ""}`} key={choice.id}>
         <input type={multiple ? "checkbox" : "radio"} name={`answer-${question.id}`} value={choice.id}
@@ -117,7 +124,7 @@ function QuestionCard({ question, locale, attempt, onGrade, onPrevious, onNext, 
       </>}
     </div>
     <div className="practice-controls">
-      <button className="primary practice-primary" disabled={!attempt && !selected.length} onClick={() => attempt ? onNext() : onGrade(selected)}>
+      <button className="primary practice-primary" disabled={!interactive || (!attempt && !selected.length)} onClick={() => attempt ? onNext() : onGrade(selected)}>
         {attempt ? m.next : m.grade}{attempt && <Icon name="arrow" />}
       </button>
       <div className="practice-secondary">
