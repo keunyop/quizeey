@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "run_id": "2026-11-23-daily-cooking-yield",
+  "run_id": "2026-11-24-daily-sqld-not-in",
   "mode": "daily",
-  "status": "cooking_yield_verified_live_observation_pending",
-  "last_report": "reports/2026-11-23-daily.md",
+  "status": "sqld_not_in_verified_local_awaiting_release_permission",
+  "last_report": "reports/2026-11-24-daily.md",
   "private_state": ".modernization/quizeey-ops/state.json",
   "branch": "docs/20261123-release-readback",
   "preferred_branch": "master_for_routine_low_risk_work",
-  "release": "2026-11-23_master_0bca477_production_READY_four_read_only_GETs_passed",
+  "release": "not_released_this_run_local_only_by_explicit_request",
   "schedule": "not_registered",
   "active_items": [
     "OPS-01",
@@ -17,7 +17,7 @@
     "OPS-05",
     "OPS-06"
   ],
-  "last_journal": "journal/2026-11-23.md",
+  "last_journal": "journal/2026-11-24.md",
   "google_connection": {
     "ga4": "public_tag_present_api_unverified",
     "gsc": "public_domain_verification_present_api_unverified",
@@ -27,11 +27,11 @@
     "path": "docs/report",
     "mode": "owner_upload",
     "cadence": "weekly_core_monthly_financial",
-    "status": "nov15_ga4_daily_events_and_gsc_processed_limited_finality_test_id_and_totals_unverified"
+    "status": "nov24_six_core_categories_present_partial_validated_GA4_anomalies_timezone_finality_test_id_landing_scope_unresolved"
   },
-  "next": "OPS-02 private archive/current-tree cleanup scope; authenticated GitHub alert status; GA4 property/test_id/finality; complete published-guide observation windows.",
-  "manual_skill_check": "Independent raw GSC/USDA PDF, arithmetic, answers/distractors, hydration trace and controlled diagnosis, nine final file hashes; final full-check review approved",
-  "automated_skill_validation": "2026-11-23_final_check_local_exit0_typecheck_lint_unit190_build_browser151_DB_Auth_included_skip0_monetization6_passed",
+  "next": "Await explicit publication/push/production permission for reviewed local draft; GA4 anomaly/timezone/test_id/finality and landing scope; existing observation windows; OPS-02 archive scope; authenticated security alert readback.",
+  "manual_skill_check": "Independent raw workbook/official SQL semantics/content/code review; actual local SQLD route and nine PostgreSQL query boundaries; final hashes approved_local_only",
+  "automated_skill_validation": "2026-11-24_final_check_local_exit0_typecheck_lint_unit190_build_browser153_DB_Auth_included_skip0_monetization6_passed",
   "write_receipts": [
     {
       "kind": "git_documentation_release",
@@ -289,15 +289,28 @@
     ]
   },
   "content_observation": {
-    "article": "/blog/korean-cooking-edible-yield-purchase-weight",
-    "window": "2026-11-24..2026-12-21",
-    "status": "unmeasured_waiting_complete_window_and_source_validation",
-    "signals": "Separate GSC page/query and GA4 Korean cooking practice_start; property/test_id/finality unverified"
+    "article": "/blog/sqld-not-in-null-not-exists",
+    "window": "not_started_unpublished_local_draft",
+    "status": "unmeasured_awaiting_future_authorized_live_readback",
+    "signals": "Separate GSC article/query and GA4 SQLD learning starts; property/timezone/test_id/finality and run-level denominators remain limited"
   },
   "security_remediation": {
     "status": "verified_git_release_READY",
     "advisory": "GHSA-g3hv-75wg-m249",
     "minimatch": "11.0.9",
     "scope": "Supported same-major eslint/typescript-eslint dev updates; final known advisory Bulk response empty, not no-vulnerability guarantee; existing GitHub alert mapping/status unverified"
+  },
+  "production_changes_allowed_this_run": false,
+  "last_verified_release": {
+    "commit": "0bca477b8665730c3b09cf645d294ec53163dd6c",
+    "date": "2026-11-23",
+    "scope": "cooking_yield_and_practice_input_readiness",
+    "status": "previous_verified_live_unchanged_by_this_run"
+  },
+  "owner_report_review": {
+    "date": "2026-11-24",
+    "status": "validated_partial_scopes_saved_readback_prior_provenance_preserved",
+    "core_six_categories": "present",
+    "remaining": "GA4 session/detail discrepancy and ad-event users/count anomaly; timezone/finality; test_id reception; landing exhaustiveness; optional country cross-dimensions; monthly finalized earnings/costs"
   }
 }

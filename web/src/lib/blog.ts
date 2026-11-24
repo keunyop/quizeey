@@ -13,6 +13,13 @@ export const blogPost: BlogPost = {
   practicePath: '/sqlp-developer',
 };
 export const blogPath = '/blog';
+export const sqldNotInPost: BlogPost = {
+  slug: 'sqld-not-in-null-not-exists', path: '/blog/sqld-not-in-null-not-exists', locale: 'ko',
+  title: 'SQLD NOT IN과 NULL: NOT EXISTS로 바꾸기 전에 확인할 것',
+  description: '제외 목록에 NULL이 있으면 왜 0행일까요? TRUE·FALSE·UNKNOWN을 표로 판정하고, 상관 NOT EXISTS와 왼쪽 NULL·빈 서브쿼리의 차이를 세 원본 문제로 확인하세요.',
+  date: '2026-11-24', modified: '2026-11-24', category: 'SQLD · NOT IN과 상관 서브쿼리',
+  practicePath: '/sqlp-developer?verNbr=202611',
+};
 export const cookingYieldPost: BlogPost = {
   slug: 'korean-cooking-edible-yield-purchase-weight', path: '/blog/korean-cooking-edible-yield-purchase-weight', locale: 'ko',
   title: '한식조리기능사 가식부 수율: 구입량을 곱할 때와 나눌 때',
@@ -138,7 +145,7 @@ export const roadSignsPost: BlogPost = {
   description: 'Learn Ontario road sign shapes and colours, separate stop from yield, and try five explained questions before practising with the G1 study set.',
   date: '2026-11-08', modified: '2026-11-08', category: 'Ontario G1 · Road sign practice', practicePath: '/en/ontario-g1',
 };
-export const blogPosts = [cookingYieldPost, baristaStoragePost, sqldUnionPost, printingFirstLayerPost, ccnaTroubleshootingPost, cookingInfectionPost, sqldLeftJoinPost, sqldHavingPost, makeupHygienePost, baristaExtractionPost, sqlpPlanPost, koreanCookingPost, ccnaPost, roadSignsPost, printingPost, cloudPost, subnetPost, blogPost];
+export const blogPosts = [sqldNotInPost, cookingYieldPost, baristaStoragePost, sqldUnionPost, printingFirstLayerPost, ccnaTroubleshootingPost, cookingInfectionPost, sqldLeftJoinPost, sqldHavingPost, makeupHygienePost, baristaExtractionPost, sqlpPlanPost, koreanCookingPost, ccnaPost, roadSignsPost, printingPost, cloudPost, subnetPost, blogPost];
 const englishIndex = { title: 'Quizeey Blog: Certification Concepts with Worked Examples', description: 'Understand a concept, work through an example and check your reasoning with practice questions.' };
 export function blogIndexPath(locale: Locale) { return locale === 'en' ? '/en/blog' : blogPath; }
 export function blogIndexCopy(locale: Locale) { return locale === 'en' ? englishIndex : blogIndex; }
