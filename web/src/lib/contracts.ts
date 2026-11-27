@@ -18,14 +18,14 @@ function authoredRoute(exam: (typeof catalog)[number], locale: Locale): LegacyRo
   };
 }
 const existingRoutes = contract.routes.map((source): LegacyRoute => {
-  const replacement = catalog.find(exam => exam.replacesLegacyRoute && `/${exam.slug}` === source.path);
-  if (replacement && source.locale === 'ko') return authoredRoute(replacement, 'ko');
   const route = { ...source, links: source.links.filter(link => !unavailableCookingExam(link.href.split('?')[0])) };
   const unavailable = unavailableCookingExam(route.path);
   if (unavailable) return {
     ...route, testId: null, title: `${unavailable} 문제 제공 안내 - Quizeey`,
     description: cookingAvailabilityDescription(unavailable), headings: [`${unavailable} 문제 제공 안내`], links: [],
   };
+  const replacement = catalog.find(exam => exam.replacesLegacyRoute && exam.locale === 'ko' && `/${exam.slug}` === route.path);
+  if (replacement && route.locale === 'ko') return authoredRoute(replacement, 'ko');
   const copy = siteCopy[route.path as keyof typeof siteCopy];
   if (copy) return { ...route, title: copy.title, description: copy.description, headings: [copy.heading] };
   const certification = certificationFor(route.testId);

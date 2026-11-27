@@ -39,8 +39,8 @@ test("all discovered controller entry routes render with localized home titles a
   const cookingTitles: Record<string, string> = {
     '/craftsman-cook-western-food': '양식조리기능사 연습문제 - Quizeey',
     '/craftsman-cook-japanese-food': '일식조리기능사 연습문제 - Quizeey',
-    '/craftsman-cook-chinese-food': '중식조리기능사 문제 제공 안내 - Quizeey',
-    '/craftsman-cook-blowfish': '복어조리기능사 문제 제공 안내 - Quizeey',
+    '/craftsman-cook-chinese-food': '중식조리기능사 연습문제 - Quizeey',
+    '/craftsman-cook-blowfish': '복어조리기능사 연습문제 - Quizeey',
   };
   for (const route of contract.routes) {
     const url = route.path.endsWith('/test') ? `${route.path}?testId=${route.locale==='en'?'1':'5'}` : route.path;

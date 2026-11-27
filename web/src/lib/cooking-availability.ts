@@ -1,14 +1,20 @@
-// These legacy URLs pointed at the Korean cooking exam. No independently
-// verified question set exists for the exams named by these routes.
-export const unavailableCookingExams: Readonly<Record<string, string>> = {
+import catalog from '@/data/exam-catalog.json' with { type: 'json' };
+
+// These aliases originally reused the Korean cooking exam. Require an explicit replacement.
+const legacyCookingAliases: Readonly<Record<string, string>> = {
+  '/craftsman-cook-western-food': '양식조리기능사',
+  '/craftsman-cook-japanese-food': '일식조리기능사',
   '/craftsman-cook-chinese-food': '중식조리기능사',
   '/craftsman-cook-blowfish': '복어조리기능사',
 };
+const dedicatedPaths = new Set(catalog
+  .filter(exam => exam.replacesLegacyRoute && exam.locale === 'ko')
+  .map(exam => `/${exam.slug}`));
 
 export const koreanCookingPath = '/craftsman-cook-korean-food';
 
 export function unavailableCookingExam(path: string): string | undefined {
-  return Object.hasOwn(unavailableCookingExams, path) ? unavailableCookingExams[path] : undefined;
+  return Object.hasOwn(legacyCookingAliases, path) && !dedicatedPaths.has(path) ? legacyCookingAliases[path] : undefined;
 }
 
 export function cookingAvailabilityDescription(name: string) {

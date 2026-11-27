@@ -1,14 +1,16 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { authoredQuestions, authoredSetSummaries } from '../src/lib/authored-practice';
-import { koreanCookingPath, unavailableCookingExams } from '../src/lib/cooking-availability';
+import { authoredQuestions } from '../src/lib/authored-practice';
+import { koreanCookingPath } from '../src/lib/cooking-availability';
 
 const restoredExams = [
   { path: '/craftsman-cook-western-food', name: '양식조리기능사', id: '262' },
   { path: '/craftsman-cook-japanese-food', name: '일식조리기능사', id: '263' },
+  { path: '/craftsman-cook-chinese-food', name: '중식조리기능사', id: '264' },
+  { path: '/craftsman-cook-blowfish', name: '복어조리기능사', id: '265' },
 ];
 
-test('both restored cooking exams can be found, answered and saved independently', async ({ page }) => {
+test('restored cooking exams can be found, answered and saved independently', async ({ page }) => {
   for (const exam of restoredExams) {
     await page.goto('/');
     await page.getByRole('searchbox').fill(exam.name);
@@ -33,19 +35,19 @@ test('both restored cooking exams can be found, answered and saved independently
     await page.getByRole('button', { name: '북마크', exact: true }).click();
   }
   const keys = await page.evaluate(() => Object.keys(localStorage).filter(key => key.startsWith('quizeey:progress:')));
-  expect(keys.map(key => key.split(':')[4]).sort()).toEqual(['262', '263']);
+  expect(keys.map(key => key.split(':')[4]).sort()).toEqual(['262', '263', '264', '265']);
 });
 
 test('restored cooking paths and read APIs reject old Korean and cross-exam question IDs', async ({ request }) => {
   const korean = authoredQuestions('14', 'ko', 202611)[0];
-  for (const [index, exam] of restoredExams.entries()) {
-    const other = authoredQuestions(restoredExams[1 - index].id, 'ko', 202611)[0];
+  for (const exam of restoredExams) {
     const own = authoredQuestions(exam.id, 'ko', 202611)[0];
     const direct = await request.get(`${exam.path}?questId=${own.id}&verNbr=202611`);
     expect(direct.status()).toBe(200);
     expect(await direct.text()).toContain(`name="answer-${own.id}"`);
     expect((await request.get(`${exam.path}?testId=14`)).status()).toBe(404);
-    for (const questId of [korean.id, other.id]) {
+    const others = restoredExams.filter(other => other.id !== exam.id).map(other => authoredQuestions(other.id, 'ko', 202611)[0].id);
+    for (const questId of [korean.id, ...others]) {
       expect((await request.get(`${exam.path}?questId=${questId}&verNbr=202611`)).status()).toBe(404);
       expect((await request.post('/question', { data: { testId: exam.id, questId, verNbr: 202611 } })).status()).toBe(404);
     }
@@ -55,47 +57,28 @@ test('restored cooking paths and read APIs reject old Korean and cross-exam ques
   }
 });
 
-for (const [path, name] of Object.entries(unavailableCookingExams)) {
-  test(`${name} base, monthly pages and old direct links show an accurate notice`, async ({ request }) => {
-    const question = authoredQuestions('14', 'ko', 202611)[0];
-    const suffixes = ['', `?questId=${question.id}&verNbr=202611`, '?testId=14&count=40'];
-    for (const set of authoredSetSummaries('14', 'ko')) {
-      for (let page = 1; page <= Math.ceil(set.count / 20); page++) {
-        suffixes.push(`?verNbr=${set.version}${page > 1 ? `&page=${page}` : ''}`);
-      }
+for (const { path, name, id } of restoredExams.slice(-2)) {
+  test(`${name} only offers its own available set and page`, async ({ request }) => {
+    for (const suffix of ['?verNbr=202610', '?verNbr=202611&page=2', '/practice/202611']) {
+      expect((await request.get(path + suffix)).status()).toBe(404);
     }
-    for (const suffix of suffixes) {
-      const response = await request.get(path + suffix);
-      expect(response.status()).toBe(200);
-      const html = await response.text();
-      expect(html).toContain(`${name} 문제 제공 안내`);
-      expect(html).toContain('현재 제공하지 않습니다');
-      expect(html).toContain(`href="${koreanCookingPath}"`);
-      expect(html).toMatch(/<meta name="robots" content="[^"]*noindex/);
-      expect(html).not.toContain('class="question-card"');
-      expect(html).not.toContain('id="version"');
-      expect(html).not.toContain('LearningResource');
-    }
-    expect((await request.get(path + '/practice/202611')).status()).toBe(404);
-    const direct = await request.get(`${path}?testId=14&questId=${question.id}&verNbr=202611&count=40`);
-    expect(await direct.text()).toContain(`href="${koreanCookingPath}?questId=${question.id}&amp;verNbr=202611&amp;count=40"`);
+    const response = await request.post('/versions', { data: { testId: id } });
+    expect(response.status()).toBe(200);
+    expect(await response.json()).toEqual([{ verId: 8_400_000_000 + Number(id), verNm: '2026-11', verNbr: 202611 }]);
   });
 }
 
-test('unavailable cooking exams are absent from home discovery and search', async ({ page }) => {
+test('the home directory links to Korean cooking and each restored cooking set', async ({ page }) => {
   await page.goto('/');
-  for (const path of Object.keys(unavailableCookingExams)) {
-    await expect(page.locator(`a[href^="${path}"]`)).toHaveCount(0);
-  }
-  for (const name of Object.values(unavailableCookingExams)) {
-    await page.getByRole('searchbox').fill(name);
-    await expect(page.locator('.exam-list a')).toHaveCount(0);
+  const monthly = page.getByRole('navigation', { name: '2026-11 새 연습문제' });
+  for (const { path, name } of restoredExams) {
+    await expect(monthly.getByRole('link', { name: `${name} · 20문항` })).toHaveAttribute('href', `${path}?verNbr=202611`);
   }
   await page.getByRole('searchbox').fill('한식조리기능사');
   await expect(page.locator(`.exam-list a[href="${koreanCookingPath}"]`)).toBeVisible();
 });
 
-test('cooking notices preserve saved Korean answers, bookmarks, score and session', async ({ page, context }) => {
+test('visiting restored cooking practice preserves saved Korean answers, bookmarks, score and session', async ({ page, context }) => {
   await page.goto(`${koreanCookingPath}?verNbr=202611`);
   const question = await page.locator('#question-content').innerText();
   await page.locator('.question-card input').first().check();
@@ -108,13 +91,14 @@ test('cooking notices preserve saved Korean answers, bookmarks, score and sessio
   expect(Object.keys(saved)[0]).toContain(':ko:14:');
   const cookies = (await context.cookies()).filter(cookie => /^quizeey_(session|last_set)_ko_14/.test(cookie.name)).map(({ name, value }) => ({ name, value }));
   expect(cookies).toHaveLength(2);
-  for (const path of Object.keys(unavailableCookingExams)) {
-    await page.goto(`${path}?verNbr=202611&page=2`);
-    await expect(page.locator('.question-card')).toHaveCount(0);
+  for (const { path, name } of restoredExams) {
+    await page.goto(`${path}?verNbr=202611`);
+    await expect(page.getByRole('heading', { name, exact: true, level: 1 })).toBeVisible();
+    await expect(page.locator('.question-card')).toBeVisible();
     expect(await page.evaluate(() => Object.fromEntries(Object.entries(localStorage).filter(([key]) => key.startsWith('quizeey:progress:'))))).toEqual(saved);
     expect((await context.cookies()).filter(cookie => /^quizeey_(session|last_set)_ko_14/.test(cookie.name)).map(({ name, value }) => ({ name, value }))).toEqual(cookies);
   }
-  await page.getByRole('link', { name: '한식조리기능사 문제풀기로 이동' }).click();
+  await page.goto(koreanCookingPath);
   await page.getByRole('button', { name: '이어서 풀기', exact: true }).click();
   await expect(page.locator('#version')).toHaveValue('202611');
   await expect(page.locator('#question-content')).toHaveText(question);
@@ -124,15 +108,19 @@ test('cooking notices preserve saved Korean answers, bookmarks, score and sessio
 });
 
 for (const theme of ['light', 'dark']) {
-  test(`cooking notice is accessible on mobile in ${theme} theme`, async ({ page }) => {
+  test(`restored cooking practice is accessible on mobile in ${theme} theme`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.addInitScript(value => localStorage.setItem('quizeey:theme', value), theme);
-    await page.goto('/craftsman-cook-chinese-food');
-    await expect(page.getByRole('heading', { level: 1 })).toHaveText('중식조리기능사 문제 제공 안내');
-    await expect(page.locator('html')).toHaveAttribute('data-theme', theme);
-    expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
-    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await page.getByRole('link', { name: '한식조리기능사 문제풀기로 이동' }).focus();
-    await expect(page.locator(':focus')).toHaveAttribute('href', koreanCookingPath);
+    for (const { path, name } of restoredExams.slice(-2)) {
+      await page.goto(`${path}?verNbr=202611`);
+      await expect(page.getByRole('heading', { level: 1 })).toHaveText(name);
+      await expect(page.locator('html')).toHaveAttribute('data-theme', theme);
+      expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+      const choice = page.locator('.question-card input').first();
+      await expect(choice).toBeEnabled();
+      await choice.focus();
+      await expect(choice).toBeFocused();
+    }
   });
 }
