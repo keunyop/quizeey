@@ -17,8 +17,9 @@ function authoredRoute(exam: (typeof catalog)[number], locale: Locale): LegacyRo
     headings: [title, description], links: [],
   };
 }
-// The source controller used the wrong exam; the verified catalog and DB agree on 141.
 const existingRoutes = contract.routes.map((source): LegacyRoute => {
+  const replacement = catalog.find(exam => exam.replacesLegacyRoute && `/${exam.slug}` === source.path);
+  if (replacement && source.locale === 'ko') return authoredRoute(replacement, 'ko');
   const route = { ...source, links: source.links.filter(link => !unavailableCookingExam(link.href.split('?')[0])) };
   const unavailable = unavailableCookingExam(route.path);
   if (unavailable) return {
@@ -32,6 +33,7 @@ const existingRoutes = contract.routes.map((source): LegacyRoute => {
     ...route, title: `${certification.code} Retired Exam Archive & Next Steps - Quizeey`,
     description: certification.note, headings: [route.headings[0], certification.note],
   };
+  // The source controller used the wrong exam; the verified catalog and DB agree on 141.
   return route.path === '/industrial-engineer-air-conditioning-and-refrigerating-machinery' ? { ...route, testId: '141' } : route;
 });
 for (const path of ['/en/about', '/en/privacy'] as const) {

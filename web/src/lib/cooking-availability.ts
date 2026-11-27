@@ -1,8 +1,6 @@
 // These legacy URLs pointed at the Korean cooking exam. No independently
-// verified question set exists for the exams named by these four routes.
+// verified question set exists for the exams named by these routes.
 export const unavailableCookingExams: Readonly<Record<string, string>> = {
-  '/craftsman-cook-western-food': '양식조리기능사',
-  '/craftsman-cook-japanese-food': '일식조리기능사',
   '/craftsman-cook-chinese-food': '중식조리기능사',
   '/craftsman-cook-blowfish': '복어조리기능사',
 };

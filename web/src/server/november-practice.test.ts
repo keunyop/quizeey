@@ -19,11 +19,45 @@ it('preserves the complete October catalog and payloads while isolating November
   expect(hash(historicalOctoberGroups(october.groups.length))).toBe(manifest.previousGroupsSha256);
   expect(hash(authoredCatalog.slice(0, manifest.previousCatalogCount))).toBe(manifest.previousCatalogSha256);
   const questions = authoredCatalog.flatMap(exam => allAuthoredQuestions(exam.id, authoredDefaultLocale(exam.id)));
-  expect(questions).toHaveLength(2539);
+  expect(questions).toHaveLength(2579);
   expect(new Set(questions.map(q => q.id)).size).toBe(questions.length);
   expect(new Set(questions.flatMap(q => q.choices.map(c => c.id))).size).toBe(questions.length * 4);
-  // The separately reviewed CCNA addition has its own locale and regression contract.
-  expect(november.groups.filter(group => group.topic !== 'november-ko-ccna-ipv4-troubleshooting').flatMap(group => group.questions)).toHaveLength(320);
+  // Later additions have separate review and coverage from the original November release.
+  const laterAdditions = new Set(['november-ko-ccna-ipv4-troubleshooting', 'november-ko-western-cooking', 'november-ko-japanese-cooking']);
+  expect(november.groups.filter(group => !laterAdditions.has(group.topic)).flatMap(group => group.questions)).toHaveLength(320);
+});
+
+it('serves and grades the 40 new cooking questions in their own exams only', async () => {
+  const store = await loadLearningStore();
+  const normalize = (text: string) => text.normalize('NFKC').toLowerCase().replace(/[^\p{L}\p{N}]/gu, '');
+  const prompts = new Set(allAuthoredQuestions('14', 'ko').map(question => normalize(question.text)));
+  for (const examId of ['262', '263']) {
+    expect(store.versions(examId, 'ko').map(version => version.number)).toEqual([202611]);
+    expect(store.versions(examId, 'en')).toEqual([]);
+    expect(store.pagination(examId, 'ko', 202611)).toEqual({ page: 1, total: 20, pages: 1 });
+    const questions = store.sessionQuestions(examId, 'ko', 202611, 20, 'seed');
+    expect(questions).toHaveLength(20);
+    for (const question of questions) {
+      expect(question).toMatchObject({ testId: examId, version: 202611, contentLocale: 'ko', authored: true });
+      const prompt = normalize(question.text);
+      expect(prompts.has(prompt)).toBe(false);
+      prompts.add(prompt);
+      expect(question.explanation).toBeTruthy();
+      expect(question.reference).toContain('href="https://');
+      expect(new Set(question.choices.map(choice => choice.text)).size).toBe(4);
+      const correct = question.choices.filter(choice => choice.correct);
+      expect(correct).toHaveLength(1);
+      expect(grade(question, [correct[0].id])).toBe(true);
+      for (const incorrect of question.choices.filter(choice => !choice.correct)) {
+        expect(grade(question, [incorrect.id])).toBe(false);
+      }
+      expect(findAuthoredQuestion(question.id)).toEqual(question);
+      expect(store.questions(examId, 'ko', 0, question.id)).toEqual([question]);
+      for (const other of ['14', '262', '263'].filter(id => id !== examId)) {
+        expect(store.questions(other, 'ko', 0, question.id)).toEqual([]);
+      }
+    }
+  }
 });
 
 it('serves, grades and resolves all 320 November questions without cross-set or cross-exam leakage', async () => {

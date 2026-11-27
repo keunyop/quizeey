@@ -35,11 +35,10 @@ test('technical placeholders remain visible and active markup stays absent in th
 });
 
 test("all discovered controller entry routes render with localized home titles and approved exam titles", async ({ request }) => {
-  // Keep the historical source fixture intact. These four source mappings used
-  // Korean cooking questions under another exam's name and now serve notices.
-  const cookingNoticeTitles: Record<string, string> = {
-    '/craftsman-cook-western-food': '양식조리기능사 문제 제공 안내 - Quizeey',
-    '/craftsman-cook-japanese-food': '일식조리기능사 문제 제공 안내 - Quizeey',
+  // The historical fixture still carries the four original cooking aliases.
+  const cookingTitles: Record<string, string> = {
+    '/craftsman-cook-western-food': '양식조리기능사 연습문제 - Quizeey',
+    '/craftsman-cook-japanese-food': '일식조리기능사 연습문제 - Quizeey',
     '/craftsman-cook-chinese-food': '중식조리기능사 문제 제공 안내 - Quizeey',
     '/craftsman-cook-blowfish': '복어조리기능사 문제 제공 안내 - Quizeey',
   };
@@ -47,7 +46,7 @@ test("all discovered controller entry routes render with localized home titles a
     const url = route.path.endsWith('/test') ? `${route.path}?testId=${route.locale==='en'?'1':'5'}` : route.path;
     const response = await request.get(url);
     expect(response.status(),url).toBe(200);
-    const title=cookingNoticeTitles[route.path] ?? (['/','/kr','/app','/en'].includes(route.path)?homeSearchCopy[route.locale as 'ko'|'en'].title:
+    const title=cookingTitles[route.path] ?? (['/','/kr','/app','/en'].includes(route.path)?homeSearchCopy[route.locale as 'ko'|'en'].title:
       route.locale === 'ko' && route.testId === '5' ? 'SQLD 기출문제 CBT | 무료 문제풀이·해설·오답 복습 - Quizeey' :
       route.locale === 'en' && isRetiredExam(route.testId) ? `${examName(route)} — Retired Exam Archive - Quizeey` :
       route.path==='/en/az-900'?'Free AZ-900 Practice Questions with Answers | Azure Fundamentals - Quizeey':siteCopy[route.path as keyof typeof siteCopy]?.title ?? route.title);
