@@ -34,7 +34,10 @@ it('lists and indexes each restored exam under its own identity and actual month
     expect(examCategory(route)).toBe('service');
     expect(matchesExam(route, name)).toBe(true);
     expect(legacyPageRedirect('/test', new URLSearchParams(`testId=${testId}&verNbr=202611`))).toBe(`${path}?verNbr=202611`);
-    expect(sitemap.filter(url => url.startsWith(origin + path))).toEqual([origin + path, `${origin}${path}?verNbr=202611`]);
+    expect(sitemap.filter(url => url.startsWith(origin + path))).toEqual([
+      origin + path, `${origin}${path}?verNbr=202611`,
+      `${origin}${path}?verNbr=202611&page=2`, `${origin}${path}?verNbr=202611&page=3`,
+    ]);
     expect(searchMetadata(path, new URLSearchParams(), route, origin, true).robots).toEqual({ index: true, follow: true });
     expect(searchMetadata(path, new URLSearchParams('questId=1&verNbr=202611'), route, origin, true).robots).toEqual({ index: false, follow: true });
     expect(JSON.stringify(pageStructuredData(path, new URLSearchParams('verNbr=202611'), route, origin))).toContain('LearningResource');

@@ -12,6 +12,7 @@ import { grade } from '@/lib/quiz';
 import { versionDisplayName } from '@/lib/version-label';
 import { loadLearningStore } from './learning-store';
 import { historicalOctoberGroups } from './historical-content';
+import { sampleQuestions } from './sample-questions';
 
 const hash = (value: unknown) => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 
@@ -19,28 +20,40 @@ it('preserves the complete October catalog and payloads while isolating November
   expect(hash(historicalOctoberGroups(october.groups.length))).toBe(manifest.previousGroupsSha256);
   expect(hash(authoredCatalog.slice(0, manifest.previousCatalogCount))).toBe(manifest.previousCatalogSha256);
   const questions = authoredCatalog.flatMap(exam => allAuthoredQuestions(exam.id, authoredDefaultLocale(exam.id)));
-  expect(questions).toHaveLength(2619);
+  expect(questions).toHaveLength(2779);
   expect(new Set(questions.map(q => q.id)).size).toBe(questions.length);
   expect(new Set(questions.flatMap(q => q.choices.map(c => c.id))).size).toBe(questions.length * 4);
   // Later additions have separate review and coverage from the original November release.
   const laterAdditions = new Set([
     'november-ko-ccna-ipv4-troubleshooting', 'november-ko-western-cooking', 'november-ko-japanese-cooking',
     'november-ko-chinese-cooking', 'november-ko-puffer-cooking',
+    'november-ko-western-cooking-expansion', 'november-ko-japanese-cooking-expansion',
+    'november-ko-chinese-cooking-expansion', 'november-ko-puffer-cooking-expansion',
   ]);
   expect(november.groups.filter(group => !laterAdditions.has(group.topic)).flatMap(group => group.questions)).toHaveLength(320);
 });
 
-it('serves and grades all 80 restored cooking questions in their own exams only', async () => {
+it('preserves the original 80 cooking questions and grades each 60-question set in its own exam', async () => {
   const store = await loadLearningStore();
+  expect(hash(november.groups.slice(17, 21))).toBe('2bd4cf44e503d4dba0fbff094e059818f4855d0658c8d80a4f48010e9cbd5c21');
   const normalize = (text: string) => text.normalize('NFKC').toLowerCase().replace(/[^\p{L}\p{N}]/gu, '');
   const prompts = new Set(allAuthoredQuestions('14', 'ko').map(question => normalize(question.text)));
   const restoredCookingExamIds = ['262', '263', '264', '265'];
   for (const examId of restoredCookingExamIds) {
     expect(store.versions(examId, 'ko').map(version => version.number)).toEqual([202611]);
     expect(store.versions(examId, 'en')).toEqual([]);
-    expect(store.pagination(examId, 'ko', 202611)).toEqual({ page: 1, total: 20, pages: 1 });
-    const questions = store.sessionQuestions(examId, 'ko', 202611, 20, 'seed');
-    expect(questions).toHaveLength(20);
+    expect(store.pagination(examId, 'ko', 202611)).toEqual({ page: 1, total: 60, pages: 3 });
+    const questions = store.sessionQuestions(examId, 'ko', 202611, 60, 'seed');
+    expect(questions).toHaveLength(60);
+    expect([1, 2, 3].flatMap(page => store.questions(examId, 'ko', 202611, undefined, page))).toEqual(questions);
+    expect(store.questions(examId, 'ko', 202611, undefined, 4)).toEqual([]);
+    const first20 = questions.slice(0, 20);
+    for (const count of [5, 20, 60]) {
+      const resumed = store.sessionQuestions(examId, 'ko', 0, count, 'saved-seed');
+      expect(resumed.slice(0, 20)).toEqual(sampleQuestions(first20, count, 'saved-seed'));
+      expect(new Set(resumed.map(question => question.id)).size).toBe(count);
+    }
+    expect(questions.map(question => question.id)).toEqual(Array.from({ length: 60 }, (_, index) => String(8_300_000_000 + Number(examId) * 1000 + index + 1)));
     for (const question of questions) {
       expect(question).toMatchObject({ testId: examId, version: 202611, contentLocale: 'ko', authored: true });
       const prompt = normalize(question.text);
@@ -62,7 +75,7 @@ it('serves and grades all 80 restored cooking questions in their own exams only'
       }
     }
   }
-});
+}, 15_000);
 
 it('serves, grades and resolves all 320 November questions without cross-set or cross-exam leakage', async () => {
   const store = await loadLearningStore();

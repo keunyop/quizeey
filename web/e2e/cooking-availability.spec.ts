@@ -2,6 +2,10 @@ import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { authoredQuestions } from '../src/lib/authored-practice';
 import { koreanCookingPath } from '../src/lib/cooking-availability';
+import { fixtureVersion } from '../src/lib/fixtures';
+import { sessionCookie } from '../src/lib/practice-session';
+import { emptyProgress } from '../src/lib/progress';
+import { sampleQuestions } from '../src/server/sample-questions';
 
 const restoredExams = [
   { path: '/craftsman-cook-western-food', name: '양식조리기능사', id: '262' },
@@ -20,10 +24,10 @@ test('restored cooking exams can be found, answered and saved independently', as
     await expect(page).toHaveURL(new RegExp(`${exam.path}$`));
     await expect(page.getByRole('heading', { level: 1 })).toHaveText(exam.name);
     await page.getByRole('button', { name: '시험정보' }).click();
-    await expect(page.locator('.exam-description')).toContainText('자체 제작 연습문제 20개');
-    await page.getByRole('link', { name: '2026-11 연습문제 20개' }).click();
+    await expect(page.locator('.exam-description')).toContainText('자체 제작 연습문제 60개');
+    await page.getByRole('link', { name: '2026-11 연습문제 60개' }).click();
     const questions = authoredQuestions(exam.id, 'ko', 202611);
-    expect(questions).toHaveLength(20);
+    expect(questions).toHaveLength(60);
     await expect(page.locator('.practice-outline a')).toHaveCount(20);
     const first = questions[0];
     await expect(page.locator(`.practice-outline a[href="${exam.path}?questId=${first.id}&verNbr=202611"]`)).toHaveCount(1);
@@ -57,11 +61,23 @@ test('restored cooking paths and read APIs reject old Korean and cross-exam ques
   }
 });
 
-for (const { path, name, id } of restoredExams.slice(-2)) {
-  test(`${name} only offers its own available set and page`, async ({ request }) => {
-    for (const suffix of ['?verNbr=202610', '?verNbr=202611&page=2', '/practice/202611']) {
+for (const { path, name, id } of restoredExams) {
+  test(`${name} exposes all three pages and stable final question links`, async ({ request }) => {
+    for (const suffix of ['?verNbr=202610', '?verNbr=202611&page=4', '/practice/202611']) {
       expect((await request.get(path + suffix)).status()).toBe(404);
     }
+    const ordered = authoredQuestions(id, 'ko', 202611);
+    for (const page of [1, 2, 3]) {
+      const result = await request.get(`${path}?verNbr=202611&page=${page}`);
+      expect(result.status()).toBe(200);
+      const html = await result.text();
+      const expectedIds = ordered.slice((page - 1) * 20, page * 20).map(question => question.id);
+      expect([...new Set([...html.matchAll(/\?questId=(\d+)&amp;verNbr=202611/g)].map(match => match[1]))]).toEqual(expectedIds);
+    }
+    const finalQuestion = ordered[59];
+    const direct = await request.get(`${path}?questId=${finalQuestion.id}&verNbr=202611`);
+    expect(direct.status()).toBe(200);
+    expect(await direct.text()).toContain(`name="answer-${finalQuestion.id}"`);
     const response = await request.post('/versions', { data: { testId: id } });
     expect(response.status()).toBe(200);
     expect(await response.json()).toEqual([{ verId: 8_400_000_000 + Number(id), verNm: '2026-11', verNbr: 202611 }]);
@@ -72,10 +88,44 @@ test('the home directory links to Korean cooking and each restored cooking set',
   await page.goto('/');
   const monthly = page.getByRole('navigation', { name: '2026-11 새 연습문제' });
   for (const { path, name } of restoredExams) {
-    await expect(monthly.getByRole('link', { name: `${name} · 20문항` })).toHaveAttribute('href', `${path}?verNbr=202611`);
+    await expect(monthly.getByRole('link', { name: `${name} · 60문항` })).toHaveAttribute('href', `${path}?verNbr=202611`);
   }
   await page.getByRole('searchbox').fill('한식조리기능사');
   await expect(page.locator(`.exam-list a[href="${koreanCookingPath}"]`)).toBeVisible();
+});
+
+test('the 60-question option reaches and grades question 60 in the same session', async ({ page }) => {
+  for (const { path, id } of restoredExams) {
+    await page.goto(`${path}?verNbr=202611`);
+    await page.getByLabel('풀 문제 수').selectOption('60');
+    await expect(page).toHaveURL(`${path}?verNbr=202611&count=60`);
+    await expect(page.locator('.question-grid button')).toHaveCount(60);
+    await expect(page.locator('.practice-outline a')).toHaveCount(60);
+    await page.getByRole('button', { name: '문제 60, 미응답', exact: true }).click();
+    const final = authoredQuestions(id, 'ko', 202611)[59];
+    await page.locator(`input[value="${final.choices.find(choice => choice.correct)!.id}"]`).check();
+    await page.getByRole('button', { name: '정답 확인', exact: true }).click();
+    await expect(page.locator('.answer-feedback')).toHaveClass(/\bcorrect\b/);
+    await expect(page.locator('.explanation-region .reference a')).toHaveAttribute('href', /^https:\/\//);
+  }
+});
+
+test('an existing 20-question all-sets session restores the same answers and bookmark after expansion', async ({ page, context, baseURL }) => {
+  const exam = restoredExams[0];
+  const seed = '7fc09325-e337-4580-a45c-d42502c2918d';
+  const legacyOrder = sampleQuestions(authoredQuestions(exam.id, 'ko', 202611).slice(0, 20), 20, seed);
+  const first = legacyOrder[0];
+  const saved = emptyProgress(legacyOrder.map(question => question.id), fixtureVersion);
+  saved.attempts[first.id] = { selected: [first.choices.find(choice => choice.correct)!.id], correct: true };
+  saved.bookmarks = [first.id];
+  const key = `quizeey:progress:v2:ko:${exam.id}:${fixtureVersion}:0:${seed}:20`;
+  await context.addCookies([{ name: sessionCookie('ko', exam.id, 0), value: `${seed}.20`, url: baseURL! }]);
+  await page.addInitScript(({ key, saved }) => localStorage.setItem(key, JSON.stringify(saved)), { key, saved });
+  await page.goto(exam.path);
+  await page.getByRole('button', { name: '이어서 풀기', exact: true }).click();
+  await expect(page.locator(`#question-content`)).toHaveText(first.text.replace(/^<p>|<\/p>$/g, ''));
+  await expect(page.locator('.answer-feedback')).toHaveClass(/\bcorrect\b/);
+  await expect(page.getByRole('button', { name: '북마크 해제', exact: true })).toHaveAttribute('aria-pressed', 'true');
 });
 
 test('visiting restored cooking practice preserves saved Korean answers, bookmarks, score and session', async ({ page, context }) => {

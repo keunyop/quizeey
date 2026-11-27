@@ -5,6 +5,8 @@ import type { StudyStore } from "./study-store";
 import { loadStudyStore, type StudyContext } from "./study-loader";
 import { sampleQuestions } from './sample-questions';
 
+const savedRandomPrefixes = new Map(authoredCatalog.flatMap(exam => exam.savedRandomPrefix ? [[exam.id, exam.savedRandomPrefix] as const] : []));
+
 /** Append the public original set without modifying archived IDs, content or counters.
  * Hosted archive pages stay bounded to the same 20-item RPC. Original questions
  * fill the last page's remaining slots, then continue on a new page if needed.
@@ -44,8 +46,14 @@ export class LearningStore {
     const archived = isAuthoredVersion(version) ? [] : this.base.sessionQuestions(id, locale, version);
     const authored = !version ? allAuthoredQuestions(id, locale) : authoredQuestions(id, locale, version);
     const pool = [...archived, ...authored];
-    // Specific sets retain their source order; "All" samples across every set.
-    return version ? pool.slice(0, count) : sampleQuestions(pool, count, seed);
+    if (version) return pool.slice(0, count);
+    const savedPrefix = savedRandomPrefixes.get(id);
+    if (!savedPrefix) return sampleQuestions(pool, count, seed);
+    // Keep the old seeded pool at the front so saved answer order still matches.
+    return [
+      ...sampleQuestions(pool.slice(0, savedPrefix), Math.min(count, savedPrefix), seed),
+      ...sampleQuestions(pool.slice(savedPrefix), Math.max(0, count - savedPrefix), seed),
+    ];
   }
   questions(id: string, locale: Locale, version = 0, directId?: string, page = 1) {
     const extra = !version ? allAuthoredQuestions(id, locale) : authoredQuestions(id, locale, version);
