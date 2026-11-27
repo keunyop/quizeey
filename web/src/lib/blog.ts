@@ -13,6 +13,13 @@ export const blogPost: BlogPost = {
   practicePath: '/sqlp-developer',
 };
 export const blogPath = '/blog';
+export const sqlpRankingPost: BlogPost = {
+  slug: 'sqlp-window-ranking-ties', path: '/blog/sqlp-window-ranking-ties', locale: 'ko',
+  title: 'SQLP 순위 함수에서 동점 다음 순위가 달라지는 이유',
+  description: 'ROW_NUMBER, RANK, DENSE_RANK를 한 점수표에서 비교하고 동점 순서와 상위 두 점수의 조건을 연습합니다.',
+  date: '2026-11-27', modified: '2026-11-27', category: 'SQLP · 순위 함수',
+  practicePath: '/sqlp-professional?verNbr=202611',
+};
 export const baristaMilkSteamingPost: BlogPost = {
   slug: 'barista-2-milk-steaming-microfoam', path: '/blog/barista-2-milk-steaming-microfoam', locale: 'ko',
   title: '바리스타 2급 우유 스티밍에서 큰 기포가 생길 때',
@@ -152,7 +159,7 @@ export const roadSignsPost: BlogPost = {
   description: 'Learn Ontario road sign shapes and colours, separate stop from yield, and try five explained questions before practising with the G1 study set.',
   date: '2026-11-08', modified: '2026-11-08', category: 'Ontario G1 · Road sign practice', practicePath: '/en/ontario-g1',
 };
-export const blogPosts = [baristaMilkSteamingPost, sqldNotInPost, cookingYieldPost, baristaStoragePost, sqldUnionPost, printingFirstLayerPost, ccnaTroubleshootingPost, cookingInfectionPost, sqldLeftJoinPost, sqldHavingPost, makeupHygienePost, baristaExtractionPost, sqlpPlanPost, koreanCookingPost, ccnaPost, roadSignsPost, printingPost, cloudPost, subnetPost, blogPost];
+export const blogPosts = [sqlpRankingPost, baristaMilkSteamingPost, sqldNotInPost, cookingYieldPost, baristaStoragePost, sqldUnionPost, printingFirstLayerPost, ccnaTroubleshootingPost, cookingInfectionPost, sqldLeftJoinPost, sqldHavingPost, makeupHygienePost, baristaExtractionPost, sqlpPlanPost, koreanCookingPost, ccnaPost, roadSignsPost, printingPost, cloudPost, subnetPost, blogPost];
 const englishIndex = { title: 'Quizeey Blog: Certification Concepts with Worked Examples', description: 'Understand a concept, work through an example and check your reasoning with practice questions.' };
 export function blogIndexPath(locale: Locale) { return locale === 'en' ? '/en/blog' : blogPath; }
 export function blogIndexCopy(locale: Locale) { return locale === 'en' ? englishIndex : blogIndex; }
